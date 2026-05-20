@@ -5,8 +5,8 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
     <a href={it.href} className="mega-item group flex gap-3.5 items-center rounded-lg p-3 transition">
-      <span className="mega-icon-frame inline-flex items-center justify-center flex-shrink-0 overflow-hidden" style={{ width: 48, height: 48, borderRadius: 0, background: "var(--color-paper-soft)" }}>
-        <img src={it.iconImg} alt="" width={56} height={56} style={{ width: 56, height: 56, objectFit: "contain", display: "block" }} />
+      <span className="mega-icon-frame inline-flex items-center justify-center flex-shrink-0" style={{ width: 48, height: 48 }}>
+        <img src={it.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
       </span>
       <span className="flex flex-col min-w-0">
         <span className="mega-title text-[14px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
@@ -111,14 +111,14 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
             return (
               <div key={it.label} className="nav-item relative">
                 {!isMega ? (
-                  <a href={(it as { href: string }).href} className="px-3 py-2 text-[15px] font-medium rounded-md hover:text-white transition" style={{ color: "#fff" }}>
+                  <a href={(it as { href: string }).href} className="nav-link" style={{ color: "#fff" }}>
                     {it.label}
                   </a>
                 ) : (
                   <>
-                    <button type="button" className="inline-flex items-center gap-1 px-3 py-2 text-[15px] font-medium rounded-md hover:text-white transition" style={{ color: "#fff" }}>
+                    <button type="button" className="nav-link inline-flex items-center gap-1.5" style={{ color: "#fff" }}>
                       {it.label}
-                      <Icon name="chevron" className="w-2.5 h-2.5 opacity-70" />
+                      <span style={{ fontSize: 9, lineHeight: 1, transform: "translateY(1px)" }}>▾</span>
                     </button>
                     <div className={`nav-dropdown nav-dropdown--${(it as { mega: string }).mega}`}>
                       <MegaPanel kind={(it as { mega: "products" | "solutions" | "community" }).mega} />
@@ -130,6 +130,17 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
           })}
         </nav>
         <style>{`
+          .nav-link {
+            display: inline-flex; align-items: center;
+            padding: 8px 14px;
+            font-family: "Instrument Sans", system-ui, sans-serif;
+            font-size: 16px; font-weight: 600; line-height: 1.4;
+            color: #fff;
+            background: transparent; border: 0; cursor: pointer;
+            border-radius: 6px;
+            text-decoration: none;
+          }
+          .nav-link:hover, .nav-link:focus { color: #fff !important; }
           .nav-item .nav-dropdown {
             position: absolute; top: 100%; padding-top: 10px;
             opacity: 0; visibility: hidden; transform: translateY(-4px);
