@@ -79,8 +79,8 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
               {cfg.pillars.map((p, i) => (
                 <article key={i} className="pillar-card rounded-2xl p-7" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
                   {p.iconImg && (
-                    <span className="pillar-icon inline-flex items-center justify-center mb-5" style={{ width: 48, height: 48 }}>
-                      <img src={p.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
+                    <span className="pillar-icon inline-flex items-center justify-center mb-5" style={{ width: 56, height: 56, borderRadius: 12, background: "rgb(49 177 248 / 0.12)" }}>
+                      <img src={p.iconImg} alt="" width={30} height={30} style={{ width: 30, height: 30, objectFit: "contain", display: "block" }} />
                     </span>
                   )}
                   <h3 className="text-[clamp(22px,2.2vw,28px)] font-medium mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.015em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
