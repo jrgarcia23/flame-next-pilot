@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Portales con tu marca", "Captura consent-first", "Automatización marketing", "100% RGPD"],
   imageBigSrc: "/wp-content/uploads/2026/01/Guest_wifi.png",
   imageBigAlt: "Flame Guest Wifi Marketing",
+  bigSectionEyebrow: "Del acceso de invitados a clientes leales",
   bigSectionTitle: "Conoce",
   bigSectionTitleHl: "Marketing WiFi",
   bigSectionPara1: "Flame Connect combina un generador de portales cautivos totalmente personalizable con automatización de marketing avanzada. Diseña experiencias de inicio de sesión con tu marca, gestiona el consentimiento y activa campañas en tiempo real basadas en patrones de visita y ubicación.",

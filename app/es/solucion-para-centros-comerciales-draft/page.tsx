@@ -14,6 +14,11 @@ const cfg: SectorConfig = {
   heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para centros comerciales",
   heroSub: "Soluciones de analítica y marketing diseñadas para centros comerciales de todo el mundo. En Flame, desarrollamos e implementamos soluciones de analítica y marketing digital que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan al centro a comprender el comportamiento de los clientes.",
+  pillars: [
+    { title: "Impulsa", desc: "Una comprensión integral del comportamiento del cliente a través del análisis de datos. Al observar de cerca las preferencias e interacciones, obtendrás información valiosa para una mejor toma de decisiones y el desarrollo de estrategias centradas en el cliente." },
+    { title: "Mide", desc: "Mejorar continuamente el rendimiento general del centro. Mediante la implementación de evaluaciones constantes e iniciativas de mejora, se garantiza una excelencia operativa sostenida y resultados óptimos." },
+    { title: "Transforma", desc: "La experiencia del cliente. Diseñar una experiencia personalizada y fluida dentro del centro comercial, adaptando los servicios y la oferta a las preferencias individuales para mejorar la satisfacción general." },
+  ],
   sections: [
     {
       img: "/wp-content/uploads/2026/01/benefit-1-malls.png",

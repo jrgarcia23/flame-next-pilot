@@ -14,6 +14,11 @@ const cfg: SectorConfig = {
   heroBgPosition: "center center",
   heroTitle: "Hoteles",
   heroSub: "Análisis de datos integral para obtener valiosos conocimientos sobre el comportamiento del cliente. Desarrollamos e implantamos soluciones de marketing digital y analítica para espacios físicos que, gracias al big data y la inteligencia artificial, ayudan a los hoteles a captar nuevos clientes y generar más fidelidad.",
+  pillars: [
+    { title: "Consigue", desc: "Un aumento significativo en las ventas y la construcción de una clientela de clientes satisfechos mediante enfoques empresariales estratégicos." },
+    { title: "Genera", desc: "Reservas directas para tu hotel, fomentando una relación directa y rentable con los huéspedes." },
+    { title: "Personaliza", desc: "Cada experiencia del cliente, personalizando la estancia de cada huésped según sus preferencias y necesidades únicas." },
+  ],
   sections: [
     {
       img: "/wp-content/uploads/2026/01/benefit-1-hosp.png",

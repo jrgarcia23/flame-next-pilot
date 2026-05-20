@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Login con SSO", "Credenciales temporales", "Trazabilidad completa", "Roles por departamento"],
   imageBigSrc: "/wp-content/uploads/2026/01/Corporate_Wifi_Access_recorte.png",
   imageBigAlt: "Flame Corporate Wifi Access",
+  bigSectionEyebrow: "Control de acceso inteligente para entornos de trabajo conectados.",
   bigSectionTitle: "Conoce",
   bigSectionTitleHl: "Acceso WiFi Corporativo",
   bigSectionPara1: "Flame Corporate WiFi ofrece a las organizaciones control total sobre la conectividad. Gestiona credenciales, asigna permisos temporales y automatiza el acceso de usuarios mediante APIs.",

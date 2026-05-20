@@ -103,6 +103,7 @@ export type UseCaseConfig = {
   imageBigSrc: string;
   imageBigAlt: string;
   imageBigAspectRatio?: string;
+  bigSectionEyebrow?: string;          // h3 encima del bigSectionTitle ("Del simple conteo a la comprensión del dato", etc)
   bigSectionTitle: string;
   bigSectionTitleHl: string;
   bigSectionPara1: string;
@@ -139,6 +140,7 @@ export type SectorConfig = {
   heroTitleHl?: string;
   heroSub: string;
   heroBullets?: [string, string, string, string];
+  pillars?: Array<{ title: string; desc: string }>;  // 3 pilares (Impulsa/Mide/Transforma)
   sections: SectorSection[];        // 3-4 secciones image+text alternadas
   productsTitle: string;
   productsTitleHl: string;

@@ -106,9 +106,16 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
       {/* CAJA "CONOCE MÁS" — dashboard izquierda + texto derecha (replica live) */}
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", maxWidth: "24ch", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            {cfg.bigSectionTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.bigSectionTitleHl}</span>
-          </h2>
+          <div className="text-center mx-auto mb-14" style={{ maxWidth: "26ch" }}>
+            <h2 className="text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              {cfg.bigSectionTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.bigSectionTitleHl}</span>
+            </h2>
+            {cfg.bigSectionEyebrow && (
+              <p className="mt-3 text-[clamp(17px,1.4vw,21px)] font-normal" style={{ color: "var(--color-ink-2)", fontFamily: "var(--font-display)", letterSpacing: "-0.012em", lineHeight: 1.3 }}>
+                {cfg.bigSectionEyebrow}
+              </p>
+            )}
+          </div>
           <div className="grid gap-12 items-center mtc-grid" style={{ gridTemplateColumns: "1.55fr 1fr" }}>
             <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
               <img src={cfg.imageBigSrc} alt={cfg.imageBigAlt} style={{ width: "100%", height: "auto", display: "block" }} />

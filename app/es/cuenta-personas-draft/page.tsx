@@ -18,6 +18,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Precisión del 99 %", "+500 tiendas medidas", "12 países", "Sin biometría"],
   imageBigSrc: "/wp-content/uploads/2026/01/People-Counting_recorte.png",
   imageBigAlt: "Flame people counting dashboard",
+  bigSectionEyebrow: "Del simple conteo a la comprensión del dato",
   bigSectionTitle: "Conoce Flame",
   bigSectionTitleHl: "People Counting",
   bigSectionPara1: "Flame People Counting convierte los conteos brutos en insight accionable. Explora tendencias, compara ubicaciones y monitoriza el flujo de visitantes a través de dashboards intuitivos que dan vida a tus espacios.",

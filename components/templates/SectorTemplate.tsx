@@ -71,6 +71,28 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
         `}</style>
       </section>
 
+      {/* PILARES (3 cards · Impulsa/Mide/Transforma) — sólo si hay cfg.pillars */}
+      {cfg.pillars && cfg.pillars.length > 0 && (
+        <section className="py-20" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="grid gap-8 pillars-grid" style={{ gridTemplateColumns: `repeat(${cfg.pillars.length}, 1fr)` }}>
+              {cfg.pillars.map((p, i) => (
+                <article key={i} className="pillar-card">
+                  <div className="pillar-num" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: 14, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
+                    {String(i+1).padStart(2,"0")}
+                  </div>
+                  <h3 className="text-[clamp(28px,3vw,40px)] font-normal mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-[clamp(15px,1.1vw,17px)] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <style>{`@media (max-width: 900px){.pillars-grid{grid-template-columns:1fr !important;}}`}</style>
+        </section>
+      )}
+
       {/* SECCIONES alternadas image+text (real content de la live) */}
       {cfg.sections.map((s, i) => {
         const reverse = i % 2 === 1;

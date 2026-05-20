@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Embudos de conversión", "Tasas de conversión", "Insights de ventas", "Duración de la visita"],
   imageBigSrc: "/wp-content/uploads/2026/01/Conversion_analytics_recorte.png",
   imageBigAlt: "Dashboard Flame Conversion Analytics",
+  bigSectionEyebrow: "Mide. Compara. Convierte.",
   bigSectionTitle: "Conoce Flame",
   bigSectionTitleHl: "Conversion",
   bigSectionPara1: "Flame Conversion conecta la analítica de visitantes con los datos de ventas para visualizar tu embudo completo: desde el tráfico que pasa por la calle hasta la interacción en tienda y la compra.",

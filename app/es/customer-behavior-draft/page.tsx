@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Mapas de calor", "Zonas frías detectadas", "Dwell time por área", "100% anónimo"],
   imageBigSrc: "/wp-content/uploads/2026/01/Customer_behavior_recorte.png",
   imageBigAlt: "Flame Customer Behavior",
+  bigSectionEyebrow: "Del movimiento al dato",
   bigSectionTitle: "Conoce Flame",
   bigSectionTitleHl: "Customer Journey",
   bigSectionPara1: "Flame Customer Journey transforma los datos anónimos de movimiento en insight profundo de comportamiento. Entiende recorridos, tiempos de permanencia e interacciones entre zonas, compara el tráfico entre áreas y detecta qué atrae la atención o impulsa la conversión.",

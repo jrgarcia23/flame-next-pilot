@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Limpieza por uso real", "Alertas automáticas", "App móvil para staff", "100% anónimo"],
   imageBigSrc: "/wp-content/uploads/2026/01/Restroom-Management_3.png",
   imageBigAlt: "Flame Restroom Management",
+  bigSectionEyebrow: "Limpieza basada en datos para instalaciones más inteligentes",
   bigSectionTitle: "Conoce",
   bigSectionTitleHl: "Gestión de aseos",
   bigSectionPara1: "La gestión de aseos de Flame combina sensores de conteo de personas y una app móvil para automatizar los ciclos de limpieza según el uso real.",

@@ -14,6 +14,11 @@ const cfg: SectorConfig = {
   heroBgPosition: "center center",
   heroTitle: "Espacios públicos",
   heroSub: "Mejora la inteligencia de datos en espacios públicos, desbloqueando información valiosa para una mejor toma de decisiones. En Flame, desarrollamos e implementamos soluciones de marketing digital y analítica que, gracias al big data y a la Inteligencia Artificial, nos permiten tomar las decisiones correctas en tiempo real y ofrecer una experiencia segura y satisfactoria.",
+  pillars: [
+    { title: "Avanzado", desc: "Software para la planificación de rutas y la optimización de recursos, diseñado específicamente para sistemas de transporte público." },
+    { title: "En tiempo real", desc: "Análisis del flujo de visitantes e insights de marketing digital para tomar decisiones informadas en museos." },
+    { title: "Empoderar", desc: "Campus universitarios con analítica en tiempo real y estrategias de marketing digital, que permiten una toma de decisiones informada." },
+  ],
   sections: [
     {
       img: "/wp-content/uploads/2026/01/benefit-1-public.png",

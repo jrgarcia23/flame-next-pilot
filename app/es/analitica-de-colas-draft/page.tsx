@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Detección automática", "Tiempo de espera real", "Alertas a manager", "Sin biometría"],
   imageBigSrc: "/wp-content/uploads/2026/01/Queue-Analytics_recorte.png",
   imageBigAlt: "Flame Queue Analytics",
+  bigSectionEyebrow: "Inteligencia en tiempo real para que las colas fluyan sin interrupciones.",
   bigSectionTitle: "Conoce",
   bigSectionTitleHl: "Gestión de colas",
   bigSectionPara1: "La analítica de colas de Flame mide la ocupación, los tiempos de espera y las tasas de abandono en las áreas de servicio. Visualiza el rendimiento de las colas en tiempo real y recibe alertas cuando se superan los umbrales.",

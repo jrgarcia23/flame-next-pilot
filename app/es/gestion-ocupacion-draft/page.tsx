@@ -17,6 +17,7 @@ const cfg: UseCaseConfig = {
   heroBullets: ["Aforo en tiempo real", "Alertas automatizadas", "Multi-zona", "Cumple RGPD"],
   imageBigSrc: "/wp-content/uploads/2026/01/Occupancy-Management_recorte.png",
   imageBigAlt: "Flame Occupancy",
+  bigSectionEyebrow: "Observa cómo respiran tus espacios.",
   bigSectionTitle: "Conoce Flame",
   bigSectionTitleHl: "Occupancy",
   bigSectionPara1: "Flame Occupancy visualiza los niveles de afluencia en directo e históricos en tus recintos con analítica precisa y respetuosa con la privacidad. Obtén dashboards en tiempo real para seguir el confort, la capacidad y el flujo.",
