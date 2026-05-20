@@ -1,0 +1,30 @@
+/*
+Theme Name: flamechlid
+Theme URI: https://elementor.com/hello-theme/?utm_source=wp-themes&utm_campaign=theme-uri&utm_medium=wp-dash
+Template: hello-elementor
+Author: Elementor Team
+Author URI: https://elementor.com/?utm_source=wp-themes&utm_campaign=author-uri&utm_medium=wp-dash
+Description: A lightweight and minimalist WordPress theme for Elementor page builder.
+Tags: accessibility-ready,flexible-header,custom-colors,custom-menu,custom-logo,featured-images,rtl-language-support,threaded-comments,translation-ready
+Version: 2.8.1.1698053695
+Updated: 2023-10-23 10:34:55
+
+*/
+
+@font-face {
+    font-family: 'Clash Grotesk';
+    src: url('/wp-content/themes/flamechild/fonts/ClashGrotesk-Variable.woff2') format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Instrument Sans';
+    src: url('/wp-content/themes/flamechild/fonts/InstrumentSans-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
