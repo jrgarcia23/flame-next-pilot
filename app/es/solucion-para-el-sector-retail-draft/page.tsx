@@ -15,9 +15,9 @@ const cfg: SectorConfig = {
   heroTitle: "Data Intelligence for Retail",
   heroSub: "En Flame desarrollamos e implantamos soluciones de marketing digital y analítica para espacios físicos que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan a los retailers a entender el comportamiento de sus clientes.",
   pillars: [
-    { title: "Impulsa", desc: "Información valiosa sobre el comportamiento de tus clientes mediante una vigilancia activa. Conociendo sus acciones, preferencias y pautas, podrás tomar decisiones basadas en datos objetivos y precisos." },
-    { title: "Mide", desc: "Optimiza el rendimiento de tu punto de venta para alcanzar rentabilidad y eficiencia. Implementa análisis basados en datos para perfeccionar tu estrategia comercial y garantizar una operación más rentable." },
-    { title: "Transforma", desc: "Mejora la experiencia en retail mediante la personalización de las interacciones con tus clientes. Incrementa la satisfacción y el engagement ofreciendo experiencias a medida, potenciando así la experiencia global en tienda." },
+    { title: "Impulsa", desc: "Información valiosa sobre el comportamiento de tus clientes mediante una vigilancia activa. Conociendo sus acciones, preferencias y pautas, podrás tomar decisiones basadas en datos objetivos y precisos.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
+    { title: "Mide", desc: "Optimiza el rendimiento de tu punto de venta para alcanzar rentabilidad y eficiencia. Implementa análisis basados en datos para perfeccionar tu estrategia comercial y garantizar una operación más rentable.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },
+    { title: "Transforma", desc: "Mejora la experiencia en retail mediante la personalización de las interacciones con tus clientes. Incrementa la satisfacción y el engagement ofreciendo experiencias a medida, potenciando así la experiencia global en tienda.", iconImg: "/wp-content/uploads/2026/01/Vector-13.png" },
   ],
   sections: [
     {

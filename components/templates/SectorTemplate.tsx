@@ -73,23 +73,29 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
 
       {/* PILARES (3 cards · Impulsa/Mide/Transforma) — sólo si hay cfg.pillars */}
       {cfg.pillars && cfg.pillars.length > 0 && (
-        <section className="py-20" style={{ background: "#fff" }}>
+        <section className="py-20" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
-            <div className="grid gap-8 pillars-grid" style={{ gridTemplateColumns: `repeat(${cfg.pillars.length}, 1fr)` }}>
+            <div className="grid gap-6 pillars-grid" style={{ gridTemplateColumns: `repeat(${cfg.pillars.length}, 1fr)` }}>
               {cfg.pillars.map((p, i) => (
-                <article key={i} className="pillar-card">
-                  <div className="pillar-num" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: 14, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: 12 }}>
-                    {String(i+1).padStart(2,"0")}
-                  </div>
-                  <h3 className="text-[clamp(28px,3vw,40px)] font-normal mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
+                <article key={i} className="pillar-card rounded-2xl p-7" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  {p.iconImg && (
+                    <span className="pillar-icon inline-flex items-center justify-center mb-5" style={{ width: 48, height: 48 }}>
+                      <img src={p.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
+                    </span>
+                  )}
+                  <h3 className="text-[clamp(22px,2.2vw,28px)] font-medium mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.015em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
                     {p.title}
                   </h3>
-                  <p className="text-[clamp(15px,1.1vw,17px)] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                  <p className="text-[15px] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
                 </article>
               ))}
             </div>
           </div>
-          <style>{`@media (max-width: 900px){.pillars-grid{grid-template-columns:1fr !important;}}`}</style>
+          <style>{`
+            @media (max-width: 900px){.pillars-grid{grid-template-columns:1fr !important;}}
+            .pillar-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms, box-shadow 420ms; }
+            .pillar-card:hover { transform: translateY(-2px); border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
+          `}</style>
         </section>
       )}
 
