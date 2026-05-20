@@ -52,8 +52,8 @@ const cfg: SectorConfig = {
     },
     {
       img: "/wp-content/uploads/2026/01/benefit-4-hosp.png",
-      imgAlt: "Envía ofertas personalizadas",
-      title: "Envía ofertas",
+      imgAlt: "Envia ofertas personalizadas",
+      title: "Envia ofertas",
       titleHl: "personalizadas",
       bullets: [
         "Aumenta los ingresos adicionales por cada habitación vendida promocionando otras áreas del hotel que generen una mejor experiencia para los clientes.",

@@ -44,6 +44,16 @@ const cfg: SectorConfig = {
       ],
     },
     {
+      img: "/wp-content/uploads/2026/01/benefit-3-retail.png",
+      imgAlt: "Lanza campañas efectivas basadas en ubicación",
+      title: "Lanza campañas efectivas basadas en",
+      titleHl: "ubicación",
+      bullets: [
+        "Envía mensajes push personalizados a tus clientes cuando estén en el punto de venta y dales una atención única.",
+        "Crea campañas basadas en un segmento concreto (género, edad, código postal) o en un comportamiento determinado (fidelidad, intereses).",
+      ],
+    },
+        {
       img: "/wp-content/uploads/2026/01/benefit-4-retail.png",
       imgAlt: "Gestiona de forma óptima tus ubicaciones",
       title: "Gestiona de forma óptima tus",
