@@ -88,7 +88,7 @@ export default function ContactTemplate({ enHref }: { enHref: string }) {
                 <textarea className="cf-in col-span-2" placeholder="Cuéntanos brevemente qué buscas" rows={3}></textarea>
                 <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
                   <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                  <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
+                  <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad-draft/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
                 </label>
                 <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)", justifyContent: "center" }}>
                   Solicitar una demo <Icon name="arrow" className="w-4 h-4" />

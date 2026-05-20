@@ -67,7 +67,7 @@ export default function CommunityPostTemplate({ post }: { post: PostFull }) {
             <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
               ¿Quieres aplicar esto en tu espacio?<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>Demo personalizada en 20 minutos.</span>
             </p>
-            <a href="/es/contacta/" className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
+            <a href="/es/contacta-draft/" className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
               Solicita una demo <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
