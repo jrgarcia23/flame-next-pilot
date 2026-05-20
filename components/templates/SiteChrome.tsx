@@ -47,7 +47,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por industria</div>
         <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
-      <a href="/es/contacta/" className="mega-cta flex flex-col justify-between rounded-lg p-6" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff" }}>
+      <a href="/es/contacta-draft/" className="mega-cta flex flex-col justify-between rounded-lg p-6" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff" }}>
         <div>
           <div className="text-[11px] uppercase font-semibold mb-3" style={{ color: "var(--color-accent)", letterSpacing: "0.1em" }}>¿Necesitas ayuda?</div>
           <div className="text-[19px] font-semibold leading-tight mb-3" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
@@ -198,11 +198,11 @@ export function SiteFooter() {
         <div className="pt-6 flex flex-wrap items-center justify-between gap-3 text-[12.5px]" style={{ color: "var(--color-ink-4)", borderTop: "1px solid var(--color-rule)" }}>
           <div>2026 © Flame Analytics — All rights reserved</div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <a href="/es/politica-de-privacidad/">Privacy Policy</a>
-            <a href="/es/politica-de-cookies/">Cookies</a>
-            <a href="/es/condiciones-de-uso/">Legal</a>
-            <a href="/es/informacion-detallada/">Detailed information on processing</a>
-            <a href="/es/politica-de-seguridad-de-la-informacion/">Information Security Policy</a>
+            <a href="/es/politica-de-privacidad-draft/">Política de privacidad</a>
+            <a href="/es/politica-de-cookies-draft/">Cookies</a>
+            <a href="/es/condiciones-de-uso-draft/">Condiciones de uso</a>
+            <a href="/es/informacion-detallada-draft/">Información detallada del tratamiento</a>
+            <a href="/es/politica-de-seguridad-de-la-informacion-draft/">Política de seguridad</a>
           </div>
         </div>
       </div>
