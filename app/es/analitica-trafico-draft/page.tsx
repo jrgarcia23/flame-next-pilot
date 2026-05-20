@@ -15,8 +15,6 @@ const cfg: ProductConfig = {
   heroTitle: "Traffic",
   heroSub: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en tus espacios en información accionable que impulsa el rendimiento.",
   heroBullets: ["6 funcionalidades en 1", "Precisión del 99 %", "+500 tiendas medidas", "Sin biometría"],
-  imageSrc: "/wp-content/uploads/2026/01/Home_traffic.webp",
-  imageAspectRatio: "1030 / 564",
   benefitsTitle: "Tráfico físico =",
   benefitsTitleHl: "decisiones de negocio",
   benefitsSub: "Información accionable en tiempo real para optimizar conversión, ocupación y operaciones.",
