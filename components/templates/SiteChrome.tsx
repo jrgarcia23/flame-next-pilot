@@ -152,8 +152,7 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
           .mega-item { transition: background 200ms; }
           .mega-item:hover { background: var(--color-paper-soft); }
           .mega-item:hover .mega-title { color: var(--color-accent-deep) !important; }
-          .mega-icon-frame { transition: background 220ms; }
-          .mega-item:hover .mega-icon-frame { background: rgb(49 177 248 / 0.14) !important; }
+          .mega-icon-frame { /* color uniforme: el PNG ya trae circulo gris, no cambiamos el frame en hover */ }
           .mega-cta { transition: filter 200ms, transform 200ms; }
           .mega-cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
         `}</style>
