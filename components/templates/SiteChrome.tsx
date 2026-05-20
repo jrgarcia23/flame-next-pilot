@@ -130,17 +130,20 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
           })}
         </nav>
         <style>{`
-          .nav-link {
+          .nav-link,
+          .nav-link:hover,
+          .nav-link:focus,
+          .nav-link:visited,
+          .nav-link:active {
             display: inline-flex; align-items: center;
             padding: 8px 14px;
-            font-family: "Instrument Sans", system-ui, sans-serif;
-            font-size: 16px; font-weight: 600; line-height: 1.4;
-            color: #fff;
-            background: transparent; border: 0; cursor: pointer;
+            font-family: "Instrument Sans", system-ui, sans-serif !important;
+            font-size: 16px !important; font-weight: 600 !important; line-height: 1.4 !important;
+            color: #fff !important;
+            background: transparent !important; border: 0; cursor: pointer;
             border-radius: 6px;
-            text-decoration: none;
+            text-decoration: none !important;
           }
-          .nav-link:hover, .nav-link:focus { color: #fff !important; }
           .nav-item .nav-dropdown {
             position: absolute; top: 100%; padding-top: 10px;
             opacity: 0; visibility: hidden; transform: translateY(-4px);
