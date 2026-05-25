@@ -24,39 +24,49 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
   };
   if (kind === "products") {
     return (
-      <div className="rounded-xl p-3" style={{ ...panelStyle, width: 420 }}>
+      <div className="rounded-xl p-3 mega-panel-products" style={{ ...panelStyle, width: "min(420px, calc(100vw - 32px))" }}>
         <div className="flex flex-col gap-1">{MEGA_PRODUCTS.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   if (kind === "community") {
     return (
-      <div className="rounded-xl p-3" style={{ ...panelStyle, width: 420 }}>
+      <div className="rounded-xl p-3 mega-panel-community" style={{ ...panelStyle, width: "min(420px, calc(100vw - 32px))" }}>
         <div className="flex flex-col gap-1">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
-  // solutions: 2 columnas + CTA — más ancho con aire
   return (
-    <div className="rounded-xl p-6 grid gap-6" style={{ ...panelStyle, width: 1080, gridTemplateColumns: "1.5fr 1fr 0.95fr" }}>
-      <div>
-        <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por caso de uso</div>
-        <div className="grid grid-cols-2 gap-1">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
-      </div>
-      <div style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 24 }}>
-        <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por industria</div>
-        <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
-      </div>
-      <a href="/es/contacta-draft/" className="mega-cta flex flex-col justify-between rounded-lg p-6" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff" }}>
+    <div className="rounded-xl p-6 mega-panel-solutions" style={{ ...panelStyle, width: "min(1080px, calc(100vw - 24px))" }}>
+      <div className="solutions-grid">
         <div>
-          <div className="text-[11px] uppercase font-semibold mb-3" style={{ color: "var(--color-accent)", letterSpacing: "0.1em" }}>¿Necesitas ayuda?</div>
-          <div className="text-[19px] font-semibold leading-tight mb-3" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
-          <p className="text-[13px] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.7)" }}>Demo personalizada en 20 minutos. Te enseñamos cómo encaja Flame en tu operativa.</p>
+          <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por caso de uso</div>
+          <div className="grid grid-cols-2 gap-1 use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
-        <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
-          Solicita una demo <Icon name="arrow" className="w-3.5 h-3.5" />
-        </span>
-      </a>
+        <div className="industries-col" style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 24 }}>
+          <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por industria</div>
+          <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        </div>
+        <a href="/es/contacta-draft/" className="mega-cta flex flex-col justify-between rounded-lg p-6" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff" }}>
+          <div>
+            <div className="text-[11px] uppercase font-semibold mb-3" style={{ color: "var(--color-accent)", letterSpacing: "0.1em" }}>¿Necesitas ayuda?</div>
+            <div className="text-[19px] font-semibold leading-tight mb-3" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
+            <p className="text-[13px] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.7)" }}>Demo personalizada en 20 minutos. Te enseñamos cómo encaja Flame en tu operativa.</p>
+          </div>
+          <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
+            Solicita una demo <Icon name="arrow" className="w-3.5 h-3.5" />
+          </span>
+        </a>
+      </div>
+      <style>{`
+        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 1.5fr 1fr 0.95fr; }
+        @media (max-width: 1280px) { .solutions-grid { grid-template-columns: 1.4fr 1fr 0.9fr; gap: 16px; } }
+        @media (max-width: 1024px) {
+          .solutions-grid { grid-template-columns: 1fr 1fr; }
+          .solutions-grid .mega-cta { grid-column: 1 / -1; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 16px; }
+        }
+      `}</style>
     </div>
   );
 }
@@ -155,14 +165,25 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
           }
           .nav-dropdown--products,
           .nav-dropdown--community { left: -8px; }
-          .nav-dropdown--solutions { left: 50%; transform: translate(-50%, -4px); }
+          /* Solutions: fija al viewport (no overflow nunca), centrada con max-width */
+          .nav-dropdown--solutions {
+            position: fixed; top: 64px; left: 12px; right: 12px; padding-top: 10px;
+            display: flex; justify-content: center;
+          }
+          @media (min-width: 1500px) {
+            .nav-dropdown--solutions {
+              position: absolute; top: 100%; left: 50%; right: auto;
+              transform: translate(-50%, -4px);
+              display: block;
+            }
+            .nav-item:hover .nav-dropdown--solutions,
+            .nav-item:focus-within .nav-dropdown--solutions { transform: translateX(-50%) translateY(0); }
+          }
           .nav-item:hover .nav-dropdown,
           .nav-item:focus-within .nav-dropdown {
             opacity: 1; visibility: visible; transform: translateY(0);
             pointer-events: auto;
           }
-          .nav-item:hover .nav-dropdown--solutions,
-          .nav-item:focus-within .nav-dropdown--solutions { transform: translateX(-50%) translateY(0); }
           .mega-item { transition: background 200ms; }
           .mega-item:hover { background: var(--color-paper-soft); }
           .mega-item:hover .mega-title { color: var(--color-accent-deep) !important; }
@@ -174,11 +195,64 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
           <div className="hidden md:inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-[0.08em]" style={{ color: "rgb(255 255 255 / 0.5)" }}>
             <span style={{ color: "#fff" }}>ES</span><span style={{ color: "rgb(255 255 255 / 0.25)" }}>·</span><a href={enHref.startsWith("http") ? enHref : `https://flameanalytics.com${enHref}`} style={{ color: "#fff" }}>EN</a>
           </div>
-          <a href="/es/contacta-draft/" className="cta-btn cta-btn--sm" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+          <a href="/es/contacta-draft/" className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
             Solicita una demo
           </a>
+          {/* Mobile hamburger */}
+          <details className="mobile-nav lg:hidden">
+            <summary aria-label="Abrir menú" className="mobile-burger" style={{ width: 40, height: 40, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", borderRadius: 6, color: "#fff", listStyle: "none" }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <line x1="4" y1="7"  x2="20" y2="7"/>
+                <line x1="4" y1="12" x2="20" y2="12"/>
+                <line x1="4" y1="17" x2="20" y2="17"/>
+              </svg>
+            </summary>
+            <div className="mobile-drawer">
+              <a href="/es/" className="m-section-title">Producto</a>
+              {MEGA_PRODUCTS.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
+              <div className="m-section-title">Soluciones · casos de uso</div>
+              {MEGA_USE_CASES.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
+              <div className="m-section-title">Soluciones · industrias</div>
+              {MEGA_INDUSTRIES.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
+              <a href="/es/hypersensor/" className="m-link m-link--top">Hypersensor</a>
+              <a href="/es/partners/" className="m-link">Partners</a>
+              <div className="m-section-title">Comunidad</div>
+              {MEGA_COMMUNITY.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
+              <a href="/es/sobre-nosotros/" className="m-link m-link--top">Nosotros</a>
+              <a href="/es/contacta-draft/" className="m-cta">Solicita una demo</a>
+            </div>
+          </details>
         </div>
       </div>
+      <style>{`
+        .mobile-nav summary::-webkit-details-marker { display: none; }
+        .mobile-nav summary::marker { display: none; }
+        .mobile-nav .mobile-burger:hover { background: rgb(255 255 255 / 0.08); }
+        .mobile-nav[open] .mobile-drawer {
+          position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+          background: rgb(21 22 58 / 0.98); backdrop-filter: blur(20px);
+          padding: 24px; overflow-y: auto; z-index: 60;
+        }
+        .mobile-drawer { display: none; }
+        .mobile-nav[open] .mobile-drawer { display: block; }
+        .m-section-title {
+          display: block; margin: 18px 0 8px 0; font-size: 11px; font-weight: 700;
+          text-transform: uppercase; letter-spacing: 0.12em;
+          color: var(--color-accent); text-decoration: none;
+        }
+        .m-link {
+          display: block; padding: 12px 12px; font-size: 16px; font-weight: 500;
+          color: #fff; text-decoration: none; border-radius: 6px;
+        }
+        .m-link:hover, .m-link:focus { background: rgb(255 255 255 / 0.06); color: #fff; }
+        .m-link--top { margin-top: 18px; font-weight: 600; }
+        .m-cta {
+          display: block; margin-top: 28px; padding: 14px 22px;
+          background: var(--color-accent); color: var(--color-navy);
+          font-weight: 600; font-size: 16px;
+          border-radius: 4px; text-align: center; text-decoration: none;
+        }
+      `}</style>
     </header>
   );
 }
