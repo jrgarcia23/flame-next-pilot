@@ -27,7 +27,7 @@ export const MEGA_USE_CASES: NavLeaf[] = [
   { label: "People Counting",      href: "/es/cuenta-personas-draft/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
   { label: "Conversion Analytics", href: "/es/conversion-analytics-draft/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
   { label: "Customer Behavior",    href: "/es/customer-behavior-draft/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
-  { label: "Occupancy",            href: "/es/gestion-ocupacion-draft/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Aforo en tiempo real con alertas de capacidad." },
+  { label: "Occupancy",            href: "/es/gestion-ocupacion-draft/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
   { label: "Queue Analytics",      href: "/es/analitica-de-colas-draft/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
   { label: "Restroom",             href: "/es/gestion-de-aseos-draft/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
   { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados-draft/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
