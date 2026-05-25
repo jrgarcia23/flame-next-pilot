@@ -106,8 +106,8 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
       {/* CAJA "CONOCE MÁS" — dashboard izquierda + texto derecha (replica live) */}
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto mb-14 mtc-title-wrap" style={{ maxWidth: "38ch" }}>
-            <h2 className="text-[clamp(28px,2.9vw,40px)] font-normal mtc-title" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+          <div className="text-center mx-auto mb-14 mtc-title-wrap" style={{ maxWidth: "44ch" }}>
+            <h2 className="text-[clamp(26px,2.6vw,36px)] font-normal mtc-title" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>
               {cfg.bigSectionTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.bigSectionTitleHl}</span>
             </h2>
             {cfg.bigSectionEyebrow && (
@@ -138,7 +138,7 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
         </div>
         <style>{`
           @media (max-width: 900px) { .mtc-grid { grid-template-columns: 1fr !important; } }
-          .mtc-title { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-wrap: balance; }
+          .mtc-title { text-wrap: balance; }
         `}</style>
       </section>
 
