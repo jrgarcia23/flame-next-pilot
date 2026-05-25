@@ -67,7 +67,7 @@ export default function EventsTemplate({ enHref }: { enHref: string }) {
               Próximamente
             </span>
             <h2 className="mt-4 text-[clamp(30px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
-              Inscríbete a los próximos <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>eventos y webinars</span>
+              Inscríbete a los próximos <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>eventos y webinars</span>
             </h2>
           </div>
           <div className="grid gap-5 ev-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
@@ -103,7 +103,7 @@ export default function EventsTemplate({ enHref }: { enHref: string }) {
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="mb-12 text-[clamp(28px,2.8vw,38px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
-            Ediciones <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>anteriores</span>
+            Ediciones <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>anteriores</span>
           </h2>
           <div className="grid gap-4 past-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
             {past.map((e, i) => (

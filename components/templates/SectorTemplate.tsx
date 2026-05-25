@@ -112,7 +112,7 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
                 </div>
                 <div style={{ order: reverse ? 1 : 2 }}>
                   <h2 className="text-[clamp(28px,3vw,40px)] font-normal mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                    {s.title}{s.titleHl ? <> <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{s.titleHl}</span></> : null}
+                    {s.title}{s.titleHl ? <> <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{s.titleHl}</span></> : null}
                   </h2>
                   <ul className="grid gap-4">
                     {s.bullets.map((b, j) => (
@@ -187,7 +187,7 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            Las mejores marcas hablan <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>de nosotros</span>
+            Las mejores marcas hablan <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>de nosotros</span>
           </h2>
         </div>
         <div className="testimonials-marquee">
@@ -249,7 +249,7 @@ export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enH
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
               <h2 className="text-[clamp(34px,3.6vw,52px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.05, fontFamily: "var(--font-display)" }}>
-                Solicita una <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>demo</span>
+                Solicita una <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>demo</span>
               </h2>
               <p className="text-[17px] leading-relaxed mb-6" style={{ color: "var(--color-ink-2)" }}>
                 Descubre el poder de Flame en solo <strong style={{ color: "var(--color-navy)" }}>20 minutos</strong> y entiende cómo puede mejorar los resultados de tu organización.

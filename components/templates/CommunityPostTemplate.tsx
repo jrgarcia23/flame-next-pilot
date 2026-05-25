@@ -84,7 +84,7 @@ export default function CommunityPostTemplate({ post }: { post: PostFull }) {
           <div className="flame-container">
             <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
               <h2 className="text-[clamp(28px,3vw,40px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
-                Sigue leyendo en <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{catLabel}</span>
+                Sigue leyendo en <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{catLabel}</span>
               </h2>
               <a href={catPath} className="cta-btn cta-btn--md inline-flex" style={{ background: "var(--color-navy)", color: "#fff" }}>
                 Ver todos <Icon name="arrow" className="w-3.5 h-3.5" />

@@ -77,7 +77,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
         <div className="flame-container">
           <div className="text-center mb-14 mx-auto" style={{ maxWidth: 800 }}>
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.benefitsTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.benefitsTitleHl}</span>
+              {cfg.benefitsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.benefitsTitleHl}</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>{cfg.benefitsSub}</p>
           </div>
@@ -107,7 +107,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
         <section className="py-24" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
             <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", maxWidth: "26ch", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              {cfg.platformTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.platformTitleHl}</span>
+              {cfg.platformTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.platformTitleHl}</span>
             </h2>
             <div className="grid gap-12 items-center mtc-grid" style={{ gridTemplateColumns: "1.55fr 1fr" }}>
               <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
@@ -140,7 +140,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
         <div className="flame-container">
           <div className="mb-14 max-w-[760px]">
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.featuresTitle} <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>{cfg.featuresTitleHl}</span>
+              {cfg.featuresTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.featuresTitleHl}</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>{cfg.featuresSub}</p>
           </div>
@@ -244,7 +244,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
         <div className="flame-container">
           <div className="mb-14 max-w-[720px]">
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              Soluciones para cualquier <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>Industria</span>
+              Soluciones para cualquier <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Industria</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>
               {cfg.heroTitle} es el motor de inteligencia para los sectores donde el flujo de personas marca el rendimiento.
@@ -281,7 +281,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            Las mejores marcas hablan <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>de nosotros</span>
+            Las mejores marcas hablan <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>de nosotros</span>
           </h2>
         </div>
         <div className="testimonials-marquee">
@@ -341,7 +341,7 @@ export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; e
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
               <h2 className="text-[clamp(34px,3.6vw,52px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.05, fontFamily: "var(--font-display)" }}>
-                Solicita una <span style={{ color: "var(--color-accent-deep)", fontWeight: 500 }}>demo</span>
+                Solicita una <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>demo</span>
               </h2>
               <p className="text-[17px] leading-relaxed mb-6" style={{ color: "var(--color-ink-2)" }}>
                 Descubre el poder de Flame en solo <strong style={{ color: "var(--color-navy)" }}>20 minutos</strong>.
