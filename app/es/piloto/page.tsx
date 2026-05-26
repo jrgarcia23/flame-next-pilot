@@ -22,9 +22,9 @@ const SECTIONS: Section[] = [
     title: "Productos",
     subtitle: "ProductTemplate · 11 bloques (hero, beneficios, plataforma, funcionalidades, pilares Characteristics-1, sectores, testimonios, FAQ, form)",
     items: [
-      { label: "Traffic",          href: "/es/analitica-trafico-draft/", status: "design" },
-      { label: "Customer Journey", href: "/es/customer-journey-draft/",  status: "design" },
-      { label: "Connect",          href: "/es/connect-draft/",           status: "design" },
+      { label: "Traffic",          href: "/es/analitica-trafico/", status: "design" },
+      { label: "Customer Journey", href: "/es/customer-journey/",  status: "design" },
+      { label: "Connect",          href: "/es/connect/",           status: "design" },
       { label: "Hypersensor",      href: "/es/hypersensor/",             status: "literal", note: "Sin tocar, igual que live" },
     ],
   },
@@ -32,33 +32,33 @@ const SECTIONS: Section[] = [
     title: "Soluciones / Casos de uso",
     subtitle: "UseCaseTemplate · 10 bloques (hero+logos, beneficios, sección imagen+texto, métricas, CTA strip, sectores, testimonios, FAQ, form)",
     items: [
-      { label: "People Counting",      href: "/es/cuenta-personas-draft/",                  status: "design" },
-      { label: "Conversion Analytics", href: "/es/conversion-analytics-draft/",             status: "design" },
-      { label: "Customer Behavior",    href: "/es/customer-behavior-draft/",                status: "design" },
-      { label: "Occupancy Management", href: "/es/gestion-ocupacion-draft/",                status: "design" },
-      { label: "Queue Analytics",      href: "/es/analitica-de-colas-draft/",               status: "design" },
-      { label: "Restroom Management",  href: "/es/gestion-de-aseos-draft/",                 status: "design" },
-      { label: "Guest Wifi Marketing", href: "/es/marketing-wifi-para-invitados-draft/",    status: "design" },
-      { label: "Corporate Wifi Access",href: "/es/acceso-wifi-corporativo-draft/",          status: "design" },
+      { label: "People Counting",      href: "/es/cuenta-personas/",                  status: "design" },
+      { label: "Conversion Analytics", href: "/es/analitica-conversion/",             status: "design" },
+      { label: "Customer Behavior",    href: "/es/customer-behavior/",                status: "design" },
+      { label: "Occupancy Management", href: "/es/gestion-ocupacion/",                status: "design" },
+      { label: "Queue Analytics",      href: "/es/analitica-de-colas/",               status: "design" },
+      { label: "Restroom Management",  href: "/es/gestion-de-aseos/",                 status: "design" },
+      { label: "Guest Wifi Marketing", href: "/es/marketing-wifi-para-invitados/",    status: "design" },
+      { label: "Corporate Wifi Access",href: "/es/acceso-wifi-corporativo/",          status: "design" },
     ],
   },
   {
     title: "Sectores",
     subtitle: "UseCaseTemplate adaptada · Contenido específico por industria",
     items: [
-      { label: "Retail",              href: "/es/solucion-para-el-sector-retail-draft/",    status: "design" },
-      { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales-draft/", status: "design" },
-      { label: "Hoteles",             href: "/es/hoteles-draft/",                           status: "design" },
-      { label: "Espacios públicos",   href: "/es/espacios-publicos-draft/",                 status: "design" },
+      { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",    status: "design" },
+      { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/", status: "design" },
+      { label: "Hoteles",             href: "/es/hoteles/",                           status: "design" },
+      { label: "Espacios públicos",   href: "/es/espacios-publicos/",                 status: "design" },
     ],
   },
   {
     title: "Corporativas",
     subtitle: "Contacto, eventos, agradecimientos, partners",
     items: [
-      { label: "Contacto",            href: "/es/contacta-draft/",       status: "design", note: "ContactTemplate" },
-      { label: "Eventos y Webinars",  href: "/es/flame-eventos-draft/",  status: "design", note: "EventsTemplate" },
-      { label: "Gracias (genérica)",  href: "/es/gracias-draft/",        status: "design", note: "ThanksTemplate" },
+      { label: "Contacto",            href: "/es/contacta/",       status: "design", note: "ContactTemplate" },
+      { label: "Eventos y Webinars",  href: "/es/flame-eventos/",  status: "design", note: "EventsTemplate" },
+      { label: "Gracias (genérica)",  href: "/es/gracias/",        status: "design", note: "ThanksTemplate" },
       { label: "Partners",            href: "/es/partners/",             status: "literal", note: "Sin tocar, igual que live" },
       { label: "Sobre nosotros",      href: "/es/sobre-nosotros/",       status: "pending", note: "Pendiente rediseño" },
       { label: "Conoce al equipo",    href: "/es/sobre-nosotros/conoce-al-equipo/", status: "pending", note: "Pendiente rediseño" },
@@ -69,11 +69,11 @@ const SECTIONS: Section[] = [
     title: "Legales",
     subtitle: "LegalTemplate · Layout sobrio para textos largos",
     items: [
-      { label: "Política de privacidad",                href: "/es/politica-de-privacidad-draft/",                 status: "design" },
-      { label: "Política de cookies",                   href: "/es/politica-de-cookies-draft/",                    status: "design" },
-      { label: "Condiciones de uso",                    href: "/es/condiciones-de-uso-draft/",                     status: "design" },
-      { label: "Política de seguridad de la información", href: "/es/politica-de-seguridad-de-la-informacion-draft/", status: "design" },
-      { label: "Información detallada (tratamiento de datos)", href: "/es/informacion-detallada-draft/",            status: "design" },
+      { label: "Política de privacidad",                href: "/es/politica-de-privacidad/",                 status: "design" },
+      { label: "Política de cookies",                   href: "/es/politica-de-cookies/",                    status: "design" },
+      { label: "Condiciones de uso",                    href: "/es/condiciones-de-uso/",                     status: "design" },
+      { label: "Política de seguridad de la información", href: "/es/politica-de-seguridad-de-la-informacion/", status: "design" },
+      { label: "Información detallada (tratamiento de datos)", href: "/es/informacion-detallada/",            status: "design" },
     ],
   },
 ];
@@ -202,7 +202,7 @@ export default function PilotoIndex() {
               Ver home (clon)
               <Icon name="arrow" className="w-4 h-4" />
             </a>
-            <a href="/es/cuenta-personas-draft/" className="cta-btn cta-btn--lg" style={{ background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
+            <a href="/es/cuenta-personas/" className="cta-btn cta-btn--lg" style={{ background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
               Ver caso de uso ejemplo
             </a>
           </div>

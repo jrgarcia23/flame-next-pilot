@@ -61,19 +61,19 @@ const cfg: SectorConfig = {
     {
       title: "Traffic",
       desc: "Mide el tráfico exterior e interior, sigue la ocupación en tiempo real y calcula la conversión, todo en una potente plataforma.",
-      href: "/es/analitica-trafico-draft/",
+      href: "/es/analitica-trafico/",
       img: "/wp-content/uploads/2026/01/Traffic2-1.png",
     },
     {
       title: "Customer Journey",
       desc: "Rastrea los recorridos y las interacciones de los clientes para comprender el comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.",
-      href: "/es/customer-journey-draft/",
+      href: "/es/customer-journey/",
       img: "/wp-content/uploads/2026/01/Customer_journey2-scaled-1.png",
     },
     {
       title: "Connect",
       desc: "Recopila datos de los visitantes a través del WiFi para huéspedes y lanza campañas de marketing personalizadas basadas en la ubicación, el perfil y el comportamiento.",
-      href: "/es/connect-draft/",
+      href: "/es/connect/",
       img: "/wp-content/uploads/2026/01/Connect-1-1.png",
     },
   ],

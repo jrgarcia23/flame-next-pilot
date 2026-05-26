@@ -18,27 +18,27 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const MEGA_PRODUCTS: NavLeaf[] = [
-  { label: "Traffic",          href: "/es/analitica-trafico-draft/", iconImg: "/wp-content/uploads/2025/09/Traffic_bue1.png",        desc: "Mide el tráfico exterior e interior y calcula la conversión real en tu espacio." },
-  { label: "Customer Journey", href: "/es/customer-journey-draft/",  iconImg: "/wp-content/uploads/2025/09/road-route-map-icon.png", desc: "Rastrea recorridos, dwell time e interacciones por zona para optimizar la experiencia." },
-  { label: "Connect",          href: "/es/connect-draft/",           iconImg: "/wp-content/uploads/2025/09/Vector1.png",             desc: "Convierte el WiFi para invitados en captura, segmentación y activación de marketing." },
+  { label: "Traffic",          href: "/es/analitica-trafico/", iconImg: "/wp-content/uploads/2025/09/Traffic_bue1.png",        desc: "Mide el tráfico exterior e interior y calcula la conversión real en tu espacio." },
+  { label: "Customer Journey", href: "/es/customer-journey/",  iconImg: "/wp-content/uploads/2025/09/road-route-map-icon.png", desc: "Rastrea recorridos, dwell time e interacciones por zona para optimizar la experiencia." },
+  { label: "Connect",          href: "/es/connect/",           iconImg: "/wp-content/uploads/2025/09/Vector1.png",             desc: "Convierte el WiFi para invitados en captura, segmentación y activación de marketing." },
 ];
 
 export const MEGA_USE_CASES: NavLeaf[] = [
-  { label: "People Counting",      href: "/es/cuenta-personas-draft/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
-  { label: "Conversion Analytics", href: "/es/conversion-analytics-draft/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
-  { label: "Customer Behavior",    href: "/es/customer-behavior-draft/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
-  { label: "Occupancy",            href: "/es/gestion-ocupacion-draft/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
-  { label: "Queue Analytics",      href: "/es/analitica-de-colas-draft/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
-  { label: "Restroom",             href: "/es/gestion-de-aseos-draft/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
-  { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados-draft/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
-  { label: "Corporate WiFi",       href: "/es/acceso-wifi-corporativo-draft/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
+  { label: "People Counting",      href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
+  { label: "Conversion Analytics", href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
+  { label: "Customer Behavior",    href: "/es/customer-behavior/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
+  { label: "Occupancy",            href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
+  { label: "Queue Analytics",      href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
+  { label: "Restroom",             href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
+  { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
+  { label: "Corporate WiFi",       href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
 ];
 
 export const MEGA_INDUSTRIES: NavLeaf[] = [
-  { label: "Retail",              href: "/es/solucion-para-el-sector-retail-draft/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Más conversión y staffing dinámico en tienda." },
-  { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales-draft/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimiza el mix de inquilinos y la afluencia." },
-  { label: "Hoteles",             href: "/es/hoteles-draft/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
-  { label: "Espacios públicos",   href: "/es/espacios-publicos-draft/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
+  { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Más conversión y staffing dinámico en tienda." },
+  { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimiza el mix de inquilinos y la afluencia." },
+  { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
+  { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
 ];
 
 export const MEGA_COMMUNITY: NavLeaf[] = [
@@ -62,10 +62,10 @@ export const LOGOS: [string, string][] = [
 ];
 
 export const INDUSTRIES = [
-  { icon: "mall",   title: "Centros comerciales", desc: "Mejora la experiencia, la rentabilidad y la toma de decisiones en todo tu centro comercial.", href: "/es/solucion-para-centros-comerciales-draft/" },
-  { icon: "retail", title: "Retail",              desc: "Impulsa el éxito del sector minorista con insights de clientes en tiempo real.",              href: "/es/solucion-para-el-sector-retail-draft/" },
-  { icon: "venue",  title: "Espacios públicos",   desc: "Comprende el valor de tus espacios públicos convirtiendo los datos en acciones estratégicas.", href: "/es/espacios-publicos-draft/" },
-  { icon: "hotel",  title: "Hostelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles-draft/" },
+  { icon: "mall",   title: "Centros comerciales", desc: "Mejora la experiencia, la rentabilidad y la toma de decisiones en todo tu centro comercial.", href: "/es/solucion-para-centros-comerciales/" },
+  { icon: "retail", title: "Retail",              desc: "Impulsa el éxito del sector minorista con insights de clientes en tiempo real.",              href: "/es/solucion-para-el-sector-retail/" },
+  { icon: "venue",  title: "Espacios públicos",   desc: "Comprende el valor de tus espacios públicos convirtiendo los datos en acciones estratégicas.", href: "/es/espacios-publicos/" },
+  { icon: "hotel",  title: "Hostelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
 ];
 
 export const TESTIMONIALS_ALL = [
@@ -81,11 +81,11 @@ export const TESTIMONIALS_ALL = [
 ];
 
 export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
-  { title: "Productos",  links: [["Traffic","/es/analitica-trafico-draft/"],["Customer Journey","/es/customer-journey-draft/"],["Connect","/es/connect-draft/"],["Hypersensor","/es/hypersensor/"]] },
-  { title: "Soluciones", links: [["People Counting","/es/cuenta-personas-draft/"],["Conversion Analytics","/es/conversion-analytics-draft/"],["Customer Behavior","/es/customer-behavior-draft/"],["Occupancy Management","/es/gestion-ocupacion-draft/"],["Queue Analytics","/es/analitica-de-colas-draft/"],["Restroom Management","/es/gestion-de-aseos-draft/"],["Guest Wifi Marketing","/es/marketing-wifi-para-invitados-draft/"],["Corporate Wifi Access","/es/acceso-wifi-corporativo-draft/"]] },
-  { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail-draft/"],["Centros comerciales","/es/solucion-para-centros-comerciales-draft/"],["Hoteles","/es/hoteles-draft/"],["Espacios públicos","/es/espacios-publicos-draft/"]] },
+  { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/customer-journey/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
+  { title: "Soluciones", links: [["People Counting","/es/cuenta-personas/"],["Conversion Analytics","/es/analitica-conversion/"],["Customer Behavior","/es/customer-behavior/"],["Occupancy Management","/es/gestion-ocupacion/"],["Queue Analytics","/es/analitica-de-colas/"],["Restroom Management","/es/gestion-de-aseos/"],["Guest Wifi Marketing","/es/marketing-wifi-para-invitados/"],["Corporate Wifi Access","/es/acceso-wifi-corporativo/"]] },
+  { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
   { title: "Comunidad",  links: [["Blog","/es/comunidad/blog/"],["Casos de éxito","/es/comunidad/casos-de-exito/"],["Webinars","/es/comunidad/webinars/"],["Whitepapers","/es/comunidad/whitepapers/"]] },
-  { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta-draft/"]] },
+  { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
 ];
 
 /* ============================================================

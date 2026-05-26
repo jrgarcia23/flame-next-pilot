@@ -42,7 +42,7 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
                 </li>
               ))}
             </ul>
-            <a href="/es/contacta-draft/" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+            <a href="/es/contacta/" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
               Solicita una demo
               <Icon name="arrow" className="w-4 h-4" />
             </a>
@@ -180,7 +180,7 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
             <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
               {cfg.ctaStripBold}<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
             </p>
-            <a href="/es/contacta-draft/" className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
+            <a href="/es/contacta/" className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
               Solicita una demo
               <Icon name="arrow" className="w-4 h-4" />
             </a>
@@ -315,7 +315,7 @@ export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; e
               <input className="cf-in" type="text" placeholder="País" />
               <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
                 <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad-draft/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
+                <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
               </label>
               <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)", width: "fit-content" }}>
                 Solicitar una demo
