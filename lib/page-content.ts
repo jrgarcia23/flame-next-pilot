@@ -68,6 +68,63 @@ export const INDUSTRIES = [
   { icon: "hotel",  title: "Hostelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
 ];
 
+export const INDUSTRIES_EN = [
+  { icon: "mall",   title: "Shopping malls",  desc: "Improve experience, profitability and decision-making across every mall in your portfolio.", href: "/en/solution-for-shopping-malls/" },
+  { icon: "retail", title: "Retail",          desc: "Drive retail success with real-time customer insights.",                                       href: "/en/solution-for-retail-sector/" },
+  { icon: "venue",  title: "Public venues",   desc: "Unlock the value of your public spaces by turning data into strategic actions.",               href: "/en/public-venues/" },
+  { icon: "hotel",  title: "Hospitality",     desc: "Use data-driven insight to anticipate guest needs and improve service quality.",               href: "/en/hospitality/" },
+];
+
+// UI strings translated per locale
+export const UI = {
+  es: {
+    logosBanner: "Marcas que ya miden con Flame",
+    requestDemo: "Solicita una demo",
+    industriesTitle: "Soluciones para cualquier", industriesTitleHl: "Industria",
+    industriesSub: "Flame Analytics es una plataforma avanzada de analítica inteligente diseñada para dar soporte a una amplia variedad de industrias y sectores.",
+    readMore: "Leer más",
+    testimonialsTitle: "Las mejores marcas hablan", testimonialsTitleHl: "de nosotros",
+    faqTitle: "Preguntas", faqTitleHl: "frecuentes",
+    contactTitle: "Solicita una", contactTitleHl: "demo",
+    contactSub: "Descubre el poder de Flame en solo",
+    contactSubBold: "20 minutos",
+    contactSubAfter: "y entiende cómo puede mejorar los resultados de tu organización.",
+    contactCta: "Agenda una demo personalizada con nuestros expertos",
+    fName: "Nombre y apellido", fSector: "Sector",
+    sMalls: "Centros comerciales", sVenues: "Recintos públicos", sRetail: "Retail", sHosp: "Hostelería", sOther: "Otro",
+    fEmail: "Email", fCompany: "Empresa", fCountry: "País",
+    consent: "Acepto recibir comunicaciones de Flame y he leído la",
+    privacy: "política de privacidad",
+    privacyHref: "/es/politica-de-privacidad/",
+    submit: "Solicitar una demo",
+    contactHref: "/es/contacta/",
+    readMoreArrow: "Leer más",
+  },
+  en: {
+    logosBanner: "Brands already measuring with Flame",
+    requestDemo: "Request a demo",
+    industriesTitle: "Solutions for any", industriesTitleHl: "Industry",
+    industriesSub: "Flame Analytics is an advanced smart analytics platform designed to support a wide range of industries and sectors.",
+    readMore: "Read more",
+    testimonialsTitle: "The best brands talk", testimonialsTitleHl: "about us",
+    faqTitle: "Frequently asked", faqTitleHl: "questions",
+    contactTitle: "Request a", contactTitleHl: "demo",
+    contactSub: "Discover the power of Flame in just",
+    contactSubBold: "20 minutes",
+    contactSubAfter: "and learn how it can improve the results of your organization.",
+    contactCta: "Schedule a personalized demo with our experts",
+    fName: "Full name", fSector: "Industry",
+    sMalls: "Shopping malls", sVenues: "Public venues", sRetail: "Retail", sHosp: "Hospitality", sOther: "Other",
+    fEmail: "Email", fCompany: "Company", fCountry: "Country",
+    consent: "I agree to receive communications from Flame and have read the",
+    privacy: "privacy policy",
+    privacyHref: "/en/privacy-policy/",
+    submit: "Request a demo",
+    contactHref: "/en/contact-us/",
+    readMoreArrow: "Read more",
+  },
+} as const;
+
 export const TESTIMONIALS_ALL = [
   { logo: "/wp-content/uploads/2024/04/abc.jpg",                       quote: "Somos clientes desde hace años y pretendemos seguir siéndolo. Flame te cuenta lo que no puedes ver sentado en una oficina o dando un paseo por el hall del centro comercial. Te acerca al cliente desde el momento en que pasa por delante.", author: "Irene Cuadrado",          role: "Marketing & Specialty Leasing manager · ABC Serrano (Savills)" },
   { logo: "/wp-content/uploads/2023/10/Cushman-Wakefield-logo-2.png",  quote: "Gracias Flame analytics por acompañarnos en el apasionante reto de ofrecer a nuestros visitantes una experiencia omnicanal total.",                                                                                                            author: "Vicente Alemany Climent",role: "Coordinador de Innovación · Cushman & Wakefield" },

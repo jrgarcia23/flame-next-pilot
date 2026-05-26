@@ -1,9 +1,11 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
-import { LOGOS, INDUSTRIES, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
+import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
 
 export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
+  const t = UI[currentLang];
+  const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   return (
     <>
       <CtaStyles />
@@ -42,15 +44,15 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
                 </li>
               ))}
             </ul>
-            <a href="/es/contacta/" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
-              Solicita una demo
+            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              {t.requestDemo}
               <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
         </div>
         <div className="relative z-10 mt-28 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
           <p className="text-center mb-3 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
-            Marcas que ya miden con Flame
+            {t.logosBanner}
           </p>
           <div className="logo-marquee">
             <div className="logo-track">
@@ -180,8 +182,8 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
             <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
               {cfg.ctaStripBold}<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
             </p>
-            <a href="/es/contacta/" className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
-              Solicita una demo
+            <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
+              {t.requestDemo}
               <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
@@ -201,14 +203,14 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
         <div className="flame-container relative z-10">
           <div className="mb-14 max-w-[720px]">
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              Soluciones para cualquier <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Industria</span>
+              {t.industriesTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.industriesTitleHl}</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
-              Flame Analytics es una plataforma avanzada de analítica inteligente diseñada para dar soporte a una amplia variedad de industrias y sectores.
+              {t.industriesSub}
             </p>
           </div>
           <div className="grid gap-5 ind-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {INDUSTRIES.map((it, i) => (
+            {inds.map((it, i) => (
               <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
                 <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}>
                   <Icon name={it.icon} className="w-6 h-6" />
@@ -238,7 +240,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            Las mejores marcas hablan <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>de nosotros</span>
+            {t.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.testimonialsTitleHl}</span>
           </h2>
         </div>
         <div className="testimonials-marquee">
@@ -270,7 +272,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
       <section className="py-24" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-            Preguntas <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>frecuentes</span>
+            {t.faqTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.faqTitleHl}</span>
           </h2>
           <div className="grid gap-4 faq-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
             {cfg.faqs.map((f, i) => (
@@ -298,27 +300,27 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
               <h2 className="text-[clamp(34px,3.6vw,52px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.05, fontFamily: "var(--font-display)" }}>
-                Solicita una <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>demo</span>
+                {t.contactTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.contactTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-relaxed mb-6" style={{ color: "var(--color-ink-2)" }}>
-                Descubre el poder de Flame en solo <strong style={{ color: "var(--color-navy)" }}>20 minutos</strong> y entiende cómo puede mejorar los resultados de tu organización.
+                {t.contactSub} <strong style={{ color: "var(--color-navy)" }}>{t.contactSubBold}</strong> {t.contactSubAfter}
               </p>
               <p className="text-[15px] font-semibold mb-2" style={{ color: "var(--color-navy)" }}>
-                Agenda una demo personalizada con nuestros expertos
+                {t.contactCta}
               </p>
             </div>
             <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in col-span-2" type="text" placeholder="Nombre y apellido" />
-              <select className="cf-in" defaultValue=""><option value="" disabled>Sector</option><option>Centros comerciales</option><option>Recintos públicos</option><option>Retail</option><option>Hostelería</option><option>Otro</option></select>
-              <input className="cf-in" type="email" placeholder="Email" />
-              <input className="cf-in" type="text" placeholder="Empresa" />
-              <input className="cf-in" type="text" placeholder="País" />
+              <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
+              <select className="cf-in" defaultValue=""><option value="" disabled>{t.fSector}</option><option>{t.sMalls}</option><option>{t.sVenues}</option><option>{t.sRetail}</option><option>{t.sHosp}</option><option>{t.sOther}</option></select>
+              <input className="cf-in" type="email" placeholder={t.fEmail} />
+              <input className="cf-in" type="text" placeholder={t.fCompany} />
+              <input className="cf-in" type="text" placeholder={t.fCountry} />
               <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
                 <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
+                <span>{t.consent} <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.</span>
               </label>
               <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)", width: "fit-content" }}>
-                Solicitar una demo
+                {t.submit}
               </button>
             </form>
           </div>
