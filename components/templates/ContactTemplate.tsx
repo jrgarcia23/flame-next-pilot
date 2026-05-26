@@ -1,11 +1,11 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 
-export default function ContactTemplate({ enHref }: { enHref: string }) {
+export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref: string; currentLang?: "es" | "en" }) {
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO */}
       <section

@@ -98,7 +98,11 @@ export function CtaStyles() {
   );
 }
 
-export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
+export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: string; currentLang?: "es" | "en" }) {
+  const otherLangCode = currentLang === "es" ? "EN" : "ES";
+  const currentLangCode = currentLang === "es" ? "ES" : "EN";
+  // enHref always points to "the other language version". Keep as local path.
+  const otherHref = enHref;
   return (
     <header
       className="sticky top-0 z-40 border-b"
@@ -193,7 +197,7 @@ export function SiteHeader({ enHref = "/en/" }: { enHref?: string }) {
         `}</style>
         <div className="ml-auto flex items-center gap-3">
           <div className="hidden md:inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-[0.08em]" style={{ color: "rgb(255 255 255 / 0.5)" }}>
-            <span style={{ color: "#fff" }}>ES</span><span style={{ color: "rgb(255 255 255 / 0.25)" }}>·</span><a href={enHref.startsWith("http") ? enHref : `https://flameanalytics.com${enHref}`} style={{ color: "#fff" }}>EN</a>
+            <span style={{ color: "#fff" }}>{currentLangCode}</span><span style={{ color: "rgb(255 255 255 / 0.4)" }}>|</span><a href={otherHref} style={{ color: "rgb(255 255 255 / 0.6)" }}>{otherLangCode}</a>
           </div>
           <a href="/es/contacta/" className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
             Solicita una demo

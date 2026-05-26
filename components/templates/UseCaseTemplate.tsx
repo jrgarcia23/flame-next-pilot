@@ -2,12 +2,12 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
 
-export default function UseCaseTemplate({ cfg, enHref }: { cfg: UseCaseConfig; enHref: string }) {
+export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO + LOGOS sobre Traffic2-1.png */}
       <section

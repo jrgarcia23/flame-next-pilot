@@ -92,5 +92,5 @@ const cfg: SectorConfig = {
 };
 
 export default function HotelesSectorDraft() {
-  return <SectorTemplate cfg={cfg} enHref="/en/hotels/" />;
+  return <SectorTemplate cfg={cfg} enHref="/en/hospitality/" />;
 }

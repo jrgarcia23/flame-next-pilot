@@ -7,17 +7,19 @@ export default function ThanksTemplate({
   subtitle,
   body,
   nextSteps,
+  currentLang = "es",
 }: {
   enHref: string;
   title: string;
   subtitle: string;
   body: string;
   nextSteps?: { label: string; href: string }[];
+  currentLang?: "es" | "en";
 }) {
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       <section
         className="relative overflow-hidden flex items-center"

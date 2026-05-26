@@ -23,14 +23,14 @@ const EVENTS: EventItem[] = [
   { type: "Evento",   date: "2023",                                                   title: "MAPIC 2023 — Flame finalista en innovación retail",                         desc: "Flame fue seleccionado entre los finalistas a la mejor solución de innovación retail.",                                  status: "past", href: "/es/flame-analytics-mapic-2025-vuelta-al-mayor-evento-internacional-retail-y-centroscomerciales/" },
 ];
 
-export default function EventsTemplate({ enHref }: { enHref: string }) {
+export default function EventsTemplate({ enHref, currentLang = "es" }: { enHref: string; currentLang?: "es" | "en" }) {
   const upcoming = EVENTS.filter((e) => e.status === "upcoming");
   const past = EVENTS.filter((e) => e.status === "past");
 
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO */}
       <section

@@ -5,16 +5,18 @@ export default function LegalTemplate({
   title,
   lastUpdate,
   bodyHtml,
+  currentLang = "es",
 }: {
   enHref: string;
   title: string;
   lastUpdate: string;
   bodyHtml: string;
+  currentLang?: "es" | "en";
 }) {
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO compacto */}
       <section

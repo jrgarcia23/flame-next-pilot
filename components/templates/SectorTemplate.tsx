@@ -2,12 +2,12 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, TESTIMONIALS_ALL, SectorConfig } from "@/lib/page-content";
 
-export default function SectorTemplate({ cfg, enHref }: { cfg: SectorConfig; enHref: string }) {
+export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cfg: SectorConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO + LOGOS */}
       <section

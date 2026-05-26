@@ -2,12 +2,12 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, TESTIMONIALS_ALL, ProductConfig } from "@/lib/page-content";
 
-export default function ProductTemplate({ cfg, enHref }: { cfg: ProductConfig; enHref: string }) {
+export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { cfg: ProductConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO + LOGOS */}
       <section

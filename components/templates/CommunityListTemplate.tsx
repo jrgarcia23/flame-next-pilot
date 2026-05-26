@@ -9,6 +9,7 @@ export default function CommunityListTemplate({
   posts,
   enHref,
   emptyMessage,
+  currentLang = "es",
 }: {
   title: string;
   titleHl: string;
@@ -16,11 +17,12 @@ export default function CommunityListTemplate({
   posts: PostMeta[];
   enHref: string;
   emptyMessage?: string;
+  currentLang?: "es" | "en";
 }) {
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref={enHref} />
+      <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* HERO listing */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(72px, 8.4vw, 116px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>

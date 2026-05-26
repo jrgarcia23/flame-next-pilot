@@ -2,7 +2,7 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { PostFull, categoryLabel, formatDate, readingTime, getRelatedPosts, shortExcerpt } from "@/lib/comunidad";
 
-export default function CommunityPostTemplate({ post }: { post: PostFull }) {
+export default function CommunityPostTemplate({ post, currentLang = "es" }: { post: PostFull; currentLang?: "es" | "en" }) {
   const catLabel = categoryLabel(post.category);
   const catPath = `/es/comunidad/${post.category === "casos" ? "casos-de-exito" : post.category}/`;
   const minutes = readingTime(post.content);
@@ -10,7 +10,7 @@ export default function CommunityPostTemplate({ post }: { post: PostFull }) {
   return (
     <>
       <CtaStyles />
-      <SiteHeader />
+      <SiteHeader currentLang={currentLang} />
 
       {/* HERO post */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(72px, 8.4vw, 116px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>
