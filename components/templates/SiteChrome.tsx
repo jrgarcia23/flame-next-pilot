@@ -105,8 +105,9 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
   const otherHref = enHref;
   return (
     <header
-      className="sticky top-0 z-40 border-b"
+      className="sticky top-0 border-b"
       style={{
+        zIndex: 9999,
         background: "rgb(21 22 58 / 0.92)",
         backdropFilter: "blur(16px) saturate(140%)",
         WebkitBackdropFilter: "blur(16px) saturate(140%)",
