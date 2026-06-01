@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CookieBanner from "@/components/templates/CookieBanner";
 
 export const metadata: Metadata = {
   title: "Flame Analytics · AI video analytics for retail",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es" className="h-full">
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <CookieBanner />
+      </body>
     </html>
   );
 }
