@@ -98,19 +98,23 @@ export default function CookieBanner() {
           font-size: 13.5px; font-weight: 500; letter-spacing: -0.005em;
           padding: 10px 16px; border-radius: 4px;
           cursor: pointer; border: 1px solid transparent;
-          transition: transform 180ms, background 180ms, color 180ms, border-color 180ms;
+          transition: transform 180ms, background 180ms, color 180ms, border-color 180ms, opacity 180ms;
         }
         .flame-cookie-btn:hover { transform: translateY(-1px); }
         .flame-cookie-btn--ghost {
           background: transparent;
-          border-color: rgb(255 255 255 / 0.18);
-          color: rgb(255 255 255 / 0.85);
+          border-color: rgb(255 255 255 / 0.14);
+          color: rgb(255 255 255 / 0.6);
+          font-weight: 400;
         }
-        .flame-cookie-btn--ghost:hover { background: rgb(255 255 255 / 0.06); color: #fff; }
+        .flame-cookie-btn--ghost:hover { background: rgb(255 255 255 / 0.05); color: rgb(255 255 255 / 0.85); border-color: rgb(255 255 255 / 0.22); }
         .flame-cookie-btn--primary {
           background: #31b1f8; color: #15163A; border-color: transparent;
+          font-size: 14.5px; font-weight: 600;
+          padding: 12px 28px;
+          box-shadow: 0 4px 14px -4px rgb(49 177 248 / 0.5);
         }
-        .flame-cookie-btn--primary:hover { filter: brightness(0.96); }
+        .flame-cookie-btn--primary:hover { filter: brightness(1.05); box-shadow: 0 6px 18px -4px rgb(49 177 248 / 0.6); }
         @media (max-width: 700px) {
           .flame-cookie-banner { bottom: 8px; left: 8px; right: 8px; }
           .flame-cookie-inner { padding: 16px; gap: 14px; }
