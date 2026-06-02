@@ -214,7 +214,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="py-12" style={{ background: "#fff" }}>
+      <section className="py-24" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -236,7 +236,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 7. REPORTS STRIPE — text left + image right */}
-      <section className="py-12" style={{ background: "#fff" }}>
+      <section className="py-24" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
@@ -258,7 +258,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 8. INTEGRATION STRIPE — image left + text right (mismo layout que Privacy) */}
-      <section className="py-12" style={{ background: "#fff" }}>
+      <section className="py-24" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -278,15 +278,15 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </div>
       </section>
 
-      {/* 8.5 CTA STRIP — entre Integration y Testimonios (mismo patrón que use cases/sectores) */}
+      {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent */}
       {cfg.ctaStripBold && (
-        <section className="py-8" style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)", borderBottom: "1px solid var(--color-rule)" }}>
+        <section className="py-10" style={{ background: "var(--color-navy)" }}>
           <div className="flame-container">
             <div className="flex items-center gap-8 cta-strip-row">
-              <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
-                {cfg.ctaStripBold}<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
+              <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
+                {cfg.ctaStripBold}<br /><span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
               </p>
-              <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
+              <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
                 {t.requestDemo}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -303,7 +303,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       )}
 
       {/* 9. TESTIMONIALS title + marquee */}
-      <section className="py-20 overflow-hidden" style={{ background: "#fff" }}>
+      <section className="py-20 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
             {cfg.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.testimonialsTitleHl}</span>
@@ -312,7 +312,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="testimonials-marquee">
           <div className="testimonials-track">
             {[...testimonials, ...testimonials].map((tt, i) => (
-              <article key={i} className="testimonial-card rounded-2xl p-8 flex flex-col gap-6" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
+              <article key={i} className="testimonial-card rounded-2xl p-8 flex flex-col gap-6" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
                 <div className="flex items-center" style={{ height: 64 }}>
                   <img src={tt.logo} alt={tt.author} style={{ maxHeight: 56, maxWidth: 180, width: "auto", objectFit: "contain" }} />
                 </div>
