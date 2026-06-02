@@ -19,7 +19,12 @@ export type HomeRestyleConfig = {
   // PRODUCTS BLOCK
   productsTitle: string;
   productsTitleHl: string;
+  productsSub?: string;
+  productsBullets?: string[];
   products: Array<{ iconImg: string; name: string; desc: string; href: string; cta: string }>;
+  // CTA STRIP entre Integration y Testimonios
+  ctaStripBold?: string;
+  ctaStripLight?: string;
   // ADVANTAGE INTRO
   advantageTitle: string;
   advantageSub: string;
@@ -108,10 +113,10 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </div>
       </section>
 
-      {/* 2. LOGOS marquee */}
-      <section className="py-14" style={{ background: "var(--color-paper)" }}>
+      {/* 2. LOGOS marquee — mismo diseño y tamaño que las páginas interiores (navy + logos blancos a 80px) */}
+      <section className="py-12 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
-          <p className="text-center mb-8 text-[15px] font-medium" style={{ color: "var(--color-ink-3)", letterSpacing: "-0.005em" }}>
+          <p className="text-center mb-4 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
             {t.logosBanner}
           </p>
           <div className="logo-marquee">
@@ -126,9 +131,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
           .logo-track:hover { animation-play-state: paused; }
-          .logo-img { height: 56px; width: auto; opacity: 0.65; filter: grayscale(100%) brightness(0.4); transition: opacity 280ms ease, filter 280ms ease; flex-shrink: 0; }
-          .logo-img:hover { opacity: 1; filter: grayscale(0%) brightness(1); }
-          @media (max-width: 700px) { .logo-img { height: 44px; } }
+          .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
+          .logo-img:hover { opacity: 1; }
+          @media (max-width: 700px) { .logo-img { height: 65px; } }
         `}</style>
       </section>
 
@@ -137,12 +142,31 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
 
-      {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
+      {/* 4. PRODUCTS — h2 + subtítulo + bullets + 3 cards */}
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <h2 className="text-center mx-auto mb-14 text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)", maxWidth: 800 }}>
-            {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
-          </h2>
+          <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+              {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
+            </h2>
+            {cfg.productsSub && (
+              <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "62ch" }}>
+                {cfg.productsSub}
+              </p>
+            )}
+            {cfg.productsBullets && cfg.productsBullets.length > 0 && (
+              <ul className="grid gap-3 mt-6 mx-auto" style={{ gridTemplateColumns: `repeat(${cfg.productsBullets.length}, minmax(0, max-content))`, justifyContent: "center" }}>
+                {cfg.productsBullets.map((b) => (
+                  <li key={b} className="inline-flex items-center gap-2.5 text-[15px] font-medium" style={{ color: "var(--color-navy)" }}>
+                    <span className="inline-flex items-center justify-center rounded-full" style={{ width: 22, height: 22, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent-deep)", flexShrink: 0 }}>
+                      <Icon name="check" className="w-3.5 h-3.5" />
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
           <div className="grid gap-6 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.products.map((p) => (
               <a key={p.name} href={p.href} className="prod3-card rounded-2xl p-8 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
@@ -227,25 +251,50 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <style>{`@media (max-width: 900px) { .stripe-grid-rev { grid-template-columns: 1fr !important; } .stripe-grid-rev > div:last-child { order: -1; } }`}</style>
       </section>
 
-      {/* 8. INTEGRATION STRIPE — layout vertical: texto centrado arriba + imagen full-width abajo
-           (diferenciado de los 2 stripes anteriores que son side-by-side) */}
-      <section className="pt-12 pb-24" style={{ background: "#fff" }}>
+      {/* 8. INTEGRATION STRIPE — image left + text right (mismo layout que Privacy) */}
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto mb-10" style={{ maxWidth: 760 }}>
-            <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
-            </h2>
-            <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
-            <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
-              {cfg.integrationCta}
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
-          </div>
-          <div className="mx-auto" style={{ maxWidth: 1100 }}>
-            <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+          <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
+            <div>
+              <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
+            <div>
+              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
+              </h2>
+              <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
+              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+                {cfg.integrationCta}
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* 8.5 CTA STRIP — entre Integration y Testimonios (mismo patrón que use cases/sectores) */}
+      {cfg.ctaStripBold && (
+        <section className="py-8" style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)", borderBottom: "1px solid var(--color-rule)" }}>
+          <div className="flame-container">
+            <div className="flex items-center gap-8 cta-strip-row">
+              <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
+                {cfg.ctaStripBold}<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
+              </p>
+              <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
+                {t.requestDemo}
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <style>{`
+            .cta-btn--xl { font-size: 17px; padding: 16px 32px; }
+            @media (max-width: 700px) {
+              .cta-strip-row { flex-direction: column; align-items: flex-start; gap: 20px; }
+              .cta-strip-row > p { flex: none; }
+            }
+          `}</style>
+        </section>
+      )}
 
       {/* 9. TESTIMONIALS title + marquee */}
       <section className="py-20 overflow-hidden" style={{ background: "#fff" }}>

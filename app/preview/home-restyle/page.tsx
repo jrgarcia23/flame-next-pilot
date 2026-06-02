@@ -26,6 +26,14 @@ const cfg: HomeRestyleConfig = {
 
   productsTitle: "Datos que potencian",
   productsTitleHl: "espacios inteligentes",
+  productsSub: "La plataforma de analítica con IA para espacios físicos que potencia la toma de decisiones y maximiza el rendimiento general del lugar:",
+  productsBullets: [
+    "Mide y mejora el rendimiento del espacio",
+    "Comprende el comportamiento de los clientes",
+    "Conecta con tus visitantes",
+  ],
+  ctaStripBold: "20 minutos para entender qué pasa en tu espacio.",
+  ctaStripLight: "Demo personalizada con tus datos y tu caso de uso.",
   products: [
     { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Mide el tráfico dentro y fuera del espacio, monitorea la ocupación en tiempo real y mide la conversión, todo desde una plataforma única y completa.", href: "/es/analitica-trafico/", cta: "Conocer Traffic" },
     { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.", href: "/es/customer-journey/",  cta: "Conocer Customer Journey" },

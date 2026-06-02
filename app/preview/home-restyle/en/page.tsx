@@ -26,6 +26,14 @@ const cfg: HomeRestyleConfig = {
 
   productsTitle: "Data driven for",
   productsTitleHl: "smart spaces",
+  productsSub: "The AI analytics platform for physical spaces — powering decision-making and maximising overall venue performance:",
+  productsBullets: [
+    "Measure and improve venue performance",
+    "Understand customer behaviour",
+    "Connect with your visitors",
+  ],
+  ctaStripBold: "20 minutes to understand what is happening in your space.",
+  ctaStripLight: "Personalised demo with your data and your use case.",
   products: [
     { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Measure inside and outside traffic, monitor occupancy in real time and compute conversion, all from a single, complete platform.",                  href: "/en/traffic-insights/",  cta: "Discover Traffic" },
     { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analyze customer journeys and interactions to understand in-store behavior and optimize the experience at every touchpoint.",                         href: "/en/customer-journey/",  cta: "Discover Customer Journey" },
