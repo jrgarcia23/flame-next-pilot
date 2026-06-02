@@ -134,13 +134,18 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           <h2 className="text-center mx-auto mb-14 text-[clamp(34px,3.8vw,52px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.024em", lineHeight: 1.06, fontFamily: "var(--font-display)", maxWidth: 920 }}>
             {cfg.stepsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.stepsTitleHl}</span>
           </h2>
-          <div className="grid gap-6 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          <div className="grid gap-7 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.steps.map((st, i) => (
-              <article key={i} className="step-card rounded-2xl p-8" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
-                <div className="step-icon flex items-center mb-7" style={{ height: 220 }}>
+              <article key={i} className="step-card rounded-2xl p-9 flex flex-col items-center text-center" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                {st.bgImg && (
+                  <div className="step-num mb-2" style={{ height: 56 }}>
+                    <img src={st.bgImg} alt="" aria-hidden style={{ height: 56, width: "auto", display: "block" }} />
+                  </div>
+                )}
+                <div className="step-icon flex items-center justify-center mb-8" style={{ height: 220 }}>
                   <img src={st.iconImg} alt={st.title} style={{ maxHeight: 220, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                 </div>
-                <h3 className="text-[22px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
+                <h3 className="text-[24px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
                 <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
               </article>
             ))}
