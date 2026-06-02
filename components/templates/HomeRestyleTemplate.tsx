@@ -65,7 +65,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
 
-  const embedSrc = currentLang === "en" ? "/embeds/steps-en.html" : "/embeds/steps-es.html";
+  const embedSrc = currentLang === "en" ? "/embeds/steps-en/" : "/embeds/steps-es/";
 
   return (
     <>
