@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import FlameDataChat from "../FlameDataChat";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
 
@@ -27,6 +28,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, var(--color-navy) 0%, rgb(21 22 58 / 0.92) 38%, rgb(21 22 58 / 0.5) 65%, rgb(21 22 58 / 0.2) 100%)" }} />
         <div className="flame-container relative z-10">
+          <div className={cfg.heroChat ? "uc-hero-grid" : undefined}>
           <div style={{ maxWidth: 680 }}>
             <h1 className="text-[clamp(40px,5.2vw,64px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
               {cfg.heroTitle}
@@ -49,6 +51,12 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
               <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
+          {cfg.heroChat && (
+            <div className="uc-hero-chat">
+              <FlameDataChat />
+            </div>
+          )}
+          </div>
         </div>
         <div className="relative z-10 mt-28 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
           <p className="text-center mb-3 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
@@ -69,6 +77,12 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
           .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @media (max-width: 700px) { .logo-img { height: 65px; } }
+          .uc-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: clamp(32px, 4vw, 64px); align-items: center; }
+          .uc-hero-chat { display: flex; justify-content: flex-end; }
+          @media (max-width: 980px) {
+            .uc-hero-grid { grid-template-columns: 1fr; gap: 44px; }
+            .uc-hero-chat { justify-content: center; margin-top: 4px; }
+          }
         `}</style>
       </section>
 

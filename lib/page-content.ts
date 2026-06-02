@@ -157,6 +157,7 @@ export type UseCaseConfig = {
   heroTitle: string;
   heroSub: string;
   heroBullets: [string, string, string, string];
+  heroChat?: boolean;            // si true, muestra el chat "pregunta a tus datos" a la derecha del hero
   imageBigSrc: string;
   imageBigAlt: string;
   imageBigAspectRatio?: string;

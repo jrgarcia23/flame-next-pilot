@@ -15,6 +15,7 @@ const cfg: UseCaseConfig = {
   heroTitle: "Conversion Analytics",
   heroSub: "Flame te da una visión completa de tu embudo físico de conversión: desde el tráfico de calle y la entrada en tienda hasta el tiempo de permanencia y la venta final. Entiende qué atrae a los visitantes, cuánto se quedan y qué les lleva a comprar. Optimiza tasas de captación y conversión para maximizar ingresos y el rendimiento global de cada tienda.",
   heroBullets: ["Embudos de conversión", "Tasas de conversión", "Insights de ventas", "Duración de la visita"],
+  heroChat: true,
   imageBigSrc: "/wp-content/uploads/2026/01/Conversion_analytics_recorte.png",
   imageBigAlt: "Dashboard Flame Conversion Analytics",
   bigSectionTitle: "Del tráfico bruto a",
