@@ -137,8 +137,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           <div className="grid gap-6 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.steps.map((st, i) => (
               <article key={i} className="step-card rounded-2xl p-8" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
-                <div className="step-icon flex items-center mb-6" style={{ height: 96 }}>
-                  <img src={st.iconImg} alt={st.title} style={{ maxHeight: 96, maxWidth: 160, width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
+                <div className="step-icon flex items-center mb-7" style={{ height: 220 }}>
+                  <img src={st.iconImg} alt={st.title} style={{ maxHeight: 220, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                 </div>
                 <h3 className="text-[22px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
                 <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
@@ -201,7 +201,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
+            <div>
               <img src={cfg.privacyImg} alt={cfg.privacyImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <div>
@@ -233,7 +233,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
             </div>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-paper)", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
+            <div>
               <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </div>
@@ -245,7 +245,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
+            <div>
               <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <div>
