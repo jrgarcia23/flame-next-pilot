@@ -143,15 +143,15 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
             )}
           </div>
           <div className="step-wrap relative">
-            {/* línea discontinua horizontal detrás de los cards a la altura de los números */}
+            {/* línea discontinua horizontal detrás de los cards a la altura del CENTRO de los números */}
             <div className="step-connector" aria-hidden />
             <div className="grid gap-7 step-grid relative" style={{ gridTemplateColumns: "repeat(3, 1fr)", zIndex: 1 }}>
               {cfg.steps.map((st, i) => (
-                <article key={i} className="step-card relative rounded-2xl" style={{ background: "#fff", border: "1px solid var(--color-rule)", padding: "56px 32px 36px" }}>
-                  {/* Número en círculo cyan claro */}
+                <article key={i} className="step-card relative" style={{ background: "#fff", padding: "60px 36px 40px", borderRadius: 24 }}>
+                  {/* Número en círculo cyan claro, a caballo del borde superior */}
                   <div className="step-num" aria-hidden>{i + 1}</div>
                   {/* Icono compuesto grande (Group-141 / 73-1-1 / 81) */}
-                  <div className="step-icon flex items-center justify-center mb-7" style={{ height: 220 }}>
+                  <div className="step-icon flex items-center justify-center mb-8" style={{ height: 220 }}>
                     <img src={st.iconImg} alt={st.title} style={{ maxHeight: 220, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                   </div>
                   <h3 className="text-[22px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25 }}>{st.title}</h3>
@@ -162,10 +162,10 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           </div>
         </div>
         <style>{`
-          .step-wrap { position: relative; }
+          .step-wrap { position: relative; padding-top: 28px; }
           .step-connector {
             position: absolute;
-            top: 27px;
+            top: 27px;          /* centro vertical de los círculos (28 - 1 px del border) */
             left: 60px; right: 60px;
             border-top: 2px dashed #CBD5E1;
             z-index: 0;
@@ -173,25 +173,25 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           }
           .step-num {
             position: absolute;
-            top: 4px; left: 32px;
-            width: 48px; height: 48px;
+            top: -28px;         /* círculo a caballo: 28px arriba + 24px dentro del card */
+            left: 36px;
+            width: 52px; height: 52px;
             border-radius: 9999px;
             background: #DBEAFE;
-            color: #1E3A8A;
+            color: #1E40AF;
             display: flex; align-items: center; justify-content: center;
             font-size: 22px; font-weight: 600;
             font-family: var(--font-display);
             z-index: 2;
           }
           .step-card {
+            box-shadow: 0 14px 40px -18px rgb(15 23 42 / 0.10);
             transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-                        border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
                         box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
           }
           .step-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--color-rule-strong) !important;
-            box-shadow: 0 10px 30px -16px rgb(15 23 42 / 0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px -18px rgb(15 23 42 / 0.16);
           }
           @media (max-width: 1000px) {
             .step-grid { grid-template-columns: 1fr !important; max-width: 540px; margin: 0 auto; }
