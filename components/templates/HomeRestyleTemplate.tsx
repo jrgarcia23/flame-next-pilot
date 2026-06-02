@@ -202,7 +202,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.privacyTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.privacyTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.privacyBody}</p>
-              <a href={cfg.privacyHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-navy)", color: "#fff" }}>
+              <a href={cfg.privacyHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
                 {cfg.privacyCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -221,7 +221,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.reportsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.reportsTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.reportsBody}</p>
-              <a href={cfg.reportsHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-navy)", color: "#fff" }}>
+              <a href={cfg.reportsHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
                 {cfg.reportsCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -246,7 +246,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
-              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-navy)", color: "#fff" }}>
+              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
                 {cfg.integrationCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
