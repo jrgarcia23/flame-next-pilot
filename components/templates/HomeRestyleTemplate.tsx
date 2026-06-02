@@ -145,7 +145,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
-      <section className="py-24" style={{ background: "var(--color-paper)" }}>
+      <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)", maxWidth: 800 }}>
             {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
@@ -175,7 +175,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="pt-24 pb-8" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 800 }}>
             <h2
@@ -191,7 +191,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -213,7 +213,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 7. REPORTS STRIPE — text left + image right */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
@@ -235,7 +235,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 8. INTEGRATION STRIPE — image left + text right */}
-      <section className="py-20" style={{ background: "#fff" }}>
+      <section className="pt-12 pb-24" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -324,43 +324,15 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 11. COMMUNITY — 3 cards (Casos / Webinars / Whitepapers) */}
-      <section className="py-24" style={{ background: "var(--color-paper)" }}>
-        <div className="flame-container">
-          <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.communityTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.communityTitleHl}</span>
-            </h2>
-            <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>{cfg.communitySub}</p>
-          </div>
-          <div className="grid gap-6 comm-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {cfg.communityCards.map((c, i) => (
-              <a key={i} href={c.href} className="comm-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)", textDecoration: "none" }}>
-                <div className="comm-imgwrap relative" style={{ aspectRatio: "16 / 10", background: "var(--color-navy)", overflow: "hidden" }}>
-                  {c.img && <img src={c.img} alt={c.title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.85 }} />}
-                  <div className="absolute inset-0 flex items-center justify-center" style={{ background: "linear-gradient(180deg, rgb(21 22 58 / 0.2) 0%, rgb(21 22 58 / 0.55) 100%)" }}>
-                    <span className="inline-flex items-center justify-center rounded-full" style={{ width: 64, height: 64, background: "rgb(49 177 248 / 0.2)", border: "1px solid var(--color-accent)", color: "var(--color-accent)" }}>
-                      <Icon name={c.icon} className="w-7 h-7" />
-                    </span>
-                  </div>
-                </div>
-                <div className="p-7 flex items-center justify-between">
-                  <h3 className="text-[22px] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{c.title}</h3>
-                  <span className="comm-arrow inline-flex items-center justify-center rounded-full" style={{ width: 36, height: 36, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }}>
-                    <Icon name="arrow" className="w-4 h-4" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 1000px) { .comm-grid { grid-template-columns: 1fr !important; max-width: 520px; margin: 0 auto; } }
-          .comm-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .comm-card:hover { transform: translateY(-2px); border-color: var(--color-rule-strong) !important; box-shadow: 0 14px 32px -18px rgb(15 23 42 / 0.14); }
-          .comm-card .comm-arrow { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .comm-card:hover .comm-arrow { background: var(--color-accent) !important; color: var(--color-navy) !important; }
-        `}</style>
+      {/* 11. COMMUNITY — iframe del WP original (mismos cards, mismas medidas, mismo CSS Elementor) */}
+      <section style={{ background: "#fff" }}>
+        <iframe
+          src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
+          title="community"
+          style={{ width: "100%", height: "780px", border: 0, display: "block" }}
+          loading="lazy"
+          scrolling="no"
+        />
       </section>
 
       <SiteFooter />
