@@ -13,11 +13,11 @@ export type HomeRestyleConfig = {
   // 3 STEP CARDS
   stepsTitle: string;
   stepsTitleHl: string;         // "para Retail" accent
-  steps: Array<{ icon: string; title: string; desc: string }>;
+  steps: Array<{ iconImg: string; bgImg?: string; title: string; desc: string }>;
   // PRODUCTS BLOCK
   productsTitle: string;
   productsTitleHl: string;
-  products: Array<{ icon: string; name: string; desc: string; img: string; href: string; cta: string }>;
+  products: Array<{ iconImg: string; name: string; desc: string; href: string; cta: string }>;
   // ADVANTAGE INTRO
   advantageTitle: string;
   advantageSub: string;
@@ -134,15 +134,18 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           </h2>
           <div className="grid gap-6 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.steps.map((st, i) => (
-              <article key={i} className="step-card rounded-2xl p-8" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
-                <div className="step-num inline-flex items-center justify-center rounded-full mb-5 text-[15px] font-semibold" style={{ width: 36, height: 36, background: "var(--color-navy)", color: "var(--color-accent)" }}>
+              <article key={i} className="step-card relative rounded-2xl p-8 overflow-hidden" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
+                {st.bgImg && (
+                  <img src={st.bgImg} alt="" aria-hidden className="absolute pointer-events-none" style={{ top: 16, right: 16, width: 92, height: "auto", opacity: 0.45 }} />
+                )}
+                <div className="step-num inline-flex items-center justify-center rounded-full mb-6 text-[15px] font-semibold relative z-10" style={{ width: 36, height: 36, background: "var(--color-navy)", color: "var(--color-accent)" }}>
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className="step-icon inline-flex items-center justify-center rounded-[12px] mb-5 ml-3 align-middle" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }}>
-                  <Icon name={st.icon} className="w-6 h-6" />
+                <div className="step-icon flex items-center justify-center mb-5 relative z-10" style={{ width: 88, height: 88 }}>
+                  <img src={st.iconImg} alt={st.title} style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
                 </div>
-                <h3 className="text-[22px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
-                <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
+                <h3 className="text-[22px] font-normal mb-3 relative z-10" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
+                <p className="text-[15.5px] leading-[1.65] relative z-10" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
               </article>
             ))}
           </div>
@@ -164,20 +167,15 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           </h2>
           <div className="grid gap-6 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.products.map((p) => (
-              <a key={p.name} href={p.href} className="prod3-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                <div className="prod3-imgwrap" style={{ aspectRatio: "16 / 10", background: "var(--color-paper-soft)", overflow: "hidden" }}>
-                  <img src={p.img} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+              <a key={p.name} href={p.href} className="prod3-card rounded-2xl p-8 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                <div className="prod3-iconwrap flex items-center mb-6" style={{ height: 96 }}>
+                  <img src={p.iconImg} alt={p.name} style={{ maxHeight: 96, maxWidth: 132, width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                 </div>
-                <div className="p-7 flex flex-col flex-1">
-                  <div className="prod3-icon inline-flex items-center justify-center rounded-[10px] mb-4" style={{ width: 44, height: 44, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }}>
-                    <Icon name={p.icon} className="w-5 h-5" />
-                  </div>
-                  <h3 className="text-[22px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{p.name}</h3>
-                  <p className="text-[15.5px] leading-[1.65] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
-                  <span className="prod3-cta inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
-                    {p.cta} <Icon name="arrow" className="w-3.5 h-3.5" />
-                  </span>
-                </div>
+                <h3 className="text-[24px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{p.name}</h3>
+                <p className="text-[15.5px] leading-[1.65] flex-1 mb-6" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                <span className="prod3-cta inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                  {p.cta} <Icon name="arrow" className="w-3.5 h-3.5" />
+                </span>
               </a>
             ))}
           </div>

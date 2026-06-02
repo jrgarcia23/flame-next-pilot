@@ -18,17 +18,17 @@ const cfg: HomeRestyleConfig = {
   stepsTitle: "Analítica de vídeo con IA sin fricciones para",
   stepsTitleHl: "Retail",
   steps: [
-    { icon: "connect",     title: "Conéctate sin esfuerzo", desc: "Conecta Flame a tu infraestructura existente (cámaras y contadores de personas) con una instalación plug-and-play que funciona al instante, sin necesidad de hardware adicional ni instalaciones complejas." },
-    { icon: "layout",      title: "Configura tu lógica",    desc: "Define fácilmente zonas, líneas de conteo, mapas de calor, datos demográficos y reglas de negocio a través de una interfaz intuitiva, sin necesidad de programación ni configuraciones técnicas." },
-    { icon: "trending",    title: "Mide lo que importa",    desc: "Accede a insights en tiempo real para comprender el comportamiento de los clientes, optimizar el rendimiento del espacio y mejorar la experiencia general en cualquier entorno físico." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conéctate sin esfuerzo", desc: "Conecta Flame a tu infraestructura existente (cámaras y contadores de personas) con una instalación plug-and-play que funciona al instante, sin necesidad de hardware adicional ni instalaciones complejas." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configura tu lógica",    desc: "Define fácilmente zonas, líneas de conteo, mapas de calor, datos demográficos y reglas de negocio a través de una interfaz intuitiva, sin necesidad de programación ni configuraciones técnicas." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Mide lo que importa",    desc: "Accede a insights en tiempo real para comprender el comportamiento de los clientes, optimizar el rendimiento del espacio y mejorar la experiencia general en cualquier entorno físico." },
   ],
 
   productsTitle: "Datos que potencian",
   productsTitleHl: "espacios inteligentes",
   products: [
-    { icon: "traffic", name: "Traffic",          desc: "Mide el tráfico dentro y fuera del espacio, monitorea la ocupación en tiempo real y mide la conversión, todo desde una plataforma única y completa.", img: "/wp-content/uploads/2025/09/Traffic_bue1.png",        href: "/es/analitica-trafico/", cta: "Conocer Traffic" },
-    { icon: "journey", name: "Customer Journey", desc: "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.", img: "/wp-content/uploads/2026/01/road-route-map-icon-1.png", href: "/es/customer-journey/",  cta: "Conocer Customer Journey" },
-    { icon: "connect", name: "Connect",          desc: "Recopila datos de los visitantes a través del WiFi para invitados y lanza campañas de marketing personalizadas según su ubicación, perfil y comportamiento.", img: "/wp-content/uploads/2026/01/Group-1.png",               href: "/es/connect/",            cta: "Conocer Connect" },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Mide el tráfico dentro y fuera del espacio, monitorea la ocupación en tiempo real y mide la conversión, todo desde una plataforma única y completa.", href: "/es/analitica-trafico/", cta: "Conocer Traffic" },
+    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.", href: "/es/customer-journey/",  cta: "Conocer Customer Journey" },
+    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Recopila datos de los visitantes a través del WiFi para invitados y lanza campañas de marketing personalizadas según su ubicación, perfil y comportamiento.",                                href: "/es/connect/",            cta: "Conocer Connect" },
   ],
 
   advantageTitle: "La ventaja de Flame",

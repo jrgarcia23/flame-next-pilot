@@ -18,17 +18,17 @@ const cfg: HomeRestyleConfig = {
   stepsTitle: "Seamless AI Video Analytics for",
   stepsTitleHl: "Shopping Malls",
   steps: [
-    { icon: "connect",  title: "Connect seamlessly",   desc: "Plug Flame into your existing infrastructure (cameras and people counters) with a plug-and-play installation that just works, with no extra hardware or complex deployments." },
-    { icon: "layout",   title: "Configure your logic", desc: "Define zones, counting lines, heatmaps, demographics and business rules through an intuitive interface, without coding or technical configuration." },
-    { icon: "trending", title: "Measure what matters", desc: "Access real-time insights to understand customer behavior, optimize space performance and improve the overall experience across any physical environment." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect seamlessly",   desc: "Plug Flame into your existing infrastructure (cameras and people counters) with a plug-and-play installation that just works, with no extra hardware or complex deployments." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configure your logic", desc: "Define zones, counting lines, heatmaps, demographics and business rules through an intuitive interface, without coding or technical configuration." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Measure what matters", desc: "Access real-time insights to understand customer behavior, optimize space performance and improve the overall experience across any physical environment." },
   ],
 
   productsTitle: "Data driven for",
   productsTitleHl: "smart spaces",
   products: [
-    { icon: "traffic", name: "Traffic",          desc: "Measure inside and outside traffic, monitor occupancy in real time and compute conversion, all from a single, complete platform.",                                  img: "/wp-content/uploads/2025/09/Traffic_bue1.png",        href: "/en/traffic-insights/",  cta: "Discover Traffic" },
-    { icon: "journey", name: "Customer Journey", desc: "Analyze customer journeys and interactions to understand in-store behavior and optimize the experience at every touchpoint.",                                       img: "/wp-content/uploads/2026/01/road-route-map-icon-1.png", href: "/en/customer-journey/",  cta: "Discover Customer Journey" },
-    { icon: "connect", name: "Connect",          desc: "Capture visitor data through guest WiFi and launch personalized marketing campaigns based on location, profile and behavior.",                                     img: "/wp-content/uploads/2026/01/Group-1.png",               href: "/en/connect/",            cta: "Discover Connect" },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Measure inside and outside traffic, monitor occupancy in real time and compute conversion, all from a single, complete platform.",                  href: "/en/traffic-insights/",  cta: "Discover Traffic" },
+    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analyze customer journeys and interactions to understand in-store behavior and optimize the experience at every touchpoint.",                         href: "/en/customer-journey/",  cta: "Discover Customer Journey" },
+    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Capture visitor data through guest WiFi and launch personalized marketing campaigns based on location, profile and behavior.",                          href: "/en/connect/",            cta: "Discover Connect" },
   ],
 
   advantageTitle: "The Flame advantage",
