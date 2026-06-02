@@ -118,23 +118,17 @@
 </div>
 </main>
 
+
 <script>
 (function(){
   function send(){
-    var h = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    );
+    var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
     try { parent.postMessage({type:'flame-iframe-resize', id:document.title, height:h}, '*'); } catch(e){}
   }
   window.addEventListener('load', send);
   window.addEventListener('resize', send);
-  if (typeof ResizeObserver !== 'undefined') {
-    var ro = new ResizeObserver(send);
-    ro.observe(document.body);
-  } else {
-    setInterval(send, 1000);
-  }
+  if (typeof ResizeObserver !== 'undefined') { (new ResizeObserver(send)).observe(document.body); }
+  else { setInterval(send, 1000); }
   send();
 })();
 </script>
