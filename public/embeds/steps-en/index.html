@@ -43,11 +43,15 @@
   <link rel="stylesheet" href="/wp-content/uploads/elementor/google-fonts/css/robotoslab.css?ver=1742473057">
   <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/fontawesome.min.css?ver=5.15.3">
   <link rel="stylesheet" href="/wp-content/plugins/elementor/assets/lib/font-awesome/css/solid.min.css?ver=5.15.3">
+<style>html,body{margin:0;padding:0;background:#fff;overflow-x:hidden;}body{font-family:"Clash Grotesk Variable","Instrument Sans",system-ui,sans-serif;color:#3A3B6A;}.site-main{width:100%;max-width:100%;padding:0;margin:0;}</style>
+
 <style>
-  html,body { margin:0; padding:0; background:#fff; overflow-x:hidden; }
-  body { font-family: "Clash Grotesk Variable", "Instrument Sans", system-ui, sans-serif; color:#3A3B6A; }
-  .site-main { width:100%; max-width:100%; padding:0; margin:0; }
+  /* Quita los 2 divider widgets finales que añaden whitespace innecesario */
+  .elementor-widget-divider { display:none !important; }
+  /* Reduce padding bottom de la sección principal */
+  .elementor-section.elementor-element-7fd27d34 { padding-bottom: 24px !important; }
 </style>
+
 </head>
 <body class="page-template-default page page-id-46184 wp-embed-responsive elementor-default elementor-template-canvas elementor-kit-45999 elementor-page elementor-page-46184">
 <main id="content" class="site-main">
@@ -143,35 +147,7 @@
 </div>
 </div>
 </main>
-
-<script>
-(function(){
-  var words = ["Shopping Malls", "Retail", "Hospitality", "Public Venues"];
-  var el = document.getElementById("headline-dynamic");
-  if (!el) return;
-  var i = words.indexOf(el.textContent.trim());
-  if (i < 0) i = 0;
-  setInterval(function(){
-    i = (i + 1) % words.length;
-    el.textContent = words[i];
-  }, 3000);
-})();
-</script>
-
-
-<script>
-(function(){
-  function send(){
-    var h = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-    try { parent.postMessage({type:'flame-iframe-resize', id:document.title, height:h}, '*'); } catch(e){}
-  }
-  window.addEventListener('load', send);
-  window.addEventListener('resize', send);
-  if (typeof ResizeObserver !== 'undefined') { (new ResizeObserver(send)).observe(document.body); }
-  else { setInterval(send, 1000); }
-  send();
-})();
-</script>
-
+<script>(function(){var words=["Shopping Malls","Retail","Hospitality","Public Venues"];var el=document.getElementById("headline-dynamic");if(!el)return;var i=words.indexOf(el.textContent.trim());if(i<0)i=0;setInterval(function(){i=(i+1)%words.length;el.textContent=words[i];},3000);})();</script>
+<script>(function(){function send(){var h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);try{parent.postMessage({type:'flame-iframe-resize',id:document.title,height:h},'*');}catch(e){}}window.addEventListener('load',send);window.addEventListener('resize',send);if(typeof ResizeObserver!=='undefined'){(new ResizeObserver(send)).observe(document.body);}else{setInterval(send,1000);}send();})();</script>
 </body>
 </html>

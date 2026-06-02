@@ -134,7 +134,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
 
       {/* 3. STEPS — iframe del WP original con auto-resize */}
       <section style={{ background: "#fff" }}>
-        <ResizingIframe src={embedSrc} title="steps" fallbackHeight={900} />
+        <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
 
       {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
@@ -146,8 +146,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           <div className="grid gap-6 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.products.map((p) => (
               <a key={p.name} href={p.href} className="prod3-card rounded-2xl p-8 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                <div className="prod3-iconwrap flex items-center mb-6" style={{ height: 96 }}>
-                  <img src={p.iconImg} alt={p.name} style={{ maxHeight: 96, maxWidth: 132, width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
+                <div className="prod3-iconwrap inline-flex items-center justify-center rounded-[14px] mb-6" style={{ width: 64, height: 64, background: "rgb(49 177 248 / 0.12)" }}>
+                  <img src={p.iconImg} alt={p.name} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
                 </div>
                 <h3 className="text-[24px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{p.name}</h3>
                 <p className="text-[15.5px] leading-[1.65] flex-1 mb-6" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
@@ -248,7 +248,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 9. TESTIMONIALS title + marquee */}
-      <section className="py-24 overflow-hidden" style={{ background: "#fff" }}>
+      <section className="py-20 overflow-hidden" style={{ background: "#fff" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
             {cfg.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.testimonialsTitleHl}</span>
@@ -280,7 +280,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 10. INDUSTRIES (4 dark cards) */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className="py-20 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.08), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.05), transparent 72%)" }} />
         <div className="flame-container relative z-10">
           <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
