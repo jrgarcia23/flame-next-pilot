@@ -41,6 +41,8 @@ export type HomeRestyleConfig = {
   integrationBody: string;
   integrationImg: string;
   integrationImgAlt: string;
+  integrationCta: string;
+  integrationHref: string;
   // TESTIMONIALS
   testimonialsTitle: string;
   testimonialsTitleHl: string;
@@ -134,18 +136,12 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           </h2>
           <div className="grid gap-6 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {cfg.steps.map((st, i) => (
-              <article key={i} className="step-card relative rounded-2xl p-8 overflow-hidden" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
-                {st.bgImg && (
-                  <img src={st.bgImg} alt="" aria-hidden className="absolute pointer-events-none" style={{ top: 16, right: 16, width: 92, height: "auto", opacity: 0.45 }} />
-                )}
-                <div className="step-num inline-flex items-center justify-center rounded-full mb-6 text-[15px] font-semibold relative z-10" style={{ width: 36, height: 36, background: "var(--color-navy)", color: "var(--color-accent)" }}>
-                  {String(i + 1).padStart(2, "0")}
+              <article key={i} className="step-card rounded-2xl p-8" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
+                <div className="step-icon flex items-center mb-6" style={{ height: 96 }}>
+                  <img src={st.iconImg} alt={st.title} style={{ maxHeight: 96, maxWidth: 160, width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                 </div>
-                <div className="step-icon flex items-center justify-center mb-5 relative z-10" style={{ width: 88, height: 88 }}>
-                  <img src={st.iconImg} alt={st.title} style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
-                </div>
-                <h3 className="text-[22px] font-normal mb-3 relative z-10" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
-                <p className="text-[15.5px] leading-[1.65] relative z-10" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
+                <h3 className="text-[22px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
+                <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
               </article>
             ))}
           </div>
@@ -205,7 +201,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
               <img src={cfg.privacyImg} alt={cfg.privacyImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <div>
@@ -237,7 +233,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
             </div>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-paper)", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+            <div className="rounded-2xl overflow-hidden" style={{ background: "var(--color-paper)", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
               <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
           </div>
@@ -249,14 +245,18 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "none" }}>
               <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
             </div>
             <div>
               <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
                 {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
               </h2>
-              <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
+              <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
+              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-navy)", color: "#fff" }}>
+                {cfg.integrationCta}
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

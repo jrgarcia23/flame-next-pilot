@@ -55,6 +55,8 @@ const cfg: HomeRestyleConfig = {
   integrationBody: "Flame integrates with your current stack: POS (Cegid, Microsoft Dynamics, SAP), ERP, BI (Power BI, Tableau, Looker) and data lakes. Native connectors, open REST API and webhooks. No construction, no replacements, no never-ending projects.",
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagram of Flame integrations with POS / ERP / BI stack",
+  integrationCta: "Read more",
+  integrationHref: "/en/detailed-information/",
 
   testimonialsTitle: "Trusted by the",
   testimonialsTitleHl: "best brands",

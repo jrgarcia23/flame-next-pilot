@@ -55,6 +55,8 @@ const cfg: HomeRestyleConfig = {
   integrationBody: "Flame se integra con tu stack actual: TPV (Cegid, Microsoft Dynamics, SAP), ERP, BI (Power BI, Tableau, Looker) y data lakes. Conectores nativos, API REST abierta y webhooks. Sin obra, sin reemplazar tecnología, sin proyectos eternos.",
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagrama de integraciones de Flame con stack TPV / ERP / BI",
+  integrationCta: "Leer más",
+  integrationHref: "/es/informacion-detallada/",
 
   testimonialsTitle: "Las mejores marcas",
   testimonialsTitleHl: "confían en nosotros",
