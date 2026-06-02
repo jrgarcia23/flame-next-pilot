@@ -151,8 +151,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                   {/* Número en círculo cyan claro */}
                   <div className="step-num" aria-hidden>{i + 1}</div>
                   {/* Icono compuesto grande (Group-141 / 73-1-1 / 81) */}
-                  <div className="step-icon flex items-center justify-center mb-7" style={{ height: 180 }}>
-                    <img src={st.iconImg} alt={st.title} style={{ maxHeight: 180, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
+                  <div className="step-icon flex items-center justify-center mb-7" style={{ height: 220 }}>
+                    <img src={st.iconImg} alt={st.title} style={{ maxHeight: 220, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                   </div>
                   <h3 className="text-[22px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25 }}>{st.title}</h3>
                   <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
@@ -165,22 +165,22 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           .step-wrap { position: relative; }
           .step-connector {
             position: absolute;
-            top: 26px;
-            left: 8%; right: 8%;
-            border-top: 2px dashed var(--color-rule-strong);
+            top: 27px;
+            left: 60px; right: 60px;
+            border-top: 2px dashed #CBD5E1;
             z-index: 0;
+            pointer-events: none;
           }
           .step-num {
             position: absolute;
-            top: -2px; left: 28px;
-            width: 56px; height: 56px;
+            top: 4px; left: 32px;
+            width: 48px; height: 48px;
             border-radius: 9999px;
-            background: #E1F2FE;
-            color: var(--color-accent-deep);
+            background: #DBEAFE;
+            color: #1E3A8A;
             display: flex; align-items: center; justify-content: center;
             font-size: 22px; font-weight: 600;
             font-family: var(--font-display);
-            border: 4px solid #fff;
             z-index: 2;
           }
           .step-card {
