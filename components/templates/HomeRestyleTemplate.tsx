@@ -77,17 +77,22 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
-      {/* 1. HERO con vídeo grande */}
+      {/* 1. HERO — mismo fondo que el live: navy + foto background + overlay gradient */}
       <section
         className="relative overflow-hidden"
         style={{
-          background: "var(--color-navy)",
+          backgroundColor: "#15163A",
+          backgroundImage: "url('/wp-content/uploads/2026/01/02f81c6e339fb84de93b6d01a06a46fa5918ef10-scaled-1.jpg')",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(72px, 8vw, 120px)",
           paddingBottom: "clamp(48px, 5vw, 88px)",
         }}
       >
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 600px at 50% -10%, rgb(49 177 248 / 0.18), transparent 65%), radial-gradient(700px 500px at 10% 110%, rgb(49 177 248 / 0.06), transparent 70%)" }} />
+        {/* Overlay como en el live: navy a opacidad subiendo de 0 a 1 */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgb(21 22 58 / 0.6) 0%, rgb(21 22 58 / 1) 60%)" }} />
         <div className="flame-container relative z-10">
           <div className="text-center mx-auto mb-10" style={{ maxWidth: 920 }}>
             <h1 className="text-[clamp(44px,6vw,80px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.026em", lineHeight: 1.02, fontFamily: "var(--font-display)" }}>
@@ -113,11 +118,12 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </div>
       </section>
 
-      {/* 2. LOGOS marquee — mismo diseño y tamaño que las páginas interiores (navy + logos blancos a 80px) */}
-      <section className="py-12 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
+           (mismo aspecto que /es/ pero con animación continua) */}
+      <section className="py-16 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
-          <p className="text-center mb-4 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
-            {t.logosBanner}
+          <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
+            Trusted by
           </p>
           <div className="logo-marquee">
             <div className="logo-track">
@@ -131,7 +137,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
           .logo-track:hover { animation-play-state: paused; }
-          .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
+          .logo-img { height: 80px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @media (max-width: 700px) { .logo-img { height: 65px; } }
         `}</style>
