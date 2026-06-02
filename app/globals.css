@@ -99,6 +99,17 @@ h1, h2, h3, h4 {
   to   { transform: translateX(-50%); }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .logo-track,
+  .testimonials-track {
+    animation: none !important;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(20px);

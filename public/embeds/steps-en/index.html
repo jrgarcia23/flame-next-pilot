@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="/">
-<title>Steps embed</title>
+<title>steps-embed</title>
 <link rel="stylesheet" href="/wp-content/plugins/activecampaign-subscription-forms/activecampaign-form-block/build/style-index.css?ver=1767898415">
   <link rel="stylesheet" href="/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=6.1.5">
   <link rel="stylesheet" href="/wp-content/plugins/wpcf7-redirect/build/assets/frontend-script.css?ver=2c532d7e2be36f6af233">
@@ -143,5 +143,27 @@
 </div>
 </div>
 </main>
+
+<script>
+(function(){
+  function send(){
+    var h = Math.max(
+      document.documentElement.scrollHeight,
+      document.body.scrollHeight
+    );
+    try { parent.postMessage({type:'flame-iframe-resize', id:document.title, height:h}, '*'); } catch(e){}
+  }
+  window.addEventListener('load', send);
+  window.addEventListener('resize', send);
+  if (typeof ResizeObserver !== 'undefined') {
+    var ro = new ResizeObserver(send);
+    ro.observe(document.body);
+  } else {
+    setInterval(send, 1000);
+  }
+  send();
+})();
+</script>
+
 </body>
 </html>

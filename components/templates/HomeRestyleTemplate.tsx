@@ -1,7 +1,7 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
+import ResizingIframe from "./ResizingIframe";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL } from "@/lib/page-content";
-import { STEPS_HTML_ES, STEPS_HTML_EN, STEPS_CSS_LINKS } from "@/lib/clones/home-steps-section";
 
 export type HomeRestyleConfig = {
   // HERO
@@ -132,16 +132,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 3. STEPS — iframe a un HTML estático con la sección literal del WP + sus 36 CSS Elementor.
-           Aislado del CSS de Next/Tailwind para que el render sea pixel-idéntico al live. */}
+      {/* 3. STEPS — iframe del WP original con auto-resize */}
       <section style={{ background: "#fff" }}>
-        <iframe
-          src={embedSrc}
-          title="steps"
-          style={{ width: "100%", height: "900px", border: 0, display: "block" }}
-          loading="lazy"
-          scrolling="no"
-        />
+        <ResizingIframe src={embedSrc} title="steps" fallbackHeight={900} />
       </section>
 
       {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
@@ -234,23 +227,22 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <style>{`@media (max-width: 900px) { .stripe-grid-rev { grid-template-columns: 1fr !important; } .stripe-grid-rev > div:last-child { order: -1; } }`}</style>
       </section>
 
-      {/* 8. INTEGRATION STRIPE — image left + text right */}
+      {/* 8. INTEGRATION STRIPE — layout vertical: texto centrado arriba + imagen full-width abajo
+           (diferenciado de los 2 stripes anteriores que son side-by-side) */}
       <section className="pt-12 pb-24" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
-            <div>
-              <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
-            <div>
-              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
-              </h2>
-              <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
-              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
-                {cfg.integrationCta}
-                <Icon name="arrow" className="w-4 h-4" />
-              </a>
-            </div>
+          <div className="text-center mx-auto mb-10" style={{ maxWidth: 760 }}>
+            <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
+            </h2>
+            <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
+            <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              {cfg.integrationCta}
+              <Icon name="arrow" className="w-4 h-4" />
+            </a>
+          </div>
+          <div className="mx-auto" style={{ maxWidth: 1100 }}>
+            <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
           </div>
         </div>
       </section>
@@ -324,14 +316,12 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 11. COMMUNITY — iframe del WP original (mismos cards, mismas medidas, mismo CSS Elementor) */}
+      {/* 11. COMMUNITY — iframe del WP original con auto-resize */}
       <section style={{ background: "#fff" }}>
-        <iframe
+        <ResizingIframe
           src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
           title="community"
-          style={{ width: "100%", height: "780px", border: 0, display: "block" }}
-          loading="lazy"
-          scrolling="no"
+          fallbackHeight={780}
         />
       </section>
 

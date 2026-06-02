@@ -152,7 +152,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           .nav-link:active {
             display: inline-flex; align-items: center;
             padding: 8px 14px;
-            font-family: "Instrument Sans", system-ui, sans-serif !important;
+            font-family: var(--font-body) !important;
             font-size: 16px !important; font-weight: 600 !important; line-height: 1.4 !important;
             color: #fff !important;
             background: transparent !important; border: 0; cursor: pointer;
