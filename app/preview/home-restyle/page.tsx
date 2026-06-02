@@ -17,6 +17,7 @@ const cfg: HomeRestyleConfig = {
 
   stepsTitle: "Analítica de vídeo con IA sin fricciones para",
   stepsTitleHl: "Retail",
+  stepsSub: "Información accionable para optimizar el tráfico, el rendimiento y la experiencia en tus espacios",
   steps: [
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conéctate sin esfuerzo", desc: "Conecta Flame a tu infraestructura existente (cámaras y contadores de personas) con una instalación plug-and-play que funciona al instante, sin necesidad de hardware adicional ni instalaciones complejas." },
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configura tu lógica",    desc: "Define fácilmente zonas, líneas de conteo, mapas de calor, datos demográficos y reglas de negocio a través de una interfaz intuitiva, sin necesidad de programación ni configuraciones técnicas." },

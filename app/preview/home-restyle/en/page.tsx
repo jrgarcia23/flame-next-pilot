@@ -17,6 +17,7 @@ const cfg: HomeRestyleConfig = {
 
   stepsTitle: "Seamless AI Video Analytics for",
   stepsTitleHl: "Shopping Malls",
+  stepsSub: "Actionable insight to optimize traffic, performance and experience across your spaces",
   steps: [
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect seamlessly",   desc: "Plug Flame into your existing infrastructure (cameras and people counters) with a plug-and-play installation that just works, with no extra hardware or complex deployments." },
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configure your logic", desc: "Define zones, counting lines, heatmaps, demographics and business rules through an intuitive interface, without coding or technical configuration." },

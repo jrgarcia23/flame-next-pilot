@@ -13,6 +13,7 @@ export type HomeRestyleConfig = {
   // 3 STEP CARDS
   stepsTitle: string;
   stepsTitleHl: string;         // "para Retail" accent
+  stepsSub?: string;
   steps: Array<{ iconImg: string; bgImg?: string; title: string; desc: string }>;
   // PRODUCTS BLOCK
   productsTitle: string;
@@ -128,35 +129,74 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 3. H1 STEPS — 3 cards (Conéctate / Configura / Mide) */}
+      {/* 3. STEPS — h2 + subtitle + 3 cards conectados con línea discontinua */}
       <section className="py-24" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <h2 className="text-center mx-auto mb-14 text-[clamp(34px,3.8vw,52px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.024em", lineHeight: 1.06, fontFamily: "var(--font-display)", maxWidth: 920 }}>
-            {cfg.stepsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.stepsTitleHl}</span>
-          </h2>
-          <div className="grid gap-7 step-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {cfg.steps.map((st, i) => (
-              <article key={i} className="step-card rounded-2xl p-9 flex flex-col items-center text-center" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                {st.bgImg && (
-                  <div className="step-num mb-2" style={{ height: 56 }}>
-                    <img src={st.bgImg} alt="" aria-hidden style={{ height: 56, width: "auto", display: "block" }} />
+          <div className="text-center mx-auto mb-16" style={{ maxWidth: 920 }}>
+            <h2 className="text-[clamp(34px,3.8vw,52px)] font-normal mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.024em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
+              {cfg.stepsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.stepsTitleHl}</span>
+            </h2>
+            {cfg.stepsSub && (
+              <p className="text-[clamp(17px,1.3vw,20px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "62ch" }}>
+                {cfg.stepsSub}
+              </p>
+            )}
+          </div>
+          <div className="step-wrap relative">
+            {/* línea discontinua horizontal detrás de los cards a la altura de los números */}
+            <div className="step-connector" aria-hidden />
+            <div className="grid gap-7 step-grid relative" style={{ gridTemplateColumns: "repeat(3, 1fr)", zIndex: 1 }}>
+              {cfg.steps.map((st, i) => (
+                <article key={i} className="step-card relative rounded-2xl" style={{ background: "#fff", border: "1px solid var(--color-rule)", padding: "56px 32px 36px" }}>
+                  {/* Número en círculo cyan claro */}
+                  <div className="step-num" aria-hidden>{i + 1}</div>
+                  {/* Icono compuesto grande (Group-141 / 73-1-1 / 81) */}
+                  <div className="step-icon flex items-center justify-center mb-7" style={{ height: 180 }}>
+                    <img src={st.iconImg} alt={st.title} style={{ maxHeight: 180, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
                   </div>
-                )}
-                <div className="step-icon flex items-center justify-center mb-8" style={{ height: 220 }}>
-                  <img src={st.iconImg} alt={st.title} style={{ maxHeight: 220, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
-                </div>
-                <h3 className="text-[24px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{st.title}</h3>
-                <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
-              </article>
-            ))}
+                  <h3 className="text-[22px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25 }}>{st.title}</h3>
+                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
         <style>{`
-          @media (max-width: 1000px) { .step-grid { grid-template-columns: 1fr !important; max-width: 540px; margin: 0 auto; } }
-          .step-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .step-card:hover { transform: translateY(-1px); background: #fff !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
-          .step-card .step-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .step-card:hover .step-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
+          .step-wrap { position: relative; }
+          .step-connector {
+            position: absolute;
+            top: 26px;
+            left: 8%; right: 8%;
+            border-top: 2px dashed var(--color-rule-strong);
+            z-index: 0;
+          }
+          .step-num {
+            position: absolute;
+            top: -2px; left: 28px;
+            width: 56px; height: 56px;
+            border-radius: 9999px;
+            background: #E1F2FE;
+            color: var(--color-accent-deep);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; font-weight: 600;
+            font-family: var(--font-display);
+            border: 4px solid #fff;
+            z-index: 2;
+          }
+          .step-card {
+            transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                        border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+                        box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
+          }
+          .step-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--color-rule-strong) !important;
+            box-shadow: 0 10px 30px -16px rgb(15 23 42 / 0.12);
+          }
+          @media (max-width: 1000px) {
+            .step-grid { grid-template-columns: 1fr !important; max-width: 540px; margin: 0 auto; }
+            .step-connector { display: none; }
+          }
         `}</style>
       </section>
 
