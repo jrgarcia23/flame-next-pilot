@@ -65,13 +65,10 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
 
-  const stepsHtml = currentLang === "en" ? STEPS_HTML_EN : STEPS_HTML_ES;
+  const embedSrc = currentLang === "en" ? "/preview/embed-steps-en.html" : "/preview/embed-steps-es.html";
 
   return (
     <>
-      {STEPS_CSS_LINKS.map((href) => (
-        <link key={href} rel="stylesheet" href={href} />
-      ))}
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
@@ -135,8 +132,17 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 3. STEPS — bloque clonado literalmente del WP original (mismo HTML + CSS Elementor) */}
-      <div className="steps-clone" dangerouslySetInnerHTML={{ __html: stepsHtml }} />
+      {/* 3. STEPS — iframe a un HTML estático con la sección literal del WP + sus 36 CSS Elementor.
+           Aislado del CSS de Next/Tailwind para que el render sea pixel-idéntico al live. */}
+      <section style={{ background: "#fff" }}>
+        <iframe
+          src={embedSrc}
+          title="steps"
+          style={{ width: "100%", height: "900px", border: 0, display: "block" }}
+          loading="lazy"
+          scrolling="no"
+        />
+      </section>
 
       {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
