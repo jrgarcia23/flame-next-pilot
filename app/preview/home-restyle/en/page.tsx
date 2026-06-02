@@ -32,7 +32,7 @@ const cfg: HomeRestyleConfig = {
     { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Capture visitor data through guest WiFi and launch personalized marketing campaigns based on location, profile and behavior.",                          href: "/en/connect/",            cta: "Discover Connect" },
   ],
 
-  advantageTitle: "The Flame advantage",
+  advantageTitle: '<span style="color:var(--color-accent);font-weight:500">The Flame</span> advantage',
   advantageSub: "Advanced AI video analytics engineered for privacy, accuracy and performance.",
 
   privacyTitle: "Privacy-first.",

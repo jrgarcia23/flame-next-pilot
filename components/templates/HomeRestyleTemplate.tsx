@@ -174,14 +174,16 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 5. ADVANTAGE INTRO — mismo patrón que el header de steps: h2 grande centrado + subtítulo */}
-      <section className="py-24 pb-12" style={{ background: "#fff" }}>
+      {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
+      <section className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto" style={{ maxWidth: 920 }}>
-            <h2 className="text-[clamp(34px,3.8vw,52px)] font-normal mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.024em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
-              {cfg.advantageTitle}
-            </h2>
-            <p className="text-[clamp(17px,1.3vw,20px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "62ch" }}>
+          <div className="text-center mx-auto" style={{ maxWidth: 800 }}>
+            <h2
+              className="text-[clamp(32px,3.4vw,48px)] font-normal mb-5"
+              style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}
+              dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }}
+            />
+            <p className="text-[clamp(17px,1.25vw,19px)] leading-relaxed mx-auto" style={{ color: "var(--color-ink-2)" }}>
               {cfg.advantageSub}
             </p>
           </div>
