@@ -1,6 +1,7 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL } from "@/lib/page-content";
+import { STEPS_HTML_ES, STEPS_HTML_EN, STEPS_CSS_LINKS } from "@/lib/clones/home-steps-section";
 
 export type HomeRestyleConfig = {
   // HERO
@@ -64,8 +65,13 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
 
+  const stepsHtml = currentLang === "en" ? STEPS_HTML_EN : STEPS_HTML_ES;
+
   return (
     <>
+      {STEPS_CSS_LINKS.map((href) => (
+        <link key={href} rel="stylesheet" href={href} />
+      ))}
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
@@ -129,70 +135,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 3. STEPS — h2 + subtitle + 3 cards conectados con línea discontinua */}
-      <section className="py-24" style={{ background: "#fff" }}>
-        <div className="flame-container">
-          <div className="text-center mx-auto mb-16" style={{ maxWidth: 920 }}>
-            <h2 className="text-[clamp(34px,3.8vw,52px)] font-normal mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.024em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
-              {cfg.stepsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.stepsTitleHl}</span>
-            </h2>
-            {cfg.stepsSub && (
-              <p className="text-[clamp(17px,1.3vw,20px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "62ch" }}>
-                {cfg.stepsSub}
-              </p>
-            )}
-          </div>
-          <div className="step-wrap relative">
-            <div className="step-connector" aria-hidden />
-            <div className="grid gap-7 step-grid relative" style={{ gridTemplateColumns: "repeat(3, 1fr)", zIndex: 1 }}>
-              {cfg.steps.map((st, i) => (
-                <article key={i} className="step-card relative" style={{ background: "#fff", padding: "56px 36px 40px", borderRadius: 24 }}>
-                  {st.bgImg && (
-                    <img src={st.bgImg} alt={`Paso ${i + 1}`} className="step-badge" width={45} height={45} />
-                  )}
-                  <div className="step-icon flex items-center justify-center mb-8" style={{ minHeight: 200 }}>
-                    <img src={st.iconImg} alt={st.title} style={{ maxHeight: 240, maxWidth: "100%", width: "auto", height: "auto", objectFit: "contain", display: "block" }} />
-                  </div>
-                  <h3 className="text-[22px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25 }}>{st.title}</h3>
-                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{st.desc}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </div>
-        <style>{`
-          .step-wrap { position: relative; padding-top: 24px; }
-          .step-connector {
-            position: absolute;
-            top: 23px;          /* centro vertical de los badges 45×45 */
-            left: 60px; right: 60px;
-            border-top: 2px dashed #CBD5E1;
-            z-index: 0;
-            pointer-events: none;
-          }
-          .step-badge {
-            position: absolute;
-            top: -22px;          /* 45px badge a caballo: 22 fuera + 23 dentro del card */
-            left: 32px;
-            width: 45px; height: 45px;
-            z-index: 2;
-            display: block;
-          }
-          .step-card {
-            box-shadow: 0 14px 40px -18px rgb(15 23 42 / 0.10);
-            transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
-                        box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1);
-          }
-          .step-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 50px -18px rgb(15 23 42 / 0.16);
-          }
-          @media (max-width: 1000px) {
-            .step-grid { grid-template-columns: 1fr !important; max-width: 540px; margin: 0 auto; }
-            .step-connector { display: none; }
-          }
-        `}</style>
-      </section>
+      {/* 3. STEPS — bloque clonado literalmente del WP original (mismo HTML + CSS Elementor) */}
+      <div className="steps-clone" dangerouslySetInnerHTML={{ __html: stepsHtml }} />
 
       {/* 4. PRODUCTS — h2 "Datos que potencian espacios inteligentes" + 3 cards */}
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
