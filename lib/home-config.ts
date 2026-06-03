@@ -49,8 +49,8 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   reportsBody: "Convierte los datos en decisiones con paneles personalizables e informes dinámicos. Visualiza métricas clave, mapas de calor y tendencias en tiempo real. Utiliza herramientas de arrastrar y soltar o plantillas prediseñadas, automatiza los informes y realiza el seguimiento de más de 200 KPI adaptados a tu negocio para tomar decisiones más rápidas y mantener un control total en todas las ubicaciones.",
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Dashboard de Flame con métricas avanzadas",
-  reportsCta: "Ver demo",
-  reportsHref: "/es/contacta/",
+  reportsCta: "Leer más",
+  reportsHref: "/es/informacion-detallada/",
 
   integrationTitle: "Integración sin fricciones.",
   integrationTitleHl: "Diseño agnóstico.",
@@ -127,8 +127,8 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   reportsBody: "Turn data into decisions with customizable dashboards and dynamic reports. Visualize key metrics, heatmaps and trends in real time. Use drag-and-drop tools or pre-built templates, automate reporting, and track over 200 KPIs tailored to your business for faster decisions and full control across locations.",
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Flame dashboard with advanced metrics",
-  reportsCta: "See demo",
-  reportsHref: "/en/contact-us/",
+  reportsCta: "Read more",
+  reportsHref: "/en/detailed-information/",
 
   integrationTitle: "Seamless integration.",
   integrationTitleHl: "Agnostic by design.",

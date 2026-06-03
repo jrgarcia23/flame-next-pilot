@@ -200,7 +200,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           <div className="hidden md:inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-[0.08em]" style={{ color: "rgb(255 255 255 / 0.5)" }}>
             <span style={{ color: "#fff" }}>{currentLangCode}</span><span style={{ color: "rgb(255 255 255 / 0.4)" }}>|</span><a href={otherHref} style={{ color: "rgb(255 255 255 / 0.6)" }}>{otherLangCode}</a>
           </div>
-          <a href="/es/contacta/" className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+          <a href="/es/contacta/" className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
             Solicita una demo
           </a>
           {/* Mobile hamburger */}
