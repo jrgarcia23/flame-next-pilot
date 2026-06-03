@@ -88,7 +88,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(72px, 8vw, 120px)",
-          paddingBottom: "clamp(60px, 7vw, 90px)",
+          paddingBottom: "clamp(38px, 4vw, 70px)",
         }}
       >
         {/* Overlay como en el live: navy a opacidad subiendo de 0 a 1 */}
@@ -120,7 +120,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
 
       {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
            (mismo aspecto que /es/ pero con animación continua) */}
-      <section className="pt-[90px] pb-[30px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className="pt-[51px] pb-[51px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
           <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
             Trusted by
@@ -149,7 +149,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 4. PRODUCTS — 2 columnas: izquierda título/sub/bullets, derecha 3 cards verticales estrechas */}
-      <section className="pt-[40px] pb-[20px]" style={{ background: "var(--color-paper)" }}>
+      <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
             <div>
@@ -203,7 +203,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
-      <section className="pt-[140px] pb-0" style={{ background: "#fff" }}>
+      <section className="pt-20 pb-0" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 800 }}>
             <h2
@@ -219,7 +219,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="py-[20px]" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -241,7 +241,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 7. REPORTS STRIPE — text left + image right */}
-      <section className="py-[20px]" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
@@ -263,7 +263,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 8. INTEGRATION STRIPE — image left + text right (mismo layout que Privacy) */}
-      <section className="pt-[20px] pb-[90px]" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -308,7 +308,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       )}
 
       {/* 9. TESTIMONIALS title + marquee */}
-      <section className="pt-[50px] pb-[20px] overflow-hidden" style={{ background: "var(--color-paper)" }}>
+      <section className="py-20 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
             {cfg.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.testimonialsTitleHl}</span>
@@ -340,7 +340,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 10. INDUSTRIES (4 dark cards) */}
-      <section className="pt-[50px] pb-[20px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className="py-20 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.08), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.05), transparent 72%)" }} />
         <div className="flame-container relative z-10">
           <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
@@ -377,7 +377,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 11. COMMUNITY — iframe del WP original con auto-resize, sobre paper para diferenciar de la sección form */}
-      <section className="pt-0 pb-[90px]" style={{ background: "var(--color-paper)" }}>
+      <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <ResizingIframe
           src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
           title="community"
@@ -386,7 +386,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
-      <section className="pt-[60px] pb-[60px]" style={{ background: "#fff" }}>
+      <section className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
