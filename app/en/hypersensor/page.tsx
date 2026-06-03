@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
+import HypersensorGraphic from "@/components/templates/HypersensorGraphic";
 import { UI } from "@/lib/page-content";
 import { HS_EN } from "@/lib/hypersensor-content";
 
@@ -45,11 +46,9 @@ export default function HypersensorEn() {
         }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, rgb(21 22 58 / 0.78) 0%, rgb(21 22 58 / 0.55) 55%, rgb(21 22 58 / 0.35) 100%)" }} />
-        <img
-          src="/wp-content/uploads/2026/01/Group-281-1-1.png"
-          alt="Flame Hypersensor dashboard with Video AI, People Counting, WiFi/BLE and IoT"
-          className="hyp-hero-asset"
-        />
+        <div className="hyp-hero-asset">
+          <HypersensorGraphic />
+        </div>
         <div className="flame-container relative z-10">
           <div style={{ maxWidth: 560 }}>
             <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>
