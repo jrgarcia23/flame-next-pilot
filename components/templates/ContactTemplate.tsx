@@ -90,7 +90,7 @@ export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref
                   <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
                   <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
                 </label>
-                <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)", justifyContent: "center" }}>
+                <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, justifyContent: "center" }}>
                   Solicitar una demo <Icon name="arrow" className="w-4 h-4" />
                 </button>
               </div>

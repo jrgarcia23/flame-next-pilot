@@ -47,7 +47,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 </li>
               ))}
             </ul>
-            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
               {t.requestDemo} <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
@@ -362,7 +362,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
                 <span>{t.consent} <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.</span>
               </label>
-              <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)", width: "fit-content" }}>
+              <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}>
                 {t.submit}
               </button>
             </form>

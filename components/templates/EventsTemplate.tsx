@@ -143,7 +143,7 @@ export default function EventsTemplate({ enHref, currentLang = "es" }: { enHref:
           </p>
           <form className="mt-8 inline-flex gap-3 nl-form">
             <input type="email" placeholder="tu@email.com" required className="nl-in" />
-            <button type="button" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+            <button type="button" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
               Suscribirme
             </button>
           </form>

@@ -48,7 +48,7 @@ export default function ThanksTemplate({
           {nextSteps && nextSteps.length > 0 && (
             <div className="mt-10 inline-flex flex-wrap gap-3 justify-center">
               {nextSteps.map((s, i) => (
-                <a key={i} href={s.href} className={i === 0 ? "cta-btn cta-btn--lg" : "cta-btn cta-btn--lg"} style={i === 0 ? { background: "var(--color-accent)", color: "var(--color-navy)" } : { background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
+                <a key={i} href={s.href} className={i === 0 ? "cta-btn cta-btn--lg" : "cta-btn cta-btn--lg"} style={i === 0 ? { background: "var(--color-accent)", color: "#fff", fontWeight: 700 } : { background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
                   {s.label}
                   {i === 0 && <Icon name="arrow" className="w-4 h-4" />}
                 </a>
