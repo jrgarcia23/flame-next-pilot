@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Flame · Sobre nosotros · 3 propuestas UX</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --navy:#15163A; --navy-soft:#1F2055;
+    --accent:#31B1F8; --accent-deep:#1E89C7;
+    --orange:#FE5000;
+    --paper:#F6F7FB; --paper-soft:#ECEEF3;
+    --rule:#E1E5EE; --rule-strong:#C9CFDD;
+    --ink-1:#15163A; --ink-2:#4A4F66; --ink-3:#6E7488;
+    --clash:'Clash Grotesk Variable','Clash Grotesk',ui-sans-serif,system-ui,sans-serif;
+    --body:'Instrument Sans Flame','Instrument Sans','Inter',ui-sans-serif,system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0E0F26;color:#fff;font-family:var(--body)}
+  body{padding:24px 32px 80px}
+  h1.page-title{font-size:24px;font-weight:600;letter-spacing:-0.01em;margin-bottom:8px}
+  .lead{color:rgba(255,255,255,0.65);font-size:14px;margin-bottom:40px;max-width:900px;line-height:1.5}
+  .lead b{color:#fff}
+  .variant{margin-top:80px}
+  .variant-head{display:flex;align-items:baseline;gap:16px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .variant-head h2{font-size:22px;font-weight:600;letter-spacing:-0.01em}
+  .tag{font-size:11px;text-transform:uppercase;letter-spacing:0.14em;font-weight:700}
+  .tag-1{color:#F97316}.tag-2{color:#31B1F8}.tag-3{color:#A78BFA}
+  .stage{background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden}
+  .spec{padding:14px 18px;background:rgba(0,0,0,0.25);color:rgba(255,255,255,0.65);font-size:12.5px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:24px;flex-wrap:wrap}
+  .spec b{color:#fff}
+
+  /* ============ HEROES y SECCIONES ============ */
+  .container{max-width:1280px;margin:0 auto;padding:0 48px}
+  .h-eyebrow{font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;font-family:var(--body)}
+  .h-display{font-family:var(--clash);font-weight:500;letter-spacing:-0.022em;line-height:1.05}
+  .h-h2{font-family:var(--clash);font-weight:500;letter-spacing:-0.018em;line-height:1.15;font-size:42px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:6px;font-weight:700;text-decoration:none;font-size:15px}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.4);color:#fff}
+
+  /* ============ V1 STORYTELLING ============ */
+  .v1-hero{background:var(--navy);min-height:540px;padding:120px 0;color:#fff;position:relative;overflow:hidden}
+  .v1-hero .container{position:relative;z-index:2}
+  .v1-hero .vline{position:absolute;left:65%;top:0;bottom:0;width:2px;background:var(--accent);opacity:0.7}
+  .v1-hero h1{color:#fff;font-size:80px;max-width:780px;margin-bottom:24px}
+  .v1-hero p{font-size:18px;color:rgba(255,255,255,0.75);line-height:1.7;max-width:560px;margin-bottom:32px}
+  .v1-hero .cta-row{display:flex;gap:14px}
+  .v1-hero .scroll-cue{position:absolute;right:48px;bottom:32px;display:flex;align-items:center;gap:12px;font-size:11px;letter-spacing:0.18em;color:rgba(255,255,255,0.55);text-transform:uppercase}
+  .v1-hero .scroll-cue .line{width:1px;height:60px;background:var(--accent);display:inline-block}
+
+  .v1-manifest{background:var(--paper);color:var(--ink-1);padding:120px 0}
+  .v1-manifest .h-eyebrow{color:rgba(15,22,58,0.5)}
+  .v1-manifest h2{font-size:54px;color:var(--ink-1);margin-bottom:48px;max-width:900px}
+  .v1-manifest .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:32px}
+  .v1-manifest .mini{padding:24px;border:1px solid var(--rule);border-radius:10px;background:#fff}
+  .v1-manifest .mini .icn{width:32px;height:32px;border-radius:6px;background:rgba(49,177,248,0.12);color:var(--accent-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px;font-weight:700}
+  .v1-manifest .mini h3{font-family:var(--clash);font-size:18px;color:var(--ink-1);margin-bottom:6px}
+  .v1-manifest .mini p{font-size:14px;color:var(--ink-2);line-height:1.55}
+
+  .v1-timeline{background:var(--navy);padding:100px 0 120px;position:relative}
+  .v1-timeline .timeline-head{padding:0 48px;display:flex;justify-content:space-between;align-items:baseline;margin-bottom:60px;color:#fff}
+  .v1-timeline .timeline-head h2{font-size:36px;font-family:var(--clash);font-weight:500;color:#fff}
+  .v1-timeline .progress{display:flex;gap:12px;align-items:center;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.55)}
+  .v1-timeline .progress .bar{width:140px;height:2px;background:rgba(255,255,255,0.15);position:relative}
+  .v1-timeline .progress .bar::after{content:'';position:absolute;left:0;top:0;bottom:0;width:48%;background:var(--accent)}
+  .v1-timeline .rail{position:absolute;left:0;right:0;top:50%;height:2px;background:rgba(49,177,248,0.45);z-index:1}
+  .v1-timeline .track{display:flex;gap:24px;overflow-x:auto;padding:0 48px 16px;position:relative;z-index:2}
+  .v1-timeline .card{flex:0 0 380px;height:500px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:32px;position:relative;color:#fff;overflow:hidden}
+  .v1-timeline .card .year{position:absolute;top:-30px;right:-10px;font-family:var(--clash);font-size:140px;color:rgba(255,255,255,0.07);line-height:1;font-weight:600}
+  .v1-timeline .card h3{font-family:var(--clash);font-size:26px;margin:60px 0 14px;line-height:1.2}
+  .v1-timeline .card p{font-size:14px;line-height:1.6;color:rgba(255,255,255,0.7)}
+  .v1-timeline .card .footer{position:absolute;bottom:24px;left:32px;right:32px;display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);font-size:12px;color:rgba(255,255,255,0.5)}
+
+  .v1-mission{background:var(--paper);padding:200px 0;text-align:center}
+  .v1-mission .h-eyebrow{color:var(--accent-deep)}
+  .v1-mission p{font-family:var(--clash);font-size:54px;color:var(--ink-1);line-height:1.3;max-width:900px;margin:0 auto;font-weight:500;letter-spacing:-0.018em}
+
+  /* ============ V2 MÉTRICAS ============ */
+  .v2-hero{background:var(--navy);padding:140px 0 80px;color:#fff;position:relative;overflow:hidden}
+  .v2-hero h1{font-family:var(--clash);font-weight:500;font-size:64px;line-height:1.05;max-width:1100px;letter-spacing:-0.022em;color:#fff}
+  .v2-hero h1 .num{color:var(--accent);font-variant-numeric:tabular-nums}
+  .v2-hero p{font-size:18px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:760px;margin:28px 0 36px}
+  .v2-hero .dots{position:absolute;right:48px;top:160px;display:grid;grid-template-columns:repeat(4,12px);gap:18px;width:120px}
+  .v2-hero .dots span{width:8px;height:8px;border-radius:50%;background:var(--accent);opacity:0.4;animation:blink 3s infinite}
+  .v2-hero .dots span:nth-child(2n){animation-delay:0.4s}
+  .v2-hero .dots span:nth-child(3n){animation-delay:1.2s}
+  @keyframes blink{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
+
+  .v2-statbar{background:var(--paper);border-top:2px solid var(--accent);border-bottom:1px solid var(--rule);padding:0;display:grid;grid-template-columns:repeat(4,1fr);position:sticky;top:0;z-index:10}
+  .v2-statbar .stat{padding:18px 0;text-align:center;color:var(--ink-1);border-right:1px solid var(--rule)}
+  .v2-statbar .stat:last-child{border-right:0}
+  .v2-statbar .stat .num{font-family:var(--clash);font-size:28px;font-weight:500;letter-spacing:-0.018em}
+  .v2-statbar .stat .lbl{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-top:4px}
+
+  .v2-tier1{background:var(--paper);padding:120px 0;color:var(--ink-1)}
+  .v2-tier1 h2{font-size:48px;font-family:var(--clash);font-weight:500;color:var(--ink-1);margin-bottom:8px;max-width:900px;letter-spacing:-0.018em;line-height:1.15}
+  .v2-tier1 .cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  .v2-tier1 .card{padding:36px;background:#fff;border:1px solid var(--rule);border-radius:14px}
+  .v2-tier1 .card .logo{height:42px;width:auto;display:block;margin-bottom:18px;color:var(--ink-2);font-family:var(--clash);font-weight:600;font-size:22px}
+  .v2-tier1 .card .quote{font-size:18px;font-style:italic;line-height:1.5;color:var(--ink-1);margin-bottom:14px}
+  .v2-tier1 .card a{font-size:13px;font-weight:600;color:var(--accent-deep);text-decoration:none}
+  .v2-tier1 .card .badge{display:inline-block;padding:4px 10px;border-radius:99px;background:rgba(49,177,248,0.12);color:var(--accent-deep);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+
+  .v2-tier2{background:var(--navy);padding:120px 0;color:#fff;display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:start}
+  .v2-tier2 > div{padding:0 48px}
+  .v2-tier2 h3{font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.55);font-weight:700;margin-bottom:28px}
+  .v2-tier2 .analist-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .v2-tier2 .alogo{padding:20px;border:1px solid rgba(255,255,255,0.15);border-radius:8px;text-align:center;color:rgba(255,255,255,0.8);font-family:var(--clash);font-weight:500;font-size:14px;line-height:36px}
+  .v2-tier2 .press-list{display:flex;flex-direction:column;gap:14px}
+  .v2-tier2 .press-list li{list-style:none;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.1);font-size:14px;line-height:1.5;color:rgba(255,255,255,0.7)}
+  .v2-tier2 .press-list li b{color:#fff;display:block;font-weight:500;font-family:var(--clash);font-size:14px;letter-spacing:0.02em;margin-bottom:2px}
+
+  /* ============ V3 EQUIPO ============ */
+  .v3-hero{background:var(--paper);padding:120px 0 100px;color:var(--ink-1)}
+  .v3-hero .h-eyebrow{color:rgba(15,22,58,0.55)}
+  .v3-hero h1{font-family:var(--clash);font-size:64px;font-weight:500;color:var(--ink-1);line-height:1.05;letter-spacing:-0.022em;margin-bottom:24px;max-width:900px}
+  .v3-hero p{font-size:19px;line-height:1.7;color:var(--ink-2);max-width:680px;margin-bottom:36px}
+
+  .v3-team-photo{height:480px;background-image:linear-gradient(135deg,#1a2240,#2a3050,#1f2747);background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end;padding:48px}
+  .v3-team-photo::before{content:'Foto real del equipo aquí — full-bleed 70vh con parallax suave';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:rgba(255,255,255,0.4);font-size:13px;letter-spacing:0.08em;text-transform:uppercase}
+  .v3-team-photo .caption{color:#fff;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;padding-left:14px;border-left:2px solid var(--accent)}
+
+  .v3-founders{background:var(--paper);padding:120px 0;color:var(--ink-1)}
+  .v3-founders .h-eyebrow{color:rgba(15,22,58,0.55)}
+  .v3-founders .cards{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px}
+  .v3-founders .fcard{padding:36px;background:#fff;border-radius:14px;border:1px solid var(--rule)}
+  .v3-founders .fcard .ph{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,#1F2055,#31B1F8);margin-bottom:20px}
+  .v3-founders .fcard .name{font-family:var(--clash);font-size:22px;font-weight:500;color:var(--ink-1);letter-spacing:-0.012em}
+  .v3-founders .fcard .role{font-size:13px;color:var(--ink-3);margin-bottom:18px;letter-spacing:0.04em}
+  .v3-founders .fcard .quote{font-size:18px;font-style:italic;line-height:1.55;color:var(--ink-1)}
+  .v3-founders .fcard .line{width:40px;height:2px;background:var(--accent);margin-top:18px}
+
+  .v3-mission{background:var(--navy);padding:180px 0;color:#fff}
+  .v3-mission .container{max-width:1080px}
+  .v3-mission p{font-family:var(--clash);font-weight:500;font-size:46px;line-height:1.3;color:#fff;letter-spacing:-0.018em}
+  .v3-mission .sign{margin-top:36px;display:flex;align-items:center;gap:18px;color:rgba(255,255,255,0.65);font-size:14px;font-family:var(--body)}
+  .v3-mission .sign .line{width:40px;height:2px;background:var(--accent)}
+
+  .v3-muted{background:var(--paper-soft);padding:100px 0;color:var(--ink-1);display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+  .v3-muted .block{padding:0 48px;border-right:1px solid var(--rule)}
+  .v3-muted .block:last-child{border-right:0}
+  .v3-muted h4{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(15,22,58,0.45);font-weight:700;margin-bottom:24px}
+  .v3-muted .logos{display:flex;flex-wrap:wrap;gap:14px;align-items:center;opacity:0.55}
+  .v3-muted .logos span{padding:6px 12px;border:1px solid var(--rule);border-radius:6px;background:#fff;font-family:var(--clash);font-size:13px;color:var(--ink-2);font-weight:500}
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Sobre nosotros · 3 propuestas UX</h1>
+<p class="lead">Cada propuesta resuelve los <b>6 problemas del live actual</b> desde una <b>filosofía distinta</b>. Mira las 3, decide cuál quieres que lleve al Next, y la implemento. Las propuestas son <b>extracto visual</b>: hero + sección vedette + cierre o ritmo. El detalle de cada sección está en el reporte del agente UX.</p>
+
+<!-- ====================== V1 STORYTELLING ====================== -->
+<div class="variant">
+  <div class="variant-head">
+    <span class="tag tag-1">V1</span>
+    <h2>Storytelling cronológico</h2>
+    <span style="font-size:13px;color:rgba(255,255,255,0.6);margin-left:auto">Timeline 2016→hoy + premios como checkpoints</span>
+  </div>
+  <div class="stage">
+    <!-- Hero -->
+    <section class="v1-hero">
+      <div class="vline"></div>
+      <div class="container">
+        <div class="h-eyebrow">Desde 2016</div>
+        <h1 class="h-display">Llevamos diez años midiendo lo que pasa cuando nadie mira.</h1>
+        <p>En 2016, Flame nació para resolver una pregunta que el retail físico no sabía contestar: ¿qué hacen realmente las personas en un espacio? Hoy somos la plataforma global de Location Analytics que combina visión por computador, IA y RGPD desde el diseño.</p>
+        <div class="cta-row">
+          <a href="#" class="btn btn-primary">Contacta con nosotros →</a>
+          <a href="#" class="btn btn-ghost">Conoce al equipo</a>
+        </div>
+      </div>
+      <div class="scroll-cue"><span class="line"></span>2016 → HOY</div>
+    </section>
+    <!-- Manifiesto -->
+    <section class="v1-manifest">
+      <div class="container">
+        <div class="h-eyebrow">QUÉ ES FLAME</div>
+        <h2 class="h-display">Una plataforma que ve, mide y entiende espacios físicos.</h2>
+        <div class="mini-grid">
+          <div class="mini"><div class="icn">◉</div><h3>Visión por computador</h3><p>Procesamos cámaras existentes sin biometría ni datos personales.</p></div>
+          <div class="mini"><div class="icn">≡</div><h3>Multi-fuente de datos</h3><p>Vídeo + WiFi + TPV + sensores ambientales en un solo modelo.</p></div>
+          <div class="mini"><div class="icn">⛨</div><h3>RGPD by design</h3><p>Tratamiento anónimo y agregado desde la arquitectura. Sin fricción legal.</p></div>
+        </div>
+      </div>
+    </section>
+    <!-- Timeline -->
+    <section class="v1-timeline">
+      <div class="timeline-head">
+        <h2>La historia de Flame</h2>
+        <div class="progress">2016 — 2026<div class="bar"></div></div>
+      </div>
+      <div class="rail"></div>
+      <div class="track">
+        <div class="card"><div class="year">2016</div><h3>Fundación en Gijón</h3><p>Una idea: traer al espacio físico la misma capa de inteligencia que internet tiene desde hace 20 años.</p><div class="footer">★ Equipo fundador</div></div>
+        <div class="card"><div class="year">2018</div><h3>Primer despliegue enterprise</h3><p>Implantamos Flame en una cadena retail multinacional con presencia en 14 países.</p><div class="footer">Logo cliente · NDA</div></div>
+        <div class="card"><div class="year">2020</div><h3>Reconocidos por Gartner</h3><p>Citados en el informe Cool Vendors in Location Intelligence — vendor europeo en categoría dominada por US.</p><div class="footer">Gartner Cool Vendors</div></div>
+        <div class="card"><div class="year">2021</div><h3>El País nos pone en portada</h3><p>"La startup española que vigila los centros comerciales con IA, sin invadir la privacidad."</p><div class="footer">El País · Sección Economía</div></div>
+        <div class="card"><div class="year">2023</div><h3>Serie A · PadeInvest + BeWater</h3><p>Ronda enfocada en expansión LATAM y consolidación de la plataforma Hypersensor.</p><div class="footer">Inversores · 8M€</div></div>
+        <div class="card"><div class="year">2026</div><h3>Hoy: 180+ clientes, 23 países</h3><p>La plataforma que medimos a 2.400 millones de visitantes anuales en retail, hospitality y espacios públicos.</p><div class="footer">Equipo · 47 personas</div></div>
+      </div>
+    </section>
+    <!-- Misión -->
+    <section class="v1-mission">
+      <div class="container">
+        <div class="h-eyebrow">MISIÓN</div>
+        <p>Hacer del espacio físico una fuente de decisiones, no de intuiciones.</p>
+      </div>
+    </section>
+  </div>
+  <div class="spec">
+    <span><b>Filosofía</b>: trayectoria como prueba de seriedad</span>
+    <span><b>Componente vedette</b>: timeline horizontal scrollable</span>
+    <span><b>Mejor para</b>: prensa, inversores, partners, talent</span>
+    <span><b>Riesgo</b>: scroll horizontal en mobile · KPIs duros enterrados</span>
+    <span><b>Build</b>: 5-6 días dev + 3 días contenido</span>
+  </div>
+</div>
+
+<!-- ====================== V2 MÉTRICAS ====================== -->
+<div class="variant">
+  <div class="variant-head">
+    <span class="tag tag-2">V2</span>
+    <h2>Métricas y prueba social arriba</h2>
+    <span style="font-size:13px;color:rgba(255,255,255,0.6);margin-left:auto">KPIs animados en H1 + stat-bar sticky + jerarquía de analistas</span>
+  </div>
+  <div class="stage">
+    <!-- Hero -->
+    <section class="v2-hero">
+      <div class="container">
+        <div class="h-eyebrow">FLAME EN NÚMEROS · 2026</div>
+        <h1>Medimos <span class="num">180+</span> espacios físicos en <span class="num">23</span> países, generando <span class="num">2.4B</span> observaciones para <span class="num">540</span> equipos directivos.</h1>
+        <p>Desde 2016, transformamos vídeo y datos multi-fuente en decisiones que mueven la facturación del retail físico.</p>
+        <div style="display:flex;gap:14px">
+          <a href="#" class="btn btn-primary">Pide tu demo →</a>
+          <a href="#" class="btn btn-ghost">Lee el informe Gartner</a>
+        </div>
+      </div>
+      <div class="dots">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+    </section>
+    <!-- Stat bar sticky -->
+    <div class="v2-statbar">
+      <div class="stat"><div class="num">180+</div><div class="lbl">CLIENTES B2B</div></div>
+      <div class="stat"><div class="num">23</div><div class="lbl">PAÍSES</div></div>
+      <div class="stat"><div class="num">2.4B</div><div class="lbl">VISITANTES / AÑO</div></div>
+      <div class="stat"><div class="num">10 AÑOS</div><div class="lbl">OPERANDO</div></div>
+    </div>
+    <!-- Analistas Tier 1 -->
+    <section class="v2-tier1">
+      <div class="container">
+        <div class="h-eyebrow" style="color:var(--accent-deep)">RECONOCIDO POR LOS ANALISTAS QUE IMPORTAN</div>
+        <h2>Cuando Gartner y G2 evalúan nuestra categoría, Flame aparece.</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="logo">Gartner</div>
+            <div class="quote">"Flame combines computer vision with multi-source data in a way that's rare among European vendors — and they nail GDPR-by-design."</div>
+            <a href="#">Ver informe Gartner →</a>
+          </div>
+          <div class="card">
+            <span class="badge">★ Leader Spring 2026</span>
+            <div class="logo">G2 Reviews</div>
+            <div class="quote">4.7 / 5 sobre 48 reviews verificadas. "Implementación rápida y soporte técnico de primera. Migramos de un competidor US y ganamos cumplimiento RGPD."</div>
+            <a href="#">Ver reviews →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Tier 2 + Prensa -->
+    <section class="v2-tier2">
+      <div>
+        <h3>También nos citan</h3>
+        <div class="analist-grid">
+          <div class="alogo">Prescient</div>
+          <div class="alogo">Chief</div>
+          <div class="alogo">G. Peer Insights</div>
+        </div>
+      </div>
+      <div>
+        <h3>En medios</h3>
+        <ul class="press-list">
+          <li><b>El País</b>La startup española que vigila los centros comerciales con IA</li>
+          <li><b>El Mundo</b>Flame: tecnología visual sin biometría, certificada RGPD</li>
+          <li><b>ABC</b>El retail físico recupera terreno frente al e-commerce</li>
+          <li><b>La Razón</b>Tracking de tráfico anónimo y agregado en aeropuertos</li>
+          <li><b>El Confidencial</b>Una serie A de 8 M€ para escalar en LATAM</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+  <div class="spec">
+    <span><b>Filosofía</b>: tracción medible como prueba</span>
+    <span><b>Componente vedette</b>: stat-bar sticky + KPIs en H1 con CountUp</span>
+    <span><b>Mejor para</b>: decisores B2B short-list, IT, compras corporativas</span>
+    <span><b>Riesgo</b>: frialdad emocional · necesita KPIs reales fuertes</span>
+    <span><b>Build</b>: 3-4 días dev + 2 días confirmar datos</span>
+  </div>
+</div>
+
+<!-- ====================== V3 EQUIPO ====================== -->
+<div class="variant">
+  <div class="variant-head">
+    <span class="tag tag-3">V3</span>
+    <h2>Equipo y misión protagonistas</h2>
+    <span style="font-size:13px;color:rgba(255,255,255,0.6);margin-left:auto">Foto equipo full-bleed + founder quotes + form humanizado</span>
+  </div>
+  <div class="stage">
+    <!-- Hero -->
+    <section class="v3-hero">
+      <div class="container">
+        <div class="h-eyebrow">QUIÉNES SOMOS</div>
+        <h1>Somos 47 personas obsesionadas con el espacio físico.</h1>
+        <p>Ingenieros de visión por computador, científicos de datos, especialistas en RGPD, equipo comercial con experiencia retail. Desde 2016, en Gijón, con clientes en 23 países.</p>
+        <a href="#" class="btn btn-primary" style="background:var(--accent);color:#fff">Conoce al equipo completo →</a>
+      </div>
+    </section>
+    <!-- Foto full-bleed -->
+    <div class="v3-team-photo">
+      <div class="caption">Equipo Flame · Gijón · 2026</div>
+    </div>
+    <!-- Founders -->
+    <section class="v3-founders">
+      <div class="container">
+        <div class="h-eyebrow">EN PRIMERA PERSONA</div>
+        <h2 class="h-display" style="font-size:48px;color:var(--ink-1);margin-bottom:16px">La gente detrás de los gráficos.</h2>
+        <div class="cards">
+          <div class="fcard">
+            <div class="ph"></div>
+            <div class="name">[Fundador 1]</div>
+            <div class="role">CEO · Cofundador</div>
+            <div class="quote">"Empezamos pensando que el retail físico merecía la misma capa de datos que internet. Diez años después, lo que más me sorprende es cuánto queda por hacer."</div>
+            <div class="line"></div>
+          </div>
+          <div class="fcard">
+            <div class="ph"></div>
+            <div class="name">[Fundador 2]</div>
+            <div class="role">CTO · Cofundador</div>
+            <div class="quote">"Construimos Flame con dos restricciones: cero biometría y cero datos personales. No es un slogan — es la primera línea de código de cada modelo."</div>
+            <div class="line"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Misión -->
+    <section class="v3-mission">
+      <div class="container">
+        <p>Creemos que el espacio físico merece la misma capa de inteligencia que internet ha tenido durante 20 años. Trabajamos para construirla, una tienda, un centro comercial, un aeropuerto cada vez.</p>
+        <div class="sign"><span class="line"></span>— El equipo de Flame</div>
+      </div>
+    </section>
+    <!-- Validación muted -->
+    <section class="v3-muted">
+      <div class="block">
+        <h4>Analistas</h4>
+        <div class="logos">
+          <span>Gartner</span><span>G2</span><span>Prescient</span><span>Chief</span><span>Peer Insights</span>
+        </div>
+      </div>
+      <div class="block">
+        <h4>Prensa</h4>
+        <div class="logos">
+          <span>El País</span><span>El Mundo</span><span>ABC</span><span>La Razón</span><span>El Confidencial</span>
+        </div>
+      </div>
+      <div class="block">
+        <h4>Inversores</h4>
+        <div class="logos">
+          <span>PadeInvest</span><span>BeWater Funds</span>
+        </div>
+      </div>
+    </section>
+  </div>
+  <div class="spec">
+    <span><b>Filosofía</b>: humanos detrás como prueba de confianza</span>
+    <span><b>Componente vedette</b>: foto equipo full-bleed + founder quote cards</span>
+    <span><b>Mejor para</b>: compras consultivas enterprise, retail / hospitality directors</span>
+    <span><b>Riesgo</b>: IT / compras lo perciben como "blando" · requiere foto pro y quotes reales</span>
+    <span><b>Build</b>: 4 días dev + 4-5 días contenido + foto profesional</span>
+  </div>
+</div>
+
+<p style="margin-top:80px;color:rgba(255,255,255,0.5);font-size:13px;max-width:760px;line-height:1.7">
+  Dime <b>V1</b>, <b>V2</b> o <b>V3</b> y la implemento entera en Next con tu brand, los datos reales que tengas y los assets actuales. Mockup hecho con CSS puro y datos plausibles — los KPIs y quotes son placeholders.
+</p>
+
+</body>
+</html>
