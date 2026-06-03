@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1600px, calc(100vw - 24px))", padding: 36 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(2240px, calc(100vw - 24px))", padding: 40 }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
