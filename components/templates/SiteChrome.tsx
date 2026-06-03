@@ -248,10 +248,9 @@ export function SiteFooter() {
       <div className="flame-container">
         <div className="grid gap-10 mb-10 footer-grid" style={{ gridTemplateColumns: "1.4fr repeat(5, 1fr)" }}>
           <div className="flex flex-col gap-4">
-            <div className="inline-flex items-center gap-2">
-              <span style={{ width: 22, height: 22, borderRadius: 6, background: "var(--color-navy)" }} />
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 22, fontWeight: 500, letterSpacing: "-0.02em", color: "var(--color-navy)" }}>FLAME</span>
-            </div>
+            <a href="/es/" className="inline-flex items-center">
+              <img src="/wp-content/uploads/2023/10/flame-logo-black.png" alt="Flame Analytics" style={{ height: 36, width: "auto", display: "block" }} />
+            </a>
             <p className="text-[14.5px] leading-relaxed" style={{ color: "var(--color-ink-2)", maxWidth: "30ch" }}>
               Empowering physical spaces. Convertimos el vídeo en información en tiempo real para retail, espacios públicos y hoteles.
             </p>
