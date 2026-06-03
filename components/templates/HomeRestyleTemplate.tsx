@@ -385,6 +385,44 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         />
       </section>
 
+      {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
+      <section className="py-24" style={{ background: "#fff" }}>
+        <div className="flame-container">
+          <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
+            <div>
+              <h2 className="text-[clamp(34px,3.6vw,52px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.05, fontFamily: "var(--font-display)" }}>
+                {t.contactTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.contactTitleHl}</span>
+              </h2>
+              <p className="text-[17px] leading-relaxed mb-6" style={{ color: "var(--color-ink-2)" }}>
+                {t.contactSub} <strong style={{ color: "var(--color-navy)" }}>{t.contactSubBold}</strong> {t.contactSubAfter}
+              </p>
+              <p className="text-[15px] font-semibold mb-2" style={{ color: "var(--color-navy)" }}>
+                {t.contactCta}
+              </p>
+            </div>
+            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
+              <select className="cf-in" defaultValue=""><option value="" disabled>{t.fSector}</option><option>{t.sMalls}</option><option>{t.sVenues}</option><option>{t.sRetail}</option><option>{t.sHosp}</option><option>{t.sOther}</option></select>
+              <input className="cf-in" type="email" placeholder={t.fEmail} />
+              <input className="cf-in" type="text" placeholder={t.fCompany} />
+              <input className="cf-in" type="text" placeholder={t.fCountry} />
+              <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
+                <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
+                <span>{t.consent} <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.</span>
+              </label>
+              <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}>
+                {t.submit}
+              </button>
+            </form>
+          </div>
+        </div>
+        <style>{`
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
+          @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr !important; } }
+        `}</style>
+      </section>
+
       <SiteFooter />
     </>
   );

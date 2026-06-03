@@ -161,8 +161,13 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           .nav-dropdown--community { left: -8px; }
           /* Solutions: SIEMPRE fijo al viewport y centrado horizontalmente — nunca overflow */
           .nav-dropdown--solutions {
-            position: fixed; top: 64px; left: 12px; right: 12px; padding-top: 10px;
+            position: fixed; top: 56px; left: 12px; right: 12px; padding-top: 18px;
             display: flex; justify-content: center;
+          }
+          /* Bridge invisible bajo cada nav-link para no perder hover al bajar al dropdown */
+          .nav-item > a.nav-link::after,
+          .nav-item > button.nav-link::after {
+            content: ''; position: absolute; top: 100%; left: -10px; right: -10px; height: 16px; background: transparent;
           }
           .nav-item:hover .nav-dropdown,
           .nav-item:focus-within .nav-dropdown {
