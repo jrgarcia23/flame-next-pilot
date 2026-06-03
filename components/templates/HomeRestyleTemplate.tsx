@@ -203,7 +203,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
+      <section className="pt-[80px] pb-[40px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 800 }}>
             <h2
@@ -219,7 +219,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
+      <section className="pt-[40px] pb-[80px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
