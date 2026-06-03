@@ -2819,5 +2819,165 @@ document.addEventListener("wpcf7mailsent", function(e){
 })();
 </script>
 
+
+<!-- ============================================================
+   Next overrides — botones, tipografía hero y form al estilo Next
+   Inyectado por flame-next para mantener la estructura del live
+   pero con visual del nuevo site.
+   ============================================================ -->
+<style id="flame-next-overrides">
+@font-face {
+  font-family: 'Clash Grotesk Variable Next';
+  src: url('/fonts/ClashGrotesk-Variable.woff2') format('woff2-variations'),
+       url('/fonts/ClashGrotesk-Variable.woff2') format('woff2');
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Sans Next';
+  src: url('/fonts/InstrumentSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============ TIPOGRAFÍA HERO Y H2 ============ */
+.custom-h1 {
+  font-family: 'Clash Grotesk Variable Next', 'Clash Grotesk', ui-sans-serif, system-ui, sans-serif !important;
+  letter-spacing: -0.022em !important;
+  line-height: 1.08 !important;
+}
+.custom-h1 .span-part-one {
+  font-family: 'Instrument Sans Next', 'Inter', ui-sans-serif, system-ui, sans-serif !important;
+  font-size: clamp(22px, 2vw, 30px) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: none !important;
+  color: #31B1F8 !important;
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+.custom-h1 .span-part-two {
+  font-family: 'Clash Grotesk Variable Next', 'Clash Grotesk', sans-serif !important;
+  font-weight: 500 !important;
+  font-size: clamp(36px, 4.2vw, 60px) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.022em !important;
+  color: #ffffff !important;
+  display: block !important;
+}
+.elementor-heading-title {
+  font-family: 'Clash Grotesk Variable Next', 'Clash Grotesk', sans-serif !important;
+  letter-spacing: -0.018em !important;
+  line-height: 1.15 !important;
+}
+
+/* ============ BOTONES — estilo CTA Next (cyan pill + flecha) ============ */
+a.elementor-button,
+.elementor-button-link {
+  background: #31B1F8 !important;
+  color: #ffffff !important;
+  border-radius: 4px !important;
+  padding: 14px 26px !important;
+  font-family: 'Instrument Sans Next', 'Inter', ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.005em !important;
+  line-height: 1 !important;
+  border: 1px solid transparent !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  transition: background 240ms ease, transform 240ms ease, box-shadow 240ms ease, filter 240ms ease !important;
+  box-shadow: none !important;
+}
+a.elementor-button:hover,
+.elementor-button-link:hover {
+  filter: brightness(0.94) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.4) !important;
+}
+.elementor-button-text {
+  color: inherit !important;
+  font-weight: 700 !important;
+}
+.elementor-button-icon i,
+.elementor-button-icon svg {
+  color: inherit !important;
+}
+/* Botón submit del form */
+input.wpcf7-submit,
+button.wpcf7-submit {
+  background: #31B1F8 !important;
+  color: #ffffff !important;
+  border: 1px solid transparent !important;
+  border-radius: 4px !important;
+  padding: 14px 26px !important;
+  font-family: 'Instrument Sans Next', 'Inter', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  letter-spacing: -0.005em !important;
+  cursor: pointer !important;
+  transition: background 240ms ease, transform 240ms ease, box-shadow 240ms ease, filter 240ms ease !important;
+  box-shadow: none !important;
+  width: fit-content !important;
+  text-transform: none !important;
+}
+input.wpcf7-submit:hover {
+  filter: brightness(0.94) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.4) !important;
+}
+
+/* ============ FORMULARIO — estilo Next (cf-in) ============ */
+.wpcf7-form input[type="text"],
+.wpcf7-form input[type="email"],
+.wpcf7-form input[type="tel"],
+.wpcf7-form select,
+.wpcf7-form textarea {
+  min-height: 52px !important;
+  padding: 14px 18px !important;
+  font-size: 15.5px !important;
+  color: #15163A !important;
+  background: #ffffff !important;
+  border: 1px solid rgb(15 23 42 / 0.16) !important;
+  border-radius: 10px !important;
+  font-family: 'Instrument Sans Next', 'Inter', sans-serif !important;
+  width: 100% !important;
+  box-shadow: none !important;
+  outline: none !important;
+  transition: border-color 200ms ease, box-shadow 200ms ease !important;
+}
+.wpcf7-form input::placeholder,
+.wpcf7-form textarea::placeholder {
+  color: #6E7488 !important;
+  font-family: 'Instrument Sans Next', 'Inter', sans-serif !important;
+}
+.wpcf7-form input:focus,
+.wpcf7-form select:focus,
+.wpcf7-form textarea:focus {
+  border-color: #31B1F8 !important;
+  box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12) !important;
+  outline: none !important;
+}
+.wpcf7-form .wpcf7-list-item-label {
+  font-family: 'Instrument Sans Next', 'Inter', sans-serif !important;
+  font-size: 13.5px !important;
+  color: #6E7488 !important;
+}
+.wpcf7-form input[type="checkbox"] {
+  accent-color: #31B1F8 !important;
+}
+.wpcf7-form .wpcf7-form-control-wrap {
+  width: 100% !important;
+  display: block !important;
+}
+.wpcf7-form p {
+  margin-bottom: 14px !important;
+}
+</style>
+
 </body>
 </html>
