@@ -65,7 +65,7 @@ export const INDUSTRIES = [
   { icon: "mall",   title: "Centros comerciales", desc: "Mejora la experiencia, la rentabilidad y la toma de decisiones en todo tu centro comercial.", href: "/es/solucion-para-centros-comerciales/" },
   { icon: "retail", title: "Retail",              desc: "Impulsa el éxito del sector minorista con insights de clientes en tiempo real.",              href: "/es/solucion-para-el-sector-retail/" },
   { icon: "venue",  title: "Espacios públicos",   desc: "Comprende el valor de tus espacios públicos convirtiendo los datos en acciones estratégicas.", href: "/es/espacios-publicos/" },
-  { icon: "hotel",  title: "Hostelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
+  { icon: "hotel",  title: "Hotelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
 ];
 
 export const INDUSTRIES_EN = [
@@ -91,7 +91,7 @@ export const UI = {
     contactSubAfter: "y entiende cómo puede mejorar los resultados de tu organización.",
     contactCta: "Agenda una demo personalizada con nuestros expertos",
     fName: "Nombre y apellido", fSector: "Sector",
-    sMalls: "Centros comerciales", sVenues: "Recintos públicos", sRetail: "Retail", sHosp: "Hostelería", sOther: "Otro",
+    sMalls: "Centros comerciales", sVenues: "Recintos públicos", sRetail: "Retail", sHosp: "Hotelería", sOther: "Otro",
     fEmail: "Email", fCompany: "Empresa", fCountry: "País",
     consent: "Acepto recibir comunicaciones de Flame y he leído la",
     privacy: "política de privacidad",
