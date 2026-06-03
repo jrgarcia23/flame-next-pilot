@@ -29,9 +29,9 @@ export default function HypersensorEn() {
       <CtaStyles />
       <SiteHeader enHref={esHref} currentLang={currentLang} />
 
-      {/* 1. HERO — clones live: 2 cols text-left + image-right over retail bg */}
+      {/* 1. HERO — clones live: text on left contained + Group-281 image absolute to viewport right edge */}
       <section
-        className="relative overflow-hidden"
+        className="relative overflow-hidden hyp-hero"
         style={{
           backgroundColor: "#15163A",
           backgroundImage: `url('${cfg.hero.bgImage}')`,
@@ -41,36 +41,48 @@ export default function HypersensorEn() {
           color: "white",
           paddingTop: "clamp(80px, 9vw, 130px)",
           paddingBottom: "clamp(60px, 7vw, 100px)",
-          minHeight: "70vh",
+          minHeight: "78vh",
         }}
       >
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgb(21 22 58 / 0.55) 0%, rgb(21 22 58 / 0.85) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, rgb(21 22 58 / 0.78) 0%, rgb(21 22 58 / 0.55) 55%, rgb(21 22 58 / 0.35) 100%)" }} />
+        <img
+          src="/wp-content/uploads/2026/01/Group-281-1-1.png"
+          alt="Flame Hypersensor dashboard with Video AI, People Counting, WiFi/BLE and IoT"
+          className="hyp-hero-asset"
+        />
         <div className="flame-container relative z-10">
-          <div className="grid gap-10 items-center hyp-hero-grid" style={{ gridTemplateColumns: "1fr 1.15fr" }}>
-            <div>
-              <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>
-                Flame Hypersensor
-              </p>
-              <h1 className="mb-7 font-normal" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(36px,4.2vw,60px)", letterSpacing: "-0.022em", lineHeight: 1.08 }}>
-                {cfg.hero.eyebrow}
-              </h1>
-              <p className="text-[clamp(17px,1.25vw,19px)] font-normal mb-9" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "60ch", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.6 }}>
-                {cfg.hero.sub}
-              </p>
-              <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-                {cfg.hero.cta}
-                <Icon name="arrow" className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="hyp-hero-img">
-              <img src="/wp-content/uploads/2026/01/Group-281-1-1.png" alt="Flame Hypersensor dashboard with Video AI, People Counting, WiFi/BLE and IoT" style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
+          <div style={{ maxWidth: 560 }}>
+            <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>
+              Flame Hypersensor
+            </p>
+            <h1 className="mb-7 font-normal" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(36px,4.2vw,60px)", letterSpacing: "-0.022em", lineHeight: 1.08 }}>
+              {cfg.hero.eyebrow}
+            </h1>
+            <p className="text-[clamp(17px,1.25vw,19px)] font-normal mb-9" style={{ color: "rgb(255 255 255 / 0.85)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.6 }}>
+              {cfg.hero.sub}
+            </p>
+            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+              {cfg.hero.cta}
+              <Icon name="arrow" className="w-4 h-4" />
+            </a>
           </div>
         </div>
         <style>{`
+          .hyp-hero-asset {
+            position: absolute;
+            top: 50%; right: 0;
+            transform: translateY(-50%);
+            width: clamp(720px, 62vw, 1200px);
+            max-width: none;
+            height: auto;
+            z-index: 2;
+            pointer-events: none;
+          }
           @media (max-width: 1000px) {
-            .hyp-hero-grid { grid-template-columns: 1fr !important; }
-            .hyp-hero-img { max-width: 620px; margin: 0 auto; }
+            .hyp-hero-asset {
+              position: relative; top: auto; right: auto; transform: none;
+              width: 100%; max-width: 620px; margin: 40px auto 0; display: block;
+            }
           }
         `}</style>
       </section>
