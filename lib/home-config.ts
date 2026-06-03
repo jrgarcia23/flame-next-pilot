@@ -38,7 +38,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
 
   privacyTitle: "Privacidad ante todo.",
   privacyTitleHl: "Rendimiento orientado a resultados.",
-  privacyBody: "Nuestra tecnología propia de análisis de vídeo con IA transforma su infraestructura CCTV existente en información accionable en tiempo real, sin utilizar datos biométricos. Diseñada para garantizar la privacidad, la escalabilidad y la eficiencia del hardware, reduce los costes de implementación al tiempo que asegura un alto rendimiento y el pleno cumplimiento de la normativa de protección de datos.",
+  privacyBody: "Nuestra tecnología de analítica de vídeo con IA transforma su infraestructura CCTV existente en información accionable en tiempo real, sin utilizar datos biométricos. Diseñada para garantizar la privacidad, la escalabilidad y la eficiencia del hardware, reduce los costes de implementación, asegura un alto rendimiento y el pleno cumplimiento de la normativa de protección de datos.",
   privacyImg: "/wp-content/uploads/2026/01/Home_traffic.webp",
   privacyImgAlt: "Dashboard Flame de tráfico con privacidad por diseño",
   privacyCta: "Leer más",

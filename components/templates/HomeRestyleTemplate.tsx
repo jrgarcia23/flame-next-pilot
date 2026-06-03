@@ -88,7 +88,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(72px, 8vw, 120px)",
-          paddingBottom: "clamp(48px, 5vw, 88px)",
+          paddingBottom: "clamp(38px, 4vw, 70px)",
         }}
       >
         {/* Overlay como en el live: navy a opacidad subiendo de 0 a 1 */}
@@ -219,7 +219,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="pt-12 pb-24" style={{ background: "#fff" }}>
+      <section className="pt-12 pb-16" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -241,7 +241,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 7. REPORTS STRIPE — text left + image right */}
-      <section className="py-24" style={{ background: "#fff" }}>
+      <section className="py-16" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
@@ -263,7 +263,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 8. INTEGRATION STRIPE — image left + text right (mismo layout que Privacy) */}
-      <section className="py-24" style={{ background: "#fff" }}>
+      <section className="pt-16 pb-24" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
