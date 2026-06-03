@@ -376,8 +376,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 11. COMMUNITY — iframe del WP original con auto-resize */}
-      <section style={{ background: "#fff" }}>
+      {/* 11. COMMUNITY — iframe del WP original con auto-resize, sobre paper para diferenciar de la sección form */}
+      <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <ResizingIframe
           src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
           title="community"
