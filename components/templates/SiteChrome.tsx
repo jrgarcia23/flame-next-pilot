@@ -54,7 +54,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         .industries-col { border-left: 1px solid var(--color-rule); padding-left: 32px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 16px; padding-left: 14px; }
         .mega-title { font-size: 15px; font-weight: 600; line-height: 1.25; }
-        .mega-desc { font-size: 13.5px; line-height: 1.5; margin-top: 5px; color: var(--color-ink-3); }
+        .mega-desc { font-size: 13.5px; line-height: 1.45; margin-top: 4px; color: var(--color-ink-3); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; word-break: normal; overflow-wrap: anywhere; }
         @media (max-width: 1200px) {
           .solutions-grid { grid-template-columns: 1fr; gap: 24px; }
           .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 24px; }
