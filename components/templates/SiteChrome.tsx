@@ -4,13 +4,13 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item group flex gap-4 items-start rounded-lg transition" style={{ padding: "14px 16px" }}>
-      <span className="mega-icon-frame inline-flex items-center justify-center flex-shrink-0" style={{ width: 52, height: 52 }}>
-        <img src={it.iconImg} alt="" width={52} height={52} style={{ width: 52, height: 52, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "12px 14px", gap: 14 }}>
+      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 44, height: 44 }}>
+        <img src={it.iconImg} alt="" width={44} height={44} style={{ width: 44, height: 44, objectFit: "contain", display: "block" }} />
       </span>
-      <span className="flex flex-col min-w-0 pt-1">
-        <span className="mega-title text-[15px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
-        <span className="text-[13px] mt-1.5 leading-[1.5]" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
+      <span className="flex flex-col min-w-0" style={{ paddingTop: 2 }}>
+        <span className="mega-title text-[14px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
+        <span className="text-[12.5px] leading-snug" style={{ color: "var(--color-ink-3)", marginTop: 4 }}>{it.desc}</span>
       </span>
     </a>
   );
@@ -37,23 +37,27 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(960px, calc(100vw - 24px))", padding: 32 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1040px, calc(100vw - 24px))", padding: 24 }}>
       <div className="solutions-grid">
-        <div>
-          <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
-          <div className="grid grid-cols-2 gap-2 use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        <div className="use-cases-col">
+          <div className="text-[11px] uppercase font-semibold mb-3 px-3.5" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
+          <div className="use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
-        <div className="industries-col" style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 32 }}>
-          <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
-          <div className="flex flex-col gap-2">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        <div className="industries-col">
+          <div className="text-[11px] uppercase font-semibold mb-3 px-3.5" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
+          <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.5fr 1fr; }
-        @media (max-width: 1100px) { .solutions-grid { gap: 24px; } }
-        @media (max-width: 820px) {
-          .solutions-grid { grid-template-columns: 1fr; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 20px; }
+        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 1.65fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
+        @media (max-width: 900px) {
+          .solutions-grid { grid-template-columns: 1fr; gap: 16px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 16px; }
+        }
+        @media (max-width: 560px) {
+          .use-cases-inner { grid-template-columns: 1fr; }
         }
       `}</style>
     </div>
@@ -161,14 +165,15 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           .nav-dropdown--community { left: -8px; }
           /* Solutions: SIEMPRE fijo al viewport y centrado horizontalmente — nunca overflow */
           .nav-dropdown--solutions {
-            position: fixed; top: 56px; left: 12px; right: 12px; padding-top: 18px;
+            position: fixed; top: 64px; left: 12px; right: 12px; padding-top: 12px;
             display: flex; justify-content: center;
           }
           /* Bridge invisible bajo cada nav-link para no perder hover al bajar al dropdown */
           .nav-item > a.nav-link::after,
           .nav-item > button.nav-link::after {
-            content: ''; position: absolute; top: 100%; left: -10px; right: -10px; height: 16px; background: transparent;
+            content: ''; position: absolute; top: 100%; left: -12px; right: -12px; height: 14px; background: transparent;
           }
+          .mega-item:hover { background: var(--color-paper-soft); }
           .nav-item:hover .nav-dropdown,
           .nav-item:focus-within .nav-dropdown {
             opacity: 1; visibility: visible; transform: translateY(0);
