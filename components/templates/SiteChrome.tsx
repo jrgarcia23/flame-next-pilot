@@ -4,13 +4,13 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "12px 14px", gap: 14 }}>
-      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 44, height: 44 }}>
-        <img src={it.iconImg} alt="" width={44} height={44} style={{ width: 44, height: 44, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "14px 18px", gap: 16 }}>
+      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 48, height: 48 }}>
+        <img src={it.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
       </span>
       <span className="flex flex-col min-w-0" style={{ paddingTop: 2 }}>
-        <span className="mega-title text-[14px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
-        <span className="text-[12.5px] leading-snug" style={{ color: "var(--color-ink-3)", marginTop: 4 }}>{it.desc}</span>
+        <span className="mega-title text-[15px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
+        <span className="mega-desc text-[13.5px]" style={{ color: "var(--color-ink-3)", marginTop: 5, lineHeight: 1.45, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{it.desc}</span>
       </span>
     </a>
   );
@@ -37,24 +37,24 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1040px, calc(100vw - 24px))", padding: 24 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1280px, calc(100vw - 24px))", padding: 32 }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
-          <div className="text-[11px] uppercase font-semibold mb-3 px-3.5" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
+          <div className="text-[11px] uppercase font-semibold mb-4 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
           <div className="use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
         <div className="industries-col">
-          <div className="text-[11px] uppercase font-semibold mb-3 px-3.5" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
+          <div className="text-[11px] uppercase font-semibold mb-4 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
           <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 1.65fr 1fr; align-items: start; }
-        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
-        @media (max-width: 900px) {
-          .solutions-grid { grid-template-columns: 1fr; gap: 16px; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 16px; }
+        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.7fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 32px; }
+        @media (max-width: 1000px) {
+          .solutions-grid { grid-template-columns: 1fr; gap: 20px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 20px; }
         }
         @media (max-width: 560px) {
           .use-cases-inner { grid-template-columns: 1fr; }
