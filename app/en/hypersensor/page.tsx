@@ -430,9 +430,8 @@ export default function HypersensorEn() {
                 <div
                   className="mt-5 text-[15.5px] leading-[1.7]"
                   style={{ color: "var(--color-ink-2)" }}
-                >
-                  {f.a}
-                </div>
+                  dangerouslySetInnerHTML={{ __html: f.a }}
+                />
               </details>
             ))}
           </div>

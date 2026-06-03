@@ -12,8 +12,9 @@ const body = `
 <h2>Responsable del tratamiento</h2>
 <ul>
 <li><strong>Razón social</strong>: Flame Analytics S.L.</li>
-<li><strong>CIF</strong>: B-XXXXXXXX</li>
-<li><strong>Dirección</strong>: Madrid, España</li>
+<li><strong>CIF</strong>: B52543691</li>
+<li><strong>Dirección</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias</li>
+<li><strong>Teléfono</strong>: +34 984 19 14 05</li>
 <li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
 <li><strong>Delegado de Protección de Datos (DPO)</strong>: <a href="mailto:dpo@flameanalytics.com">dpo@flameanalytics.com</a></li>
 </ul>
