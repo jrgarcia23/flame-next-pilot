@@ -351,7 +351,7 @@ export default function HypersensorEs() {
       </section>
 
       {/* 5.5 CTA strip navy */}
-      <section className="py-[80px]" style={{ background: "var(--color-navy)" }}>
+      <section style={{ background: "var(--color-navy)", minHeight: 180, display: "flex", alignItems: "center" }}>
         <div className="flame-container">
           <div className="flex items-center gap-8 cta-strip-row">
             <p

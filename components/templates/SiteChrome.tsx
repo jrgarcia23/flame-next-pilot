@@ -4,11 +4,11 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "14px 18px", gap: 16 }}>
-      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 48, height: 48 }}>
-        <img src={it.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 14 }}>
+      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 44, height: 44 }}>
+        <img src={it.iconImg} alt="" width={44} height={44} style={{ width: 44, height: 44, objectFit: "contain", display: "block" }} />
       </span>
-      <span className="flex flex-col min-w-0" style={{ paddingTop: 2 }}>
+      <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 2 }}>
         <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
         <span className="mega-desc" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
       </span>
@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(2240px, calc(100vw - 24px))", padding: 40 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "calc(100vw - 24px)", maxWidth: "none", padding: 28 }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -49,15 +49,15 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 48px; grid-template-columns: 1.95fr 1fr; align-items: start; }
-        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 48px; }
-        .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 18px; padding-left: 18px; }
+        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 2fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 32px; }
+        .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 16px; padding-left: 14px; }
         .mega-title { font-size: 15px; font-weight: 600; line-height: 1.25; }
-        .mega-desc { font-size: 13.5px; line-height: 1.5; margin-top: 6px; color: var(--color-ink-3); }
+        .mega-desc { font-size: 13.5px; line-height: 1.5; margin-top: 5px; color: var(--color-ink-3); }
         @media (max-width: 1200px) {
-          .solutions-grid { grid-template-columns: 1fr; gap: 28px; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 28px; }
+          .solutions-grid { grid-template-columns: 1fr; gap: 24px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 24px; }
         }
         @media (max-width: 600px) {
           .use-cases-inner { grid-template-columns: 1fr; }
