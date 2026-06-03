@@ -122,16 +122,19 @@ export default function HypersensorEs() {
       <section className="pt-[60px] pb-[40px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              Cómo trabaja <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Hypersensor</span> por dentro
+            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+              ¿Por qué <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>?
             </h2>
+            <p className="text-[clamp(17px,1.25vw,19px)] leading-relaxed mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "64ch" }}>
+              La plataforma de análisis avanzado para espacios físicos que combina el vídeo con la IA para mejorar la toma de decisiones y el rendimiento general del local.
+            </p>
           </div>
         </div>
         {cfg.features.map((f, i) => (
           <div
             key={i}
             className="flame-container"
-            style={{ paddingTop: 45, paddingBottom: 45 }}
+            style={{ paddingTop: 55, paddingBottom: 55 }}
           >
             <div
               className={`grid gap-12 items-center ${f.imgLeft ? "stripe-grid" : "stripe-grid-rev"}`}
