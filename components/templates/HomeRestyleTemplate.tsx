@@ -376,12 +376,12 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 11. COMMUNITY — iframe del WP original con auto-resize, sobre paper para diferenciar de la sección form */}
-      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
+      {/* 11. COMMUNITY — iframe del WP original sin padding wrapper (el embed maneja su propio espacio interno) */}
+      <section style={{ background: "var(--color-paper)" }}>
         <ResizingIframe
           src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
           title="community"
-          fallbackHeight={780}
+          fallbackHeight={540}
         />
       </section>
 
