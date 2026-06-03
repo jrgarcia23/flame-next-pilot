@@ -376,13 +376,33 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 11. COMMUNITY — iframe del WP original sin padding wrapper (el embed maneja su propio espacio interno) */}
-      <section style={{ background: "var(--color-paper)" }}>
-        <ResizingIframe
-          src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
-          title="community"
-          fallbackHeight={480}
-        />
+      {/* 11. COMMUNITY — React puro (no iframe), spacing 100% controlable */}
+      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(28px,3vw,40px)] font-medium mb-4" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              {cfg.communityTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.communityTitleHl}</span>
+            </h2>
+            <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)" }}>
+              {cfg.communitySub}
+            </p>
+          </div>
+          <div className="grid gap-6 comm-grid" style={{ gridTemplateColumns: `repeat(${cfg.communityCards.length}, 1fr)` }}>
+            {cfg.communityCards.map((c) => (
+              <a key={c.title} href={c.href} className="comm-card rounded-2xl overflow-hidden block" style={{ background: "var(--color-navy)", color: "#fff", aspectRatio: "1 / 1", position: "relative" }}>
+                <img src={c.img} alt={c.title} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                <span style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgb(21 22 58 / 0.1) 0%, rgb(21 22 58 / 0.65) 100%)" }} />
+                <span style={{ position: "absolute", left: 24, bottom: 22, right: 24, fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,28px)", fontWeight: 600, color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.2 }}>{c.title}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+        <style>{`
+          @media (max-width: 900px) { .comm-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          @media (max-width: 560px) { .comm-grid { grid-template-columns: 1fr !important; max-width: 360px; margin: 0 auto; } }
+          .comm-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
+          .comm-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -18px rgb(15 23 42 / 0.18); }
+        `}</style>
       </section>
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
