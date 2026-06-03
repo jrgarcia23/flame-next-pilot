@@ -165,40 +165,7 @@ export default function PartnersEs() {
         `}</style>
       </section>
 
-      {/* CTA strip navy 180px */}
-      <section style={{ background: "var(--color-navy)", minHeight: 180, display: "flex", alignItems: "center" }}>
-        <div className="flame-container">
-          <div className="flex items-center gap-8 cta-strip-row">
-            <p
-              className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1"
-              style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}
-            >
-              ¿Te interesa ser partner de Flame?
-              <br />
-              <span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>
-                Hablemos de tu mercado, tu portafolio y cómo encajamos.
-              </span>
-            </p>
-            <a
-              href="#contact"
-              className="cta-btn cta-btn--xl flex-shrink-0"
-              style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}
-            >
-              Contactar
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-        <style>{`
-          .cta-btn--xl { font-size: 17px; padding: 16px 32px; }
-          @media (max-width: 700px) {
-            .cta-strip-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .cta-strip-row > p { flex: none; }
-          }
-        `}</style>
-      </section>
-
-      {/* FORM */}
+      {/* FORM — campos espejo del live (WPCF7 partner application) */}
       <section className="py-[80px]" id="contact" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
@@ -211,7 +178,7 @@ export default function PartnersEs() {
                 <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>canal Flame</span>
               </h2>
               <p className="text-[17px] leading-relaxed mb-6" style={{ color: "var(--color-ink-2)" }}>
-                Cuéntanos en qué mercado operas y qué tipo de proyectos manejas.{" "}
+                Cuéntanos sobre tu empresa, mercado y capacidad de despliegue.{" "}
                 <strong style={{ color: "var(--color-navy)" }}>Te respondemos en 24 h laborables</strong>{" "}
                 con una primera lectura del encaje y siguientes pasos.
               </p>
@@ -220,16 +187,32 @@ export default function PartnersEs() {
               </p>
             </div>
             <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
-              <input className="cf-in" type="email" placeholder={t.fEmail} />
-              <input className="cf-in" type="text" placeholder={t.fCompany} />
-              <input className="cf-in col-span-2" type="text" placeholder="País y mercado donde operas" />
-              <textarea className="cf-in col-span-2" placeholder="Cuéntanos qué proyectos tienes en mente" rows={4} style={{ minHeight: 120, resize: "vertical" }} />
+              <input className="cf-in" type="text" name="your-name" placeholder="Nombre" required />
+              <input className="cf-in" type="email" name="your-email" placeholder="Email" required />
+              <input className="cf-in" type="tel" name="your-phone" placeholder="Teléfono" required />
+              <input className="cf-in" type="text" name="your-company" placeholder="Empresa" required />
+              <input className="cf-in" type="text" name="your-web" placeholder="Web" required />
+              <input className="cf-in" type="text" name="your-country" placeholder="País" required />
+              <input className="cf-in" type="text" name="your-city" placeholder="Ciudad, región" required />
+              <input className="cf-in" type="text" name="your-type" placeholder="Tipo de empresa" required />
+              <select className="cf-in" name="your-sector" defaultValue="" required>
+                <option value="" disabled>Sector</option>
+                <option>Centros comerciales</option>
+                <option>Espacios públicos</option>
+                <option>Retail</option>
+                <option>Hospitality</option>
+                <option>Otros</option>
+              </select>
+              <input className="cf-in" type="text" name="your-size" placeholder="Tamaño de la empresa" required />
+              <input className="cf-in" type="text" name="your-annual" placeholder="Facturación anual" required />
+              <input className="cf-in" type="text" name="your-installation" placeholder="¿Tienes capacidad de instalación?" required />
+              <input className="cf-in col-span-2" type="text" name="your-contacts" placeholder="¿Tienes contactos que demanden el servicio de localización?" required />
+              <textarea className="cf-in col-span-2" name="your-message" placeholder="Mensaje" rows={5} required style={{ minHeight: 140, resize: "vertical" }} />
               <label
                 className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2"
                 style={{ color: "var(--color-ink-3)" }}
               >
-                <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
+                <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
                 <span>
                   {t.consent}{" "}
                   <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>
@@ -239,7 +222,7 @@ export default function PartnersEs() {
                 </span>
               </label>
               <button
-                type="button"
+                type="submit"
                 className="col-span-2 mt-3 cta-btn cta-btn--md"
                 style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}
               >
