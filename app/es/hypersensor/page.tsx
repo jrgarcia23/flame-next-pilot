@@ -78,7 +78,7 @@ export default function HypersensorEs() {
             position: absolute;
             top: 50%; right: 0;
             transform: translateY(-50%);
-            width: clamp(720px, 62vw, 1200px);
+            width: clamp(560px, 50vw, 980px);
             max-width: none;
             height: auto;
             z-index: 2;
