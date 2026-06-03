@@ -28,7 +28,7 @@ export default function InscripcionWebinars() {
         style={{
           background: "var(--color-navy)",
           color: "white",
-          backgroundImage: "url('/wp-content/uploads/2026/01/Traffic2-1.png')",
+          backgroundImage: "url('/wp-content/uploads/2026/04/6-1.jpg')",
           backgroundPosition: "center top",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
