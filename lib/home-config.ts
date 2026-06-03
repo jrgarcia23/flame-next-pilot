@@ -33,12 +33,12 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
     { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Recopila datos de los visitantes a través del WiFi para invitados y lanza campañas de marketing personalizadas según su ubicación, perfil y comportamiento.",                                href: "/es/connect/",            cta: "Conocer Connect" },
   ],
 
-  advantageTitle: 'La ventaja <span style="color:var(--color-accent);font-weight:500">de Flame</span>',
+  advantageTitle: 'Las ventajas <span style="color:var(--color-accent);font-weight:500">de Flame</span>',
   advantageSub: "Analítica avanzada de vídeo con IA, diseñada para ofrecer privacidad, precisión y rendimiento.",
 
   privacyTitle: "Privacidad ante todo.",
   privacyTitleHl: "Rendimiento orientado a resultados.",
-  privacyBody: "Flame está diseñado desde el día uno para cumplir RGPD, AEPD y normativa local. Sin reconocimiento facial, sin tracking individual: la detección de personas es anónima y el procesado ocurre en el dispositivo. A la nube solo viajan métricas agregadas, nunca vídeo.",
+  privacyBody: "Nuestra tecnología propia de análisis de vídeo con IA transforma su infraestructura CCTV existente en información accionable en tiempo real, sin utilizar datos biométricos. Diseñada para garantizar la privacidad, la escalabilidad y la eficiencia del hardware, reduce los costes de implementación al tiempo que asegura un alto rendimiento y el pleno cumplimiento de la normativa de protección de datos.",
   privacyImg: "/wp-content/uploads/2026/01/Home_traffic.webp",
   privacyImgAlt: "Dashboard Flame de tráfico con privacidad por diseño",
   privacyCta: "Leer más",
@@ -46,7 +46,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
 
   reportsTitle: "Informes avanzados,",
   reportsTitleHl: "decisiones más inteligentes.",
-  reportsBody: "Compara tiendas, plantas o sedes con la misma vara, sin esperar al cierre del mes. Tráfico, conversión, ocupación y comportamiento unificados en un único panel con vistas en tiempo real y exportable a Power BI, Tableau o Looker.",
+  reportsBody: "Convierte los datos en decisiones con paneles personalizables e informes dinámicos. Visualiza métricas clave, mapas de calor y tendencias en tiempo real. Utiliza herramientas de arrastrar y soltar o plantillas prediseñadas, automatiza los informes y realiza el seguimiento de más de 200 KPI adaptados a tu negocio para tomar decisiones más rápidas y mantener un control total en todas las ubicaciones.",
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Dashboard de Flame con métricas avanzadas",
   reportsCta: "Ver demo",
@@ -54,7 +54,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
 
   integrationTitle: "Integración sin fricciones.",
   integrationTitleHl: "Diseño agnóstico.",
-  integrationBody: "Flame se integra con tu stack actual: TPV (Cegid, Microsoft Dynamics, SAP), ERP, BI (Power BI, Tableau, Looker) y data lakes. Conectores nativos, API REST abierta y webhooks. Sin obra, sin reemplazar tecnología, sin proyectos eternos.",
+  integrationBody: "Flame se integra de forma fluida con los principales sistemas de CCTV y de conteo de personas, y se conecta fácilmente con tu ecosistema de datos moderno, incluidas plataformas en la nube, data lakes y entornos de analítica empresarial. Reduce la fricción, acorta los tiempos de implementación y maximiza el impacto en cada ubicación.",
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagrama de integraciones de Flame con stack TPV / ERP / BI",
   integrationCta: "Leer más",
@@ -116,7 +116,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
 
   privacyTitle: "Privacy-first.",
   privacyTitleHl: "Performance-driven.",
-  privacyBody: "Flame is engineered from day one to comply with GDPR and local regulation. No facial recognition, no individual tracking: person detection is anonymous and processing happens on the device. Only aggregated metrics reach the cloud — never video.",
+  privacyBody: "Our proprietary AI video technology turns your existing CCTV infrastructure into real-time, actionable insights — without using biometrics. Built for privacy, scalability, and hardware efficiency, it reduces deployment costs while ensuring high performance and full data protection compliance.",
   privacyImg: "/wp-content/uploads/2026/01/Home_traffic.webp",
   privacyImgAlt: "Flame traffic dashboard with privacy by design",
   privacyCta: "Read more",
@@ -124,7 +124,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
 
   reportsTitle: "Powerful reporting,",
   reportsTitleHl: "smarter decisions.",
-  reportsBody: "Benchmark stores, floors or sites against the same yardstick — without waiting for the month-end report. Traffic, conversion, occupancy and behavior unified in a single panel with real-time views and exports to Power BI, Tableau or Looker.",
+  reportsBody: "Turn data into decisions with customizable dashboards and dynamic reports. Visualize key metrics, heatmaps and trends in real time. Use drag-and-drop tools or pre-built templates, automate reporting, and track over 200 KPIs tailored to your business for faster decisions and full control across locations.",
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Flame dashboard with advanced metrics",
   reportsCta: "See demo",
@@ -132,7 +132,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
 
   integrationTitle: "Seamless integration.",
   integrationTitleHl: "Agnostic by design.",
-  integrationBody: "Flame integrates with your current stack: POS (Cegid, Microsoft Dynamics, SAP), ERP, BI (Power BI, Tableau, Looker) and data lakes. Native connectors, open REST API and webhooks. No construction, no replacements, no never-ending projects.",
+  integrationBody: "Flame integrates seamlessly with leading CCTV and people-counting systems, and connects effortlessly to your modern data ecosystem including cloud platforms, data lakes, and enterprise analytics environments. Minimize friction, reduce deployment time, and maximize impact across every location.",
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagram of Flame integrations with POS / ERP / BI stack",
   integrationCta: "Read more",

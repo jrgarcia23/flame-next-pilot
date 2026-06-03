@@ -94,14 +94,14 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         {/* Overlay como en el live: navy a opacidad subiendo de 0 a 1 */}
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgb(21 22 58 / 0.6) 0%, rgb(21 22 58 / 1) 60%)" }} />
         <div className="flame-container relative z-10">
-          <div className="text-center mx-auto mb-10" style={{ maxWidth: 920 }}>
-            <h1 className="text-[clamp(44px,6vw,80px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.026em", lineHeight: 1.02, fontFamily: "var(--font-display)" }}>
+          <div className="text-center mx-auto mb-10" style={{ maxWidth: 1180 }}>
+            <h1 className="text-[clamp(36px,5.4vw,72px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.026em", lineHeight: 1.02, fontFamily: "var(--font-display)", whiteSpace: "nowrap" }}>
               {cfg.heroSupertitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.heroSupertitleHl}</span>
             </h1>
             <h2 className="text-[clamp(20px,2vw,28px)] font-normal mb-9 mx-auto" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "30ch", fontFamily: "var(--font-body)", letterSpacing: "-0.012em", lineHeight: 1.35 }}>
               {cfg.heroHeadline}
             </h2>
-            <a href="#contact" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+            <a href="#contact" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
               {cfg.heroCta}
               <Icon name="arrow" className="w-4 h-4" />
             </a>
@@ -137,9 +137,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
           .logo-track:hover { animation-play-state: paused; }
-          .logo-img { height: 80px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
+          .logo-img { height: 96px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
-          @media (max-width: 700px) { .logo-img { height: 65px; } }
+          @media (max-width: 700px) { .logo-img { height: 78px; } }
         `}</style>
       </section>
 
@@ -148,48 +148,53 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
 
-      {/* 4. PRODUCTS — h2 + subtítulo + bullets + 3 cards */}
+      {/* 4. PRODUCTS — 2 columnas: izquierda título/sub/bullets, derecha 3 cards verticales estrechas */}
       <section className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
-            </h2>
-            {cfg.productsSub && (
-              <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.55] mx-auto" style={{ color: "var(--color-ink-2)", maxWidth: "62ch" }}>
-                {cfg.productsSub}
-              </p>
-            )}
-            {cfg.productsBullets && cfg.productsBullets.length > 0 && (
-              <ul className="grid gap-3 mt-6 mx-auto" style={{ gridTemplateColumns: `repeat(${cfg.productsBullets.length}, minmax(0, max-content))`, justifyContent: "center" }}>
-                {cfg.productsBullets.map((b) => (
-                  <li key={b} className="inline-flex items-center gap-2.5 text-[15px] font-medium" style={{ color: "var(--color-navy)" }}>
-                    <span className="inline-flex items-center justify-center rounded-full" style={{ width: 22, height: 22, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent-deep)", flexShrink: 0 }}>
-                      <Icon name="check" className="w-3.5 h-3.5" />
-                    </span>
-                    {b}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-          <div className="grid gap-6 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {cfg.products.map((p) => (
-              <a key={p.name} href={p.href} className="prod3-card rounded-2xl p-8 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                <div className="prod3-iconwrap inline-flex items-center justify-center rounded-[14px] mb-6" style={{ width: 64, height: 64, background: "rgb(49 177 248 / 0.12)" }}>
-                  <img src={p.iconImg} alt={p.name} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
-                </div>
-                <h3 className="text-[24px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{p.name}</h3>
-                <p className="text-[15.5px] leading-[1.65] flex-1 mb-6" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
-                <span className="prod3-cta inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
-                  {p.cta} <Icon name="arrow" className="w-3.5 h-3.5" />
-                </span>
-              </a>
-            ))}
+          <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
+            <div>
+              <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+                {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
+              </h2>
+              {cfg.productsSub && (
+                <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.55] mb-6" style={{ color: "var(--color-ink-2)" }}>
+                  {cfg.productsSub}
+                </p>
+              )}
+              {cfg.productsBullets && cfg.productsBullets.length > 0 && (
+                <ul className="flex flex-col gap-3">
+                  {cfg.productsBullets.map((b) => (
+                    <li key={b} className="inline-flex items-center gap-2.5 text-[15.5px] font-medium" style={{ color: "var(--color-navy)" }}>
+                      <span className="inline-flex items-center justify-center rounded-full" style={{ width: 22, height: 22, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent-deep)", flexShrink: 0 }}>
+                        <Icon name="check" className="w-3.5 h-3.5" />
+                      </span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div className="grid gap-5 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+              {cfg.products.map((p) => (
+                <a key={p.name} href={p.href} className="prod3-card rounded-2xl p-6 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  <div className="prod3-iconwrap inline-flex items-center justify-center rounded-[14px] mb-5" style={{ width: 56, height: 56, background: "rgb(49 177 248 / 0.12)" }}>
+                    <img src={p.iconImg} alt={p.name} style={{ width: 32, height: 32, objectFit: "contain", display: "block" }} />
+                  </div>
+                  <h3 className="text-[20px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{p.name}</h3>
+                  <p className="text-[14.5px] leading-[1.6] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                  <span className="prod3-cta inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                    {p.cta} <Icon name="arrow" className="w-3.5 h-3.5" />
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
         <style>{`
-          @media (max-width: 1000px) { .prod3-grid { grid-template-columns: 1fr !important; max-width: 520px; margin: 0 auto; } }
+          @media (max-width: 1000px) {
+            .prod-split { grid-template-columns: 1fr !important; }
+            .prod3-grid { grid-template-columns: 1fr !important; max-width: 520px; margin: 0 auto; }
+          }
           .prod3-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; }
           .prod3-card:hover { transform: translateY(-2px); border-color: var(--color-rule-strong) !important; box-shadow: 0 14px 32px -18px rgb(15 23 42 / 0.14); }
           .prod3-card .prod3-cta { transition: gap 420ms cubic-bezier(0.22, 1, 0.36, 1); }
@@ -225,7 +230,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.privacyTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.privacyTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.privacyBody}</p>
-              <a href={cfg.privacyHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              <a href={cfg.privacyHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
                 {cfg.privacyCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -244,7 +249,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.reportsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.reportsTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.reportsBody}</p>
-              <a href={cfg.reportsHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              <a href={cfg.reportsHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
                 {cfg.reportsCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -269,7 +274,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
-              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              <a href={cfg.integrationHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
                 {cfg.integrationCta}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
@@ -286,7 +291,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
               <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
                 {cfg.ctaStripBold}<br /><span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
               </p>
-              <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+              <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
                 {t.requestDemo}
                 <Icon name="arrow" className="w-4 h-4" />
               </a>
