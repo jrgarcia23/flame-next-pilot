@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "People Counting · Flame Analytics",
   description: "Measure footfall across entrances, floors and venues with AI-powered video analytics. Get the visibility you need to optimize operations, plan resources efficie",
@@ -43,14 +44,7 @@ const cfg: UseCaseConfig = {
     { icon: "ratio", title: "Staff-to-traffic ratio", desc: "Right-size staff per shift. Reduce mis-allocated hours." },
   ],
   testimonialsIdx: [0, 1, 2, 5, 6],
-  faqs: [
-    { q: "How accurate is Flame people counting?", a: "Flame People Counting reaches above 98% accuracy in standard retail environments, validated by field audits. The Hypersensor AI model is trained on millions of scenarios including high-density spaces, groups and complex occlusions." },
-    { q: "Do I need to install new hardware?", a: "No. Flame works with your existing IP cameras through standard protocols. There is no need for dedicated counters or extra hardware in most setups." },
-    { q: "Is it GDPR compliant?", a: "Yes. Flame counts anonymous silhouettes without facial recognition or biometric data. It only outputs aggregate statistics — never personal data." },
-    { q: "How quickly can we go live?", a: "Typical setup takes 5 to 7 days from contract signature: camera audit, calibration and dashboard onboarding for your team." },
-    { q: "Can it exclude staff from the count?", a: "Yes. Staff exclusion is supported via several methods: zones, tags, mobile app sign-in, IoT button or visit-duration heuristics." },
-    { q: "Does it work in low-light environments?", a: "Yes. The AI model maintains high accuracy in variable lighting (cinemas, venues, evening retail). Accuracy stays above 90% in standard low-light scenarios." },
-  ],
+  faqs: getFaqs("people-counting", "en"),
   ctaStripBold: "Start counting visitors with real accuracy.",
   ctaStripLight: "Live people counting in 7 days.",
 };

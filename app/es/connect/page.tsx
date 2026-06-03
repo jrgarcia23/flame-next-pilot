@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Connect · Flame Analytics",
   description: "WiFi que impulsa la fidelización y el retorno. Convierte el WiFi para invitados en un potente canal de marketing y fidelización.",
@@ -69,14 +70,7 @@ const cfg: ProductConfig = {
     { icon: "privacy",     title: "Privacidad", desc: "Flame procesa los datos de forma anónima y sin datos biométricos, garantizando el cumplimiento del RGPD y la total privacidad de los visitantes." },
   ],
   testimonialsIdx: [3, 0, 5],
-  faqs: [
-    { q: "¿Es compatible con mi infraestructura WiFi actual?",     a: "Sí. Flame Connect se integra con los principales fabricantes de redes (Cisco, Aruba, Ruckus, Cambium, Ubiquiti, etc.) mediante <strong>protocolos estándar RADIUS, WPA Enterprise o redirect HTTP</strong>." },
-    { q: "¿Qué tasa de captura de email se consigue?",             a: "Con portal bien diseñado y un incentivo claro (WiFi gratis, cupón, contenido exclusivo), las tasas típicas son <strong>25-40%</strong>. Sin incentivo, baja al 8-15%. Flame incluye plantillas optimizadas por industria." },
-    { q: "¿Cómo se gestiona el consentimiento RGPD?",              a: "Consentimiento granular en el portal: el visitante elige qué comparte y para qué finalidades. Doble opt-in opcional. Derecho al olvido implementado con borrado automático tras petición." },
-    { q: "¿Funciona en múltiples idiomas?",                         a: "Sí. Detección automática del idioma del dispositivo + traducción configurable a +20 idiomas. Cada portal puede tener variantes diferentes por idioma con copy adaptado." },
-    { q: "¿Cuánto cuesta?",                                         a: "Pricing por <strong>número de access points</strong>. Para un local con 2-3 APs, suele estar entre 80-150 €/mes incluyendo portal, captura, automatización básica y sync a CRM. Pricing por volumen para grandes redes." },
-    { q: "¿Qué pasa con MAC randomization?",                        a: "Flame está optimizado para entornos con MAC randomization (Apple iOS 14+, Android 11+). La identificación del visitante recurrente se basa en email registrado y patrones de comportamiento, no en MAC." },
-  ],
+  faqs: getFaqs("connect", "es"),
   ctaStripBold: "Tu WiFi no es una utility, es tu canal de marketing más infrautilizado.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Hospitality · Flame Analytics",
   description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big dat",
@@ -86,13 +87,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [3, 5, 6],
-  faqs: [
-    { q: "How does Guest WiFi work in our hotel?", a: "Flame Connect deploys a captive portal that guests use to access the WiFi. The portal can be branded with your hotel identity and captures consent-based data for marketing and CRM enrichment." },
-    { q: "Can we integrate with our PMS?", a: "Yes. Native integrations with major PMS systems (Opera, Mews, Cloudbeds, etc.) plus REST APIs for custom integrations." },
-    { q: "What data do we collect from guests?", a: "Only what guests explicitly consent to share: name, email, language preference and optionally birthday or interests. Fully GDPR compliant." },
-    { q: "How long does deployment take?", a: "Typically 1 to 2 weeks for a single hotel. Chain rollouts can deploy 10 to 50 hotels per month with phased onboarding." },
-    { q: "What ROI should we expect?", a: "Hotels typically see direct booking lift of 5 to 12 percent within 6 months through email and SMS campaigns to captured contacts. Cross-sell campaigns add 3 to 8 percent incremental revenue per room." },
-  ],
+  faqs: getFaqs("hospitality", "en"),
   ctaStripBold: "Turn your WiFi into the direct channel with every guest.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

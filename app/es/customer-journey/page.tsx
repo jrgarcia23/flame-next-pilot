@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Customer Journey · Flame Analytics",
   description:
@@ -82,15 +83,7 @@ const cfg: ProductConfig = {
     { icon: "privacy",     title: "Privacidad", desc: "Flame procesa los datos de forma anónima y sin datos biométricos, garantizando el cumplimiento del RGPD y la total privacidad de los visitantes." },
   ],
   testimonialsIdx: [0, 7, 8],
-  faqs: [
-    { q: "¿Qué diferencia Customer Journey de un sistema de heatmaps tradicional?", a: "Los heatmaps tradicionales muestran solo concentración de presencia. <strong>Customer Journey</strong> añade <strong>secuencia, tiempo y atribución</strong>: el orden en que se visitan las zonas, cuánto se queda en cada una y si esa visita acabó en compra." },
-    { q: "¿Sirve para grandes superficies con múltiples plantas?",                  a: "Sí, especialmente bien. Flame fusiona datos de múltiples cámaras en una <strong>vista unificada</strong> del journey completo, incluso entre plantas. Útil en grandes superficies y centros comerciales." },
-    { q: "¿Cómo identifica a un visitante recurrente sin biometría?",               a: "Mediante <strong>patrones de comportamiento agregados</strong>: combinación de frecuencia de visita, dispositivos WiFi vistos y horarios habituales. Sin identificar a la persona — solo dice 'tipología visitante recurrente vs. ocasional'." },
-    { q: "¿Funciona en espacios con poca iluminación?",                             a: "Sí. Los modelos IA de Flame están entrenados para condiciones variables (cines, espacios nocturnos, exteriores en distintas horas). Mantiene precisión >90% en escenarios estándar de baja luz." },
-    { q: "¿Cumple el RGPD?",                                                         a: "100%. Sin biometría, sin reconocimiento facial, sin identificación individual. Solo siluetas anónimas y agregados estadísticos. Aprobado por DPOs en despliegues europeos." },
-    { q: "¿Cuánto cuesta?",                                                          a: "El pricing depende del número de cámaras y ubicaciones. Para una tienda mediana con 3-5 cámaras, suele estar entre 200-500 €/mes incluyendo soporte. Pricing por volumen para grandes redes." },
-    { q: "¿Cuánto tarda la implementación?",                                         a: "Tras la firma: <strong>5-7 días</strong> para datos básicos, 2-4 semanas para calibración fina del journey. La integración con TPV añade típicamente 1-2 semanas." },
-  ],
+  faqs: getFaqs("customer-journey", "es"),
   ctaStripBold: "Diseña espacios que vendan, no espacios que ocupen sitio.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

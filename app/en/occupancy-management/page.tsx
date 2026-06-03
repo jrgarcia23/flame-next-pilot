@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Occupancy Management · Flame Analytics",
   description: "Keep your venues balanced, efficient and safe. Live and historical capacity visibility with privacy-respecting analytics — and automated alerts when thresholds ",
@@ -43,13 +44,7 @@ const cfg: UseCaseConfig = {
     { icon: "integration", title: "Real-time integration", desc: "API and webhooks to automate signage and access." },
   ],
   testimonialsIdx: [0, 1, 2, 5, 6],
-  faqs: [
-    { q: "Is it suitable for capacity regulation?", a: "Yes. Flame provides auditable reporting with timestamps, occupancy levels per zone and event logs accepted by administrative inspections in major European markets." },
-    { q: "Can it close access automatically when capacity is reached?", a: "Yes, via integration with turnstiles, occupancy traffic lights or digital signage. Flame sends API or webhook signals when configured thresholds are hit." },
-    { q: "Does it work in venues without cameras?", a: "Yes. Flame integrates with people counters, beam sensors and WiFi probes as additional sources besides existing CCTV." },
-    { q: "Can we monitor multiple zones at once?", a: "Yes. Each zone has its own configuration, threshold and dashboard, with cross-zone comparisons available." },
-    { q: "Is the data GDPR compliant?", a: "Yes. Anonymous silhouettes, aggregate output, no individual tracking. ISO 27001 certified." },
-  ],
+  faqs: getFaqs("occupancy", "en"),
   ctaStripBold: "Real-time occupancy, no inspection surprises.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

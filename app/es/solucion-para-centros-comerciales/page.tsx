@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence para Centros Comerciales · Flame Analytics",
   description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
@@ -80,7 +81,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [0, 1, 7, 8],
-  faqs: [],
+  faqs: getFaqs("shopping-malls", "es"),
   ctaStripBold: "Convierte la afluencia en valor para inquilinos y visitantes.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

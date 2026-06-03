@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Gestión de la ocupación · Flame Analytics",
   description: "Ocupación en tiempo real, alertas automatizadas y reporting para cumplimiento y experiencia. Mantén tus espacios equilibrados, eficientes y seguros.",
@@ -43,14 +44,7 @@ const cfg: UseCaseConfig = {
     { icon: "reports",   title: "Reporting normativo",         desc: "Documentación auditable para cumplimiento de ocupación." },
   ],
   testimonialsIdx: [3, 5, 8],
-  faqs: [
-    { q: "¿Qué precisión tiene Flame en el conteo de ocupación?",          a: "+98% de precisión en condiciones controladas. Flame utiliza modelos de aprendizaje profundo entrenados sobre millones de escenarios reales y gestiona casos complejos (grupos, cochecitos, etc.) que los sensores infrarrojos tradicionales subcontabilizan." },
-    { q: "¿Sirve para cumplir normativa de ocupación?",                       a: "Sí. Flame genera <strong>reporting auditable</strong> con marcas de tiempo, niveles de ocupación por zona y registro de eventos. Los datos son aceptados por inspecciones administrativas en los principales mercados europeos." },
-    { q: "¿Se puede automatizar el cierre de acceso al superar la ocupación?", a: "Sí, mediante integración con tu sistema de torniquetes, semáforos de ocupación o señalización digital. Flame envía señales por API o webhook cuando se alcanza el umbral configurado." },
-    { q: "¿Cuántas zonas se pueden monitorizar?",                          a: "Tantas como necesites. Flame escala de un solo recinto a miles. La gestión es centralizada desde una sola plataforma cloud, con permisos por usuario." },
-    { q: "¿Cumple el RGPD?",                                                a: "Sí, 100%. Flame procesa siluetas anónimas, sin biometría ni reconocimiento facial. Los datos son siempre agregados a nivel zona/franja temporal, nunca individuales." },
-    { q: "¿Funciona con cámaras existentes?",                              a: "Sí. Flame es hardware-agnóstico y funciona sobre tu CCTV IP existente. El equipo técnico hace una auditoría gratuita previa para confirmar compatibilidad." },
-  ],
+  faqs: getFaqs("occupancy", "es"),
   ctaStripBold: "Ocupación en tiempo real, sin sustos en inspección.",
   ctaStripLight: "Operativo en 7 días.",
 };

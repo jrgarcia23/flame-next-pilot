@@ -1,3 +1,4 @@
+import { getFaqs } from "@/lib/live-faqs";
 /**
  * Hypersensor page content (ES + EN).
  * One-off page — content kept here so both pages stay perfectly in sync
@@ -166,38 +167,7 @@ export const HS_ES: HypersensorContent = {
   ctaStripLight: "Conviértelas en analítica avanzada con IA en menos de una semana.",
   faqTitle: "Preguntas",
   faqTitleHl: "frecuentes",
-  faqs: [
-    {
-      q: "¿Necesito instalar cámaras nuevas para usar Hypersensor?",
-      a:
-        "No. Hypersensor funciona sobre tu CCTV existente. Es compatible con las principales marcas del mercado (Axis, Hikvision, Dahua, Bosch, Hanwha, etc.). Solo necesitas dar acceso al stream RTSP y nuestro equipo se encarga del resto.",
-    },
-    {
-      q: "¿Es 100 % compatible con el RGPD?",
-      a:
-        "Sí. Hypersensor procesa el vídeo de forma anónima, sin reconocimiento facial ni datos biométricos. No almacenamos imágenes ni identificadores personales. Estamos alineados con las mejores prácticas ISO 27001 para gestión de seguridad de la información.",
-    },
-    {
-      q: "¿Qué precisión tiene el conteo de personas?",
-      a:
-        "Hypersensor alcanza una precisión superior al 99 % en condiciones reales gracias a la reconexión de cero biometría entre cámaras. Esto evita los dobles conteos típicos en entradas múltiples o zonas amplias.",
-    },
-    {
-      q: "¿En cuánto tiempo está operativo?",
-      a:
-        "Un piloto en una tienda o sede puede estar activo en menos de una semana. Los despliegues multi-ubicación se planifican en oleadas: lo habitual es ver datos en producción en 2-4 semanas desde el kick-off.",
-    },
-    {
-      q: "¿Puede integrarse con mi TPV, ERP o BI?",
-      a:
-        "Sí. Hypersensor expone APIs abiertas y conectores nativos hacia CRM, CMS, Data Lakes y herramientas de BI (Power BI, Looker, Tableau). Para datos transaccionales conectamos contra tu TPV o ERP y cruzamos visitas con ventas para calcular conversión real.",
-    },
-    {
-      q: "¿Qué métricas puedo medir?",
-      a:
-        "Tráfico (entradas/salidas, zonas, líneas de conteo), ocupación en tiempo real, tasa de conversión, recorridos, tiempo de permanencia, mapas de calor, datos demográficos anónimos (edad/género estimados sin identificación) y colas.",
-    },
-  ],
+  faqs: getFaqs("hypersensor", "es"),
 };
 
 export const HS_EN: HypersensorContent = {
@@ -322,36 +292,5 @@ export const HS_EN: HypersensorContent = {
   ctaStripLight: "Turn them into advanced AI analytics in less than a week.",
   faqTitle: "Frequently asked",
   faqTitleHl: "questions",
-  faqs: [
-    {
-      q: "Do I need to install new cameras to use Hypersensor?",
-      a:
-        "No. Hypersensor runs on top of your existing CCTV. It is compatible with the leading brands on the market (Axis, Hikvision, Dahua, Bosch, Hanwha, etc.). You just give us access to the RTSP stream and our team handles the rest.",
-    },
-    {
-      q: "Is it 100% GDPR compliant?",
-      a:
-        "Yes. Hypersensor processes video anonymously, with no facial recognition or biometric data. We do not store images or personal identifiers. We are aligned with ISO 27001 best practices for information security management.",
-    },
-    {
-      q: "How accurate is people counting?",
-      a:
-        "Hypersensor delivers over 99% accuracy in real-world conditions thanks to zero-biometrics cross-camera reconnection. This prevents the double counting typical of multi-entrance or large-zone deployments.",
-    },
-    {
-      q: "How fast can it go live?",
-      a:
-        "A pilot at a single store or venue can be live in less than a week. Multi-site rollouts are planned in waves: data is usually in production within 2–4 weeks of kick-off.",
-    },
-    {
-      q: "Can it integrate with my POS, ERP or BI?",
-      a:
-        "Yes. Hypersensor exposes open APIs and native connectors to CRMs, CMSs, Data Lakes and BI tools (Power BI, Looker, Tableau). For transactional data we connect against your POS or ERP and cross visits with sales to compute actual conversion.",
-    },
-    {
-      q: "What metrics can I measure?",
-      a:
-        "Traffic (entries/exits, zones, counting lines), real-time occupancy, conversion rate, journeys, dwell time, heatmaps, anonymous demographics (estimated age/gender without identification) and queues.",
-    },
-  ],
+  faqs: getFaqs("hypersensor", "en"),
 };

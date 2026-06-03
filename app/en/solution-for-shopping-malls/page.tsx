@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence for Shopping Malls · Flame Analytics",
   description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
@@ -80,13 +81,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [0, 1, 7, 8],
-  faqs: [
-    { q: "What are the main metrics for a shopping mall?", a: "Footfall, capture rate, dwell time, zone traffic, tenant conversion, and visit frequency. Flame measures all of these in real time and benchmarks against historical and industry data." },
-    { q: "Can we share data with tenants?", a: "Yes. Flame supports per-tenant dashboards with aggregated and anonymized data. Tenants see their own performance and benchmarks against the mall average." },
-    { q: "How does Flame integrate with existing CRM/marketing tools?", a: "Native integration with major CRM platforms (HubSpot, Salesforce, MailChimp, Brevo) and marketing automation tools, plus REST APIs and webhooks for custom integrations." },
-    { q: "Is it GDPR compliant?", a: "Yes. Anonymous silhouette detection, aggregate output, no individual tracking. ISO 27001 certified, EU data processing." },
-    { q: "How long does deployment take in a mall?", a: "Typically 2 to 4 weeks from signing for a single mall, depending on size and number of cameras. Multi-mall portfolios deploy in phased rollouts of 6 to 12 months." },
-  ],
+  faqs: getFaqs("shopping-malls", "en"),
   ctaStripBold: "Turn footfall into value for tenants and visitors.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

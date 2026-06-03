@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Hoteles · Flame Analytics",
   description: "Mejora la gestión hotelera y aumenta la satisfacción y fidelidad de los huéspedes. Análisis integral de datos para hoteles con big data e IA.",
@@ -86,7 +87,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [3, 5, 6],
-  faqs: [],
+  faqs: getFaqs("hospitality", "es"),
   ctaStripBold: "Convierte tu WiFi en el canal directo con cada huésped.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

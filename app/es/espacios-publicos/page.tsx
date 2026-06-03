@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Espacios públicos · Flame Analytics",
   description: "Mejor experiencia del cliente y rendimiento del lugar. Soluciones de data intelligence para museos, transporte público y universidades con big data e IA.",
@@ -78,7 +79,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [0, 5, 7],
-  faqs: [],
+  faqs: getFaqs("public-venues", "es"),
   ctaStripBold: "Datos en tiempo real para decisiones que mejoran la experiencia.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

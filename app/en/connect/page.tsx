@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Connect · Flame Analytics",
   description: "Transforms guest WiFi into a powerful marketing channel. Engage visitors in physical spaces, capture contact data and trigger personalized campaigns based on lo",
@@ -43,14 +44,7 @@ const cfg: ProductConfig = {
     { icon: "privacy", title: "Privacy", desc: "Flame processes data anonymously without biometric data, ensuring GDPR compliance and full visitor privacy." },
   ],
   testimonialsIdx: [0, 1, 7, 8, 2],
-  faqs: [
-    { q: "Is it compatible with my current WiFi infrastructure?", a: "Yes. Flame Connect integrates with major network vendors (Cisco, Aruba, Ruckus, Cambium, Ubiquiti, etc.) via standard RADIUS, WPA Enterprise or HTTP redirect protocols." },
-    { q: "What email capture rate can we achieve?", a: "With a well-designed portal and a clear incentive (free WiFi, coupon, exclusive content), typical rates are 25 to 40 percent. Without incentive, 8 to 15 percent. Flame includes industry-optimized templates." },
-    { q: "How is GDPR consent managed?", a: "Granular consent in the portal: visitors choose what they share and for which purposes. Optional double opt-in. Right to be forgotten with automatic deletion upon request." },
-    { q: "Does it support multiple languages?", a: "Yes. Automatic device language detection plus configurable translation to 20+ languages. Each portal can have different variants per language with localized copy." },
-    { q: "How much does it cost?", a: "Pricing by number of access points. For a venue with 2 to 3 APs, typically 80 to 150 EUR per month including portal, capture, basic automation and CRM sync. Volume pricing for large networks." },
-    { q: "What about MAC randomization?", a: "Flame is optimized for environments with MAC randomization (iOS 14+, Android 11+). Returning visitor identification is based on registered email and behavior patterns, not MAC." },
-  ],
+  faqs: getFaqs("connect", "en"),
   ctaStripBold: "Your WiFi is more than a utility — it's your most underused marketing channel.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

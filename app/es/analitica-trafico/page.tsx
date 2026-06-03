@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
   description:
@@ -61,14 +62,7 @@ const cfg: ProductConfig = {
     { icon: "privacy",     title: "Privacidad",  desc: "Flame procesa los datos de forma anónima y sin datos biométricos, garantizando el cumplimiento del RGPD y la total privacidad de los visitantes." },
   ],
   testimonialsIdx: [0, 1, 7, 8, 2],
-  faqs: [
-    { q: "¿Qué es la analítica de tráfico peatonal y por qué es importante en retail?", a: "La <strong>analítica de tráfico peatonal</strong> mide el movimiento de personas en un espacio físico, capturando datos clave como visitantes únicos, tiempo de permanencia, flujos de circulación y patrones de comportamiento. En retail es fundamental porque permite tomar decisiones basadas en datos reales: optimizar la disposición de la tienda, ajustar el personal a las horas punta, evaluar el impacto de promociones y medir la <strong>tasa de conversión</strong> de visitantes en compradores. Flame transforma cualquier cámara IP existente en un sensor de inteligencia, sin coste de hardware adicional." },
-    { q: "¿Qué es el conteo por zonas y cómo puede mejorar la distribución de mi tienda?", a: "El <strong>conteo por zonas</strong> divide el espacio físico en áreas independientes y mide el tráfico, dwell time y conversión de cada una por separado. Permite identificar qué zonas concentran más visitantes (hotspots), cuáles están infrautilizadas (zonas frías) y cómo se distribuye el flujo. Con esta información puedes reorganizar el layout, reubicar productos estrella, optimizar el merchandising y medir el impacto directo de cada cambio en las ventas por categoría." },
-    { q: "¿Cómo pueden los datos de afluencia optimizar la dotación de personal?", a: "Los datos de afluencia revelan los <strong>patrones reales</strong> de visita por hora, día de la semana y estacionalidad. Cruzando esa información con la productividad por turno se obtiene el ratio óptimo de <strong>staff-to-traffic</strong>. Las cadenas que utilizan Flame reducen entre un 8 y un 15 % los costes laborales reasignando turnos a los momentos de mayor demanda, mientras mejoran la atención al cliente en horas punta." },
-    { q: "¿Qué es la analítica de conversión en retail físico?", a: "La <strong>analítica de conversión</strong> mide qué porcentaje de los visitantes que entran en una tienda acaban comprando. Es el equivalente físico de la tasa de conversión digital. Flame conecta los datos de tráfico (de las cámaras) con los datos de venta (del TPV) para calcular la conversión real por hora, día, zona y categoría." },
-    { q: "¿Cómo afecta el clima al tráfico peatonal y puede la analítica tenerlo en cuenta?", a: "El clima tiene un impacto directo y medible sobre el tráfico peatonal: días lluviosos pueden reducir las visitas exteriores entre un 20-40 %. Flame se integra con APIs meteorológicas para correlacionar el tráfico con condiciones climáticas y aislar el efecto del clima de otros factores." },
-    { q: "¿Se pueden exportar los datos de tráfico a mis herramientas de BI existentes?", a: "Sí. Flame proporciona <strong>APIs REST</strong>, webhooks y conectores nativos para las principales plataformas de BI: Power BI, Looker, Tableau, Snowflake, BigQuery y data lakes en cloud." },
-  ],
+  faqs: getFaqs("traffic", "es"),
   ctaStripBold: "Convierte cada cámara en un sensor de inteligencia.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
 };

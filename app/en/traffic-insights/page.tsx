@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Traffic · Flame Analytics",
   description: "Turn physical traffic into data-driven business decisions. Flame transforms people movement in your spaces into actionable insight that powers performance.",
@@ -43,14 +44,7 @@ const cfg: ProductConfig = {
     { icon: "privacy", title: "Privacy", desc: "Flame processes data anonymously without biometric data, ensuring GDPR compliance and full visitor privacy." },
   ],
   testimonialsIdx: [0, 1, 7, 8, 2],
-  faqs: [
-    { q: "What is footfall analytics and why does it matter in retail?", a: "Footfall analytics measures the movement of people in a physical space, capturing key data like unique visitors, dwell time, flow patterns and behavior. In retail it is fundamental: it lets you make data-driven decisions on layout, staffing, promotion impact and the actual conversion rate from visitor to buyer." },
-    { q: "What is zone counting and how can it improve my store layout?", a: "Zone counting divides the physical space into independent areas and measures traffic, dwell time and conversion for each. It surfaces hot zones, underused cold zones and traffic distribution, helping you reorganize layout, reposition products and measure the direct sales impact of every change." },
-    { q: "How can footfall data optimize staffing?", a: "Footfall data reveals real visit patterns by hour, weekday and season. Cross-referencing this with shift productivity gives you the optimal staff-to-traffic ratio. Chains using Flame typically reduce labor costs 8 to 15 percent by reassigning shifts to peak demand." },
-    { q: "What is retail conversion analytics?", a: "Retail conversion analytics measures the share of store visitors that actually buy. It is the physical equivalent of digital conversion rate. Flame links traffic data (cameras) with POS data to compute real conversion by hour, day, zone and category." },
-    { q: "Does weather affect footfall and can analytics account for it?", a: "Weather has a direct measurable impact on foot traffic — rainy days can reduce visits 20 to 40 percent. Flame integrates with weather APIs to correlate traffic with conditions and isolate the weather effect from other factors." },
-    { q: "Can traffic data be exported to my BI tools?", a: "Yes. Flame exposes REST APIs, webhooks and native connectors for major BI platforms: Power BI, Looker, Tableau, Snowflake, BigQuery and cloud data lakes." },
-  ],
+  faqs: getFaqs("traffic", "en"),
   ctaStripBold: "Turn every camera into an intelligence sensor.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

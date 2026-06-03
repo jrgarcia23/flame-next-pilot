@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Public Venues · Flame Analytics",
   description: "Enhance data intelligence for public venues, unlocking valuable insights for better decision-making. We develop and deploy digital marketing and analytics solut",
@@ -78,13 +79,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [0, 5, 7],
-  faqs: [
-    { q: "Does Flame work in transport vehicles?", a: "Yes. Flame analytics work on cameras inside public transport vehicles (buses, trams, trains) to count boarding and alighting passengers per stop with high accuracy." },
-    { q: "How does it handle large public venues?", a: "Flame unifies multiple cameras into a single venue view with full coverage. Tested in stadiums, museums and large public buildings." },
-    { q: "Is it GDPR compliant for public spaces?", a: "Yes. Anonymous detection, no facial recognition, no individual tracking. Specifically validated for public-space deployments in EU jurisdictions." },
-    { q: "Can it help with safety and compliance?", a: "Yes. Real-time occupancy thresholds and alerts ensure compliance with capacity regulations and help operational teams respond to crowd situations." },
-    { q: "What is the typical deployment timeline?", a: "For a museum or university campus, 2 to 4 weeks from signing. Transport networks deploy per route with 1 to 2 months ramp." },
-  ],
+  faqs: getFaqs("public-venues", "en"),
   ctaStripBold: "Real-time data for decisions that improve the experience.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

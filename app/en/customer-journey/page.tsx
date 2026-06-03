@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Customer Journey · Flame Analytics",
   description: "Analyze and improve shopping experiences and customer flow through advanced behavioral insights. Optimize layout, boost engagement and measure the full visitor ",
@@ -45,14 +46,7 @@ const cfg: ProductConfig = {
     { icon: "privacy", title: "Privacy", desc: "Flame processes data anonymously without biometric data, ensuring GDPR compliance and full visitor privacy." },
   ],
   testimonialsIdx: [0, 1, 7, 8, 2],
-  faqs: [
-    { q: "What sets Customer Journey apart from traditional heatmaps?", a: "Traditional heatmaps only show concentration of presence. Customer Journey adds sequence, time and attribution: the order zones are visited, how long is spent in each and whether the visit ended in purchase." },
-    { q: "Does it work in large multi-floor venues?", a: "Yes, especially well. Flame merges data from multiple cameras into a unified view of the full journey, even across floors. Useful for large venues and shopping centers." },
-    { q: "How does it identify recurring visitors without biometrics?", a: "Through aggregate behavior patterns: visit frequency, observed WiFi devices and habitual hours. No individual identification — just visitor typology like recurring vs. occasional." },
-    { q: "Does it work in low-light environments?", a: "Yes. Flame AI models are trained for variable conditions (cinemas, nighttime venues, outdoors at different hours). Accuracy stays above 90 percent in standard low-light scenarios." },
-    { q: "Is it GDPR compliant?", a: "One hundred percent. No biometrics, no facial recognition, no individual identification. Only anonymous silhouettes and statistical aggregates. Approved by DPOs in European deployments." },
-    { q: "How long does implementation take?", a: "After signing: 5 to 7 days for basic data, 2 to 4 weeks for fine journey calibration. POS integration typically adds 1 to 2 weeks." },
-  ],
+  faqs: getFaqs("customer-journey", "en"),
   ctaStripBold: "Design spaces that sell, not spaces that just take up room.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

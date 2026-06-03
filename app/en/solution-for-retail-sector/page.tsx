@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence for Retail · Flame Analytics",
   description: "At Flame we develop and deploy digital marketing and analytics solutions for physical spaces. Thanks to big data and AI, we help retailers understand their cust",
@@ -89,14 +90,7 @@ const cfg: SectorConfig = {
     },
   ],
   testimonialsIdx: [2, 4, 6],
-  faqs: [
-    { q: "What are the key retail analytics KPIs?", a: "The five fundamental KPIs every retailer should measure: conversion rate (visitors to buyers), footfall (total visitors per period), average dwell time (engagement), capture rate (passers-by entering) and staff performance (sales per employee vs. traffic). Flame provides the first four automatically using existing cameras." },
-    { q: "How does retail analytics work with security cameras?", a: "Flame turns security cameras into business intelligence sensors without altering their surveillance role. Hypersensor technology connects via RTSP and applies AI models for people counting, flow patterns, zone analytics and dwell time." },
-    { q: "What is the typical ROI of retail analytics?", a: "Clients see ROI in three areas within 90 days: staffing optimization cuts labor 8 to 15 percent. Conversion improvement lifts sales 5 to 12 percent without extra traffic. Marketing attribution eliminates spend on ineffective promotions." },
-    { q: "Does it work for small stores or only large chains?", a: "Flame serves both independent stores and enterprise chains. For small stores (1 to 5 locations), 2 to 4 cameras provide people counting and basic traffic analytics from 150 to 400 EUR per month." },
-    { q: "How is shopper privacy protected?", a: "Flame is built privacy-by-design. Cameras send video streams to the Flame software, which extracts analytics and discards images immediately. No facial recognition. ISO 27001, GDPR compliant, EU data processing." },
-    { q: "How long does deployment take?", a: "5 to 7 days from signing for the first pilot store. 30 to 60 days for 10 to 20 locations. 6 to 12 months for 500+ stores with phased rollout managed by Flame." },
-  ],
+  faqs: getFaqs("retail", "en"),
   ctaStripBold: "Every store is unique. Your data should prove it.",
   ctaStripLight: "Personalized demo in 20 minutes.",
 };

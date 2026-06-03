@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
+import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
   description:
@@ -44,16 +45,7 @@ const cfg: UseCaseConfig = {
     { icon: "ratio",    title: "Staff-to-traffic ratio",             desc: "Personal real necesario en cada franja. Reduce hasta un 18% las horas mal asignadas." },
   ],
   testimonialsIdx: [6, 3, 2],
-  faqs: [
-    { q: "¿Qué es un sistema de People Counting y cómo funciona?",                a: "Un sistema de <strong>People Counting</strong> utiliza sensores —normalmente cámaras de vídeo o haces infrarrojos— para registrar cuántas personas entran y salen de un espacio físico. Los sistemas modernos como Flame aplican analítica de vídeo con IA a las cámaras de videovigilancia existentes, eliminando la necesidad de hardware dedicado. La tecnología <strong>Hypersensor</strong> procesa los flujos de vídeo en tiempo real, detectando y contando personas mediante reconocimiento de siluetas sin identificar rostros ni utilizar datos biométricos. Flame alcanza más de un <strong>98 %</strong> de precisión en espacios físicos, tiendas y centros comerciales en 7 países." },
-    { q: "¿Qué precisión tiene el People Counting con IA frente al conteo manual?", a: "El <strong>People Counting</strong> basado en IA como el de Flame alcanza más de un <strong>98 %</strong> de precisión en entornos controlados, superando con creces el conteo manual, que típicamente ofrece entre un 75-85 % de precisión debido a la fatiga y distracción humanas. El <strong>Hypersensor</strong> de Flame utiliza modelos de aprendizaje profundo entrenados con millones de escenarios reales para mantener la precisión incluso en entornos de alta densidad, como pasillos de centros comerciales o entradas de tiendas en horas punta." },
-    { q: "¿Cuánto cuesta un sistema de People Counting para una tienda?",          a: "El coste total depende de tres factores: número de entradas a monitorizar, infraestructura de cámaras existente y módulos de analítica elegidos. Flame funciona con las cámaras de videovigilancia existentes, eliminando el coste de 500-2.000 EUR por entrada de los sensores dedicados. Las licencias de software siguen un modelo SaaS con suscripciones mensuales o anuales. Para una única ubicación con 2-4 cámaras, se puede esperar entre 150-400 EUR/mes incluyendo <strong>People Counting</strong>, analítica básica de tráfico y acceso al panel de control." },
-    { q: "¿Cuál es el ROI de implementar People Counting?",                       a: "Las organizaciones que utilizan el <strong>People Counting</strong> de Flame consiguen un ROI medible en 90 días en tres áreas. Primero, visibilidad de la tasa de conversión: conocer la ratio real de visitantes que compran revela si las bajas ventas se deben a falta de tráfico o a una mala experiencia en tienda. Segundo, optimización de la dotación de personal: alinear los turnos con los patrones reales de tráfico reduce los costes laborales entre un <strong>8-15 %</strong>." },
-    { q: "¿Es el People Counting compatible con el RGPD?",                        a: "Sí, cuando se implementa correctamente. El <strong>People Counting</strong> de Flame es <strong>privacidad por diseño</strong>: el sistema cuenta siluetas anónimas moviéndose por el espacio sin capturar, almacenar ni procesar datos biométricos. Sin reconocimiento facial, sin seguimiento individual, sin recopilación de datos personales." },
-    { q: "¿Funciona con mis cámaras de videovigilancia actuales?",                a: "Sí, y este es el diferenciador clave de Flame. La tecnología <strong>Hypersensor</strong> de Flame se conecta a las cámaras IP existentes mediante protocolo RTSP, transformando la infraestructura de videovigilancia en inteligencia de negocio sin ningún hardware nuevo. Compatible con las principales marcas de cámaras, incluyendo Axis, Hikvision, Dahua, Bosch y Hanwha." },
-    { q: "¿Cuál es la diferencia entre datos en tiempo real y datos históricos?", a: "Los datos en tiempo real muestran la ocupación actual y el flujo de tráfico según ocurre, algo esencial para decisiones inmediatas como abrir puntos de atención adicionales o activar protocolos de gestión de ocupación. Los datos históricos revelan patrones a lo largo de semanas, meses y años, permitiendo decisiones estratégicas." },
-    { q: "¿Cuánto tiempo lleva la instalación?",                                  a: "Para una única ubicación con cámaras existentes, Flame normalmente entrega datos de conteo en vivo en <strong>5-7 días laborables</strong> desde la firma del contrato. El proceso: Días 1-2, auditoría de cámaras y configuración RTSP; Días 3-4, calibración del modelo de IA; Días 5-7, configuración del panel y formación del equipo." },
-  ],
+  faqs: getFaqs("people-counting", "es"),
   ctaStripBold: "Empieza a contar visitantes con precisión real.",
   ctaStripLight: "Conteo de personas operativo en 7 días.",
 };
