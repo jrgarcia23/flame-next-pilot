@@ -143,36 +143,35 @@ export default function SobreNosotrosEs() {
         </div>
       </section>
 
-      {/* 5. CONOCE AL EQUIPO */}
+      {/* 5-6. CONOCE AL EQUIPO + MISIÓN — 2 cols lado a lado, como el live (section 709eb23a, 3 cols Elementor) */}
       <section className="py-[80px]" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Conoce al equipo
-            </h2>
-            <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
-              Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado. ¿Quieres conocernos?
-            </p>
-            <a href="/es/sobre-nosotros/conoce-al-equipo/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              Conócenos
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
+          <div className="grid items-start gap-14 about-twocols" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div>
+              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                Conoce al equipo
+              </h2>
+              <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
+                Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado. ¿Quieres conocernos?
+              </p>
+              <a href="/es/sobre-nosotros/conoce-al-equipo/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                Conoce al equipo
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+            <div>
+              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                Misión
+              </h2>
+              <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
+                Nuestra misión es servir de puente entre el mundo offline y el online, ofreciendo a nuestros clientes herramientas digitales para el mundo físico. Estas herramientas les permiten conocer mejor a sus clientes y conectar con ellos, generando en última instancia ventajas competitivas.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* 6. MISIÓN */}
-      <section className="py-[80px]" style={{ background: "var(--color-navy)", color: "#fff" }}>
-        <div className="flame-container">
-          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Misión
-            </h2>
-            <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.82)" }}>
-              Nuestra misión es servir de puente entre el mundo offline y el online, ofreciendo a nuestros clientes herramientas digitales para el mundo físico. Estas herramientas les permiten conocer mejor a sus clientes y conectar con ellos, generando en última instancia ventajas competitivas.
-            </p>
-          </div>
-        </div>
+        <style>{`
+          @media (max-width: 800px) { .about-twocols { grid-template-columns: 1fr !important; } }
+        `}</style>
       </section>
 
       {/* 7. INVERSORES */}

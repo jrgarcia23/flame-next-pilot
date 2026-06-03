@@ -144,35 +144,35 @@ export default function AboutUsEn() {
       </section>
 
       {/* 5. MEET THE TEAM */}
+      {/* 5-6. TEAM + MISSION — 2 cols side by side (matches live section 709eb23a) */}
       <section className="py-[80px]" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Meet the team
-            </h2>
-            <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
-              Composed of experts in big data, retail, consulting, marketing and engineering, the Flame team is a young, dynamic group with over a decade delivering the most innovative tech solutions on the market. Want to meet us?
-            </p>
-            <a href="/en/about-us/meet-the-team/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              Get to know us
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
+          <div className="grid items-start gap-14 about-twocols" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <div>
+              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                Meet the team
+              </h2>
+              <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
+                Composed of experts in big data, retail, consulting, marketing and engineering, the Flame team is a young, dynamic group with over a decade delivering the most innovative tech solutions on the market. Want to meet us?
+              </p>
+              <a href="/en/about-us/meet-the-team/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                Meet the team
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+            <div>
+              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                Mission
+              </h2>
+              <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
+                Our mission is to bridge the offline and online worlds, providing customers with digital tools for the physical world. These tools help them understand their customers better and connect with them, ultimately generating competitive advantages.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
-
-      {/* 6. MISSION */}
-      <section className="py-[80px]" style={{ background: "var(--color-navy)", color: "#fff" }}>
-        <div className="flame-container">
-          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
-            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Mission
-            </h2>
-            <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.82)" }}>
-              Our mission is to bridge the offline and online worlds, providing customers with digital tools for the physical world. These tools help them understand their customers better and connect with them, ultimately generating competitive advantages.
-            </p>
-          </div>
-        </div>
+        <style>{`
+          @media (max-width: 800px) { .about-twocols { grid-template-columns: 1fr !important; } }
+        `}</style>
       </section>
 
       {/* 7. INVESTORS */}
