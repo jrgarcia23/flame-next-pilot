@@ -29,7 +29,7 @@ export default function HypersensorEn() {
       <CtaStyles />
       <SiteHeader enHref={esHref} currentLang={currentLang} />
 
-      {/* 1. HERO */}
+      {/* 1. HERO — bg Characteristics-1.png + eyebrow + sub + CTA + 4 cards inside (matches live) */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -39,44 +39,33 @@ export default function HypersensorEn() {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           color: "white",
-          paddingTop: "clamp(72px, 8vw, 120px)",
-          paddingBottom: "clamp(50px, 6vw, 80px)",
+          paddingTop: "clamp(80px, 9vw, 130px)",
+          paddingBottom: "clamp(60px, 7vw, 100px)",
         }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgb(21 22 58 / 0.55) 0%, rgb(21 22 58 / 0.9) 75%, rgb(21 22 58 / 1) 100%)",
+              "linear-gradient(180deg, rgb(21 22 58 / 0.75) 0%, rgb(21 22 58 / 1) 75%)",
           }}
         />
         <div className="flame-container relative z-10">
-          <div className="text-center mx-auto" style={{ maxWidth: 980 }}>
+          <div className="text-center mx-auto mb-16" style={{ maxWidth: 920 }}>
             <p
-              className="mb-5 text-[clamp(14px,1vw,16px)] font-semibold uppercase"
-              style={{ color: "var(--color-accent)", letterSpacing: "0.12em" }}
+              className="mb-6 font-medium"
+              style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.4vw,44px)", letterSpacing: "-0.018em", lineHeight: 1.15 }}
             >
               {cfg.hero.eyebrow}
             </p>
-            <h1
-              className="text-[clamp(56px,8vw,120px)] font-normal mb-7"
-              style={{
-                color: "#fff",
-                letterSpacing: "-0.028em",
-                lineHeight: 1.0,
-                fontFamily: "var(--font-display)",
-              }}
-            >
-              {cfg.hero.title}
-            </h1>
             <p
-              className="text-[clamp(18px,1.5vw,22px)] font-normal mb-10 mx-auto"
+              className="text-[clamp(17px,1.3vw,20px)] font-normal mb-10 mx-auto"
               style={{
-                color: "rgb(255 255 255 / 0.84)",
-                maxWidth: "62ch",
+                color: "rgb(255 255 255 / 0.82)",
+                maxWidth: "70ch",
                 fontFamily: "var(--font-body)",
-                letterSpacing: "-0.008em",
-                lineHeight: 1.5,
+                letterSpacing: "-0.005em",
+                lineHeight: 1.55,
               }}
             >
               {cfg.hero.sub}
@@ -90,7 +79,31 @@ export default function HypersensorEn() {
               <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
+          <div className="grid gap-5 hero-b-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+            {cfg.benefits.map((b, i) => (
+              <article
+                key={i}
+                className="hero-benefit-card rounded-2xl p-6"
+                style={{ background: "rgb(255 255 255 / 0.05)", border: "1px solid rgb(255 255 255 / 0.12)" }}
+              >
+                <div
+                  className="hero-benefit-icon inline-flex items-center justify-center rounded-[12px] mb-4"
+                  style={{ width: 44, height: 44, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}
+                >
+                  <Icon name={b.icon} className="w-5 h-5" />
+                </div>
+                <h3 className="text-[17px] font-semibold mb-2" style={{ color: "#fff", letterSpacing: "-0.005em", lineHeight: 1.3 }}>{b.title}</h3>
+                <p className="text-[14px] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.7)" }}>{b.desc}</p>
+              </article>
+            ))}
+          </div>
         </div>
+        <style>{`
+          @media (max-width: 1100px) { .hero-b-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          @media (max-width: 600px) { .hero-b-grid { grid-template-columns: 1fr !important; } }
+          .hero-benefit-card { transition: background 420ms ease, border-color 420ms ease, transform 420ms ease; }
+          .hero-benefit-card:hover { background: rgb(255 255 255 / 0.08) !important; border-color: rgb(255 255 255 / 0.22) !important; transform: translateY(-2px); }
+        `}</style>
       </section>
 
       {/* 2. LOGOS */}
@@ -129,81 +142,6 @@ export default function HypersensorEn() {
         `}</style>
       </section>
 
-      {/* 3. BENEFITS */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
-        <div className="flame-container">
-          <div className="text-center mb-14 mx-auto" style={{ maxWidth: 760 }}>
-            <p
-              className="mb-4 text-[14px] font-semibold uppercase"
-              style={{ color: "var(--color-accent)", letterSpacing: "0.1em" }}
-            >
-              {cfg.benefitsEyebrow}
-            </p>
-            <h2
-              className="text-[clamp(32px,3.4vw,48px)] font-normal"
-              style={{
-                color: "var(--color-navy)",
-                letterSpacing: "-0.02em",
-                lineHeight: 1.08,
-                fontFamily: "var(--font-display)",
-              }}
-            >
-              {cfg.benefitsTitle}{" "}
-              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>
-                {cfg.benefitsTitleHl}
-              </span>
-            </h2>
-            <p
-              className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed"
-              style={{ color: "var(--color-ink-2)" }}
-            >
-              {cfg.benefitsSub}
-            </p>
-          </div>
-          <div className="grid gap-6 b-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {cfg.benefits.map((b, i) => (
-              <article
-                key={i}
-                className="benefit-card rounded-2xl p-7"
-                style={{ background: "#fff", border: "1px solid var(--color-rule)" }}
-              >
-                <div
-                  className="benefit-icon inline-flex items-center justify-center rounded-[12px] mb-5"
-                  style={{
-                    width: 48,
-                    height: 48,
-                    background: "rgb(49 177 248 / 0.12)",
-                    color: "var(--color-accent-deep)",
-                  }}
-                >
-                  <Icon name={b.icon} className="w-6 h-6" />
-                </div>
-                <h3
-                  className="text-[19px] font-semibold mb-3"
-                  style={{
-                    color: "var(--color-navy)",
-                    letterSpacing: "-0.005em",
-                    lineHeight: 1.25,
-                  }}
-                >
-                  {b.title}
-                </h3>
-                <p className="text-[15.5px] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>
-                  {b.desc}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 1100px) { .b-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-          @media (max-width: 600px) { .b-grid { grid-template-columns: 1fr !important; } }
-          .benefit-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .benefit-card:hover { transform: translateY(-1px); background: var(--color-paper-soft) !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
-          .benefit-card .benefit-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .benefit-card:hover .benefit-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
-        `}</style>
-      </section>
 
       {/* 4. FEATURES */}
       <section className="pt-[40px] pb-[40px]" style={{ background: "#fff" }}>

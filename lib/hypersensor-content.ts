@@ -56,17 +56,16 @@ export const HS_ES: HypersensorContent = {
     sub:
       "Donde el vídeo con IA avanzada se une a la privacidad y la precisión. Flame transforma los datos de vídeo y sensores en inteligencia en tiempo real: escalable, precisa y diseñada para cada espacio.",
     cta: "Solicita una demo",
-    bgImage: "/wp-content/uploads/2026/01/02f81c6e339fb84de93b6d01a06a46fa5918ef10-scaled-1.jpg",
+    bgImage: "/wp-content/uploads/2026/01/Characteristics-1.png",
   },
-  benefitsEyebrow: "¿Por qué Flame?",
-  benefitsTitle: "Análisis avanzado para",
-  benefitsTitleHl: "espacios físicos",
-  benefitsSub:
-    "La plataforma que combina el vídeo con la IA para mejorar la toma de decisiones y el rendimiento general del local.",
+  benefitsEyebrow: "",
+  benefitsTitle: "",
+  benefitsTitleHl: "",
+  benefitsSub: "",
   benefits: [
     {
       icon: "integration",
-      title: "Compatibilidad total",
+      title: "Agnóstico",
       desc:
         "Flame se conecta con tu hardware y fuentes de datos existentes — CCTV, contadores de personas, WiFi o TPV — garantizando una compatibilidad total y una integración sin fricciones.",
     },
@@ -78,13 +77,13 @@ export const HS_ES: HypersensorContent = {
     },
     {
       icon: "trending",
-      title: "IA patentada",
+      title: "Preciso",
       desc:
         "La IA patentada proporciona análisis precisos y coherentes, así como datos listos para la toma de decisiones en todos los entornos.",
     },
     {
       icon: "privacy",
-      title: "Privacidad RGPD",
+      title: "Privacidad",
       desc:
         "Flame procesa los datos de forma anónima y sin datos biométricos, garantizando el cumplimiento del RGPD y la total privacidad de los visitantes.",
     },
@@ -213,13 +212,12 @@ export const HS_EN: HypersensorContent = {
     sub:
       "Where advanced AI Video meets privacy and precision. Flame transforms video and sensor data into real-time intelligence — scalable, accurate and designed for every space.",
     cta: "Request a Demo",
-    bgImage: "/wp-content/uploads/2026/01/02f81c6e339fb84de93b6d01a06a46fa5918ef10-scaled-1.jpg",
+    bgImage: "/wp-content/uploads/2026/01/Characteristics-1.png",
   },
-  benefitsEyebrow: "Why Flame?",
-  benefitsTitle: "Advanced analytics for",
-  benefitsTitleHl: "physical spaces",
-  benefitsSub:
-    "The platform that combines video with AI to enhance decision-making and overall venue performance.",
+  benefitsEyebrow: "",
+  benefitsTitle: "",
+  benefitsTitleHl: "",
+  benefitsSub: "",
   benefits: [
     {
       icon: "integration",
