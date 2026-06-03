@@ -405,7 +405,7 @@ export default function HypersensorEs() {
               {cfg.faqTitleHl}
             </span>
           </h2>
-          <div className="grid gap-4 faq-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+          <div className="grid gap-4 faq-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", alignItems: "start" }}>
             {cfg.faqs.map((f, i) => (
               <details
                 key={i}
