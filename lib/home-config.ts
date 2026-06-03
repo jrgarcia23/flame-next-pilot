@@ -73,6 +73,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   communitySub: "Donde el contenido se convierte en valor para la comunidad: historias, ideas y aprendizajes con impacto.",
   communityCards: [
     { icon: "users",    title: "Casos de éxito", href: "/es/comunidad/casos-de-exito/", img: "/wp-content/uploads/2025/09/Cases.png" },
+    { icon: "reports",  title: "Blog",           href: "/es/comunidad/blog/",            img: "/wp-content/uploads/2025/09/Interview.png" },
     { icon: "calendar", title: "Webinars",       href: "/es/comunidad/webinars/",       img: "/wp-content/uploads/2025/09/Webinar1.png" },
     { icon: "reports",  title: "Whitepapers",    href: "/es/comunidad/whitepapers/",    img: "/wp-content/uploads/2025/09/Whitepaper1.png" },
   ],
@@ -151,6 +152,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   communitySub: "Where content becomes value for the community: stories, ideas and learnings with impact.",
   communityCards: [
     { icon: "users",    title: "Case studies", href: "/en/community/case-studies/", img: "/wp-content/uploads/2025/09/Cases.png" },
+    { icon: "reports",  title: "Blog",         href: "/en/community/blog/",          img: "/wp-content/uploads/2025/09/Interview.png" },
     { icon: "calendar", title: "Webinars",     href: "/en/community/webinars/",     img: "/wp-content/uploads/2025/09/Webinar1.png" },
     { icon: "reports",  title: "Whitepapers",  href: "/en/community/whitepapers/",  img: "/wp-content/uploads/2025/09/Whitepaper1.png" },
   ],
