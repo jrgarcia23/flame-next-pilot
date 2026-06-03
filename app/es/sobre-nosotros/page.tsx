@@ -24,10 +24,10 @@ const RECOGNITIONS = [
 ];
 
 const PRESS = [
-  { src: "/wp-content/uploads/2026/01/la-razon.jpg",        alt: "La Razón" },
+  { src: "/wp-content/uploads/2026/01/la-razon.png",        alt: "La Razón" },
   { src: "/wp-content/uploads/2026/01/abc.png",             alt: "ABC" },
   { src: "/wp-content/uploads/2026/01/el-pais.png",         alt: "El País" },
-  { src: "/wp-content/uploads/2026/01/el-mundo.jpg",        alt: "El Mundo" },
+  { src: "/wp-content/uploads/2026/01/el-mundo.png",        alt: "El Mundo" },
   { src: "/wp-content/uploads/2026/01/el-confidencial.png", alt: "El Confidencial" },
 ];
 
