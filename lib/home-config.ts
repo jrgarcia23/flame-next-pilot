@@ -28,9 +28,9 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   ctaStripBold: "20 minutos para entender qué pasa en tu espacio.",
   ctaStripLight: "Demo personalizada con tus datos y tu caso de uso.",
   products: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Mide el tráfico dentro y fuera del espacio, monitorea la ocupación en tiempo real y mide la conversión, todo desde una plataforma única y completa.", href: "/es/analitica-trafico/", cta: "Conocer Traffic" },
-    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.", href: "/es/customer-journey/",  cta: "Conocer Customer Journey" },
-    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Recopila datos de los visitantes a través del WiFi para invitados y lanza campañas de marketing personalizadas según su ubicación, perfil y comportamiento.",                                href: "/es/connect/",            cta: "Conocer Connect" },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Mide el tráfico dentro y fuera del espacio, monitorea la ocupación en tiempo real y mide la conversión, todo desde una plataforma única y completa.", href: "/es/analitica-trafico/", cta: "Ver más" },
+    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.", href: "/es/customer-journey/",  cta: "Ver más" },
+    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Recopila datos de los visitantes a través del WiFi para invitados y lanza campañas de marketing personalizadas según su ubicación, perfil y comportamiento.",                                href: "/es/connect/",            cta: "Ver más" },
   ],
 
   advantageTitle: 'Las ventajas <span style="color:var(--color-accent);font-weight:500">de Flame</span>',
@@ -106,9 +106,9 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   ctaStripBold: "20 minutes to understand what is happening in your space.",
   ctaStripLight: "Personalised demo with your data and your use case.",
   products: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Measure inside and outside traffic, monitor occupancy in real time and compute conversion, all from a single, complete platform.",                  href: "/en/traffic-insights/",  cta: "Discover Traffic" },
-    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analyze customer journeys and interactions to understand in-store behavior and optimize the experience at every touchpoint.",                         href: "/en/customer-journey/",  cta: "Discover Customer Journey" },
-    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Capture visitor data through guest WiFi and launch personalized marketing campaigns based on location, profile and behavior.",                          href: "/en/connect/",            cta: "Discover Connect" },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/soles-rhd6bfkrxpa4y2pmucbbusoajb9e3ds7eidp13y7a4.png", name: "Traffic",          desc: "Measure inside and outside traffic, monitor occupancy in real time and compute conversion, all from a single, complete platform.",                  href: "/en/traffic-insights/",  cta: "Read more" },
+    { iconImg: "/wp-content/uploads/2026/01/road-route-map-icon-1.png",                                       name: "Customer Journey", desc: "Analyze customer journeys and interactions to understand in-store behavior and optimize the experience at every touchpoint.",                         href: "/en/customer-journey/",  cta: "Read more" },
+    { iconImg: "/wp-content/uploads/2026/01/Group-1.png",                                                     name: "Connect",          desc: "Capture visitor data through guest WiFi and launch personalized marketing campaigns based on location, profile and behavior.",                          href: "/en/connect/",            cta: "Read more" },
   ],
 
   advantageTitle: '<span style="color:var(--color-accent);font-weight:500">The Flame</span> advantage',

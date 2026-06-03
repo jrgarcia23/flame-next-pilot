@@ -153,7 +153,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="flame-container">
           <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
             <div>
-              <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+              <h2 className="text-[clamp(26px,2.8vw,40px)] font-medium mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
                 {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
               </h2>
               {cfg.productsSub && (
@@ -223,10 +223,10 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
-              <img src={cfg.privacyImg} alt={cfg.privacyImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src={cfg.privacyImg} alt={cfg.privacyImgAlt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 14 }} />
             </div>
             <div>
-              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <h2 className="text-[clamp(22px,2.2vw,30px)] font-medium mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>
                 {cfg.privacyTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.privacyTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.privacyBody}</p>
@@ -245,7 +245,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
-              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <h2 className="text-[clamp(22px,2.2vw,30px)] font-medium mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>
                 {cfg.reportsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.reportsTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.reportsBody}</p>
@@ -255,7 +255,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
               </a>
             </div>
             <div>
-              <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 14 }} />
             </div>
           </div>
         </div>
@@ -267,10 +267,10 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
-              <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+              <img src={cfg.integrationImg} alt={cfg.integrationImgAlt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 14 }} />
             </div>
             <div>
-              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <h2 className="text-[clamp(22px,2.2vw,30px)] font-medium mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>
                 {cfg.integrationTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.integrationTitleHl}</span>
               </h2>
               <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.integrationBody}</p>
