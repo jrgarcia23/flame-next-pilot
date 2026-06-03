@@ -120,7 +120,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
 
       {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
            (mismo aspecto que /es/ pero con animación continua) */}
-      <section className="pt-[51px] pb-16 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className="pt-[51px] pb-[51px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
           <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
             Trusted by
