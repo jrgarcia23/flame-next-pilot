@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1240px, calc(100vw - 24px))", padding: 32 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(960px, calc(100vw - 24px))", padding: 32 }}>
       <div className="solutions-grid">
         <div>
           <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
@@ -47,23 +47,12 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
           <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
           <div className="flex flex-col gap-2">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
-        <a href="/es/contacta/" className="mega-cta flex flex-col justify-between rounded-xl" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff", padding: 28 }}>
-          <div>
-            <div className="text-[11px] uppercase font-semibold mb-4" style={{ color: "var(--color-accent)", letterSpacing: "0.12em" }}>¿Necesitas ayuda?</div>
-            <div className="text-[22px] font-semibold leading-tight mb-4" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
-            <p className="text-[13.5px] leading-[1.6]" style={{ color: "rgb(255 255 255 / 0.75)" }}>Demo personalizada en 20 minutos. Te enseñamos cómo encaja Flame en tu operativa.</p>
-          </div>
-          <span className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold" style={{ color: "var(--color-accent)" }}>
-            Solicita una demo <Icon name="arrow" className="w-4 h-4" />
-          </span>
-        </a>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.5fr 1fr 0.85fr; }
-        @media (max-width: 1380px) { .solutions-grid { grid-template-columns: 1.5fr 1fr 0.8fr; gap: 24px; } }
-        @media (max-width: 1100px) {
-          .solutions-grid { grid-template-columns: 1fr 1fr; }
-          .solutions-grid .mega-cta { grid-column: 1 / -1; }
+        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.5fr 1fr; }
+        @media (max-width: 1100px) { .solutions-grid { gap: 24px; } }
+        @media (max-width: 820px) {
+          .solutions-grid { grid-template-columns: 1fr; }
           .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 20px; }
         }
       `}</style>
@@ -170,19 +159,10 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           }
           .nav-dropdown--products,
           .nav-dropdown--community { left: -8px; }
-          /* Solutions: fija al viewport (no overflow nunca), centrada con max-width */
+          /* Solutions: SIEMPRE fijo al viewport y centrado horizontalmente — nunca overflow */
           .nav-dropdown--solutions {
             position: fixed; top: 64px; left: 12px; right: 12px; padding-top: 10px;
             display: flex; justify-content: center;
-          }
-          @media (min-width: 1500px) {
-            .nav-dropdown--solutions {
-              position: absolute; top: 100%; left: 50%; right: auto;
-              transform: translate(-50%, -4px);
-              display: block;
-            }
-            .nav-item:hover .nav-dropdown--solutions,
-            .nav-item:focus-within .nav-dropdown--solutions { transform: translateX(-50%) translateY(0); }
           }
           .nav-item:hover .nav-dropdown,
           .nav-item:focus-within .nav-dropdown {
