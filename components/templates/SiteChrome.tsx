@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1440px, calc(100vw - 24px))", padding: 32 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1600px, calc(100vw - 24px))", padding: 36 }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -49,17 +49,15 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 40px; grid-template-columns: 1.85fr 1fr; align-items: start; }
-        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 40px; }
-        .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 16px; padding-left: 18px; }
+        .solutions-grid { display: grid; gap: 48px; grid-template-columns: 1.95fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 28px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 48px; }
+        .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 18px; padding-left: 18px; }
         .mega-title { font-size: 15px; font-weight: 600; line-height: 1.25; }
-        .mega-desc { font-size: 13.5px; line-height: 1.45; margin-top: 5px;
-          display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; overflow: hidden; text-overflow: ellipsis;
-        }
-        @media (max-width: 1100px) {
-          .solutions-grid { grid-template-columns: 1fr; gap: 24px; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 24px; }
+        .mega-desc { font-size: 13.5px; line-height: 1.5; margin-top: 6px; color: var(--color-ink-3); }
+        @media (max-width: 1200px) {
+          .solutions-grid { grid-template-columns: 1fr; gap: 28px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 28px; }
         }
         @media (max-width: 600px) {
           .use-cases-inner { grid-template-columns: 1fr; }
