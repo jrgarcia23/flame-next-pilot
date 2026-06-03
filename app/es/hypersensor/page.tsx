@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
-import { LOGOS, UI } from "@/lib/page-content";
+import { UI } from "@/lib/page-content";
 import { HS_ES } from "@/lib/hypersensor-content";
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function HypersensorEs() {
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
-      {/* 1. HERO — clavado al live: h1 doble (brand + eyebrow) + sub + CTA + imagen Group-281 */}
+      {/* 1. HERO — clavado al live: 2 col texto-izda + imagen-dcha sobre foto retail */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -40,38 +40,50 @@ export default function HypersensorEs() {
           backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(80px, 9vw, 130px)",
-          paddingBottom: "clamp(40px, 5vw, 70px)",
+          paddingBottom: "clamp(60px, 7vw, 100px)",
+          minHeight: "70vh",
         }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(180deg, rgb(21 22 58 / 0.75) 0%, rgb(21 22 58 / 1) 75%)",
+            background: "linear-gradient(180deg, rgb(21 22 58 / 0.55) 0%, rgb(21 22 58 / 0.85) 100%)",
           }}
         />
         <div className="flame-container relative z-10">
-          <div className="text-center mx-auto" style={{ maxWidth: 980 }}>
-            <h1 className="mb-7" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.024em", lineHeight: 1.04 }}>
-              <span className="block font-normal" style={{ color: "#fff", fontSize: "clamp(56px,7.6vw,108px)" }}>Hipersensor</span>
-              <span className="block font-medium mt-3" style={{ color: "var(--color-accent)", fontSize: "clamp(20px,2.4vw,32px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>{cfg.hero.eyebrow}</span>
-            </h1>
-            <p className="text-[clamp(17px,1.3vw,20px)] font-normal mb-10 mx-auto" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "68ch", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.55 }}>
-              {cfg.hero.sub}
-            </p>
-            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              {cfg.hero.cta}
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
-          </div>
-          {/* Imagen del live (dashboard Hypersensor) */}
-          <div className="mx-auto mt-14" style={{ maxWidth: 1080 }}>
-            <img src="/wp-content/uploads/2026/01/Group-281-1-1.png" alt="Hypersensor dashboard" style={{ width: "100%", height: "auto", display: "block" }} />
+          <div className="grid gap-10 items-center hyp-hero-grid" style={{ gridTemplateColumns: "1fr 1.15fr" }}>
+            {/* Columna izquierda: brand + headline + sub + CTA */}
+            <div>
+              <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>
+                Flame Hipersensor
+              </p>
+              <h1 className="mb-7 font-normal" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(36px,4.2vw,60px)", letterSpacing: "-0.022em", lineHeight: 1.08 }}>
+                {cfg.hero.eyebrow}
+              </h1>
+              <p className="text-[clamp(17px,1.25vw,19px)] font-normal mb-9" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "60ch", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.6 }}>
+                {cfg.hero.sub}
+              </p>
+              <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                {cfg.hero.cta}
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+            {/* Columna derecha: imagen dashboard del live */}
+            <div className="hyp-hero-img">
+              <img src="/wp-content/uploads/2026/01/Group-281-1-1.png" alt="Flame Hypersensor dashboard con conexión a Video AI, People Counting, WiFi/BLE e IoT" style={{ width: "100%", height: "auto", display: "block" }} />
+            </div>
           </div>
         </div>
+        <style>{`
+          @media (max-width: 1000px) {
+            .hyp-hero-grid { grid-template-columns: 1fr !important; }
+            .hyp-hero-img { max-width: 620px; margin: 0 auto; }
+          }
+        `}</style>
       </section>
 
-      {/* 1.5 BENEFITS — 4 cards (Agnóstico / Escalable / Preciso / Privacidad) bajo el hero */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
+      {/* 1.5 BENEFITS — 4 cards (Agnóstico / Escalable / Preciso / Privacidad) sobre bg paper */}
+      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-6 b-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
             {cfg.benefits.map((b, i) => (
@@ -95,50 +107,13 @@ export default function HypersensorEs() {
         `}</style>
       </section>
 
-      {/* 2. LOGOS marquee — navy bg, "Trusted by" + logos en colores reales */}
-      <section
-        className="pt-[50px] pb-[50px] relative overflow-hidden"
-        style={{ background: "var(--color-navy)", color: "white" }}
-      >
-        <div className="flame-container">
-          <p
-            className="text-center mb-8 font-medium"
-            style={{
-              color: "#fff",
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(24px, 2.6vw, 32px)",
-              fontWeight: 500,
-              lineHeight: 1.2,
-            }}
-          >
-            Trusted by
-          </p>
-          <div className="logo-marquee">
-            <div className="logo-track">
-              {[...LOGOS, ...LOGOS].map(([src, alt], i) => (
-                <img key={i} src={src} alt={alt} className="logo-img" />
-              ))}
-            </div>
-          </div>
-        </div>
-        <style>{`
-          .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
-          .logo-track:hover { animation-play-state: paused; }
-          .logo-img { height: 96px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
-          .logo-img:hover { opacity: 1; }
-          @media (max-width: 700px) { .logo-img { height: 78px; } }
-        `}</style>
-      </section>
-
-      {/* 3. (cards de beneficios ya están dentro del hero — sin sección duplicada) */}
 
       {/* 4. FEATURES — 4 stripes alternated image/text */}
       <section className="pt-[60px] pb-[40px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.featuresIntro}
+              Cómo trabaja <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Hypersensor</span> por dentro
             </h2>
           </div>
         </div>
