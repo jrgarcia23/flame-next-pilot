@@ -29,7 +29,7 @@ export default function HypersensorEs() {
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
-      {/* 1. HERO — bg Characteristics-1.png + overlay + eyebrow + sub + CTA + 4 cards (mismo layout que live) */}
+      {/* 1. HERO — clavado al live: h1 doble (brand + eyebrow) + sub + CTA + imagen Group-281 */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -40,70 +40,58 @@ export default function HypersensorEs() {
           backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(80px, 9vw, 130px)",
-          paddingBottom: "clamp(60px, 7vw, 100px)",
+          paddingBottom: "clamp(40px, 5vw, 70px)",
         }}
       >
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background:
-              "linear-gradient(180deg, rgb(21 22 58 / 0.75) 0%, rgb(21 22 58 / 1) 75%)",
+            background: "linear-gradient(180deg, rgb(21 22 58 / 0.75) 0%, rgb(21 22 58 / 1) 75%)",
           }}
         />
         <div className="flame-container relative z-10">
-          <div className="text-center mx-auto mb-16" style={{ maxWidth: 920 }}>
-            <p
-              className="mb-6 font-medium"
-              style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(28px,3.4vw,44px)", letterSpacing: "-0.018em", lineHeight: 1.15 }}
-            >
-              {cfg.hero.eyebrow}
-            </p>
-            <p
-              className="text-[clamp(17px,1.3vw,20px)] font-normal mb-10 mx-auto"
-              style={{
-                color: "rgb(255 255 255 / 0.82)",
-                maxWidth: "70ch",
-                fontFamily: "var(--font-body)",
-                letterSpacing: "-0.005em",
-                lineHeight: 1.55,
-              }}
-            >
+          <div className="text-center mx-auto" style={{ maxWidth: 980 }}>
+            <h1 className="mb-7" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.024em", lineHeight: 1.04 }}>
+              <span className="block font-normal" style={{ color: "#fff", fontSize: "clamp(56px,7.6vw,108px)" }}>Hipersensor</span>
+              <span className="block font-medium mt-3" style={{ color: "var(--color-accent)", fontSize: "clamp(20px,2.4vw,32px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>{cfg.hero.eyebrow}</span>
+            </h1>
+            <p className="text-[clamp(17px,1.3vw,20px)] font-normal mb-10 mx-auto" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "68ch", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.55 }}>
               {cfg.hero.sub}
             </p>
-            <a
-              href={t.contactHref}
-              className="cta-btn cta-btn--lg"
-              style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}
-            >
+            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
               {cfg.hero.cta}
               <Icon name="arrow" className="w-4 h-4" />
             </a>
           </div>
-          {/* 4 cards dentro del hero (Agnóstico / Escalable / Preciso / Privacidad) */}
-          <div className="grid gap-5 hero-b-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+          {/* Imagen del live (dashboard Hypersensor) */}
+          <div className="mx-auto mt-14" style={{ maxWidth: 1080 }}>
+            <img src="/wp-content/uploads/2026/01/Group-281-1-1.png" alt="Hypersensor dashboard" style={{ width: "100%", height: "auto", display: "block" }} />
+          </div>
+        </div>
+      </section>
+
+      {/* 1.5 BENEFITS — 4 cards (Agnóstico / Escalable / Preciso / Privacidad) bajo el hero */}
+      <section className="py-[80px]" style={{ background: "#fff" }}>
+        <div className="flame-container">
+          <div className="grid gap-6 b-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
             {cfg.benefits.map((b, i) => (
-              <article
-                key={i}
-                className="hero-benefit-card rounded-2xl p-6"
-                style={{ background: "rgb(255 255 255 / 0.05)", border: "1px solid rgb(255 255 255 / 0.12)" }}
-              >
-                <div
-                  className="hero-benefit-icon inline-flex items-center justify-center rounded-[12px] mb-4"
-                  style={{ width: 44, height: 44, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}
-                >
-                  <Icon name={b.icon} className="w-5 h-5" />
+              <article key={i} className="benefit-card rounded-2xl p-7" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                <div className="benefit-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }}>
+                  <Icon name={b.icon} className="w-6 h-6" />
                 </div>
-                <h3 className="text-[17px] font-semibold mb-2" style={{ color: "#fff", letterSpacing: "-0.005em", lineHeight: 1.3 }}>{b.title}</h3>
-                <p className="text-[14px] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.7)" }}>{b.desc}</p>
+                <h3 className="text-[19px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.005em", lineHeight: 1.25 }}>{b.title}</h3>
+                <p className="text-[15.5px] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{b.desc}</p>
               </article>
             ))}
           </div>
         </div>
         <style>{`
-          @media (max-width: 1100px) { .hero-b-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-          @media (max-width: 600px) { .hero-b-grid { grid-template-columns: 1fr !important; } }
-          .hero-benefit-card { transition: background 420ms ease, border-color 420ms ease, transform 420ms ease; }
-          .hero-benefit-card:hover { background: rgb(255 255 255 / 0.08) !important; border-color: rgb(255 255 255 / 0.22) !important; transform: translateY(-2px); }
+          @media (max-width: 1100px) { .b-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          @media (max-width: 600px) { .b-grid { grid-template-columns: 1fr !important; } }
+          .benefit-card { transition: transform 420ms ease, background 420ms ease, border-color 420ms ease, box-shadow 420ms ease; }
+          .benefit-card:hover { transform: translateY(-1px); background: var(--color-paper-soft) !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
+          .benefit-card .benefit-icon { transition: background 420ms ease, color 420ms ease; }
+          .benefit-card:hover .benefit-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
         `}</style>
       </section>
 
@@ -146,20 +134,12 @@ export default function HypersensorEs() {
       {/* 3. (cards de beneficios ya están dentro del hero — sin sección duplicada) */}
 
       {/* 4. FEATURES — 4 stripes alternated image/text */}
-      <section className="pt-[40px] pb-[40px]" style={{ background: "#fff" }}>
+      <section className="pt-[60px] pb-[40px]" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="text-center mx-auto mb-12" style={{ maxWidth: 720 }}>
-            <p
-              className="text-[clamp(17px,1.4vw,21px)] font-normal"
-              style={{
-                color: "var(--color-ink-2)",
-                fontFamily: "var(--font-display)",
-                letterSpacing: "-0.012em",
-                lineHeight: 1.3,
-              }}
-            >
+          <div className="text-center mx-auto mb-14" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
               {cfg.featuresIntro}
-            </p>
+            </h2>
           </div>
         </div>
         {cfg.features.map((f, i) => (
