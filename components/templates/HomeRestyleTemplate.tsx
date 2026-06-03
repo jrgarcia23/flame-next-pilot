@@ -203,7 +203,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
-      <section className="pt-24 pb-0" style={{ background: "#fff" }}>
+      <section className="pt-20 pb-0" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 800 }}>
             <h2
@@ -219,7 +219,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 6. PRIVACY STRIPE — image left + text right */}
-      <section className="pt-12 pb-16" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -241,7 +241,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 7. REPORTS STRIPE — text left + image right */}
-      <section className="py-16" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid-rev" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
@@ -263,7 +263,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 8. INTEGRATION STRIPE — image left + text right (mismo layout que Privacy) */}
-      <section className="pt-16 pb-24" style={{ background: "#fff" }}>
+      <section className="py-12" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center stripe-grid" style={{ gridTemplateColumns: "1.2fr 1fr" }}>
             <div>
@@ -386,7 +386,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
-      <section className="py-24" style={{ background: "#fff" }}>
+      <section className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
