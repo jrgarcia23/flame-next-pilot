@@ -131,7 +131,7 @@ export default function HypersensorEs() {
           <div
             key={i}
             className="flame-container"
-            style={{ paddingTop: 32, paddingBottom: 32 }}
+            style={{ paddingTop: 25, paddingBottom: 25 }}
           >
             <div
               className={`grid gap-12 items-center ${f.imgLeft ? "stripe-grid" : "stripe-grid-rev"}`}
