@@ -52,7 +52,11 @@ export default function PartnersEs() {
       <section
         className="relative overflow-hidden"
         style={{
-          background: "var(--color-navy)",
+          backgroundColor: "#15163A",
+          backgroundImage: "url('/wp-content/uploads/2026/01/Partners2-scaled-1.png')",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(80px, 9vw, 130px)",
           paddingBottom: "clamp(60px, 7vw, 100px)",
@@ -61,8 +65,7 @@ export default function PartnersEs() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background:
-              "radial-gradient(60% 60% at 78% 30%, rgb(49 177 248 / 0.18) 0%, transparent 70%), radial-gradient(40% 40% at 20% 90%, rgb(254 80 0 / 0.10) 0%, transparent 70%)",
+            background: "linear-gradient(90deg, rgb(21 22 58 / 0.78) 0%, rgb(21 22 58 / 0.55) 55%, rgb(21 22 58 / 0.35) 100%)",
           }}
         />
         <div className="flame-container relative z-10">
