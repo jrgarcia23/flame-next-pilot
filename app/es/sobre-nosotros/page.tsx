@@ -71,7 +71,7 @@ export default function SobreNosotrosEs() {
                 Quiénes somos
               </p>
               <h1 className="mb-7 font-normal" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(36px,4.2vw,60px)", letterSpacing: "-0.022em", lineHeight: 1.08 }}>
-                Transformemos juntos los espacios <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>físicos</span>
+                Transformemos juntos los espacios físicos
               </h1>
               <p className="text-[clamp(17px,1.25vw,19px)] font-normal mb-9" style={{ color: "rgb(255 255 255 / 0.85)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.6 }}>
                 Creada en 2016, Flame se ha convertido en la principal plataforma mundial de Análisis de la Localización, que permite a miles de usuarios optimizar el valor de los visitantes y mejorar el rendimiento de los locales.
@@ -99,7 +99,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              ¿Qué es <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>?
+              ¿Qué es Flame?
             </h2>
             <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
               Flame es una plataforma de análisis avanzado para espacios físicos que integra a la perfección el vídeo con otras fuentes de datos, lo que permite tomar decisiones fundamentadas basadas en información relevante.
@@ -113,7 +113,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto mb-12" style={{ maxWidth: 760 }}>
             <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Reconocido <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>por</span>
+              Reconocido por
             </h2>
           </div>
           <div className="flex flex-wrap items-center justify-center" style={{ gap: "40px 56px" }}>
@@ -129,7 +129,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Prensa</span>
+              Prensa
             </h2>
             <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
               Prestigiosas publicaciones como El País, El Mundo, ABC, Cinco Días, Expansión, Emprendedores o La Razón han dedicado sus páginas a nuestra plataforma. Además, hemos aparecido en numerosas ocasiones en programas de radio y televisión.
@@ -148,7 +148,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Conoce al <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>equipo</span>
+              Conoce al equipo
             </h2>
             <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
               Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado. ¿Quieres conocernos?
@@ -166,7 +166,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Misión</span>
+              Misión
             </h2>
             <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.82)" }}>
               Nuestra misión es servir de puente entre el mundo offline y el online, ofreciendo a nuestros clientes herramientas digitales para el mundo físico. Estas herramientas les permiten conocer mejor a sus clientes y conectar con ellos, generando en última instancia ventajas competitivas.
@@ -180,7 +180,7 @@ export default function SobreNosotrosEs() {
         <div className="flame-container">
           <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
             <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Inversores</span>
+              Inversores
             </h2>
             <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
               Estamos orgullosos de contar con el respaldo de inversores líderes del sector, como PadeInvest y BeWater Funds. Su confianza en nuestro compromiso con la innovación tecnológica alimenta nuestra misión de ofrecer soluciones de vanguardia en el campo de la analítica para espacios físicos.
