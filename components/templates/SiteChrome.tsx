@@ -4,9 +4,9 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 14 }}>
-      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 44, height: 44 }}>
-        <img src={it.iconImg} alt="" width={44} height={44} style={{ width: 44, height: 44, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 12 }}>
+      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 40, height: 40 }}>
+        <img src={it.iconImg} alt="" width={40} height={40} style={{ width: 40, height: 40, objectFit: "contain", display: "block" }} />
       </span>
       <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 2 }}>
         <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1180px, calc(100vw - 24px))", padding: 26 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1180px, calc(100vw - 24px))", padding: "24px 26px" }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -49,7 +49,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 28px; grid-template-columns: 2fr 1fr; align-items: start; }
+        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 2fr 1fr; align-items: start; }
         .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
         .industries-col { border-left: 1px solid var(--color-rule); padding-left: 28px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
