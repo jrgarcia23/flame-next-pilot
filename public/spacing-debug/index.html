@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spacing debug · Flame home</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #1c1c1c; color: #fff; font-family: -apple-system, system-ui, sans-serif; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 40px 24px 80px; }
+  h1 { font-size: 22px; font-weight: 600; margin-bottom: 8px; color: #31B1F8; }
+  .legend { font-size: 13px; color: #9aa; margin-bottom: 32px; line-height: 1.6; }
+  .legend span { display: inline-block; width: 14px; height: 14px; vertical-align: middle; border-radius: 3px; margin-right: 6px; }
+
+  /* Cada sección representa la sección real con su bg + padding real */
+  .sec {
+    position: relative;
+    border: 1px dashed rgba(255,255,255,0.18);
+    color: #15163A;
+  }
+  .sec.dark { color: #fff; }
+  .sec-label {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 14px; font-weight: 600;
+    background: rgba(255,255,255,0.92); color: #15163A;
+    padding: 6px 14px; border-radius: 6px;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .sec.dark .sec-label { background: rgba(21,22,58,0.85); color: #fff; }
+
+  /* Marcadores de padding visibles en bordes */
+  .sec::before, .sec::after {
+    content: attr(data-pt);
+    position: absolute; left: 12px;
+    font-size: 11px; font-weight: 500;
+    background: #31B1F8; color: #15163A;
+    padding: 2px 6px; border-radius: 3px;
+    font-family: monospace;
+  }
+  .sec::before { top: 4px; }
+  .sec::after { content: attr(data-pb); bottom: 4px; }
+
+  /* Línea divisoria entre secciones */
+  .divider {
+    height: 0; margin: 0; padding: 0;
+    border-top: 2px solid #ff5500;
+    position: relative;
+  }
+  .divider span {
+    position: absolute; left: 50%; transform: translate(-50%, -50%);
+    background: #ff5500; color: #fff;
+    padding: 4px 10px; border-radius: 12px;
+    font-size: 12px; font-weight: 600; font-family: monospace;
+    white-space: nowrap;
+  }
+
+  /* Bg colors según el real */
+  .bg-navy { background: #15163A; }
+  .bg-paper { background: #f3f3f3; }
+  .bg-white { background: #fff; }
+  .bg-navy-photo { background: linear-gradient(180deg, rgba(21,22,58,0.6), rgba(21,22,58,1)), #555; }
+
+  /* Tabla resumen abajo */
+  .table { margin-top: 80px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 12px; border-bottom: 1px solid #333; text-align: left; }
+  th { background: #2a2a2a; font-weight: 600; }
+  td.gap { color: #ff5500; font-family: monospace; font-weight: 700; }
+  td.pad { color: #31B1F8; font-family: monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Spacing debug · home.flameanalytics.com</h1>
+<p class="legend">
+  <span style="background:#31B1F8"></span>Padding (cyan = px arriba/abajo de cada caja) &nbsp;·&nbsp;
+  <span style="background:#ff5500"></span>Gap entre cajas (naranja = pb anterior + pt siguiente)
+</p>
+
+<!-- 1. HERO -->
+<div class="sec dark bg-navy-photo" style="padding-top: 95px; padding-bottom: 55px;" data-pt="pt-95" data-pb="pb-55">
+  <div class="sec-label">1. HERO · navy + foto</div>
+  <div style="height: 200px;"></div>
+</div>
+
+<div class="divider"><span>Hero → Logos · gap 106 px</span></div>
+
+<!-- 2. LOGOS -->
+<div class="sec dark bg-navy" style="padding-top: 51px; padding-bottom: 51px;" data-pt="pt-51" data-pb="pb-51">
+  <div class="sec-label">2. LOGOS Trusted by · navy</div>
+  <div style="height: 100px;"></div>
+</div>
+
+<div class="divider"><span>Logos → Steps · gap 51 px + iframe</span></div>
+
+<!-- 3. STEPS iframe -->
+<div class="sec bg-white" style="padding-top: 0; padding-bottom: 0;" data-pt="pt-0" data-pb="pb-0">
+  <div class="sec-label">3. STEPS (iframe Elementor) · blanco</div>
+  <div style="height: 320px;"></div>
+</div>
+
+<div class="divider"><span>Steps → Products · gap ~100 px</span></div>
+
+<!-- 4. PRODUCTS -->
+<div class="sec bg-paper" style="padding-top: 80px; padding-bottom: 80px;" data-pt="pt-80" data-pb="pb-80">
+  <div class="sec-label">4. PRODUCTS · paper</div>
+  <div style="height: 220px;"></div>
+</div>
+
+<div class="divider"><span>Products → Advantage · gap 160 px</span></div>
+
+<!-- 5. ADVANTAGE header -->
+<div class="sec bg-white" style="padding-top: 80px; padding-bottom: 0;" data-pt="pt-80" data-pb="pb-0">
+  <div class="sec-label">5. ADVANTAGE header (h2 + sub) · blanco</div>
+  <div style="height: 80px;"></div>
+</div>
+
+<div class="divider"><span>Advantage → Privacy · gap 48 px (intencional)</span></div>
+
+<!-- 6. PRIVACY -->
+<div class="sec bg-white" style="padding-top: 48px; padding-bottom: 48px;" data-pt="pt-48" data-pb="pb-48">
+  <div class="sec-label">6. PRIVACY stripe · blanco</div>
+  <div style="height: 160px;"></div>
+</div>
+
+<div class="divider"><span>Privacy → Reports · gap 96 px</span></div>
+
+<!-- 7. REPORTS -->
+<div class="sec bg-white" style="padding-top: 48px; padding-bottom: 48px;" data-pt="pt-48" data-pb="pb-48">
+  <div class="sec-label">7. REPORTS stripe · blanco</div>
+  <div style="height: 160px;"></div>
+</div>
+
+<div class="divider"><span>Reports → Integration · gap 96 px</span></div>
+
+<!-- 8. INTEGRATION -->
+<div class="sec bg-white" style="padding-top: 48px; padding-bottom: 48px;" data-pt="pt-48" data-pb="pb-48">
+  <div class="sec-label">8. INTEGRATION stripe · blanco</div>
+  <div style="height: 160px;"></div>
+</div>
+
+<div class="divider"><span>Integration → CTA · gap 88 px</span></div>
+
+<!-- 9. CTA strip -->
+<div class="sec dark bg-navy" style="padding-top: 40px; padding-bottom: 40px;" data-pt="pt-40" data-pb="pb-40">
+  <div class="sec-label">9. CTA strip · navy</div>
+  <div style="height: 60px;"></div>
+</div>
+
+<div class="divider"><span>CTA → Testimonios · gap 120 px</span></div>
+
+<!-- 10. TESTIMONIOS -->
+<div class="sec bg-paper" style="padding-top: 80px; padding-bottom: 80px;" data-pt="pt-80" data-pb="pb-80">
+  <div class="sec-label">10. TESTIMONIOS · paper</div>
+  <div style="height: 220px;"></div>
+</div>
+
+<div class="divider"><span>Testimonios → Industries · gap 160 px</span></div>
+
+<!-- 11. INDUSTRIES -->
+<div class="sec dark bg-navy" style="padding-top: 80px; padding-bottom: 80px;" data-pt="pt-80" data-pb="pb-80">
+  <div class="sec-label">11. INDUSTRIES · navy</div>
+  <div style="height: 240px;"></div>
+</div>
+
+<div class="divider"><span>Industries → Community · gap 160 px</span></div>
+
+<!-- 12. COMMUNITY iframe -->
+<div class="sec bg-paper" style="padding-top: 80px; padding-bottom: 80px;" data-pt="pt-80" data-pb="pb-80">
+  <div class="sec-label">12. COMMUNITY (iframe) · paper</div>
+  <div style="height: 200px;"></div>
+</div>
+
+<div class="divider"><span>Community → Form · gap 160 px</span></div>
+
+<!-- 13. FORM -->
+<div class="sec bg-white" style="padding-top: 80px; padding-bottom: 80px;" data-pt="pt-80" data-pb="pb-80">
+  <div class="sec-label">13. FORM demo · blanco</div>
+  <div style="height: 240px;"></div>
+</div>
+
+<div class="divider"><span>Form → Footer · gap 144 px</span></div>
+
+<!-- 14. FOOTER -->
+<div class="sec bg-paper" style="padding-top: 64px; padding-bottom: 40px;" data-pt="pt-64" data-pb="pb-40">
+  <div class="sec-label">14. FOOTER · paper</div>
+  <div style="height: 120px;"></div>
+</div>
+
+<!-- TABLA RESUMEN -->
+<div class="table">
+<table>
+<thead>
+<tr><th>Transición</th><th>pb anterior</th><th>pt siguiente</th><th>Gap total</th></tr>
+</thead>
+<tbody>
+<tr><td>Hero → Logos</td><td class="pad">55</td><td class="pad">51</td><td class="gap">106 px</td></tr>
+<tr><td>Logos → Steps</td><td class="pad">51</td><td class="pad">0</td><td class="gap">51 px (+ iframe interno)</td></tr>
+<tr><td>Steps → Products</td><td class="pad">~20</td><td class="pad">80</td><td class="gap">~100 px</td></tr>
+<tr><td>Products → Advantage</td><td class="pad">80</td><td class="pad">80</td><td class="gap">160 px</td></tr>
+<tr><td>Advantage → Privacy</td><td class="pad">0</td><td class="pad">48</td><td class="gap">48 px (intencional)</td></tr>
+<tr><td>Privacy → Reports</td><td class="pad">48</td><td class="pad">48</td><td class="gap">96 px</td></tr>
+<tr><td>Reports → Integration</td><td class="pad">48</td><td class="pad">48</td><td class="gap">96 px</td></tr>
+<tr><td>Integration → CTA strip</td><td class="pad">48</td><td class="pad">40</td><td class="gap">88 px</td></tr>
+<tr><td>CTA → Testimonios</td><td class="pad">40</td><td class="pad">80</td><td class="gap">120 px</td></tr>
+<tr><td>Testimonios → Industries</td><td class="pad">80</td><td class="pad">80</td><td class="gap">160 px</td></tr>
+<tr><td>Industries → Community</td><td class="pad">80</td><td class="pad">80</td><td class="gap">160 px</td></tr>
+<tr><td>Community → Form</td><td class="pad">80</td><td class="pad">80</td><td class="gap">160 px</td></tr>
+<tr><td>Form → Footer</td><td class="pad">80</td><td class="pad">64</td><td class="gap">144 px</td></tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</body>
+</html>
