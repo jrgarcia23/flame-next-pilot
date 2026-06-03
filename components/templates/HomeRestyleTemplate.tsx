@@ -88,7 +88,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           backgroundSize: "cover",
           color: "white",
           paddingTop: "clamp(72px, 8vw, 120px)",
-          paddingBottom: "clamp(60px, 7vw, 80px)",
+          paddingBottom: "50px",
         }}
       >
         {/* Overlay como en el live: navy a opacidad subiendo de 0 a 1 */}
@@ -120,7 +120,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
 
       {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
            (mismo aspecto que /es/ pero con animación continua) */}
-      <section className="py-[80px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className="pt-[50px] pb-[50px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
           <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
             Trusted by
