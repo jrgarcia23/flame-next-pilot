@@ -30,16 +30,24 @@
   .sec.dark .sec-label { background: rgba(21,22,58,0.85); color: #fff; }
 
   /* Marcadores de padding visibles en bordes */
-  .sec::before, .sec::after {
+  .sec::before {
     content: attr(data-pt);
-    position: absolute; left: 12px;
-    font-size: 11px; font-weight: 500;
+    position: absolute; top: 6px; left: 12px;
+    font-size: 12px; font-weight: 700;
     background: #31B1F8; color: #15163A;
-    padding: 2px 6px; border-radius: 3px;
-    font-family: monospace;
+    padding: 3px 8px; border-radius: 4px;
+    font-family: 'SF Mono', Menlo, monospace;
+    z-index: 3;
   }
-  .sec::before { top: 4px; }
-  .sec::after { content: attr(data-pb); bottom: 4px; }
+  .sec::after {
+    content: attr(data-pb);
+    position: absolute; bottom: 6px; left: 12px; top: auto;
+    font-size: 12px; font-weight: 700;
+    background: #31B1F8; color: #15163A;
+    padding: 3px 8px; border-radius: 4px;
+    font-family: 'SF Mono', Menlo, monospace;
+    z-index: 3;
+  }
 
   /* Línea divisoria entre secciones */
   .divider {
