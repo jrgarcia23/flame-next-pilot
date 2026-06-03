@@ -381,7 +381,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <ResizingIframe
           src={currentLang === "en" ? "/embeds/community-en/" : "/embeds/community-es/"}
           title="community"
-          fallbackHeight={540}
+          fallbackHeight={480}
         />
       </section>
 
