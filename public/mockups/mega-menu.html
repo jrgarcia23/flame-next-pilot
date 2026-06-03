@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<title>Flame · Mega-menú · 4 variantes</title>
+<title>Flame · Mega-menú · 4 variantes 4-4-4</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root {
@@ -22,7 +22,7 @@
   html, body { margin: 0; padding: 0; background: #0E0F26; color: #fff; font-family: -apple-system, "Segoe UI", "Inter", sans-serif; }
   body { padding: 24px 32px 80px; }
   h1 { font-size: 24px; margin: 0 0 8px; font-weight: 600; letter-spacing: -0.01em; }
-  .lead { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0 0 40px; max-width: 820px; line-height: 1.5; }
+  .lead { color: rgba(255,255,255,0.65); font-size: 14px; margin: 0 0 40px; max-width: 880px; line-height: 1.5; }
   .lead b { color: #fff; }
   .variant { margin-top: 64px; }
   .variant-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -49,17 +49,17 @@
     border: 1px solid rgba(255,255,255,0.06);
     border-top: 0;
     border-radius: 0 0 12px 12px;
-    padding: 14px;
-    overflow-x: auto;
+    padding: 24px 14px 18px;
+    display: flex;
+    justify-content: center; /* mega panel NO ocupa todo el viewport, centrado */
   }
-  /* Mega menu shared */
+  /* Mega panel base — ancho contenido, NO full viewport */
   .mega-panel {
     background: #fff;
     color: var(--ink-1);
     border: 1px solid var(--rule);
     border-radius: 14px;
     box-shadow: 0 24px 60px -20px rgb(15 23 42 / 0.18);
-    position: relative;
   }
   .eyebrow {
     font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
@@ -75,77 +75,74 @@
   }
   .mega-item:hover { background: var(--paper); }
   .mi-icon {
-    width: 42px; height: 42px;
+    width: 40px; height: 40px;
     flex-shrink: 0;
     border-radius: 9px;
     background: rgb(49 177 248 / 0.10);
     color: var(--accent-deep);
     display: inline-flex; align-items: center; justify-content: center;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
   }
-  .mi-body { display: flex; flex-direction: column; min-width: 0; }
+  .mi-body { display: flex; flex-direction: column; min-width: 0; flex: 1; }
   .mi-title { font-size: 14.5px; font-weight: 600; line-height: 1.25; color: var(--ink-1); }
-  .mi-desc { font-size: 13px; line-height: 1.45; color: var(--ink-3); margin-top: 4px; }
-
-  /* V1 — 4 columnas x 2 filas (use cases) + industries dentro de cada slot, full-viewport */
-  .v1-panel { padding: 28px 32px; }
-  .v1-grid { display: grid; grid-template-columns: 2.5fr 1fr; gap: 36px; align-items: start; }
-  .v1-use-cases { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px 22px; }
-  .v1-industries { border-left: 1px solid var(--rule); padding-left: 28px; display: grid; gap: 4px; }
-
-  /* V2 — todo en una sola fila horizontal de 12, ultra-wide */
-  .v2-panel { padding: 24px 28px; }
-  .v2-eyebrow-row { display: flex; gap: 28px; align-items: baseline; margin-bottom: 14px; }
-  .v2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px 24px; }
-  .v2-grid .mega-item { padding: 12px 14px; }
-
-  /* V3 — Por columnas (cada columna es una categoría con sus items dentro) — estilo Stripe */
-  .v3-panel { padding: 28px 32px; }
-  .v3-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
-  .v3-col { display: flex; flex-direction: column; gap: 4px; }
-  .v3-col + .v3-col { border-left: 1px solid var(--rule); padding-left: 28px; }
-
-  /* V4 — Cards grandes, 4 columnas con icon + título + subtítulo en 2 líneas garantizadas */
-  .v4-panel { padding: 24px 24px; }
-  .v4-eyebrow { padding: 0 8px 8px; }
-  .v4-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .v4-card {
-    display: block; padding: 16px; border-radius: 10px;
-    text-decoration: none; color: var(--ink-1);
-    border: 1px solid transparent;
-    transition: background 200ms, border-color 200ms, transform 200ms;
+  /* Subtítulo: 2 líneas garantizadas, mismo alto en todos los items */
+  .mi-desc {
+    font-size: 13px; line-height: 1.45; color: var(--ink-3); margin-top: 4px;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: calc(13px * 1.45 * 2); /* reserva 2 líneas siempre */
   }
-  .v4-card:hover { background: var(--paper); border-color: var(--rule); transform: translateY(-1px); }
-  .v4-card .mi-icon { margin-bottom: 12px; }
-  .v4-card .mi-title { font-size: 15px; }
-  .v4-card .mi-desc { font-size: 13px; line-height: 1.5; min-height: 38px; }
 
-  .v4-sep { height: 1px; background: var(--rule); margin: 18px 8px; }
-  .v4-industries { padding: 0 8px; }
-  .v4-industries .v4-grid { grid-template-columns: repeat(4, 1fr); }
+  /* ============= V5 ============= */
+  .v5-panel { width: 1240px; padding: 28px 32px; }
+  .v5-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; align-items: start; }
+  .v5-col { padding: 0 22px; }
+  .v5-col + .v5-col { border-left: 1px solid var(--rule); }
 
-  /* meta */
+  /* ============= V6 ============= */
+  .v6-panel { width: 1080px; padding: 22px 22px; }
+  .v6-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; align-items: start; }
+  .v6-col { background: var(--paper); border-radius: 10px; padding: 16px 14px; }
+  .v6-col .mega-item:hover { background: #fff; }
+  .v6-col .mi-icon { background: #fff; }
+
+  /* ============= V7 ============= */
+  .v7-panel { width: 1320px; padding: 32px 36px; }
+  .v7-grid { display: grid; grid-template-columns: 1fr 1fr 0.95fr; gap: 36px; align-items: start; }
+  .v7-col { padding: 0; }
+  .v7-col + .v7-col { border-left: 1px solid var(--rule); padding-left: 36px; }
+  .v7-panel .eyebrow { margin-bottom: 18px; padding-left: 12px; }
+  .v7-panel .mi-title { font-size: 15px; }
+  .v7-panel .mi-desc { font-size: 13.5px; }
+
+  /* ============= V8 ============= */
+  .v8-panel { width: 1180px; padding: 24px 26px; }
+  .v8-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 32px; align-items: start; }
+  .v8-use { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
+  .v8-ind { border-left: 1px solid var(--rule); padding-left: 28px; }
+
   .specs {
     margin-top: 14px;
     font-size: 12.5px;
     color: rgba(255,255,255,0.55);
     display: flex; gap: 18px; flex-wrap: wrap;
+    justify-content: center;
   }
   .specs b { color: rgba(255,255,255,0.9); }
 </style>
 </head>
 <body>
 
-<h1>Mega-menú &middot; 4 variantes</h1>
-<p class="lead">Cada variante usa el <b>mismo contenido real</b> (8 casos de uso + 4 industrias, descripciones completas sin recortar). El panel ocupa todo el viewport menos 24 px de margen. La diferencia entre versiones es <b>cómo se reparte el ancho</b> para que el subtítulo se vea entero.</p>
+<h1>Mega-menú &middot; 4 variantes 4-4-4</h1>
+<p class="lead">Estructura común en las 4 versiones: <b>4 casos de uso | 4 casos de uso | 4 industrias</b>. Sin distinción temática entre las dos primeras columnas. <b>Subtítulos uniformes a 2 líneas garantizadas</b> (mismo alto en todos los items). Panel <b>centrado, ancho contenido — NO ocupa de lado a lado del viewport</b>. Cambia entre versiones por anchura, separadores y respiro interno.</p>
 
-<!-- ============================ V1 ============================ -->
+<!-- ============================ V5 ============================ -->
 <div class="variant">
   <div class="variant-head">
-    <span class="tag">V1</span>
-    <h2>Use cases en 4 cols × 2 filas + industries lateral</h2>
-    <span class="note">Lo más cercano al actual, pero con cada item el doble de ancho</span>
+    <span class="tag">V5</span>
+    <h2>1240 px · 3 cols con separador vertical fino</h2>
+    <span class="note">Limpio, clásico, eyebrow corto</span>
   </div>
   <div class="navbar-fake">
     <div class="logo">Flame Analytics</div>
@@ -155,141 +152,45 @@
     <span class="nav-link">Partners</span>
   </div>
   <div class="stage">
-    <div class="mega-panel v1-panel">
-      <div class="v1-grid">
-        <div>
+    <div class="mega-panel v5-panel">
+      <div class="v5-grid">
+        <div class="v5-col">
           <div class="eyebrow">Por caso de uso</div>
-          <div class="v1-use-cases">
-            <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA, sin biometría.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Tasa real de conversión cruzada con TPV.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Reduce esperas, detecta cuellos de botella y mejora la experiencia.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi Access</span><span class="mi-desc">Acceso seguro y autenticado para empleados.</span></span></a>
-            <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa marketing con tu WiFi.</span></span></a>
-          </div>
+          <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA sin biometría ni datos personales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Conversión real cruzada con TPV, por tienda o por red.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
         </div>
-        <div class="v1-industries">
-          <div class="eyebrow">Por industria</div>
-          <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, comparativa de red.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, infraestructura cultural.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación y experiencia.</span></span></a>
-        </div>
-      </div>
-    </div>
-    <div class="specs">
-      <span><b>Grid:</b> 4 cols × 2 rows (use cases) + 1 col separada (industries)</span>
-      <span><b>Item width</b> @1440 ≈ 240 px</span>
-      <span><b>Desc:</b> 1-2 líneas, completas, sin recorte</span>
-    </div>
-  </div>
-</div>
-
-<!-- ============================ V2 ============================ -->
-<div class="variant">
-  <div class="variant-head">
-    <span class="tag">V2</span>
-    <h2>Grid uniforme 4 × 3 — todo mezclado por relevancia</h2>
-    <span class="note">Use cases + industries en la misma grid, eyebrow por bloque</span>
-  </div>
-  <div class="navbar-fake">
-    <div class="logo">Flame Analytics</div>
-    <span class="nav-link">Producto</span>
-    <span class="nav-link active">Soluciones ▾</span>
-    <span class="nav-link">Hypersensor</span>
-    <span class="nav-link">Partners</span>
-  </div>
-  <div class="stage">
-    <div class="mega-panel v2-panel">
-      <div class="v2-eyebrow-row">
-        <span class="eyebrow" style="margin: 0;">Por caso de uso</span>
-        <span style="font-size: 12px; color: var(--ink-3); margin-left: auto;">Selección de 8 — analítica de espacios físicos con IA</span>
-      </div>
-      <div class="v2-grid">
-        <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA, sin biometría.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Tasa real de conversión cruzada con TPV.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Reduce esperas, detecta cuellos de botella y mejora la experiencia.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi Access</span><span class="mi-desc">Acceso seguro y autenticado para empleados.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa marketing con tu WiFi.</span></span></a>
-      </div>
-      <div style="height: 1px; background: var(--rule); margin: 18px 0;"></div>
-      <div class="v2-eyebrow-row">
-        <span class="eyebrow" style="margin: 0;">Por industria</span>
-      </div>
-      <div class="v2-grid">
-        <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, comparativa de red.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, infraestructura cultural.</span></span></a>
-        <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación y experiencia.</span></span></a>
-      </div>
-    </div>
-    <div class="specs">
-      <span><b>Grid:</b> 4 cols, dos bloques (use cases 2 filas + industries 1 fila)</span>
-      <span><b>Item width</b> @1440 ≈ 320 px</span>
-      <span><b>Desc:</b> 1 línea casi siempre</span>
-    </div>
-  </div>
-</div>
-
-<!-- ============================ V3 ============================ -->
-<div class="variant">
-  <div class="variant-head">
-    <span class="tag">V3</span>
-    <h2>3 columnas temáticas estilo Stripe</h2>
-    <span class="note">Agrupado por contexto: Conteo · Comportamiento · Conectividad/Industrias</span>
-  </div>
-  <div class="navbar-fake">
-    <div class="logo">Flame Analytics</div>
-    <span class="nav-link">Producto</span>
-    <span class="nav-link active">Soluciones ▾</span>
-    <span class="nav-link">Hypersensor</span>
-    <span class="nav-link">Partners</span>
-  </div>
-  <div class="stage">
-    <div class="mega-panel v3-panel">
-      <div class="v3-grid">
-        <div class="v3-col">
-          <div class="eyebrow">Conteo y ocupación</div>
-          <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA, sin biometría. Por entrada, planta o zona.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad y dashboards.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Reduce esperas, detecta cuellos de botella y mejora la experiencia.</span></span></a>
+        <div class="v5-col">
+          <div class="eyebrow">&nbsp;</div>
+          <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Mide colas, detecta cuellos de botella y mejora esperas.</span></span></a>
           <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa con tu WiFi de invitados.</span></span></a>
         </div>
-        <div class="v3-col">
-          <div class="eyebrow">Comportamiento y conversión</div>
-          <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Tasa real de conversión cruzada con TPV para entender qué funciona.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita por zona.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi Access</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa marketing con el WiFi de invitados.</span></span></a>
-        </div>
-        <div class="v3-col">
+        <div class="v5-col">
           <div class="eyebrow">Por industria</div>
           <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, benchmark de red y reportes de operaciones.</span></span></a>
-          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos e infraestructura cultural y de transporte.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, benchmark de red y operaciones.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, transporte y espacios culturales.</span></span></a>
           <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación, flujos y experiencia.</span></span></a>
         </div>
       </div>
     </div>
-    <div class="specs">
-      <span><b>Grid:</b> 3 cols con borde lateral · 4 items por col</span>
-      <span><b>Item width</b> @1440 ≈ 420 px</span>
-      <span><b>Desc:</b> 2 líneas con contenido aumentado, sin recorte</span>
-    </div>
+  </div>
+  <div class="specs">
+    <span><b>Ancho panel:</b> 1240 px</span>
+    <span><b>Item width:</b> ~388 px</span>
+    <span><b>Sep:</b> línea vertical fina</span>
   </div>
 </div>
 
-<!-- ============================ V4 ============================ -->
+<!-- ============================ V6 ============================ -->
 <div class="variant">
   <div class="variant-head">
-    <span class="tag">V4</span>
-    <h2>Card grande con icon arriba (4 cols, descripciones extendidas)</h2>
-    <span class="note">Cada item respira como card · hover con borde · ideal si quieres más prosa</span>
+    <span class="tag">V6</span>
+    <h2>1080 px · 3 cards con fondo gris, sin separador</h2>
+    <span class="note">Más compacto, ritmo visual por bloques</span>
   </div>
   <div class="navbar-fake">
     <div class="logo">Flame Analytics</div>
@@ -299,38 +200,135 @@
     <span class="nav-link">Partners</span>
   </div>
   <div class="stage">
-    <div class="mega-panel v4-panel">
-      <div class="eyebrow v4-eyebrow">Por caso de uso</div>
-      <div class="v4-grid">
-        <a class="v4-card" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA, sin biometría. Por entrada o por zona.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Tasa real de conversión cruzada con TPV para entender qué funciona.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita por zona.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad y dashboards.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Reduce esperas, detecta cuellos de botella y mejora la experiencia.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi Access</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
-        <a class="v4-card" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa marketing con el WiFi de invitados.</span></span></a>
-      </div>
-      <div class="v4-sep"></div>
-      <div class="v4-industries">
-        <div class="eyebrow">Por industria</div>
-        <div class="v4-grid">
-          <a class="v4-card" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
-          <a class="v4-card" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda y benchmark de red.</span></span></a>
-          <a class="v4-card" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, infraestructura cultural y de transporte.</span></span></a>
-          <a class="v4-card" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación, flujos y experiencia.</span></span></a>
+    <div class="mega-panel v6-panel">
+      <div class="v6-grid">
+        <div class="v6-col">
+          <div class="eyebrow">Por caso de uso</div>
+          <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA sin biometría ni datos personales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Conversión real cruzada con TPV, por tienda o por red.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
+        </div>
+        <div class="v6-col">
+          <div class="eyebrow">&nbsp;</div>
+          <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Mide colas, detecta cuellos de botella y mejora esperas.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa con tu WiFi de invitados.</span></span></a>
+        </div>
+        <div class="v6-col">
+          <div class="eyebrow">Por industria</div>
+          <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, benchmark de red y operaciones.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, transporte y espacios culturales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación, flujos y experiencia.</span></span></a>
         </div>
       </div>
     </div>
-    <div class="specs">
-      <span><b>Grid:</b> 4 cols cards, 2 bloques (use cases + industries)</span>
-      <span><b>Card width</b> @1440 ≈ 320 px · alto generoso</span>
-      <span><b>Desc:</b> 2 líneas sin recorte, espacio para prosa</span>
-    </div>
+  </div>
+  <div class="specs">
+    <span><b>Ancho panel:</b> 1080 px</span>
+    <span><b>Item width:</b> ~318 px</span>
+    <span><b>Sep:</b> bloques con fondo paper</span>
   </div>
 </div>
 
-<p style="margin-top: 60px; color: rgba(255,255,255,0.5); font-size: 13px; max-width: 760px; line-height: 1.6;">Dime un número (V1, V2, V3, V4) o pídeme una mezcla (ej. <b>"V3 pero con 2 cols"</b>) y la aplico al header real de <code style="background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px;">SiteChrome.tsx</code>.</p>
+<!-- ============================ V7 ============================ -->
+<div class="variant">
+  <div class="variant-head">
+    <span class="tag">V7</span>
+    <h2>1320 px · 3 cols generosas, tipografía un punto más grande</h2>
+    <span class="note">Más respiro, item-title 15px, sep lateral, industries cols 0.95fr</span>
+  </div>
+  <div class="navbar-fake">
+    <div class="logo">Flame Analytics</div>
+    <span class="nav-link">Producto</span>
+    <span class="nav-link active">Soluciones ▾</span>
+    <span class="nav-link">Hypersensor</span>
+    <span class="nav-link">Partners</span>
+  </div>
+  <div class="stage">
+    <div class="mega-panel v7-panel">
+      <div class="v7-grid">
+        <div class="v7-col">
+          <div class="eyebrow">Por caso de uso</div>
+          <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA sin biometría ni datos personales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Conversión real cruzada con TPV, por tienda o por red.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
+        </div>
+        <div class="v7-col">
+          <div class="eyebrow">&nbsp;</div>
+          <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Mide colas, detecta cuellos de botella y mejora esperas.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa con tu WiFi de invitados.</span></span></a>
+        </div>
+        <div class="v7-col">
+          <div class="eyebrow">Por industria</div>
+          <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, benchmark de red y operaciones.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, transporte y espacios culturales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación, flujos y experiencia.</span></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Ancho panel:</b> 1320 px</span>
+    <span><b>Item width:</b> ~400 px</span>
+    <span><b>Tipografía:</b> +1pt en title</span>
+  </div>
+</div>
+
+<!-- ============================ V8 ============================ -->
+<div class="variant">
+  <div class="variant-head">
+    <span class="tag">V8</span>
+    <h2>1180 px · 2+2 use cases en grid 2×4 + industries lateral</h2>
+    <span class="note">Use cases como un bloque cohesionado (no como dos cols separadas)</span>
+  </div>
+  <div class="navbar-fake">
+    <div class="logo">Flame Analytics</div>
+    <span class="nav-link">Producto</span>
+    <span class="nav-link active">Soluciones ▾</span>
+    <span class="nav-link">Hypersensor</span>
+    <span class="nav-link">Partners</span>
+  </div>
+  <div class="stage">
+    <div class="mega-panel v8-panel">
+      <div class="v8-grid">
+        <div>
+          <div class="eyebrow">Por caso de uso</div>
+          <div class="v8-use">
+            <a class="mega-item" href="#"><span class="mi-icon">PC</span><span class="mi-body"><span class="mi-title">People Counting</span><span class="mi-desc">Conteo de visitantes con IA sin biometría ni datos personales.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">QA</span><span class="mi-body"><span class="mi-title">Queue Analytics</span><span class="mi-desc">Mide colas, detecta cuellos de botella y mejora esperas.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">CA</span><span class="mi-body"><span class="mi-title">Conversion Analytics</span><span class="mi-desc">Conversión real cruzada con TPV, por tienda o por red.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">RM</span><span class="mi-body"><span class="mi-title">Restroom Management</span><span class="mi-desc">Monitoriza limpieza y ocupación de aseos en tiempo real.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">CB</span><span class="mi-body"><span class="mi-title">Customer Behavior</span><span class="mi-desc">Mapas de calor, dwell time y patrones de visita.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">CW</span><span class="mi-body"><span class="mi-title">Corporate WiFi</span><span class="mi-desc">Acceso seguro y autenticado para empleados, integrado con AD.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">OC</span><span class="mi-body"><span class="mi-title">Occupancy</span><span class="mi-desc">Ocupación en tiempo real con alertas de capacidad.</span></span></a>
+            <a class="mega-item" href="#"><span class="mi-icon">GW</span><span class="mi-body"><span class="mi-title">Guest WiFi Marketing</span><span class="mi-desc">Captura, segmenta y activa con tu WiFi de invitados.</span></span></a>
+          </div>
+        </div>
+        <div class="v8-ind">
+          <div class="eyebrow">Por industria</div>
+          <a class="mega-item" href="#"><span class="mi-icon">SM</span><span class="mi-body"><span class="mi-title">Shopping Malls</span><span class="mi-desc">Tráfico, conversión y mix de tiendas en centros comerciales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">RT</span><span class="mi-body"><span class="mi-title">Retail</span><span class="mi-desc">Conversión por tienda, benchmark de red y operaciones.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">PV</span><span class="mi-body"><span class="mi-title">Public Venues</span><span class="mi-desc">Estadios, museos, transporte y espacios culturales.</span></span></a>
+          <a class="mega-item" href="#"><span class="mi-icon">HO</span><span class="mi-body"><span class="mi-title">Hospitality</span><span class="mi-desc">Hoteles y restauración: ocupación, flujos y experiencia.</span></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="specs">
+    <span><b>Ancho panel:</b> 1180 px</span>
+    <span><b>Use cases:</b> 2 cols × 4 rows como bloque</span>
+    <span><b>Industries:</b> 1 col lateral con border-left</span>
+  </div>
+</div>
+
+<p style="margin-top: 60px; color: rgba(255,255,255,0.5); font-size: 13px; max-width: 760px; line-height: 1.6;">Dime un número (V5, V6, V7, V8) y la aplico al header real en <code style="background: rgba(255,255,255,0.08); padding: 2px 6px; border-radius: 4px;">SiteChrome.tsx</code>. También admite mezclas: ej. <b>"V5 pero con el ancho de V6"</b>.</p>
 
 </body>
 </html>
