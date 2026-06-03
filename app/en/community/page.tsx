@@ -3,67 +3,64 @@ import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteCh
 import { getAllCategories, getAllPosts, categoryLabel, formatDate, shortExcerpt } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Comunidad · Flame Analytics",
-  description: "Blog, entrevistas, casos de éxito, webinars y whitepapers de Flame Analytics. Inteligencia de espacios físicos para retail, hostelería y centros comerciales.",
-  alternates: { canonical: "/es/comunidad/", languages: { es: "/es/comunidad/", en: "/en/community/" } },
+  title: "Community · Flame Analytics",
+  description: "Blog, interviews, case studies, webinars and whitepapers from Flame Analytics. Spatial analytics intelligence for retail, hospitality and shopping malls.",
+  alternates: { canonical: "/en/community/", languages: { en: "/en/community/", es: "/es/comunidad/" } },
 };
 
-export default function ComunidadHubEs() {
-  const cats = getAllCategories("es");
-  const allPosts = getAllPosts("es").sort((a, b) => (b.date > a.date ? 1 : -1));
+export default function CommunityHubEn() {
+  const cats = getAllCategories("en");
+  const allPosts = getAllPosts("en").sort((a, b) => (b.date > a.date ? 1 : -1));
   const featured = allPosts.slice(0, 6);
 
   return (
     <>
       <CtaStyles />
-      <SiteHeader currentLang="es" enHref="/en/community/" />
+      <SiteHeader currentLang="en" enHref="/en/community/" />
 
-      {/* HERO */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(72px, 8.4vw, 116px)", paddingBottom: "clamp(48px, 5vw, 80px)" }}>
         <div className="flame-container relative z-10" style={{ maxWidth: 900 }}>
           <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontSize: 13, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700 }}>
-            Comunidad Flame
+            Flame Community
           </p>
           <h1 className="text-[clamp(36px,4.4vw,56px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
-            <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Insights, entrevistas y casos reales</span> sobre data intelligence para espacios físicos
+            <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Insights, interviews and real stories</span> about data intelligence for physical spaces
           </h1>
           <p className="text-[clamp(17px,1.3vw,19px)] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "64ch" }}>
-            {allPosts.length} artículos publicados — blog, entrevistas a líderes del retail, casos de éxito, webinars técnicos y whitepapers de investigación.
+            {allPosts.length} published articles — blog, interviews with retail leaders, case studies, technical webinars and research whitepapers.
           </p>
         </div>
       </section>
 
-      {/* CATEGORÍAS */}
       <section className="py-16" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-4" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))" }}>
             {cats.map(c => (
-              <a key={c.slug} href={`/es/categoria/${c.slug}/`} className="group block rounded-2xl p-6 transition" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+              <a key={c.slug} href={`/en/category/${c.slug}/`} className="group block rounded-2xl p-6 transition" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
                 <div className="flex items-baseline justify-between mb-2">
-                  <h2 className="font-medium" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 22, letterSpacing: "-0.012em" }}>{categoryLabel(c.slug, "es")}</h2>
+                  <h2 className="font-medium" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 22, letterSpacing: "-0.012em" }}>{categoryLabel(c.slug, "en")}</h2>
                   <span className="text-[14px]" style={{ color: "var(--color-accent-deep)" }}>{c.count}</span>
                 </div>
-                <p className="text-[14px]" style={{ color: "var(--color-ink-3)" }}>{c.count === 1 ? "1 artículo" : `${c.count} artículos`}</p>
+                <p className="text-[14px]" style={{ color: "var(--color-ink-3)" }}>{c.count === 1 ? "1 article" : `${c.count} articles`}</p>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* RECIENTES */}
       <section className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
           <h2 className="font-normal mb-8" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.2vw, 38px)", letterSpacing: "-0.018em" }}>
-            Recientes
+            Latest
           </h2>
           <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {featured.map(p => (
-              <a key={p.slug} href={`/es/${p.slug}/`} className="block group">
+              <a key={p.slug} href={`/en/${p.slug}/`} className="block group">
                 {p.hero && <div className="mb-4 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: `url('${p.hero}') center/cover` }} />}
-                <p className="text-[12px] uppercase font-semibold mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{categoryLabel(p.category.slug, "es")}</p>
+                <p className="text-[12px] uppercase font-semibold mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{categoryLabel(p.category.slug, "en")}</p>
                 <h3 className="font-medium mb-2" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 21, lineHeight: 1.22 }} dangerouslySetInnerHTML={{ __html: p.title }} />
                 <p className="text-[14.5px] mb-2" style={{ color: "var(--color-ink-2)" }}>{shortExcerpt(p.html, 150)}</p>
-                <p className="text-[13px]" style={{ color: "var(--color-ink-3)" }}>{formatDate(p.date, "es")}</p>
+                <p className="text-[13px]" style={{ color: "var(--color-ink-3)" }}>{formatDate(p.date, "en")}</p>
               </a>
             ))}
           </div>
