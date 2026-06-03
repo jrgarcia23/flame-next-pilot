@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useTransition, ChangeEvent } from "react";
 
@@ -104,13 +105,14 @@ export default function LeadsTable({ leads }: { leads: LeadRow[] }) {
             <th style={th}>Fuente · Medio</th>
             <th style={th}>Campaña</th>
             <th style={{ ...th, textAlign: "center" }}>Tracking</th>
+            <th style={th}></th>
           </tr>
         </thead>
         <tbody>
           {leads.map((l) => {
             const checked = selected.has(l.id);
             return (
-              <tr key={l.id} style={{ background: checked ? "rgba(49,177,248,0.03)" : "transparent" }}>
+              <tr key={l.id} style={{ background: checked ? "rgba(49,177,248,0.03)" : "transparent" }} className="lead-row">
                 <td style={{ ...td, width: 36, padding: "12px 12px" }}>
                   <input type="checkbox" checked={checked} onChange={() => toggleOne(l.id)} aria-label={`Seleccionar lead ${l.id}`} style={{ width: 14, height: 14, accentColor: "#31B1F8", cursor: "pointer" }} />
                 </td>
@@ -133,11 +135,15 @@ export default function LeadsTable({ leads }: { leads: LeadRow[] }) {
                     {l.ga_client_id && <span title="GA4 Client ID" style={{ width: 18, height: 18, borderRadius: 4, fontSize: 10, fontWeight: 700, background: "rgba(49,177,248,0.12)", color: "#1E89C7", display: "flex", alignItems: "center", justifyContent: "center" }}>A</span>}
                   </div>
                 </td>
+                <td style={{ ...td, textAlign: "right" }}>
+                  <Link href={`/admin/leads/${l.id}/`} style={{ fontSize: 12, fontWeight: 600, color: "#1E89C7", textDecoration: "none", padding: "4px 10px", borderRadius: 6 }}>Ver →</Link>
+                </td>
               </tr>
             );
           })}
         </tbody>
       </table>
+      <style dangerouslySetInnerHTML={{ __html: `.lead-row:hover { background: rgba(15,23,42,0.02) !important; }` }} />
     </>
   );
 }
