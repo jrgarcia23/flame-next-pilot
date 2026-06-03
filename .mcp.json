@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pencil": {
+      "command": "/Users/joseramongarcia/.vscode/extensions/highagency.pencildev-0.6.52/out/mcp-server-darwin-arm64",
+      "args": ["--app", "visual_studio_code"]
+    }
+  }
+}
