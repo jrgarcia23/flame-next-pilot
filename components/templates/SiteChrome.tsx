@@ -9,8 +9,8 @@ function MegaItem({ it }: { it: NavLeaf }) {
         <img src={it.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
       </span>
       <span className="flex flex-col min-w-0" style={{ paddingTop: 2 }}>
-        <span className="mega-title text-[15px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
-        <span className="mega-desc text-[13.5px]" style={{ color: "var(--color-ink-3)", marginTop: 5, lineHeight: 1.45, display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}>{it.desc}</span>
+        <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
+        <span className="mega-desc" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
       </span>
     </a>
   );
@@ -37,26 +37,31 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1280px, calc(100vw - 24px))", padding: 32 }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1440px, calc(100vw - 24px))", padding: 32 }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
-          <div className="text-[11px] uppercase font-semibold mb-4 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
+          <div className="mega-eyebrow">Por caso de uso</div>
           <div className="use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
         <div className="industries-col">
-          <div className="text-[11px] uppercase font-semibold mb-4 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
+          <div className="mega-eyebrow">Por industria</div>
           <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.7fr 1fr; align-items: start; }
-        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 16px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 32px; }
-        @media (max-width: 1000px) {
-          .solutions-grid { grid-template-columns: 1fr; gap: 20px; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 20px; }
+        .solutions-grid { display: grid; gap: 40px; grid-template-columns: 1.85fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 20px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 40px; }
+        .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 600; letter-spacing: 0.12em; color: var(--color-accent-deep); margin-bottom: 16px; padding-left: 18px; }
+        .mega-title { font-size: 15px; font-weight: 600; line-height: 1.25; }
+        .mega-desc { font-size: 13.5px; line-height: 1.45; margin-top: 5px;
+          display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; line-clamp: 2; overflow: hidden; text-overflow: ellipsis;
         }
-        @media (max-width: 560px) {
+        @media (max-width: 1100px) {
+          .solutions-grid { grid-template-columns: 1fr; gap: 24px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 24px; }
+        }
+        @media (max-width: 600px) {
           .use-cases-inner { grid-template-columns: 1fr; }
         }
       `}</style>
