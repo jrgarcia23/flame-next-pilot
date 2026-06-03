@@ -4,13 +4,13 @@ import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES,
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item group flex gap-3.5 items-center rounded-lg p-3 transition">
-      <span className="mega-icon-frame inline-flex items-center justify-center flex-shrink-0" style={{ width: 48, height: 48 }}>
-        <img src={it.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item group flex gap-4 items-start rounded-lg transition" style={{ padding: "14px 16px" }}>
+      <span className="mega-icon-frame inline-flex items-center justify-center flex-shrink-0" style={{ width: 52, height: 52 }}>
+        <img src={it.iconImg} alt="" width={52} height={52} style={{ width: 52, height: 52, objectFit: "contain", display: "block" }} />
       </span>
-      <span className="flex flex-col min-w-0">
-        <span className="mega-title text-[14px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
-        <span className="text-[12.5px] mt-1 leading-[1.45]" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
+      <span className="flex flex-col min-w-0 pt-1">
+        <span className="mega-title text-[15px] font-semibold leading-tight" style={{ color: "var(--color-navy)" }}>{it.label}</span>
+        <span className="text-[13px] mt-1.5 leading-[1.5]" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
       </span>
     </a>
   );
@@ -24,47 +24,47 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
   };
   if (kind === "products") {
     return (
-      <div className="rounded-xl p-3 mega-panel-products" style={{ ...panelStyle, width: "min(420px, calc(100vw - 32px))" }}>
-        <div className="flex flex-col gap-1">{MEGA_PRODUCTS.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+      <div className="rounded-xl p-4 mega-panel-products" style={{ ...panelStyle, width: "min(460px, calc(100vw - 32px))" }}>
+        <div className="flex flex-col gap-1.5">{MEGA_PRODUCTS.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   if (kind === "community") {
     return (
-      <div className="rounded-xl p-3 mega-panel-community" style={{ ...panelStyle, width: "min(420px, calc(100vw - 32px))" }}>
-        <div className="flex flex-col gap-1">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+      <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(460px, calc(100vw - 32px))" }}>
+        <div className="flex flex-col gap-1.5">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   return (
-    <div className="rounded-xl p-6 mega-panel-solutions" style={{ ...panelStyle, width: "min(1080px, calc(100vw - 24px))" }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1240px, calc(100vw - 24px))", padding: 32 }}>
       <div className="solutions-grid">
         <div>
-          <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por caso de uso</div>
-          <div className="grid grid-cols-2 gap-1 use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+          <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por caso de uso</div>
+          <div className="grid grid-cols-2 gap-2 use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
-        <div className="industries-col" style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 24 }}>
-          <div className="text-[11px] uppercase font-semibold mb-3 px-3" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.1em" }}>Por industria</div>
-          <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        <div className="industries-col" style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 32 }}>
+          <div className="text-[11px] uppercase font-semibold mb-5 px-4" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.12em" }}>Por industria</div>
+          <div className="flex flex-col gap-2">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
-        <a href="/es/contacta/" className="mega-cta flex flex-col justify-between rounded-lg p-6" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff" }}>
+        <a href="/es/contacta/" className="mega-cta flex flex-col justify-between rounded-xl" style={{ background: "linear-gradient(140deg, var(--color-navy) 0%, #1f2160 100%)", color: "#fff", padding: 28 }}>
           <div>
-            <div className="text-[11px] uppercase font-semibold mb-3" style={{ color: "var(--color-accent)", letterSpacing: "0.1em" }}>¿Necesitas ayuda?</div>
-            <div className="text-[19px] font-semibold leading-tight mb-3" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
-            <p className="text-[13px] leading-[1.55]" style={{ color: "rgb(255 255 255 / 0.7)" }}>Demo personalizada en 20 minutos. Te enseñamos cómo encaja Flame en tu operativa.</p>
+            <div className="text-[11px] uppercase font-semibold mb-4" style={{ color: "var(--color-accent)", letterSpacing: "0.12em" }}>¿Necesitas ayuda?</div>
+            <div className="text-[22px] font-semibold leading-tight mb-4" style={{ fontFamily: "var(--font-display)", letterSpacing: "-0.012em" }}>Hablemos de tu caso</div>
+            <p className="text-[13.5px] leading-[1.6]" style={{ color: "rgb(255 255 255 / 0.75)" }}>Demo personalizada en 20 minutos. Te enseñamos cómo encaja Flame en tu operativa.</p>
           </div>
-          <span className="mt-5 inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
-            Solicita una demo <Icon name="arrow" className="w-3.5 h-3.5" />
+          <span className="mt-6 inline-flex items-center gap-2 text-[14px] font-semibold" style={{ color: "var(--color-accent)" }}>
+            Solicita una demo <Icon name="arrow" className="w-4 h-4" />
           </span>
         </a>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 1.5fr 1fr 0.95fr; }
-        @media (max-width: 1280px) { .solutions-grid { grid-template-columns: 1.4fr 1fr 0.9fr; gap: 16px; } }
-        @media (max-width: 1024px) {
+        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 1.5fr 1fr 0.85fr; }
+        @media (max-width: 1380px) { .solutions-grid { grid-template-columns: 1.5fr 1fr 0.8fr; gap: 24px; } }
+        @media (max-width: 1100px) {
           .solutions-grid { grid-template-columns: 1fr 1fr; }
           .solutions-grid .mega-cta { grid-column: 1 / -1; }
-          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 16px; }
+          .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 20px; }
         }
       `}</style>
     </div>
