@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
+import RegisterForm from "@/components/RegisterForm";
 import { UI } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -80,28 +81,17 @@ export default function InscripcionWebinars() {
               <p className="text-[14px] mb-5" style={{ color: "var(--color-ink-3)" }}>
                 Te enviamos el enlace de acceso por email.
               </p>
-              <form className="grid gap-3">
-                <input className="cf-in" type="text" name="your-name" placeholder="Nombre" required />
-                <input className="cf-in" type="email" name="your-email" placeholder="Email" required />
-                <input className="cf-in" type="text" name="your-company" placeholder="Empresa" required />
-                <input className="cf-in" type="text" name="your-position" placeholder="Cargo" required />
-                <select className="cf-in" name="your-sector" defaultValue="" required>
-                  <option value="" disabled>Sector</option>
-                  <option>Centros comerciales</option>
-                  <option>Retail</option>
-                  <option>Otros</option>
-                </select>
-                <label className="flex items-start gap-2 text-[13px] mt-1" style={{ color: "var(--color-ink-3)" }}>
-                  <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                  <span>
-                    Acepto recibir otras comunicaciones de Flame, consulta nuestra{" "}
-                    <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.
-                  </span>
-                </label>
-                <button type="submit" className="cta-btn cta-btn--md mt-2" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, justifyContent: "center" }}>
-                  Solicitar inscripción
-                </button>
-              </form>
+              <RegisterForm
+                kind="webinars"
+                topicOptions={[
+                  { value: "Gestión inteligente para Centros Comerciales (30 oct 2026)", label: "Gestión inteligente CC · 30 oct 2026", date: "2026-10-30T16:00:00+01:00" },
+                  { value: "Conversion Analytics: del transeúnte al ticket (26 jun 2026)", label: "Conversion Analytics · 26 jun 2026", date: "2026-06-26T16:00:00+02:00" },
+                  { value: "RGPD y video analytics: cumplimiento sin sacrificar dato (30 oct 2026)", label: "RGPD y video analytics · 30 oct 2026", date: "2026-10-30T11:00:00+01:00" },
+                ]}
+                submitLabel="Solicitar inscripción"
+                privacyHref={t.privacyHref}
+                variant="hero"
+              />
             </div>
           </div>
         </div>

@@ -92,7 +92,7 @@ export default async function LeadsPage({ searchParams }: { searchParams: Promis
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} />
+      <AdminTopbar email={email} active="leads" />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "28px 32px" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 20 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Leads</h1>

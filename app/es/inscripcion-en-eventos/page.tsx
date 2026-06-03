@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
+import RegisterForm from "@/components/RegisterForm";
 import { UI } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -76,24 +77,17 @@ export default function InscripcionEventos() {
                 ))}
               </ul>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in col-span-2" type="text" name="your-name" placeholder={t.fName} required />
-              <input className="cf-in" type="email" name="your-email" placeholder={t.fEmail} required />
-              <input className="cf-in" type="text" name="your-company" placeholder={t.fCompany} required />
-              <input className="cf-in" type="text" name="your-country" placeholder={t.fCountry} />
-              <input className="cf-in" type="text" name="event" placeholder="Evento al que te inscribes" required />
-              <textarea className="cf-in col-span-2" name="your-message" placeholder="Comentarios o necesidades especiales (opcional)" rows={4} style={{ minHeight: 110, resize: "vertical" }} />
-              <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
-                <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>
-                  {t.consent}{" "}
-                  <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.
-                </span>
-              </label>
-              <button type="submit" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}>
-                Reservar plaza
-              </button>
-            </form>
+            <RegisterForm
+              kind="events"
+              topicOptions={[
+                { value: "Flame Talks 2026 — 4ª edición (Madrid, 7 may 2026)", label: "Flame Talks 2026 · 7 may", date: "2026-05-07T09:30:00+02:00" },
+                { value: "MAPIC 2026 (Cannes, 16-19 oct 2026)", label: "MAPIC 2026 · 16-19 oct", date: "2026-10-16T09:00:00+02:00" },
+                { value: "Próximas ediciones — mantenme informado", label: "Próximas ediciones — mantenme informado" },
+              ]}
+              submitLabel="Reservar plaza"
+              privacyHref={t.privacyHref}
+              variant="hero"
+            />
           </div>
         </div>
         <style>{`

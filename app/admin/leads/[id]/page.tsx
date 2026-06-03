@@ -67,7 +67,7 @@ export default async function LeadDetail({ params }: { params: Promise<{ id: str
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} />
+      <AdminTopbar email={email} active="leads" />
       <div style={{ maxWidth: 1080, margin: "0 auto", padding: "28px 32px" }}>
         <Link href="/admin/leads/" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 12, fontWeight: 500, color: "#6E7488", textDecoration: "none", marginBottom: 12, padding: "4px 8px", borderRadius: 6 }}>
           <svg viewBox="0 0 16 16" fill="none" width="14" height="14"><path d="M10 12L6 8l4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/></svg>
