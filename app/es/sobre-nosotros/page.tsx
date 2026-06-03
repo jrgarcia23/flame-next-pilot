@@ -16,18 +16,18 @@ const currentLang = "es" as const;
 const enHref = "/en/about-us/";
 
 const RECOGNITIONS = [
+  { src: "/wp-content/uploads/2026/01/g2-about-us.jpg",  alt: "G2" },
   { src: "/wp-content/uploads/2026/01/gartner.png",      alt: "Gartner" },
   { src: "/wp-content/uploads/2026/01/prescient.png",    alt: "Prescient" },
   { src: "/wp-content/uploads/2026/01/peerinsights.png", alt: "Gartner Peer Insights" },
   { src: "/wp-content/uploads/2026/01/chief.png",        alt: "Chief" },
-  { src: "/wp-content/uploads/2026/01/g2-about-us.jpg",  alt: "G2" },
 ];
 
 const PRESS = [
+  { src: "/wp-content/uploads/2026/01/la-razon.jpg",        alt: "La Razón" },
+  { src: "/wp-content/uploads/2026/01/abc.png",             alt: "ABC" },
   { src: "/wp-content/uploads/2026/01/el-pais.png",         alt: "El País" },
   { src: "/wp-content/uploads/2026/01/el-mundo.jpg",        alt: "El Mundo" },
-  { src: "/wp-content/uploads/2026/01/abc.png",             alt: "ABC" },
-  { src: "/wp-content/uploads/2026/01/la-razon.jpg",        alt: "La Razón" },
   { src: "/wp-content/uploads/2026/01/el-confidencial.png", alt: "El Confidencial" },
 ];
 
@@ -44,7 +44,7 @@ export default function SobreNosotrosEs() {
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
-      {/* HERO — hands-shaking bg + collage right + texto izda */}
+      {/* 1. HERO — clavado al live: bg navy + gradient + about-us.png a la derecha */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -61,18 +61,17 @@ export default function SobreNosotrosEs() {
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(90deg, rgb(21 22 58 / 0.82) 0%, rgb(21 22 58 / 0.58) 50%, rgb(21 22 58 / 0.30) 100%)",
+            background: "linear-gradient(90deg, rgb(21 22 58 / 0.82) 0%, rgb(21 22 58 / 0.58) 50%, rgb(21 22 58 / 0.20) 100%)",
           }}
         />
         <div className="flame-container relative z-10">
-          <div className="grid items-center gap-12 about-hero-grid" style={{ gridTemplateColumns: "1.05fr 1fr" }}>
+          <div className="grid items-center gap-12 about-hero-grid" style={{ gridTemplateColumns: "1.1fr 1fr" }}>
             <div>
               <p className="mb-4 font-medium" style={{ color: "var(--color-accent)", fontFamily: "var(--font-display)", fontSize: "clamp(22px,2vw,30px)", letterSpacing: "-0.012em", lineHeight: 1.2 }}>
                 Quiénes somos
               </p>
               <h1 className="mb-7 font-normal" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(36px,4.2vw,60px)", letterSpacing: "-0.022em", lineHeight: 1.08 }}>
-                Transformemos juntos los{" "}
-                <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>espacios físicos</span>
+                Transformemos juntos los espacios <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>físicos</span>
               </h1>
               <p className="text-[clamp(17px,1.25vw,19px)] font-normal mb-9" style={{ color: "rgb(255 255 255 / 0.85)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.6 }}>
                 Creada en 2016, Flame se ha convertido en la principal plataforma mundial de Análisis de la Localización, que permite a miles de usuarios optimizar el valor de los visitantes y mejorar el rendimiento de los locales.
@@ -95,137 +94,108 @@ export default function SobreNosotrosEs() {
         `}</style>
       </section>
 
-      {/* ¿QUÉ ES FLAME? — texto + KPIs / detalles */}
+      {/* 2. ¿QUÉ ES FLAME? — texto solo, centrado */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <div className="grid items-start gap-14 about-section-grid" style={{ gridTemplateColumns: "1fr 1.15fr" }}>
-            <div>
-              <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-                ¿Qué es <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>?
-              </h2>
-              <p className="text-[17px] leading-[1.7] mb-5" style={{ color: "var(--color-ink-2)" }}>
-                Flame es una plataforma de análisis avanzado para espacios físicos que integra a la perfección el vídeo con otras fuentes de datos, lo que permite tomar decisiones fundamentadas basadas en información relevante.
-              </p>
-              <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
-                Convertimos cámaras y sensores existentes en una fuente continua de inteligencia de negocio: tráfico, conversión, comportamiento, ocupación y experiencia del visitante en cada metro cuadrado.
-              </p>
-            </div>
-            <div className="grid gap-5" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
-              {[
-                { k: "2016",   v: "Año de fundación",        d: "Lanzamiento de la plataforma." },
-                { k: "+30",    v: "Países con despliegues",  d: "EU, LATAM y Asia." },
-                { k: "+1000",  v: "Espacios analizados",     d: "Retail, malls, hospitality y venues." },
-                { k: "100%",   v: "Privacidad por diseño",   d: "Sin biometría, sin datos personales." },
-              ].map((s, i) => (
-                <div key={i} className="rounded-2xl p-6" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                  <div className="text-[clamp(28px,2.6vw,38px)] font-medium mb-1" style={{ color: "var(--color-accent-deep)", fontFamily: "var(--font-display)", letterSpacing: "-0.018em", lineHeight: 1.1 }}>{s.k}</div>
-                  <div className="text-[15px] font-semibold mb-1" style={{ color: "var(--color-navy)" }}>{s.v}</div>
-                  <div className="text-[13.5px]" style={{ color: "var(--color-ink-3)", lineHeight: 1.5 }}>{s.d}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 900px) { .about-section-grid { grid-template-columns: 1fr !important; } }
-        `}</style>
-      </section>
-
-      {/* RECONOCIDO POR + PRENSA — dos columnas */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
-        <div className="flame-container">
-          <div className="grid gap-14 logos-split" style={{ gridTemplateColumns: "1fr 1.4fr" }}>
-            <div>
-              <p className="mb-3 font-medium" style={{ color: "var(--color-accent-deep)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700 }}>
-                Reconocido por
-              </p>
-              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-7" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                Los <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>analistas</span> y plataformas de referencia hablan de Flame.
-              </h2>
-              <div className="flex flex-wrap items-center gap-6">
-                {RECOGNITIONS.map((l) => (
-                  <img key={l.src} src={l.src} alt={l.alt} style={{ height: 38, width: "auto", display: "block", objectFit: "contain", filter: "grayscale(0.4)" }} />
-                ))}
-              </div>
-            </div>
-            <div style={{ borderLeft: "1px solid var(--color-rule)", paddingLeft: 56 }} className="press-col">
-              <p className="mb-3 font-medium" style={{ color: "var(--color-accent-deep)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700 }}>
-                Prensa
-              </p>
-              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                En los <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>medios</span>
-              </h2>
-              <p className="text-[16px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
-                Prestigiosas publicaciones como El País, El Mundo, ABC, Cinco Días, Expansión, Emprendedores o La Razón han dedicado sus páginas a nuestra plataforma. Además, hemos aparecido en numerosas ocasiones en programas de radio y televisión.
-              </p>
-              <div className="flex flex-wrap items-center gap-7">
-                {PRESS.map((l) => (
-                  <img key={l.src} src={l.src} alt={l.alt} style={{ height: 32, width: "auto", display: "block", objectFit: "contain", filter: "grayscale(0.6)" }} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <style>{`
-          @media (max-width: 1000px) {
-            .logos-split { grid-template-columns: 1fr !important; }
-            .press-col { border-left: 0 !important; padding-left: 0 !important; padding-top: 40px; border-top: 1px solid var(--color-rule); }
-          }
-        `}</style>
-      </section>
-
-      {/* CONOCE AL EQUIPO + MISIÓN */}
-      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
-        <div className="flame-container">
-          <div className="grid gap-14 about-section-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-            <div className="rounded-2xl p-10" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                Conoce al <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>equipo</span>
-              </h2>
-              <p className="text-[16.5px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
-                Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado.
-              </p>
-              <a href="/es/sobre-nosotros/conoce-al-equipo/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-                Conócenos
-                <Icon name="arrow" className="w-4 h-4" />
-              </a>
-            </div>
-            <div className="rounded-2xl p-10" style={{ background: "var(--color-navy)", color: "#fff", border: "1px solid var(--color-navy)" }}>
-              <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-                Nuestra <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>misión</span>
-              </h2>
-              <p className="text-[16.5px] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.78)" }}>
-                Servir de puente entre el mundo offline y el online, ofreciendo a nuestros clientes herramientas digitales para el mundo físico. Estas herramientas les permiten conocer mejor a sus clientes y conectar con ellos, generando en última instancia ventajas competitivas.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* INVERSORES */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
-        <div className="flame-container">
-          <div className="text-center mx-auto mb-10" style={{ maxWidth: 760 }}>
-            <p className="mb-3 font-medium" style={{ color: "var(--color-accent-deep)", fontSize: 12, textTransform: "uppercase", letterSpacing: "0.14em", fontWeight: 700 }}>
-              Inversores
-            </p>
-            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-              Respaldados por <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>quienes apuestan</span> por la innovación
+          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+              ¿Qué es <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>?
             </h2>
-            <p className="text-[16px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
-              Estamos orgullosos de contar con el respaldo de inversores líderes del sector, como PadeInvest y BeWater Funds. Su confianza en nuestro compromiso con la innovación tecnológica alimenta nuestra misión de ofrecer soluciones de vanguardia en el campo de la analítica para espacios físicos.
+            <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
+              Flame es una plataforma de análisis avanzado para espacios físicos que integra a la perfección el vídeo con otras fuentes de datos, lo que permite tomar decisiones fundamentadas basadas en información relevante.
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-12">
-            {INVESTORS.map((l) => (
-              <img key={l.src} src={l.src} alt={l.alt} style={{ height: 54, width: "auto", display: "block", objectFit: "contain" }} />
+        </div>
+      </section>
+
+      {/* 3. RECONOCIDO POR */}
+      <section className="py-[80px]" style={{ background: "#fff" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto mb-12" style={{ maxWidth: 760 }}>
+            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              Reconocido <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>por</span>
+            </h2>
+          </div>
+          <div className="flex flex-wrap items-center justify-center" style={{ gap: "40px 56px" }}>
+            {RECOGNITIONS.map((l) => (
+              <img key={l.src} src={l.src} alt={l.alt} style={{ height: 56, width: "auto", display: "block", objectFit: "contain" }} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* FORM DEMO */}
-      <section className="py-[80px]" id="contact" style={{ background: "var(--color-paper)" }}>
+      {/* 4. PRENSA */}
+      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Prensa</span>
+            </h2>
+            <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
+              Prestigiosas publicaciones como El País, El Mundo, ABC, Cinco Días, Expansión, Emprendedores o La Razón han dedicado sus páginas a nuestra plataforma. Además, hemos aparecido en numerosas ocasiones en programas de radio y televisión.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center" style={{ gap: "40px 56px" }}>
+            {PRESS.map((l) => (
+              <img key={l.src} src={l.src} alt={l.alt} style={{ height: 44, width: "auto", display: "block", objectFit: "contain" }} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CONOCE AL EQUIPO */}
+      <section className="py-[80px]" style={{ background: "#fff" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              Conoce al <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>equipo</span>
+            </h2>
+            <p className="text-[17px] leading-[1.7] mb-7" style={{ color: "var(--color-ink-2)" }}>
+              Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado. ¿Quieres conocernos?
+            </p>
+            <a href="/es/sobre-nosotros/conoce-al-equipo/" className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+              Conócenos
+              <Icon name="arrow" className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. MISIÓN */}
+      <section className="py-[80px]" style={{ background: "var(--color-navy)", color: "#fff" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Misión</span>
+            </h2>
+            <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.82)" }}>
+              Nuestra misión es servir de puente entre el mundo offline y el online, ofreciendo a nuestros clientes herramientas digitales para el mundo físico. Estas herramientas les permiten conocer mejor a sus clientes y conectar con ellos, generando en última instancia ventajas competitivas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 7. INVERSORES */}
+      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
+        <div className="flame-container">
+          <div className="text-center mx-auto mb-12" style={{ maxWidth: 820 }}>
+            <h2 className="text-[clamp(28px,2.8vw,38px)] font-normal mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.018em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+              <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Inversores</span>
+            </h2>
+            <p className="text-[17px] leading-[1.7]" style={{ color: "var(--color-ink-2)" }}>
+              Estamos orgullosos de contar con el respaldo de inversores líderes del sector, como PadeInvest y BeWater Funds. Su confianza en nuestro compromiso con la innovación tecnológica alimenta nuestra misión de ofrecer soluciones de vanguardia en el campo de la analítica para espacios físicos.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center" style={{ gap: 64 }}>
+            {INVESTORS.map((l) => (
+              <img key={l.src} src={l.src} alt={l.alt} style={{ height: 64, width: "auto", display: "block", objectFit: "contain" }} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FORM DEMO */}
+      <section className="py-[80px]" id="contact" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>
