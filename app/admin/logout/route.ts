@@ -3,7 +3,7 @@ import { createSupabaseServerClient } from "@/lib/supabase-admin";
 
 export const dynamic = "force-dynamic";
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://flame-next.vercel.app";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://flameanalytics.com";
 
 export async function POST() {
   const supabase = await createSupabaseServerClient();
