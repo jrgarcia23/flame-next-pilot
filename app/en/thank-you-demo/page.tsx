@@ -19,7 +19,6 @@ export default function ThankYouDemo() {
       nextSteps={[
         { icon: "calendar", title: "Email confirmation",  desc: "You'll receive a proposed slot within 24 business hours." },
         { icon: "users",    title: "20-minute demo",       desc: "We show Flame running with a real case similar to yours, no hard sell." },
-        { icon: "convert",  title: "Roadmap and ROI",       desc: "We leave the call with concrete numbers and next steps." },
       ]}
     />
   );

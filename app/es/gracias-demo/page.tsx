@@ -19,7 +19,6 @@ export default function GraciasDemo() {
       nextSteps={[
         { icon: "calendar", title: "Confirmación por email", desc: "Recibirás un email con la propuesta de hueco en menos de 24 h laborables." },
         { icon: "users",    title: "Demo de 20 minutos",      desc: "Te enseñamos Flame funcionando con un caso real similar al tuyo, sin venta dura." },
-        { icon: "convert",  title: "Roadmap y ROI estimado",   desc: "Salimos de la llamada con números concretos y próximos pasos." },
       ]}
     />
   );

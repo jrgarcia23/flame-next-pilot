@@ -147,7 +147,7 @@ export default function AboutUsEn() {
                 Composed of experts in big data, retail, consulting, marketing and engineering, the Flame team is a young, dynamic group with over a decade delivering the most innovative tech solutions on the market. Want to meet us?
               </p>
               <a
-                href="/en/about-us/#team"
+                href="/en/about-us/meet-the-team/"
                 className="inline-flex items-center gap-1.5 font-medium"
                 style={{ color: "var(--color-navy)", fontSize: 15, textDecoration: "none", borderBottom: "1px solid var(--color-navy)", paddingBottom: 4 }}
               >

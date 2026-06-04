@@ -9,8 +9,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // ── Páginas "Conoce al equipo" — integradas en /sobre-nosotros y /about-us ──
-      { source: "/es/sobre-nosotros/conoce-al-equipo/", destination: "/es/sobre-nosotros/", permanent: true },
-      { source: "/en/about-us/meet-the-team/",          destination: "/en/about-us/",      permanent: true },
 
       // ── Hub de whitepapers (no existe en Next, va al hub comunidad/community) ──
       { source: "/es/whitepaper/", destination: "/es/comunidad/", permanent: true },
