@@ -1,7 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getAllWhitepapers, getAllCategories } from "@/lib/blog";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://flameanalytics.com";
+// Host canónico con www. El apex 308-redirige a www → mantener consistencia
+// entre canonical, sitemap y URLs servidas.
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.flameanalytics.com";
 
 const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",

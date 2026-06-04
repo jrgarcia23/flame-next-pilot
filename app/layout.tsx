@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Flame Analytics · AI video analytics for retail",
   description:
     "Transformamos el vídeo en información en tiempo real para tu negocio. Tráfico, ocupación, customer journey y conversión, sin biometría y RGPD por diseño.",
-  metadataBase: new URL("https://flameanalytics.com"),
+  metadataBase: new URL("https://www.flameanalytics.com"),
 };
 
 export default function RootLayout({

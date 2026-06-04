@@ -6,7 +6,10 @@ export const config = {
 };
 
 const SUPPORTED = ["es", "en"] as const;
-const DEFAULT_LANG: typeof SUPPORTED[number] = "en"; // fallback cuando no hay match
+// Mercado principal Flame: España. Googlebot suele venir sin Accept-Language o con
+// "en-US" (US datacenters): el fallback debe ser /es/ para no enviar el crawler
+// principal al idioma secundario. Coincide con hreflang x-default = /es/.
+const DEFAULT_LANG: typeof SUPPORTED[number] = "es";
 
 function pickLang(acceptLanguage: string | null): typeof SUPPORTED[number] {
   if (!acceptLanguage) return DEFAULT_LANG;
@@ -36,5 +39,8 @@ export function middleware(request: NextRequest) {
   const lang = pickLang(acceptLanguage);
   const url = request.nextUrl.clone();
   url.pathname = `/${lang}/`;
-  return NextResponse.redirect(url, 307); // 307 (no cacheable por Google como permanente)
+  // 308: redirect permanente que preserva el método. Google lo trata como 301 para
+  // canonicalización y consolida señales en /es/ o /en/. 307 era temporal y Google
+  // mantenía indexando la raíz "/" sin idioma como URL separada.
+  return NextResponse.redirect(url, 308);
 }

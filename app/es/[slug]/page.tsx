@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://flameanalytics.com";
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.flameanalytics.com";
 
 export default async function PostEs({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

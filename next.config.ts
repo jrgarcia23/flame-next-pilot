@@ -67,6 +67,49 @@ const nextConfig: NextConfig = {
       { source: "/es/whitepaper/vender-mejor-sin-vender-tu-vida/",                                                 destination: "/es/comunidad/", permanent: true },
       { source: "/es/whitepaper/video-intelligence-la-tecnologia-del-nuevo-retail/",                               destination: "/es/comunidad/", permanent: true },
 
+      // ══════════════════════════════════════════════════════════════════
+      // 25 whitepapers — URL plana legacy WP → /<lang>/whitepaper/<slug>/
+      // Estas URLs daban 404 post-cutover. Algunas con tráfico significativo:
+      // - /en/what-to-look-for-in-your-best-shopping-mall/  → 58 clicks/200d, pos 3.1
+      // - /en/how-to-drive-sales-in-shopping-malls-effective-tactics-for-success/  → 48 clicks/200d
+      // - /es/los-trucos-de-los-supermercados-zonas-frias-y-zonas-calientes/  → 30 clicks/200d, pos 5.4
+      // - /en/10-tips-to-improve-customer-satisfaction/  → mencionada en GSC
+      // ══════════════════════════════════════════════════════════════════
+      { source: "/en/leveraging-ai-powered-video-analytics-for-retail",                                 destination: "/en/whitepaper/leveraging-ai-powered-video-analytics-for-retail/",                                 permanent: true },
+      { source: "/en/the-10-essential-kpis-for-retail-performance",                                     destination: "/en/whitepaper/the-10-essential-kpis-for-retail-performance/",                                     permanent: true },
+      { source: "/en/10-lessons-for-a-successful-digital-transformation-in-retail",                    destination: "/en/whitepaper/10-lessons-for-a-successful-digital-transformation-in-retail/",                    permanent: true },
+      { source: "/en/driving-foot-traffic-7-effective-marketing-strategies-for-shopping-centers",      destination: "/en/whitepaper/driving-foot-traffic-7-effective-marketing-strategies-for-shopping-centers/",      permanent: true },
+      { source: "/en/5-keys-to-enhance-the-shopping-experience-in-your-center",                        destination: "/en/whitepaper/5-keys-to-enhance-the-shopping-experience-in-your-center/",                        permanent: true },
+      { source: "/en/shop-in-shop-in-retail-what-is-this-and-why-it-matters",                          destination: "/en/whitepaper/shop-in-shop-in-retail-what-is-this-and-why-it-matters/",                          permanent: true },
+      { source: "/en/how-to-boost-mall-revenues-through-advanced-analytics",                           destination: "/en/whitepaper/how-to-boost-mall-revenues-through-advanced-analytics/",                           permanent: true },
+      { source: "/en/the-10-kpis-that-every-shopping-center-should-measure",                           destination: "/en/whitepaper/the-10-kpis-that-every-shopping-center-should-measure/",                           permanent: true },
+      { source: "/en/the-5-most-successful-marketing-campaigns-of-2021-in-shopping-centers",           destination: "/en/whitepaper/the-5-most-successful-marketing-campaigns-of-2021-in-shopping-centers/",           permanent: true },
+      { source: "/en/challenges-and-trends-of-shopping-centers-in-2023",                               destination: "/en/whitepaper/challenges-and-trends-of-shopping-centers-in-2023/",                               permanent: true },
+      { source: "/en/7-video-analytics-use-cases-for-retail-and-shopping-centers",                     destination: "/en/whitepaper/7-video-analytics-use-cases-for-retail-and-shopping-centers/",                     permanent: true },
+      { source: "/en/how-should-i-place-the-products-to-sell-more",                                    destination: "/en/whitepaper/how-should-i-place-the-products-to-sell-more/",                                    permanent: true },
+      { source: "/en/10-tricks-to-make-offers-and-sell-more",                                          destination: "/en/whitepaper/10-tricks-to-make-offers-and-sell-more/",                                          permanent: true },
+      { source: "/en/what-to-look-for-in-your-best-shopping-mall",                                     destination: "/en/whitepaper/what-to-look-for-in-your-best-shopping-mall/",                                     permanent: true },
+      { source: "/en/supermarket-tricks-hot-and-cold-zones",                                           destination: "/en/whitepaper/supermarket-tricks-hot-and-cold-zones/",                                           permanent: true },
+      { source: "/en/10-tips-to-improve-customer-satisfaction",                                        destination: "/en/whitepaper/10-tips-to-improve-customer-satisfaction/",                                        permanent: true },
+      { source: "/en/how-to-drive-sales-in-shopping-malls-effective-tactics-for-success",              destination: "/en/whitepaper/how-to-drive-sales-in-shopping-malls-effective-tactics-for-success/",              permanent: true },
+      { source: "/en/the-future-of-shopping-centers-adapting-to-changing-consumer-preferences",        destination: "/en/whitepaper/the-future-of-shopping-centers-adapting-to-changing-consumer-preferences/",        permanent: true },
+      { source: "/es/la-ia-al-servicio-del-retail-descubre-el-poder-del-video-analytics",              destination: "/es/whitepaper/la-ia-al-servicio-del-retail-descubre-el-poder-del-video-analytics/",              permanent: true },
+      { source: "/es/videoanalitica-con-inteligencia-artificial-para-centros-comerciales",             destination: "/es/whitepaper/videoanalitica-con-inteligencia-artificial-para-centros-comerciales/",             permanent: true },
+      { source: "/es/guia-definitiva-para-retailers-preparando-la-campana-navidena-con-analitica-avanzada", destination: "/es/whitepaper/guia-definitiva-para-retailers-preparando-la-campana-navidena-con-analitica-avanzada/", permanent: true },
+      { source: "/es/la-transformacion-de-centros-comerciales-con-datos-inteligentes",                 destination: "/es/whitepaper/la-transformacion-de-centros-comerciales-con-datos-inteligentes/",                 permanent: true },
+      { source: "/es/10-lecciones-para-una-transformacion-digital-exitosa-en-retail",                  destination: "/es/whitepaper/10-lecciones-para-una-transformacion-digital-exitosa-en-retail/",                  permanent: true },
+      { source: "/es/5-claves-para-impulsar-la-experiencia-de-compra-en-tu-centro-comercial",          destination: "/es/whitepaper/5-claves-para-impulsar-la-experiencia-de-compra-en-tu-centro-comercial/",          permanent: true },
+      { source: "/es/los-trucos-de-los-supermercados-zonas-frias-y-zonas-calientes",                   destination: "/es/whitepaper/los-trucos-de-los-supermercados-zonas-frias-y-zonas-calientes/",                   permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // URLs legacy WP que daban 404
+      // ══════════════════════════════════════════════════════════════════
+      { source: "/es/blog",            destination: "/es/comunidad/",                      permanent: true },
+      { source: "/en/blog",            destination: "/en/community/",                      permanent: true },
+      { source: "/es/casos-de-exito",  destination: "/es/categoria/casos-de-exito/",       permanent: true },
+      { source: "/en/case-studies",    destination: "/en/category/case-studies/",          permanent: true },
+      { source: "/es/clienting",       destination: "/es/comunidad/",                      permanent: true },
+
       // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];
   },
