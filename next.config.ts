@@ -102,25 +102,26 @@ const nextConfig: NextConfig = {
       { source: "/en/retail-sector/:path*",                    destination: "/en/solution-for-retail-sector/",      permanent: true },
       { source: "/es/product/:path*",                          destination: "/es/sobre-nosotros/",                  permanent: true },
 
-      // Posts ES que estaban indexados/backlinkeados y NO migraron (slug original).
-      // En vez de 404 → comunidad (mejor para SEO + UX que perder).
-      { source: "/es/pedro-reig-la-fidelidad-ha-muerto-y-hay-que-asumirlo/",                                        destination: "/es/categoria/entrevistas/",  permanent: true },
-      { source: "/es/manuel-amat-la-tecnologia-en-retail-genera-una-relacion-de-amor-odio/",                       destination: "/es/categoria/entrevistas/",  permanent: true },
-      { source: "/es/raul-g-serapio-el-cliente-no-es-fiel-si-quieres-fidelidad-mejor-comprate-un-perro/",          destination: "/es/categoria/entrevistas/",  permanent: true },
-      { source: "/es/eduardo-suarez-hoy-en-dia-no-podemos-vivir-de-espaldas-a-los-avances-tecnologicos/",          destination: "/es/categoria/entrevistas/",  permanent: true },
-      { source: "/es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail/",                                 destination: "/es/categoria/webinars-es-cat/", permanent: true },
-      { source: "/es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica/",                destination: "/es/categoria/webinars-es-cat/", permanent: true },
-      { source: "/es/ratio-de-conversion-en-retail-que-es-y-como-mejorarlo/",                                      destination: "/es/categoria/blog/",         permanent: true },
+      // Posts borrados de WP antes de la migración (solo eran redirects en el demo).
+      // Replicamos los destinos exactos que tenía Rank Math en el demo:
+      // posts existentes en Next con tema afín, no genéricos a /categoria/.
+      { source: "/es/pedro-reig-la-fidelidad-ha-muerto-y-hay-que-asumirlo/",                                        destination: "/es/10-consejos-para-atraer-mas-clientes-al-punto-de-venta/",            permanent: true },
+      { source: "/es/manuel-amat-la-tecnologia-en-retail-genera-una-relacion-de-amor-odio/",                       destination: "/es/4-estrategias-para-retailers-casos-de-exito-y-soluciones-clave/",   permanent: true },
+      { source: "/es/raul-g-serapio-el-cliente-no-es-fiel-si-quieres-fidelidad-mejor-comprate-un-perro/",          destination: "/es/10-consejos-para-atraer-mas-clientes-al-punto-de-venta/",           permanent: true },
+      { source: "/es/eduardo-suarez-hoy-en-dia-no-podemos-vivir-de-espaldas-a-los-avances-tecnologicos/",          destination: "/es/",                                                                   permanent: true },
+      { source: "/es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail/",                                 destination: "/es/categoria/webinars-es-cat/",                                         permanent: true },
+      { source: "/es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica/",                destination: "/es/categoria/webinars-es-cat/",                                         permanent: true },
+      { source: "/es/ratio-de-conversion-en-retail-que-es-y-como-mejorarlo/",                                      destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",                  permanent: true },
 
-      // Posts EN que estaban indexados/backlinkeados y NO migraron.
-      { source: "/en/personalization-in-marketing-creating-tailored-experiences-for-your-customers/",              destination: "/en/category/blog/",          permanent: true },
-      { source: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", destination: "/en/category/blog/",      permanent: true },
-      { source: "/en/boost-your-retail-business-with-real-time-analytics-top-trends-and-strategies-for-2024/",     destination: "/en/category/blog/",          permanent: true },
-      { source: "/en/alain-afflelou-relies-on-flame-analytics-for-his-stores-in-spain/",                           destination: "/en/category/case-studies/",  permanent: true },
-      { source: "/en/how-to-collect-customer-data-the-right-way-in-retail-sector/",                                destination: "/en/category/blog/",          permanent: true },
+      // Posts EN borrados de WP antes de la migración.
+      { source: "/en/personalization-in-marketing-creating-tailored-experiences-for-your-customers/",              destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      { source: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                  permanent: true },
+      { source: "/en/boost-your-retail-business-with-real-time-analytics-top-trends-and-strategies-for-2024/",     destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                      permanent: true },
+      { source: "/en/alain-afflelou-relies-on-flame-analytics-for-his-stores-in-spain/",                           destination: "/en/",                                                                   permanent: true },
+      { source: "/en/how-to-collect-customer-data-the-right-way-in-retail-sector/",                                destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                      permanent: true },
       { source: "/en/the-future-of-shopping-centers-adapting-to-changing-consumer-behaviors-and-technological-advancements/", destination: "/en/the-future-of-shopping-malls-experience-sustainability-and-data/", permanent: true },
-      { source: "/en/we-support-our-customers-and-community/",                                                     destination: "/en/community/",              permanent: true },
-      { source: "/en/the-role-of-artificial-intelligence-in-retail-analytics-should-workers-worry-about-ai/",      destination: "/en/category/blog/",          permanent: true },
+      { source: "/en/we-support-our-customers-and-community/",                                                     destination: "/en/",                                                                   permanent: true },
+      { source: "/en/the-role-of-artificial-intelligence-in-retail-analytics-should-workers-worry-about-ai/",      destination: "/en/the-power-of-ai-in-shopping-centers/",                              permanent: true },
 
       // /es/category/<slug>/ (WP standard) → /es/categoria/<slug>/ (Next)
       // El WP demo servía /category/ en ES; Next usa /categoria/. Sin esto Google ve 404.
