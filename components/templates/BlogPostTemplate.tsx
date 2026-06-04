@@ -100,6 +100,32 @@ function pickPullQuotes(html: string, count: number): string[] {
   return picks;
 }
 
+/**
+ * Limpia imágenes externas que dan 403/rotas (Google Drive/Docs son las más comunes
+ * porque caducan, requieren auth o cambian de host). Aplicar a TODOS los posts (también
+ * los non-editorial), para evitar imágenes rotas en el body.
+ */
+function stripBrokenExternalImages(html: string): string {
+  return html
+    // <img> sueltas con src de Google Drive/Docs/usercontent
+    .replace(/<img\b[^>]*\bsrc=["']https?:\/\/(?:lh\d+\.googleusercontent\.com|docs\.google\.com|drive\.google\.com)[^"']*["'][^>]*>/gi, "")
+    // Igual pero dentro de <figure>
+    .replace(/<figure[^>]*>\s*<img\b[^>]*\bsrc=["']https?:\/\/(?:lh\d+\.googleusercontent\.com|docs\.google\.com|drive\.google\.com)[^"']*["'][^>]*>[\s\S]*?<\/figure>/gi, "")
+    // Igual pero envuelta en <p>
+    .replace(/<p[^>]*>\s*<img\b[^>]*\bsrc=["']https?:\/\/(?:lh\d+\.googleusercontent\.com|docs\.google\.com|drive\.google\.com)[^"']*["'][^>]*>\s*<\/p>/gi, "");
+}
+
+/**
+ * Quita atributos style="..." inline en H1-H6 para que la tipografía la controle
+ * el CSS del template (Clash Grotesk · weight 500 · navy). Conserva los demás atributos.
+ */
+function stripHeadingInlineStyles(html: string): string {
+  return html.replace(/<(h[1-6])(\s[^>]*)?>/gi, (match, tag, attrs = "") => {
+    const cleaned = (attrs || "").replace(/\s*style\s*=\s*["'][^"']*["']/gi, "");
+    return `<${tag}${cleaned}>`;
+  });
+}
+
 function processPostHtml(
   html: string,
   tocHtml: string,
@@ -117,6 +143,10 @@ function processPostHtml(
       .replace(/^\s*<img[^>]+>\s*/, "")
       .replace(/^\s*<div[^>]*class=["'][^"']*wp-block-image[^"']*["'][^>]*>[\s\S]*?<\/div>\s*/, "");
   }
+
+  // Imágenes externas rotas + estilos inline en headings → siempre limpiados.
+  processed = stripBrokenExternalImages(processed);
+  processed = stripHeadingInlineStyles(processed);
 
   processed = injectInternalLinks(processed, currentPath, lang);
 
@@ -181,7 +211,11 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
   const editorial = shouldUseEditorialFormat(post.slug, post.category.slug);
 
   // Procesamiento editorial: TOC (h2 con fallback a h3) + pull-quotes (si no hay ya) + CTAs.
-  let processedHtml = post.html;
+  // Para non-editorial: solo limpieza mínima (imágenes rotas + styles inline en headings)
+  // para que tipográficamente cuadre con el resto, pero sin tocar la maquetación del post.
+  let processedHtml = editorial
+    ? post.html
+    : stripHeadingInlineStyles(stripBrokenExternalImages(post.html));
   let tocItems: { id: string; title: string }[] = [];
   if (editorial) {
     const hasInlineHighlights = hasExistingHighlights(post.html);
