@@ -7,18 +7,18 @@ const I18N = {
   es: {
     breadcrumbHome: "Inicio", min: "min de lectura", related: "Entrevistas relacionadas",
     eyebrow: "Entrevista",
-    endCtaEyebrow: "Demo personalizada · 20 minutos",
-    endCtaTitle: "¿Quieres entender así de bien tu propio espacio?",
-    endCtaSub: "Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector, sin biometría y con RGPD por diseño. 180+ clientes B2B en 23 países.",
-    endCtaBtn: "Solicitar demo →",
+    endCtaEyebrow: "Únete a la comunidad",
+    endCtaTitle: "¿Quieres participar en una entrevista?",
+    endCtaSub: "Buscamos voces del retail, los centros comerciales, la hostelería y los espacios públicos. Si tienes algo que contar, escríbenos y formarás parte de nuestra serie de conversaciones con quienes deciden.",
+    endCtaBtn: "Contacta con nosotros →",
   },
   en: {
     breadcrumbHome: "Home", min: "min read", related: "Related interviews",
     eyebrow: "Interview",
-    endCtaEyebrow: "Personalised demo · 20 minutes",
-    endCtaTitle: "Want to understand your own space this clearly?",
-    endCtaSub: "We show you how Flame measures traffic, conversion and behaviour in your stores, malls or hotels. Real case from your sector, no biometrics, GDPR by design. 180+ B2B clients across 23 countries.",
-    endCtaBtn: "Request demo →",
+    endCtaEyebrow: "Join the community",
+    endCtaTitle: "Want to be interviewed?",
+    endCtaSub: "We're looking for voices from retail, shopping malls, hospitality and public venues. If you have a story to tell, reach out and become part of our series of conversations with decision-makers.",
+    endCtaBtn: "Contact us →",
   },
 };
 
