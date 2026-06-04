@@ -37,7 +37,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
             <p className="text-[clamp(17px,1.35vw,19px)] leading-[1.55] mb-8" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "62ch", fontFamily: "var(--font-body)" }}>
               {cfg.heroSub}
             </p>
-            <ul className="grid gap-3 mb-9" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
+            <ul className="grid gap-3 mb-9 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
               {cfg.heroBullets.map((b) => (
                 <li key={b} className="inline-flex items-center gap-2.5 text-[16px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
                   <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
@@ -71,6 +71,9 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
           .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @media (max-width: 700px) { .logo-img { height: 65px; } }
+          @media (max-width: 700px) {
+            .hero-bullets { grid-template-columns: 1fr !important; }
+          }
         `}</style>
       </section>
 
@@ -119,7 +122,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 {cfg.platformPara1 && <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.platformPara1}</p>}
                 {cfg.platformPara2 && <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.platformPara2}</p>}
                 {cfg.platformBullets && (
-                  <ul className="grid gap-3" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
+                  <ul className="grid gap-3 platform-bullets" style={{ gridTemplateColumns: "repeat(2, 1fr)" }}>
                     {cfg.platformBullets.map((x) => (
                       <li key={x} className="inline-flex items-center gap-2.5 text-[16px] font-medium" style={{ color: "var(--color-navy)" }}>
                         <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent-deep)", flexShrink: 0 }}>
@@ -133,7 +136,10 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
               </div>
             </div>
           </div>
-          <style>{`@media (max-width: 900px) { .mtc-grid { grid-template-columns: 1fr !important; } }`}</style>
+          <style>{`
+            @media (max-width: 900px) { .mtc-grid { grid-template-columns: 1fr !important; } }
+            @media (max-width: 560px) { .platform-bullets { grid-template-columns: 1fr !important; } }
+          `}</style>
         </section>
       )}
 
@@ -352,7 +358,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <form className="grid gap-4 product-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
               <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
               <select className="cf-in" defaultValue=""><option value="" disabled>{t.fSector}</option><option>{t.sMalls}</option><option>{t.sVenues}</option><option>{t.sRetail}</option><option>{t.sHosp}</option><option>{t.sOther}</option></select>
               <input className="cf-in" type="email" placeholder={t.fEmail} />
@@ -369,9 +375,13 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
           </div>
         </div>
         <style>{`
-          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 16px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
           .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
           @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 560px) {
+            .product-form-grid { grid-template-columns: 1fr !important; }
+            .product-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+          }
         `}</style>
       </section>
 

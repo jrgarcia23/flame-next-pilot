@@ -198,7 +198,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           </a>
           {/* Mobile hamburger */}
           <details className="mobile-nav lg:hidden">
-            <summary aria-label="Abrir menú" className="mobile-burger" style={{ width: 40, height: 40, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", borderRadius: 6, color: "#fff", listStyle: "none" }}>
+            <summary aria-label="Abrir menú" className="mobile-burger" style={{ width: 44, height: 44, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", borderRadius: 6, color: "#fff", listStyle: "none" }}>
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <line x1="4" y1="7"  x2="20" y2="7"/>
                 <line x1="4" y1="12" x2="20" y2="12"/>
@@ -292,7 +292,11 @@ export function SiteFooter() {
       </div>
       <style>{`
         @media (max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr 1fr !important; } }
-        @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr !important; } }
+        @media (max-width: 640px) {
+          .footer-grid { grid-template-columns: 1fr 1fr !important; }
+          .footer-grid > div:first-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 420px) { .footer-grid { grid-template-columns: 1fr !important; } }
       `}</style>
     </footer>
   );

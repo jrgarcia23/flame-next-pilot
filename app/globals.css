@@ -51,6 +51,22 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* sticky header 64px + 16px breathing room */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Prevent horizontal scroll on mobile from inline-styled wide elements */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* iOS safe area + form inputs >= 16px to avoid Safari autozoom */
+@media (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 * {

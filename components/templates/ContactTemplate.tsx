@@ -73,11 +73,11 @@ export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref
             </div>
 
             {/* Form col */}
-            <form className="rounded-2xl p-8" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
+            <form className="rounded-2xl contact-form-card" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)", padding: 32 }}>
               <h3 className="text-[22px] font-medium mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", fontFamily: "var(--font-display)" }}>
                 Solicita una demo
               </h3>
-              <div className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div className="grid gap-4 contact-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
                 <input className="cf-in col-span-2" type="text" placeholder="Nombre y apellido" required />
                 <input className="cf-in" type="email" placeholder="Email corporativo" required />
                 <input className="cf-in" type="text" placeholder="Empresa" required />
@@ -98,10 +98,15 @@ export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref
           </div>
         </div>
         <style>{`
-          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 16px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
           textarea.cf-in { min-height: 96px; resize: vertical; line-height: 1.5; }
           .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
           @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 560px) {
+            .contact-form-grid { grid-template-columns: 1fr !important; }
+            .contact-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+            .contact-form-card { padding: 20px !important; }
+          }
         `}</style>
       </section>
 

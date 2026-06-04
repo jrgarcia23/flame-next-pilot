@@ -95,9 +95,18 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgb(21 22 58 / 0.6) 0%, rgb(21 22 58 / 1) 60%)" }} />
         <div className="flame-container relative z-10">
           <div className="text-center mx-auto mb-10" style={{ maxWidth: 1180 }}>
-            <h1 className="text-[clamp(36px,5.4vw,72px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.026em", lineHeight: 1.02, fontFamily: "var(--font-display)", whiteSpace: "nowrap" }}>
+            <h1 className="home-hero-h1 font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.026em", lineHeight: 1.02, fontFamily: "var(--font-display)", fontSize: "clamp(34px, 5.4vw, 72px)" }}>
               {cfg.heroSupertitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.heroSupertitleHl}</span>
             </h1>
+            <style>{`
+              .home-hero-h1 { white-space: nowrap; }
+              @media (max-width: 900px) {
+                .home-hero-h1 { white-space: normal; font-size: clamp(30px, 8.4vw, 44px) !important; line-height: 1.08; }
+              }
+              @media (max-width: 420px) {
+                .home-hero-h1 { font-size: 28px !important; }
+              }
+            `}</style>
             <h2 className="text-[clamp(20px,2vw,28px)] font-normal mb-9 mx-auto" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "30ch", fontFamily: "var(--font-body)", letterSpacing: "-0.012em", lineHeight: 1.35 }}>
               {cfg.heroHeadline}
             </h2>
@@ -420,7 +429,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <form className="grid gap-4 home-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
               <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
               <select className="cf-in" defaultValue=""><option value="" disabled>{t.fSector}</option><option>{t.sMalls}</option><option>{t.sVenues}</option><option>{t.sRetail}</option><option>{t.sHosp}</option><option>{t.sOther}</option></select>
               <input className="cf-in" type="email" placeholder={t.fEmail} />
@@ -437,9 +446,13 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           </div>
         </div>
         <style>{`
-          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 16px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
           .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
           @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 560px) {
+            .home-form-grid { grid-template-columns: 1fr !important; }
+            .home-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+          }
         `}</style>
       </section>
 

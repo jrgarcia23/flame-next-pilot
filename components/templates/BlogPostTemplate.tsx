@@ -64,6 +64,11 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body table { width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: 15.5px; }
           .post-body th, .post-body td { border: 1px solid var(--color-rule); padding: 10px 14px; text-align: left; }
           .post-body th { background: var(--color-bg-accent); font-weight: 600; color: var(--color-navy); }
+          .post-body .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.6em 0; }
+          @media (max-width: 700px) {
+            .post-body { font-size: 16.5px !important; line-height: 1.65; }
+            .post-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; white-space: nowrap; }
+          }
         `}</style>
       </article>
 
@@ -74,7 +79,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             <h2 className="font-normal mb-8 text-center" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: "clamp(26px, 3vw, 36px)", letterSpacing: "-0.018em" }}>
               {t.related}
             </h2>
-            <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+            <div className="grid gap-6 related-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
               {related.map(r => (
                 <a key={r.slug} href={`/${lang}/${r.slug}/`} className="block rounded-2xl overflow-hidden group" style={{ background: "var(--color-paper)", border: "1px solid var(--color-rule)" }}>
                   {r.hero && <div style={{ aspectRatio: "16/9", background: `url('${r.hero}') center/cover` }} />}
@@ -87,6 +92,10 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
               ))}
             </div>
           </div>
+          <style>{`
+            @media (max-width: 900px) { .related-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+            @media (max-width: 560px) { .related-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
+          `}</style>
         </section>
       )}
 
