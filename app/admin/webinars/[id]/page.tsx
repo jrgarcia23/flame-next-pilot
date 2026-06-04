@@ -57,7 +57,7 @@ export default async function WebinarDetail({ params }: { params: Promise<{ id: 
             </div>
             <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
               <a href={`mailto:${reg.email}?subject=Re%3A%20Tu%20inscripci%C3%B3n%20a%20${encodeURIComponent(reg.webinar_name || "")}`} style={{ padding: "8px 14px", borderRadius: 6, background: "#31B1F8", color: "#fff", fontSize: 12, fontWeight: 700, textDecoration: "none" }}>Responder por email</a>
-              <DeleteRegistrationButton id={parseInt(id)} apiPath="/api/admin/webinars" backTo="/admin/webinars/" />
+              <DeleteRegistrationButton id={parseInt(id)} apiPath="/api/admin/webinars/" backTo="/admin/webinars/" />
             </div>
           </div>
 

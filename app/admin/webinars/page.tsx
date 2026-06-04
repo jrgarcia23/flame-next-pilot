@@ -132,7 +132,7 @@ export default async function WebinarsPage({ searchParams }: { searchParams: Pro
         </form>
 
         <div style={{ background: "#fff", border: "1px solid rgba(15,23,42,0.08)", borderRadius: 12, overflow: "hidden" }}>
-          <RegistrationsTable rows={tableRows} apiPath="/api/admin/webinars" detailBase="/admin/webinars" topicLabel="Webinar" />
+          <RegistrationsTable rows={tableRows} apiPath="/api/admin/webinars/" detailBase="/admin/webinars" topicLabel="Webinar" />
           {totalPages > 1 && (
             <div style={{ background: "#F6F7FB", borderTop: "1px solid rgba(15,23,42,0.08)", padding: "12px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ fontSize: 12, color: "#6E7488" }}>Mostrando {(page - 1) * 25 + 1}–{Math.min(page * 25, total)} de {total}</div>

@@ -21,7 +21,7 @@ function LoginContent() {
     setLoadingCaptcha(true);
     setCaptchaAnswer("");
     try {
-      const res = await fetch("/api/admin/auth/captcha", { cache: "no-store", credentials: "include" });
+      const res = await fetch("/api/admin/auth/captcha/", { cache: "no-store", credentials: "include" });
       const data = await res.json();
       if (res.ok && data?.question) setCaptchaQuestion(data.question);
       else setCaptchaQuestion("");
@@ -45,7 +45,7 @@ function LoginContent() {
     setStatus("sending");
     setErrorMsg("");
     try {
-      const res = await fetch("/api/admin/auth/login", {
+      const res = await fetch("/api/admin/auth/login/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

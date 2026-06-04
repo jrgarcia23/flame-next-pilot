@@ -62,7 +62,7 @@ export default function LeadsTable({ leads }: { leads: LeadRow[] }) {
     if (!confirmed) return;
     setError("");
     try {
-      const res = await fetch("/api/admin/leads", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ids }) });
+      const res = await fetch("/api/admin/leads/", { method: "DELETE", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ids }) });
       if (!res.ok) {
         const j = await res.json().catch(() => ({}));
         setError(j?.error || "Error al borrar.");

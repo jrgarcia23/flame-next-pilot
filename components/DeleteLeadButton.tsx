@@ -11,7 +11,7 @@ export default function DeleteLeadButton({ id }: { id: number }) {
     if (!window.confirm("¿Eliminar este lead? Esta acción no se puede deshacer.")) return;
     setPending(true);
     try {
-      const res = await fetch("/api/admin/leads", {
+      const res = await fetch("/api/admin/leads/", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ids: [id] }),

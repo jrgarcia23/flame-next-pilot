@@ -132,7 +132,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
         </form>
 
         <div style={{ background: "#fff", border: "1px solid rgba(15,23,42,0.08)", borderRadius: 12, overflow: "hidden" }}>
-          <RegistrationsTable rows={tableRows} apiPath="/api/admin/events" detailBase="/admin/events" topicLabel="Evento" />
+          <RegistrationsTable rows={tableRows} apiPath="/api/admin/events/" detailBase="/admin/events" topicLabel="Evento" />
           {totalPages > 1 && (
             <div style={{ background: "#F6F7FB", borderTop: "1px solid rgba(15,23,42,0.08)", padding: "12px 20px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div style={{ fontSize: 12, color: "#6E7488" }}>Mostrando {(page - 1) * 25 + 1}–{Math.min(page * 25, total)} de {total}</div>
