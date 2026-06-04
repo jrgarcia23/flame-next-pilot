@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Marketing WiFi · Flame Analytics",
   description: "Convierte tu WiFi para invitados en un canal de marketing. Portales personalizados, captura de datos consent-first, automatización y RGPD por diseño.",
+  alternates: {
+    canonical: "/es/marketing-wifi-para-invitados/",
+    languages: {
+    es: "/es/marketing-wifi-para-invitados/",
+    en: "/en/guest-wifi-marketing/",
+    "x-default": "/es/marketing-wifi-para-invitados/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/marketing-wifi-para-invitados/",
+    siteName: "Flame Analytics",
+    title: "Marketing WiFi · Flame Analytics",
+    description: "Convierte tu WiFi para invitados en un canal de marketing. Portales personalizados, captura de datos consent-first, automatización y RGPD por diseño.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Marketing WiFi · Flame Analytics",
+    description: "Convierte tu WiFi para invitados en un canal de marketing. Portales personalizados, captura de datos consent-first, automatización y RGPD por diseño.",
+  },
 };
 
 const cfg: UseCaseConfig = {

@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "People Counting · Flame Analytics",
   description: "Measure footfall across entrances, floors and venues with AI-powered video analytics. Get the visibility you need to optimize operations, plan resources efficie",
+  alternates: {
+    canonical: "/en/people-counting/",
+    languages: {
+    en: "/en/people-counting/",
+    es: "/es/cuenta-personas/",
+    "x-default": "/es/cuenta-personas/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/people-counting/",
+    siteName: "Flame Analytics",
+    title: "People Counting · Flame Analytics",
+    description: "Measure footfall across entrances, floors and venues with AI-powered video analytics. Get the visibility you need to optimize operations, plan resources efficie",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "People Counting · Flame Analytics",
+    description: "Measure footfall across entrances, floors and venues with AI-powered video analytics. Get the visibility you need to optimize operations, plan resources efficie",
+  },
 };
 
 const cfg: UseCaseConfig = {

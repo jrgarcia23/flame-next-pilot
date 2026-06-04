@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Cookie Policy · Flame Analytics",
   description: "How Flame Analytics uses cookies and similar technologies on this site.",
+  alternates: {
+    canonical: "/en/cookie-policy/",
+    languages: {
+    en: "/en/cookie-policy/",
+    es: "/es/politica-de-cookies/",
+    "x-default": "/es/politica-de-cookies/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/cookie-policy/",
+    siteName: "Flame Analytics",
+    title: "Cookie Policy · Flame Analytics",
+    description: "How Flame Analytics uses cookies and similar technologies on this site.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cookie Policy · Flame Analytics",
+    description: "How Flame Analytics uses cookies and similar technologies on this site.",
+  },
 };
 
 const body = `

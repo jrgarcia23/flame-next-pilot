@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Guest WiFi Marketing · Flame Analytics",
   description: "Turn connectivity into engagement. Combine a fully customizable captive portal builder with marketing automation to convert WiFi access into measurable marketin",
+  alternates: {
+    canonical: "/en/guest-wifi-marketing/",
+    languages: {
+    en: "/en/guest-wifi-marketing/",
+    es: "/es/marketing-wifi-para-invitados/",
+    "x-default": "/es/marketing-wifi-para-invitados/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/guest-wifi-marketing/",
+    siteName: "Flame Analytics",
+    title: "Guest WiFi Marketing · Flame Analytics",
+    description: "Turn connectivity into engagement. Combine a fully customizable captive portal builder with marketing automation to convert WiFi access into measurable marketin",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Guest WiFi Marketing · Flame Analytics",
+    description: "Turn connectivity into engagement. Combine a fully customizable captive portal builder with marketing automation to convert WiFi access into measurable marketin",
+  },
 };
 
 const cfg: UseCaseConfig = {

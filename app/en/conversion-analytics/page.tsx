@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Conversion Analytics · Flame Analytics",
   description: "See your physical conversion funnel end-to-end — from street traffic to in-store engagement and final purchase. Understand what attracts, what holds attention a",
+  alternates: {
+    canonical: "/en/conversion-analytics/",
+    languages: {
+    en: "/en/conversion-analytics/",
+    es: "/es/analitica-conversion/",
+    "x-default": "/es/analitica-conversion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/conversion-analytics/",
+    siteName: "Flame Analytics",
+    title: "Conversion Analytics · Flame Analytics",
+    description: "See your physical conversion funnel end-to-end — from street traffic to in-store engagement and final purchase. Understand what attracts, what holds attention a",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Conversion Analytics · Flame Analytics",
+    description: "See your physical conversion funnel end-to-end — from street traffic to in-store engagement and final purchase. Understand what attracts, what holds attention a",
+  },
 };
 
 const cfg: UseCaseConfig = {

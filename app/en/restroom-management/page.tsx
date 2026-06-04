@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Restroom Management · Flame Analytics",
   description: "Keep your facilities clean, efficient and always ready. Combine people-counting sensors and a mobile app to automate cleaning cycles based on actual usage.",
+  alternates: {
+    canonical: "/en/restroom-management/",
+    languages: {
+    en: "/en/restroom-management/",
+    es: "/es/gestion-de-aseos/",
+    "x-default": "/es/gestion-de-aseos/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/restroom-management/",
+    siteName: "Flame Analytics",
+    title: "Restroom Management · Flame Analytics",
+    description: "Keep your facilities clean, efficient and always ready. Combine people-counting sensors and a mobile app to automate cleaning cycles based on actual usage.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Restroom Management · Flame Analytics",
+    description: "Keep your facilities clean, efficient and always ready. Combine people-counting sensors and a mobile app to automate cleaning cycles based on actual usage.",
+  },
 };
 
 const cfg: UseCaseConfig = {

@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Gestión de la ocupación · Flame Analytics",
   description: "Ocupación en tiempo real, alertas automatizadas y reporting para cumplimiento y experiencia. Mantén tus espacios equilibrados, eficientes y seguros.",
+  alternates: {
+    canonical: "/es/gestion-ocupacion/",
+    languages: {
+    es: "/es/gestion-ocupacion/",
+    en: "/en/occupancy-management/",
+    "x-default": "/es/gestion-ocupacion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/gestion-ocupacion/",
+    siteName: "Flame Analytics",
+    title: "Gestión de la ocupación · Flame Analytics",
+    description: "Ocupación en tiempo real, alertas automatizadas y reporting para cumplimiento y experiencia. Mantén tus espacios equilibrados, eficientes y seguros.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gestión de la ocupación · Flame Analytics",
+    description: "Ocupación en tiempo real, alertas automatizadas y reporting para cumplimiento y experiencia. Mantén tus espacios equilibrados, eficientes y seguros.",
+  },
 };
 
 const cfg: UseCaseConfig = {

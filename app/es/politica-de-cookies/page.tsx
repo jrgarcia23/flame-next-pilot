@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Política de cookies · Flame Analytics",
   description: "Tipos de cookies que usamos en flameanalytics.com y cómo gestionarlas.",
+  alternates: {
+    canonical: "/es/politica-de-cookies/",
+    languages: {
+    es: "/es/politica-de-cookies/",
+    en: "/en/cookie-policy/",
+    "x-default": "/es/politica-de-cookies/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/politica-de-cookies/",
+    siteName: "Flame Analytics",
+    title: "Política de cookies · Flame Analytics",
+    description: "Tipos de cookies que usamos en flameanalytics.com y cómo gestionarlas.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de cookies · Flame Analytics",
+    description: "Tipos de cookies que usamos en flameanalytics.com y cómo gestionarlas.",
+  },
 };
 
 const body = `

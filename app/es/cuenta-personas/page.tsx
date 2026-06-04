@@ -7,6 +7,27 @@ export const metadata: Metadata = {
   title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
   description:
     "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
+  alternates: {
+    canonical: "/es/cuenta-personas/",
+    languages: {
+    es: "/es/cuenta-personas/",
+    en: "/en/people-counting/",
+    "x-default": "/es/cuenta-personas/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/cuenta-personas/",
+    siteName: "Flame Analytics",
+    title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
+    description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
+    description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
+  },
 };
 
 const cfg: UseCaseConfig = {

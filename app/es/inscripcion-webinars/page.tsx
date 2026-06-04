@@ -9,7 +9,23 @@ export const metadata: Metadata = {
   description: "Inscríbete a los webinars técnicos de Flame Analytics. Sesiones online en directo + grabación a quienes se registren.",
   alternates: {
     canonical: "/es/inscripcion-webinars/",
-    languages: { es: "/es/inscripcion-webinars/", en: "/en/flame-webinar-registration/", "x-default": "/es/inscripcion-webinars/" },
+    languages: {
+    es: "/es/inscripcion-webinars/",
+    "x-default": "/es/inscripcion-webinars/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/inscripcion-webinars/",
+    siteName: "Flame Analytics",
+    title: "Inscripción a webinars · Flame Analytics",
+    description: "Inscríbete a los webinars técnicos de Flame Analytics. Sesiones online en directo + grabación a quienes se registren.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inscripción a webinars · Flame Analytics",
+    description: "Inscríbete a los webinars técnicos de Flame Analytics. Sesiones online en directo + grabación a quienes se registren.",
   },
 };
 

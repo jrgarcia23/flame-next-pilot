@@ -4,7 +4,27 @@ import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
 export const metadata: Metadata = {
   title: "Thank you for contacting us · Flame Analytics",
   description: "We've received your message. We'll get back to you within 24 business hours.",
+  alternates: {
+    canonical: "/en/thank-you-contact/",
+    languages: {
+    en: "/en/thank-you-contact/",
+    "x-default": "/en/thank-you-contact/",
+    },
+  },
   robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/thank-you-contact/",
+    siteName: "Flame Analytics",
+    title: "Thank you for contacting us · Flame Analytics",
+    description: "We've received your message. We'll get back to you within 24 business hours.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thank you for contacting us · Flame Analytics",
+    description: "We've received your message. We'll get back to you within 24 business hours.",
+  },
 };
 
 export default function ThankYouContact() {

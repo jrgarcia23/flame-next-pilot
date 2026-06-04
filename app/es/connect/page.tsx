@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Connect · WiFi marketing y captación de leads · Flame Analytics",
   description: "WiFi que impulsa la fidelización y el retorno. Convierte el WiFi para invitados en un potente canal de marketing y fidelización.",
+  alternates: {
+    canonical: "/es/connect/",
+    languages: {
+    es: "/es/connect/",
+    en: "/en/connect/",
+    "x-default": "/es/connect/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/connect/",
+    siteName: "Flame Analytics",
+    title: "Connect · WiFi marketing y captación de leads · Flame Analytics",
+    description: "WiFi que impulsa la fidelización y el retorno. Convierte el WiFi para invitados en un potente canal de marketing y fidelización.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Connect · WiFi marketing y captación de leads · Flame Analytics",
+    description: "WiFi que impulsa la fidelización y el retorno. Convierte el WiFi para invitados en un potente canal de marketing y fidelización.",
+  },
 };
 
 const cfg: ProductConfig = {

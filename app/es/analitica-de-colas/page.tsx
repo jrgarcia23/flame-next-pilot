@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Gestión de colas · Flame Analytics",
   description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+  alternates: {
+    canonical: "/es/analitica-de-colas/",
+    languages: {
+    es: "/es/analitica-de-colas/",
+    en: "/en/queue-analytic/",
+    "x-default": "/es/analitica-de-colas/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/analitica-de-colas/",
+    siteName: "Flame Analytics",
+    title: "Gestión de colas · Flame Analytics",
+    description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gestión de colas · Flame Analytics",
+    description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+  },
 };
 
 const cfg: UseCaseConfig = {

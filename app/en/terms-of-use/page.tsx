@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Terms of Use · Flame Analytics",
   description: "General terms and conditions for the use of the Flame Analytics website.",
+  alternates: {
+    canonical: "/en/terms-of-use/",
+    languages: {
+    en: "/en/terms-of-use/",
+    es: "/es/condiciones-de-uso/",
+    "x-default": "/es/condiciones-de-uso/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/terms-of-use/",
+    siteName: "Flame Analytics",
+    title: "Terms of Use · Flame Analytics",
+    description: "General terms and conditions for the use of the Flame Analytics website.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Terms of Use · Flame Analytics",
+    description: "General terms and conditions for the use of the Flame Analytics website.",
+  },
 };
 
 const body = `

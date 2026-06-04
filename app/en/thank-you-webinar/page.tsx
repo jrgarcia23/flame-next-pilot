@@ -4,7 +4,27 @@ import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
 export const metadata: Metadata = {
   title: "Thank you for registering · Flame Analytics",
   description: "Your webinar registration is confirmed. The access link arrives via email.",
+  alternates: {
+    canonical: "/en/thank-you-webinar/",
+    languages: {
+    en: "/en/thank-you-webinar/",
+    "x-default": "/en/thank-you-webinar/",
+    },
+  },
   robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/thank-you-webinar/",
+    siteName: "Flame Analytics",
+    title: "Thank you for registering · Flame Analytics",
+    description: "Your webinar registration is confirmed. The access link arrives via email.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thank you for registering · Flame Analytics",
+    description: "Your webinar registration is confirmed. The access link arrives via email.",
+  },
 };
 
 export default function ThankYouWebinar() {

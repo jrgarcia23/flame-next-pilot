@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Gestión de aseos · Flame Analytics",
   description: "Mantén tus instalaciones limpias, eficientes y siempre listas. Conteo de usuarios en cada aseo + alertas automáticas para limpieza basada en uso real.",
+  alternates: {
+    canonical: "/es/gestion-de-aseos/",
+    languages: {
+    es: "/es/gestion-de-aseos/",
+    en: "/en/restroom-management/",
+    "x-default": "/es/gestion-de-aseos/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/gestion-de-aseos/",
+    siteName: "Flame Analytics",
+    title: "Gestión de aseos · Flame Analytics",
+    description: "Mantén tus instalaciones limpias, eficientes y siempre listas. Conteo de usuarios en cada aseo + alertas automáticas para limpieza basada en uso real.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gestión de aseos · Flame Analytics",
+    description: "Mantén tus instalaciones limpias, eficientes y siempre listas. Conteo de usuarios en cada aseo + alertas automáticas para limpieza basada en uso real.",
+  },
 };
 
 const cfg: UseCaseConfig = {

@@ -6,6 +6,29 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence para Centros Comerciales · Flame Analytics",
   description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+  alternates: {
+    canonical: "/es/solucion-para-centros-comerciales/",
+    languages: {
+    es: "/es/solucion-para-centros-comerciales/",
+    en: "/en/solution-for-shopping-malls/",
+    "x-default": "/es/solucion-para-centros-comerciales/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/solucion-para-centros-comerciales/",
+    siteName: "Flame Analytics",
+    title: "Data Intelligence para Centros Comerciales · Flame Analytics",
+    description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+    locale: "es_ES",
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Intelligence para Centros Comerciales · Flame Analytics",
+    description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+    images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
+  },
 };
 
 const cfg: SectorConfig = {

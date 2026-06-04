@@ -9,7 +9,23 @@ export const metadata: Metadata = {
   description: "Inscríbete a los Flame Talks, MAPIC y demás eventos presenciales de Flame Analytics. Plazas limitadas.",
   alternates: {
     canonical: "/es/inscripcion-en-eventos/",
-    languages: { es: "/es/inscripcion-en-eventos/", en: "/en/event-registration/", "x-default": "/es/inscripcion-en-eventos/" },
+    languages: {
+    es: "/es/inscripcion-en-eventos/",
+    "x-default": "/es/inscripcion-en-eventos/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/inscripcion-en-eventos/",
+    siteName: "Flame Analytics",
+    title: "Inscripción a eventos · Flame Analytics",
+    description: "Inscríbete a los Flame Talks, MAPIC y demás eventos presenciales de Flame Analytics. Plazas limitadas.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Inscripción a eventos · Flame Analytics",
+    description: "Inscríbete a los Flame Talks, MAPIC y demás eventos presenciales de Flame Analytics. Plazas limitadas.",
   },
 };
 

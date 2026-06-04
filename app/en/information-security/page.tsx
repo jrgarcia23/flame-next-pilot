@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Information Security Policy · Flame Analytics",
   description: "Flame Analytics commitment to the security and confidentiality of the information of its clients and users.",
+  alternates: {
+    canonical: "/en/information-security/",
+    languages: {
+    en: "/en/information-security/",
+    es: "/es/politica-de-seguridad-de-la-informacion/",
+    "x-default": "/es/politica-de-seguridad-de-la-informacion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/information-security/",
+    siteName: "Flame Analytics",
+    title: "Information Security Policy · Flame Analytics",
+    description: "Flame Analytics commitment to the security and confidentiality of the information of its clients and users.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Information Security Policy · Flame Analytics",
+    description: "Flame Analytics commitment to the security and confidentiality of the information of its clients and users.",
+  },
 };
 
 const body = `

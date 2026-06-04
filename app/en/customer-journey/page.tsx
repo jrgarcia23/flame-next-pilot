@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Customer Journey · Flame Analytics",
   description: "Analyze and improve shopping experiences and customer flow through advanced behavioral insights. Optimize layout, boost engagement and measure the full visitor ",
+  alternates: {
+    canonical: "/en/customer-journey/",
+    languages: {
+    en: "/en/customer-journey/",
+    es: "/es/customer-journey/",
+    "x-default": "/es/customer-journey/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/customer-journey/",
+    siteName: "Flame Analytics",
+    title: "Customer Journey · Flame Analytics",
+    description: "Analyze and improve shopping experiences and customer flow through advanced behavioral insights. Optimize layout, boost engagement and measure the full visitor ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Journey · Flame Analytics",
+    description: "Analyze and improve shopping experiences and customer flow through advanced behavioral insights. Optimize layout, boost engagement and measure the full visitor ",
+  },
 };
 
 const cfg: ProductConfig = {

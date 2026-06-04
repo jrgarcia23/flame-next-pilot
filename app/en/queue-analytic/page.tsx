@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Queue Analytics · Flame Analytics",
   description: "Reduce waiting, prevent drop-offs and keep customers happy. Monitor queues in real time and anticipate service needs before they become problems.",
+  alternates: {
+    canonical: "/en/queue-analytic/",
+    languages: {
+    en: "/en/queue-analytic/",
+    es: "/es/analitica-de-colas/",
+    "x-default": "/es/analitica-de-colas/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/queue-analytic/",
+    siteName: "Flame Analytics",
+    title: "Queue Analytics · Flame Analytics",
+    description: "Reduce waiting, prevent drop-offs and keep customers happy. Monitor queues in real time and anticipate service needs before they become problems.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Queue Analytics · Flame Analytics",
+    description: "Reduce waiting, prevent drop-offs and keep customers happy. Monitor queues in real time and anticipate service needs before they become problems.",
+  },
 };
 
 const cfg: UseCaseConfig = {

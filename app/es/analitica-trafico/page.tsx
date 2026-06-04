@@ -7,6 +7,27 @@ export const metadata: Metadata = {
   title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
   description:
     "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+  alternates: {
+    canonical: "/es/analitica-trafico/",
+    languages: {
+    es: "/es/analitica-trafico/",
+    en: "/en/traffic-insights/",
+    "x-default": "/es/analitica-trafico/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/analitica-trafico/",
+    siteName: "Flame Analytics",
+    title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
+    description: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
+    description: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+  },
 };
 
 const cfg: ProductConfig = {

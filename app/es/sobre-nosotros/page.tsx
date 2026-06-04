@@ -9,7 +9,26 @@ export const metadata: Metadata = {
   description: "Flame Analytics: plataforma de análisis avanzado para espacios físicos. Equipo, misión, reconocimientos, prensa e inversores.",
   alternates: {
     canonical: "/es/sobre-nosotros/",
-    languages: { es: "/es/sobre-nosotros/", en: "/en/about-us/", "x-default": "/es/sobre-nosotros/" },
+    languages: {
+    es: "/es/sobre-nosotros/",
+    en: "/en/about-us/",
+    "x-default": "/es/sobre-nosotros/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/sobre-nosotros/",
+    siteName: "Flame Analytics",
+    title: "Quiénes somos · Flame Analytics",
+    description: "Flame Analytics: plataforma de análisis avanzado para espacios físicos. Equipo, misión, reconocimientos, prensa e inversores.",
+    locale: "es_ES",
+    images: [{ url: "/wp-content/uploads/2026/01/Partners-1-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quiénes somos · Flame Analytics",
+    description: "Flame Analytics: plataforma de análisis avanzado para espacios físicos. Equipo, misión, reconocimientos, prensa e inversores.",
+    images: ["/wp-content/uploads/2026/01/Partners-1-scaled-1.png"],
   },
 };
 

@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Detailed information on data processing · Flame Analytics",
   description: "Extended information on personal data processing by Flame Analytics S.L., in compliance with GDPR.",
+  alternates: {
+    canonical: "/en/detailed-information/",
+    languages: {
+    en: "/en/detailed-information/",
+    es: "/es/informacion-detallada/",
+    "x-default": "/es/informacion-detallada/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/detailed-information/",
+    siteName: "Flame Analytics",
+    title: "Detailed information on data processing · Flame Analytics",
+    description: "Extended information on personal data processing by Flame Analytics S.L., in compliance with GDPR.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Detailed information on data processing · Flame Analytics",
+    description: "Extended information on personal data processing by Flame Analytics S.L., in compliance with GDPR.",
+  },
 };
 
 const body = `

@@ -6,6 +6,29 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence for Shopping Malls · Flame Analytics",
   description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+  alternates: {
+    canonical: "/en/solution-for-shopping-malls/",
+    languages: {
+    en: "/en/solution-for-shopping-malls/",
+    es: "/es/solucion-para-centros-comerciales/",
+    "x-default": "/es/solucion-para-centros-comerciales/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/solution-for-shopping-malls/",
+    siteName: "Flame Analytics",
+    title: "Data Intelligence for Shopping Malls · Flame Analytics",
+    description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+    locale: "en_US",
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Data Intelligence for Shopping Malls · Flame Analytics",
+    description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+    images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
+  },
 };
 
 const cfg: SectorConfig = {

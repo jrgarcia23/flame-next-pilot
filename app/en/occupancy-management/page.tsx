@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Occupancy Management · Flame Analytics",
   description: "Keep your venues balanced, efficient and safe. Live and historical capacity visibility with privacy-respecting analytics — and automated alerts when thresholds ",
+  alternates: {
+    canonical: "/en/occupancy-management/",
+    languages: {
+    en: "/en/occupancy-management/",
+    es: "/es/gestion-ocupacion/",
+    "x-default": "/es/gestion-ocupacion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/occupancy-management/",
+    siteName: "Flame Analytics",
+    title: "Occupancy Management · Flame Analytics",
+    description: "Keep your venues balanced, efficient and safe. Live and historical capacity visibility with privacy-respecting analytics — and automated alerts when thresholds ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Occupancy Management · Flame Analytics",
+    description: "Keep your venues balanced, efficient and safe. Live and historical capacity visibility with privacy-respecting analytics — and automated alerts when thresholds ",
+  },
 };
 
 const cfg: UseCaseConfig = {

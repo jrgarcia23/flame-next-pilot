@@ -4,7 +4,27 @@ import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
 export const metadata: Metadata = {
   title: "Gracias por contactar · Flame Analytics",
   description: "Hemos recibido tu mensaje. Te respondemos en 24 h laborables.",
+  alternates: {
+    canonical: "/es/gracias-contacto/",
+    languages: {
+    es: "/es/gracias-contacto/",
+    "x-default": "/es/gracias-contacto/",
+    },
+  },
   robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/gracias-contacto/",
+    siteName: "Flame Analytics",
+    title: "Gracias por contactar · Flame Analytics",
+    description: "Hemos recibido tu mensaje. Te respondemos en 24 h laborables.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gracias por contactar · Flame Analytics",
+    description: "Hemos recibido tu mensaje. Te respondemos en 24 h laborables.",
+  },
 };
 
 export default function GraciasContacto() {

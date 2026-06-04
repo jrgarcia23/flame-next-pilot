@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Corporate WiFi Access · Flame Analytics",
   description: "Secure, managed connectivity for employees and guests. Full control over identity, permissions and audit, with seamless integration into your IT stack.",
+  alternates: {
+    canonical: "/en/corporate-wifi-access/",
+    languages: {
+    en: "/en/corporate-wifi-access/",
+    es: "/es/acceso-wifi-corporativo/",
+    "x-default": "/es/acceso-wifi-corporativo/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/corporate-wifi-access/",
+    siteName: "Flame Analytics",
+    title: "Corporate WiFi Access · Flame Analytics",
+    description: "Secure, managed connectivity for employees and guests. Full control over identity, permissions and audit, with seamless integration into your IT stack.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Corporate WiFi Access · Flame Analytics",
+    description: "Secure, managed connectivity for employees and guests. Full control over identity, permissions and audit, with seamless integration into your IT stack.",
+  },
 };
 
 const cfg: UseCaseConfig = {

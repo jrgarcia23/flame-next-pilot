@@ -5,7 +5,24 @@ import { getAllCategories, getAllPosts, categoryLabel, formatDate, shortExcerpt 
 export const metadata: Metadata = {
   title: "Comunidad · Flame Analytics",
   description: "Blog, entrevistas, casos de éxito, webinars y whitepapers de Flame Analytics. Inteligencia de espacios físicos para retail, hostelería y centros comerciales.",
-  alternates: { canonical: "/es/comunidad/", languages: { es: "/es/comunidad/", en: "/en/community/" } },
+  alternates: { canonical: "/es/comunidad/", languages: {
+    es: "/es/comunidad/",
+    en: "/en/community/",
+    "x-default": "/es/comunidad/",
+  } },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/comunidad/",
+    siteName: "Flame Analytics",
+    title: "Comunidad · Flame Analytics",
+    description: "Blog, entrevistas, casos de éxito, webinars y whitepapers de Flame Analytics. Inteligencia de espacios físicos para retail, hostelería y centros comerciales.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Comunidad · Flame Analytics",
+    description: "Blog, entrevistas, casos de éxito, webinars y whitepapers de Flame Analytics. Inteligencia de espacios físicos para retail, hostelería y centros comerciales.",
+  },
 };
 
 export default function ComunidadHubEs() {

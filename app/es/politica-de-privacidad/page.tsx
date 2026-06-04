@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Política de privacidad · Flame Analytics",
   description: "Cómo Flame Analytics S.L. trata tus datos personales, con respeto al RGPD y por diseño.",
+  alternates: {
+    canonical: "/es/politica-de-privacidad/",
+    languages: {
+    es: "/es/politica-de-privacidad/",
+    en: "/en/privacy-policy/",
+    "x-default": "/es/politica-de-privacidad/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/politica-de-privacidad/",
+    siteName: "Flame Analytics",
+    title: "Política de privacidad · Flame Analytics",
+    description: "Cómo Flame Analytics S.L. trata tus datos personales, con respeto al RGPD y por diseño.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de privacidad · Flame Analytics",
+    description: "Cómo Flame Analytics S.L. trata tus datos personales, con respeto al RGPD y por diseño.",
+  },
 };
 
 const body = `

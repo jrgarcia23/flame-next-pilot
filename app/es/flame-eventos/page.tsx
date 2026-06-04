@@ -9,7 +9,26 @@ export const metadata: Metadata = {
   description: "Centros Comerciales y Retail: del dato al agente de IA para crecer juntos. Inscríbete a Flame Talks 2026.",
   alternates: {
     canonical: "/es/flame-eventos/",
-    languages: { es: "/es/flame-eventos/", en: "/en/flame-events/", "x-default": "/es/flame-eventos/" },
+    languages: {
+    es: "/es/flame-eventos/",
+    en: "/en/flame-events/",
+    "x-default": "/es/flame-eventos/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/flame-eventos/",
+    siteName: "Flame Analytics",
+    title: "Flame Talks 2026 — 4ª edición · Flame Analytics",
+    description: "Centros Comerciales y Retail: del dato al agente de IA para crecer juntos. Inscríbete a Flame Talks 2026.",
+    locale: "es_ES",
+    images: [{ url: "/wp-content/uploads/2026/04/6-1.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flame Talks 2026 — 4ª edición · Flame Analytics",
+    description: "Centros Comerciales y Retail: del dato al agente de IA para crecer juntos. Inscríbete a Flame Talks 2026.",
+    images: ["/wp-content/uploads/2026/04/6-1.jpg"],
   },
 };
 

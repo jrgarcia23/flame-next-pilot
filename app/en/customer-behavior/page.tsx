@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Customer Behavior · Flame Analytics",
   description: "Turn anonymous movement into deep behavioral insight. Understand paths, dwell times and zone interactions so you can shape better experiences and lift in-store ",
+  alternates: {
+    canonical: "/en/customer-behavior/",
+    languages: {
+    en: "/en/customer-behavior/",
+    es: "/es/customer-behavior/",
+    "x-default": "/es/customer-behavior/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/customer-behavior/",
+    siteName: "Flame Analytics",
+    title: "Customer Behavior · Flame Analytics",
+    description: "Turn anonymous movement into deep behavioral insight. Understand paths, dwell times and zone interactions so you can shape better experiences and lift in-store ",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Customer Behavior · Flame Analytics",
+    description: "Turn anonymous movement into deep behavioral insight. Understand paths, dwell times and zone interactions so you can shape better experiences and lift in-store ",
+  },
 };
 
 const cfg: UseCaseConfig = {

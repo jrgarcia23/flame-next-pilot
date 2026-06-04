@@ -5,6 +5,27 @@ import { UseCaseConfig } from "@/lib/page-content";
 export const metadata: Metadata = {
   title: "Analítica de conversión retail · Flame Analytics",
   description: "Mide qué tráfico convierte y dónde se pierde valor en el funnel físico. Une visitantes con ventas para descubrir el potencial real de tu espacio.",
+  alternates: {
+    canonical: "/es/analitica-conversion/",
+    languages: {
+    es: "/es/analitica-conversion/",
+    en: "/en/conversion-analytics/",
+    "x-default": "/es/analitica-conversion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/analitica-conversion/",
+    siteName: "Flame Analytics",
+    title: "Analítica de conversión retail · Flame Analytics",
+    description: "Mide qué tráfico convierte y dónde se pierde valor en el funnel físico. Une visitantes con ventas para descubrir el potencial real de tu espacio.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Analítica de conversión retail · Flame Analytics",
+    description: "Mide qué tráfico convierte y dónde se pierde valor en el funnel físico. Une visitantes con ventas para descubrir el potencial real de tu espacio.",
+  },
 };
 
 const cfg: UseCaseConfig = {

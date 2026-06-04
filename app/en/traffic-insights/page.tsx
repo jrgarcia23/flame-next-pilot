@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Traffic · Flame Analytics",
   description: "Turn physical traffic into data-driven business decisions. Flame transforms people movement in your spaces into actionable insight that powers performance.",
+  alternates: {
+    canonical: "/en/traffic-insights/",
+    languages: {
+    en: "/en/traffic-insights/",
+    es: "/es/analitica-trafico/",
+    "x-default": "/es/analitica-trafico/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/traffic-insights/",
+    siteName: "Flame Analytics",
+    title: "Traffic · Flame Analytics",
+    description: "Turn physical traffic into data-driven business decisions. Flame transforms people movement in your spaces into actionable insight that powers performance.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Traffic · Flame Analytics",
+    description: "Turn physical traffic into data-driven business decisions. Flame transforms people movement in your spaces into actionable insight that powers performance.",
+  },
 };
 
 const cfg: ProductConfig = {

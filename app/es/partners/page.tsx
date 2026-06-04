@@ -9,7 +9,26 @@ export const metadata: Metadata = {
   description: "Únete al programa de partners de Flame: hardware agnóstico, SaaS escalable y asesoramiento técnico para distribuir analítica de espacios físicos.",
   alternates: {
     canonical: "/es/partners/",
-    languages: { es: "/es/partners/", en: "/en/partners/", "x-default": "/es/partners/" },
+    languages: {
+    es: "/es/partners/",
+    en: "/en/partners/",
+    "x-default": "/es/partners/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/partners/",
+    siteName: "Flame Analytics",
+    title: "Programa de Partners · Flame Analytics",
+    description: "Únete al programa de partners de Flame: hardware agnóstico, SaaS escalable y asesoramiento técnico para distribuir analítica de espacios físicos.",
+    locale: "es_ES",
+    images: [{ url: "/wp-content/uploads/2026/01/Partners2-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Programa de Partners · Flame Analytics",
+    description: "Únete al programa de partners de Flame: hardware agnóstico, SaaS escalable y asesoramiento técnico para distribuir analítica de espacios físicos.",
+    images: ["/wp-content/uploads/2026/01/Partners2-scaled-1.png"],
   },
 };
 

@@ -9,7 +9,26 @@ export const metadata: Metadata = {
   description: "Flame Analytics: advanced analytics platform for physical spaces. Team, mission, recognition, press and investors.",
   alternates: {
     canonical: "/en/about-us/",
-    languages: { es: "/es/sobre-nosotros/", en: "/en/about-us/", "x-default": "/es/sobre-nosotros/" },
+    languages: {
+    en: "/en/about-us/",
+    es: "/es/sobre-nosotros/",
+    "x-default": "/es/sobre-nosotros/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/about-us/",
+    siteName: "Flame Analytics",
+    title: "About us · Flame Analytics",
+    description: "Flame Analytics: advanced analytics platform for physical spaces. Team, mission, recognition, press and investors.",
+    locale: "en_US",
+    images: [{ url: "/wp-content/uploads/2026/01/Partners-1-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About us · Flame Analytics",
+    description: "Flame Analytics: advanced analytics platform for physical spaces. Team, mission, recognition, press and investors.",
+    images: ["/wp-content/uploads/2026/01/Partners-1-scaled-1.png"],
   },
 };
 

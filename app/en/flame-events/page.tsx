@@ -5,6 +5,29 @@ import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteCh
 export const metadata: Metadata = {
   title: "Events and Webinars · Flame Analytics",
   description: "Flame Talks, technical webinars and presence at major retail trade fairs. Full calendar and recorded sessions.",
+  alternates: {
+    canonical: "/en/flame-events/",
+    languages: {
+    en: "/en/flame-events/",
+    es: "/es/flame-eventos/",
+    "x-default": "/es/flame-eventos/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/flame-events/",
+    siteName: "Flame Analytics",
+    title: "Events and Webinars · Flame Analytics",
+    description: "Flame Talks, technical webinars and presence at major retail trade fairs. Full calendar and recorded sessions.",
+    locale: "en_US",
+    images: [{ url: "/wp-content/uploads/2026/04/6-1.jpg" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Events and Webinars · Flame Analytics",
+    description: "Flame Talks, technical webinars and presence at major retail trade fairs. Full calendar and recorded sessions.",
+    images: ["/wp-content/uploads/2026/04/6-1.jpg"],
+  },
 };
 
 type EventItem = {

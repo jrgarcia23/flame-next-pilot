@@ -4,7 +4,27 @@ import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
 export const metadata: Metadata = {
   title: "Gracias por inscribirte al evento · Flame Analytics",
   description: "Tu inscripción al evento Flame está confirmada.",
+  alternates: {
+    canonical: "/es/gracias-evento/",
+    languages: {
+    es: "/es/gracias-evento/",
+    "x-default": "/es/gracias-evento/",
+    },
+  },
   robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/gracias-evento/",
+    siteName: "Flame Analytics",
+    title: "Gracias por inscribirte al evento · Flame Analytics",
+    description: "Tu inscripción al evento Flame está confirmada.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gracias por inscribirte al evento · Flame Analytics",
+    description: "Tu inscripción al evento Flame está confirmada.",
+  },
 };
 
 export default function GraciasEvento() {

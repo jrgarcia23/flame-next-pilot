@@ -9,7 +9,26 @@ export const metadata: Metadata = {
   description: "Join Flame's Partner Program: vendor-agnostic hardware, scalable SaaS and expert advisory to distribute physical-space analytics worldwide.",
   alternates: {
     canonical: "/en/partners/",
-    languages: { es: "/es/partners/", en: "/en/partners/", "x-default": "/es/partners/" },
+    languages: {
+    en: "/en/partners/",
+    es: "/es/partners/",
+    "x-default": "/es/partners/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/partners/",
+    siteName: "Flame Analytics",
+    title: "Partner Program · Flame Analytics",
+    description: "Join Flame's Partner Program: vendor-agnostic hardware, scalable SaaS and expert advisory to distribute physical-space analytics worldwide.",
+    locale: "en_US",
+    images: [{ url: "/wp-content/uploads/2026/01/Partners2-scaled-1.png" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Partner Program · Flame Analytics",
+    description: "Join Flame's Partner Program: vendor-agnostic hardware, scalable SaaS and expert advisory to distribute physical-space analytics worldwide.",
+    images: ["/wp-content/uploads/2026/01/Partners2-scaled-1.png"],
   },
 };
 

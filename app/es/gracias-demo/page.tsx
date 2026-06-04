@@ -4,7 +4,27 @@ import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
 export const metadata: Metadata = {
   title: "Gracias por solicitar la demo · Flame Analytics",
   description: "Hemos recibido tu solicitud de demo. Te contactamos en 24 h laborables.",
+  alternates: {
+    canonical: "/es/gracias-demo/",
+    languages: {
+    es: "/es/gracias-demo/",
+    "x-default": "/es/gracias-demo/",
+    },
+  },
   robots: { index: false, follow: true },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/gracias-demo/",
+    siteName: "Flame Analytics",
+    title: "Gracias por solicitar la demo · Flame Analytics",
+    description: "Hemos recibido tu solicitud de demo. Te contactamos en 24 h laborables.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gracias por solicitar la demo · Flame Analytics",
+    description: "Hemos recibido tu solicitud de demo. Te contactamos en 24 h laborables.",
+  },
 };
 
 export default function GraciasDemo() {

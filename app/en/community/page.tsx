@@ -5,7 +5,24 @@ import { getAllCategories, getAllPosts, categoryLabel, formatDate, shortExcerpt 
 export const metadata: Metadata = {
   title: "Community · Flame Analytics",
   description: "Blog, interviews, case studies, webinars and whitepapers from Flame Analytics. Spatial analytics intelligence for retail, hospitality and shopping malls.",
-  alternates: { canonical: "/en/community/", languages: { en: "/en/community/", es: "/es/comunidad/" } },
+  alternates: { canonical: "/en/community/", languages: {
+    en: "/en/community/",
+    es: "/es/comunidad/",
+    "x-default": "/es/comunidad/",
+  } },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/community/",
+    siteName: "Flame Analytics",
+    title: "Community · Flame Analytics",
+    description: "Blog, interviews, case studies, webinars and whitepapers from Flame Analytics. Spatial analytics intelligence for retail, hospitality and shopping malls.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Community · Flame Analytics",
+    description: "Blog, interviews, case studies, webinars and whitepapers from Flame Analytics. Spatial analytics intelligence for retail, hospitality and shopping malls.",
+  },
 };
 
 export default function CommunityHubEn() {

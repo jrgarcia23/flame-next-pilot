@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Privacy Policy · Flame Analytics",
   description: "How Flame Analytics S.L. processes your personal data, with GDPR respect and by design.",
+  alternates: {
+    canonical: "/en/privacy-policy/",
+    languages: {
+    en: "/en/privacy-policy/",
+    es: "/es/politica-de-privacidad/",
+    "x-default": "/es/politica-de-privacidad/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/privacy-policy/",
+    siteName: "Flame Analytics",
+    title: "Privacy Policy · Flame Analytics",
+    description: "How Flame Analytics S.L. processes your personal data, with GDPR respect and by design.",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy · Flame Analytics",
+    description: "How Flame Analytics S.L. processes your personal data, with GDPR respect and by design.",
+  },
 };
 
 const body = `

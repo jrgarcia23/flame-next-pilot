@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Condiciones de uso · Flame Analytics",
   description: "Condiciones generales de uso del sitio web de Flame Analytics.",
+  alternates: {
+    canonical: "/es/condiciones-de-uso/",
+    languages: {
+    es: "/es/condiciones-de-uso/",
+    en: "/en/terms-of-use/",
+    "x-default": "/es/condiciones-de-uso/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/condiciones-de-uso/",
+    siteName: "Flame Analytics",
+    title: "Condiciones de uso · Flame Analytics",
+    description: "Condiciones generales de uso del sitio web de Flame Analytics.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Condiciones de uso · Flame Analytics",
+    description: "Condiciones generales de uso del sitio web de Flame Analytics.",
+  },
 };
 
 const body = `

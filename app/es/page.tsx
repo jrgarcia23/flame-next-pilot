@@ -8,7 +8,24 @@ export const metadata: Metadata = {
     "Transformamos el vídeo en información en tiempo real para tu negocio. Tráfico, ocupación, customer journey y conversión, sin biometría y RGPD por diseño.",
   alternates: {
     canonical: "/es/",
-    languages: { es: "/es/", en: "/en/", "x-default": "/es/" },
+    languages: {
+    es: "/es/",
+    en: "/en/",
+    "x-default": "/es/",
+  },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/",
+    siteName: "Flame Analytics",
+    title: "Flame Analytics · Analítica de vídeo con IA para espacios físicos",
+    description: "Transformamos el vídeo en información en tiempo real para tu negocio. Tráfico, ocupación, customer journey y conversión, sin biometría y RGPD por diseño.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flame Analytics · Analítica de vídeo con IA para espacios físicos",
+    description: "Transformamos el vídeo en información en tiempo real para tu negocio. Tráfico, ocupación, customer journey y conversión, sin biometría y RGPD por diseño.",
   },
 };
 

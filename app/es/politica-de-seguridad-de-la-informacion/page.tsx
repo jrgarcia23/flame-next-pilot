@@ -4,6 +4,27 @@ import LegalTemplate from "@/components/templates/LegalTemplate";
 export const metadata: Metadata = {
   title: "Política de seguridad de la información · Flame Analytics",
   description: "Compromiso de Flame Analytics con la seguridad y privacidad de la información de clientes, usuarios y empleados.",
+  alternates: {
+    canonical: "/es/politica-de-seguridad-de-la-informacion/",
+    languages: {
+    es: "/es/politica-de-seguridad-de-la-informacion/",
+    en: "/en/information-security/",
+    "x-default": "/es/politica-de-seguridad-de-la-informacion/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/politica-de-seguridad-de-la-informacion/",
+    siteName: "Flame Analytics",
+    title: "Política de seguridad de la información · Flame Analytics",
+    description: "Compromiso de Flame Analytics con la seguridad y privacidad de la información de clientes, usuarios y empleados.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Política de seguridad de la información · Flame Analytics",
+    description: "Compromiso de Flame Analytics con la seguridad y privacidad de la información de clientes, usuarios y empleados.",
+  },
 };
 
 const body = `

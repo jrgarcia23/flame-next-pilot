@@ -5,6 +5,26 @@ import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteCh
 export const metadata: Metadata = {
   title: "Flame · Piloto Next · Navegación",
   description: "Punto único de entrada para navegar el piloto de Flame en Next.js. Páginas rediseñadas, clones literales y pendientes.",
+  alternates: {
+    canonical: "/es/piloto/",
+    languages: {
+    es: "/es/piloto/",
+    "x-default": "/es/piloto/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/es/piloto/",
+    siteName: "Flame Analytics",
+    title: "Flame · Piloto Next · Navegación",
+    description: "Punto único de entrada para navegar el piloto de Flame en Next.js. Páginas rediseñadas, clones literales y pendientes.",
+    locale: "es_ES",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Flame · Piloto Next · Navegación",
+    description: "Punto único de entrada para navegar el piloto de Flame en Next.js. Páginas rediseñadas, clones literales y pendientes.",
+  },
 };
 
 type LinkItem = { label: string; href: string; status: "design" | "literal" | "pending"; note?: string };

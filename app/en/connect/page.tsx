@@ -6,6 +6,27 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Connect · Flame Analytics",
   description: "Transforms guest WiFi into a powerful marketing channel. Engage visitors in physical spaces, capture contact data and trigger personalized campaigns based on lo",
+  alternates: {
+    canonical: "/en/connect/",
+    languages: {
+    en: "/en/connect/",
+    es: "/es/connect/",
+    "x-default": "/es/connect/",
+    },
+  },
+  openGraph: {
+    type: "website",
+    url: "https://www.flameanalytics.com/en/connect/",
+    siteName: "Flame Analytics",
+    title: "Connect · Flame Analytics",
+    description: "Transforms guest WiFi into a powerful marketing channel. Engage visitors in physical spaces, capture contact data and trigger personalized campaigns based on lo",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Connect · Flame Analytics",
+    description: "Transforms guest WiFi into a powerful marketing channel. Engage visitors in physical spaces, capture contact data and trigger personalized campaigns based on lo",
+  },
 };
 
 const cfg: ProductConfig = {
