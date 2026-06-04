@@ -6,7 +6,7 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
   description:
-    "Flame te ayuda a medir con precisión el tráfico en entradas, plantas y recintos, dándote la visibilidad necesaria para optimizar operaciones, planificar recursos y aumentar la conversión.",
+    "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
 };
 
 const cfg: UseCaseConfig = {

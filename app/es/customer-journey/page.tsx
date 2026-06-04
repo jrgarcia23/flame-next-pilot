@@ -4,7 +4,7 @@ import { ProductConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Customer Journey · Flame Analytics",
+  title: "Customer Journey · Recorridos y dwell time · Flame Analytics",
   description:
     "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",
 };

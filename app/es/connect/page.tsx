@@ -4,7 +4,7 @@ import { ProductConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Connect · Flame Analytics",
+  title: "Connect · WiFi marketing y captación de leads · Flame Analytics",
   description: "WiFi que impulsa la fidelización y el retorno. Convierte el WiFi para invitados en un potente canal de marketing y fidelización.",
 };
 

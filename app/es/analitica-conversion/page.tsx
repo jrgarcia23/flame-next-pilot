@@ -3,7 +3,7 @@ import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
-  title: "Conversion Analytics · Flame Analytics",
+  title: "Analítica de conversión retail · Flame Analytics",
   description: "Mide qué tráfico convierte y dónde se pierde valor en el funnel físico. Une visitantes con ventas para descubrir el potencial real de tu espacio.",
 };
 

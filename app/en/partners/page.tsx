@@ -5,8 +5,8 @@ import { UI } from "@/lib/page-content";
 import PartnersForm from "@/components/PartnersForm";
 
 export const metadata: Metadata = {
-  title: "Partners · Flame Analytics",
-  description: "Join Flame's Partner Program: vendor-agnostic hardware, scalable SaaS, expert advisory and custom integrations to bring physical-space analytics to your customers.",
+  title: "Partner Program · Flame Analytics",
+  description: "Join Flame's Partner Program: vendor-agnostic hardware, scalable SaaS and expert advisory to distribute physical-space analytics worldwide.",
   alternates: {
     canonical: "/en/partners/",
     languages: { es: "/es/partners/", en: "/en/partners/", "x-default": "/es/partners/" },

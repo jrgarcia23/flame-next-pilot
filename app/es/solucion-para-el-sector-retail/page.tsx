@@ -4,13 +4,13 @@ import { SectorConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Data Intelligence for Retail · Flame Analytics",
-  description: "Mejorando el rendimiento de la tienda con insights clave. Soluciones de marketing digital y analítica para retail basadas en big data e IA.",
+  title: "Data Intelligence para Retail · Flame Analytics",
+  description: "Mejora el rendimiento de cada tienda con datos accionables. Analítica + marketing para retail basados en IA, vídeo y big data.",
 };
 
 const cfg: SectorConfig = {
-  metaTitle: "Data Intelligence for Retail · Flame Analytics",
-  metaDescription: "Mejorando el rendimiento de la tienda con insights clave.",
+  metaTitle: "Data Intelligence para Retail · Flame Analytics",
+  metaDescription: "Mejora el rendimiento de cada tienda con datos accionables.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png",
   heroBgPosition: "center center",
   heroTitle: "Data Intelligence for Retail",

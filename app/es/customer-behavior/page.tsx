@@ -3,7 +3,7 @@ import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
-  title: "Customer Behavior · Flame Analytics",
+  title: "Customer Behavior · Mapas de calor y patrones · Flame Analytics",
   description: "Comprende cómo se mueven, interactúan y deciden tus visitantes. Mapas de calor, zonas frías y patrones de movimiento dentro del espacio.",
 };
 
