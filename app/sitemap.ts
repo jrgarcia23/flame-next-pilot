@@ -2,8 +2,10 @@ import type { MetadataRoute } from "next";
 import { getAllPosts, getAllWhitepapers, getAllCategories } from "@/lib/blog";
 
 // Host canónico con www. El apex 308-redirige a www → mantener consistencia
-// entre canonical, sitemap y URLs servidas.
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.flameanalytics.com";
+// entre canonical, sitemap y URLs servidas. Hardcodeado para evitar que
+// NEXT_PUBLIC_SITE_URL en Vercel (sin www) genere sitemap inconsistente
+// con el canonical → GSC rechaza el sitemap por redirects 308.
+const BASE = "https://www.flameanalytics.com";
 
 const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",
