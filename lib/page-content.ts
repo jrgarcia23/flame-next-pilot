@@ -140,7 +140,16 @@ export const TESTIMONIALS_ALL = [
 
 export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/customer-journey/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
-  { title: "Soluciones", links: [["People Counting","/es/cuenta-personas/"],["Conversion Analytics","/es/analitica-conversion/"],["Customer Behavior","/es/customer-behavior/"],["Occupancy Management","/es/gestion-ocupacion/"],["Queue Analytics","/es/analitica-de-colas/"],["Restroom Management","/es/gestion-de-aseos/"],["Guest Wifi Marketing","/es/marketing-wifi-para-invitados/"],["Corporate Wifi Access","/es/acceso-wifi-corporativo/"]] },
+  { title: "Soluciones", links: [
+    ["Cuenta personas",        "/es/cuenta-personas/"],
+    ["Analítica de conversión", "/es/analitica-conversion/"],
+    ["Comportamiento del cliente", "/es/customer-behavior/"],
+    ["Gestión de ocupación",    "/es/gestion-ocupacion/"],
+    ["Analítica de colas",      "/es/analitica-de-colas/"],
+    ["Gestión de aseos",        "/es/gestion-de-aseos/"],
+    ["Marketing WiFi invitados", "/es/marketing-wifi-para-invitados/"],
+    ["Acceso WiFi corporativo", "/es/acceso-wifi-corporativo/"],
+  ] },
   { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
   { title: "Comunidad",  links: [["Blog","/es/categoria/blog/"],["Casos de éxito","/es/categoria/casos-de-exito/"],["Entrevistas","/es/categoria/entrevistas/"],["Tips Retail","/es/categoria/tips-retail/"]] },
   { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
