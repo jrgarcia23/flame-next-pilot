@@ -114,6 +114,9 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
   // enHref always points to "the other language version". Keep as local path.
   const otherHref = enHref;
   return (
+    <>
+    {/* Mobile toggle FUERA del header (evita atrapar el drawer en el stacking context del backdrop-filter) */}
+    <input id="mb-toggle" type="checkbox" className="mb-toggle" aria-hidden="true" />
     <header
       className="sticky top-0 border-b"
       style={{
@@ -210,8 +213,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
             {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
           </a>
-          {/* Mobile burger — abre drawer fullscreen vía checkbox CSS (no JS) */}
-          <input id="mb-toggle" type="checkbox" className="mb-toggle" aria-hidden="true" />
+          {/* Mobile burger — el checkbox toggle vive FUERA del header */}
           <label htmlFor="mb-toggle" className="mb-burger lg:hidden" aria-label={currentLang === "en" ? "Open menu" : "Abrir menú"}>
             <span className="mb-burger-icon">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -227,60 +229,6 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
               </svg>
             </span>
           </label>
-          {/* Backdrop oscuro detrás del drawer */}
-          <label htmlFor="mb-toggle" className="mb-backdrop" aria-hidden="true"></label>
-          {/* Drawer slide-in desde la derecha */}
-          <aside className="mb-drawer lg:hidden" aria-label={currentLang === "en" ? "Mobile navigation" : "Navegación móvil"}>
-            <div className="mb-drawer-inner">
-              {/* TOP: lang switcher */}
-              <div className="mb-langs">
-                <a href={currentLang === "es" ? "/es/" : otherHref} className={`mb-lang ${currentLang === "es" ? "is-active" : ""}`} onClick={undefined}>ES</a>
-                <span className="mb-lang-sep">·</span>
-                <a href={currentLang === "en" ? "/en/" : otherHref} className={`mb-lang ${currentLang === "en" ? "is-active" : ""}`} onClick={undefined}>EN</a>
-              </div>
-
-              {/* PRODUCTO (collapse) */}
-              <details className="mb-section">
-                <summary className="mb-summary">{currentLang === "en" ? "Product" : "Producto"}<span className="mb-chev">▾</span></summary>
-                <div className="mb-sub">
-                  {MEGA_PRODUCTS.map(it => (
-                    <a key={it.href} href={it.href} className="mb-sublink">
-                      <span className="mb-sublink-title">{it.label}</span>
-                      <span className="mb-sublink-desc">{it.desc}</span>
-                    </a>
-                  ))}
-                </div>
-              </details>
-
-              {/* SOLUCIONES (collapse) */}
-              <details className="mb-section">
-                <summary className="mb-summary">{currentLang === "en" ? "Solutions" : "Soluciones"}<span className="mb-chev">▾</span></summary>
-                <div className="mb-sub">
-                  <p className="mb-sub-eyebrow">{currentLang === "en" ? "By use case" : "Por caso de uso"}</p>
-                  {MEGA_USE_CASES.map(it => (
-                    <a key={it.href} href={it.href} className="mb-sublink">
-                      <span className="mb-sublink-title">{it.label}</span>
-                    </a>
-                  ))}
-                  <p className="mb-sub-eyebrow mt-2">{currentLang === "en" ? "By industry" : "Por industria"}</p>
-                  {MEGA_INDUSTRIES.map(it => (
-                    <a key={it.href} href={it.href} className="mb-sublink">
-                      <span className="mb-sublink-title">{it.label}</span>
-                    </a>
-                  ))}
-                </div>
-              </details>
-
-              <a href={currentLang === "en" ? "/en/hypersensor/" : "/es/hypersensor/"} className="mb-toplink">Hypersensor</a>
-              <a href={currentLang === "en" ? "/en/partners/" : "/es/partners/"} className="mb-toplink">Partners</a>
-              <a href={currentLang === "en" ? "/en/about-us/" : "/es/sobre-nosotros/"} className="mb-toplink">{currentLang === "en" ? "About us" : "Nosotros"}</a>
-
-              {/* CTA sticky abajo */}
-              <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="mb-cta">
-                {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
-              </a>
-            </div>
-          </aside>
         </div>
       </div>
       <style>{`
@@ -390,6 +338,61 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
         }
       `}</style>
     </header>
+    {/* Backdrop oscuro detrás del drawer — FUERA del header para escapar de su stacking context */}
+    <label htmlFor="mb-toggle" className="mb-backdrop" aria-hidden="true"></label>
+    {/* Drawer slide-in desde la derecha — FUERA del header */}
+    <aside className="mb-drawer" aria-label={currentLang === "en" ? "Mobile navigation" : "Navegación móvil"}>
+      <div className="mb-drawer-inner">
+        {/* TOP: lang switcher */}
+        <div className="mb-langs">
+          <a href={currentLang === "es" ? "/es/" : otherHref} className={`mb-lang ${currentLang === "es" ? "is-active" : ""}`}>ES</a>
+          <span className="mb-lang-sep">·</span>
+          <a href={currentLang === "en" ? "/en/" : otherHref} className={`mb-lang ${currentLang === "en" ? "is-active" : ""}`}>EN</a>
+        </div>
+
+        {/* PRODUCTO (collapse) */}
+        <details className="mb-section">
+          <summary className="mb-summary">{currentLang === "en" ? "Product" : "Producto"}<span className="mb-chev">▾</span></summary>
+          <div className="mb-sub">
+            {MEGA_PRODUCTS.map(it => (
+              <a key={it.href} href={it.href} className="mb-sublink">
+                <span className="mb-sublink-title">{it.label}</span>
+                <span className="mb-sublink-desc">{it.desc}</span>
+              </a>
+            ))}
+          </div>
+        </details>
+
+        {/* SOLUCIONES (collapse) */}
+        <details className="mb-section">
+          <summary className="mb-summary">{currentLang === "en" ? "Solutions" : "Soluciones"}<span className="mb-chev">▾</span></summary>
+          <div className="mb-sub">
+            <p className="mb-sub-eyebrow">{currentLang === "en" ? "By use case" : "Por caso de uso"}</p>
+            {MEGA_USE_CASES.map(it => (
+              <a key={it.href} href={it.href} className="mb-sublink">
+                <span className="mb-sublink-title">{it.label}</span>
+              </a>
+            ))}
+            <p className="mb-sub-eyebrow mt-2">{currentLang === "en" ? "By industry" : "Por industria"}</p>
+            {MEGA_INDUSTRIES.map(it => (
+              <a key={it.href} href={it.href} className="mb-sublink">
+                <span className="mb-sublink-title">{it.label}</span>
+              </a>
+            ))}
+          </div>
+        </details>
+
+        <a href={currentLang === "en" ? "/en/hypersensor/" : "/es/hypersensor/"} className="mb-toplink">Hypersensor</a>
+        <a href={currentLang === "en" ? "/en/partners/" : "/es/partners/"} className="mb-toplink">Partners</a>
+        <a href={currentLang === "en" ? "/en/about-us/" : "/es/sobre-nosotros/"} className="mb-toplink">{currentLang === "en" ? "About us" : "Nosotros"}</a>
+
+        {/* CTA sticky abajo */}
+        <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="mb-cta">
+          {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
+        </a>
+      </div>
+    </aside>
+    </>
   );
 }
 
