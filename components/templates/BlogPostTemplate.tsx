@@ -126,6 +126,26 @@ function stripHeadingInlineStyles(html: string): string {
   });
 }
 
+/**
+ * Decide si una posición justo tras un </p> es segura para insertar un bloque
+ * editorial (CTA, pull-quote). NO es segura cuando el siguiente elemento es un
+ * cierre de wrapper (</div>, </section>) o un elemento estructural dentro de
+ * una tarjeta/wrapper custom (otro <div>, <span>, <li>, etc.).
+ *
+ * Solo aceptamos posiciones donde el siguiente tag de apertura sea <p>, <h2>,
+ * <h3>, <h4> o <blockquote> al nivel raíz del flujo del post.
+ */
+function isSafeInsertionPoint(html: string, pos: number): boolean {
+  const next = html.slice(pos, pos + 400);
+  const match = next.match(/^\s*<(\/?[a-z][a-z0-9]*)/i);
+  if (!match) return true;
+  const tag = match[1].toLowerCase();
+  // No insertar en cierres (estamos saliendo de un wrapper o lista)
+  if (tag.startsWith("/")) return false;
+  // Solo aceptar las aperturas seguras
+  return ["p", "h2", "h3", "h4", "blockquote", "hr"].includes(tag);
+}
+
 function processPostHtml(
   html: string,
   tocHtml: string,
@@ -150,11 +170,29 @@ function processPostHtml(
 
   processed = injectInternalLinks(processed, currentPath, lang);
 
-  const pCloses: number[] = [];
+  // Recopilamos TODOS los cierres </p>, pero filtramos por safe insertion points para
+  // no inyectar dentro de tarjetas/listas custom. Mantenemos la longitud original como
+  // referencia para las fracciones (0.22, 0.38, 0.5...).
+  const pClosesAll: number[] = [];
   let pos = -1;
-  while ((pos = processed.indexOf("</p>", pos + 1)) !== -1) pCloses.push(pos + 4);
-  const pCount = pCloses.length;
+  while ((pos = processed.indexOf("</p>", pos + 1)) !== -1) pClosesAll.push(pos + 4);
+  const pCount = pClosesAll.length;
+  const safeCloses = pClosesAll.filter(p => isSafeInsertionPoint(processed, p));
   const hasTable = /<table\b/i.test(processed);
+
+  // Devuelve el safe insertion point más cercano al target deseado
+  const pickSafeNear = (targetIdx: number): number | null => {
+    if (!safeCloses.length) return null;
+    const targetPos = pClosesAll[Math.min(targetIdx, pClosesAll.length - 1)];
+    // Buscar el safe close más cercano a targetPos
+    let best = safeCloses[0];
+    let bestDist = Math.abs(best - targetPos);
+    for (const c of safeCloses) {
+      const d = Math.abs(c - targetPos);
+      if (d < bestDist) { best = c; bestDist = d; }
+    }
+    return best;
+  };
 
   // Pull-quotes auto solo si el post NO tiene ya elementos destacados (blockquote, fa-lead, etc.)
   const allQuotes = hasInlineHighlights ? [] : pickPullQuotes(html, 3);
@@ -175,16 +213,22 @@ function processPostHtml(
   if (pullCount > 0 && pCount >= 4) {
     const fractions = pullCount === 1 ? [0.3] : [0.22, 0.65];
     for (let i = 0; i < pullCount; i++) {
-      const insertPos = pCloses[Math.min(Math.floor(pCount * fractions[i]), pCloses.length - 1)];
-      inserts.push({ pos: insertPos, html: `<blockquote class="auto-pull-quote">${allQuotes[i]}</blockquote>` });
+      const targetIdx = Math.floor(pCount * fractions[i]);
+      const insertPos = pickSafeNear(targetIdx);
+      if (insertPos !== null) {
+        inserts.push({ pos: insertPos, html: `<blockquote class="auto-pull-quote">${allQuotes[i]}</blockquote>` });
+      }
     }
   }
 
   if (ctaCount > 0 && pCount >= 6) {
     const fractions = ctaCount === 1 ? [0.5] : [0.38, 0.74];
     for (let i = 0; i < ctaCount; i++) {
-      const insertPos = pCloses[Math.min(Math.floor(pCount * fractions[i]), pCloses.length - 1)];
-      inserts.push({ pos: insertPos, html: i === 0 ? midCta1 : midCta2 });
+      const targetIdx = Math.floor(pCount * fractions[i]);
+      const insertPos = pickSafeNear(targetIdx);
+      if (insertPos !== null) {
+        inserts.push({ pos: insertPos, html: i === 0 ? midCta1 : midCta2 });
+      }
     }
   }
 
