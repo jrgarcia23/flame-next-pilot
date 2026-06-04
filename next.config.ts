@@ -79,8 +79,8 @@ const nextConfig: NextConfig = {
       { source: "/en/sectors/:path*",                          destination: "/en/solution-for-retail-sector/",      permanent: true },
       { source: "/en/category/:path*",                         destination: "/en/community/",                       permanent: true },
 
-      // /wp-content/uploads paths sueltos sin extensión (raros, sin contenido)
-      { source: "/wp-content/uploads/:rest*",                  destination: "/es/comunidad/",                       permanent: false, has: [{ type: "header", key: "accept", value: "(?!.*image).*" }] },
+      // (Regla previa de /wp-content/uploads/:rest* eliminada — rompía vídeos .mp4/.webm
+      // y otros assets binarios que ahora dan 200 al servirse directamente desde public/)
 
       // ══════════════════════════════════════════════════════════════════
       // Redirects de URLs sin idioma con backlinks (SE Ranking 1.659 backlinks
