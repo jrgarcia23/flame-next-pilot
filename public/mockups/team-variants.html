@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Equipo · 5 variantes · Flame</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root {
+    --navy: #15163A; --accent: #31B1F8; --accent-deep: #1E89C7;
+    --paper: #F6F7FB; --paper-soft: #FAFBFC; --ink: #1F2230;
+    --ink-2: #4A4F66; --ink-3: #6E7488; --rule: #E1E5EE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', system-ui, sans-serif; color: var(--ink); background: #fff; line-height: 1.5; }
+  .navlink { position: fixed; top: 12px; left: 12px; z-index: 9999; display: flex; gap: 6px; flex-wrap: wrap; }
+  .navlink a { background: var(--navy); color: #fff; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; text-decoration: none; }
+  .navlink a:hover { background: var(--accent); }
+  .variant {
+    padding: clamp(60px, 5vw, 96px) 24px;
+    border-bottom: 6px solid #000;
+  }
+  .v-head {
+    max-width: 1200px; margin: 0 auto 48px;
+    border-left: 4px solid var(--accent); padding-left: 16px;
+  }
+  .v-tag {
+    color: var(--accent); font-size: 12px; letter-spacing: 0.14em;
+    text-transform: uppercase; font-weight: 700;
+  }
+  .v-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: clamp(28px, 3.4vw, 44px); font-weight: 400;
+    color: var(--navy); letter-spacing: -0.02em; line-height: 1.05;
+    margin-top: 8px;
+  }
+  .v-desc { color: var(--ink-3); font-size: 14.5px; margin-top: 10px; max-width: 60ch; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+
+  /* ============== VARIANT A: Cards redondas (actual) ============== */
+  .vA { background: var(--paper); }
+  .vA .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 20px; }
+  .vA .card {
+    background: #fff; border: 1px solid var(--rule); border-radius: 16px;
+    padding: 24px 20px; text-align: center;
+    transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 320ms, border-color 320ms;
+  }
+  .vA .card:hover { transform: translateY(-3px); border-color: rgba(49,177,248,0.4); box-shadow: 0 16px 40px -16px rgba(15,23,42,0.18); }
+  .vA .photo {
+    width: 140px; height: 140px; margin: 0 auto 16px;
+    border-radius: 999px; overflow: hidden;
+    border: 3px solid #fff; box-shadow: 0 4px 16px -4px rgba(15,23,42,0.12);
+  }
+  .vA .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vA .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 18px; font-weight: 500; color: var(--navy); letter-spacing: -0.008em; margin-bottom: 6px; line-height: 1.25; }
+  .vA .role { font-size: 13.5px; color: var(--ink-3); line-height: 1.4; }
+
+  /* ============== VARIANT B: Photo focal grande (squared) ============== */
+  .vB { background: #fff; }
+  .vB .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .vB .card { background: var(--paper-soft); border-radius: 12px; overflow: hidden; transition: transform 320ms, box-shadow 320ms; }
+  .vB .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -20px rgba(15,23,42,0.25); }
+  .vB .photo { aspect-ratio: 1 / 1; overflow: hidden; background: var(--navy); }
+  .vB .photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms; }
+  .vB .card:hover .photo img { transform: scale(1.05); }
+  .vB .body { padding: 18px 18px 22px; }
+  .vB .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; font-weight: 500; color: var(--navy); letter-spacing: -0.008em; line-height: 1.2; }
+  .vB .role { font-size: 13px; color: var(--accent-deep); font-weight: 600; margin-top: 4px; }
+
+  /* ============== VARIANT C: Magazine asimétrico ============== */
+  .vC { background: var(--navy); color: #fff; }
+  .vC .v-head { border-left-color: var(--accent); }
+  .vC .v-title { color: #fff; }
+  .vC .v-desc { color: rgba(255,255,255,0.7); }
+  .vC .grid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 16px; aspect-ratio: 16 / 9; max-height: 720px; }
+  .vC .card { position: relative; overflow: hidden; border-radius: 14px; cursor: pointer; }
+  .vC .card:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .vC .card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms, filter 600ms; filter: grayscale(0.2); }
+  .vC .card:hover img { transform: scale(1.04); filter: grayscale(0); }
+  .vC .info {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 18px 18px 16px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.78) 0%, transparent 100%);
+  }
+  .vC .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 16px; font-weight: 500; line-height: 1.2; }
+  .vC .card:nth-child(1) .name { font-size: 22px; }
+  .vC .role { font-size: 12px; color: var(--accent); margin-top: 3px; font-weight: 600; }
+  .vC-rest {
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px;
+    margin-top: 16px; max-width: 1200px; margin-left: auto; margin-right: auto;
+  }
+  .vC-rest .card { position: relative; overflow: hidden; border-radius: 12px; aspect-ratio: 3/4; cursor: pointer; }
+  .vC-rest .card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 600ms; filter: grayscale(0.2); }
+  .vC-rest .card:hover img { transform: scale(1.04); filter: grayscale(0); }
+  .vC-rest .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 12px; background: linear-gradient(0deg, rgba(0,0,0,0.78), transparent); }
+  .vC-rest .name { font-size: 13.5px; font-family: 'Space Grotesk', system-ui, sans-serif; line-height: 1.2; }
+  .vC-rest .role { font-size: 11px; color: var(--accent); margin-top: 2px; font-weight: 600; }
+
+  /* ============== VARIANT D: B&W → color hover (rolodex) ============== */
+  .vD { background: #fff; }
+  .vD .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px 14px; }
+  .vD .card { text-align: center; cursor: pointer; }
+  .vD .photo {
+    width: 100%; aspect-ratio: 1/1; border-radius: 999px; overflow: hidden;
+    margin: 0 auto 12px; max-width: 160px;
+    transition: transform 320ms;
+  }
+  .vD .photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    filter: grayscale(1) contrast(0.95);
+    transition: filter 400ms, transform 400ms;
+  }
+  .vD .card:hover .photo { transform: translateY(-4px); }
+  .vD .card:hover .photo img { filter: grayscale(0) contrast(1); transform: scale(1.05); }
+  .vD .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 14.5px; font-weight: 500; color: var(--navy); line-height: 1.25; }
+  .vD .role { font-size: 12px; color: var(--ink-3); margin-top: 3px; }
+
+  /* ============== VARIANT E: 1 grande + 3 destacados + resto pequeño ============== */
+  .vE { background: var(--paper); }
+  .vE .feat {
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px;
+    margin-bottom: 48px; align-items: stretch;
+  }
+  .vE .leader {
+    background: #fff; border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;
+  }
+  .vE .leader-photo { aspect-ratio: 1/1; background: var(--navy); }
+  .vE .leader-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vE .leader-body { padding: 28px 28px 28px 28px; display: flex; flex-direction: column; justify-content: center; }
+  .vE .leader-eyebrow { color: var(--accent-deep); font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; margin-bottom: 12px; }
+  .vE .leader-name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: clamp(26px, 2.6vw, 34px); font-weight: 500; color: var(--navy); letter-spacing: -0.02em; line-height: 1.1; }
+  .vE .leader-role { font-size: 17px; color: var(--ink-2); margin-top: 8px; }
+  .vE .second {
+    display: grid; grid-template-rows: 1fr 1fr; gap: 16px;
+  }
+  .vE .second .card { background: #fff; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; display: grid; grid-template-columns: 1fr 1.4fr; }
+  .vE .second .photo { background: var(--navy); }
+  .vE .second .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vE .second .body { padding: 18px; display: flex; flex-direction: column; justify-content: center; }
+  .vE .second .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 17px; font-weight: 500; color: var(--navy); }
+  .vE .second .role { font-size: 13px; color: var(--ink-3); margin-top: 4px; }
+  .vE .rest { display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .vE .rest .card { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 16px 12px; text-align: center; }
+  .vE .rest .photo { width: 96px; height: 96px; margin: 0 auto 12px; border-radius: 999px; overflow: hidden; }
+  .vE .rest .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .vE .rest .name { font-family: 'Space Grotesk', system-ui, sans-serif; font-size: 14px; font-weight: 500; color: var(--navy); line-height: 1.2; }
+  .vE .rest .role { font-size: 12px; color: var(--ink-3); margin-top: 3px; }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .vA .grid, .vB .grid, .vD .grid { grid-template-columns: repeat(3, 1fr); }
+    .vC .grid { grid-template-columns: repeat(3, 1fr); aspect-ratio: 1/1; }
+    .vC-rest { grid-template-columns: repeat(4, 1fr); }
+    .vE .feat { grid-template-columns: 1fr; }
+    .vE .rest { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .vA .grid, .vB .grid, .vD .grid { grid-template-columns: repeat(2, 1fr); }
+    .vC .grid { grid-template-columns: 1fr; aspect-ratio: auto; max-height: none; }
+    .vC .card:nth-child(1) { grid-column: span 1; grid-row: span 1; aspect-ratio: 4/3; }
+    .vC-rest { grid-template-columns: repeat(2, 1fr); }
+    .vE .leader { grid-template-columns: 1fr; }
+    .vE .second .card { grid-template-columns: 1fr 1.4fr; }
+    .vE .rest { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navlink">
+  <a href="#vA">A · Round</a>
+  <a href="#vB">B · Square</a>
+  <a href="#vC">C · Magazine</a>
+  <a href="#vD">D · B&amp;W hover</a>
+  <a href="#vE">E · Featured</a>
+</nav>
+
+<!-- VARIANT A -->
+<section id="vA" class="variant vA">
+  <div class="v-head">
+    <span class="v-tag">Variante A · Round</span>
+    <h2 class="v-title">Cards redondas con avatar circular</h2>
+    <p class="v-desc">El diseño actual. Cards rectangulares con foto circular centrada. Limpio y reconocible, óptimo para SEO E-E-A-T (cada miembro en una card individual).</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"></div><h3 class="name">Jonathan Solís</h3><p class="role">CEO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"></div><h3 class="name">David Zapico</h3><p class="role">CTO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"></div><h3 class="name">Laura Álvarez</h3><p class="role">Growth Marketing Manager</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"></div><h3 class="name">Óscar García Marín</h3><p class="role">Gestor de cuentas estratégicas</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"></div><h3 class="name">Jorge Sariego</h3><p class="role">Sales Development Representative</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"></div><h3 class="name">Ramón Martínez Pérez</h3><p class="role">Jefe de Operaciones</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"></div><h3 class="name">Álvaro García-Hoz</h3><p class="role">Country Manager Reino Unido</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"></div><h3 class="name">Carlos Gómez</h3><p class="role">CCO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"></div><h3 class="name">Elena Sampedro</h3><p class="role">Key Account Manager</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/equipo.jpg" alt="Arturo Rodríguez del Amo"></div><h3 class="name">Arturo Rodríguez del Amo</h3><p class="role">Socio inversor y asesor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/fernando-colunga2.jpg" alt="Fernando Colunga"></div><h3 class="name">Fernando Colunga</h3><p class="role">Socio inversor y asesor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"></div><h3 class="name">Esteban Tognini</h3><p class="role">Director General para América</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"></div><h3 class="name">Gerardo Casares</h3><p class="role">Socio inversor y asesor</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT B -->
+<section id="vB" class="variant vB">
+  <div class="v-head">
+    <span class="v-tag">Variante B · Square</span>
+    <h2 class="v-title">Cards cuadradas con foto a sangre</h2>
+    <p class="v-desc">Fotos cuadradas a sangre completa con ligera animación zoom al hover. Más editorial, foto es la protagonista. Útil cuando las fotos son buenas y todas con encuadre coherente.</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"></div><div class="body"><h3 class="name">Jonathan Solís</h3><p class="role">CEO</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"></div><div class="body"><h3 class="name">David Zapico</h3><p class="role">CTO</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"></div><div class="body"><h3 class="name">Laura Álvarez</h3><p class="role">Growth Marketing Manager</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"></div><div class="body"><h3 class="name">Óscar García Marín</h3><p class="role">Gestor cuentas estratégicas</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"></div><div class="body"><h3 class="name">Jorge Sariego</h3><p class="role">Sales Development Rep</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"></div><div class="body"><h3 class="name">Ramón Martínez Pérez</h3><p class="role">Jefe de Operaciones</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"></div><div class="body"><h3 class="name">Álvaro García-Hoz</h3><p class="role">Country Manager UK</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"></div><div class="body"><h3 class="name">Carlos Gómez</h3><p class="role">CCO</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"></div><div class="body"><h3 class="name">Elena Sampedro</h3><p class="role">Key Account Manager</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/equipo.jpg" alt="Arturo Rodríguez del Amo"></div><div class="body"><h3 class="name">Arturo Rodríguez del Amo</h3><p class="role">Socio inversor y asesor</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/fernando-colunga2.jpg" alt="Fernando Colunga"></div><div class="body"><h3 class="name">Fernando Colunga</h3><p class="role">Socio inversor y asesor</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"></div><div class="body"><h3 class="name">Esteban Tognini</h3><p class="role">Director General América</p></div></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"></div><div class="body"><h3 class="name">Gerardo Casares</h3><p class="role">Socio inversor y asesor</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT C -->
+<section id="vC" class="variant vC">
+  <div class="v-head">
+    <span class="v-tag">Variante C · Magazine</span>
+    <h2 class="v-title">Layout asimétrico tipo revista</h2>
+    <p class="v-desc">Mosaico tipo editorial: CEO grande (2×2) + 4 colaterales destacados arriba, equipo restante en strip pequeño abajo. Fondo navy, fotos B&amp;W ligero → color hover. Premium y diferenciador.</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="card"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"><div class="info"><h3 class="name">Jonathan Solís</h3><p class="role">CEO &amp; Founder</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"><div class="info"><h3 class="name">David Zapico</h3><p class="role">CTO</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"><div class="info"><h3 class="name">Laura Álvarez</h3><p class="role">Growth Marketing</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"><div class="info"><h3 class="name">Carlos Gómez</h3><p class="role">CCO</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"><div class="info"><h3 class="name">Ramón Martínez</h3><p class="role">Operaciones</p></div></div>
+    </div>
+    <div class="vC-rest">
+      <div class="card"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"><div class="info"><h3 class="name">Óscar García Marín</h3><p class="role">Cuentas estratégicas</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"><div class="info"><h3 class="name">Jorge Sariego</h3><p class="role">Sales Dev Rep</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"><div class="info"><h3 class="name">Álvaro García-Hoz</h3><p class="role">Country Manager UK</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"><div class="info"><h3 class="name">Elena Sampedro</h3><p class="role">Key Account Mgr</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"><div class="info"><h3 class="name">Esteban Tognini</h3><p class="role">DG América</p></div></div>
+      <div class="card"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"><div class="info"><h3 class="name">Gerardo Casares</h3><p class="role">Socio inversor</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT D -->
+<section id="vD" class="variant vD">
+  <div class="v-head">
+    <span class="v-tag">Variante D · B&amp;W hover</span>
+    <h2 class="v-title">Rolodex blanco y negro → color al hover</h2>
+    <p class="v-desc">Avatares circulares pequeños, todas las fotos en B&amp;W al cargar. Al pasar el ratón, la foto se ilumina a color. Compacto, elegante, da sensación de "estudio". Ideal cuando quieres mostrar el equipo entero de un vistazo (13 personas) sin scroll largo.</p>
+  </div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"></div><h3 class="name">Jonathan Solís</h3><p class="role">CEO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"></div><h3 class="name">David Zapico</h3><p class="role">CTO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"></div><h3 class="name">Laura Álvarez</h3><p class="role">Growth Marketing</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"></div><h3 class="name">Óscar García Marín</h3><p class="role">Cuentas estratégicas</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"></div><h3 class="name">Jorge Sariego</h3><p class="role">Sales Dev Rep</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"></div><h3 class="name">Ramón Martínez</h3><p class="role">Operaciones</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"></div><h3 class="name">Álvaro García-Hoz</h3><p class="role">Country Manager UK</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"></div><h3 class="name">Carlos Gómez</h3><p class="role">CCO</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"></div><h3 class="name">Elena Sampedro</h3><p class="role">Key Account Mgr</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/equipo.jpg" alt="Arturo Rodríguez del Amo"></div><h3 class="name">Arturo Rodríguez</h3><p class="role">Socio inversor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/fernando-colunga2.jpg" alt="Fernando Colunga"></div><h3 class="name">Fernando Colunga</h3><p class="role">Socio inversor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"></div><h3 class="name">Esteban Tognini</h3><p class="role">DG América</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"></div><h3 class="name">Gerardo Casares</h3><p class="role">Socio inversor</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- VARIANT E -->
+<section id="vE" class="variant vE">
+  <div class="v-head">
+    <span class="v-tag">Variante E · Featured</span>
+    <h2 class="v-title">Founders destacados + equipo</h2>
+    <p class="v-desc">Jerarquía clara: CEO con foto grande tipo card hero, +2 cards destacadas (CTO + CCO), el resto en grid pequeño. Útil cuando quieres dar peso narrativo al liderazgo y separar inversores/asesores del equipo operativo.</p>
+  </div>
+  <div class="wrap">
+    <div class="feat">
+      <div class="leader">
+        <div class="leader-photo"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"></div>
+        <div class="leader-body">
+          <p class="leader-eyebrow">Founder &amp; CEO</p>
+          <h3 class="leader-name">Jonathan Solís</h3>
+          <p class="leader-role">Lleva el rumbo de Flame desde su fundación.</p>
+        </div>
+      </div>
+      <div class="second">
+        <div class="card">
+          <div class="photo"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"></div>
+          <div class="body"><h3 class="name">David Zapico</h3><p class="role">CTO</p></div>
+        </div>
+        <div class="card">
+          <div class="photo"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"></div>
+          <div class="body"><h3 class="name">Carlos Gómez</h3><p class="role">CCO</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="rest">
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"></div><h3 class="name">Laura Álvarez</h3><p class="role">Growth Marketing</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"></div><h3 class="name">Óscar García Marín</h3><p class="role">Cuentas estratégicas</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"></div><h3 class="name">Jorge Sariego</h3><p class="role">Sales Dev Rep</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"></div><h3 class="name">Ramón Martínez</h3><p class="role">Operaciones</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"></div><h3 class="name">Elena Sampedro</h3><p class="role">Key Account Mgr</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"></div><h3 class="name">Álvaro García-Hoz</h3><p class="role">Country Mgr UK</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"></div><h3 class="name">Esteban Tognini</h3><p class="role">DG América</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/equipo.jpg" alt="Arturo Rodríguez del Amo"></div><h3 class="name">Arturo Rodríguez</h3><p class="role">Socio inversor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/fernando-colunga2.jpg" alt="Fernando Colunga"></div><h3 class="name">Fernando Colunga</h3><p class="role">Socio inversor</p></div>
+      <div class="card"><div class="photo"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"></div><h3 class="name">Gerardo Casares</h3><p class="role">Socio inversor</p></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
