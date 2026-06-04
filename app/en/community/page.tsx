@@ -47,22 +47,22 @@ export default function CommunityHubEn() {
     {
       meta: { slug: "interviews",   href: "/en/category/interviews/",   label: "Interviews",       tagline: "Conversations with decision-makers in retail and shopping malls.",     total: ent.length },
       items: ent.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
     {
       meta: { slug: "case-studies", href: "/en/category/case-studies/", label: "Case studies",     tagline: "How our clients measure, decide and improve with Flame.",              total: cas.length },
       items: cas.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
     {
       meta: { slug: "blog",         href: "/en/category/blog/",         label: "Blog articles",    tagline: "Analysis, trends and applied knowledge for physical spaces.",          total: blo.length },
       items: blo.slice(0, 4),
-      cols: 4,
+      cols: 4 as const,
     },
     {
       meta: { slug: "webinars",     href: "/en/category/webinars/",     label: "Webinars",         tagline: "Technical sessions with industry experts.",                            total: web.length },
       items: web.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
   ].filter(s => s.items.length > 0);
 

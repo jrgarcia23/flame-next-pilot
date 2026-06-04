@@ -47,22 +47,22 @@ export default function ComunidadHubEs() {
     {
       meta: { slug: "entrevistas",     href: "/es/categoria/entrevistas/",     label: "Entrevistas",       tagline: "Conversaciones con quienes deciden en retail y centros comerciales.", total: ent.length },
       items: ent.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
     {
       meta: { slug: "casos-de-exito",  href: "/es/categoria/casos-de-exito/",  label: "Casos de éxito",    tagline: "Cómo nuestros clientes miden, deciden y mejoran con Flame.",          total: cas.length },
       items: cas.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
     {
       meta: { slug: "blog",            href: "/es/categoria/blog/",            label: "Artículos del blog", tagline: "Análisis, tendencias y conocimiento aplicado al espacio físico.",      total: blo.length },
       items: blo.slice(0, 4),
-      cols: 4,
+      cols: 4 as const,
     },
     {
       meta: { slug: "webinars-es-cat", href: "/es/categoria/webinars-es-cat/", label: "Webinars",          tagline: "Sesiones técnicas con expertos del sector.",                          total: web.length },
       items: web.slice(0, 3),
-      cols: 3,
+      cols: 3 as const,
     },
   ].filter(s => s.items.length > 0);
 
