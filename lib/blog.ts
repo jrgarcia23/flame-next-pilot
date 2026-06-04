@@ -19,6 +19,7 @@ export type BlogPost = {
   date: string;
   modified: string;
   hero: string;
+  thumbnail?: string;
   category: Category;
   link_legacy: string;
 };

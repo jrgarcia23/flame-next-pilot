@@ -46,9 +46,11 @@ export default async function CategoryEn({ params }: { params: Promise<{ slug: s
       <section className="py-16" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
-            {posts.map(p => (
+            {posts.map(p => {
+              const img = p.thumbnail || p.hero;
+              return (
               <a key={p.slug} href={`/en/${p.slug}/`} className="block group rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                {p.hero && <div style={{ aspectRatio: "16/9", background: `url('${p.hero}') center/cover` }} />}
+                {img && <div style={{ aspectRatio: "1/1", background: `url('${img}') center/cover` }} />}
                 <div className="p-6">
                   <p className="text-[12px] uppercase font-semibold mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{label}</p>
                   <h3 className="font-medium mb-2 group-hover:text-[--color-accent-deep] transition" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 19, lineHeight: 1.25 }} dangerouslySetInnerHTML={{ __html: p.title }} />
@@ -56,7 +58,8 @@ export default async function CategoryEn({ params }: { params: Promise<{ slug: s
                   <p className="text-[12.5px]" style={{ color: "var(--color-ink-3)" }}>{formatDate(p.date, "en")}</p>
                 </div>
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

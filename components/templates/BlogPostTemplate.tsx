@@ -44,6 +44,10 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
       {/* BODY */}
       <article className="py-20" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
+          {/* HERO image: usa thumbnail (cuadrado nativo del WP) si existe, si no el hero del contenido */}
+          {(post.thumbnail || post.hero) && (
+            <div className="mx-auto mb-10 rounded-2xl overflow-hidden" style={{ maxWidth: 760, aspectRatio: "16/9", background: `url('${post.thumbnail || post.hero}') center/cover`, boxShadow: "0 18px 50px -22px rgb(15 23 42 / 0.22)" }} />
+          )}
           <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "17.5px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: post.html }} />
         </div>
         <style>{`

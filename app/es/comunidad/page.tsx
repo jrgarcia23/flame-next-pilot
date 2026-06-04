@@ -57,15 +57,18 @@ export default function ComunidadHubEs() {
             Recientes
           </h2>
           <div className="grid gap-8 community-recent-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {featured.map(p => (
+            {featured.map(p => {
+              const img = p.thumbnail || p.hero;
+              return (
               <a key={p.slug} href={`/es/${p.slug}/`} className="block group">
-                {p.hero && <div className="mb-4 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: `url('${p.hero}') center/cover` }} />}
+                {img && <div className="mb-4 rounded-2xl overflow-hidden" style={{ aspectRatio: "1/1", background: `url('${img}') center/cover` }} />}
                 <p className="text-[12px] uppercase font-semibold mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{categoryLabel(p.category.slug, "es")}</p>
                 <h3 className="font-medium mb-2" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 21, lineHeight: 1.22 }} dangerouslySetInnerHTML={{ __html: p.title }} />
                 <p className="text-[14.5px] mb-2" style={{ color: "var(--color-ink-2)" }}>{shortExcerpt(p.html, 150)}</p>
                 <p className="text-[13px]" style={{ color: "var(--color-ink-3)" }}>{formatDate(p.date, "es")}</p>
               </a>
-            ))}
+              );
+            })}
           </div>
         </div>
         <style>{`
