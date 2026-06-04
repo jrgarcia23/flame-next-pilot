@@ -42,7 +42,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   privacyImg: "/wp-content/uploads/2026/01/Home_traffic.webp",
   privacyImgAlt: "Dashboard Flame de tráfico con privacidad por diseño",
   privacyCta: "Leer más",
-  privacyHref: "/es/informacion-detallada/",
+  privacyHref: "/es/hypersensor/",
 
   reportsTitle: "Informes avanzados,",
   reportsTitleHl: "decisiones más inteligentes.",
@@ -50,7 +50,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Dashboard de Flame con métricas avanzadas",
   reportsCta: "Leer más",
-  reportsHref: "/es/informacion-detallada/",
+  reportsHref: "/es/hypersensor/",
 
   integrationTitle: "Integración sin fricciones.",
   integrationTitleHl: "Diseño agnóstico.",
@@ -58,7 +58,7 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagrama de integraciones de Flame con stack TPV / ERP / BI",
   integrationCta: "Leer más",
-  integrationHref: "/es/informacion-detallada/",
+  integrationHref: "/es/hypersensor/",
 
   testimonialsTitle: "Las mejores marcas",
   testimonialsTitleHl: "confían en nosotros",
@@ -121,7 +121,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   privacyImg: "/wp-content/uploads/2026/01/Home_traffic.webp",
   privacyImgAlt: "Flame traffic dashboard with privacy by design",
   privacyCta: "Read more",
-  privacyHref: "/en/detailed-information/",
+  privacyHref: "/en/hypersensor/",
 
   reportsTitle: "Powerful reporting,",
   reportsTitleHl: "smarter decisions.",
@@ -129,7 +129,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   reportsImg: "/wp-content/uploads/2026/01/Home_Dashboard.png",
   reportsImgAlt: "Flame dashboard with advanced metrics",
   reportsCta: "Read more",
-  reportsHref: "/en/detailed-information/",
+  reportsHref: "/en/hypersensor/",
 
   integrationTitle: "Seamless integration.",
   integrationTitleHl: "Agnostic by design.",
@@ -137,7 +137,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   integrationImg: "/wp-content/uploads/2026/01/Mask-group3.png",
   integrationImgAlt: "Diagram of Flame integrations with POS / ERP / BI stack",
   integrationCta: "Read more",
-  integrationHref: "/en/detailed-information/",
+  integrationHref: "/en/hypersensor/",
 
   testimonialsTitle: "Trusted by the",
   testimonialsTitleHl: "best brands",
