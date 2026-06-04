@@ -147,7 +147,7 @@ export default function SobreNosotrosEs() {
                 Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de una década dedicado a ofrecer a los clientes las soluciones tecnológicas más innovadoras del mercado. ¿Quieres conocernos?
               </p>
               <a
-                href="/es/sobre-nosotros/conoce-al-equipo/"
+                href="/es/sobre-nosotros/#team"
                 className="inline-flex items-center gap-1.5 font-medium"
                 style={{ color: "var(--color-navy)", fontSize: 15, textDecoration: "none", borderBottom: "1px solid var(--color-navy)", paddingBottom: 4 }}
               >

@@ -14,7 +14,7 @@ export default function GraciasDraft() {
       title="¡Gracias! Tu solicitud está en camino"
       body="Te contactamos en menos de 24 horas para agendar la demo. Mientras tanto, puedes explorar nuestros recursos o conocer al equipo."
       nextSteps={[
-        { label: "Volver al inicio", href: "/es/home-draft/" },
+        { label: "Volver al inicio", href: "/es/" },
         { label: "Explorar productos", href: "/es/analitica-trafico/" },
       ]}
     />

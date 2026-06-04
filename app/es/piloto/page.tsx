@@ -15,7 +15,7 @@ const SECTIONS: Section[] = [
     title: "Home",
     subtitle: "Página principal del site",
     items: [
-      { label: "Home (clon literal del live)",                              href: "/es/home-draft/",                                                  status: "literal", note: "Idéntica a flameanalytics.com/es/" },
+      { label: "Home (clon literal del live)",                              href: "/es/",                                                  status: "literal", note: "Idéntica a flameanalytics.com/es/" },
     ],
   },
   {
@@ -61,7 +61,7 @@ const SECTIONS: Section[] = [
       { label: "Gracias (genérica)",  href: "/es/gracias/",        status: "design", note: "ThanksTemplate" },
       { label: "Partners",            href: "/es/partners/",             status: "literal", note: "Sin tocar, igual que live" },
       { label: "Sobre nosotros",      href: "/es/sobre-nosotros/",       status: "pending", note: "Pendiente rediseño" },
-      { label: "Conoce al equipo",    href: "/es/sobre-nosotros/conoce-al-equipo/", status: "pending", note: "Pendiente rediseño" },
+      { label: "Conoce al equipo",    href: "/es/sobre-nosotros/", status: "pending", note: "Pendiente rediseño" },
       { label: "Comunidad (hub)",     href: "/es/comunidad/",            status: "pending", note: "Pendiente rediseño" },
     ],
   },
@@ -198,7 +198,7 @@ export default function PilotoIndex() {
             <span style={{ color: "rgb(255 255 255 / 0.65)" }}>El clon literal está disponible como referencia.</span>
           </p>
           <div className="mt-7 inline-flex flex-wrap gap-3 justify-center">
-            <a href="/es/home-draft/" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
+            <a href="/es/" className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "var(--color-navy)" }}>
               Ver home (clon)
               <Icon name="arrow" className="w-4 h-4" />
             </a>
