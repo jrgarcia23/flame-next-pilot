@@ -11,6 +11,7 @@ export default function GraciasEvento() {
   return (
     <ThankYouTemplate
       currentLang="es" enHref="/en/thank-you-event/"
+      heroImage="/wp-content/uploads/2026/04/6-1.jpg"
       eyebrow="Plaza reservada"
       title="¡Nos vemos en el" titleHl="evento!"
       body="Tu inscripción está registrada. Te enviaremos por email los detalles logísticos (hora, ubicación, agenda) y un recordatorio 24 h y 2 h antes del evento."

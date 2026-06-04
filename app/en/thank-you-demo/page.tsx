@@ -11,6 +11,7 @@ export default function ThankYouDemo() {
   return (
     <ThankYouTemplate
       currentLang="en" enHref="/en/thank-you-demo/"
+      heroImage="/wp-content/uploads/2026/01/Traffic2-1.png"
       eyebrow="Request received"
       title="Thank you for requesting your" titleHl="demo"
       body="We've received your request. Our product team will get back to you within 24 business hours to coordinate the personalized demo."

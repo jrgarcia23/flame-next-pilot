@@ -11,6 +11,7 @@ export default function GraciasWebinar() {
   return (
     <ThankYouTemplate
       currentLang="es" enHref="/en/thank-you-webinar/"
+      heroImage="/wp-content/uploads/2026/01/Connect-1-1.png"
       eyebrow="Inscripción registrada"
       title="¡Nos vemos en el" titleHl="webinar!"
       body="Tu inscripción está confirmada. Te enviaremos el enlace de acceso por email + un recordatorio 24 h y 1 h antes. Si no puedes asistir en directo, te haremos llegar la grabación."

@@ -11,6 +11,7 @@ export default function ThankYouWebinar() {
   return (
     <ThankYouTemplate
       currentLang="en" enHref="/en/thank-you-webinar/"
+      heroImage="/wp-content/uploads/2026/01/Connect-1-1.png"
       eyebrow="Registration confirmed"
       title="See you at the" titleHl="webinar!"
       body="Your registration is confirmed. We'll send the access link by email + a reminder 24 h and 1 h before. If you can't attend live, we'll send you the recording."

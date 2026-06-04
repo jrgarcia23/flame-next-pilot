@@ -11,6 +11,7 @@ export default function ThankYouEvent() {
   return (
     <ThankYouTemplate
       currentLang="en" enHref="/en/thank-you-event/"
+      heroImage="/wp-content/uploads/2026/04/6-1.jpg"
       eyebrow="Seat reserved"
       title="See you at the" titleHl="event!"
       body="Your registration is confirmed. We'll email you the logistics (time, venue, agenda) and a reminder 24 h and 2 h before the event."

@@ -11,11 +11,13 @@ type Props = {
   primaryCta: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   nextSteps?: { icon: string; title: string; desc: string }[];
+  /** Imagen de fondo del hero (relative path en /public). Opcional. */
+  heroImage?: string;
 };
 
 export default function ThankYouTemplate({
   currentLang, enHref, eyebrow, title, titleHl, body,
-  primaryCta, secondaryCta, nextSteps,
+  primaryCta, secondaryCta, nextSteps, heroImage,
 }: Props) {
   return (
     <>
@@ -30,7 +32,20 @@ export default function ThankYouTemplate({
           paddingTop: "clamp(80px, 9vw, 140px)", paddingBottom: "clamp(60px, 6vw, 100px)",
         }}
       >
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 50% -10%, rgb(49 177 248 / 0.18), transparent 62%), radial-gradient(700px 450px at 50% 120%, rgb(49 177 248 / 0.10), transparent 72%)" }} />
+        {heroImage && (
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ backgroundImage: `url('${heroImage}')`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
+          />
+        )}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: heroImage
+              ? "linear-gradient(180deg, rgb(21 22 58 / 0.62) 0%, rgb(21 22 58 / 0.85) 60%, var(--color-navy) 100%)"
+              : "radial-gradient(900px 500px at 50% -10%, rgb(49 177 248 / 0.18), transparent 62%), radial-gradient(700px 450px at 50% 120%, rgb(49 177 248 / 0.10), transparent 72%)",
+          }}
+        />
         <div className="flame-container relative z-10 text-center" style={{ maxWidth: 760 }}>
           {/* Check badge */}
           <div className="inline-flex items-center justify-center rounded-full mb-8" style={{ width: 72, height: 72, background: "rgba(49,177,248,0.15)", border: "2px solid rgba(49,177,248,0.35)" }}>

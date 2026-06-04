@@ -11,6 +11,7 @@ export default function GraciasDemo() {
   return (
     <ThankYouTemplate
       currentLang="es" enHref="/en/thank-you-demo/"
+      heroImage="/wp-content/uploads/2026/01/Traffic2-1.png"
       eyebrow="Solicitud recibida"
       title="Gracias por solicitar tu" titleHl="demo"
       body="Hemos recibido tu solicitud. Nuestro equipo de producto se pondrá en contacto contigo en las próximas 24 horas laborables para coordinar la demo personalizada."
