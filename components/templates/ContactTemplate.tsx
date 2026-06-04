@@ -1,5 +1,6 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
+import ContactForm from "@/components/ContactForm";
 
 export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref: string; currentLang?: "es" | "en" }) {
   return (
@@ -72,29 +73,8 @@ export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref
               </div>
             </div>
 
-            {/* Form col */}
-            <form className="rounded-2xl contact-form-card" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)", padding: 32 }}>
-              <h3 className="text-[22px] font-medium mb-6" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", fontFamily: "var(--font-display)" }}>
-                Solicita una demo
-              </h3>
-              <div className="grid gap-4 contact-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-                <input className="cf-in col-span-2" type="text" placeholder="Nombre y apellido" required />
-                <input className="cf-in" type="email" placeholder="Email corporativo" required />
-                <input className="cf-in" type="text" placeholder="Empresa" required />
-                <input className="cf-in" type="text" placeholder="Cargo" />
-                <select className="cf-in" defaultValue=""><option value="" disabled>Sector</option><option>Retail</option><option>Centros comerciales</option><option>Hostelería</option><option>Espacios públicos</option><option>Otro</option></select>
-                <input className="cf-in col-span-2" type="text" placeholder="País" required />
-                <select className="cf-in col-span-2" defaultValue=""><option value="" disabled>Número de ubicaciones</option><option>1</option><option>2-10</option><option>11-50</option><option>51-200</option><option>200+</option></select>
-                <textarea className="cf-in col-span-2" placeholder="Cuéntanos brevemente qué buscas" rows={3}></textarea>
-                <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
-                  <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                  <span>Acepto recibir comunicaciones de Flame y he leído la <a href="/es/politica-de-privacidad/" style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>política de privacidad</a>.</span>
-                </label>
-                <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, justifyContent: "center" }}>
-                  Solicitar una demo <Icon name="arrow" className="w-4 h-4" />
-                </button>
-              </div>
-            </form>
+            {/* Form col — Client Component con onSubmit + fetch a /api/contact/ */}
+            <ContactForm lang={currentLang} />
           </div>
         </div>
         <style>{`
