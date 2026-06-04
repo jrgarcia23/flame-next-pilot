@@ -57,7 +57,7 @@
   .hero h1 strong { color: var(--accent); font-weight: 500; }
   .hero p {
     color: rgba(255,255,255,0.82); font-size: clamp(17px, 1.3vw, 19px);
-    line-height: 1.55; max-width: 56ch; margin: 0 auto;
+    line-height: 1.55; max-width: 64ch; margin: 0 auto;
   }
 
   /* TEAM GRID */
@@ -103,13 +103,10 @@
     border-radius: 999px;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(49,177,248,0.18), rgba(30,137,199,0.12));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
-    font-size: 36px; font-weight: 500;
-    color: var(--accent-deep);
     border: 3px solid #fff;
     box-shadow: 0 4px 16px -4px rgba(15,23,42,0.12);
   }
+  .team-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .team-name {
     font-family: 'Space Grotesk', system-ui, sans-serif;
     font-size: 18px; font-weight: 500; color: var(--navy);
@@ -119,7 +116,6 @@
     font-size: 13.5px; color: var(--ink-3);
     line-height: 1.4;
   }
-  .team-role strong { color: var(--accent-deep); font-weight: 600; }
 
   /* CTA hiring */
   .hiring {
@@ -165,7 +161,7 @@
   @media (max-width: 780px) { .team-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) {
     .team-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
-    .team-photo { width: 120px; height: 120px; font-size: 30px; }
+    .team-photo { width: 120px; height: 120px; }
   }
 </style>
 </head>
@@ -182,7 +178,7 @@
       <a href="/es/sobre-nosotros/">Sobre nosotros</a>
     </nav>
     <h1>Conoce al <strong>equipo</strong></h1>
-    <p>Expertos en big data, retail, consultoría, marketing e ingeniería. Construimos Flame todos los días desde Madrid, Asturias y Argentina para que entiendas y mejores tu espacio físico.</p>
+    <p>Compuesto por expertos en big data, retail, consultoría, marketing e ingeniería, el equipo de Flame es un grupo joven y dinámico que lleva más de 10 años convirtiendo datos en decisiones para retail, centros comerciales y espacios físicos.</p>
   </div>
 </section>
 
@@ -191,86 +187,73 @@
   <div class="team-wrap">
     <div class="team-header">
       <h2>El equipo</h2>
-      <p>13 personas con experiencia en retail, centros comerciales, data analytics, IA y desarrollo de producto.</p>
+      <p>13 personas detrás de la plataforma. Producto, ingeniería, customer, ventas e inversores.</p>
     </div>
     <div class="team-grid">
-      <!-- 1 -->
       <div class="team-card">
-        <div class="team-photo">JS</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/ceo2.jpg" alt="Jonathan Solís"></div>
         <h3 class="team-name">Jonathan Solís</h3>
-        <p class="team-role"><strong>CEO &amp; Founder</strong></p>
+        <p class="team-role">CEO</p>
       </div>
-      <!-- 2 -->
       <div class="team-card">
-        <div class="team-photo">DZ</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/David-Flame-analytics-1-e1715850381974.png" alt="David Zapico"></div>
         <h3 class="team-name">David Zapico</h3>
         <p class="team-role">CTO</p>
       </div>
-      <!-- 3 -->
       <div class="team-card">
-        <div class="team-photo">LÁ</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Laura-1.png" alt="Laura Álvarez"></div>
         <h3 class="team-name">Laura Álvarez</h3>
-        <p class="team-role">Product</p>
+        <p class="team-role">Growth Marketing Manager</p>
       </div>
-      <!-- 4 -->
       <div class="team-card">
-        <div class="team-photo">ÓG</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Oscar-1.webp" alt="Óscar García Marín"></div>
         <h3 class="team-name">Óscar García Marín</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">Gestor de cuentas estratégicas</p>
       </div>
-      <!-- 5 -->
       <div class="team-card">
-        <div class="team-photo">JS</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Jorge-1.png" alt="Jorge Sariego"></div>
         <h3 class="team-name">Jorge Sariego</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">Sales Development Representative</p>
       </div>
-      <!-- 6 -->
       <div class="team-card">
-        <div class="team-photo">RM</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/ramon-1.png" alt="Ramón Martínez Pérez"></div>
         <h3 class="team-name">Ramón Martínez Pérez</h3>
-        <p class="team-role">Operations</p>
+        <p class="team-role">Jefe de Operaciones</p>
       </div>
-      <!-- 7 -->
       <div class="team-card">
-        <div class="team-photo">ÁG</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Captura-de-pantalla-2022-09-14-a-las-9.27.38.png" alt="Álvaro García-Hoz"></div>
         <h3 class="team-name">Álvaro García-Hoz</h3>
-        <p class="team-role">Business Development</p>
+        <p class="team-role">Country Manager Reino Unido</p>
       </div>
-      <!-- 8 -->
       <div class="team-card">
-        <div class="team-photo">CG</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Carlos-1.png" alt="Carlos Gómez"></div>
         <h3 class="team-name">Carlos Gómez</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">CCO</p>
       </div>
-      <!-- 9 -->
       <div class="team-card">
-        <div class="team-photo">ES</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Elena-1.png" alt="Elena Sampedro"></div>
         <h3 class="team-name">Elena Sampedro</h3>
-        <p class="team-role">Marketing</p>
+        <p class="team-role">Key Account Manager</p>
       </div>
-      <!-- 10 -->
       <div class="team-card">
-        <div class="team-photo">AR</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/equipo.jpg" alt="Arturo Rodríguez del Amo"></div>
         <h3 class="team-name">Arturo Rodríguez del Amo</h3>
-        <p class="team-role">Customer Success</p>
+        <p class="team-role">Socio inversor y asesor</p>
       </div>
-      <!-- 11 -->
       <div class="team-card">
-        <div class="team-photo">FC</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/fernando-colunga2.jpg" alt="Fernando Colunga"></div>
         <h3 class="team-name">Fernando Colunga</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">Socio inversor y asesor</p>
       </div>
-      <!-- 12 -->
       <div class="team-card">
-        <div class="team-photo">ET</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/Esteban_Tognini-1.webp" alt="Esteban Tognini"></div>
         <h3 class="team-name">Esteban Tognini</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">Director General para América</p>
       </div>
-      <!-- 13 -->
       <div class="team-card">
-        <div class="team-photo">GC</div>
+        <div class="team-photo"><img src="/wp-content/uploads/2026/01/IMG_6529.webp" alt="Gerardo Casares"></div>
         <h3 class="team-name">Gerardo Casares</h3>
-        <p class="team-role">Engineering</p>
+        <p class="team-role">Socio inversor y asesor</p>
       </div>
     </div>
   </div>
@@ -281,7 +264,7 @@
   <div class="hiring-inner">
     <p class="hiring-eyebrow">¡Estamos contratando!</p>
     <h2>¿Te apetece <strong>construir Flame</strong> con nosotros?</h2>
-    <p>Si te gusta Flame y quieres aportar tu valía y tu experiencia, contáctanos. Buscamos perfiles de ingeniería, producto, customer success y marketing.</p>
+    <p>Si te gusta Flame y quieres contribuir a nuestro proyecto aportando tu valía y tu experiencia, contáctanos. Buscamos ingeniería, producto, customer success, ventas y marketing.</p>
     <a href="mailto:info@flameanalytics.com?subject=Quiero%20trabajar%20en%20Flame" class="cta-btn">Contactar con nosotros</a>
   </div>
 </section>
