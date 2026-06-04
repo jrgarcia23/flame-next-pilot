@@ -210,53 +210,178 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
             {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
           </a>
-          {/* Mobile hamburger */}
-          <details className="mobile-nav lg:hidden">
-            <summary aria-label="Abrir menú" className="mobile-burger" style={{ width: 44, height: 44, display: "inline-flex", alignItems: "center", justifyContent: "center", cursor: "pointer", borderRadius: 6, color: "#fff", listStyle: "none" }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-                <line x1="4" y1="7"  x2="20" y2="7"/>
-                <line x1="4" y1="12" x2="20" y2="12"/>
-                <line x1="4" y1="17" x2="20" y2="17"/>
+          {/* Mobile burger — abre drawer fullscreen vía checkbox CSS (no JS) */}
+          <input id="mb-toggle" type="checkbox" className="mb-toggle" aria-hidden="true" />
+          <label htmlFor="mb-toggle" className="mb-burger lg:hidden" aria-label={currentLang === "en" ? "Open menu" : "Abrir menú"}>
+            <span className="mb-burger-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <line x1="4" y1="7"  x2="20" y2="7" />
+                <line x1="4" y1="12" x2="20" y2="12" />
+                <line x1="4" y1="17" x2="20" y2="17" />
               </svg>
-            </summary>
-            <div className="mobile-drawer">
-              <a href="/es/" className="m-section-title">Producto</a>
-              {MEGA_PRODUCTS.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
-              <div className="m-section-title">Soluciones · casos de uso</div>
-              {MEGA_USE_CASES.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
-              <div className="m-section-title">Soluciones · industrias</div>
-              {MEGA_INDUSTRIES.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
-              <a href="/es/hypersensor/" className="m-link m-link--top">Hypersensor</a>
-              <a href="/es/partners/" className="m-link">Partners</a>
-              {/* Comunidad oculta — accesible vía URL directa */}
-              <a href="/es/sobre-nosotros/" className="m-link m-link--top">Nosotros</a>
-              <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="m-cta">{currentLang === "en" ? "Request a demo" : "Solicita una demo"}</a>
+            </span>
+            <span className="mb-burger-close">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <line x1="6" y1="6" x2="18" y2="18" />
+                <line x1="18" y1="6" x2="6" y2="18" />
+              </svg>
+            </span>
+          </label>
+          {/* Backdrop oscuro detrás del drawer */}
+          <label htmlFor="mb-toggle" className="mb-backdrop" aria-hidden="true"></label>
+          {/* Drawer slide-in desde la derecha */}
+          <aside className="mb-drawer lg:hidden" aria-label={currentLang === "en" ? "Mobile navigation" : "Navegación móvil"}>
+            <div className="mb-drawer-inner">
+              {/* TOP: lang switcher */}
+              <div className="mb-langs">
+                <a href={currentLang === "es" ? "/es/" : otherHref} className={`mb-lang ${currentLang === "es" ? "is-active" : ""}`} onClick={undefined}>ES</a>
+                <span className="mb-lang-sep">·</span>
+                <a href={currentLang === "en" ? "/en/" : otherHref} className={`mb-lang ${currentLang === "en" ? "is-active" : ""}`} onClick={undefined}>EN</a>
+              </div>
+
+              {/* PRODUCTO (collapse) */}
+              <details className="mb-section">
+                <summary className="mb-summary">{currentLang === "en" ? "Product" : "Producto"}<span className="mb-chev">▾</span></summary>
+                <div className="mb-sub">
+                  {MEGA_PRODUCTS.map(it => (
+                    <a key={it.href} href={it.href} className="mb-sublink">
+                      <span className="mb-sublink-title">{it.label}</span>
+                      <span className="mb-sublink-desc">{it.desc}</span>
+                    </a>
+                  ))}
+                </div>
+              </details>
+
+              {/* SOLUCIONES (collapse) */}
+              <details className="mb-section">
+                <summary className="mb-summary">{currentLang === "en" ? "Solutions" : "Soluciones"}<span className="mb-chev">▾</span></summary>
+                <div className="mb-sub">
+                  <p className="mb-sub-eyebrow">{currentLang === "en" ? "By use case" : "Por caso de uso"}</p>
+                  {MEGA_USE_CASES.map(it => (
+                    <a key={it.href} href={it.href} className="mb-sublink">
+                      <span className="mb-sublink-title">{it.label}</span>
+                    </a>
+                  ))}
+                  <p className="mb-sub-eyebrow mt-2">{currentLang === "en" ? "By industry" : "Por industria"}</p>
+                  {MEGA_INDUSTRIES.map(it => (
+                    <a key={it.href} href={it.href} className="mb-sublink">
+                      <span className="mb-sublink-title">{it.label}</span>
+                    </a>
+                  ))}
+                </div>
+              </details>
+
+              <a href={currentLang === "en" ? "/en/hypersensor/" : "/es/hypersensor/"} className="mb-toplink">Hypersensor</a>
+              <a href={currentLang === "en" ? "/en/partners/" : "/es/partners/"} className="mb-toplink">Partners</a>
+              <a href={currentLang === "en" ? "/en/about-us/" : "/es/sobre-nosotros/"} className="mb-toplink">{currentLang === "en" ? "About us" : "Nosotros"}</a>
+
+              {/* CTA sticky abajo */}
+              <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="mb-cta">
+                {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
+              </a>
             </div>
-          </details>
+          </aside>
         </div>
       </div>
       <style>{`
-        .mobile-nav summary::-webkit-details-marker { display: none; }
-        .mobile-nav summary::marker { display: none; }
-        .mobile-nav .mobile-burger:hover { background: rgb(255 255 255 / 0.08); }
-        .mobile-nav[open] .mobile-drawer {
-          position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
-          background: rgb(21 22 58 / 0.98); backdrop-filter: blur(20px);
-          padding: 24px; overflow-y: auto; z-index: 60;
+        /* ========= MOBILE MENU (checkbox-driven, no JS, slide drawer) ========= */
+        .mb-toggle { position: absolute; left: -9999px; opacity: 0; pointer-events: none; }
+        .mb-burger {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 44px; height: 44px; border-radius: 6px;
+          color: #fff; cursor: pointer; position: relative; z-index: 100002;
         }
-        .mobile-drawer { display: none; }
-        .mobile-nav[open] .mobile-drawer { display: block; }
-        .m-section-title {
-          display: block; margin: 18px 0 8px 0; font-size: 11px; font-weight: 700;
-          text-transform: uppercase; letter-spacing: 0.12em;
-          color: var(--color-accent); text-decoration: none;
+        .mb-burger:hover { background: rgb(255 255 255 / 0.08); }
+        .mb-burger-close { display: none; }
+        .mb-toggle:checked ~ .mb-burger .mb-burger-icon { display: none; }
+        .mb-toggle:checked ~ .mb-burger .mb-burger-close { display: inline-flex; }
+        .mb-backdrop {
+          position: fixed; inset: 0;
+          background: rgb(8 9 26 / 0.6); backdrop-filter: blur(4px);
+          opacity: 0; visibility: hidden; transition: opacity 240ms, visibility 240ms;
+          z-index: 100000; cursor: pointer;
         }
-        .m-link {
-          display: block; padding: 12px 12px; font-size: 16px; font-weight: 500;
-          color: #fff; text-decoration: none; border-radius: 6px;
+        .mb-toggle:checked ~ .mb-backdrop { opacity: 1; visibility: visible; }
+        .mb-drawer {
+          position: fixed; top: 0; right: 0; bottom: 0;
+          width: min(360px, 90vw); max-width: 100vw;
+          background: linear-gradient(180deg, #15163A 0%, #0e0f29 100%);
+          color: #fff;
+          transform: translateX(100%); transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+          z-index: 100001; overflow-y: auto; overflow-x: hidden;
+          box-shadow: -16px 0 40px -10px rgb(0 0 0 / 0.4);
+          padding-top: 64px; /* deja paso al header */
+          -webkit-overflow-scrolling: touch;
         }
-        .m-link:hover, .m-link:focus { background: rgb(255 255 255 / 0.06); color: #fff; }
-        .m-link--top { margin-top: 18px; font-weight: 600; }
+        .mb-toggle:checked ~ .mb-drawer { transform: translateX(0); }
+        body:has(.mb-toggle:checked) { overflow: hidden; }
+        .mb-drawer-inner { padding: 20px 22px 32px; display: flex; flex-direction: column; gap: 6px; }
+
+        /* Lang switcher arriba */
+        .mb-langs {
+          display: flex; align-items: center; gap: 10px; padding: 4px 6px 12px;
+          border-bottom: 1px solid rgb(255 255 255 / 0.08);
+          margin-bottom: 16px;
+          font-size: 13px; font-weight: 600; letter-spacing: 0.1em;
+        }
+        .mb-lang { color: rgb(255 255 255 / 0.45); text-decoration: none; padding: 6px 10px; border-radius: 4px; }
+        .mb-lang.is-active { color: #fff; background: rgb(49 177 248 / 0.18); }
+        .mb-lang-sep { color: rgb(255 255 255 / 0.3); }
+
+        /* Sección colapsable */
+        .mb-section { border-bottom: 1px solid rgb(255 255 255 / 0.06); }
+        .mb-section summary { list-style: none; cursor: pointer; }
+        .mb-section summary::-webkit-details-marker { display: none; }
+        .mb-summary {
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 16px 12px; font-size: 16px; font-weight: 600;
+          color: #fff; cursor: pointer; min-height: 48px;
+        }
+        .mb-chev { font-size: 10px; opacity: 0.55; transition: transform 200ms; }
+        .mb-section[open] .mb-chev { transform: rotate(180deg); }
+        .mb-sub { padding: 4px 8px 18px; display: flex; flex-direction: column; gap: 2px; }
+        .mb-sub-eyebrow {
+          font-size: 11px; font-weight: 700; text-transform: uppercase;
+          letter-spacing: 0.14em; color: var(--color-accent);
+          padding: 8px 8px 6px;
+        }
+        .mb-sub-eyebrow.mt-2 { margin-top: 8px; }
+        .mb-sublink {
+          display: flex; flex-direction: column; gap: 2px;
+          padding: 10px 8px; border-radius: 6px;
+          color: rgb(255 255 255 / 0.92); text-decoration: none;
+          font-size: 15px; min-height: 44px;
+        }
+        .mb-sublink:hover, .mb-sublink:focus { background: rgb(255 255 255 / 0.05); }
+        .mb-sublink-title { font-weight: 600; }
+        .mb-sublink-desc { font-size: 12.5px; color: rgb(255 255 255 / 0.55); line-height: 1.35; }
+
+        /* Top-level links (Hypersensor, Partners, Nosotros) */
+        .mb-toplink {
+          display: block; padding: 16px 12px; min-height: 48px;
+          font-size: 16px; font-weight: 600; color: #fff;
+          text-decoration: none; border-bottom: 1px solid rgb(255 255 255 / 0.06);
+        }
+        .mb-toplink:hover, .mb-toplink:focus { background: rgb(255 255 255 / 0.04); }
+
+        /* CTA sticky abajo */
+        .mb-cta {
+          display: flex; align-items: center; justify-content: center;
+          margin-top: 22px; padding: 14px 24px;
+          background: var(--color-accent); color: #fff;
+          font-weight: 700; font-size: 16px;
+          border-radius: 4px; text-decoration: none;
+          min-height: 52px;
+          box-shadow: 0 8px 24px -8px rgb(49 177 248 / 0.4);
+        }
+        .mb-cta:hover { filter: brightness(0.94); }
+
+        /* deshabilitado en desktop */
+        @media (min-width: 1024px) {
+          .mb-burger, .mb-backdrop, .mb-drawer { display: none !important; }
+        }
+
+        /* === Estilos legacy (compatibilidad) === */
         .m-cta {
           display: block; margin-top: 28px; padding: 14px 22px;
           background: var(--color-accent); color: var(--color-navy);
