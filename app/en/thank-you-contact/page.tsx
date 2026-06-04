@@ -1,0 +1,21 @@
+import type { Metadata } from "next";
+import ThankYouTemplate from "@/components/templates/ThankYouTemplate";
+
+export const metadata: Metadata = {
+  title: "Thank you for contacting us · Flame Analytics",
+  description: "We've received your message. We'll get back to you within 24 business hours.",
+  robots: { index: false, follow: true },
+};
+
+export default function ThankYouContact() {
+  return (
+    <ThankYouTemplate
+      currentLang="en" enHref="/en/thank-you-contact/"
+      eyebrow="Message received"
+      title="Thanks for" titleHl="reaching out"
+      body="We've received your message. We'll get back to you within 24 business hours. If it's urgent, you can also email us at hello@flameanalytics.com."
+      primaryCta={{ label: "Back to home", href: "/en/" }}
+      secondaryCta={{ label: "Meet the team", href: "/en/about-us/" }}
+    />
+  );
+}
