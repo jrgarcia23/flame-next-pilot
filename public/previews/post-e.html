@@ -55,21 +55,29 @@ a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:un
 .toc-top li a:hover{color:var(--color-navy);border-color:var(--color-accent)}
 @media(max-width:700px){.toc-top ol{grid-template-columns:1fr;gap:10px}}
 
-/* CTA FINAL — banda full-bleed estilo Flame */
-.end-cta{background:var(--color-navy);background-image:radial-gradient(900px 500px at 50% -10%,rgba(49,177,248,.18),transparent 60%),radial-gradient(700px 400px at 50% 120%,rgba(49,177,248,.1),transparent 70%);color:#fff;padding:clamp(72px,9vw,128px) 0;position:relative;overflow:hidden}
-.end-cta::before{content:"";position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(49,177,248,.4),transparent)}
-.end-cta-grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:980px;margin-inline:auto;text-align:center}
-.end-cta-eyebrow{font-family:var(--font-body);font-size:13px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--color-accent);margin-bottom:20px}
-.end-cta h2{font-family:var(--font-display);font-size:clamp(34px,4.4vw,58px);font-weight:400;line-height:1.04;letter-spacing:-.024em;color:#fff;margin-bottom:24px;max-width:22ch;margin-inline:auto}
+/* CTA FINAL — banda paper + card destacada con imagen + glow azul detrás */
+.end-cta{background:var(--color-paper);padding:clamp(72px,9vw,128px) 0;position:relative;overflow:hidden}
+.end-cta-shell{max-width:1180px;margin-inline:auto;padding-inline:28px;position:relative}
+.end-cta-glow{position:absolute;inset:-40px;background:radial-gradient(60% 60% at 50% 50%,rgba(49,177,248,.22),transparent 70%);filter:blur(28px);z-index:0;pointer-events:none}
+.end-cta-card{position:relative;z-index:1;background:var(--color-navy);background-image:radial-gradient(900px 500px at 8% -20%,rgba(49,177,248,.22),transparent 60%),radial-gradient(700px 400px at 100% 120%,rgba(49,177,248,.14),transparent 70%);border-radius:28px;color:#fff;display:grid;grid-template-columns:1.15fr .9fr;gap:0;overflow:hidden;box-shadow:0 50px 120px -40px rgba(15,23,42,.5),0 0 0 1px rgba(49,177,248,.18)}
+.end-cta-text{padding:clamp(40px,5vw,72px) clamp(36px,4.5vw,64px)}
+.end-cta-eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-body);font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--color-accent);margin-bottom:22px;background:rgba(49,177,248,.12);padding:8px 14px;border-radius:999px;border:1px solid rgba(49,177,248,.22)}
+.end-cta h2{font-family:var(--font-display);font-size:clamp(32px,3.6vw,48px);font-weight:400;line-height:1.04;letter-spacing:-.024em;color:#fff;margin-bottom:18px;max-width:20ch}
 .end-cta h2 em{font-style:normal;color:var(--color-accent);font-weight:500}
-.end-cta-sub{font-family:var(--font-body);font-size:clamp(16.5px,1.25vw,18.5px);line-height:1.6;color:rgba(255,255,255,.78);max-width:58ch;margin:0 auto 36px}
-.end-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.end-cta-points{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:780px;margin-inline:auto;padding-top:40px;border-top:1px solid rgba(255,255,255,.12)}
-.end-cta-points .pt{text-align:left;display:flex;gap:14px;align-items:flex-start}
-.end-cta-points .pt .ic{width:32px;height:32px;border-radius:6px;background:rgba(49,177,248,.15);color:var(--color-accent);display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;font-weight:600}
-.end-cta-points .pt h4{font-family:var(--font-body);font-size:14.5px;font-weight:600;color:#fff;margin-bottom:4px;letter-spacing:-.005em}
-.end-cta-points .pt p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.5;margin:0;font-family:var(--font-body)}
-@media(max-width:780px){.end-cta-points{grid-template-columns:1fr;gap:18px;padding-top:28px}}
+.end-cta-sub{font-family:var(--font-body);font-size:17px;line-height:1.6;color:rgba(255,255,255,.78);max-width:42ch;margin:0 0 32px}
+.end-cta-points{list-style:none;padding:0;margin:0 0 36px;display:grid;gap:12px}
+.end-cta-points li{display:flex;align-items:center;gap:12px;font-family:var(--font-body);font-size:15px;color:rgba(255,255,255,.86);line-height:1.4}
+.end-cta-points li::before{content:"";width:18px;height:18px;border-radius:999px;background:var(--color-accent);color:#15163A;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;line-height:1;flex-shrink:0;background-image:linear-gradient(135deg,var(--color-accent),#7fcefb);box-shadow:0 0 0 4px rgba(49,177,248,.18);position:relative}
+.end-cta-points li{position:relative}
+.end-cta-points li::after{content:"✓";position:absolute;left:4px;top:50%;transform:translateY(-50%);font-size:11px;color:#15163A;font-weight:700;line-height:1}
+.end-cta-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.end-cta-visual{position:relative;background:#0E0F26;background-image:url('/wp-content/uploads/2026/01/Traffic2-1.png');background-size:cover;background-position:center;min-height:380px}
+.end-cta-visual::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,38,0) 0%,rgba(14,15,38,.45) 100%)}
+.end-cta-badge{position:absolute;bottom:24px;left:24px;right:24px;background:rgba(14,15,38,.65);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:14px;z-index:1}
+.end-cta-badge .ic{width:42px;height:42px;border-radius:8px;background:rgba(49,177,248,.18);color:var(--color-accent);display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:22px;font-weight:500;flex-shrink:0}
+.end-cta-badge .tx{font-family:var(--font-body);font-size:13.5px;line-height:1.35;color:rgba(255,255,255,.85)}
+.end-cta-badge .tx strong{color:#fff;font-weight:600}
+@media(max-width:880px){.end-cta-card{grid-template-columns:1fr}.end-cta-visual{min-height:240px}}
 
 .hdr{padding:clamp(72px,8vw,120px) 0 clamp(32px,4vw,48px);background:#fff}
 .hdr .meta{font-family:var(--font-body);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--color-accent-deep);margin-bottom:24px}
@@ -148,23 +156,30 @@ a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:un
 </div></section>
 
 <section class="end-cta">
-  <div class="wrap">
-    <div class="end-cta-grid">
-      <div>
-        <p class="end-cta-eyebrow">Demo personalizada · 20 minutos</p>
-        <h2>Mide la conversión real de cada tienda <em>con Flame</em></h2>
-        <p class="end-cta-sub">Te enseñamos cómo Flame transforma el tráfico, la ocupación y el comportamiento de tus visitantes en datos accionables, sin biometría y con RGPD por diseño.</p>
+  <div class="end-cta-shell">
+    <div class="end-cta-glow"></div>
+    <article class="end-cta-card">
+      <div class="end-cta-text">
+        <span class="end-cta-eyebrow">★ Demo personalizada · 20 min</span>
+        <h2>Convierte el tráfico físico en <em>decisiones de negocio</em></h2>
+        <p class="end-cta-sub">Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector en 20 minutos.</p>
+        <ul class="end-cta-points">
+          <li><strong>Demo con un experto</strong>&nbsp;— no presentación genérica</li>
+          <li><strong>RGPD por diseño</strong>&nbsp;— sin biometría ni datos personales</li>
+          <li><strong>Datos de tu sector</strong>&nbsp;— retail, malls, hostelería o espacios públicos</li>
+        </ul>
         <div class="end-cta-btns">
           <a href="#contact" class="cta-btn cta-btn--primary cta-btn--lg">Solicitar demo →</a>
           <a href="/es/comunidad/" class="cta-btn cta-btn--ghost-inv cta-btn--lg">Ver más en comunidad</a>
         </div>
-        <div class="end-cta-points">
-          <div class="pt"><span class="ic">✓</span><div><h4>20 minutos</h4><p>Demo personalizada con un experto, no presentación genérica.</p></div></div>
-          <div class="pt"><span class="ic">✓</span><div><h4>Sin biometría</h4><p>Vídeo IA con anonimización en origen, 100% RGPD.</p></div></div>
-          <div class="pt"><span class="ic">✓</span><div><h4>Tu sector</h4><p>Ejemplos reales de retail, malls, hostelería o espacios públicos.</p></div></div>
+      </div>
+      <div class="end-cta-visual">
+        <div class="end-cta-badge">
+          <span class="ic">F</span>
+          <span class="tx"><strong>180+ clientes B2B</strong> en 23 países confían en Flame para entender lo que pasa en su espacio físico.</span>
         </div>
       </div>
-    </div>
+    </article>
   </div>
 </section>
 <footer class="ft" style="margin-top:0"><div class="wrap"><div class="ft-cols"><span class="ft-logo">FLAME</span><span>© 2026 Flame Analytics</span></div><div class="ft-bottom">Footer simulado</div></div></footer>
