@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1180px, calc(100vw - 24px))", padding: "24px 26px" }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1280px, calc(100vw - 24px))", padding: "24px 26px" }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -49,12 +49,12 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 2.2fr 1fr; align-items: start; }
+        .solutions-grid { display: grid; gap: 28px; grid-template-columns: 2fr 1.1fr; align-items: start; }
         .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 20px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
-        @media (max-width: 1200px) {
-          .mega-panel-solutions { width: min(720px, calc(100vw - 24px)) !important; }
+        @media (max-width: 1300px) {
+          .mega-panel-solutions { width: min(760px, calc(100vw - 24px)) !important; }
           .solutions-grid { grid-template-columns: 1fr; gap: 24px; }
           .industries-col { border-left: 0 !important; padding-left: 0 !important; border-top: 1px solid var(--color-rule); padding-top: 24px; }
         }
