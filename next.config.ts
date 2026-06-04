@@ -82,6 +82,46 @@ const nextConfig: NextConfig = {
       // /wp-content/uploads paths sueltos sin extensión (raros, sin contenido)
       { source: "/wp-content/uploads/:rest*",                  destination: "/es/comunidad/",                       permanent: false, has: [{ type: "header", key: "accept", value: "(?!.*image).*" }] },
 
+      // ══════════════════════════════════════════════════════════════════
+      // Redirects de URLs sin idioma con backlinks (SE Ranking 1.659 backlinks
+      // analizados, 720 reales tras filtrar spam turco). Estas URLs viejas
+      // siguen recibiendo backlinks externos de portales/blogs/LinkedIn.
+      // ══════════════════════════════════════════════════════════════════
+      { source: "/tecnologia/:path*",                          destination: "/es/comunidad/",                       permanent: true },
+      { source: "/wifi-analytics/:path*",                      destination: "/es/connect/",                         permanent: true },
+      { source: "/wifi-social/:path*",                         destination: "/es/connect/",                         permanent: true },
+      { source: "/connect/:path*",                             destination: "/es/connect/",                         permanent: true },
+      { source: "/caracteristicas/:path*",                     destination: "/es/sobre-nosotros/",                  permanent: true },
+      { source: "/aforo/:path*",                               destination: "/es/gestion-ocupacion/",               permanent: true },
+      { source: "/demographics/:path*",                        destination: "/es/customer-behavior/",               permanent: true },
+      { source: "/flame-covid/:path*",                         destination: "/es/",                                 permanent: true },
+      { source: "/formulario-de-inscripcion-a-los-webinars-de-flame/",  destination: "/es/inscripcion-webinars/",   permanent: true },
+      { source: "/contact",                                    destination: "/es/contacta/",                        permanent: true },
+      { source: "/es/contact",                                 destination: "/es/contacta/",                        permanent: true },
+      { source: "/en/campaigns/:path*",                        destination: "/en/community/",                       permanent: true },
+      { source: "/en/retail-sector/:path*",                    destination: "/en/solution-for-retail-sector/",      permanent: true },
+      { source: "/es/product/:path*",                          destination: "/es/sobre-nosotros/",                  permanent: true },
+
+      // Posts ES que estaban indexados/backlinkeados y NO migraron (slug original).
+      // En vez de 404 → comunidad (mejor para SEO + UX que perder).
+      { source: "/es/pedro-reig-la-fidelidad-ha-muerto-y-hay-que-asumirlo/",                                        destination: "/es/categoria/entrevistas/",  permanent: true },
+      { source: "/es/manuel-amat-la-tecnologia-en-retail-genera-una-relacion-de-amor-odio/",                       destination: "/es/categoria/entrevistas/",  permanent: true },
+      { source: "/es/raul-g-serapio-el-cliente-no-es-fiel-si-quieres-fidelidad-mejor-comprate-un-perro/",          destination: "/es/categoria/entrevistas/",  permanent: true },
+      { source: "/es/eduardo-suarez-hoy-en-dia-no-podemos-vivir-de-espaldas-a-los-avances-tecnologicos/",          destination: "/es/categoria/entrevistas/",  permanent: true },
+      { source: "/es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail/",                                 destination: "/es/categoria/webinars-es-cat/", permanent: true },
+      { source: "/es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica/",                destination: "/es/categoria/webinars-es-cat/", permanent: true },
+      { source: "/es/ratio-de-conversion-en-retail-que-es-y-como-mejorarlo/",                                      destination: "/es/categoria/blog/",         permanent: true },
+
+      // Posts EN que estaban indexados/backlinkeados y NO migraron.
+      { source: "/en/personalization-in-marketing-creating-tailored-experiences-for-your-customers/",              destination: "/en/category/blog/",          permanent: true },
+      { source: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", destination: "/en/category/blog/",      permanent: true },
+      { source: "/en/boost-your-retail-business-with-real-time-analytics-top-trends-and-strategies-for-2024/",     destination: "/en/category/blog/",          permanent: true },
+      { source: "/en/alain-afflelou-relies-on-flame-analytics-for-his-stores-in-spain/",                           destination: "/en/category/case-studies/",  permanent: true },
+      { source: "/en/how-to-collect-customer-data-the-right-way-in-retail-sector/",                                destination: "/en/category/blog/",          permanent: true },
+      { source: "/en/the-future-of-shopping-centers-adapting-to-changing-consumer-behaviors-and-technological-advancements/", destination: "/en/the-future-of-shopping-malls-experience-sustainability-and-data/", permanent: true },
+      { source: "/en/we-support-our-customers-and-community/",                                                     destination: "/en/community/",              permanent: true },
+      { source: "/en/the-role-of-artificial-intelligence-in-retail-analytics-should-workers-worry-about-ai/",      destination: "/en/category/blog/",          permanent: true },
+
       // /es/category/<slug>/ (WP standard) → /es/categoria/<slug>/ (Next)
       // El WP demo servía /category/ en ES; Next usa /categoria/. Sin esto Google ve 404.
       { source: "/es/category/:slug",                destination: "/es/categoria/:slug/",                permanent: true },
