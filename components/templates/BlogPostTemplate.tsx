@@ -232,7 +232,23 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
       <CtaStyles />
       <SiteHeader currentLang={lang} enHref={enHref} />
 
-      <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(72px, 8.4vw, 116px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: "var(--color-navy)",
+          color: "white",
+          paddingTop: "clamp(72px, 8.4vw, 116px)",
+          paddingBottom: "clamp(40px, 5vw, 72px)",
+          // En non-editorial usamos el banner real del post como background con overlay,
+          // para acercarnos a la maquetación original Elementor que mostraba el banner arriba.
+          ...(!editorial && (post.hero || post.thumbnail) ? {
+            backgroundImage: `linear-gradient(rgba(21,22,58,0.78), rgba(21,22,58,0.92)), url('${post.hero || post.thumbnail}')`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          } : {}),
+        }}
+      >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.14), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.08), transparent 72%)" }} />
         <div className="flame-container relative z-10" style={{ maxWidth: 820 }}>
           <nav className="text-[14px] mb-6 flex items-center gap-1.5" style={{ color: "rgb(255 255 255 / 0.6)" }}>
@@ -253,9 +269,11 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
 
       <article className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
-          {!editorial && (post.thumbnail || post.hero) && (
-            <div className="mx-auto mb-10 rounded-2xl overflow-hidden" style={{ maxWidth: 760, aspectRatio: "16/9", background: `url('${post.thumbnail || post.hero}') center/cover`, boxShadow: "0 18px 50px -22px rgb(15 23 42 / 0.22)" }} />
-          )}
+          {/*
+            Para non-editorial el banner ya aparece como fondo del hero;
+            no repetimos la imagen aquí. Los posts entrevistas/casos/whitepapers
+            que sí muestran la imagen arriba se gestionan en sus propios templates.
+          */}
           <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "18px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
           {editorial && (
