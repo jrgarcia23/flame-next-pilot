@@ -42,8 +42,7 @@ const nextConfig: NextConfig = {
       { source: "/es/whitepaper/vender-mejor-sin-vender-tu-vida/",                                                 destination: "/es/comunidad/", permanent: true },
       { source: "/es/whitepaper/video-intelligence-la-tecnologia-del-nuevo-retail/",                               destination: "/es/comunidad/", permanent: true },
 
-      // ── Raíz sin idioma → /es/ (la web actual ya redirige así) ──
-      { source: "/", destination: "/es/", permanent: false },
+      // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];
   },
 };
