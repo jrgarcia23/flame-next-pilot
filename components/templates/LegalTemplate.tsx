@@ -64,7 +64,7 @@ export default function LegalTemplate({
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

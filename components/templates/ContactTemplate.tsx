@@ -90,7 +90,7 @@ export default function ContactTemplate({ enHref, currentLang = "es" }: { enHref
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

@@ -61,7 +61,7 @@ export default async function CategoryEn({ params }: { params: Promise<{ slug: s
         </div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang="en" />
     </>
   );
 }

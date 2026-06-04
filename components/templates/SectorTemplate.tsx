@@ -272,7 +272,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
-import { NAV_ITEMS, FOOTER_COLS, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES, MEGA_COMMUNITY, NavLeaf } from "@/lib/page-content";
+import { NAV_ITEMS, FOOTER_COLS, FOOTER_COLS_EN, FOOTER_LEGAL_ES, FOOTER_LEGAL_EN, FOOTER_COPY, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES, MEGA_COMMUNITY, NavLeaf } from "@/lib/page-content";
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
@@ -255,20 +255,23 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
   );
 }
 
-export function SiteFooter() {
+export function SiteFooter({ currentLang = "es" }: { currentLang?: "es" | "en" } = {}) {
+  const cols = currentLang === "en" ? FOOTER_COLS_EN : FOOTER_COLS;
+  const legal = currentLang === "en" ? FOOTER_LEGAL_EN : FOOTER_LEGAL_ES;
+  const copy = FOOTER_COPY[currentLang];
   return (
     <footer className="pt-16 pb-10 border-t" style={{ background: "var(--color-paper)", borderColor: "var(--color-rule)" }}>
       <div className="flame-container">
         <div className="grid gap-10 mb-10 footer-grid" style={{ gridTemplateColumns: "1.4fr repeat(5, 1fr)" }}>
           <div className="flex flex-col gap-4">
-            <a href="/es/" className="inline-flex items-center">
+            <a href={copy.homeHref} className="inline-flex items-center">
               <img src="/wp-content/uploads/2023/10/flame-logo-black.png" alt="Flame Analytics" style={{ height: 36, width: "auto", display: "block" }} />
             </a>
             <p className="text-[14.5px] leading-relaxed" style={{ color: "var(--color-ink-2)", maxWidth: "30ch" }}>
-              Empowering physical spaces. Convertimos el vídeo en información en tiempo real para retail, espacios públicos y hoteles.
+              {copy.desc}
             </p>
           </div>
-          {FOOTER_COLS.map((c) => (
+          {cols.map((c) => (
             <div key={c.title}>
               <h4 className="text-[12.5px] font-semibold uppercase tracking-[0.06em] mb-4" style={{ color: "var(--color-navy)" }}>{c.title}</h4>
               <ul className="flex flex-col gap-2.5 text-[14.5px]" style={{ color: "var(--color-ink-3)" }}>
@@ -280,13 +283,9 @@ export function SiteFooter() {
           ))}
         </div>
         <div className="pt-6 flex flex-wrap items-center justify-between gap-3 text-[12.5px]" style={{ color: "var(--color-ink-4)", borderTop: "1px solid var(--color-rule)" }}>
-          <div>2026 © Flame Analytics — All rights reserved</div>
+          <div>2026 © Flame Analytics — {copy.rights}</div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            <a href="/es/politica-de-privacidad/">Política de privacidad</a>
-            <a href="/es/politica-de-cookies/">Cookies</a>
-            <a href="/es/condiciones-de-uso/">Condiciones de uso</a>
-            <a href="/es/informacion-detallada/">Información detallada del tratamiento</a>
-            <a href="/es/politica-de-seguridad-de-la-informacion/">Política de seguridad</a>
+            {legal.map(([l, h]) => <a key={l} href={h}>{l}</a>)}
           </div>
         </div>
       </div>

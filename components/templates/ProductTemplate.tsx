@@ -373,7 +373,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

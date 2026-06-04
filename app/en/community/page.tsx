@@ -67,7 +67,7 @@ export default function CommunityHubEn() {
         </div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang="en" />
     </>
   );
 }

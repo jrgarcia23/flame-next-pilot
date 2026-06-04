@@ -200,7 +200,7 @@ export default function PartnersEn() {
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang="en" />
     </>
   );
 }

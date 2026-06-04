@@ -268,7 +268,7 @@ export default function AboutUsEn() {
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang="en" />
     </>
   );
 }

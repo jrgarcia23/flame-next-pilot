@@ -340,7 +340,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

@@ -400,7 +400,7 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

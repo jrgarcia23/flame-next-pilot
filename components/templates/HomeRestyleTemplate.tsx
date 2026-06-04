@@ -444,7 +444,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

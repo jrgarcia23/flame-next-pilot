@@ -146,6 +146,43 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
 ];
 
+export const FOOTER_COLS_EN: { title: string; links: [string, string][] }[] = [
+  { title: "Products",   links: [["Traffic","/en/traffic-insights/"],["Customer Journey","/en/customer-journey/"],["Connect","/en/connect/"],["Hypersensor","/en/hypersensor/"]] },
+  { title: "Solutions",  links: [["People Counting","/en/people-counting/"],["Conversion Analytics","/en/conversion-analytics/"],["Customer Behavior","/en/customer-behavior/"],["Occupancy Management","/en/occupancy-management/"],["Queue Analytics","/en/queue-analytic/"],["Restroom Management","/en/restroom-management/"],["Guest Wifi Marketing","/en/guest-wifi-marketing/"],["Corporate Wifi Access","/en/corporate-wifi-access/"]] },
+  { title: "Industries", links: [["Retail","/en/solution-for-retail-sector/"],["Shopping malls","/en/solution-for-shopping-malls/"],["Hospitality","/en/hospitality/"],["Public venues","/en/public-venues/"]] },
+  { title: "Community",  links: [["Blog","/en/category/blog/"],["Case studies","/en/category/case-studies/"],["Interviews","/en/category/interviews/"],["Retail tips","/en/category/retail/"]] },
+  { title: "Company",    links: [["Partners","/en/partners/"],["About us","/en/about-us/"],["Contact","/en/contact-us/"]] },
+];
+
+export const FOOTER_LEGAL_ES: [string, string][] = [
+  ["Política de privacidad", "/es/politica-de-privacidad/"],
+  ["Cookies",                "/es/politica-de-cookies/"],
+  ["Condiciones de uso",     "/es/condiciones-de-uso/"],
+  ["Información detallada del tratamiento", "/es/informacion-detallada/"],
+  ["Política de seguridad",  "/es/politica-de-seguridad-de-la-informacion/"],
+];
+
+export const FOOTER_LEGAL_EN: [string, string][] = [
+  ["Privacy policy",     "/en/privacy-policy/"],
+  ["Cookies",            "/en/cookie-policy/"],
+  ["Terms of use",       "/en/terms-of-use/"],
+  ["Detailed information", "/en/detailed-information/"],
+  ["Information security", "/en/information-security/"],
+];
+
+export const FOOTER_COPY = {
+  es: {
+    homeHref: "/es/",
+    desc: "Empowering physical spaces. Convertimos el vídeo en información en tiempo real para retail, centros comerciales, hoteles y espacios públicos.",
+    rights: "Todos los derechos reservados",
+  },
+  en: {
+    homeHref: "/en/",
+    desc: "Empowering physical spaces. We turn video into real-time intelligence for retail, shopping malls, hospitality and public venues.",
+    rights: "All rights reserved",
+  },
+} as const;
+
 /* ============================================================
    TIPOS de página
    ============================================================ */

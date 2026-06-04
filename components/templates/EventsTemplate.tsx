@@ -156,7 +156,7 @@ export default function EventsTemplate({ enHref, currentLang = "es" }: { enHref:
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang={currentLang} />
     </>
   );
 }

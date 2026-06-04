@@ -162,7 +162,7 @@ export default function FlameEventsEn() {
         `}</style>
       </section>
 
-      <SiteFooter />
+      <SiteFooter currentLang="en" />
     </>
   );
 }
