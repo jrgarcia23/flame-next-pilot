@@ -78,7 +78,12 @@ export default function RegisterForm(p: RegisterFormProps) {
         setStatus("error");
         return;
       }
-      setStatus("success");
+      // Redirect: events → gracias-evento · webinars → gracias-webinar
+      const isWebinar = p.kind === "webinars";
+      const slug = isWebinar
+        ? (p.privacyHref.startsWith("/en/") ? "/en/thank-you-webinar/" : "/es/gracias-webinar/")
+        : (p.privacyHref.startsWith("/en/") ? "/en/thank-you-event/"   : "/es/gracias-evento/");
+      window.location.href = slug;
     } catch {
       setErrorMsg("Error de red. Inténtalo de nuevo.");
       setStatus("error");

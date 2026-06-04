@@ -153,7 +153,8 @@ export default function PartnersForm({ lang, category = "" }: Props) {
         setStatus("error");
         return;
       }
-      setStatus("success");
+      // Partners → thank-you de contacto (no creamos gracias-partner separada)
+      window.location.href = lang === "en" ? "/en/thank-you-contact/" : "/es/gracias-contacto/";
     } catch {
       setErrorMsg(t.errNet);
       setStatus("error");

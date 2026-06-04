@@ -115,7 +115,8 @@ export default function ContactForm({ lang }: Props) {
         setStatus("error");
         return;
       }
-      setStatus("success");
+      // Redirect a la página de gracias específica de contacto
+      window.location.href = lang === "en" ? "/en/thank-you-contact/" : "/es/gracias-contacto/";
     } catch {
       setErrorMsg(t.errorNetwork);
       setStatus("error");

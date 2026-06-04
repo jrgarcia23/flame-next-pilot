@@ -111,7 +111,14 @@ export default function DemoFormInline({ lang, variant = "demo", gridClass = "",
         setStatus("error");
         return;
       }
-      setStatus("success");
+      // Redirect a la thank-you adecuada según variant
+      const THANK_YOU: Record<string, { es: string; en: string }> = {
+        demo:     { es: "/es/gracias-demo/",     en: "/en/thank-you-demo/" },
+        contact:  { es: "/es/gracias-contacto/", en: "/en/thank-you-contact/" },
+        partners: { es: "/es/gracias-contacto/", en: "/en/thank-you-contact/" },
+        pilot:    { es: "/es/gracias-demo/",     en: "/en/thank-you-demo/" },
+      };
+      window.location.href = THANK_YOU[variant][lang];
     } catch {
       setErrorMsg(t.errNet);
       setStatus("error");
