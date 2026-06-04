@@ -4,11 +4,11 @@ import { NAV_ITEMS, FOOTER_COLS, FOOTER_COLS_EN, FOOTER_LEGAL_ES, FOOTER_LEGAL_E
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
-    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 12 }}>
-      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 40, height: 40 }}>
-        <img src={it.iconImg} alt="" width={40} height={40} style={{ width: 40, height: 40, objectFit: "contain", display: "block" }} />
+    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 10 }}>
+      <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36 }}>
+        <img src={it.iconImg} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
       </span>
-      <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 2 }}>
+      <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 1 }}>
         <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
         <span className="mega-desc" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
       </span>
@@ -49,9 +49,9 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 32px; grid-template-columns: 2fr 1fr; align-items: start; }
-        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
-        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 28px; }
+        .solutions-grid { display: grid; gap: 24px; grid-template-columns: 2.2fr 1fr; align-items: start; }
+        .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; }
+        .industries-col { border-left: 1px solid var(--color-rule); padding-left: 20px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
         @media (max-width: 1200px) {
           .mega-panel-solutions { width: min(720px, calc(100vw - 24px)) !important; }
@@ -90,14 +90,18 @@ export function CtaStyles() {
         box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18);
       }
       /* Mega-menu items — globales para que Products, Solutions y Community compartan */
-      .mega-title { font-size: 14.5px; font-weight: 600; line-height: 1.25; color: var(--color-navy); }
+      .mega-title {
+        font-size: 14px; font-weight: 600; line-height: 1.25; color: var(--color-navy);
+        white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      }
       .mega-desc {
-        font-size: 12.5px; line-height: 1.4; margin-top: 4px; color: var(--color-ink-3);
+        font-size: 12.5px; line-height: 1.4; margin-top: 3px; color: var(--color-ink-3);
         display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
         overflow: hidden; word-wrap: break-word; overflow-wrap: anywhere;
         min-height: calc(12.5px * 1.4 * 2);
       }
       @media (max-width: 640px) {
+        .mega-title { white-space: normal; }
         .mega-desc { -webkit-line-clamp: 1; min-height: calc(12.5px * 1.4); }
       }
     `}</style>
