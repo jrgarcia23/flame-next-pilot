@@ -12,6 +12,39 @@ const nextConfig: NextConfig = {
       // SEO 301s — preservar URLs históricas WP (Google Search Console)
       // ══════════════════════════════════════════════════════════════════
 
+      // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
+      // El demo redirigía /<categoria>/<slug>/ y /<lang>/<categoria>/<slug>/ a /<lang>/<slug>/.
+      // Cuando el demo se apague, replicamos esos 301s para no perder los enlaces externos
+      // (LinkedIn, prensa, etc.) que aún apuntan al formato antiguo.
+      // EJ: linkedin.com → flameanalytics.com/blog/los-trucos-... → /es/los-trucos-.../
+      { source: "/blog/:slug",                       destination: "/es/:slug/",                           permanent: true },
+      { source: "/entrevistas/:slug",                destination: "/es/:slug/",                           permanent: true },
+      { source: "/casos-de-exito/:slug",             destination: "/es/:slug/",                           permanent: true },
+      { source: "/corporativo/:slug",                destination: "/es/:slug/",                           permanent: true },
+      { source: "/webinars-es-cat/:slug",            destination: "/es/:slug/",                           permanent: true },
+      { source: "/eventos/:slug",                    destination: "/es/:slug/",                           permanent: true },
+      // Idem con prefijo /es/<cat>/<slug>/ (WPML)
+      { source: "/es/blog/:slug",                    destination: "/es/:slug/",                           permanent: true },
+      { source: "/es/entrevistas/:slug",             destination: "/es/:slug/",                           permanent: true },
+      { source: "/es/casos-de-exito/:slug",          destination: "/es/:slug/",                           permanent: true },
+      { source: "/es/corporativo/:slug",             destination: "/es/:slug/",                           permanent: true },
+      { source: "/es/webinars-es-cat/:slug",         destination: "/es/:slug/",                           permanent: true },
+      { source: "/es/eventos/:slug",                 destination: "/es/:slug/",                           permanent: true },
+      // EN
+      { source: "/en/blog/:slug",                    destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/interviews/:slug",              destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/case-studies/:slug",            destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/corporate/:slug",               destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/webinars/:slug",                destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/tips-retail/:slug",             destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/retail/:slug",                  destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/shopping-malls/:slug",          destination: "/en/:slug/",                           permanent: true },
+      { source: "/en/hospitality-blog/:slug",        destination: "/en/:slug/",                           permanent: true },
+
+      // ── Formato fecha (YYYY/MM/slug) — algunos WP los usan ──
+      { source: "/es/:year(\\d{4})/:month(\\d{2})/:slug",      destination: "/es/:slug/", permanent: true },
+      { source: "/en/:year(\\d{4})/:month(\\d{2})/:slug",      destination: "/en/:slug/", permanent: true },
+
       // /es/category/<slug>/ (WP standard) → /es/categoria/<slug>/ (Next)
       // El WP demo servía /category/ en ES; Next usa /categoria/. Sin esto Google ve 404.
       { source: "/es/category/:slug",                destination: "/es/categoria/:slug/",                permanent: true },
