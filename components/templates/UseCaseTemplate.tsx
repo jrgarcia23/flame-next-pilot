@@ -2,6 +2,7 @@ import Icon from "./Icon";
 import FlameDataChat from "../FlameDataChat";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
+import DemoFormInline from "@/components/DemoFormInline";
 
 export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
@@ -325,20 +326,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4 uc-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
-              <select className="cf-in" defaultValue=""><option value="" disabled>{t.fSector}</option><option>{t.sMalls}</option><option>{t.sVenues}</option><option>{t.sRetail}</option><option>{t.sHosp}</option><option>{t.sOther}</option></select>
-              <input className="cf-in" type="email" placeholder={t.fEmail} />
-              <input className="cf-in" type="text" placeholder={t.fCompany} />
-              <input className="cf-in" type="text" placeholder={t.fCountry} />
-              <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
-                <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>{t.consent} <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.</span>
-              </label>
-              <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}>
-                {t.submit}
-              </button>
-            </form>
+            <DemoFormInline lang={currentLang} variant="demo" gridClass="uc-form-grid" />
           </div>
         </div>
         <style>{`

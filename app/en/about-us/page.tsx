@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
 import { LOGOS, UI } from "@/lib/page-content";
+import DemoFormInline from "@/components/DemoFormInline";
 
 export const metadata: Metadata = {
   title: "About us · Flame Analytics",
@@ -257,30 +258,7 @@ export default function AboutUsEn() {
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
-              <select className="cf-in" defaultValue="">
-                <option value="" disabled>{t.fSector}</option>
-                <option>{t.sMalls}</option>
-                <option>{t.sVenues}</option>
-                <option>{t.sRetail}</option>
-                <option>{t.sHosp}</option>
-                <option>{t.sOther}</option>
-              </select>
-              <input className="cf-in" type="email" placeholder={t.fEmail} />
-              <input className="cf-in" type="text" placeholder={t.fCompany} />
-              <input className="cf-in" type="text" placeholder={t.fCountry} />
-              <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
-                <input type="checkbox" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>
-                  {t.consent}{" "}
-                  <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>{t.privacy}</a>.
-                </span>
-              </label>
-              <button type="button" className="col-span-2 mt-3 cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}>
-                {t.submit}
-              </button>
-            </form>
+            <DemoFormInline lang={"en"} variant="demo" gridClass="" />
           </div>
         </div>
         <style>{`

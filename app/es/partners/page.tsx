@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
 import { UI } from "@/lib/page-content";
+import DemoFormInline from "@/components/DemoFormInline";
 
 export const metadata: Metadata = {
   title: "Partners · Flame Analytics",
@@ -189,49 +190,7 @@ export default function PartnersEs() {
                 Sin compromiso, sin discurso comercial.
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
-              <input className="cf-in" type="text" name="your-name" placeholder="Nombre" required />
-              <input className="cf-in" type="email" name="your-email" placeholder="Email" required />
-              <input className="cf-in" type="tel" name="your-phone" placeholder="Teléfono" required />
-              <input className="cf-in" type="text" name="your-company" placeholder="Empresa" required />
-              <input className="cf-in" type="text" name="your-web" placeholder="Web" required />
-              <input className="cf-in" type="text" name="your-country" placeholder="País" required />
-              <input className="cf-in" type="text" name="your-city" placeholder="Ciudad, región" required />
-              <input className="cf-in" type="text" name="your-type" placeholder="Tipo de empresa" required />
-              <select className="cf-in" name="your-sector" defaultValue="" required>
-                <option value="" disabled>Sector</option>
-                <option>Centros comerciales</option>
-                <option>Espacios públicos</option>
-                <option>Retail</option>
-                <option>Hospitality</option>
-                <option>Otros</option>
-              </select>
-              <input className="cf-in" type="text" name="your-size" placeholder="Tamaño de la empresa" required />
-              <input className="cf-in" type="text" name="your-annual" placeholder="Facturación anual" required />
-              <input className="cf-in" type="text" name="your-installation" placeholder="¿Tienes capacidad de instalación?" required />
-              <input className="cf-in col-span-2" type="text" name="your-contacts" placeholder="¿Tienes contactos que demanden el servicio de localización?" required />
-              <textarea className="cf-in col-span-2" name="your-message" placeholder="Mensaje" rows={5} required style={{ minHeight: 140, resize: "vertical" }} />
-              <label
-                className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2"
-                style={{ color: "var(--color-ink-3)" }}
-              >
-                <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: "var(--color-accent)" }} required />
-                <span>
-                  {t.consent}{" "}
-                  <a href={t.privacyHref} style={{ color: "var(--color-accent-deep)", borderBottom: "1px solid currentColor" }}>
-                    {t.privacy}
-                  </a>
-                  .
-                </span>
-              </label>
-              <button
-                type="submit"
-                className="col-span-2 mt-3 cta-btn cta-btn--md"
-                style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, width: "fit-content" }}
-              >
-                {t.submit}
-              </button>
-            </form>
+            <DemoFormInline lang={"es"} variant="partners" gridClass="" />
           </div>
         </div>
         <style>{`
