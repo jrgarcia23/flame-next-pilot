@@ -53,13 +53,6 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
         .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
-        .mega-title { font-size: 14.5px; font-weight: 600; line-height: 1.25; }
-        .mega-desc {
-          font-size: 12.5px; line-height: 1.4; margin-top: 4px; color: var(--color-ink-3);
-          display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-          overflow: hidden; word-wrap: break-word; overflow-wrap: anywhere;
-          min-height: calc(12.5px * 1.4 * 2);
-        }
         @media (max-width: 1024px) {
           .mega-panel-solutions { width: min(640px, calc(100vw - 24px)) !important; }
           .solutions-grid { grid-template-columns: 1fr; gap: 20px; }
@@ -67,7 +60,6 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         }
         @media (max-width: 640px) {
           .use-cases-inner { grid-template-columns: 1fr; }
-          .mega-desc { -webkit-line-clamp: 1; min-height: calc(12.5px * 1.4); white-space: nowrap; text-overflow: ellipsis; display: block; }
         }
       `}</style>
     </div>
@@ -96,6 +88,17 @@ export function CtaStyles() {
         filter: brightness(0.94);
         transform: translateY(-1px);
         box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18);
+      }
+      /* Mega-menu items — globales para que Products, Solutions y Community compartan */
+      .mega-title { font-size: 14.5px; font-weight: 600; line-height: 1.25; color: var(--color-navy); }
+      .mega-desc {
+        font-size: 12.5px; line-height: 1.4; margin-top: 4px; color: var(--color-ink-3);
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+        overflow: hidden; word-wrap: break-word; overflow-wrap: anywhere;
+        min-height: calc(12.5px * 1.4 * 2);
+      }
+      @media (max-width: 640px) {
+        .mega-desc { -webkit-line-clamp: 1; min-height: calc(12.5px * 1.4); }
       }
     `}</style>
   );
