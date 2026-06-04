@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
 import { UI } from "@/lib/page-content";
-import DemoFormInline from "@/components/DemoFormInline";
+import PartnersForm from "@/components/PartnersForm";
 
 export const metadata: Metadata = {
   title: "Partners · Flame Analytics",
@@ -190,7 +190,7 @@ export default function PartnersEn() {
                 No commitment, no sales pitch.
               </p>
             </div>
-            <DemoFormInline lang={"en"} variant="partners" gridClass="" />
+            <PartnersForm lang="en" />
           </div>
         </div>
         <style>{`
