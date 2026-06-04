@@ -42,10 +42,10 @@ export const MEGA_INDUSTRIES: NavLeaf[] = [
 ];
 
 export const MEGA_COMMUNITY: NavLeaf[] = [
-  { label: "Casos de éxito", href: "/es/comunidad/casos-de-exito/", iconImg: "/wp-content/uploads/2025/09/Cases.png",      desc: "Cómo clientes reales miden y deciden con Flame." },
-  { label: "Blog",           href: "/es/comunidad/blog/",           iconImg: "/wp-content/uploads/2025/09/Interview.png",  desc: "Artículos sobre analítica del espacio físico." },
-  { label: "Webinars",       href: "/es/comunidad/webinars/",       iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Sesiones en vídeo con expertos del sector." },
-  { label: "Whitepapers",    href: "/es/comunidad/whitepapers/",    iconImg: "/wp-content/uploads/2025/09/Whitepaper1.png", desc: "Guías y estudios en profundidad." },
+  { label: "Casos de éxito", href: "/es/categoria/casos-de-exito/",  iconImg: "/wp-content/uploads/2025/09/Cases.png",      desc: "Cómo clientes reales miden y deciden con Flame." },
+  { label: "Blog",           href: "/es/categoria/blog/",            iconImg: "/wp-content/uploads/2025/09/Interview.png",  desc: "Artículos sobre analítica del espacio físico." },
+  { label: "Entrevistas",    href: "/es/categoria/entrevistas/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Conversaciones con líderes del retail." },
+  { label: "Tips Retail",    href: "/es/categoria/tips-retail/",     iconImg: "/wp-content/uploads/2025/09/Whitepaper1.png", desc: "Consejos prácticos para tu negocio." },
 ];
 
 export const LOGOS: [string, string][] = [
@@ -141,7 +141,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/customer-journey/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
   { title: "Soluciones", links: [["People Counting","/es/cuenta-personas/"],["Conversion Analytics","/es/analitica-conversion/"],["Customer Behavior","/es/customer-behavior/"],["Occupancy Management","/es/gestion-ocupacion/"],["Queue Analytics","/es/analitica-de-colas/"],["Restroom Management","/es/gestion-de-aseos/"],["Guest Wifi Marketing","/es/marketing-wifi-para-invitados/"],["Corporate Wifi Access","/es/acceso-wifi-corporativo/"]] },
   { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
-  { title: "Comunidad",  links: [["Blog","/es/comunidad/blog/"],["Casos de éxito","/es/comunidad/casos-de-exito/"],["Webinars","/es/comunidad/webinars/"],["Whitepapers","/es/comunidad/whitepapers/"]] },
+  { title: "Comunidad",  links: [["Blog","/es/categoria/blog/"],["Casos de éxito","/es/categoria/casos-de-exito/"],["Entrevistas","/es/categoria/entrevistas/"],["Tips Retail","/es/categoria/tips-retail/"]] },
   { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
 ];
 

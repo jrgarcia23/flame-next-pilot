@@ -72,10 +72,10 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   communityTitleHl: "comunidad Flame",
   communitySub: "Donde el contenido se convierte en valor para la comunidad: historias, ideas y aprendizajes con impacto.",
   communityCards: [
-    { icon: "users",    title: "Casos de éxito", href: "/es/comunidad/casos-de-exito/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
-    { icon: "reports",  title: "Blog",           href: "/es/comunidad/blog/",            img: "/wp-content/uploads/2026/01/Noticias-2.png" },
-    { icon: "calendar", title: "Webinars",       href: "/es/comunidad/webinars/",       img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
-    { icon: "reports",  title: "Whitepapers",    href: "/es/comunidad/whitepapers/",    img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
+    { icon: "users",    title: "Casos de éxito", href: "/es/categoria/casos-de-exito/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
+    { icon: "reports",  title: "Blog",           href: "/es/categoria/blog/",            img: "/wp-content/uploads/2026/01/Noticias-2.png" },
+    { icon: "calendar", title: "Entrevistas",    href: "/es/categoria/entrevistas/",     img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
+    { icon: "reports",  title: "Tips Retail",    href: "/es/categoria/tips-retail/",     img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
   ],
 };
 
@@ -151,9 +151,9 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   communityTitleHl: "Flame community",
   communitySub: "Where content becomes value for the community: stories, ideas and learnings with impact.",
   communityCards: [
-    { icon: "users",    title: "Case studies", href: "/en/community/case-studies/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
-    { icon: "reports",  title: "Blog",         href: "/en/community/blog/",          img: "/wp-content/uploads/2026/01/Noticias-2.png" },
-    { icon: "calendar", title: "Webinars",     href: "/en/community/webinars/",     img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
-    { icon: "reports",  title: "Whitepapers",  href: "/en/community/whitepapers/",  img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
+    { icon: "users",    title: "Case studies", href: "/en/category/case-studies/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
+    { icon: "reports",  title: "Blog",         href: "/en/category/blog/",          img: "/wp-content/uploads/2026/01/Noticias-2.png" },
+    { icon: "calendar", title: "Interviews",   href: "/en/category/interviews/",    img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
+    { icon: "reports",  title: "Retail",       href: "/en/category/retail/",        img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
   ],
 };
