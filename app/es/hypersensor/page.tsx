@@ -485,7 +485,7 @@ export default function HypersensorEs() {
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <form className="grid gap-4 hs-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
               <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
               <select className="cf-in" defaultValue="">
                 <option value="" disabled>
@@ -540,9 +540,13 @@ export default function HypersensorEs() {
           </div>
         </div>
         <style>{`
-          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 16px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
           .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
           @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 560px) {
+            .hs-form-grid { grid-template-columns: 1fr !important; }
+            .hs-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+          }
         `}</style>
       </section>
 

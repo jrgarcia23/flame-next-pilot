@@ -56,7 +56,7 @@ export default function ComunidadHubEs() {
           <h2 className="font-normal mb-8" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: "clamp(28px, 3.2vw, 38px)", letterSpacing: "-0.018em" }}>
             Recientes
           </h2>
-          <div className="grid gap-8" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          <div className="grid gap-8 community-recent-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
             {featured.map(p => (
               <a key={p.slug} href={`/es/${p.slug}/`} className="block group">
                 {p.hero && <div className="mb-4 rounded-2xl overflow-hidden" style={{ aspectRatio: "16/9", background: `url('${p.hero}') center/cover` }} />}
@@ -68,6 +68,10 @@ export default function ComunidadHubEs() {
             ))}
           </div>
         </div>
+        <style>{`
+          @media (max-width: 900px) { .community-recent-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+          @media (max-width: 560px) { .community-recent-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
+        `}</style>
       </section>
 
       <SiteFooter />

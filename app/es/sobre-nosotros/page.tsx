@@ -75,7 +75,7 @@ export default function SobreNosotrosEs() {
             <p className="text-[clamp(17px,1.35vw,19px)] leading-[1.55] mb-8" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "62ch", fontFamily: "var(--font-body)" }}>
               Creada en 2016, Flame se ha convertido en la principal plataforma mundial de Análisis de la Localización, que permite a miles de usuarios optimizar el valor de los visitantes y mejorar el rendimiento de los locales.
             </p>
-            <ul className="grid gap-3 mb-9" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
+            <ul className="grid gap-3 mb-9 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
               {["Fundada en 2016", "Presente en 23 países", "180+ clientes B2B", "RGPD desde el diseño"].map((b) => (
                 <li key={b} className="inline-flex items-center gap-2.5 text-[16px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
                   <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
@@ -110,7 +110,7 @@ export default function SobreNosotrosEs() {
           .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @keyframes marquee-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-          @media (max-width: 700px) { .logo-img { height: 65px; } }
+          @media (max-width: 700px) { .logo-img { height: 65px; } .hero-bullets { grid-template-columns: 1fr !important; } }
         `}</style>
       </section>
 
@@ -257,7 +257,7 @@ export default function SobreNosotrosEs() {
                 {t.contactCta}
               </p>
             </div>
-            <form className="grid gap-4" style={{ gridTemplateColumns: "1fr 1fr" }}>
+            <form className="grid gap-4 about-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
               <input className="cf-in col-span-2" type="text" placeholder={t.fName} />
               <select className="cf-in" defaultValue="">
                 <option value="" disabled>{t.fSector}</option>
@@ -284,9 +284,13 @@ export default function SobreNosotrosEs() {
           </div>
         </div>
         <style>{`
-          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 15.5px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
+          .cf-in { min-height: 52px; padding: 14px 18px; font-size: 16px; color: var(--color-navy); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 10px; font-family: inherit; width: 100%; }
           .cf-in:focus { outline: none; border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / 0.12); }
           @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr !important; } }
+          @media (max-width: 560px) {
+            .about-form-grid { grid-template-columns: 1fr !important; }
+            .about-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+          }
         `}</style>
       </section>
 
