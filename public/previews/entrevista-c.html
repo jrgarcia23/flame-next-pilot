@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Detail · C · Entrevista foto integrada</title>
+<style>
+@font-face{font-family:"Clash Grotesk Variable";src:url("/fonts/ClashGrotesk-Variable.woff2") format("woff2-variations"),url("/fonts/ClashGrotesk-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Sans Flame";src:url("/fonts/InstrumentSans-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+:root{--color-navy:#15163A;--color-accent:#31B1F8;--color-accent-deep:#0079b8;--color-paper:#FAF6F0;--color-paper-soft:#F4EFE8;--color-rule:#E5E0D8;--color-rule-strong:#D5CFC0;--color-ink:#1C1D2E;--color-ink-2:#4A4B62;--color-ink-3:#8B8C9F;--font-display:"Clash Grotesk Variable","Clash Grotesk",ui-sans-serif,system-ui,sans-serif;--font-body:"Instrument Sans Flame","Instrument Sans","Inter",ui-sans-serif,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--color-ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:28px}@media(max-width:700px){.wrap{padding-inline:20px}}
+.variant-tag{position:fixed;top:14px;right:14px;background:var(--color-navy);color:#fff;padding:7px 14px;border-radius:999px;font-size:11.5px;font-weight:700;z-index:99;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-body)}
+
+/* HEADER mock muy simple */
+.hd{padding:18px 0;border-bottom:1px solid var(--color-rule);font-family:var(--font-body);font-size:14px}
+.hd-row{display:flex;justify-content:space-between;align-items:center}
+.hd-logo{font-family:var(--font-display);font-size:22px;color:var(--color-navy);letter-spacing:-.012em;font-weight:500}
+
+/* FOOTER mock */
+.ft{background:var(--color-navy);color:rgba(255,255,255,.7);padding:48px 0 28px;font-family:var(--font-body);font-size:14px;margin-top:80px}
+.ft-cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:32px}
+.ft-logo{font-family:var(--font-display);font-size:22px;color:#fff;display:inline-block;margin-bottom:12px}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;color:rgba(255,255,255,.5);font-size:13px}
+
+/* BODY tipográfico — fuente body Instrument, tamaños generosos */
+.post-body{font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--color-ink-2)}
+.post-body p{margin:0 0 22px}
+.post-body p:first-of-type::first-letter{}
+.post-body strong{color:var(--color-ink);font-weight:600}
+.post-body a{color:var(--color-accent-deep);text-decoration:underline;text-underline-offset:3px}
+.post-body ul,.post-body ol{margin:0 0 22px 24px}
+.post-body li{margin-bottom:10px}
+.post-body blockquote{margin:32px 0;padding:0 0 0 24px;border-left:3px solid var(--color-accent);font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.32;color:var(--color-navy);letter-spacing:-.014em}
+.post-body figure{margin:32px 0}
+.post-body figure img{border-radius:6px}
+.post-body figcaption{font-size:13px;color:var(--color-ink-3);margin-top:8px;text-align:center;font-family:var(--font-body)}
+
+/* HEADINGS — light/regular, no bold */
+.post-body h2{font-family:var(--font-display);font-size:clamp(28px,2.8vw,36px);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--color-navy);margin:48px 0 16px;max-width:28ch}
+.post-body h3{font-family:var(--font-display);font-size:clamp(22px,2vw,26px);font-weight:500;letter-spacing:-.015em;line-height:1.2;color:var(--color-navy);margin:36px 0 12px;max-width:30ch}
+.post-body h4{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--color-navy);margin:28px 0 10px}
+
+.hdr{padding:clamp(72px,8vw,120px) 0 clamp(40px,5vw,72px);background:#fff;border-bottom:1px solid var(--color-rule)}
+.hdr .meta{font-family:var(--font-body);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--color-accent-deep);margin-bottom:24px}
+.hdr-grid{display:grid;grid-template-columns:260px 1fr;gap:48px;align-items:start;max-width:1100px;margin-inline:auto}
+.hdr-photo{width:260px;height:260px;border-radius:6px;background:#ddd center/cover;flex-shrink:0;box-shadow:0 18px 50px -22px rgba(15,23,42,.22)}
+.hdr-right{padding-top:0}
+.hdr h1{font-family:var(--font-display);font-size:clamp(30px,3.6vw,48px);font-weight:400;letter-spacing:-.022em;line-height:1.08;color:var(--color-navy);margin-bottom:20px}
+.hdr .by{font-family:var(--font-body);font-size:15px;color:var(--color-ink-2);line-height:1.6}
+.hdr .by strong{color:var(--color-navy);font-weight:600}
+.body-wrap{padding:48px 0 80px;max-width:760px;margin-inline:auto}
+@media(max-width:760px){.hdr-grid{grid-template-columns:1fr;gap:24px}.hdr-photo{width:180px;height:180px}}
+</style></head>
+<body>
+<div class="variant-tag">C · Entrevista foto integrada</div>
+<header class="hd"><div class="wrap hd-row"><span class="hd-logo">FLAME</span><span>Comunidad / Entrevistas</span></div></header>
+<section class="hdr">
+  <div class="wrap" style="padding-inline:0">
+    <div class="hdr-grid" style="padding-inline:28px">
+      <div class="hdr-photo" style="background-image:url('https://www.flameanalytics.com/wp-content/uploads/2026/05/Entrevista-Joaquin-Nieves-2.png')"></div>
+      <div class="hdr-right">
+        <p class="meta">Entrevista · 2026-05-21</p>
+        <h1>Javier Diloy Valenzuela: “La fidelización se construye cada día en tienda”</h1>
+        <p class="by">Una conversación con <strong>el protagonista</strong> sobre retail, fidelización y la realidad del punto de venta.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="body-wrap"><div class="wrap" style="max-width:760px"><div class="post-body"><p>El sector retail está viviendo una transformación profunda impulsada por la digitalización, la omnicanalidad y la evolución constante de las expectativas del consumidor. En este nuevo escenario, las tiendas físicas han dejado de ser únicamente puntos de venta para convertirse en espacios donde experiencia, operación y datos deben convivir de forma integrada.</p>
+<p>Para conocer cómo se vive esta evolución desde la realidad operativa de tienda, hablamos con <span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"><span class="whitespace-normal"><strong>Javier Diloy Valenzuela</strong></span></span>, director de tienda de <strong><span class="hover:entity-accent entity-underline inline cursor-pointer align-baseline"><span class="whitespace-normal">Maisons du Monde</span></span></strong>, quien comparte una visión muy ligada al día a día del retail y al impacto que la gestión, la tecnología y la analítica tienen hoy sobre el negocio.</p>
+<h2>Contexto actual del retail</h2>
+<h3>1. ¿Cómo describirías la evolución reciente del sector retail?</h3>
+<p>Llevo años trabajando en retail desde la <strong>gestión directa de tiendas y equipos</strong>, y muchas de estas reflexiones nacen del día a día de la operación.</p>
+<p>El retail ha pasado por varias etapas. Durante años el foco estaba en expandirse y en la ubicación de las tiendas. Después vino la guerra de <strong>precio y volumen</strong>. Más tarde llegó la digitalización y la integración, muchas veces forzada, del canal online.</p>
+<p>Hoy estamos en un momento diferente. La tienda ya no se puede entender solo como un punto de venta. Forma parte de algo mucho más amplio donde experiencia, operaciones y datos tienen que estar conectados.</p>
+<p>El cliente ya no distingue <strong>canales y el negocio</strong> tampoco se puede pilotar solo por intuición.</p>
+<p>Cuando gestionas tiendas esto se ve muy rápido. Si el inventario no es fiable, si la planificación no está alineada con la demanda real o si la estructura económica no se entiende bien, la tienda pierde velocidad.</p>
+<p><strong>El retail</strong> sigue vendiendo producto, claro, pero cada vez compite más por coherencia en cómo ejecuta.</p>
+<h3>2. ¿Qué retos consideras más urgentes para las tiendas físicas en este contexto?</h3>
+<p>El mayor reto que veo no es tecnológico, es estructural. La tienda física ya no es solo un espacio donde se vende. Hoy forma parte de un sistema donde cada decisión afecta a la <strong>experiencia del cliente, al margen y a la operación</strong>.</p>
+<p>El primer reto es dejar de improvisar. La tienda necesita sistema: inventario exacto, planificación de horas alineada con el <strong>volumen real de negocio y claridad</strong> económica. Cuando el porcentaje de horas y el porcentaje de cifra no están equilibrados, la tensión aparece. Primero en lo operativo, después en el servicio y al final en el margen.</p>
+<p>El segundo reto es entender bien la complejidad real del trabajo en tienda. Hoy una tienda vende, recoge pedidos, gestiona devoluciones, asesora y resuelve incidencias. Si solo medimos venta por hora estamos viendo una parte muy pequeña del esfuerzo real. El coste total de servir al cliente tiene que entrar en la ecuación.</p>
+<p>El tercer reto tiene que ver con la postventa. La devolución sin fricción ya forma parte del modelo. Cuando la omnicanalidad falla ahí, el sistema entero se resiente.</p>
+<p>Y el cuarto es cultural. Cada vez es más importante profesionalizar el <strong>liderazgo en tienda</strong>. Entender la cuenta de explotación, saber leer margen y rotación, y conectar decisiones operativas con impacto económico.</p>
+<p>En el fondo el cambio es bastante claro: pasar de gestionar una tienda a pilotar un negocio.</p>
+<h3>3. ¿Qué papel juega la omnicanalidad en la estrategia de los retailers hoy en día y cuáles son los casos de éxito?</h3>
+<p><strong>La omnicanalidad</strong> ya no es una ventaja competitiva. Es una expectativa básica del cliente.</p>
+<p>El consumidor espera poder comprar, devolver, recoger o consultar stock sin percibir diferencias entre canales, y eso obliga a las compañías a trabajar con una lógica mucho más integrada.</p>
+<p>Cuando online y tienda física no comparten información, inventario o procesos, aparecen fricciones muy rápidas tanto para el cliente como para los equipos.</p>
+<p>La omnicanalidad real no consiste solo en añadir canales. Consiste en conectar <strong>operación, servicio y datos</strong> para que todo funcione de manera coherente.</p>
+<p>Porque el cliente no percibe departamentos. Percibe experiencia.</p>
+<h2>Innovación y tecnología en retail</h2>
+<h3>4. ¿Cómo crees que la tecnología está transformando la experiencia de compra en tienda y qué innovaciones o herramientas están marcando tendencia actualmente?</h3>
+<p>La tecnología que realmente transforma el <strong>retail</strong> no suele ser la más visible. Es la que ordena el sistema.</p>
+<p><strong>Inventario</strong> más preciso, <strong>planificación</strong> más ajustada y decisiones apoyadas en <strong>datos fiables.</strong></p>
+<p>Cuando la tecnología está bien aplicada reduce errores operativos y libera tiempo, y ese tiempo acaba traduciéndose en servicio.</p>
+<p>El riesgo hoy no es quedarse atrás en herramientas. El riesgo es añadir tecnología sin mejorar los procesos.</p>
+<p>La<strong> transformación real del retail</strong> pasa muchas veces por simplificar y que eso nos lleve a tener más tiempo para lo importante: que personas atiendan a personas.</p>
+<h3>5. En términos de datos y analítica, ¿qué métricas consideras esenciales para mejorar la toma de decisiones en retail?</h3>
+<p>El dato solo tiene valor cuando te ayuda a cambiar una decisión. En tienda hay <strong>muchas métricas</strong>, pero al final siempre vuelvo a cuatro bloques.</p>
+<p>El primero es el motor comercial: tráfico, conversión, ticket medio y unidades por ticket. Cuando uno se mueve suele acabar impactando en los demás.</p>
+<p>El segundo tiene que ver con la <strong>rentabilidad</strong>: margen, mix de producto, rotación y coste de personal.</p>
+<p>Luego está la ejecución: inventario fiable, roturas de stock y cumplimiento operativo. Si eso falla, el resto se resiente muy rápido.</p>
+<p>Y por último la estructura de horas, es decir, cómo se relaciona el porcentaje de horas con el porcentaje de cifra en cada periodo. Cuando esa parte está alineada, la tienda puede sostener operación y servicio al mismo tiempo.</p>
+<p><strong>La analítica</strong> bien utilizada no es solo control. Es una herramienta para dirigir mejor el negocio.</p>
+<h2>Estrategias de éxito en retail</h2>
+<h3>6. ¿Cuáles son las claves para que una tienda tenga éxito hoy en día y cómo pueden los retailers mejorar la fidelización y la experiencia del cliente?</h3>
+<p>Diría que la palabra es <strong>coherencia</strong>.</p>
+<p>Básicos bien ejecutados, disciplina operativa, lectura económica constante, planificación alineada con la demanda real, un estándar claro pero con capacidad de adaptación local y un equipo formado que entienda el negocio.</p>
+<p>Una <strong>tienda</strong> funciona bien cuando el sistema es sólido y el equipo entiende cómo su trabajo impacta en el resultado.</p>
+<h3>7. ¿Crees que existe un equilibrio ideal entre la tienda física y el comercio online?</h3>
+<p>No creo que exista un porcentaje ideal. Lo importante es la <strong>integración</strong>. Cuando ambos entornos comparten datos, inventario y lógica económica, se refuerzan mutuamente.</p>
+<p>El cliente no percibe canales. Percibe coherencia y ese punto es donde se genera el equilibrio ideal.</p>
+<h2>Mirando al futuro</h2>
+<h3>8. ¿Cómo imaginas el retail dentro de 5 o 10 años?</h3>
+<p>Probablemente veremos un <strong>retai</strong>l más automatizado en la base operativa, también más exigente en términos de rentabilidad y, paradójicamente, más diferencial en lo humano.</p>
+<p>La tecnología hará que el sistema sea cada vez más preciso, pero la experiencia seguirá dependiendo mucho del <strong>liderazgo</strong> y de las personas.</p>
+<p>Y aquí estará la diferencia real entre los <strong>retailers</strong> que se coman el mercado y los que se dediquen a sobrevivir.</p>
+<h3>9. ¿Qué tendencias crees que marcarán el futuro de las tiendas físicas?</h3>
+<p>Hay algunas líneas bastante claras.</p>
+<p>Inventario fiable como estándar básico, mayor <strong>profesionalización</strong> económica en tienda, espacios adaptados al <strong>comportamiento real del cliente</strong>, integración total entre venta y servicio, uso más inteligente del conocimiento del cliente y equilibrio entre un marco común de marca y adaptación local.</p>
+<p><strong>La tienda del futuro</strong> probablemente no será necesariamente más llamativa, pero sí más profesional, más integrada, más personalizada y mejor gestionada.</p>
+</div></div></section>
+<footer class="ft"><div class="wrap"><div class="ft-cols"><span class="ft-logo">FLAME</span><span>© 2026 Flame Analytics</span></div><div class="ft-bottom">Footer simulado</div></div></footer>
+</body></html>
