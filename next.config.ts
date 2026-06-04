@@ -8,6 +8,33 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ══════════════════════════════════════════════════════════════════
+      // SEO 301s — preservar URLs históricas WP (Google Search Console)
+      // ══════════════════════════════════════════════════════════════════
+
+      // /es/category/<slug>/ (WP standard) → /es/categoria/<slug>/ (Next)
+      // El WP demo servía /category/ en ES; Next usa /categoria/. Sin esto Google ve 404.
+      { source: "/es/category/:slug",                destination: "/es/categoria/:slug/",                permanent: true },
+      { source: "/es/category/:slug/page/:page",     destination: "/es/categoria/:slug/page/:page/",     permanent: true },
+
+      // /es/tag/<slug>/ → comunidad (Next no tiene tags; mandamos al hub)
+      { source: "/es/tag/:slug",                     destination: "/es/comunidad/",                      permanent: true },
+      { source: "/en/tag/:slug",                     destination: "/en/community/",                      permanent: true },
+
+      // /es/comunidad/<sub>/  → /es/categoria/<slug>/
+      // (subrutas que existieron brevemente y luego eliminé; Google puede haberlas cacheado)
+      { source: "/es/comunidad/blog/",               destination: "/es/categoria/blog/",                 permanent: true },
+      { source: "/es/comunidad/casos-de-exito/",     destination: "/es/categoria/casos-de-exito/",       permanent: true },
+      { source: "/es/comunidad/webinars/",           destination: "/es/categoria/webinars-es-cat/",      permanent: true },
+      { source: "/es/comunidad/entrevistas/",        destination: "/es/categoria/entrevistas/",          permanent: true },
+      { source: "/es/comunidad/whitepapers/",        destination: "/es/comunidad/",                      permanent: true },
+      // EN equivalentes
+      { source: "/en/community/blog/",               destination: "/en/category/blog/",                  permanent: true },
+      { source: "/en/community/case-studies/",       destination: "/en/category/case-studies/",          permanent: true },
+      { source: "/en/community/webinars/",           destination: "/en/category/webinars/",              permanent: true },
+      { source: "/en/community/interviews/",         destination: "/en/category/interviews/",            permanent: true },
+      { source: "/en/community/whitepapers/",        destination: "/en/community/",                      permanent: true },
+
       // ── Páginas "Conoce al equipo" — integradas en /sobre-nosotros y /about-us ──
 
       // ── Hub de whitepapers (no existe en Next, va al hub comunidad/community) ──
