@@ -1,13 +1,15 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { BlogPost, categoryLabel, categoryUrl, formatDate, readingTime, getRelatedPosts, shortExcerpt, Lang } from "@/lib/blog";
+import { injectInternalLinks } from "@/lib/internal-linking";
 
 const I18N = {
   es: {
     breadcrumbHome: "Inicio", min: "min de lectura", related: "Posts relacionados",
     toc: "Contenido del artículo",
     midCtaEyebrow: "Ver Flame en acción",
-    midCtaTitle: "¿Quieres ver cómo lo medirías en tu espacio?",
+    midCtaTitle1: "¿Quieres ver cómo lo medirías en tu espacio?",
+    midCtaTitle2: "Más datos, menos suposiciones: pasa de la teoría a la práctica",
     midCtaBtn: "Solicita una demo",
     endCtaEyebrow: "Demo personalizada · 20 minutos",
     endCtaTitle: "Convierte el tráfico físico en decisiones de negocio",
@@ -18,7 +20,8 @@ const I18N = {
     breadcrumbHome: "Home", min: "min read", related: "Related posts",
     toc: "Article contents",
     midCtaEyebrow: "See Flame in action",
-    midCtaTitle: "Want to see how this works in your space?",
+    midCtaTitle1: "Want to see how this works in your space?",
+    midCtaTitle2: "More data, fewer assumptions: from theory to practice",
     midCtaBtn: "Request a demo",
     endCtaEyebrow: "Personalised demo · 20 minutes",
     endCtaTitle: "Turn physical traffic into business decisions",
@@ -27,35 +30,56 @@ const I18N = {
   },
 };
 
-/** Extrae los H2 (texto plano) del HTML para construir el TOC. */
 function extractH2Titles(html: string): { id: string; title: string }[] {
   const matches = Array.from(html.matchAll(/<h2(?:\s[^>]*)?>([\s\S]*?)<\/h2>/g));
   return matches.map((m, i) => ({ id: `h${i}`, title: m[1].replace(/<[^>]+>/g, "").trim() }));
 }
 
-/** Selecciona una cita corta del primer tercio del post para inyectarla como pull-quote. */
-function pickPullQuote(html: string): string {
-  const ps = Array.from(html.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/g))
-    .map(m => m[1].replace(/<[^>]+>/g, "").trim())
-    .filter(s => s.length > 80 && s.length < 400 && !/&nbsp;/.test(s));
-  if (!ps.length) return "";
-  // Tomar uno del primer tercio
-  const target = ps[Math.floor(ps.length * 0.25)] || ps[0];
-  // Primera frase
-  const m = target.match(/^[^.!?]+[.!?]/);
-  return (m ? m[0] : target).trim();
+/**
+ * Selecciona oraciones impactantes para usar como pull-quotes.
+ * Devuelve hasta `count` frases distintas (de distintos párrafos) ordenadas
+ * por su posición original en el documento.
+ */
+function pickPullQuotes(html: string, count: number): string[] {
+  const paragraphs = Array.from(html.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/g))
+    .map((m, i) => ({ idx: i, text: m[1].replace(/<[^>]+>/g, "").trim() }))
+    .filter(p => p.text.length > 80 && p.text.length < 400 && !/&nbsp;/.test(p.text));
+  if (paragraphs.length < 2) return [];
+  // Espaciar uniformemente los pull-quotes a lo largo del post
+  const picks: string[] = [];
+  for (let i = 0; i < count; i++) {
+    const fraction = (i + 1) / (count + 1);
+    const target = paragraphs[Math.floor(paragraphs.length * fraction)] || paragraphs[paragraphs.length - 1];
+    const firstSentence = target.text.match(/^[^.!?]+[.!?]/);
+    const quote = (firstSentence ? firstSentence[0] : target.text.slice(0, 200)).trim();
+    if (quote && !picks.includes(quote)) picks.push(quote);
+  }
+  return picks;
 }
 
-/**
- * Procesa el HTML del post:
- * - Elimina la 1ª figura/imagen redundante al inicio (la portada ya está en el listado).
- * - Asigna IDs a los H2.
- * - Inyecta TOC al inicio, pull-quote en el 1er cuarto, CTA intermedio a la mitad.
- */
-function processPostHtml(html: string, tocHtml: string, pullQuoteHtml: string, midCtaHtml: string): string {
+type InjectionPlan = {
+  pullQuotes: string[];   // HTML completo de cada pull-quote a inyectar
+  midCtas: string[];      // HTML completo de cada CTA intermedio
+};
+
+/** Decide cuántos pull-quotes y CTAs intermedios meter según longitud del post. */
+function planInjections(pCount: number, hasTable: boolean, quotes: string[], midCta1: string, midCta2: string): { pullCount: number; ctaCount: number } {
+  if (pCount >= 25) {
+    return { pullCount: Math.min(2, quotes.length), ctaCount: 2 };
+  }
+  if (pCount >= 15) {
+    return { pullCount: Math.min(hasTable ? 2 : 1, quotes.length), ctaCount: 1 };
+  }
+  if (pCount >= 8) {
+    return { pullCount: Math.min(1, quotes.length), ctaCount: 1 };
+  }
+  return { pullCount: 0, ctaCount: 0 };
+}
+
+function processPostHtml(html: string, tocHtml: string, currentPath: string, lang: Lang, t: typeof I18N["es"]): string {
   let processed = html;
 
-  // 1. Limpiar imágenes/figures iniciales (1 o 2 elementos)
+  // 1. Limpiar imágenes iniciales
   for (let i = 0; i < 2; i++) {
     processed = processed
       .replace(/^\s*<figure[^>]*>[\s\S]*?<\/figure>\s*/, "")
@@ -64,34 +88,65 @@ function processPostHtml(html: string, tocHtml: string, pullQuoteHtml: string, m
       .replace(/^\s*<div[^>]*class=["'][^"']*wp-block-image[^"']*["'][^>]*>[\s\S]*?<\/div>\s*/, "");
   }
 
-  // 2. IDs a H2
+  // 2. IDs en H2
   let idx = 0;
   processed = processed.replace(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/g, (match, attrs = "", text) => {
     if (/\sid=/.test(attrs || "")) return match;
     return `<h2${attrs || ""} id="h${idx++}">${text}</h2>`;
   });
 
-  // 3. Recolectar posiciones de cierre de párrafos para inyecciones
+  // 3. Enlaces internos contextuales (antes de inyectar elementos, sobre el HTML real del post)
+  processed = injectInternalLinks(processed, currentPath, lang);
+
+  // 4. Contar párrafos y elementos especiales
   const pCloses: number[] = [];
   let pos = -1;
   while ((pos = processed.indexOf("</p>", pos + 1)) !== -1) pCloses.push(pos + 4);
+  const pCount = pCloses.length;
+  const hasTable = /<table\b/i.test(processed);
 
-  // Inyectar de mayor índice a menor para no descolocar offsets
-  const inserts: { pos: number; html: string }[] = [];
-  if (midCtaHtml && pCloses.length >= 6) {
-    const mid = pCloses[Math.floor(pCloses.length / 2)];
-    inserts.push({ pos: mid, html: midCtaHtml });
+  // 5. Recolectar pull-quotes posibles + CTAs intermedios
+  const allQuotes = pickPullQuotes(html, 3); // Tomamos del HTML original sin links inyectados para evitar romper anchors
+  const midCta1 = `<aside class="mid-cta"><div class="mid-cta-text"><p class="mid-cta-eyebrow">${t.midCtaEyebrow}</p><p class="mid-cta-title">${t.midCtaTitle1}</p></div><a href="/${lang}/#contact" class="mid-cta-btn">${t.midCtaBtn} →</a></aside>`;
+  const midCta2 = `<aside class="mid-cta"><div class="mid-cta-text"><p class="mid-cta-eyebrow">${t.midCtaEyebrow}</p><p class="mid-cta-title">${t.midCtaTitle2}</p></div><a href="/${lang}/#contact" class="mid-cta-btn">${t.midCtaBtn} →</a></aside>`;
+
+  const plan = planInjections(pCount, hasTable, allQuotes, midCta1, midCta2);
+
+  // 6. Construir lista de inserciones {pos, html}
+  type Insert = { pos: number; html: string };
+  const inserts: Insert[] = [];
+
+  // Pull-quotes: distribuidos uniformemente
+  if (plan.pullCount > 0 && pCount >= 4) {
+    for (let i = 0; i < plan.pullCount; i++) {
+      // Fracciones: para 1 quote → 0.30; para 2 → 0.22, 0.65
+      const fractions = plan.pullCount === 1 ? [0.3] : [0.22, 0.65];
+      const fraction = fractions[i];
+      const targetIdx = Math.floor(pCount * fraction);
+      const insertPos = pCloses[Math.min(targetIdx, pCloses.length - 1)];
+      const quoteHtml = `<blockquote class="auto-pull-quote">${allQuotes[i]}</blockquote>`;
+      inserts.push({ pos: insertPos, html: quoteHtml });
+    }
   }
-  if (pullQuoteHtml && pCloses.length >= 4) {
-    const q = pCloses[Math.floor(pCloses.length / 4)];
-    inserts.push({ pos: q, html: pullQuoteHtml });
+
+  // CTAs intermedios
+  if (plan.ctaCount > 0 && pCount >= 6) {
+    const fractions = plan.ctaCount === 1 ? [0.5] : [0.38, 0.74];
+    for (let i = 0; i < plan.ctaCount; i++) {
+      const fraction = fractions[i];
+      const targetIdx = Math.floor(pCount * fraction);
+      const insertPos = pCloses[Math.min(targetIdx, pCloses.length - 1)];
+      inserts.push({ pos: insertPos, html: i === 0 ? midCta1 : midCta2 });
+    }
   }
+
+  // 7. Insertar de mayor a menor pos para no desplazar índices
   inserts.sort((a, b) => b.pos - a.pos);
   for (const ins of inserts) {
     processed = processed.slice(0, ins.pos) + ins.html + processed.slice(ins.pos);
   }
 
-  // 4. TOC arriba del contenido
+  // 8. TOC al inicio
   if (tocHtml) processed = tocHtml + processed;
 
   return processed;
@@ -105,10 +160,8 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
   const minutes = readingTime(post.html);
   const related = getRelatedPosts(post.slug, post.category.slug, lang, 3);
   const enHref = lang === "es" ? `/en/` : `/es/`;
+  const currentPath = `/${lang}/${post.slug}/`;
 
-  // Formato editorial enriquecido (TOC + pull-quote + CTA intermedio + CTA final) solo
-  // para posts cat="blog". Entrevistas/casos/webinars conservan el template clásico
-  // hasta que JR confirme cada formato.
   const isStandardBlogPost = post.category.slug === "blog";
 
   const h2s = isStandardBlogPost ? extractH2Titles(post.html) : [];
@@ -117,15 +170,8 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
     ? `<nav class="toc-top"><h4>${t.toc}</h4><ol>${h2s.map(h => `<li><a href="#${h.id}">${h.title}</a></li>`).join("")}</ol></nav>`
     : "";
 
-  const quote = isStandardBlogPost ? pickPullQuote(post.html) : "";
-  const pullQuoteHtml = quote ? `<blockquote class="auto-pull-quote">${quote}</blockquote>` : "";
-
-  const midCtaHtml = isStandardBlogPost
-    ? `<aside class="mid-cta"><div class="mid-cta-text"><p class="mid-cta-eyebrow">${t.midCtaEyebrow}</p><p class="mid-cta-title">${t.midCtaTitle}</p></div><a href="/${lang}/#contact" class="mid-cta-btn">${t.midCtaBtn} →</a></aside>`
-    : "";
-
   const processedHtml = isStandardBlogPost
-    ? processPostHtml(post.html, tocHtml, pullQuoteHtml, midCtaHtml)
+    ? processPostHtml(post.html, tocHtml, currentPath, lang, t)
     : post.html;
 
   return (
@@ -133,7 +179,6 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
       <CtaStyles />
       <SiteHeader currentLang={lang} enHref={enHref} />
 
-      {/* HERO post — fondo navy con título */}
       <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(72px, 8.4vw, 116px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.14), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.08), transparent 72%)" }} />
         <div className="flame-container relative z-10" style={{ maxWidth: 820 }}>
@@ -153,17 +198,13 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
         </div>
       </section>
 
-      {/* BODY */}
       <article className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
-          {/* Entrevistas/casos/webinars conservan la imagen hero arriba del cuerpo;
-              en posts cat="blog" no se muestra ninguna imagen (la del listado ya está). */}
           {!isStandardBlogPost && (post.thumbnail || post.hero) && (
             <div className="mx-auto mb-10 rounded-2xl overflow-hidden" style={{ maxWidth: 760, aspectRatio: "16/9", background: `url('${post.thumbnail || post.hero}') center/cover`, boxShadow: "0 18px 50px -22px rgb(15 23 42 / 0.22)" }} />
           )}
           <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "18px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
-          {/* CTA final inline (solo posts blog) */}
           {isStandardBlogPost && (
             <aside className="mx-auto end-cta" style={{ maxWidth: 760, marginTop: 64 }}>
               <div className="end-cta-text">
@@ -188,13 +229,14 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 19px; margin: 28px 0 10px; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a:hover { color: var(--color-accent); }
+          .post-body a.auto-link { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
+          .post-body a.auto-link:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
           .post-body ul, .post-body ol { margin: 0 0 22px 24px; }
           .post-body li { margin-bottom: 10px; }
           .post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
           .post-body figure { margin: 32px 0; }
           .post-body figcaption { font-size: 13px; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
 
-          /* Blockquote y pull-quote auto-inyectado: pull-quote editorial */
           .post-body blockquote,
           .post-body .auto-pull-quote {
             margin: 48px 0;
@@ -210,7 +252,6 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             max-width: 34ch;
           }
 
-          /* Tablas con thead fondo azulito transparente */
           .post-body table {
             width: 100%;
             border-collapse: collapse;
@@ -221,26 +262,11 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             border-bottom: 2px solid var(--color-navy);
           }
           .post-body thead { background: rgba(49, 177, 248, 0.06); }
-          .post-body th {
-            text-align: left;
-            padding: 14px 16px;
-            font-family: var(--font-display);
-            font-weight: 500;
-            font-size: 14px;
-            color: var(--color-navy);
-            letter-spacing: -0.005em;
-            border-bottom: 1px solid var(--color-rule);
-          }
-          .post-body td {
-            padding: 14px 16px;
-            border-bottom: 1px solid var(--color-rule);
-            color: var(--color-ink-2);
-            line-height: 1.5;
-          }
+          .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--color-navy); letter-spacing: -0.005em; border-bottom: 1px solid var(--color-rule); }
+          .post-body td { padding: 14px 16px; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); line-height: 1.5; }
           .post-body tbody tr:nth-child(even) { background: rgba(49, 177, 248, 0.03); }
           .post-body tbody tr:last-child td { border-bottom: 0; }
 
-          /* TOC arriba (primer elemento del body) — fondo azulito transparente */
           .post-body .toc-top {
             background: rgba(49, 177, 248, 0.06);
             border: 1px solid rgba(49, 177, 248, 0.16);
@@ -248,58 +274,13 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             padding: 28px 32px;
             margin: 0 0 40px;
           }
-          .post-body .toc-top h4 {
-            font-family: var(--font-body);
-            font-size: 11.5px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--color-accent-deep);
-            margin-bottom: 18px;
-            max-width: none;
-          }
-          .post-body .toc-top ol {
-            list-style: none;
-            counter-reset: toc;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px 32px;
-          }
-          .post-body .toc-top li {
-            counter-increment: toc;
-            padding-left: 32px;
-            position: relative;
-            line-height: 1.4;
-            font-family: var(--font-body);
-            margin-bottom: 0;
-          }
-          .post-body .toc-top li::before {
-            content: counter(toc, decimal-leading-zero);
-            position: absolute;
-            left: 0;
-            top: 1px;
-            font-family: var(--font-display);
-            font-size: 13px;
-            color: var(--color-accent-deep);
-            font-weight: 500;
-            letter-spacing: 0.04em;
-          }
-          .post-body .toc-top li a {
-            font-size: 14.5px;
-            color: var(--color-ink-2);
-            line-height: 1.4;
-            border-bottom: 1px solid transparent;
-            text-decoration: none;
-            padding-bottom: 1px;
-          }
-          .post-body .toc-top li a:hover {
-            color: var(--color-navy);
-            border-color: var(--color-accent);
-          }
+          .post-body .toc-top h4 { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin-bottom: 18px; max-width: none; }
+          .post-body .toc-top ol { list-style: none; counter-reset: toc; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 32px; }
+          .post-body .toc-top li { counter-increment: toc; padding-left: 32px; position: relative; line-height: 1.4; font-family: var(--font-body); margin-bottom: 0; }
+          .post-body .toc-top li::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0; top: 1px; font-family: var(--font-display); font-size: 13px; color: var(--color-accent-deep); font-weight: 500; letter-spacing: 0.04em; }
+          .post-body .toc-top li a { font-size: 14.5px; color: var(--color-ink-2); line-height: 1.4; border-bottom: 1px solid transparent; text-decoration: none; padding-bottom: 1px; }
+          .post-body .toc-top li a:hover { color: var(--color-navy); border-color: var(--color-accent); }
 
-          /* CTA intermedio inline — cyan claro, horizontal */
           .post-body .mid-cta {
             margin: 48px 0;
             background: rgba(49, 177, 248, 0.08);
@@ -313,48 +294,11 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             flex-wrap: wrap;
           }
           .post-body .mid-cta-text { flex: 1; min-width: 220px; }
-          .post-body .mid-cta-eyebrow {
-            font-family: var(--font-body);
-            font-size: 11.5px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--color-accent-deep);
-            margin: 0 0 6px;
-          }
-          .post-body .mid-cta-title {
-            font-family: var(--font-display);
-            font-size: clamp(18px, 1.9vw, 22px);
-            font-weight: 500;
-            line-height: 1.25;
-            color: var(--color-navy);
-            letter-spacing: -0.012em;
-            margin: 0;
-            max-width: 30ch;
-          }
-          .post-body .mid-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--color-accent);
-            color: #fff !important;
-            font-family: var(--font-body);
-            font-weight: 700;
-            font-size: 14.5px;
-            padding: 12px 22px;
-            border-radius: 4px;
-            text-decoration: none !important;
-            border: none;
-            flex-shrink: 0;
-            transition: filter 240ms, transform 240ms, box-shadow 240ms;
-          }
-          .post-body .mid-cta-btn:hover {
-            filter: brightness(0.94);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18);
-          }
+          .post-body .mid-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin: 0 0 6px; }
+          .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(18px, 1.9vw, 22px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
+          .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 14.5px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; border: none; flex-shrink: 0; transition: filter 240ms, transform 240ms, box-shadow 240ms; }
+          .post-body .mid-cta-btn:hover { filter: brightness(0.94); transform: translateY(-1px); box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18); }
 
-          /* CTA final inline — banda navy horizontal */
           .end-cta {
             background: var(--color-navy);
             border-radius: 14px;
@@ -367,33 +311,9 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             color: #fff;
           }
           .end-cta-text { flex: 1; min-width: 280px; }
-          .end-cta-eyebrow {
-            font-family: var(--font-body);
-            font-size: 11.5px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            font-weight: 700;
-            color: var(--color-accent);
-            margin-bottom: 10px;
-          }
-          .end-cta-title {
-            font-family: var(--font-display);
-            font-size: clamp(22px, 2.4vw, 28px);
-            font-weight: 400;
-            line-height: 1.2;
-            color: #fff;
-            letter-spacing: -0.014em;
-            margin: 0 0 10px;
-            max-width: 28ch;
-          }
-          .end-cta-sub {
-            font-family: var(--font-body);
-            font-size: 15px;
-            line-height: 1.55;
-            color: rgba(255, 255, 255, 0.74);
-            margin: 0;
-            max-width: 58ch;
-          }
+          .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
+          .end-cta-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
+          .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0; max-width: 58ch; }
 
           @media (max-width: 700px) {
             .post-body { font-size: 17px !important; line-height: 1.7; }
@@ -405,7 +325,6 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
         `}</style>
       </article>
 
-      {/* RELATED */}
       {related.length > 0 && (
         <section className="py-16" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
