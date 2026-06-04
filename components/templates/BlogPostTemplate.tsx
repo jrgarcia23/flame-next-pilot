@@ -99,7 +99,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
         </section>
       )}
 
-      <SiteFooter currentLang={currentLang} />
+      <SiteFooter currentLang={lang} />
     </>
   );
 }

@@ -25,21 +25,21 @@ export const MEGA_PRODUCTS: NavLeaf[] = [
 ];
 
 export const MEGA_USE_CASES: NavLeaf[] = [
-  { label: "People Counting",      href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo con IA, sin biometría." },
-  { label: "Conversion Analytics", href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Conversión real cruzada con TPV." },
-  { label: "Customer Behavior",    href: "/es/customer-behavior/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor y dwell time." },
-  { label: "Occupancy",            href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación con alertas de capacidad." },
-  { label: "Queue Analytics",      href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera en caja." },
-  { label: "Restroom",             href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza por uso real." },
-  { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Captura + marketing." },
-  { label: "Corporate WiFi",       href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Acceso seguro empleados." },
+  { label: "People Counting",      href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
+  { label: "Conversion Analytics", href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
+  { label: "Customer Behavior",    href: "/es/customer-behavior/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
+  { label: "Occupancy",            href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
+  { label: "Queue Analytics",      href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
+  { label: "Restroom",             href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
+  { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
+  { label: "Corporate WiFi",       href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
 ];
 
 export const MEGA_INDUSTRIES: NavLeaf[] = [
-  { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Conversión por tienda y red." },
-  { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Tráfico y mix de tiendas." },
-  { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Datos del huésped al CRM." },
-  { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Museos, transporte, campus." },
+  { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Más conversión y staffing dinámico en tienda." },
+  { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimiza el mix de inquilinos y la afluencia." },
+  { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
+  { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
 ];
 
 export const MEGA_COMMUNITY: NavLeaf[] = [
