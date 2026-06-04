@@ -30,56 +30,86 @@ const I18N = {
   },
 };
 
-function extractH2Titles(html: string): { id: string; title: string }[] {
-  const matches = Array.from(html.matchAll(/<h2(?:\s[^>]*)?>([\s\S]*?)<\/h2>/g));
-  return matches.map((m, i) => ({ id: `h${i}`, title: m[1].replace(/<[^>]+>/g, "").trim() }));
+// Posts especiales (eventos, webinars, landings con maquetación propia)
+// que NO deben pasar por el procesamiento editorial automático.
+// Detectado por patrón de slug.
+const NON_EDITORIAL_SLUG_PATTERNS = [
+  /flame-talks-\d{4}/i,
+  /apuntate-a-flame-talks/i,
+  /flame-talks-retail/i,
+  /^proximo-webinar/i,
+  /^next-webinar/i,
+  /^new-webinar/i,
+  /^webinar-flame/i,
+  /^inscribete/i,
+];
+
+function shouldUseEditorialFormat(slug: string, categorySlug: string): boolean {
+  if (categorySlug !== "blog") return false;
+  return !NON_EDITORIAL_SLUG_PATTERNS.some(re => re.test(slug));
 }
 
-/**
- * Selecciona oraciones impactantes para usar como pull-quotes.
- * Devuelve hasta `count` frases distintas (de distintos párrafos) ordenadas
- * por su posición original en el documento.
- */
+// Detecta si el HTML del post ya trae elementos destacados editoriales
+// (lead, pull-quote, blockquote o div con border-left). Si los hay,
+// no inyectamos pull-quotes automáticos para no saturar.
+function hasExistingHighlights(html: string): boolean {
+  if (/<blockquote\b/i.test(html)) return true;
+  if (/class=["'][^"']*\b(?:fa-lead|pull-quote|callout|highlight)\b/i.test(html)) return true;
+  return false;
+}
+
+// TOC con fallback: usa H2 si hay ≥3, si no usa H3 si hay ≥3.
+// Devuelve { items, htmlWithIds } donde los IDs se han asignado al nivel que toque.
+function prepareTocAndIds(html: string): { items: { id: string; title: string }[]; htmlWithIds: string } {
+  const h2Count = (html.match(/<h2\b/g) || []).length;
+  const h3Count = (html.match(/<h3\b/g) || []).length;
+  const useH3 = h2Count < 3 && h3Count >= 3;
+  const level = useH3 ? "h3" : "h2";
+  const items: { id: string; title: string }[] = [];
+  let idx = 0;
+  const re = new RegExp(`<${level}(\\s[^>]*)?>([\\s\\S]*?)<\\/${level}>`, "g");
+  const htmlWithIds = html.replace(re, (match, attrs = "", text) => {
+    if (/\sid=/.test(attrs || "")) {
+      const idMatch = (attrs || "").match(/id=["']([^"']+)["']/);
+      if (idMatch) {
+        items.push({ id: idMatch[1], title: text.replace(/<[^>]+>/g, "").trim() });
+      }
+      return match;
+    }
+    const id = `h${idx}`;
+    items.push({ id, title: text.replace(/<[^>]+>/g, "").trim() });
+    idx++;
+    return `<${level}${attrs || ""} id="${id}">${text}</${level}>`;
+  });
+  return { items, htmlWithIds };
+}
+
 function pickPullQuotes(html: string, count: number): string[] {
   const paragraphs = Array.from(html.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/g))
-    .map((m, i) => ({ idx: i, text: m[1].replace(/<[^>]+>/g, "").trim() }))
-    .filter(p => p.text.length > 80 && p.text.length < 400 && !/&nbsp;/.test(p.text));
+    .map(m => m[1].replace(/<[^>]+>/g, "").trim())
+    .filter(s => s.length > 80 && s.length < 400 && !/&nbsp;/.test(s));
   if (paragraphs.length < 2) return [];
-  // Espaciar uniformemente los pull-quotes a lo largo del post
   const picks: string[] = [];
   for (let i = 0; i < count; i++) {
     const fraction = (i + 1) / (count + 1);
     const target = paragraphs[Math.floor(paragraphs.length * fraction)] || paragraphs[paragraphs.length - 1];
-    const firstSentence = target.text.match(/^[^.!?]+[.!?]/);
-    const quote = (firstSentence ? firstSentence[0] : target.text.slice(0, 200)).trim();
+    const firstSentence = target.match(/^[^.!?]+[.!?]/);
+    const quote = (firstSentence ? firstSentence[0] : target.slice(0, 200)).trim();
     if (quote && !picks.includes(quote)) picks.push(quote);
   }
   return picks;
 }
 
-type InjectionPlan = {
-  pullQuotes: string[];   // HTML completo de cada pull-quote a inyectar
-  midCtas: string[];      // HTML completo de cada CTA intermedio
-};
-
-/** Decide cuántos pull-quotes y CTAs intermedios meter según longitud del post. */
-function planInjections(pCount: number, hasTable: boolean, quotes: string[], midCta1: string, midCta2: string): { pullCount: number; ctaCount: number } {
-  if (pCount >= 25) {
-    return { pullCount: Math.min(2, quotes.length), ctaCount: 2 };
-  }
-  if (pCount >= 15) {
-    return { pullCount: Math.min(hasTable ? 2 : 1, quotes.length), ctaCount: 1 };
-  }
-  if (pCount >= 8) {
-    return { pullCount: Math.min(1, quotes.length), ctaCount: 1 };
-  }
-  return { pullCount: 0, ctaCount: 0 };
-}
-
-function processPostHtml(html: string, tocHtml: string, currentPath: string, lang: Lang, t: typeof I18N["es"]): string {
+function processPostHtml(
+  html: string,
+  tocHtml: string,
+  currentPath: string,
+  lang: Lang,
+  t: typeof I18N["es"],
+  hasInlineHighlights: boolean,
+): string {
   let processed = html;
 
-  // 1. Limpiar imágenes iniciales
   for (let i = 0; i < 2; i++) {
     processed = processed
       .replace(/^\s*<figure[^>]*>[\s\S]*?<\/figure>\s*/, "")
@@ -88,65 +118,51 @@ function processPostHtml(html: string, tocHtml: string, currentPath: string, lan
       .replace(/^\s*<div[^>]*class=["'][^"']*wp-block-image[^"']*["'][^>]*>[\s\S]*?<\/div>\s*/, "");
   }
 
-  // 2. IDs en H2
-  let idx = 0;
-  processed = processed.replace(/<h2(\s[^>]*)?>([\s\S]*?)<\/h2>/g, (match, attrs = "", text) => {
-    if (/\sid=/.test(attrs || "")) return match;
-    return `<h2${attrs || ""} id="h${idx++}">${text}</h2>`;
-  });
-
-  // 3. Enlaces internos contextuales (antes de inyectar elementos, sobre el HTML real del post)
   processed = injectInternalLinks(processed, currentPath, lang);
 
-  // 4. Contar párrafos y elementos especiales
   const pCloses: number[] = [];
   let pos = -1;
   while ((pos = processed.indexOf("</p>", pos + 1)) !== -1) pCloses.push(pos + 4);
   const pCount = pCloses.length;
   const hasTable = /<table\b/i.test(processed);
 
-  // 5. Recolectar pull-quotes posibles + CTAs intermedios
-  const allQuotes = pickPullQuotes(html, 3); // Tomamos del HTML original sin links inyectados para evitar romper anchors
+  // Pull-quotes auto solo si el post NO tiene ya elementos destacados (blockquote, fa-lead, etc.)
+  const allQuotes = hasInlineHighlights ? [] : pickPullQuotes(html, 3);
+
   const midCta1 = `<aside class="mid-cta"><div class="mid-cta-text"><p class="mid-cta-eyebrow">${t.midCtaEyebrow}</p><p class="mid-cta-title">${t.midCtaTitle1}</p></div><a href="/${lang}/#contact" class="mid-cta-btn">${t.midCtaBtn} →</a></aside>`;
   const midCta2 = `<aside class="mid-cta"><div class="mid-cta-text"><p class="mid-cta-eyebrow">${t.midCtaEyebrow}</p><p class="mid-cta-title">${t.midCtaTitle2}</p></div><a href="/${lang}/#contact" class="mid-cta-btn">${t.midCtaBtn} →</a></aside>`;
 
-  const plan = planInjections(pCount, hasTable, allQuotes, midCta1, midCta2);
+  // Plan de inyección según longitud y existencia de tabla
+  let pullCount = 0;
+  let ctaCount = 0;
+  if (pCount >= 25) { pullCount = Math.min(2, allQuotes.length); ctaCount = 2; }
+  else if (pCount >= 15) { pullCount = Math.min(hasTable ? 2 : 1, allQuotes.length); ctaCount = 1; }
+  else if (pCount >= 8) { pullCount = Math.min(1, allQuotes.length); ctaCount = 1; }
 
-  // 6. Construir lista de inserciones {pos, html}
   type Insert = { pos: number; html: string };
   const inserts: Insert[] = [];
 
-  // Pull-quotes: distribuidos uniformemente
-  if (plan.pullCount > 0 && pCount >= 4) {
-    for (let i = 0; i < plan.pullCount; i++) {
-      // Fracciones: para 1 quote → 0.30; para 2 → 0.22, 0.65
-      const fractions = plan.pullCount === 1 ? [0.3] : [0.22, 0.65];
-      const fraction = fractions[i];
-      const targetIdx = Math.floor(pCount * fraction);
-      const insertPos = pCloses[Math.min(targetIdx, pCloses.length - 1)];
-      const quoteHtml = `<blockquote class="auto-pull-quote">${allQuotes[i]}</blockquote>`;
-      inserts.push({ pos: insertPos, html: quoteHtml });
+  if (pullCount > 0 && pCount >= 4) {
+    const fractions = pullCount === 1 ? [0.3] : [0.22, 0.65];
+    for (let i = 0; i < pullCount; i++) {
+      const insertPos = pCloses[Math.min(Math.floor(pCount * fractions[i]), pCloses.length - 1)];
+      inserts.push({ pos: insertPos, html: `<blockquote class="auto-pull-quote">${allQuotes[i]}</blockquote>` });
     }
   }
 
-  // CTAs intermedios
-  if (plan.ctaCount > 0 && pCount >= 6) {
-    const fractions = plan.ctaCount === 1 ? [0.5] : [0.38, 0.74];
-    for (let i = 0; i < plan.ctaCount; i++) {
-      const fraction = fractions[i];
-      const targetIdx = Math.floor(pCount * fraction);
-      const insertPos = pCloses[Math.min(targetIdx, pCloses.length - 1)];
+  if (ctaCount > 0 && pCount >= 6) {
+    const fractions = ctaCount === 1 ? [0.5] : [0.38, 0.74];
+    for (let i = 0; i < ctaCount; i++) {
+      const insertPos = pCloses[Math.min(Math.floor(pCount * fractions[i]), pCloses.length - 1)];
       inserts.push({ pos: insertPos, html: i === 0 ? midCta1 : midCta2 });
     }
   }
 
-  // 7. Insertar de mayor a menor pos para no desplazar índices
   inserts.sort((a, b) => b.pos - a.pos);
   for (const ins of inserts) {
     processed = processed.slice(0, ins.pos) + ins.html + processed.slice(ins.pos);
   }
 
-  // 8. TOC al inicio
   if (tocHtml) processed = tocHtml + processed;
 
   return processed;
@@ -162,17 +178,20 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
   const enHref = lang === "es" ? `/en/` : `/es/`;
   const currentPath = `/${lang}/${post.slug}/`;
 
-  const isStandardBlogPost = post.category.slug === "blog";
+  const editorial = shouldUseEditorialFormat(post.slug, post.category.slug);
 
-  const h2s = isStandardBlogPost ? extractH2Titles(post.html) : [];
-  const hasToc = h2s.length >= 3;
-  const tocHtml = hasToc
-    ? `<nav class="toc-top"><h4>${t.toc}</h4><ol>${h2s.map(h => `<li><a href="#${h.id}">${h.title}</a></li>`).join("")}</ol></nav>`
-    : "";
-
-  const processedHtml = isStandardBlogPost
-    ? processPostHtml(post.html, tocHtml, currentPath, lang, t)
-    : post.html;
+  // Procesamiento editorial: TOC (h2 con fallback a h3) + pull-quotes (si no hay ya) + CTAs.
+  let processedHtml = post.html;
+  let tocItems: { id: string; title: string }[] = [];
+  if (editorial) {
+    const hasInlineHighlights = hasExistingHighlights(post.html);
+    const { items, htmlWithIds } = prepareTocAndIds(post.html);
+    tocItems = items.length >= 3 ? items : [];
+    const tocHtml = tocItems.length >= 3
+      ? `<nav class="toc-top"><h4>${t.toc}</h4><ol>${tocItems.map(h => `<li><a href="#${h.id}">${h.title}</a></li>`).join("")}</ol></nav>`
+      : "";
+    processedHtml = processPostHtml(htmlWithIds, tocHtml, currentPath, lang, t, hasInlineHighlights);
+  }
 
   return (
     <>
@@ -200,12 +219,12 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
 
       <article className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
-          {!isStandardBlogPost && (post.thumbnail || post.hero) && (
+          {!editorial && (post.thumbnail || post.hero) && (
             <div className="mx-auto mb-10 rounded-2xl overflow-hidden" style={{ maxWidth: 760, aspectRatio: "16/9", background: `url('${post.thumbnail || post.hero}') center/cover`, boxShadow: "0 18px 50px -22px rgb(15 23 42 / 0.22)" }} />
           )}
           <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "18px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
-          {isStandardBlogPost && (
+          {editorial && (
             <aside className="mx-auto end-cta" style={{ maxWidth: 760, marginTop: 64 }}>
               <div className="end-cta-text">
                 <p className="end-cta-eyebrow">{t.endCtaEyebrow}</p>
@@ -225,7 +244,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
           .post-body strong { color: var(--color-ink); font-weight: 600; }
           .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
-          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; }
+          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
           .post-body h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 19px; margin: 28px 0 10px; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a:hover { color: var(--color-accent); }
@@ -252,15 +271,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             max-width: 34ch;
           }
 
-          .post-body table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 40px 0;
-            font-family: var(--font-body);
-            font-size: 15px;
-            border-top: 2px solid var(--color-navy);
-            border-bottom: 2px solid var(--color-navy);
-          }
+          .post-body table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: var(--font-body); font-size: 15px; border-top: 2px solid var(--color-navy); border-bottom: 2px solid var(--color-navy); }
           .post-body thead { background: rgba(49, 177, 248, 0.06); }
           .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--color-navy); letter-spacing: -0.005em; border-bottom: 1px solid var(--color-rule); }
           .post-body td { padding: 14px 16px; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); line-height: 1.5; }
@@ -281,35 +292,14 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body .toc-top li a { font-size: 14.5px; color: var(--color-ink-2); line-height: 1.4; border-bottom: 1px solid transparent; text-decoration: none; padding-bottom: 1px; }
           .post-body .toc-top li a:hover { color: var(--color-navy); border-color: var(--color-accent); }
 
-          .post-body .mid-cta {
-            margin: 48px 0;
-            background: rgba(49, 177, 248, 0.08);
-            border: 1px solid rgba(49, 177, 248, 0.2);
-            border-radius: 12px;
-            padding: 24px 28px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-          }
+          .post-body .mid-cta { margin: 48px 0; background: rgba(49, 177, 248, 0.08); border: 1px solid rgba(49, 177, 248, 0.2); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
           .post-body .mid-cta-text { flex: 1; min-width: 220px; }
           .post-body .mid-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin: 0 0 6px; }
           .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(18px, 1.9vw, 22px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
           .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 14.5px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; border: none; flex-shrink: 0; transition: filter 240ms, transform 240ms, box-shadow 240ms; }
           .post-body .mid-cta-btn:hover { filter: brightness(0.94); transform: translateY(-1px); box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18); }
 
-          .end-cta {
-            background: var(--color-navy);
-            border-radius: 14px;
-            padding: 32px 36px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 28px;
-            flex-wrap: wrap;
-            color: #fff;
-          }
+          .end-cta { background: var(--color-navy); border-radius: 14px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #fff; }
           .end-cta-text { flex: 1; min-width: 280px; }
           .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
           .end-cta-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
