@@ -24,7 +24,15 @@ const I18N = {
 
 /** Extrae la cita del título "Nombre Apellido: «cita»" o "Nombre: 'cita'". */
 function extractHeaderParts(title: string): { name: string; quote: string } {
-  const clean = title.replace(/&[a-z]+;/gi, m => ({ "&laquo;": "«", "&raquo;": "»", "&#8220;": "\"", "&#8221;": "\"", "&#8216;": "'", "&#8217;": "'", "&nbsp;": " " }[m as any] || m));
+  const entities: Record<string, string> = {
+    "&laquo;": "«", "&raquo;": "»",
+    "&#8220;": "\"", "&#8221;": "\"",
+    "&#8216;": "'", "&#8217;": "'",
+    "&ldquo;": "\"", "&rdquo;": "\"",
+    "&lsquo;": "'", "&rsquo;": "'",
+    "&nbsp;": " ",
+  };
+  const clean = title.replace(/&[a-z]+;|&#\d+;/gi, m => entities[m] || m);
   const m = clean.match(/^(.+?)\s*[:,]\s*[«"""]\s*(.+?)\s*[»"""]\s*$/);
   if (m) return { name: m[1].trim(), quote: m[2].trim() };
   // Fallback: si título lleva comillas al inicio sin nombre, devuelve título tal cual
