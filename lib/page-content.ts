@@ -13,8 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Soluciones", mega: "solutions"  },
   { label: "Hypersensor", href: "/es/hypersensor/" },
   { label: "Partners",    href: "/es/partners/" },
-  // "Comunidad" oculta temporalmente del header — sigue accesible en /es/comunidad/ y /es/categoria/<slug>/
-  // { label: "Comunidad",  mega: "community"  },
+  { label: "Comunidad",  mega: "community"  },
   { label: "Nosotros",    href: "/es/sobre-nosotros/" },
 ];
 
