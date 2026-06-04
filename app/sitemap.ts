@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getAllWhitepapers, getAllCategories } from "@/lib/blog";
 
-const BASE = "https://flame-next.vercel.app";
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || "https://flameanalytics.com";
 
 const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",

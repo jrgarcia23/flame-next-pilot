@@ -34,6 +34,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://flameanalytics.com";
+
 export default async function PostEn({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPost(slug, "en");
@@ -47,10 +49,10 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
         datePublished: post.date,
         dateModified: post.modified,
         author: { "@type": "Organization", name: "Flame Analytics" },
-        publisher: { "@type": "Organization", name: "Flame Analytics", logo: { "@type": "ImageObject", url: "https://flame-next.vercel.app/logo.png" } },
-        image: post.hero ? [post.hero.startsWith("http") ? post.hero : `https://flame-next.vercel.app${post.hero}`] : undefined,
+        publisher: { "@type": "Organization", name: "Flame Analytics", logo: { "@type": "ImageObject", url: `${SITE}/logo.png` } },
+        image: post.hero ? [post.hero.startsWith("http") ? post.hero : `${SITE}${post.hero}`] : undefined,
         articleSection: post.category.name,
-        mainEntityOfPage: { "@type": "WebPage", "@id": `https://flame-next.vercel.app/en/${slug}/` },
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/en/${slug}/` },
       })}} />
       <BlogPostTemplate post={post} />
     </>
