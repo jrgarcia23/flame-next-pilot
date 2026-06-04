@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
+import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
+import { getElementorContent } from "@/lib/elementor-special-posts";
 
 export const dynamicParams = false;
 
@@ -40,6 +42,10 @@ export default async function PostEs({ params }: { params: Promise<{ slug: strin
   const { slug } = await params;
   const post = getPost(slug, "es");
   if (!post) return notFound();
+
+  // Posts especiales con maquetación Elementor preservada (flame-talks-2026, etc.)
+  const elementor = getElementorContent(slug);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -54,7 +60,10 @@ export default async function PostEs({ params }: { params: Promise<{ slug: strin
         articleSection: post.category.name,
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/es/${slug}/` },
       })}} />
-      <BlogPostTemplate post={post} />
+      {elementor
+        ? <ElementorPostPage lang="es" post={post} content={elementor} />
+        : <BlogPostTemplate post={post} />
+      }
     </>
   );
 }
