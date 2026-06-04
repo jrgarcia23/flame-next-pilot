@@ -384,6 +384,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
 
         <a href={currentLang === "en" ? "/en/hypersensor/" : "/es/hypersensor/"} className="mb-toplink">Hypersensor</a>
         <a href={currentLang === "en" ? "/en/partners/" : "/es/partners/"} className="mb-toplink">Partners</a>
+        <a href={currentLang === "en" ? "/en/community/" : "/es/comunidad/"} className="mb-toplink">{currentLang === "en" ? "Community" : "Comunidad"}</a>
         <a href={currentLang === "en" ? "/en/about-us/" : "/es/sobre-nosotros/"} className="mb-toplink">{currentLang === "en" ? "About us" : "Nosotros"}</a>
 
         {/* CTA sticky abajo */}
