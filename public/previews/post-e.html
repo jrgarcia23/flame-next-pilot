@@ -38,15 +38,15 @@ a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:un
 .post-body h4{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--color-navy);margin:28px 0 10px}
 .ed-table{margin:40px 0!important;overflow-x:auto}
 .ed-table table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:15px;border-top:2px solid var(--color-navy);border-bottom:2px solid var(--color-navy)}
-.ed-table thead{background:var(--color-paper-soft)}
+.ed-table thead{background:rgba(49,177,248,.06)}
 .ed-table th{text-align:left;padding:14px 16px;font-family:var(--font-display);font-weight:500;font-size:14px;color:var(--color-navy);letter-spacing:-.005em;border-bottom:1px solid var(--color-rule)}
 .ed-table td{padding:14px 16px;border-bottom:1px solid var(--color-rule);color:var(--color-ink-2);line-height:1.5}
 .ed-table tbody tr:nth-child(even){background:rgba(250,246,240,.4)}
 .ed-table tbody tr:last-child td{border-bottom:0}
 .pull-quote{margin:48px 0!important;padding:0 0 0 32px;border-left:4px solid var(--color-accent);font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:400;line-height:1.32;color:var(--color-navy);letter-spacing:-.014em;font-style:italic;max-width:34ch}
 
-/* TOC arriba — caja editorial · fondo gris-azulado de marca Flame */
-.toc-top{background:#F1F4F9;border:1px solid #E1E7F0;border-radius:12px;padding:28px 32px;margin:32px 0 36px!important}
+/* TOC arriba — caja editorial · fondo azulito-gris muy transparente */
+.toc-top{background:rgba(49,177,248,.06);border:1px solid rgba(49,177,248,.16);border-radius:12px;padding:28px 32px;margin:32px 0 36px!important}
 .toc-top h4{font-family:var(--font-body);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent-deep);margin-bottom:18px}
 .toc-top ol{list-style:none;counter-reset:toc;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px}
 .toc-top li{counter-increment:toc;padding-left:32px;position:relative;line-height:1.4;font-family:var(--font-body)}
@@ -55,14 +55,12 @@ a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:un
 .toc-top li a:hover{color:var(--color-navy);border-color:var(--color-accent)}
 @media(max-width:700px){.toc-top ol{grid-template-columns:1fr;gap:10px}}
 
-/* CTA FINAL inline — mismo ancho que el contenido (760px), card sencilla Flame */
-.end-cta{margin:64px 0 16px!important;background:linear-gradient(135deg,#15163A 0%,#1d1f4a 100%);background-image:radial-gradient(600px 300px at 100% 0%,rgba(49,177,248,.18),transparent 60%);border-radius:16px;padding:36px 40px;color:#fff;position:relative;overflow:hidden;border:1px solid rgba(49,177,248,.18)}
-.end-cta-eyebrow{display:inline-block;font-family:var(--font-body);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--color-accent);margin-bottom:14px}
-.end-cta h3{font-family:var(--font-display);font-size:clamp(24px,2.4vw,30px);font-weight:500;line-height:1.15;letter-spacing:-.018em;color:#fff;margin-bottom:12px;max-width:24ch}
-.end-cta h3 em{font-style:normal;color:var(--color-accent);font-weight:500}
-.end-cta-sub{font-family:var(--font-body);font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.78);margin:0 0 22px;max-width:54ch}
-.end-cta-row{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.end-cta-row .small{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.55)}
+/* CTA FINAL — formato del intermedio (banda navy horizontal con CTA a la derecha) + más texto */
+.end-cta{margin:64px 0 16px!important;background:var(--color-navy);border-radius:14px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;color:#fff}
+.end-cta-text{flex:1;min-width:280px}
+.end-cta-eyebrow{font-family:var(--font-body);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent);margin-bottom:10px}
+.end-cta-title{font-family:var(--font-display);font-size:clamp(22px,2.4vw,28px);font-weight:400;line-height:1.2;color:#fff;letter-spacing:-.014em;margin:0 0 10px;max-width:28ch}
+.end-cta-sub{font-family:var(--font-body);font-size:15px;line-height:1.55;color:rgba(255,255,255,.74);margin:0;max-width:58ch}
 @media(max-width:560px){.end-cta{padding:28px 24px}}
 
 .hdr{padding:clamp(72px,8vw,120px) 0 clamp(32px,4vw,48px);background:#fff}
@@ -140,13 +138,12 @@ a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:un
 <p><a href="/es/casos-de-exito/retail-casos/">Casos de éxito de retail</a> como los desarrollados por Flame Analytics muestran cómo la analítica avanzada ayuda a optimizar la toma de decisiones y mejorar el rendimiento de las tiendas físicas.</p>
 </div>
 <aside class="end-cta">
-  <p class="end-cta-eyebrow">★ Demo personalizada · 20 min</p>
-  <h3>Convierte el tráfico físico en <em>decisiones de negocio</em></h3>
-  <p class="end-cta-sub">Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector en 20 minutos, sin biometría y RGPD por diseño.</p>
-  <div class="end-cta-row">
-    <a href="#contact" class="cta-btn cta-btn--primary cta-btn--lg">Solicitar demo →</a>
-    <span class="small">180+ clientes B2B · 23 países</span>
+  <div class="end-cta-text">
+    <p class="end-cta-eyebrow">Demo personalizada · 20 minutos</p>
+    <p class="end-cta-title">Convierte el tráfico físico en decisiones de negocio</p>
+    <p class="end-cta-sub">Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector, sin biometría y con RGPD por diseño. 180+ clientes B2B en 23 países.</p>
   </div>
+  <a href="#contact" class="cta-btn cta-btn--primary cta-btn--lg">Solicitar demo →</a>
 </aside>
 </div></section>
 
