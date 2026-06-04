@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Detail · E · Post enriquecido (TOC + tabla + CTA + cita)</title>
+<style>
+@font-face{font-family:"Clash Grotesk Variable";src:url("/fonts/ClashGrotesk-Variable.woff2") format("woff2-variations"),url("/fonts/ClashGrotesk-Variable.woff2") format("woff2");font-weight:200 700;font-style:normal;font-display:swap}
+@font-face{font-family:"Instrument Sans Flame";src:url("/fonts/InstrumentSans-Regular.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+:root{--color-navy:#15163A;--color-accent:#31B1F8;--color-accent-deep:#0079b8;--color-accent-soft:#E8F5FE;--color-paper:#FAF6F0;--color-paper-soft:#F4EFE8;--color-rule:#E5E0D8;--color-rule-strong:#D5CFC0;--color-ink:#1C1D2E;--color-ink-2:#4A4B62;--color-ink-3:#8B8C9F;--font-display:"Clash Grotesk Variable","Clash Grotesk",ui-sans-serif,system-ui,sans-serif;--font-body:"Instrument Sans Flame","Instrument Sans","Inter",ui-sans-serif,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font-body);color:var(--color-ink);background:#fff;line-height:1.5;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:var(--color-accent-deep);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:1240px;margin-inline:auto;padding-inline:28px}@media(max-width:700px){.wrap{padding-inline:20px}}
+.variant-tag{position:fixed;top:14px;right:14px;background:var(--color-navy);color:#fff;padding:7px 14px;border-radius:999px;font-size:11.5px;font-weight:700;z-index:99;letter-spacing:.08em;text-transform:uppercase;font-family:var(--font-body)}
+.hd{padding:18px 0;border-bottom:1px solid var(--color-rule);font-family:var(--font-body);font-size:14px}
+.hd-row{display:flex;justify-content:space-between;align-items:center}
+.hd-logo{font-family:var(--font-display);font-size:22px;color:var(--color-navy);letter-spacing:-.012em;font-weight:500}
+.ft{background:var(--color-navy);color:rgba(255,255,255,.7);padding:48px 0 28px;font-family:var(--font-body);font-size:14px;margin-top:80px}
+.ft-cols{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;margin-bottom:32px}
+.ft-logo{font-family:var(--font-display);font-size:22px;color:#fff;display:inline-block;margin-bottom:12px}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:20px;color:rgba(255,255,255,.5);font-size:13px}
+
+/* Buttons */
+.cta-btn{display:inline-flex;align-items:center;gap:10px;border-radius:4px;font-family:var(--font-body);font-weight:500;line-height:1;letter-spacing:-.005em;border:1px solid transparent;cursor:pointer;transition:background 240ms,transform 240ms,box-shadow 240ms,filter 240ms;text-decoration:none!important}
+.cta-btn--md{font-size:15px;padding:12px 22px}
+.cta-btn--lg{font-size:16px;padding:14px 26px}
+.cta-btn:hover{filter:brightness(.94);transform:translateY(-1px);box-shadow:0 6px 16px -10px rgb(15 23 42/.18)}
+.cta-btn--primary{background:var(--color-accent);color:#fff;font-weight:700}
+
+/* Body tipográfico */
+.post-body{font-family:var(--font-body);font-size:18px;line-height:1.75;color:var(--color-ink-2)}
+.post-body p{margin:0 0 22px}
+.post-body strong{color:var(--color-ink);font-weight:600}
+.post-body a{color:var(--color-accent-deep);text-decoration:underline;text-underline-offset:3px}
+.post-body ul,.post-body ol{margin:0 0 22px 24px}
+.post-body li{margin-bottom:10px}
+.post-body figure{margin:32px 0}
+.post-body figure img{border-radius:6px}
+.post-body figcaption{font-size:13px;color:var(--color-ink-3);margin-top:8px;text-align:center;font-family:var(--font-body)}
+
+/* Headings (light) */
+.post-body h2{font-family:var(--font-display);font-size:clamp(28px,2.8vw,36px);font-weight:500;letter-spacing:-.02em;line-height:1.15;color:var(--color-navy);margin:48px 0 16px;max-width:28ch}
+.post-body h3{font-family:var(--font-display);font-size:clamp(22px,2vw,26px);font-weight:500;letter-spacing:-.015em;line-height:1.2;color:var(--color-navy);margin:36px 0 12px;max-width:30ch}
+.post-body h4{font-family:var(--font-display);font-size:19px;font-weight:600;letter-spacing:-.01em;color:var(--color-navy);margin:28px 0 10px}
+
+/* TOC sticky lateral */
+.toc{position:sticky;top:32px;align-self:start;font-family:var(--font-body);padding-right:24px;border-right:1px solid var(--color-rule)}
+.toc h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-ink-3);margin-bottom:20px}
+.toc ol{list-style:none;counter-reset:toc;padding:0}
+.toc li{counter-increment:toc;margin-bottom:14px;padding-left:32px;position:relative;line-height:1.4}
+.toc li::before{content:counter(toc,decimal-leading-zero);position:absolute;left:0;top:1px;font-family:var(--font-display);font-size:13px;color:var(--color-accent-deep);font-weight:500;letter-spacing:.04em}
+.toc li a{font-size:14px;color:var(--color-ink-2);line-height:1.4;border-bottom:1px solid transparent;padding-bottom:1px}
+.toc li a:hover{color:var(--color-navy);border-color:var(--color-accent)}
+.toc li a.is-active{color:var(--color-navy);font-weight:600}
+
+/* Tabla editorial */
+.ed-table{margin:40px 0!important;overflow-x:auto}
+.ed-table table{width:100%;border-collapse:collapse;font-family:var(--font-body);font-size:15px;border-top:2px solid var(--color-navy);border-bottom:2px solid var(--color-navy)}
+.ed-table thead{background:var(--color-paper-soft)}
+.ed-table th{text-align:left;padding:14px 16px;font-family:var(--font-display);font-weight:500;font-size:14px;color:var(--color-navy);letter-spacing:-.005em;border-bottom:1px solid var(--color-rule)}
+.ed-table td{padding:14px 16px;border-bottom:1px solid var(--color-rule);color:var(--color-ink-2);line-height:1.5}
+.ed-table tbody tr:nth-child(even){background:rgba(250,246,240,.4)}
+.ed-table tbody tr:last-child td{border-bottom:0}
+
+/* Pull quote (cita destacada) */
+.pull-quote{margin:48px 0!important;padding:0 0 0 32px;border-left:4px solid var(--color-accent);font-family:var(--font-display);font-size:clamp(22px,2.4vw,30px);font-weight:400;line-height:1.32;color:var(--color-navy);letter-spacing:-.014em;font-style:italic;max-width:34ch}
+
+/* CTA intermedio */
+.mid-cta{margin:56px 0!important;background:var(--color-navy);border-radius:14px;padding:32px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.mid-cta-text{flex:1;min-width:240px}
+.mid-cta-eyebrow{font-family:var(--font-body);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--color-accent);margin-bottom:8px}
+.mid-cta-title{font-family:var(--font-display);font-size:24px;font-weight:400;line-height:1.2;color:#fff;letter-spacing:-.014em;margin:0}
+
+/* Callout azul (entrevistas) */
+.blue-callout{margin:48px 0!important;background:var(--color-accent-soft);border-left:4px solid var(--color-accent);border-radius:0 12px 12px 0;padding:32px 36px}
+.blue-callout-quote{font-family:var(--font-display);font-size:clamp(22px,2.4vw,28px);font-weight:400;line-height:1.32;color:var(--color-navy);letter-spacing:-.012em;margin-bottom:12px!important;font-style:italic}
+.blue-callout-author{font-family:var(--font-body);font-size:14px;color:var(--color-accent-deep);font-weight:600;margin:0!important}
+
+/* Q&A entrevistas */
+.qa{display:grid;grid-template-columns:60px 1fr;gap:16px;margin:48px 0 12px;align-items:start}
+.qa-num{font-family:var(--font-display);font-size:38px;font-weight:400;color:var(--color-accent-deep);line-height:1;letter-spacing:-.024em;font-variant-numeric:tabular-nums}
+.qa-q{font-family:var(--font-display);font-size:clamp(22px,2.4vw,28px);font-weight:500;letter-spacing:-.014em;line-height:1.22;color:var(--color-navy);margin:0!important;max-width:30ch}
+.qa + p{padding-left:76px}
+@media(max-width:600px){.qa{grid-template-columns:48px 1fr;gap:12px}.qa-num{font-size:30px}.qa + p{padding-left:60px}}
+
+.hdr{padding:clamp(72px,8vw,120px) 0 clamp(36px,4vw,56px);background:#fff}
+.hdr .meta{font-family:var(--font-body);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--color-accent-deep);margin-bottom:24px}
+.hdr h1{font-family:var(--font-display);font-size:clamp(36px,4.6vw,62px);font-weight:400;letter-spacing:-.028em;line-height:1.04;color:var(--color-navy);max-width:24ch;margin-bottom:28px}
+.hdr .by{font-family:var(--font-body);font-size:14.5px;color:var(--color-ink-3)}
+.layout{display:grid;grid-template-columns:240px 1fr;gap:64px;max-width:1100px;margin:0 auto;padding:24px 28px 80px}
+@media(max-width:900px){.layout{grid-template-columns:1fr;gap:32px}.toc{position:static;border-right:0;border-bottom:1px solid var(--color-rule);padding-bottom:24px;padding-right:0}}
+</style></head>
+<body>
+<div class="variant-tag">E · Post enriquecido</div>
+<header class="hd"><div class="wrap hd-row"><span class="hd-logo">FLAME</span><span>Comunidad / Blog</span></div></header>
+<section class="hdr">
+  <div class="wrap" style="max-width:1100px;margin-inline:auto;padding-inline:0">
+    <p class="meta">Blog · 2026-05-26 · 6 min lectura</p>
+    <h1>KPIs de retail: cómo pasar del tráfico a la conversión en tiendas físicas</h1>
+    <p class="by">Por <strong style="color:var(--color-navy)">Equipo Flame</strong></p>
+  </div>
+</section>
+<section class="layout">
+  <aside class="toc">
+    <h4>Contenido del artículo</h4>
+    <ol><li><a href="#h0">KPIs de retail: cómo pasar del tráfico a la conversión en tiendas físicas</a></li><li><a href="#h1">El dato como motor de decisión en retail</a></li><li><a href="#h2">Conversión: el KPI que conecta tráfico y negocio</a></li><li><a href="#h3">Captación: medir la capacidad de atraer visitantes</a></li><li><a href="#h4">Permanencia: entender el nivel de interés e interacción</a></li><li><a href="#h5">Engagement: comprender cómo interactúan los visitantes</a></li><li><a href="#h6">El futuro del retail es inteligente y basado en datos</a></li></ol>
+  </aside>
+  <div class="post-body" style="max-width:720px"><h2 id="h0">KPIs de retail: cómo pasar del tráfico a la conversión en tiendas físicas</h2>
+<p class="isSelectedEnd">El retail físico está viviendo una transformación impulsada por los datos, la inteligencia artificial y la necesidad de comprender mejor el comportamiento del consumidor. Durante años, muchas decisiones estratégicas se han basado principalmente en ventas, intuición o métricas limitadas de tráfico. Sin embargo, en un entorno cada vez más competitivo y omnicanal, entender únicamente cuántas personas visitan una tienda ya no es suficiente.</p>
+<blockquote class="pull-quote">El reto del retail físico no es atraer tráfico, sino transformarlo en conversión medible y replicable tienda a tienda.</blockquote>
+<p class="isSelectedEnd">Hoy, el verdadero reto para retailers y marcas consiste en transformar los espacios físicos en entornos inteligentes capaces de generar insights accionables en tiempo real. La clave ya no está solo en atraer visitantes, sino en comprender cómo interactúan con el espacio, qué factores influyen en la conversión y cómo optimizar continuamente la experiencia del cliente.</p>
+<p>En este nuevo escenario, los KPIs se convierten en una herramienta fundamental para medir el rendimiento real de una tienda física.</p>
+<p>&nbsp;</p>
+<h2 id="h1">El dato como motor de decisión en retail</h2>
+<p class="isSelectedEnd">La evolución del retail hacia modelos más data-driven está redefiniendo cómo las organizaciones entienden sus operaciones y toman decisiones estratégicas. Tecnologías como la analítica de vídeo, el WiFi analytics, la inteligencia artificial y los dashboards inteligentes permiten obtener una visión mucho más completa del customer journey dentro de los espacios físicos.</p>
+<figure class="ed-table">
+  <table>
+    <thead><tr><th>KPI</th><th>Qué mide</th><th>Benchmark sector</th></tr></thead>
+    <tbody>
+      <tr><td>Tasa de captación</td><td>% de tráfico exterior que entra</td><td>15–22%</td></tr>
+      <tr><td>Tasa de conversión</td><td>% de visitantes que compran</td><td>18–28%</td></tr>
+      <tr><td>Ticket medio</td><td>Ingreso medio por compra</td><td>+8% YoY</td></tr>
+      <tr><td>Dwell time</td><td>Tiempo medio en tienda</td><td>6–14 min</td></tr>
+    </tbody>
+  </table>
+  <figcaption>Tabla 1 · Indicadores clave de retail físico (datos sectoriales 2026)</figcaption>
+</figure>
+<p class="isSelectedEnd">Gracias a estas soluciones, retailers pueden analizar patrones de comportamiento, medir el impacto de campañas, identificar oportunidades de mejora y optimizar tanto la experiencia del cliente como la eficiencia operativa.</p>
+<aside class="mid-cta">
+  <div class="mid-cta-text">
+    <p class="mid-cta-eyebrow">Demo personalizada · 20 minutos</p>
+    <p class="mid-cta-title">Mide la conversión real de cada tienda con Flame</p>
+  </div>
+  <a href="#" class="cta-btn cta-btn--primary cta-btn--md">Solicitar demo →</a>
+</aside>
+<p class="isSelectedEnd"><a href="/es/solucion-para-el-sector-retail/">Las soluciones para el sector retail</a> de Flame Analytics permiten transformar los datos de comportamiento en insights accionables capaces de mejorar conversión, engagement y rendimiento operativo.</p>
+<p>En este contexto, ya no basta con medir tráfico. Lo realmente importante es comprender qué ocurre desde que un visitante pasa frente a una tienda hasta que realiza una compra.</p>
+<p>&nbsp;</p>
+<h2 id="h2">Conversión: el KPI que conecta tráfico y negocio</h2>
+<p class="isSelectedEnd">Uno de los indicadores más relevantes en retail es la tasa de conversión. Este KPI permite conocer qué porcentaje de visitantes termina realizando una compra y ayuda a evaluar el rendimiento real del espacio físico.</p>
+<p class="isSelectedEnd">Un elevado volumen de tráfico no siempre implica buenos resultados comerciales. De hecho, muchas tiendas reciben un gran número de visitantes, pero presentan tasas de conversión inferiores a las esperadas debido a factores relacionados con la experiencia en tienda, el layout, el visual merchandising o la distribución de producto.</p>
+<p class="isSelectedEnd">La analítica avanzada permite detectar estos puntos de fricción y comprender mejor cómo se comportan los clientes dentro del establecimiento. A través de tecnologías como heatmaps, análisis de recorridos o dwell time, retailers pueden identificar qué zonas generan más interacción, cuáles tienen menor rendimiento y cómo optimizar el customer journey para maximizar resultados.</p>
+<p>La solución<a href="/es/analitica-conversion/"> Conversion Analytics</a> de Flame Analytics ayuda a medir todo el funnel físico, desde el tráfico exterior hasta la conversión final en tienda.</p>
+<p>&nbsp;</p>
+<h2 id="h3">Captación: medir la capacidad de atraer visitantes</h2>
+<p class="isSelectedEnd">Otro KPI fundamental es la captación, es decir, la capacidad de una tienda para transformar tráfico exterior en visitas reales.</p>
+<p class="isSelectedEnd">Este indicador resulta especialmente relevante en ubicaciones con alto tránsito de personas, como centros comerciales, high streets o zonas turísticas. Analizar la relación entre tráfico exterior e interior permite entender el impacto de elementos como escaparates, campañas promocionales, branding visual o ubicación del establecimiento.</p>
+<p class="isSelectedEnd">Con herramientas de visitor analytics, retailers pueden medir con precisión cómo determinadas acciones influyen en la atracción de visitantes y optimizar estrategias para incrementar el flujo de entrada.</p>
+<p>Además, la capacidad de comparar datos entre distintas ubicaciones facilita la toma de decisiones basadas en rendimiento real y no únicamente en percepciones o intuiciones.</p>
+<p>&nbsp;</p>
+<h2 id="h4">Permanencia: entender el nivel de interés e interacción</h2>
+<p class="isSelectedEnd">El tiempo de permanencia se ha convertido en uno de los indicadores más valiosos para evaluar la calidad de la experiencia dentro del espacio físico.</p>
+<p class="isSelectedEnd">Un mayor dwell time suele estar relacionado con un mayor nivel de interés, interacción o engagement con la marca y el producto. Por el contrario, tiempos de permanencia reducidos pueden indicar problemas relacionados con navegación, distribución, saturación o falta de estímulos comerciales.</p>
+<p class="isSelectedEnd">La combinación de inteligencia artificial y video analytics permite analizar estos comportamientos en tiempo real y obtener insights detallados sobre cómo interactúan los visitantes dentro de la tienda.</p>
+<p>Este tipo de información resulta especialmente útil para optimizar layouts, mejorar recorridos y diseñar experiencias más fluidas y eficientes.</p>
+<p>&nbsp;</p>
+<h2 id="h5">Engagement: comprender cómo interactúan los visitantes</h2>
+<p class="isSelectedEnd">Más allá del tráfico o la permanencia, uno de los grandes objetivos del retail inteligente es comprender el nivel de engagement de los visitantes dentro del espacio físico.</p>
+<p class="isSelectedEnd">La analítica avanzada permite detectar patrones de comportamiento, recorridos frecuentes, zonas calientes, áreas de interacción y puntos de abandono. Esta información ayuda a retailers a identificar oportunidades para mejorar tanto la experiencia del cliente como el rendimiento comercial.</p>
+<p class="isSelectedEnd">Gracias a dashboards centralizados y datos en tiempo real, las organizaciones pueden visualizar KPIs clave de forma sencilla y tomar decisiones mucho más ágiles y precisas.</p>
+<p>Además, la posibilidad de integrar diferentes fuentes de datos permite construir una visión global del rendimiento del negocio y conectar comportamiento físico con estrategia omnicanal.</p>
+<p>&nbsp;</p>
+<h2 id="h6">El futuro del retail es inteligente y basado en datos</h2>
+<p class="isSelectedEnd">La transformación digital del retail físico ya no es una tendencia futura. Es una necesidad estratégica.</p>
+<p class="isSelectedEnd">Las marcas que liderarán el sector serán aquellas capaces de convertir datos en decisiones inteligentes y optimizar continuamente sus espacios físicos a través de analytics e inteligencia artificial.</p>
+<p class="isSelectedEnd">En este contexto, Flame Analytics permite transformar datos de comportamiento en insights accionables capaces de mejorar conversión, experiencia y rendimiento operativo.</p>
+<p class="isSelectedEnd">Porque hoy, el verdadero valor no está únicamente en medir cuántas personas entran en una tienda.</p>
+<p class="isSelectedEnd">Está en comprender qué hacen, cómo interactúan y qué impulsa realmente la conversión.</p>
+<p><a href="/es/casos-de-exito/retail-casos/">Casos de éxito de retail</a> como los desarrollados por Flame Analytics muestran cómo la analítica avanzada ayuda a optimizar la toma de decisiones y mejorar el rendimiento de las tiendas físicas.</p>
+</div>
+</section>
+<footer class="ft"><div class="wrap"><div class="ft-cols"><span class="ft-logo">FLAME</span><span>© 2026 Flame Analytics</span></div><div class="ft-bottom">Footer simulado</div></div></footer>
+<script>
+const links=document.querySelectorAll('.toc a');
+const sections=Array.from(document.querySelectorAll('.post-body h2'));
+function up(){let cur=null;const top=window.scrollY+150;for(const s of sections){if(s.offsetTop<=top)cur=s.id}links.forEach(l=>l.classList.toggle('is-active',l.getAttribute('href')==='#'+cur))}
+window.addEventListener('scroll',up,{passive:true});up();
+</script>
+</body></html>
