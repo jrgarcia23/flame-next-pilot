@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
+import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
+import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
+import { getElementorContent } from "@/lib/elementor-special-posts";
 
 export const dynamicParams = false;
 
@@ -40,6 +43,9 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
   const { slug } = await params;
   const post = getPost(slug, "en");
   if (!post) return notFound();
+
+  const elementor = getElementorContent(slug);
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -54,7 +60,12 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
         articleSection: post.category.name,
         mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/en/${slug}/` },
       })}} />
-      <BlogPostTemplate post={post} />
+      {elementor
+        ? <ElementorPostPage lang="en" post={post} content={elementor} />
+        : post.category.slug === "interviews"
+          ? <InterviewPostTemplate post={post} />
+          : <BlogPostTemplate post={post} />
+      }
     </>
   );
 }

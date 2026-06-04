@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
+import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
@@ -62,7 +63,9 @@ export default async function PostEs({ params }: { params: Promise<{ slug: strin
       })}} />
       {elementor
         ? <ElementorPostPage lang="es" post={post} content={elementor} />
-        : <BlogPostTemplate post={post} />
+        : post.category.slug === "entrevistas"
+          ? <InterviewPostTemplate post={post} />
+          : <BlogPostTemplate post={post} />
       }
     </>
   );
