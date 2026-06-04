@@ -44,6 +44,43 @@ const nextConfig: NextConfig = {
       // ── Formato fecha (YYYY/MM/slug) — algunos WP los usan ──
       { source: "/es/:year(\\d{4})/:month(\\d{2})/:slug",      destination: "/es/:slug/", permanent: true },
       { source: "/en/:year(\\d{4})/:month(\\d{2})/:slug",      destination: "/en/:slug/", permanent: true },
+      // Fecha sin idioma (formato WP default histórico)
+      { source: "/:year(\\d{4})/:month(\\d{2})/:slug",         destination: "/es/:slug/", permanent: true },
+      { source: "/:year(\\d{4})/:slug",                        destination: "/es/:slug/", permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // Patrones legacy del WP demo (1.800+ redirects Rank Math consolidados
+      // en _local/_global/clientes/flame/seo/404-analysis/). Cubren backlinks
+      // que apuntan a estructuras de URL históricas (WPML "c", categorías
+      // viejas, taxonomías retiradas, secciones renombradas).
+      // ══════════════════════════════════════════════════════════════════
+      // Formato WPML "c" (category) — el demo lo tenía como base de categorías
+      { source: "/c/:path*",                                   destination: "/es/comunidad/",                       permanent: true },
+      { source: "/es/c/:path*",                                destination: "/es/comunidad/",                       permanent: true },
+      { source: "/en/c/:path*",                                destination: "/en/community/",                       permanent: true },
+
+      // /category/ sin idioma (WP default cuando WPML no traduce el base)
+      { source: "/category/:path*",                            destination: "/es/comunidad/",                       permanent: true },
+
+      // /tag/ sin idioma — Next no tiene tags
+      { source: "/tag/:path*",                                 destination: "/es/comunidad/",                       permanent: true },
+
+      // Categorías retiradas con slugs largos
+      { source: "/blog-de-flame-analytics/:path*",             destination: "/es/comunidad/",                       permanent: true },
+      { source: "/analitica-y-marketing-para-espacios-fisicos/:path*", destination: "/es/comunidad/",               permanent: true },
+      { source: "/sector-retail/:path*",                       destination: "/es/solucion-para-el-sector-retail/",  permanent: true },
+      { source: "/artistas-invitados/:path*",                  destination: "/es/comunidad/",                       permanent: true },
+      { source: "/noticias_flame/:path*",                      destination: "/es/comunidad/",                       permanent: true },
+      { source: "/noticias/:path*",                            destination: "/es/comunidad/",                       permanent: true },
+      { source: "/es/noticias/:path*",                         destination: "/es/comunidad/",                       permanent: true },
+      { source: "/en/news/:path*",                             destination: "/en/community/",                       permanent: true },
+      { source: "/encuestas-flame/:path*",                     destination: "/es/comunidad/",                       permanent: true },
+      { source: "/en/collaborators-blog/:path*",               destination: "/en/community/",                       permanent: true },
+      { source: "/en/sectors/:path*",                          destination: "/en/solution-for-retail-sector/",      permanent: true },
+      { source: "/en/category/:path*",                         destination: "/en/community/",                       permanent: true },
+
+      // /wp-content/uploads paths sueltos sin extensión (raros, sin contenido)
+      { source: "/wp-content/uploads/:rest*",                  destination: "/es/comunidad/",                       permanent: false, has: [{ type: "header", key: "accept", value: "(?!.*image).*" }] },
 
       // /es/category/<slug>/ (WP standard) → /es/categoria/<slug>/ (Next)
       // El WP demo servía /category/ en ES; Next usa /categoria/. Sin esto Google ve 404.
