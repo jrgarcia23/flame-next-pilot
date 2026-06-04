@@ -345,7 +345,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
       </section>
 
       {/* FORM */}
-      <section className="py-24" style={{ background: "#fff" }}>
+      <section id="contact" className="py-24" style={{ background: "#fff", scrollMarginTop: 80 }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>

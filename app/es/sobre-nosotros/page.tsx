@@ -244,7 +244,7 @@ export default function SobreNosotrosEs() {
       </section>
 
       {/* 07 · FORMULARIO DEMO — mismo patrón que UseCaseTemplate / resto de páginas */}
-      <section className="py-24" style={{ background: "#fff" }}>
+      <section id="contact" className="py-24" style={{ background: "#fff", scrollMarginTop: 80 }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>

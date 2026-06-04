@@ -89,7 +89,7 @@ export default function FlameEventsEn() {
                 </div>
                 <h3 className="text-[20px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.25 }}>{e.title}</h3>
                 <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "var(--color-ink-2)" }}>{e.desc}</p>
-                <a href="/en/contact-us/" className="ev-cta inline-flex items-center gap-2 text-[14.5px] font-semibold mt-2" style={{ color: "var(--color-accent-deep)" }}>
+                <a href="#contact" className="ev-cta inline-flex items-center gap-2 text-[14.5px] font-semibold mt-2" style={{ color: "var(--color-accent-deep)" }}>
                   {e.type === "Webinar" ? "Save my seat" : "Register"} <Icon name="arrow" className="w-3.5 h-3.5" />
                 </a>
               </article>

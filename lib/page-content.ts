@@ -98,7 +98,7 @@ export const UI = {
     privacy: "política de privacidad",
     privacyHref: "/es/politica-de-privacidad/",
     submit: "Solicitar una demo",
-    contactHref: "/es/contacta/",
+    contactHref: "#contact",
     readMoreArrow: "Leer más",
   },
   en: {
@@ -121,7 +121,7 @@ export const UI = {
     privacy: "privacy policy",
     privacyHref: "/en/privacy-policy/",
     submit: "Request a demo",
-    contactHref: "/en/contact-us/",
+    contactHref: "#contact",
     readMoreArrow: "Read more",
   },
 } as const;
