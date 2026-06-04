@@ -13,7 +13,8 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Soluciones", mega: "solutions"  },
   { label: "Hypersensor", href: "/es/hypersensor/" },
   { label: "Partners",    href: "/es/partners/" },
-  { label: "Comunidad",  mega: "community"  },
+  // "Comunidad" oculta — sigue accesible vía URL directa /es/comunidad/ y /es/categoria/<slug>/
+  // { label: "Comunidad",  mega: "community"  },
   { label: "Nosotros",    href: "/es/sobre-nosotros/" },
 ];
 
@@ -45,7 +46,7 @@ export const MEGA_COMMUNITY: NavLeaf[] = [
   { label: "Casos de éxito", href: "/es/categoria/casos-de-exito/",  iconImg: "/wp-content/uploads/2025/09/Cases.png",      desc: "Cómo clientes reales miden y deciden con Flame." },
   { label: "Blog",           href: "/es/categoria/blog/",            iconImg: "/wp-content/uploads/2025/09/Interview.png",  desc: "Artículos sobre analítica del espacio físico." },
   { label: "Entrevistas",    href: "/es/categoria/entrevistas/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Conversaciones con líderes del retail." },
-  { label: "Tips Retail",    href: "/es/categoria/tips-retail/",     iconImg: "/wp-content/uploads/2025/09/Whitepaper1.png", desc: "Consejos prácticos para tu negocio." },
+  // "Tips Retail" oculto temporalmente
 ];
 
 export const LOGOS: [string, string][] = [
@@ -150,7 +151,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     ["Acceso WiFi corporativo", "/es/acceso-wifi-corporativo/"],
   ] },
   { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
-  { title: "Comunidad",  links: [["Blog","/es/categoria/blog/"],["Casos de éxito","/es/categoria/casos-de-exito/"],["Entrevistas","/es/categoria/entrevistas/"],["Tips Retail","/es/categoria/tips-retail/"]] },
+  { title: "Comunidad",  links: [["Blog","/es/categoria/blog/"],["Casos de éxito","/es/categoria/casos-de-exito/"],["Entrevistas","/es/categoria/entrevistas/"]] },
   { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
 ];
 
@@ -158,7 +159,7 @@ export const FOOTER_COLS_EN: { title: string; links: [string, string][] }[] = [
   { title: "Products",   links: [["Traffic","/en/traffic-insights/"],["Customer Journey","/en/customer-journey/"],["Connect","/en/connect/"],["Hypersensor","/en/hypersensor/"]] },
   { title: "Solutions",  links: [["People Counting","/en/people-counting/"],["Conversion Analytics","/en/conversion-analytics/"],["Customer Behavior","/en/customer-behavior/"],["Occupancy Management","/en/occupancy-management/"],["Queue Analytics","/en/queue-analytic/"],["Restroom Management","/en/restroom-management/"],["Guest Wifi Marketing","/en/guest-wifi-marketing/"],["Corporate Wifi Access","/en/corporate-wifi-access/"]] },
   { title: "Industries", links: [["Retail","/en/solution-for-retail-sector/"],["Shopping malls","/en/solution-for-shopping-malls/"],["Hospitality","/en/hospitality/"],["Public venues","/en/public-venues/"]] },
-  { title: "Community",  links: [["Blog","/en/category/blog/"],["Case studies","/en/category/case-studies/"],["Interviews","/en/category/interviews/"],["Retail tips","/en/category/retail/"]] },
+  { title: "Community",  links: [["Blog","/en/category/blog/"],["Case studies","/en/category/case-studies/"],["Interviews","/en/category/interviews/"]] },
   { title: "Company",    links: [["Partners","/en/partners/"],["About us","/en/about-us/"],["Contact","/en/contact-us/"]] },
 ];
 

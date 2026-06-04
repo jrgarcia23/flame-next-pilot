@@ -416,7 +416,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
       </section>
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
-      <section className="py-[80px]" style={{ background: "#fff" }}>
+      <section id="contact" className="py-[80px]" style={{ background: "#fff", scrollMarginTop: 80 }}>
         <div className="flame-container">
           <div className="grid gap-14 items-start contact-grid" style={{ gridTemplateColumns: "1fr 1.2fr" }}>
             <div>

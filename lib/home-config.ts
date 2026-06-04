@@ -75,7 +75,6 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
     { icon: "users",    title: "Casos de éxito", href: "/es/categoria/casos-de-exito/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
     { icon: "reports",  title: "Blog",           href: "/es/categoria/blog/",            img: "/wp-content/uploads/2026/01/Noticias-2.png" },
     { icon: "calendar", title: "Entrevistas",    href: "/es/categoria/entrevistas/",     img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
-    { icon: "reports",  title: "Tips Retail",    href: "/es/categoria/tips-retail/",     img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
   ],
 };
 

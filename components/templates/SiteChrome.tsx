@@ -207,8 +207,8 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           <div className="hidden md:inline-flex items-center gap-1.5 text-[12px] font-semibold tracking-[0.08em]" style={{ color: "rgb(255 255 255 / 0.5)" }}>
             <span style={{ color: "#fff" }}>{currentLangCode}</span><span style={{ color: "rgb(255 255 255 / 0.4)" }}>|</span><a href={otherHref} style={{ color: "rgb(255 255 255 / 0.6)" }}>{otherLangCode}</a>
           </div>
-          <a href="/es/contacta/" className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-            Solicita una demo
+          <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="cta-btn cta-btn--sm hidden sm:inline-flex" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+            {currentLang === "en" ? "Request a demo" : "Solicita una demo"}
           </a>
           {/* Mobile hamburger */}
           <details className="mobile-nav lg:hidden">
@@ -228,10 +228,9 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
               {MEGA_INDUSTRIES.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
               <a href="/es/hypersensor/" className="m-link m-link--top">Hypersensor</a>
               <a href="/es/partners/" className="m-link">Partners</a>
-              <div className="m-section-title">Comunidad</div>
-              {MEGA_COMMUNITY.map(it => <a key={it.href} href={it.href} className="m-link">{it.label}</a>)}
+              {/* Comunidad oculta — accesible vía URL directa */}
               <a href="/es/sobre-nosotros/" className="m-link m-link--top">Nosotros</a>
-              <a href="/es/contacta/" className="m-cta">Solicita una demo</a>
+              <a href={currentLang === "en" ? "/en/#contact" : "/es/#contact"} className="m-cta">{currentLang === "en" ? "Request a demo" : "Solicita una demo"}</a>
             </div>
           </details>
         </div>
