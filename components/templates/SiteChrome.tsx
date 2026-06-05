@@ -113,8 +113,14 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
   const currentLangCode = currentLang === "es" ? "ES" : "EN";
   // enHref always points to "the other language version". Keep as local path.
   const otherHref = enHref;
+  // Cookie de preferencia: cada vez que el usuario carga una página /es/* o /en/*
+  // persistimos su idioma activo. La próxima vez que entre por raíz "/", el
+  // middleware leerá esta cookie antes que geo IP o Accept-Language.
+  const langCookieScript = `try{document.cookie='flame_lang=${currentLang}; path=/; max-age=31536000; SameSite=Lax'}catch(e){}`;
   return (
     <>
+    {/* Persistencia de idioma en cookie (1 año) — leída por el middleware en la raíz "/" */}
+    <script dangerouslySetInnerHTML={{ __html: langCookieScript }} />
     {/* Mobile toggle FUERA del header (evita atrapar el drawer en el stacking context del backdrop-filter) */}
     <input id="mb-toggle" type="checkbox" className="mb-toggle" aria-hidden="true" />
     <header
