@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import CookieBanner from "@/components/templates/CookieBanner";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const SITE = "https://www.flameanalytics.com";
 
@@ -65,6 +66,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <GoogleAnalytics />
         {children}
         <CookieBanner />
       </body>

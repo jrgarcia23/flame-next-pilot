@@ -59,6 +59,8 @@ function persist(value: "accepted" | "rejected" | "configured", prefs: Prefs) {
     localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
     const maxAge = 60 * 60 * 24 * 180; // 180 days
     document.cookie = `${COOKIE_KEY}=${value}; path=/; max-age=${maxAge}; SameSite=Lax`;
+    // Notifica al GoogleAnalytics component que el consent ha cambiado para actualizar gtag.
+    window.dispatchEvent(new CustomEvent("flame-consent-updated", { detail: prefs }));
   } catch {}
 }
 

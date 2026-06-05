@@ -1,0 +1,76 @@
+"use client";
+
+import Script from "next/script";
+import { useEffect } from "react";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-SF7P1Q5BV2";
+const PREFS_KEY = "flame_consent_prefs";
+
+type Prefs = { necessary?: true; analytics?: boolean; marketing?: boolean };
+
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    gtag: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Google Analytics 4 con Consent Mode v2.
+ *
+ * - Por defecto, analytics_storage = denied (cumplimiento GDPR).
+ * - Cuando el usuario acepta cookies en el CookieBanner, escuchamos el evento
+ *   `flame-consent-updated` y mandamos `gtag('consent', 'update', ...)`.
+ * - GA4 carga siempre el script pero solo manda hits cuando hay consent.
+ */
+export default function GoogleAnalytics() {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Si el usuario ya tenía un consent guardado, propagarlo a gtag al montar.
+    const apply = (prefs: Prefs) => {
+      if (typeof window.gtag !== "function") return;
+      window.gtag("consent", "update", {
+        analytics_storage: prefs.analytics ? "granted" : "denied",
+        ad_storage: prefs.marketing ? "granted" : "denied",
+        ad_user_data: prefs.marketing ? "granted" : "denied",
+        ad_personalization: prefs.marketing ? "granted" : "denied",
+      });
+    };
+
+    try {
+      const raw = localStorage.getItem(PREFS_KEY);
+      if (raw) apply(JSON.parse(raw));
+    } catch { /* localStorage bloqueado, no hacemos nada */ }
+
+    const onUpdate = (e: Event) => {
+      const detail = (e as CustomEvent<Prefs>).detail;
+      if (detail) apply(detail);
+    };
+    window.addEventListener("flame-consent-updated", onUpdate);
+    return () => window.removeEventListener("flame-consent-updated", onUpdate);
+  }, []);
+
+  return (
+    <>
+      {/* Defaults restrictivos ANTES de cargar gtag — consent denied por defecto */}
+      <Script id="ga-consent-default" strategy="beforeInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('consent', 'default', {
+          analytics_storage: 'denied',
+          ad_storage: 'denied',
+          ad_user_data: 'denied',
+          ad_personalization: 'denied',
+          wait_for_update: 500
+        });
+      `}</Script>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+      <Script id="ga-init" strategy="afterInteractive">{`
+        gtag('js', new Date());
+        gtag('config', '${GA_ID}', { anonymize_ip: true });
+      `}</Script>
+    </>
+  );
+}
