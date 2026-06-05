@@ -6,14 +6,14 @@ export type NavLeaf = { label: string; href: string; iconImg: string; desc: stri
 export type NavGroup = { label: string; items: NavLeaf[] };
 export type NavItem =
   | { label: string; href: string }
-  | { label: string; mega: "products" | "solutions" | "community" };
+  | { label: string; mega: "products" | "solutions" | "community"; href?: string };
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Producto",   mega: "products"   },
-  { label: "Soluciones", mega: "solutions"  },
+  { label: "Producto",    mega: "products"   },
+  { label: "Soluciones",  mega: "solutions"  },
   { label: "Hypersensor", href: "/es/hypersensor/" },
   { label: "Partners",    href: "/es/partners/" },
-  { label: "Comunidad",   mega: "community"  },
+  { label: "Comunidad",   mega: "community",  href: "/es/comunidad/" },
   { label: "Nosotros",    href: "/es/sobre-nosotros/" },
 ];
 
@@ -24,14 +24,14 @@ export const MEGA_PRODUCTS: NavLeaf[] = [
 ];
 
 export const MEGA_USE_CASES: NavLeaf[] = [
-  { label: "People Counting",      href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
-  { label: "Conversion Analytics", href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
-  { label: "Customer Behavior",    href: "/es/customer-behavior/",                  iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
-  { label: "Occupancy",            href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
-  { label: "Queue Analytics",      href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
-  { label: "Restroom",             href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
-  { label: "Guest WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
-  { label: "Corporate WiFi",       href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
+  { label: "Conteo de personas",       href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
+  { label: "Analítica de conversión",  href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
+  { label: "Comportamiento del cliente", href: "/es/customer-behavior/",                iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
+  { label: "Gestión de la ocupación",  href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
+  { label: "Gestión de colas",         href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
+  { label: "Gestión de aseos",         href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
+  { label: "Marketing WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
+  { label: "WiFi corporativo",         href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
 ];
 
 export const MEGA_INDUSTRIES: NavLeaf[] = [

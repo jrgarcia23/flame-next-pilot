@@ -37,7 +37,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1280px, calc(100vw - 24px))", padding: "24px 26px" }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1330px, calc(100vw - 24px))", padding: "24px 26px" }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -136,6 +136,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
         <nav className="hidden lg:flex flex-1 items-center gap-1 ml-4">
           {NAV_ITEMS.map((it) => {
             const isMega = "mega" in it;
+            const megaHref = isMega ? (it as { href?: string }).href : undefined;
             return (
               <div key={it.label} className="nav-item relative">
                 {!isMega ? (
@@ -144,10 +145,18 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
                   </a>
                 ) : (
                   <>
-                    <button type="button" className="nav-link inline-flex items-center gap-1.5" style={{ color: "#fff" }}>
-                      {it.label}
-                      <span style={{ fontSize: 9, lineHeight: 1, transform: "translateY(1px)" }}>▾</span>
-                    </button>
+                    {megaHref ? (
+                      // Mega item con href: clickeable + despliega dropdown al hover
+                      <a href={megaHref} className="nav-link inline-flex items-center gap-1.5" style={{ color: "#fff" }}>
+                        {it.label}
+                        <span style={{ fontSize: 9, lineHeight: 1, transform: "translateY(1px)" }}>▾</span>
+                      </a>
+                    ) : (
+                      <button type="button" className="nav-link inline-flex items-center gap-1.5" style={{ color: "#fff" }}>
+                        {it.label}
+                        <span style={{ fontSize: 9, lineHeight: 1, transform: "translateY(1px)" }}>▾</span>
+                      </button>
+                    )}
                     <div className={`nav-dropdown nav-dropdown--${(it as { mega: string }).mega}`}>
                       <MegaPanel kind={(it as { mega: "products" | "solutions" | "community" }).mega} />
                     </div>

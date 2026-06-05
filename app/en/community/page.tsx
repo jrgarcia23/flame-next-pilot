@@ -31,13 +31,6 @@ export const metadata: Metadata = {
 const currentLang = "en" as const;
 const t = UI[currentLang];
 
-const KPI = [
-  { v: "+42%", l: "footfall measured" },
-  { v: "-28%", l: "queue time" },
-  { v: "x3",   l: "WiFi captured ROI" },
-  { v: "+19%", l: "conversion" },
-];
-
 export default function CommunityHubEn() {
   const ent = getCategoryListing("interviews",   currentLang).slice(0, 4);
   const cas = getCategoryListing("case-studies", currentLang).slice(0, 4);
@@ -85,7 +78,7 @@ export default function CommunityHubEn() {
       </nav>
 
       {ent.length > 0 && <Section sid="interviews"   bg="paper" eyebrow="Interviews"    h2a="Conversations with the people who" h2b="decide" link={`View all ${countEnt}`} href="/en/category/interviews/"   items={ent} />}
-      {cas.length > 0 && <Section sid="case-studies" bg="white" eyebrow="Case studies"  h2a="How our clients"                    h2b="measure and decide" link={`View all ${countCas}`} href="/en/category/case-studies/" items={cas} xlExtra={<><p className="mag-kpi-big">{KPI[0].v}</p><p className="mag-eyebrow">{KPI[0].l}</p></>} kpis={KPI} />}
+      {cas.length > 0 && <Section sid="case-studies" bg="white" eyebrow="Case studies"  h2a="How our clients"                    h2b="measure and decide" link={`View all ${countCas}`} href="/en/category/case-studies/" items={cas} />}
       {blo.length > 0 && <Section sid="blog"         bg="paper" eyebrow="Blog articles" h2a="Applied analysis for"               h2b="physical spaces" link={`View all ${countBlo}`} href="/en/category/blog/" items={blo} />}
       {web.length > 0 && <Section sid="webinars"     bg="navy-dark" eyebrow="Webinars"  h2a="Technical sessions with"            h2b="experts" link="View all" href="/en/category/webinars/" items={web} play />}
 
