@@ -53,12 +53,14 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; }
         .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
-        /* Override en panel Soluciones: títulos y descripciones FLUYEN sin ellipsis ni truncado.
-           Las descripciones caben en 2 líneas con el ancho calculado para el panel 1120px. */
+        /* Override en panel Soluciones: títulos y descripciones FLUYEN sin ellipsis ni truncado,
+           y todas las descripciones reservan 2 líneas de altura para que los items se alineen
+           verticalmente (1 línea o 2 según texto, pero la caja siempre es de 2). */
         .mega-panel-solutions .mega-title { white-space: normal; overflow: visible; text-overflow: clip; }
         .mega-panel-solutions .mega-desc {
           display: block; -webkit-line-clamp: unset; -webkit-box-orient: unset;
-          overflow: visible; min-height: 0;
+          overflow: visible;
+          min-height: calc(12.5px * 1.4 * 2); /* siempre reserva 2 líneas */
         }
         @media (max-width: 1180px) {
           .mega-panel-solutions { width: min(760px, calc(100vw - 24px)) !important; }
