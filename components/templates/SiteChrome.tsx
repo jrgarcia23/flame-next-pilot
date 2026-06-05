@@ -24,20 +24,20 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
   };
   if (kind === "products") {
     return (
-      <div className="rounded-xl p-4 mega-panel-products" style={{ ...panelStyle, width: "min(460px, calc(100vw - 32px))" }}>
+      <div className="rounded-xl p-4 mega-panel-products" style={{ ...panelStyle, width: "min(350px, calc(100vw - 32px))" }}>
         <div className="flex flex-col gap-1.5">{MEGA_PRODUCTS.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   if (kind === "community") {
     return (
-      <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(322px, calc(100vw - 32px))" }}>
+      <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(350px, calc(100vw - 32px))" }}>
         <div className="flex flex-col gap-1.5">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   return (
-    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1430px, calc(100vw - 24px))", padding: "24px 26px" }}>
+    <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1500px, calc(100vw - 24px))", padding: "24px 26px" }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
           <div className="mega-eyebrow">Por caso de uso</div>
@@ -49,7 +49,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
         </div>
       </div>
       <style>{`
-        .solutions-grid { display: grid; gap: 28px; grid-template-columns: 2fr 1.4fr; align-items: start; }
+        .solutions-grid { display: grid; gap: 28px; grid-template-columns: 1.7fr 1.5fr; align-items: start; }
         .use-cases-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px; }
         .industries-col { border-left: 1px solid var(--color-rule); padding-left: 24px; }
         .mega-eyebrow { font-size: 11px; text-transform: uppercase; font-weight: 700; letter-spacing: 0.14em; color: var(--color-accent-deep); margin-bottom: 14px; padding-left: 12px; }
