@@ -3,6 +3,7 @@ import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteCh
 import { getCategoryListing, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
 import { UI } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
+import { sanitizeTitle } from "@/lib/sanitize-title";
 
 export const metadata: Metadata = {
   title: "Community · Flame Analytics",
@@ -108,7 +109,7 @@ export default function CommunityHubEn() {
                       <span className="wp-tag">PDF</span>
                     </div>
                     <div className="wp-body">
-                      <h3 dangerouslySetInnerHTML={{ __html: w.title }} />
+                      <h3 dangerouslySetInnerHTML={{ __html: sanitizeTitle(w.title) }} />
                     </div>
                   </a>
                 );
@@ -255,7 +256,7 @@ function Section({ sid, bg, eyebrow, h2a, h2b, link, href, items, xlExtra, kpis,
           </a>
           <div className="mag-right">
             <p className="mag-eyebrow">Latest</p>
-            <h3 className="mag-title" dangerouslySetInnerHTML={{ __html: xl.title }} />
+            <h3 className="mag-title" dangerouslySetInnerHTML={{ __html: sanitizeTitle(xl.title) }} />
             {xlExtra}
             <p className="mag-ex">{shortExcerpt(xl.html, 150)}…</p>
             <p className="mag-meta">{formatDate(xl.date, "en")} · {xl.category.name}</p>
@@ -272,7 +273,7 @@ function Section({ sid, bg, eyebrow, h2a, h2b, link, href, items, xlExtra, kpis,
                 </div>
                 <div className="cat-body">
                   <p className="cat-tag">{m.category.name}</p>
-                  <h3 dangerouslySetInnerHTML={{ __html: m.title }} />
+                  <h3 dangerouslySetInnerHTML={{ __html: sanitizeTitle(m.title) }} />
                   <p className="meta">{formatDate(m.date, "en")}{play ? " · 45 min" : ""}</p>
                 </div>
               </a>

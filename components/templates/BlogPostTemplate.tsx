@@ -2,6 +2,7 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { BlogPost, categoryLabel, categoryUrl, formatDate, readingTime, getRelatedPosts, shortExcerpt, Lang } from "@/lib/blog";
 import { injectInternalLinks } from "@/lib/internal-linking";
+import { sanitizeTitle } from "@/lib/sanitize-title";
 
 const I18N = {
   es: {
@@ -300,7 +301,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             <span>›</span>
             <a href={catPath} style={{ color: "inherit" }}>{catLabel}</a>
           </nav>
-          <h1 className="text-[clamp(32px,4.4vw,52px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.1, fontFamily: "var(--font-display)" }} dangerouslySetInnerHTML={{ __html: post.title }} />
+          <h1 className="text-[clamp(32px,4.4vw,52px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.1, fontFamily: "var(--font-display)" }} dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title) }} />
           <div className="flex items-center gap-4 text-[14.5px] flex-wrap" style={{ color: "rgb(255 255 255 / 0.78)" }}>
             <a href={catPath} className="text-[12.5px] uppercase font-semibold inline-flex items-center" style={{ color: "var(--color-accent)", letterSpacing: "0.08em" }}>{catLabel}</a>
             <span style={{ color: "rgb(255 255 255 / 0.3)" }}>·</span>
@@ -423,7 +424,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
                   {(r.thumbnail || r.hero) && <div style={{ aspectRatio: "1/1", background: `url('${r.thumbnail || r.hero}') center/cover` }} />}
                   <div className="p-5">
                     <p className="text-[12px] uppercase font-semibold mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{categoryLabel(r.category.slug, lang)}</p>
-                    <h3 className="font-medium mb-2 group-hover:text-[--color-accent-deep] transition" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 19, lineHeight: 1.25 }} dangerouslySetInnerHTML={{ __html: r.title }} />
+                    <h3 className="font-medium mb-2 group-hover:text-[--color-accent-deep] transition" style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 19, lineHeight: 1.25 }} dangerouslySetInnerHTML={{ __html: sanitizeTitle(r.title) }} />
                     <p className="text-[14px]" style={{ color: "var(--color-ink-3)" }}>{shortExcerpt(r.html, 110)}</p>
                   </div>
                 </a>

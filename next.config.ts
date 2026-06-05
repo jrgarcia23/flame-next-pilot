@@ -27,6 +27,36 @@ const nextConfig: NextConfig = {
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
           // Cross-Origin-Opener-Policy: aísla el contexto del browser (defensa Spectre + XS-Leaks).
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          // CSP en modo report-only: NO bloquea nada, solo reporta lo que bloquearía si estuviera en enforce.
+          // Permite detectar 2-3 semanas qué scripts/estilos/fonts cargan desde dónde sin afectar la web.
+          // Cuando tengamos los logs limpios → convertir a "Content-Security-Policy" (sin -Report-Only) en enforce.
+          //
+          // Permitidos:
+          //   scripts: self + Vercel Analytics + Google Tag Manager + inline (JSON-LD)
+          //   styles:  self + Google Fonts + inline (cientos de style="..." en componentes)
+          //   fonts:   self + Google Fonts
+          //   images:  self + cualquier https (logos clientes vienen de muchos hosts)
+          //   media:   self (vídeos hero)
+          //   connect: self + Resend + Supabase + Vercel + GA
+          //   frame:   self (iframes /embeds/*)
+          //   frame-ancestors: none (no se nos puede embeber en sitios de terceros)
+          {
+            key: "Content-Security-Policy-Report-Only",
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://*.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' data: https://fonts.gstatic.com",
+              "img-src 'self' data: blob: https:",
+              "media-src 'self' blob:",
+              "connect-src 'self' https://*.supabase.co https://api.resend.com https://va.vercel-scripts.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com",
+              "frame-src 'self'",
+              "frame-ancestors 'none'",
+              "form-action 'self'",
+              "base-uri 'self'",
+              "object-src 'none'",
+            ].join("; "),
+          },
         ],
       },
     ];
