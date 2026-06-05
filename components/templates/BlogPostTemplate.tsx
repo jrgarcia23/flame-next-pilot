@@ -14,7 +14,7 @@ const I18N = {
     midCtaBtn: "Solicita una demo",
     endCtaEyebrow: "Demo personalizada · 20 minutos",
     endCtaTitle: "Convierte el tráfico físico en decisiones de negocio",
-    endCtaSub: "Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector, sin biometría y con RGPD por diseño. 180+ clientes B2B en 23 países.",
+    endCtaSub: "Te enseñamos cómo Flame mide tráfico, conversión y comportamiento en tus tiendas, malls u hoteles. Caso real de tu sector, sin biometría y con RGPD por diseño. 90+ clientes B2B en 12 países.",
     endCtaBtn: "Solicitar demo →",
   },
   en: {
@@ -26,7 +26,7 @@ const I18N = {
     midCtaBtn: "Request a demo",
     endCtaEyebrow: "Personalised demo · 20 minutes",
     endCtaTitle: "Turn physical traffic into business decisions",
-    endCtaSub: "We show you how Flame measures traffic, conversion and behaviour in your stores, malls or hotels. Real case from your sector, no biometrics, GDPR by design. 180+ B2B clients across 23 countries.",
+    endCtaSub: "We show you how Flame measures traffic, conversion and behaviour in your stores, malls or hotels. Real case from your sector, no biometrics, GDPR by design. 90+ B2B clients across 12 countries.",
     endCtaBtn: "Request demo →",
   },
 };

@@ -96,7 +96,7 @@ export default function AboutUsEn() {
               Founded in 2016, Flame has become the leading global Location Analytics platform, helping thousands of users optimise visitor value and improve venue performance.
             </p>
             <ul className="grid gap-3 mb-9" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
-              {["Founded in 2016", "Across 23 countries", "180+ B2B customers", "GDPR by design"].map((b) => (
+              {["Founded in 2016", "Across 12 countries", "90+ B2B customers", "GDPR by design"].map((b) => (
                 <li key={b} className="inline-flex items-center gap-2.5 text-[16px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
                   <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
                     <Icon name="check" className="w-4 h-4" />

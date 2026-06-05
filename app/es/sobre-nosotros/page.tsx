@@ -96,7 +96,7 @@ export default function SobreNosotrosEs() {
               Creada en 2016, Flame se ha convertido en la principal plataforma mundial de Análisis de la Localización, que permite a miles de usuarios optimizar el valor de los visitantes y mejorar el rendimiento de los locales.
             </p>
             <ul className="grid gap-3 mb-9 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
-              {["Fundada en 2016", "Presente en 23 países", "180+ clientes B2B", "RGPD desde el diseño"].map((b) => (
+              {["Fundada en 2016", "Presente en 12 países", "90+ clientes B2B", "RGPD desde el diseño"].map((b) => (
                 <li key={b} className="inline-flex items-center gap-2.5 text-[16px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
                   <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
                     <Icon name="check" className="w-4 h-4" />
