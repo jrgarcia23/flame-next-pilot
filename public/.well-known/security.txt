@@ -1,0 +1,6 @@
+Contact: mailto:security@flameanalytics.com
+Contact: mailto:jrgarcia@flameanalytics.com
+Expires: 2027-12-31T23:59:00.000Z
+Preferred-Languages: es, en
+Canonical: https://www.flameanalytics.com/.well-known/security.txt
+Policy: https://www.flameanalytics.com/en/privacy-policy/

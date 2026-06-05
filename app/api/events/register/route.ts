@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "@/lib/supabase-admin";
+import { rateLimit, getClientIpForRateLimit } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +31,14 @@ function escapeHtml(s: string) {
 }
 
 export async function POST(req: NextRequest) {
+  const ip = getClientIpForRateLimit(req);
+  const rl = rateLimit(`events:${ip}`, 5, 300);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Demasiadas solicitudes. Inténtalo en unos minutos." },
+      { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
+    );
+  }
   const body = await req.json().catch(() => ({}));
   const {
     nombre = "", email = "", empresa = "", cargo = "", sector = "", pais = "",
@@ -57,7 +66,7 @@ export async function POST(req: NextRequest) {
         gclid, fbclid, msclkid, source, medium, campaign, ga_client_id,
       });
     } catch (err) {
-      console.error("[events/register] supabase insert error:", err);
+      console.error("[events/register] supabase insert error", { message: err instanceof Error ? err.message : "unknown" });
     }
   }
 
@@ -85,7 +94,7 @@ export async function POST(req: NextRequest) {
       sendEmail({ from: FROM, to: [email], subject: `Inscripción recibida — ${event_name}`, html: autoReplyHtml }),
     ]);
   } catch (err) {
-    console.error("[events/register] email batch threw:", err);
+    console.error("[events/register] email batch threw", { message: err instanceof Error ? err.message : "unknown" });
   }
 
   return NextResponse.json({ ok: true });

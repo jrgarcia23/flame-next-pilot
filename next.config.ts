@@ -6,6 +6,32 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
 
+  // Security headers globales — pentest defensivo 2026-06-05.
+  // CSP NO se aplica aún (requiere report-only mode + auditoría 2-3 sem antes de enforce).
+  // Los demás son seguros de aplicar directos: no afectan layout ni navegación.
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          // Previene MIME-sniffing (browsers no adivinan tipo de fichero, usan el Content-Type)
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          // Permite iframes solo del mismo origen (embeds /embeds/steps-en/ siguen funcionando).
+          // Vercel mete por defecto pero forzamos explícito.
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          // Manda referer completo a same-origin y solo origin a cross-origin (defensa fuga URLs).
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          // Deniega APIs sensibles que la web no usa (defensa frente a XSS-via-iframe).
+          { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), interest-cohort=()" },
+          // HSTS ya lo mete Vercel pero lo forzamos explícito con preload + subdominios.
+          { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
+          // Cross-Origin-Opener-Policy: aísla el contexto del browser (defensa Spectre + XS-Leaks).
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+        ],
+      },
+    ];
+  },
+
   async redirects() {
     return [
       // ══════════════════════════════════════════════════════════════════
