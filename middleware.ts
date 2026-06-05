@@ -58,7 +58,13 @@ export function middleware(request: NextRequest) {
   const lang = pickLang(request);
   const url = request.nextUrl.clone();
   url.pathname = `/${lang}/`;
-  // 308: redirect permanente que preserva el método. Google lo trata como 301 para
-  // canonicalización y consolida señales en /es/ o /en/.
-  return NextResponse.redirect(url, 308);
+  // 307 (temporal) en vez de 308 (permanente): el destino DEPENDE de
+  // cookie + geo IP + Accept-Language, así que no podemos dejar que el
+  // navegador cachee el redirect. Si el usuario cambia de idioma con el
+  // switcher (cookie actualizada), el siguiente acceso a "/" debe reflejarlo.
+  // 308 hacía que Chrome/Edge cachearan permanentemente el primer redirect.
+  const response = NextResponse.redirect(url, 307);
+  response.headers.set("Cache-Control", "no-store, must-revalidate");
+  response.headers.set("Vary", "Accept-Language, Cookie");
+  return response;
 }
