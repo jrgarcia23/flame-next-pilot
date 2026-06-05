@@ -1,6 +1,7 @@
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { BlogPost, categoryLabel, formatDate, shortExcerpt, Lang } from "@/lib/blog";
 import { getCategoryMeta, POSTS_PER_PAGE } from "@/lib/category-meta";
+import { sanitizeTitle } from "@/lib/sanitize-title";
 
 type Props = {
   lang: Lang;
@@ -98,7 +99,7 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
                     <h3
                       className="font-medium mb-2 group-hover:text-[--color-accent-deep] transition"
                       style={{ color: "var(--color-navy)", fontFamily: "var(--font-display)", fontSize: 18, lineHeight: 1.22 }}
-                      dangerouslySetInnerHTML={{ __html: p.title }}
+                      dangerouslySetInnerHTML={{ __html: sanitizeTitle(p.title) }}
                     />
                     <p className="text-[13.5px] mb-2" style={{ color: "var(--color-ink-2)" }}>
                       {shortExcerpt(p.html, 100)}
