@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "@/lib/supabase-admin";
+import { rateLimit, getClientIpForRateLimit } from "@/lib/rate-limit";
 
 export const dynamic = "force-dynamic";
 
@@ -151,6 +152,16 @@ function autoReplyHtml(p: Record<string, string>) {
 }
 
 export async function POST(req: NextRequest) {
+  // Rate limit: 8 envíos / 5 min por IP. Usuario legítimo manda 1 form, atacante saturando se corta.
+  const ip = getClientIpForRateLimit(req);
+  const rl = rateLimit(`contact:${ip}`, 8, 300);
+  if (!rl.ok) {
+    return NextResponse.json(
+      { error: "Demasiadas solicitudes. Inténtalo en unos minutos." },
+      { status: 429, headers: { "Retry-After": String(rl.resetInSec) } }
+    );
+  }
+
   const body = await req.json().catch(() => ({}));
   const {
     nombre = "", empresa = "", email = "",
@@ -188,9 +199,10 @@ export async function POST(req: NextRequest) {
         source, medium, campaign,
         ga_client_id,
       });
-      if (dbError) console.error("[contact] supabase insert error:", dbError);
+      // Log sanitizado: solo código + mensaje, sin objeto completo (no leakea registros PII a Vercel logs)
+      if (dbError) console.error("[contact] supabase insert error", { code: dbError.code, message: dbError.message });
     } catch (err) {
-      console.error("[contact] supabase exception:", err);
+      console.error("[contact] supabase exception", { message: err instanceof Error ? err.message : "unknown" });
     }
   }
 
@@ -215,10 +227,11 @@ export async function POST(req: NextRequest) {
       sendEmail({ from: FROM, to: NOTIFY, replyTo: email, subject: notify.subject, html: notify.html }),
       sendEmail({ from: FROM, to: [email], subject: autoReply.subject, html: autoReply.html, headers: { "Auto-Submitted": "auto-replied" } }),
     ]);
-    if (notifyRes.error) console.error("[contact] notify error:", notifyRes.error);
-    if (autoRes.error) console.error("[contact] autoreply error:", autoRes.error);
+    // Logs sanitizados: solo metadatos del error, no el objeto completo.
+    if (notifyRes.error) console.error("[contact] notify error", typeof notifyRes.error === "object" ? { type: "send_failed" } : { type: "missing_config" });
+    if (autoRes.error) console.error("[contact] autoreply error", typeof autoRes.error === "object" ? { type: "send_failed" } : { type: "missing_config" });
   } catch (err) {
-    console.error("[contact] send batch threw:", err);
+    console.error("[contact] send batch threw", { message: err instanceof Error ? err.message : "unknown" });
   }
 
   return NextResponse.json({ ok: true });
