@@ -196,10 +196,12 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
             pointer-events: none;
             z-index: 50;
           }
-          .nav-dropdown--products,
-          .nav-dropdown--community { left: -8px; }
-          /* Solutions: SIEMPRE fijo al viewport y centrado horizontalmente — nunca overflow */
-          .nav-dropdown--solutions {
+          .nav-item .nav-dropdown--products,
+          .nav-item .nav-dropdown--community { left: -8px; }
+          /* Solutions: SIEMPRE fijo al viewport y centrado horizontalmente — nunca overflow.
+             Usamos .nav-item .nav-dropdown--solutions (especificidad 0,2,0) para sobrescribir
+             la regla base .nav-item .nav-dropdown que tiene la misma especificidad. */
+          .nav-item .nav-dropdown--solutions {
             position: fixed; top: 64px; left: 12px; right: 12px; padding-top: 12px;
             display: flex; justify-content: center;
           }
