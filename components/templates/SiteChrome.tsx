@@ -31,7 +31,7 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
   }
   if (kind === "community") {
     return (
-      <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(460px, calc(100vw - 32px))" }}>
+      <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(322px, calc(100vw - 32px))" }}>
         <div className="flex flex-col gap-1.5">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
