@@ -33,7 +33,7 @@ const cfg: UseCaseConfig = {
   metaDescription: "Del paseante a la compra. Conoce qué impulsa de verdad la conversión.",
   heroBgImage: "/wp-content/uploads/2026/01/conversion_analytics.png",
   heroBgPosition: "center center",
-  heroTitle: "Conversion Analytics",
+  heroTitle: "Analítica de conversión",
   heroSub: "Flame te da una visión completa de tu embudo físico de conversión: desde el tráfico de calle y la entrada en tienda hasta el tiempo de permanencia y la venta final. Entiende qué atrae a los visitantes, cuánto se quedan y qué les lleva a comprar. Optimiza tasas de captación y conversión para maximizar ingresos y el rendimiento global de cada tienda.",
   heroBullets: ["Embudos de conversión", "Tasas de conversión", "Insights de ventas", "Duración de la visita"],
   heroChat: false, // Desactivado 2026-06-05 (JR). Restauración: docs/stash/conversion-hero-chat.md

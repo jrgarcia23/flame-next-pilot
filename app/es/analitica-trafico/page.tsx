@@ -34,7 +34,7 @@ const cfg: ProductConfig = {
   metaTitle: "Traffic · Flame Analytics",
   metaDescription: "Analítica de tráfico físico con IA.",
   heroEyebrow: "Más allá de un sensor de cuenta personas",
-  heroTitle: "Traffic",
+  heroTitle: "Analítica de tráfico",
   heroSub: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en tus espacios en información accionable que impulsa el rendimiento.",
   heroBullets: ["6 funcionalidades en 1", "Precisión del 99 %", "+500 tiendas medidas", "Sin biometría"],
   benefitsTitle: "Tráfico físico =",

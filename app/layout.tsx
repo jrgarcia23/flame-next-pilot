@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import "./globals.css";
 import CookieBanner from "@/components/templates/CookieBanner";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
@@ -50,11 +51,16 @@ const websiteJsonLd = {
   inLanguage: ["es", "en"],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  // Lang dinámico por URL: el middleware inyecta `x-flame-lang` para todas las
+  // rutas /es/* o /en/*. Fallback "es" (mercado principal). Esto resuelve el bug
+  // en el que las páginas /en/* tenían <html lang="es"> hardcoded.
+  const h = await headers();
+  const lang = h.get("x-flame-lang") === "en" ? "en" : "es";
   return (
-    <html lang="es" className="h-full">
+    <html lang={lang} className="h-full">
       <head>
         <script
           type="application/ld+json"

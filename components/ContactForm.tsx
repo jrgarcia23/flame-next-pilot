@@ -139,20 +139,28 @@ export default function ContactForm({ lang }: Props) {
       {/* Honeypot */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
       <div className="grid gap-4 contact-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-        <input className="cf-in col-span-2" type="text"  name="nombre"  placeholder={t.nombre}  required maxLength={200} />
-        <input className="cf-in"            type="email" name="email"   placeholder={t.email}   required maxLength={200} />
-        <input className="cf-in"            type="text"  name="empresa" placeholder={t.empresa} required maxLength={200} />
-        <input className="cf-in"            type="text"  name="cargo"   placeholder={t.cargo}            maxLength={200} />
-        <select className="cf-in"           name="sector" defaultValue="">
+        <label htmlFor="cf-nombre" className="sr-only">{t.nombre}</label>
+        <input id="cf-nombre" className="cf-in col-span-2" type="text" name="nombre" placeholder={t.nombre} required maxLength={200} autoComplete="name" />
+        <label htmlFor="cf-email" className="sr-only">{t.email}</label>
+        <input id="cf-email" className="cf-in" type="email" name="email" placeholder={t.email} required maxLength={200} autoComplete="email" />
+        <label htmlFor="cf-empresa" className="sr-only">{t.empresa}</label>
+        <input id="cf-empresa" className="cf-in" type="text" name="empresa" placeholder={t.empresa} required maxLength={200} autoComplete="organization" />
+        <label htmlFor="cf-cargo" className="sr-only">{t.cargo}</label>
+        <input id="cf-cargo" className="cf-in" type="text" name="cargo" placeholder={t.cargo} maxLength={200} autoComplete="organization-title" />
+        <label htmlFor="cf-sector" className="sr-only">{t.sector}</label>
+        <select id="cf-sector" className="cf-in" name="sector" defaultValue="">
           <option value="" disabled>{t.sector}</option>
           {t.sectors.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <input className="cf-in col-span-2" type="text"  name="pais"    placeholder={t.pais}    maxLength={120} />
-        <select className="cf-in col-span-2" name="ubicaciones" defaultValue="">
+        <label htmlFor="cf-pais" className="sr-only">{t.pais}</label>
+        <input id="cf-pais" className="cf-in col-span-2" type="text" name="pais" placeholder={t.pais} maxLength={120} autoComplete="country-name" />
+        <label htmlFor="cf-ubicaciones" className="sr-only">{t.ubicaciones}</label>
+        <select id="cf-ubicaciones" className="cf-in col-span-2" name="ubicaciones" defaultValue="">
           <option value="" disabled>{t.ubicaciones}</option>
           {t.ubicacionesOpts.map(o => <option key={o} value={o}>{o}</option>)}
         </select>
-        <textarea className="cf-in col-span-2" name="mensaje" placeholder={t.mensaje} rows={3} maxLength={4000} />
+        <label htmlFor="cf-mensaje" className="sr-only">{t.mensaje}</label>
+        <textarea id="cf-mensaje" className="cf-in col-span-2" name="mensaje" placeholder={t.mensaje} rows={3} maxLength={4000} />
         <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
           <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: accent }} required />
           <span>

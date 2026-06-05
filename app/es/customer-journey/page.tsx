@@ -35,7 +35,7 @@ const cfg: ProductConfig = {
   metaDescription: "Convierte el comportamiento en mejores experiencias.",
   heroBgImage: "/wp-content/uploads/2026/01/Customer_journey2-scaled-1.png",
   heroEyebrow: "Convierte el comportamiento de los visitantes en mejores experiencias",
-  heroTitle: "Customer Journey",
+  heroTitle: "Recorrido del cliente",
   heroSub: "Analiza y mejora las experiencias de compra y el flujo de clientes mediante avanzados conocimientos sobre el comportamiento. Optimiza la disposición, aumenta la interacción y mide el recorrido completo de tu visitante, desde la entrada hasta la conversión.",
   heroBullets: ["7 funcionalidades en 1", "Mapas de flujo", "Tiempo real <60 s", "Sin biometría"],
   // Sin sección intermedia: el live de Customer Journey va directo de beneficios a funcionalidades

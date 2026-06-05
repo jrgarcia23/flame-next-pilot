@@ -1,8 +1,8 @@
 import type { HomeRestyleConfig } from "@/components/templates/HomeRestyleTemplate";
 
 export const HOME_CFG_ES: HomeRestyleConfig = {
-  heroSupertitle: "Empowering",
-  heroSupertitleHl: "Physical Spaces",
+  heroSupertitle: "Potenciamos los",
+  heroSupertitleHl: "espacios físicos",
   heroHeadline: "Transformando el video en información en tiempo real para tu negocio",
   heroCta: "Solicita una demo",
   videoWebm: "/wp-content/uploads/2026/01/Demo-web-HIGH-2-720.webm",

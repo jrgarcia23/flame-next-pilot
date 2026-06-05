@@ -36,7 +36,7 @@ const cfg: SectorConfig = {
   metaDescription: "Mejora el rendimiento de cada tienda con datos accionables.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png",
   heroBgPosition: "center center",
-  heroTitle: "Data Intelligence for Retail",
+  heroTitle: "Data Intelligence para Retail",
   heroSub: "En Flame desarrollamos e implantamos soluciones de marketing digital y analítica para espacios físicos que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan a los retailers a entender el comportamiento de sus clientes.",
   pillars: [
     { title: "Impulsa", desc: "Información valiosa sobre el comportamiento de tus clientes mediante una vigilancia activa. Conociendo sus acciones, preferencias y pautas, podrás tomar decisiones basadas en datos objetivos y precisos.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },

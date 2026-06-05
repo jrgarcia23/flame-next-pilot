@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const cfg: UseCaseConfig = {
   metaTitle: "Customer Behavior · Flame Analytics",
   metaDescription: "Comprende cómo se mueven los visitantes en tu espacio.",
-  heroTitle: "Customer Behavior",
+  heroTitle: "Comportamiento del cliente",
   heroBgImage: "/wp-content/uploads/2026/01/Customer_behavior-1-scaled-1.png",
   heroBgPosition: "center center",
   heroSub: "Flame muestra cómo las personas recorren tus espacios: adónde van, cuánto tiempo permanecen y qué capta su atención. Estos insights te ayudan a diseñar distribuciones que vendan, optimizar el merchandising y mejorar la experiencia del cliente. Sin biometría, datos siempre anónimos.",

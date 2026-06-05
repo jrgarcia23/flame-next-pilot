@@ -537,13 +537,7 @@ margin-left: 0px;
         font-size: 32px !important;
     }
 }/* End custom CSS */
-/* Start Custom Fonts CSS */@font-face {
-	font-family: 'Instrument Sans';
-	font-style: normal;
-	font-weight: normal;
-	font-display: auto;
-	src: url('../../2023/10/InstrumentSans-VariableFont_wdthwght.ttf') format('truetype');
-}
+/* Start Custom Fonts CSS */@font
 /* End Custom Fonts CSS */
 /* Start Custom Fonts CSS */@font-face {
 	font-family: 'Clash Grotesk Variable';

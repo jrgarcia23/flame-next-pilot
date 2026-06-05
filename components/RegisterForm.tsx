@@ -108,23 +108,33 @@ export default function RegisterForm(p: RegisterFormProps) {
     <form onSubmit={handleSubmit} className="grid gap-3" style={{ gap: isHero ? 12 : 16 }}>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
 
-      <input style={inputStyle} type="text" name="nombre" placeholder="Nombre" required />
-      <input style={inputStyle} type="email" name="email" placeholder="Email" required />
-      <input style={inputStyle} type="text" name="empresa" placeholder="Empresa" required />
+      <label htmlFor="rf-nombre" className="sr-only">Nombre</label>
+      <input id="rf-nombre" style={inputStyle} type="text" name="nombre" placeholder="Nombre" required autoComplete="name" />
+      <label htmlFor="rf-email" className="sr-only">Email</label>
+      <input id="rf-email" style={inputStyle} type="email" name="email" placeholder="Email" required autoComplete="email" />
+      <label htmlFor="rf-empresa" className="sr-only">Empresa</label>
+      <input id="rf-empresa" style={inputStyle} type="text" name="empresa" placeholder="Empresa" required autoComplete="organization" />
       {(p.showCargo !== false) && (
-        <input style={inputStyle} type="text" name="cargo" placeholder="Cargo" required />
+        <>
+          <label htmlFor="rf-cargo" className="sr-only">Cargo</label>
+          <input id="rf-cargo" style={inputStyle} type="text" name="cargo" placeholder="Cargo" required autoComplete="organization-title" />
+        </>
       )}
-      <select style={inputStyle} name="sector" defaultValue="" required>
+      <label htmlFor="rf-sector" className="sr-only">Sector</label>
+      <select id="rf-sector" style={inputStyle} name="sector" defaultValue="" required>
         <option value="" disabled>Sector</option>
         <option>Centros comerciales</option>
         <option>Retail</option>
         <option>Otros</option>
       </select>
       {!p.topicName && p.topicOptions && p.topicOptions.length > 0 && (
-        <select style={inputStyle} name="topic_select" defaultValue="" required>
-          <option value="" disabled>{p.kind === "events" ? "¿A qué evento te inscribes?" : "¿A qué webinar te inscribes?"}</option>
-          {p.topicOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-        </select>
+        <>
+          <label htmlFor="rf-topic" className="sr-only">{p.kind === "events" ? "Evento" : "Webinar"}</label>
+          <select id="rf-topic" style={inputStyle} name="topic_select" defaultValue="" required>
+            <option value="" disabled>{p.kind === "events" ? "¿A qué evento te inscribes?" : "¿A qué webinar te inscribes?"}</option>
+            {p.topicOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
+          </select>
+        </>
       )}
       <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: ink3, marginTop: 4 }}>
         <input type="checkbox" name="consent" style={{ marginTop: 3, accentColor: accent }} required />

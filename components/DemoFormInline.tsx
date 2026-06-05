@@ -139,14 +139,19 @@ export default function DemoFormInline({ lang, variant = "demo", gridClass = "",
     <form onSubmit={handleSubmit} className={`grid gap-4 ${gridClass}`} style={{ gridTemplateColumns: "1fr 1fr" }}>
       {/* Honeypot */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
-      <input className="cf-in col-span-2" type="text"  name="nombre"  placeholder={t.name}    required maxLength={200} />
-      <select className="cf-in"           name="sector" defaultValue="">
+      <label htmlFor="df-nombre" className="sr-only">{t.name}</label>
+      <input id="df-nombre" className="cf-in col-span-2" type="text" name="nombre" placeholder={t.name} required maxLength={200} autoComplete="name" />
+      <label htmlFor="df-sector" className="sr-only">{t.sector}</label>
+      <select id="df-sector" className="cf-in" name="sector" defaultValue="">
         <option value="" disabled>{t.sector}</option>
         {t.sectors.map(s => <option key={s} value={s}>{s}</option>)}
       </select>
-      <input className="cf-in"            type="email" name="email"   placeholder={t.email}   required maxLength={200} />
-      <input className="cf-in"            type="text"  name="empresa" placeholder={t.company} required maxLength={200} />
-      <input className="cf-in"            type="text"  name="pais"    placeholder={t.country} maxLength={120} />
+      <label htmlFor="df-email" className="sr-only">{t.email}</label>
+      <input id="df-email" className="cf-in" type="email" name="email" placeholder={t.email} required maxLength={200} autoComplete="email" />
+      <label htmlFor="df-empresa" className="sr-only">{t.company}</label>
+      <input id="df-empresa" className="cf-in" type="text" name="empresa" placeholder={t.company} required maxLength={200} autoComplete="organization" />
+      <label htmlFor="df-pais" className="sr-only">{t.country}</label>
+      <input id="df-pais" className="cf-in" type="text" name="pais" placeholder={t.country} maxLength={120} autoComplete="country-name" />
       <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
         <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: accent }} required />
         <span>

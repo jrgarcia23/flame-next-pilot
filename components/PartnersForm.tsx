@@ -182,32 +182,46 @@ export default function PartnersForm({ lang, category = "" }: Props) {
       {/* Honeypot */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
       <div className="grid gap-4 partners-form-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-        <input className="cf-in col-span-2" type="text"  name="nombre"  placeholder={`${t.name} *`} required maxLength={200} />
-        <input className="cf-in"            type="email" name="email"   placeholder={`${t.email} *`} required maxLength={200} />
-        <input className="cf-in"            type="tel"   name="phone"   placeholder={t.phone} maxLength={50} />
-        <input className="cf-in"            type="text"  name="empresa" placeholder={`${t.company} *`} required maxLength={200} />
-        <input className="cf-in"            type="text"  name="web"     placeholder={t.web} maxLength={200} />
-        <input className="cf-in"            type="text"  name="country" placeholder={t.country} maxLength={120} />
-        <input className="cf-in"            type="text"  name="city"    placeholder={t.city} maxLength={120} />
-        <input className="cf-in col-span-2" type="text"  name="typeCompany" placeholder={t.typeCompany} maxLength={200} />
-        <select className="cf-in" name="sector" defaultValue="">
+        <label htmlFor="pf-nombre" className="sr-only">{t.name}</label>
+        <input id="pf-nombre" className="cf-in col-span-2" type="text" name="nombre" placeholder={`${t.name} *`} required maxLength={200} autoComplete="name" />
+        <label htmlFor="pf-email" className="sr-only">{t.email}</label>
+        <input id="pf-email" className="cf-in" type="email" name="email" placeholder={`${t.email} *`} required maxLength={200} autoComplete="email" />
+        <label htmlFor="pf-phone" className="sr-only">{t.phone}</label>
+        <input id="pf-phone" className="cf-in" type="tel" name="phone" placeholder={t.phone} maxLength={50} autoComplete="tel" />
+        <label htmlFor="pf-empresa" className="sr-only">{t.company}</label>
+        <input id="pf-empresa" className="cf-in" type="text" name="empresa" placeholder={`${t.company} *`} required maxLength={200} autoComplete="organization" />
+        <label htmlFor="pf-web" className="sr-only">{t.web}</label>
+        <input id="pf-web" className="cf-in" type="text" name="web" placeholder={t.web} maxLength={200} autoComplete="url" />
+        <label htmlFor="pf-country" className="sr-only">{t.country}</label>
+        <input id="pf-country" className="cf-in" type="text" name="country" placeholder={t.country} maxLength={120} autoComplete="country-name" />
+        <label htmlFor="pf-city" className="sr-only">{t.city}</label>
+        <input id="pf-city" className="cf-in" type="text" name="city" placeholder={t.city} maxLength={120} autoComplete="address-level2" />
+        <label htmlFor="pf-typeCompany" className="sr-only">{t.typeCompany}</label>
+        <input id="pf-typeCompany" className="cf-in col-span-2" type="text" name="typeCompany" placeholder={t.typeCompany} maxLength={200} />
+        <label htmlFor="pf-sector" className="sr-only">{t.sector}</label>
+        <select id="pf-sector" className="cf-in" name="sector" defaultValue="">
           <option value="" disabled>{t.sector}</option>
           {t.sectorsList.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <select className="cf-in" name="companySize" defaultValue="">
+        <label htmlFor="pf-companySize" className="sr-only">{t.companySize}</label>
+        <select id="pf-companySize" className="cf-in" name="companySize" defaultValue="">
           <option value="" disabled>{t.companySize}</option>
           {t.companySizeOpts.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <select className="cf-in" name="annualIncome" defaultValue="">
+        <label htmlFor="pf-annualIncome" className="sr-only">{t.annualIncome}</label>
+        <select id="pf-annualIncome" className="cf-in" name="annualIncome" defaultValue="">
           <option value="" disabled>{t.annualIncome}</option>
           {t.annualIncomeOpts.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <select className="cf-in" name="installationCapacity" defaultValue="">
+        <label htmlFor="pf-installationCapacity" className="sr-only">{t.installationCapacity}</label>
+        <select id="pf-installationCapacity" className="cf-in" name="installationCapacity" defaultValue="">
           <option value="" disabled>{t.installationCapacity}</option>
           {t.yesNoOpts.map(s => <option key={s} value={s}>{s}</option>)}
         </select>
-        <input className="cf-in col-span-2" type="text"  name="contacts" placeholder={t.contacts} maxLength={300} />
-        <textarea className="cf-in col-span-2" name="mensaje" placeholder={t.message} rows={4} maxLength={4000} />
+        <label htmlFor="pf-contacts" className="sr-only">{t.contacts}</label>
+        <input id="pf-contacts" className="cf-in col-span-2" type="text" name="contacts" placeholder={t.contacts} maxLength={300} />
+        <label htmlFor="pf-mensaje" className="sr-only">{t.message}</label>
+        <textarea id="pf-mensaje" className="cf-in col-span-2" name="mensaje" placeholder={t.message} rows={4} maxLength={4000} />
         <label className="col-span-2 flex items-start gap-2 text-[13.5px] mt-2" style={{ color: "var(--color-ink-3)" }}>
           <input type="checkbox" name="consent" className="mt-1" style={{ accentColor: accent }} required />
           <span>

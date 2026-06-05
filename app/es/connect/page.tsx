@@ -34,7 +34,7 @@ const cfg: ProductConfig = {
   metaDescription: "WiFi que impulsa la fidelización y el retorno.",
   heroBgImage: "/wp-content/uploads/2026/01/Connect-1-1.png",
   heroEyebrow: "WiFi que impulsa la fidelización y el retorno",
-  heroTitle: "Connect",
+  heroTitle: "Marketing WiFi",
   heroSub: "Convierte el WiFi para invitados en un potente canal de marketing. Interactúa con los visitantes en espacios físicos, captura sus datos de contacto y activa campañas personalizadas según ubicación, frecuencia y comportamiento.",
   heroBullets: ["5 funcionalidades en 1", "Portal con tu marca", "Marketing por ubicación", "100% RGPD"],
   // Sin sección intermedia: el live de Connect va directo de beneficios a funcionalidades

@@ -6,7 +6,7 @@ function MegaItem({ it }: { it: NavLeaf }) {
   return (
     <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 10 }}>
       <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36 }}>
-        <img src={it.iconImg} alt="" width={36} height={36} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
+        <img src={it.iconImg} alt={it.label} width={36} height={36} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
       </span>
       <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 1 }}>
         <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
