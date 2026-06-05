@@ -62,7 +62,7 @@ const cfg: UseCaseConfig = {
     { icon: "convert",  title: "Tasa de conversión visita → venta",  desc: "Cruza tráfico con tu TPV. Sabes qué % de visitantes acaba comprando, no solo cuántos entran." },
     { icon: "calendar", title: "Patrones semanales y picos horarios", desc: "Identifica los momentos críticos de la semana. Anticipate con personal y stock." },
     { icon: "compare",  title: "Benchmark entre tiendas",            desc: "Compara red completa, identifica las tiendas top y replica sus prácticas en el resto." },
-    { icon: "dwell",    title: "Tiempo medio en tienda",             desc: "Cuánto se queda el visitante. Pista clave de engagement y experiencia." },
+    { icon: "street",   title: "Tráfico exterior",                   desc: "Cuántas personas pasan frente a tu tienda y cuántas entran. Mide la capacidad de atracción del escaparate." },
     { icon: "ratio",    title: "Staff-to-traffic ratio",             desc: "Personal real necesario en cada franja. Reduce hasta un 18% las horas mal asignadas." },
   ],
   testimonialsIdx: [6, 3, 2],

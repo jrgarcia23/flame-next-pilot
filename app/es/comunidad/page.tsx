@@ -31,14 +31,6 @@ export const metadata: Metadata = {
 const currentLang = "es" as const;
 const t = UI[currentLang];
 
-// KPI inventados para casos (en un futuro vendrán del dataset por caso)
-const KPI = [
-  { v: "+42%", l: "tráfico medido" },
-  { v: "-28%", l: "tiempo de cola" },
-  { v: "x3",   l: "ROI WiFi captado" },
-  { v: "+19%", l: "conversión" },
-];
-
 export default function ComunidadHubEs() {
   const ent = getCategoryListing("entrevistas",     currentLang).slice(0, 4);
   const cas = getCategoryListing("casos-de-exito",  currentLang).slice(0, 4);
@@ -103,8 +95,6 @@ export default function ComunidadHubEs() {
         <Section
           sid="casos" bg="white" eyebrow="Casos de éxito" h2a="Cómo nuestros clientes" h2b="miden y deciden"
           link={`Ver los ${countCas}`} href="/es/categoria/casos-de-exito/" items={cas}
-          xlExtra={<><p className="mag-kpi-big">{KPI[0].v}</p><p className="mag-eyebrow">{KPI[0].l}</p></>}
-          kpis={KPI}
         />
       )}
 
