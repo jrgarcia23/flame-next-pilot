@@ -146,7 +146,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
     >
       <div className="flame-container flex items-center h-16 gap-6">
         <a href="/es/" className="inline-flex items-center">
-          <img src="/wp-content/uploads/elementor/thumbs/logo_flame-qfryqe0zsr27wn1jg22ulycihf4wsdke2ytff358i2.png" alt="Flame Analytics" style={{ height: 30, width: "auto", display: "block" }} />
+          <img src="/wp-content/uploads/2023/10/flame-logo-black-2x.png" alt="Flame Analytics" width={148} height={30} style={{ height: 30, width: "auto", display: "block" }} />
         </a>
         <nav className="hidden lg:flex flex-1 items-center gap-1 ml-4">
           {NAV_ITEMS.map((it) => {
@@ -441,7 +441,7 @@ export function SiteFooter({ currentLang = "es" }: { currentLang?: "es" | "en" }
           </div>
           {cols.map((c) => (
             <div key={c.title}>
-              <h4 className="text-[12.5px] font-semibold uppercase tracking-[0.06em] mb-4" style={{ color: "var(--color-navy)" }}>{c.title}</h4>
+              <h3 className="text-[12.5px] font-semibold uppercase tracking-[0.06em] mb-4" style={{ color: "var(--color-navy)" }}>{c.title}</h3>
               <ul className="flex flex-col gap-2.5 text-[14.5px]" style={{ color: "var(--color-ink-3)" }}>
                 {c.links.map(([l, h]) => (
                   <li key={l}><a href={h} className="hover:underline">{l}</a></li>

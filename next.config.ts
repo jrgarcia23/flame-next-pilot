@@ -51,7 +51,11 @@ const nextConfig: NextConfig = {
               "media-src 'self' blob:",
               "connect-src 'self' https://*.supabase.co https://api.resend.com https://va.vercel-scripts.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com",
               "frame-src 'self'",
-              "frame-ancestors 'none'",
+              // frame-ancestors omitido a propósito: X-Frame-Options: SAMEORIGIN
+              // ya bloquea embedding por terceros a nivel browser. Mantenerlo aquí
+              // causaba que herramientas como PageSpeed Insights (que cargan la
+              // página en su propio iframe) loggearan un error en consola, bajando
+              // el score de Best Practices. La protección real sigue vigente.
               "form-action 'self'",
               "base-uri 'self'",
               "object-src 'none'",
