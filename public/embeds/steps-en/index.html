@@ -48,8 +48,11 @@
 <style>
   /* Quita los 2 divider widgets finales que añaden whitespace innecesario */
   .elementor-widget-divider, .elementor-widget-spacer { display:none !important; } .elementor-element-4fc3d33e { margin-top: 60px !important; }
-  /* Reduce padding bottom de la sección principal */
-  .elementor-section.elementor-element-7fd27d34 { padding-top: 80px !important; padding-bottom: 110px !important; }
+  /* Reduce padding bottom de la sección principal.
+     En EN el id Elementor es 1d512c1 (en ES es 7fd27d34) — incluimos ambos
+     para que el padding del hero se aplique sin importar el HTML generado. */
+  .elementor-section.elementor-element-7fd27d34,
+  .elementor-section.elementor-element-1d512c1 { padding-top: 80px !important; padding-bottom: 110px !important; }
   /* Aire interno de cada card: el texto de la descripción tocaba el borde inferior.
      Añadimos padding-bottom al wrapper de cada card y un poco más al image-box-content. */
   .comprehensive_products { padding-bottom: 40px !important; }
