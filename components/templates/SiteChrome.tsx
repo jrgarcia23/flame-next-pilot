@@ -146,7 +146,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
     >
       <div className="flame-container flex items-center h-16 gap-6">
         <a href="/es/" className="inline-flex items-center">
-          <img src="/wp-content/uploads/2023/10/flame-logo-black-2x.png" alt="Flame Analytics" width={148} height={30} style={{ height: 30, width: "auto", display: "block" }} />
+          <img src="/wp-content/uploads/2023/10/flame-logo-white.png" alt="Flame Analytics" width={150} height={30} style={{ height: 30, width: "auto", display: "block" }} />
         </a>
         <nav className="hidden lg:flex flex-1 items-center gap-1 ml-4">
           {NAV_ITEMS.map((it) => {
