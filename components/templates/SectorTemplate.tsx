@@ -7,8 +7,11 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
+  const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
   return (
     <>
+      {/* Preload del hero background — mejora LCP (Next hoiza al <head>). */}
+      <link rel="preload" as="image" href={heroBg} fetchPriority="high" />
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
@@ -18,7 +21,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         style={{
           background: "var(--color-navy)",
           color: "white",
-          backgroundImage: `url('${cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png"}')`,
+          backgroundImage: `url('${heroBg}')`,
           backgroundPosition: cfg.heroBgPosition || "center top",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",

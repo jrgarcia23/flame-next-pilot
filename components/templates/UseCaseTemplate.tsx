@@ -8,8 +8,12 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
+  const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
   return (
     <>
+      {/* Preload del hero background — Next.js hoiza este <link> al <head>.
+          Mejora LCP en 1-3s al pedir la imagen en paralelo con HTML/CSS. */}
+      <link rel="preload" as="image" href={heroBg} fetchPriority="high" />
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
@@ -19,7 +23,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
         style={{
           background: "var(--color-navy)",
           color: "white",
-          backgroundImage: `url('${cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png"}')`,
+          backgroundImage: `url('${heroBg}')`,
           backgroundPosition: cfg.heroBgPosition || "center top",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
