@@ -4,34 +4,34 @@ import { UseCaseConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
+  title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
   description:
     "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
   alternates: {
-    canonical: "/es/cuenta-personas/",
+    canonical: "/es/conteo-personas/",
     languages: {
-    es: "/es/cuenta-personas/",
+    es: "/es/conteo-personas/",
     en: "/en/people-counting/",
-    "x-default": "/es/cuenta-personas/",
+    "x-default": "/es/conteo-personas/",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://www.flameanalytics.com/es/cuenta-personas/",
+    url: "https://www.flameanalytics.com/es/conteo-personas/",
     siteName: "Flame Analytics",
-    title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
+    title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
     description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cuenta personas · Conteo de visitantes con IA · Flame Analytics",
+    title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
     description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
   },
 };
 
 const cfg: UseCaseConfig = {
-  metaTitle: "Cuenta personas · Flame Analytics",
+  metaTitle: "Conteo de personas · Flame Analytics",
   metaDescription: "Conteo de visitantes con IA, sin biometría.",
   heroTitle: "Conteo de personas",
   heroBgImage: "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png",

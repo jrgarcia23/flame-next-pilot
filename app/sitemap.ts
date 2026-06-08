@@ -10,7 +10,7 @@ const BASE = "https://www.flameanalytics.com";
 const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",
   "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "hoteles", "espacios-publicos",
-  "cuenta-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
+  "conteo-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
   "customer-behavior", "customer-journey", "gestion-de-aseos", "gestion-ocupacion",
   "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect",
   "informacion-detallada", "piloto", "flame-eventos", "inscripcion-en-eventos", "inscripcion-webinars",

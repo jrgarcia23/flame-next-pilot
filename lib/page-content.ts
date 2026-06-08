@@ -24,7 +24,7 @@ export const MEGA_PRODUCTS: NavLeaf[] = [
 ];
 
 export const MEGA_USE_CASES: NavLeaf[] = [
-  { label: "Conteo de personas",       href: "/es/cuenta-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
+  { label: "Conteo de personas",       href: "/es/conteo-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
   { label: "Analítica de conversión",  href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
   { label: "Comportamiento del cliente", href: "/es/customer-behavior/",                iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
   { label: "Gestión de la ocupación",  href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
@@ -140,7 +140,7 @@ export const TESTIMONIALS_ALL = [
 export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
   { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/customer-journey/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
   { title: "Soluciones", links: [
-    ["Cuenta personas",        "/es/cuenta-personas/"],
+    ["Conteo de personas",        "/es/conteo-personas/"],
     ["Analítica de conversión", "/es/analitica-conversion/"],
     ["Comportamiento del cliente", "/es/customer-behavior/"],
     ["Gestión de ocupación",    "/es/gestion-ocupacion/"],

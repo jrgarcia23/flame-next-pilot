@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     canonical: "/en/people-counting/",
     languages: {
     en: "/en/people-counting/",
-    es: "/es/cuenta-personas/",
-    "x-default": "/es/cuenta-personas/",
+    es: "/es/conteo-personas/",
+    "x-default": "/es/conteo-personas/",
     },
   },
   openGraph: {
@@ -71,5 +71,5 @@ const cfg: UseCaseConfig = {
 };
 
 export default function PeopleCountingEN() {
-  return <UseCaseTemplate cfg={cfg} enHref="/es/cuenta-personas/" currentLang="en" />;
+  return <UseCaseTemplate cfg={cfg} enHref="/es/conteo-personas/" currentLang="en" />;
 }

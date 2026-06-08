@@ -11,7 +11,7 @@ type Topic = { es: string; en: string; terms: string[] };
 // Los términos están en minúsculas; la búsqueda es case-insensitive con \\b word boundary.
 const TOPICS: Topic[] = [
   // Productos
-  { es: "/es/cuenta-personas/",                   en: "/en/people-counting/",                terms: ["conteo de personas", "cuenta personas", "cuenta-personas", "people counting", "footfall counter", "people counter"] },
+  { es: "/es/conteo-personas/",                   en: "/en/people-counting/",                terms: ["conteo de personas", "cuenta personas", "cuenta-personas", "people counting", "footfall counter", "people counter"] },
   { es: "/es/customer-journey/",                  en: "/en/customer-journey/",               terms: ["customer journey", "recorrido del cliente", "viaje del cliente", "shopper journey"] },
   { es: "/es/analitica-conversion/",              en: "/en/conversion-analytics/",           terms: ["analítica de conversión", "tasa de conversión", "conversion analytics", "conversion rate", "funnel físico", "conversión en tienda"] },
   { es: "/es/customer-behavior/",                 en: "/en/customer-behavior/",              terms: ["customer behavior", "comportamiento del cliente", "comportamiento del consumidor", "shopper behavior", "mapas de calor", "heatmaps"] },

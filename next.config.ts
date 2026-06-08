@@ -68,6 +68,12 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // ── Rename /es/cuenta-personas/ → /es/conteo-personas/ ─────────────
+      // El servicio se llama "Conteo de personas" (no "Cuenta personas"),
+      // la URL ahora coincide con el label. 301 preserva el SEO histórico.
+      { source: "/es/cuenta-personas",      destination: "/es/conteo-personas/", permanent: true },
+      { source: "/es/cuenta-personas/",     destination: "/es/conteo-personas/", permanent: true },
+
       // ══════════════════════════════════════════════════════════════════
       // SEO 301s — preservar URLs históricas WP (Google Search Console)
       // ══════════════════════════════════════════════════════════════════

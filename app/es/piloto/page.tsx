@@ -52,7 +52,7 @@ const SECTIONS: Section[] = [
     title: "Soluciones / Casos de uso",
     subtitle: "UseCaseTemplate · 10 bloques (hero+logos, beneficios, sección imagen+texto, métricas, CTA strip, sectores, testimonios, FAQ, form)",
     items: [
-      { label: "People Counting",      href: "/es/cuenta-personas/",                  status: "design" },
+      { label: "People Counting",      href: "/es/conteo-personas/",                  status: "design" },
       { label: "Conversion Analytics", href: "/es/analitica-conversion/",             status: "design" },
       { label: "Customer Behavior",    href: "/es/customer-behavior/",                status: "design" },
       { label: "Occupancy Management", href: "/es/gestion-ocupacion/",                status: "design" },
@@ -222,7 +222,7 @@ export default function PilotoIndex() {
               Ver home (clon)
               <Icon name="arrow" className="w-4 h-4" />
             </a>
-            <a href="/es/cuenta-personas/" className="cta-btn cta-btn--lg" style={{ background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
+            <a href="/es/conteo-personas/" className="cta-btn cta-btn--lg" style={{ background: "transparent", color: "#fff", border: "1px solid rgb(255 255 255 / 0.2)" }}>
               Ver caso de uso ejemplo
             </a>
           </div>
