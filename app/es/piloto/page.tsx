@@ -43,7 +43,7 @@ const SECTIONS: Section[] = [
     subtitle: "ProductTemplate · 11 bloques (hero, beneficios, plataforma, funcionalidades, pilares Characteristics-1, sectores, testimonios, FAQ, form)",
     items: [
       { label: "Traffic",          href: "/es/analitica-trafico/", status: "design" },
-      { label: "Customer Journey", href: "/es/customer-journey/",  status: "design" },
+      { label: "Customer Journey", href: "/es/recorrido-del-cliente/",  status: "design" },
       { label: "Connect",          href: "/es/connect/",           status: "design" },
       { label: "Hypersensor",      href: "/es/hypersensor/",             status: "literal", note: "Sin tocar, igual que live" },
     ],
@@ -54,7 +54,7 @@ const SECTIONS: Section[] = [
     items: [
       { label: "People Counting",      href: "/es/conteo-personas/",                  status: "design" },
       { label: "Conversion Analytics", href: "/es/analitica-conversion/",             status: "design" },
-      { label: "Customer Behavior",    href: "/es/customer-behavior/",                status: "design" },
+      { label: "Customer Behavior",    href: "/es/comportamiento-del-cliente/",                status: "design" },
       { label: "Occupancy Management", href: "/es/gestion-ocupacion/",                status: "design" },
       { label: "Queue Analytics",      href: "/es/analitica-de-colas/",               status: "design" },
       { label: "Restroom Management",  href: "/es/gestion-de-aseos/",                 status: "design" },

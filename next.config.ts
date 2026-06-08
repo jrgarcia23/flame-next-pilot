@@ -74,6 +74,12 @@ const nextConfig: NextConfig = {
       { source: "/es/cuenta-personas",      destination: "/es/conteo-personas/", permanent: true },
       { source: "/es/cuenta-personas/",     destination: "/es/conteo-personas/", permanent: true },
 
+      // ── Slugs ES traducidos del inglés al español (productos siguen en EN como brand) ──
+      { source: "/es/customer-behavior",    destination: "/es/comportamiento-del-cliente/", permanent: true },
+      { source: "/es/customer-behavior/",   destination: "/es/comportamiento-del-cliente/", permanent: true },
+      { source: "/es/customer-journey",     destination: "/es/recorrido-del-cliente/",      permanent: true },
+      { source: "/es/customer-journey/",    destination: "/es/recorrido-del-cliente/",      permanent: true },
+
       // ══════════════════════════════════════════════════════════════════
       // SEO 301s — preservar URLs históricas WP (Google Search Console)
       // ══════════════════════════════════════════════════════════════════
@@ -159,7 +165,7 @@ const nextConfig: NextConfig = {
       { source: "/connect/:path*",                             destination: "/es/connect/",                         permanent: true },
       { source: "/caracteristicas/:path*",                     destination: "/es/sobre-nosotros/",                  permanent: true },
       { source: "/aforo/:path*",                               destination: "/es/gestion-ocupacion/",               permanent: true },
-      { source: "/demographics/:path*",                        destination: "/es/customer-behavior/",               permanent: true },
+      { source: "/demographics/:path*",                        destination: "/es/comportamiento-del-cliente/",               permanent: true },
       { source: "/flame-covid/:path*",                         destination: "/es/",                                 permanent: true },
       { source: "/formulario-de-inscripcion-a-los-webinars-de-flame/",  destination: "/es/inscripcion-webinars/",   permanent: true },
       { source: "/contact",                                    destination: "/es/contacta/",                        permanent: true },

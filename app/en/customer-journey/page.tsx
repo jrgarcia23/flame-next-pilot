@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     canonical: "/en/customer-journey/",
     languages: {
     en: "/en/customer-journey/",
-    es: "/es/customer-journey/",
-    "x-default": "/es/customer-journey/",
+    es: "/es/recorrido-del-cliente/",
+    "x-default": "/es/recorrido-del-cliente/",
     },
   },
   openGraph: {
@@ -73,5 +73,5 @@ const cfg: ProductConfig = {
 };
 
 export default function CustomerJourneyEN() {
-  return <ProductTemplate cfg={cfg} enHref="/es/customer-journey/" currentLang="en" />;
+  return <ProductTemplate cfg={cfg} enHref="/es/recorrido-del-cliente/" currentLang="en" />;
 }

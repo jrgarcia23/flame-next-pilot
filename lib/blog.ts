@@ -2,6 +2,7 @@
 // URL plana: /es/<slug>/ y /en/<slug>/ (decisión del agente SEO 2026-06-03).
 // Whitepapers: /es/whitepaper/<slug>/ y /en/whitepaper/<slug>/.
 import data from "@/data/blog.json";
+import { getOverride, applyOverride } from "./post-overrides";
 
 export type Lang = "es" | "en";
 export type PostType = "post" | "page" | "whitepaper";
@@ -40,13 +41,33 @@ for (const p of [...D.posts, ...D.pages, ...D.whitepapers]) {
 }
 
 export function getPost(slug: string, lang: Lang): BlogPost | null {
-  return byKey[`post/${lang}/${slug}`] || null;
+  const raw = byKey[`post/${lang}/${slug}`];
+  if (!raw) return null;
+  const ov = getOverride(slug, lang);
+  return ov ? applyOverride(raw, ov) : raw;
 }
 export function getPage(slug: string, lang: Lang): BlogPost | null {
-  return byKey[`page/${lang}/${slug}`] || null;
+  const raw = byKey[`page/${lang}/${slug}`];
+  if (!raw) return null;
+  const ov = getOverride(slug, lang);
+  return ov ? applyOverride(raw, ov) : raw;
 }
 export function getWhitepaper(slug: string, lang: Lang): BlogPost | null {
-  return byKey[`whitepaper/${lang}/${slug}`] || null;
+  const raw = byKey[`whitepaper/${lang}/${slug}`];
+  if (!raw) return null;
+  const ov = getOverride(slug, lang);
+  return ov ? applyOverride(raw, ov) : raw;
+}
+
+// Heurística: el HTML del post ya trae su propia FAQ.
+// Casos detectados:
+//   - JSON-LD FAQPage embebido (typical en posts importados con su propio schema)
+//   - >=3 elementos <details> (FAQ visual de Gutenberg/Elementor)
+// En esos casos evitamos inyectar el FAQ genérico de lib/faqs.ts para no duplicar.
+export function hasInlineFaq(html: string): boolean {
+  if (/"@type"\s*:\s*"FAQPage"/i.test(html)) return true;
+  const matches = html.match(/<details\b/gi);
+  return !!matches && matches.length >= 3;
 }
 
 // ---------- LISTING ----------

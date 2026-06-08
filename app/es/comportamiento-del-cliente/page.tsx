@@ -6,16 +6,16 @@ export const metadata: Metadata = {
   title: "Customer Behavior · Mapas de calor y patrones · Flame Analytics",
   description: "Comprende cómo se mueven, interactúan y deciden tus visitantes. Mapas de calor, zonas frías y patrones de movimiento dentro del espacio.",
   alternates: {
-    canonical: "/es/customer-behavior/",
+    canonical: "/es/comportamiento-del-cliente/",
     languages: {
-    es: "/es/customer-behavior/",
+    es: "/es/comportamiento-del-cliente/",
     en: "/en/customer-behavior/",
-    "x-default": "/es/customer-behavior/",
+    "x-default": "/es/comportamiento-del-cliente/",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://www.flameanalytics.com/es/customer-behavior/",
+    url: "https://www.flameanalytics.com/es/comportamiento-del-cliente/",
     siteName: "Flame Analytics",
     title: "Customer Behavior · Mapas de calor y patrones · Flame Analytics",
     description: "Comprende cómo se mueven, interactúan y deciden tus visitantes. Mapas de calor, zonas frías y patrones de movimiento dentro del espacio.",

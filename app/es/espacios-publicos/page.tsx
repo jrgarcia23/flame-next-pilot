@@ -91,7 +91,7 @@ const cfg: SectorConfig = {
     {
       title: "Customer Journey",
       desc: "Rastrea los recorridos y las interacciones de los clientes para comprender el comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.",
-      href: "/es/customer-journey/",
+      href: "/es/recorrido-del-cliente/",
       img: "/wp-content/uploads/2026/01/Customer_journey2-scaled-1.png",
     },
     {

@@ -3,8 +3,10 @@ import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
-import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
+import { getPost, getAllPostSlugs, shortExcerpt, hasInlineFaq } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
+import { blogPostingSchema, breadcrumbSchema, faqSchema, postBreadcrumb } from "@/lib/schema";
+import { getFaqForSlug } from "@/lib/faqs";
 
 export const dynamicParams = false;
 
@@ -46,20 +48,20 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
 
   const elementor = getElementorContent(slug);
 
+  const schemas: unknown[] = [
+    blogPostingSchema(post, "en"),
+    breadcrumbSchema(postBreadcrumb(post, "en")),
+  ];
+  if (!hasInlineFaq(post.html)) {
+    const faq = getFaqForSlug(slug, "en");
+    if (faq) schemas.push(faqSchema(faq));
+  }
+
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        headline: post.title.replace(/<[^>]+>/g, ""),
-        datePublished: post.date,
-        dateModified: post.modified,
-        author: { "@type": "Organization", name: "Flame Analytics" },
-        publisher: { "@type": "Organization", name: "Flame Analytics", logo: { "@type": "ImageObject", url: `${SITE}/logo.png` } },
-        image: post.hero ? [post.hero.startsWith("http") ? post.hero : `${SITE}${post.hero}`] : undefined,
-        articleSection: post.category.name,
-        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/en/${slug}/` },
-      })}} />
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
       {elementor
         ? <ElementorPostPage lang="en" post={post} content={elementor} />
         : post.category.slug === "interviews"

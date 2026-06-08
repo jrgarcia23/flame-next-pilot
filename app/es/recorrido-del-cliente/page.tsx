@@ -8,16 +8,16 @@ export const metadata: Metadata = {
   description:
     "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",
   alternates: {
-    canonical: "/es/customer-journey/",
+    canonical: "/es/recorrido-del-cliente/",
     languages: {
-    es: "/es/customer-journey/",
+    es: "/es/recorrido-del-cliente/",
     en: "/en/customer-journey/",
-    "x-default": "/es/customer-journey/",
+    "x-default": "/es/recorrido-del-cliente/",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://www.flameanalytics.com/es/customer-journey/",
+    url: "https://www.flameanalytics.com/es/recorrido-del-cliente/",
     siteName: "Flame Analytics",
     title: "Customer Journey · Recorridos y dwell time · Flame Analytics",
     description: "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",

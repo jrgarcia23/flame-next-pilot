@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
-import { getWhitepaper, getAllWhitepaperSlugs, shortExcerpt } from "@/lib/blog";
+import { getWhitepaper, getAllWhitepaperSlugs, shortExcerpt, hasInlineFaq } from "@/lib/blog";
+import { blogPostingSchema, breadcrumbSchema, faqSchema, postBreadcrumb } from "@/lib/schema";
+import { getFaqForSlug } from "@/lib/faqs";
 
 export const dynamicParams = false;
 
@@ -26,5 +28,22 @@ export default async function WhitepaperEn({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const wp = getWhitepaper(slug, "en");
   if (!wp) return notFound();
-  return <BlogPostTemplate post={wp} />;
+
+  const schemas: unknown[] = [
+    blogPostingSchema(wp, "en"),
+    breadcrumbSchema(postBreadcrumb(wp, "en")),
+  ];
+  if (!hasInlineFaq(wp.html)) {
+    const faq = getFaqForSlug(slug, "en");
+    if (faq) schemas.push(faqSchema(faq));
+  }
+
+  return (
+    <>
+      {schemas.map((s, i) => (
+        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
+      ))}
+      <BlogPostTemplate post={wp} />
+    </>
+  );
 }

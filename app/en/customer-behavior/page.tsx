@@ -9,8 +9,8 @@ export const metadata: Metadata = {
     canonical: "/en/customer-behavior/",
     languages: {
     en: "/en/customer-behavior/",
-    es: "/es/customer-behavior/",
-    "x-default": "/es/customer-behavior/",
+    es: "/es/comportamiento-del-cliente/",
+    "x-default": "/es/comportamiento-del-cliente/",
     },
   },
   openGraph: {
@@ -76,5 +76,5 @@ const cfg: UseCaseConfig = {
 };
 
 export default function CustomerBehaviorEN() {
-  return <UseCaseTemplate cfg={cfg} enHref="/es/customer-behavior/" currentLang="en" />;
+  return <UseCaseTemplate cfg={cfg} enHref="/es/comportamiento-del-cliente/" currentLang="en" />;
 }

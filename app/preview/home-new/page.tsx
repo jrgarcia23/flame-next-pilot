@@ -28,7 +28,7 @@ const cfg: HomeConfig = {
   productsSub: "Combina Traffic, Customer Journey y Connect en un único panel para entender qué pasa en tus espacios y por qué.",
   products: [
     { icon: "traffic",  tagline: "Tráfico y conversión", name: "Traffic",          desc: "Mide el tráfico exterior e interior y calcula la conversión real cruzando con TPV. Comparativas por tienda, hora, día y campaña.", href: "/es/analitica-trafico/",  cta: "Conocer Traffic" },
-    { icon: "journey",  tagline: "Recorridos y dwell time", name: "Customer Journey", desc: "Rastrea recorridos, tiempo de permanencia y mapas de calor por zona. Optimiza layout, escaparate y operaciones con dato real.", href: "/es/customer-journey/", cta: "Conocer Customer Journey" },
+    { icon: "journey",  tagline: "Recorridos y dwell time", name: "Customer Journey", desc: "Rastrea recorridos, tiempo de permanencia y mapas de calor por zona. Optimiza layout, escaparate y operaciones con dato real.", href: "/es/recorrido-del-cliente/", cta: "Conocer Customer Journey" },
     { icon: "connect",  tagline: "WiFi marketing", name: "Connect",          desc: "Convierte el WiFi para invitados en captura, segmentación y activación. Portales cautivos, leads enriquecidos y campañas medibles.", href: "/es/connect/",          cta: "Conocer Connect" },
   ],
   bigEyebrow: "Decisiones basadas en dato real",

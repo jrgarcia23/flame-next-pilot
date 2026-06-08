@@ -12,9 +12,9 @@ type Topic = { es: string; en: string; terms: string[] };
 const TOPICS: Topic[] = [
   // Productos
   { es: "/es/conteo-personas/",                   en: "/en/people-counting/",                terms: ["conteo de personas", "cuenta personas", "cuenta-personas", "people counting", "footfall counter", "people counter"] },
-  { es: "/es/customer-journey/",                  en: "/en/customer-journey/",               terms: ["customer journey", "recorrido del cliente", "viaje del cliente", "shopper journey"] },
+  { es: "/es/recorrido-del-cliente/",                  en: "/en/customer-journey/",               terms: ["customer journey", "recorrido del cliente", "viaje del cliente", "shopper journey"] },
   { es: "/es/analitica-conversion/",              en: "/en/conversion-analytics/",           terms: ["analítica de conversión", "tasa de conversión", "conversion analytics", "conversion rate", "funnel físico", "conversión en tienda"] },
-  { es: "/es/customer-behavior/",                 en: "/en/customer-behavior/",              terms: ["customer behavior", "comportamiento del cliente", "comportamiento del consumidor", "shopper behavior", "mapas de calor", "heatmaps"] },
+  { es: "/es/comportamiento-del-cliente/",                 en: "/en/customer-behavior/",              terms: ["customer behavior", "comportamiento del cliente", "comportamiento del consumidor", "shopper behavior", "mapas de calor", "heatmaps"] },
   { es: "/es/connect/",                           en: "/en/connect/",                        terms: ["wifi marketing", "marketing wifi", "guest wifi", "wifi para invitados", "captive portal", "portal cautivo"] },
   { es: "/es/gestion-ocupacion/",                 en: "/en/occupancy-management/",           terms: ["gestión de ocupación", "gestión de aforo", "ocupación en tiempo real", "occupancy management", "live capacity"] },
   { es: "/es/analitica-de-colas/",                en: "/en/queue-analytic/",                 terms: ["analítica de colas", "gestión de colas", "queue analytics", "queue management", "tiempo de espera"] },

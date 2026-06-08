@@ -19,14 +19,14 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const MEGA_PRODUCTS: NavLeaf[] = [
   { label: "Traffic",          href: "/es/analitica-trafico/", iconImg: "/wp-content/uploads/2025/09/Traffic_bue1.png",        desc: "Mide el tráfico exterior e interior y calcula la conversión real en tu espacio." },
-  { label: "Customer Journey", href: "/es/customer-journey/",  iconImg: "/wp-content/uploads/2025/09/road-route-map-icon.png", desc: "Rastrea recorridos, dwell time e interacciones por zona para optimizar la experiencia." },
+  { label: "Customer Journey", href: "/es/recorrido-del-cliente/",  iconImg: "/wp-content/uploads/2025/09/road-route-map-icon.png", desc: "Rastrea recorridos, dwell time e interacciones por zona para optimizar la experiencia." },
   { label: "Connect",          href: "/es/connect/",           iconImg: "/wp-content/uploads/2025/09/Vector1.png",             desc: "Convierte el WiFi para invitados en captura, segmentación y activación de marketing." },
 ];
 
 export const MEGA_USE_CASES: NavLeaf[] = [
   { label: "Conteo de personas",       href: "/es/conteo-personas/",                    iconImg: "/wp-content/uploads/2025/09/people_counting1.png",     desc: "Conteo de visitantes con IA, sin biometría." },
   { label: "Analítica de conversión",  href: "/es/analitica-conversion/",               iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Tasa real de conversión cruzada con TPV." },
-  { label: "Comportamiento del cliente", href: "/es/customer-behavior/",                iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
+  { label: "Comportamiento del cliente", href: "/es/comportamiento-del-cliente/",                iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Mapas de calor, dwell time y patrones de visita." },
   { label: "Gestión de la ocupación",  href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
   { label: "Gestión de colas",         href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
   { label: "Gestión de aseos",         href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
@@ -138,11 +138,11 @@ export const TESTIMONIALS_ALL = [
 ];
 
 export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
-  { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/customer-journey/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
+  { title: "Productos",  links: [["Traffic","/es/analitica-trafico/"],["Customer Journey","/es/recorrido-del-cliente/"],["Connect","/es/connect/"],["Hypersensor","/es/hypersensor/"]] },
   { title: "Soluciones", links: [
     ["Conteo de personas",        "/es/conteo-personas/"],
     ["Analítica de conversión", "/es/analitica-conversion/"],
-    ["Comportamiento del cliente", "/es/customer-behavior/"],
+    ["Comportamiento del cliente", "/es/comportamiento-del-cliente/"],
     ["Gestión de ocupación",    "/es/gestion-ocupacion/"],
     ["Analítica de colas",      "/es/analitica-de-colas/"],
     ["Gestión de aseos",        "/es/gestion-de-aseos/"],

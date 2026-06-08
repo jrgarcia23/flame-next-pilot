@@ -11,7 +11,7 @@ const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",
   "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "hoteles", "espacios-publicos",
   "conteo-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
-  "customer-behavior", "customer-journey", "gestion-de-aseos", "gestion-ocupacion",
+  "comportamiento-del-cliente", "recorrido-del-cliente", "gestion-de-aseos", "gestion-ocupacion",
   "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect",
   "informacion-detallada", "piloto", "flame-eventos", "inscripcion-en-eventos", "inscripcion-webinars",
   "politica-de-privacidad", "politica-de-cookies", "politica-de-seguridad-de-la-informacion",

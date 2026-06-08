@@ -151,7 +151,7 @@ export const HS_ES: HypersensorContent = {
       name: "Customer Journey",
       desc:
         "Analiza los recorridos e interacciones de los clientes para comprender su comportamiento en la tienda y optimizar la experiencia en cada punto de contacto.",
-      href: "/es/customer-journey/",
+      href: "/es/recorrido-del-cliente/",
       cta: "Ver más",
     },
     {
