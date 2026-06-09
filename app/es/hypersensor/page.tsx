@@ -447,6 +447,27 @@ export default function HypersensorEs() {
           @media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr !important; } }
           details[open] summary span:last-child { background: var(--color-accent) !important; color: var(--color-navy) !important; transform: rotate(45deg); }
         `}</style>
+
+        {/* FAQPage JSON-LD para rich results en Google + AI Overviews */}
+        {cfg.faqs.length > 0 && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: cfg.faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q.replace(/<[^>]+>/g, "").trim(),
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: f.a.replace(/<[^>]+>/g, "").trim(),
+                  },
+                })),
+              }),
+            }}
+          />
+        )}
       </section>
 
       {/* 7. FORMULARIO DEMO — clon de UseCaseTemplate / HomeRestyle */}
