@@ -88,9 +88,33 @@ export default function GestionAseosDraft() {
           alt="Flame dashboard"
           storageKey="flame-restroom"
           elements={[
+            // 5 overlays
             { id: "ov1", kind: "overlay", label: "Reveal completo",
-              left: 0, top: 0, right: 0, bottom: 0,
-              delay: 0, animation: "wipe-right" },
+              left: 60.42, top: 15.21, right: 16.07, bottom: 12.83,
+              delay: 0, animation: "fade" },
+            { id: "overlay-mq6pl2v0", kind: "overlay", label: "Overlay 2",
+              left: 7.99, top: 57.25, right: 50.35, bottom: 14.06,
+              delay: 300, animation: "wipe-right" },
+            { id: "overlay-mq6plw5m", kind: "overlay", label: "Overlay 3",
+              left: 17.03, top: 22.84, right: 73.65, bottom: 68.45,
+              delay: 600, animation: "wipe-right" },
+            { id: "overlay-mq6pm5xx", kind: "overlay", label: "Overlay 4",
+              left: 17.08, top: 41.29, right: 73.91, bottom: 50.01,
+              delay: 900, animation: "wipe-right" },
+            { id: "overlay-mq6pmif1", kind: "overlay", label: "Overlay 5",
+              left: 32.54, top: 28.62, right: 52.52, bottom: 51.96,
+              delay: 1200, animation: "wipe-right" },
+            // Contadores. 11.337 → 11337 (JR usó '.' como separador de miles)
+            { id: "counter-mq6pn0m4", kind: "counter", label: "Contador 11.337",
+              left: 6.02, top: 21.55, right: 85.78, bottom: 72.77,
+              delay: 200, value: 11337, decimals: 0, thousandsSep: ".",
+              prefix: "", suffix: "",
+              fontSize: 18, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+            { id: "counter-mq6pnos2", kind: "counter", label: "Contador 428",
+              left: 6.07, top: 40.28, right: 87.09, bottom: 54.17,
+              delay: 200, value: 428, decimals: 0, thousandsSep: ",",
+              prefix: "", suffix: "",
+              fontSize: 18, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
           ]}
         />
       }
