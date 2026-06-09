@@ -44,8 +44,51 @@ export const MEGA_INDUSTRIES: NavLeaf[] = [
 export const MEGA_COMMUNITY: NavLeaf[] = [
   { label: "Casos de éxito", href: "/es/categoria/casos-de-exito/",     iconImg: "/wp-content/uploads/2025/09/Cases.png",      desc: "Cómo clientes reales miden y deciden con Flame." },
   { label: "Blog",           href: "/es/categoria/blog/",                iconImg: "/wp-content/uploads/2025/09/Interview.png",  desc: "Artículos sobre analítica del espacio físico." },
-  { label: "Webinars",       href: "/es/categoria/webinars/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Sesiones técnicas con expertos del sector." },
+  { label: "Webinars",       href: "/es/categoria/webinars/",            iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Sesiones técnicas con expertos del sector." },
   { label: "Entrevistas",    href: "/es/categoria/entrevistas/",         iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Conversaciones con líderes del retail." },
+];
+
+/* ============================================================
+   FLAME · Versión EN del menú (header + mega-menus)
+   ============================================================ */
+export const NAV_ITEMS_EN: NavItem[] = [
+  { label: "Product",     mega: "products"   },
+  { label: "Solutions",   mega: "solutions"  },
+  { label: "Hypersensor", href: "/en/hypersensor/" },
+  { label: "Partners",    href: "/en/partners/" },
+  { label: "Community",   mega: "community",  href: "/en/community/" },
+  { label: "About us",    href: "/en/about-us/" },
+];
+
+export const MEGA_PRODUCTS_EN: NavLeaf[] = [
+  { label: "Traffic",          href: "/en/traffic-insights/",     iconImg: "/wp-content/uploads/2025/09/Traffic_bue1.png",        desc: "Measure indoor/outdoor traffic and calculate real conversion in your space." },
+  { label: "Customer Journey", href: "/en/customer-journey/",     iconImg: "/wp-content/uploads/2025/09/road-route-map-icon.png", desc: "Track journeys, dwell time and zone interactions to optimize experience." },
+  { label: "Connect",          href: "/en/connect/",              iconImg: "/wp-content/uploads/2025/09/Vector1.png",             desc: "Turn guest WiFi into capture, segmentation and marketing activation." },
+];
+
+export const MEGA_USE_CASES_EN: NavLeaf[] = [
+  { label: "People counting",        href: "/en/people-counting/",        iconImg: "/wp-content/uploads/2025/09/people_counting1.png",      desc: "AI visitor counting, no biometrics." },
+  { label: "Conversion analytics",   href: "/en/conversion-analytics/",   iconImg: "/wp-content/uploads/2025/09/Conversion_analytics1.png", desc: "Real conversion rate cross-checked with POS." },
+  { label: "Customer behavior",      href: "/en/customer-behavior/",      iconImg: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    desc: "Heatmaps, dwell time and visit patterns." },
+  { label: "Occupancy management",   href: "/en/occupancy-management/",   iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Real-time occupancy with capacity alerts." },
+  { label: "Queue analytics",        href: "/en/queue-analytic/",         iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Wait times and checkout abandonment rate." },
+  { label: "Restroom management",    href: "/en/restroom-management/",    iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Cleaning based on real usage and satisfaction." },
+  { label: "Guest WiFi marketing",   href: "/en/guest-wifi-marketing/",   iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Captive portals + marketing automation." },
+  { label: "Corporate WiFi access",  href: "/en/corporate-wifi-access/",  iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Secure connectivity for employees and guests." },
+];
+
+export const MEGA_INDUSTRIES_EN: NavLeaf[] = [
+  { label: "Retail",         href: "/en/solution-for-retail-sector/",   iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "More conversion and dynamic staffing in store." },
+  { label: "Shopping malls", href: "/en/solution-for-shopping-malls/",  iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimize tenant mix and footfall." },
+  { label: "Hospitality",    href: "/en/hospitality/",                  iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Capture guest data and enrich your CRM." },
+  { label: "Public venues",  href: "/en/public-venues/",                iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Intelligence for museums, transport and campuses." },
+];
+
+export const MEGA_COMMUNITY_EN: NavLeaf[] = [
+  { label: "Case studies", href: "/en/category/case-studies/", iconImg: "/wp-content/uploads/2025/09/Cases.png",     desc: "How real customers measure and decide with Flame." },
+  { label: "Blog",         href: "/en/category/blog/",         iconImg: "/wp-content/uploads/2025/09/Interview.png", desc: "Articles on physical-space analytics." },
+  { label: "Webinars",     href: "/en/category/webinars/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",  desc: "Technical sessions with industry experts." },
+  { label: "Interviews",   href: "/en/category/interviews/",   iconImg: "/wp-content/uploads/2025/09/Webinar1.png",  desc: "Conversations with retail leaders." },
 ];
 
 export const LOGOS: [string, string][] = [

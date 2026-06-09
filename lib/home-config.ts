@@ -153,7 +153,7 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   communityCards: [
     { icon: "users",    title: "Case studies", href: "/en/category/case-studies/",     img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
     { icon: "reports",  title: "Blog",         href: "/en/category/blog/",              img: "/wp-content/uploads/2026/01/Noticias-2.png" },
-    { icon: "play",     title: "Webinars",     href: "/en/category/webinars-en-cat/",   img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
+    { icon: "play",     title: "Webinars",     href: "/en/category/webinars/",          img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
     { icon: "calendar", title: "Interviews",   href: "/en/category/interviews/",        img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
   ],
 };

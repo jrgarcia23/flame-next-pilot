@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Icon from "./Icon";
-import { NAV_ITEMS, FOOTER_COLS, FOOTER_COLS_EN, FOOTER_LEGAL_ES, FOOTER_LEGAL_EN, FOOTER_COPY, MEGA_PRODUCTS, MEGA_USE_CASES, MEGA_INDUSTRIES, MEGA_COMMUNITY, NavLeaf } from "@/lib/page-content";
+import { NAV_ITEMS, NAV_ITEMS_EN, FOOTER_COLS, FOOTER_COLS_EN, FOOTER_LEGAL_ES, FOOTER_LEGAL_EN, FOOTER_COPY, MEGA_PRODUCTS, MEGA_PRODUCTS_EN, MEGA_USE_CASES, MEGA_USE_CASES_EN, MEGA_INDUSTRIES, MEGA_INDUSTRIES_EN, MEGA_COMMUNITY, MEGA_COMMUNITY_EN, NavLeaf } from "@/lib/page-content";
 
 function MegaItem({ it }: { it: NavLeaf }) {
   return (
@@ -16,23 +16,30 @@ function MegaItem({ it }: { it: NavLeaf }) {
   );
 }
 
-function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
+function MegaPanel({ kind, lang }: { kind: "products" | "solutions" | "community"; lang: "es" | "en" }) {
   const panelStyle: CSSProperties = {
     background: "#fff",
     border: "1px solid var(--color-rule)",
     boxShadow: "0 24px 60px -20px rgb(15 23 42 / 0.18)",
   };
+  const products   = lang === "en" ? MEGA_PRODUCTS_EN   : MEGA_PRODUCTS;
+  const community  = lang === "en" ? MEGA_COMMUNITY_EN  : MEGA_COMMUNITY;
+  const useCases   = lang === "en" ? MEGA_USE_CASES_EN  : MEGA_USE_CASES;
+  const industries = lang === "en" ? MEGA_INDUSTRIES_EN : MEGA_INDUSTRIES;
+  const eyebrow1 = lang === "en" ? "By use case" : "Por caso de uso";
+  const eyebrow2 = lang === "en" ? "By industry" : "Por industria";
+
   if (kind === "products") {
     return (
       <div className="rounded-xl p-4 mega-panel-products" style={{ ...panelStyle, width: "min(350px, calc(100vw - 32px))" }}>
-        <div className="flex flex-col gap-1.5">{MEGA_PRODUCTS.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        <div className="flex flex-col gap-1.5">{products.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
   if (kind === "community") {
     return (
       <div className="rounded-xl p-4 mega-panel-community" style={{ ...panelStyle, width: "min(350px, calc(100vw - 32px))" }}>
-        <div className="flex flex-col gap-1.5">{MEGA_COMMUNITY.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+        <div className="flex flex-col gap-1.5">{community.map((it) => <MegaItem key={it.href} it={it} />)}</div>
       </div>
     );
   }
@@ -40,12 +47,12 @@ function MegaPanel({ kind }: { kind: "products" | "solutions" | "community" }) {
     <div className="rounded-xl mega-panel-solutions" style={{ ...panelStyle, width: "min(1120px, calc(100vw - 24px))", padding: "24px 28px" }}>
       <div className="solutions-grid">
         <div className="use-cases-col">
-          <div className="mega-eyebrow">Por caso de uso</div>
-          <div className="use-cases-inner">{MEGA_USE_CASES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+          <div className="mega-eyebrow">{eyebrow1}</div>
+          <div className="use-cases-inner">{useCases.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
         <div className="industries-col">
-          <div className="mega-eyebrow">Por industria</div>
-          <div className="flex flex-col gap-1">{MEGA_INDUSTRIES.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+          <div className="mega-eyebrow">{eyebrow2}</div>
+          <div className="flex flex-col gap-1">{industries.map((it) => <MegaItem key={it.href} it={it} />)}</div>
         </div>
       </div>
       <style>{`
@@ -145,11 +152,11 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
       }}
     >
       <div className="flame-container flex items-center h-16 gap-6">
-        <a href="/es/" className="inline-flex items-center">
+        <a href={currentLang === "en" ? "/en/" : "/es/"} className="inline-flex items-center">
           <img src="/wp-content/uploads/2023/10/flame-logo-white.png" alt="Flame Analytics" width={150} height={30} style={{ height: 30, width: "auto", display: "block" }} />
         </a>
         <nav className="hidden lg:flex flex-1 items-center gap-1 ml-4">
-          {NAV_ITEMS.map((it) => {
+          {(currentLang === "en" ? NAV_ITEMS_EN : NAV_ITEMS).map((it) => {
             const isMega = "mega" in it;
             const megaHref = isMega ? (it as { href?: string }).href : undefined;
             return (
@@ -173,7 +180,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
                       </button>
                     )}
                     <div className={`nav-dropdown nav-dropdown--${(it as { mega: string }).mega}`}>
-                      <MegaPanel kind={(it as { mega: "products" | "solutions" | "community" }).mega} />
+                      <MegaPanel kind={(it as { mega: "products" | "solutions" | "community" }).mega} lang={currentLang} />
                     </div>
                   </>
                 )}
@@ -380,7 +387,7 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
         <details className="mb-section">
           <summary className="mb-summary">{currentLang === "en" ? "Product" : "Producto"}<span className="mb-chev">▾</span></summary>
           <div className="mb-sub">
-            {MEGA_PRODUCTS.map(it => (
+            {(currentLang === "en" ? MEGA_PRODUCTS_EN : MEGA_PRODUCTS).map(it => (
               <a key={it.href} href={it.href} className="mb-sublink">
                 <span className="mb-sublink-title">{it.label}</span>
                 <span className="mb-sublink-desc">{it.desc}</span>
@@ -394,13 +401,13 @@ export function SiteHeader({ enHref = "/en/", currentLang = "es" }: { enHref?: s
           <summary className="mb-summary">{currentLang === "en" ? "Solutions" : "Soluciones"}<span className="mb-chev">▾</span></summary>
           <div className="mb-sub">
             <p className="mb-sub-eyebrow">{currentLang === "en" ? "By use case" : "Por caso de uso"}</p>
-            {MEGA_USE_CASES.map(it => (
+            {(currentLang === "en" ? MEGA_USE_CASES_EN : MEGA_USE_CASES).map(it => (
               <a key={it.href} href={it.href} className="mb-sublink">
                 <span className="mb-sublink-title">{it.label}</span>
               </a>
             ))}
             <p className="mb-sub-eyebrow mt-2">{currentLang === "en" ? "By industry" : "Por industria"}</p>
-            {MEGA_INDUSTRIES.map(it => (
+            {(currentLang === "en" ? MEGA_INDUSTRIES_EN : MEGA_INDUSTRIES).map(it => (
               <a key={it.href} href={it.href} className="mb-sublink">
                 <span className="mb-sublink-title">{it.label}</span>
               </a>
