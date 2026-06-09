@@ -1,44 +1,100 @@
 "use client";
 
 /**
- * AnimatedPeopleCountingChart — dashboard People Counting con cascada de
- * 5 overlays + modo edición visual.
+ * AnimatedPeopleCountingChart — dashboard People Counting con N overlays
+ * configurables + editor visual completo.
  *
- * Modo normal: las 5 zonas (KPIs, Visits, Heatmap, Hourly, Daily) están
- * tapadas por overlays blancos que se descorren de izq → der al entrar
- * en viewport, con stagger creciente.
+ * Modo normal: los overlays definidos en DEFAULT_OVERLAYS se aplican
+ * sobre la imagen y se animan al entrar en viewport según el tipo de
+ * animación de cada uno.
  *
- * Modo edición (?edit=1 en la URL): los overlays se vuelven cajas cyan
- * arrastrables y redimensionables con el ratón. Un panel flotante
- * muestra las coordenadas en píxeles y en %. Botón "Copiar JSON" copia
- * el array de coords al portapapeles. Persistencia en localStorage para
- * no perder ajustes al refrescar.
+ * Modo edición (?edit=1): cada overlay se vuelve una caja cyan
+ * arrastrable + redimensionable. Panel flotante permite:
+ *   - Añadir / eliminar overlays
+ *   - Renombrar (label)
+ *   - Ajustar delay (ms)
+ *   - Elegir tipo de animación (10 disponibles)
+ *   - Copiar JSON final
+ *   - Reset
  *
- * Una vez ajustado, JR me pasa el JSON y yo lo pego en DEFAULT_OVERLAYS.
+ * Persistencia en localStorage por wrapper.
  */
 
 import { useEffect, useRef, useState } from "react";
 
+type AnimationType =
+  | "wipe-right"   // cortina se descorre de izq → der (revela el contenido)
+  | "wipe-left"    // cortina se descorre de der → izq
+  | "wipe-down"    // cortina se descorre de arriba → abajo
+  | "wipe-up"      // cortina se descorre de abajo → arriba
+  | "fade"         // fade out (opacity 1 → 0)
+  | "scale-out"    // shrink desde centro
+  | "slide-right"  // se va hacia la derecha
+  | "slide-left"   // se va hacia la izquierda
+  | "slide-up"     // se va hacia arriba
+  | "slide-down";  // se va hacia abajo
+
 type OverlayCfg = {
   id: string;
   label: string;
-  // En %: posición relativa al wrapper
   left: number;
   top: number;
   right: number;
   bottom: number;
   delay: number;
+  animation: AnimationType;
+};
+
+const ANIM_LABELS: Record<AnimationType, string> = {
+  "wipe-right":  "Cortina → der",
+  "wipe-left":   "Cortina → izq",
+  "wipe-down":   "Cortina ↓",
+  "wipe-up":     "Cortina ↑",
+  "fade":        "Fade out",
+  "scale-out":   "Encoge al centro",
+  "slide-right": "Sale por la der",
+  "slide-left":  "Sale por la izq",
+  "slide-up":    "Sale por arriba",
+  "slide-down":  "Sale por abajo",
 };
 
 const DEFAULT_OVERLAYS: OverlayCfg[] = [
-  { id: "kpis",     label: "Fila KPIs",            left: 4,  top: 8,  right: 1,  bottom: 76, delay: 0    },
-  { id: "visits",   label: "Gráfica Visits",       left: 26, top: 8,  right: 27, bottom: 76, delay: 400  },
-  { id: "heatmap",  label: "Heatmap",              left: 4,  top: 28, right: 51, bottom: 14, delay: 800  },
-  { id: "hourly",   label: "Hourly distribution",  left: 51, top: 28, right: 1,  bottom: 14, delay: 1000 },
-  { id: "daily",    label: "Daily distribution",   left: 4,  top: 86, right: 1,  bottom: 1,  delay: 1300 },
+  { id: "kpis",    label: "Fila KPIs",            left: 4,  top: 8,  right: 1,  bottom: 76, delay: 0,    animation: "wipe-right" },
+  { id: "visits",  label: "Gráfica Visits",       left: 26, top: 8,  right: 27, bottom: 76, delay: 400,  animation: "wipe-right" },
+  { id: "heatmap", label: "Heatmap",              left: 4,  top: 28, right: 51, bottom: 14, delay: 800,  animation: "wipe-right" },
+  { id: "hourly",  label: "Hourly distribution",  left: 51, top: 28, right: 1,  bottom: 14, delay: 1000, animation: "wipe-right" },
+  { id: "daily",   label: "Daily distribution",   left: 4,  top: 86, right: 1,  bottom: 1,  delay: 1300, animation: "wipe-right" },
 ];
 
-const STORAGE_KEY = "flame-people-counting-overlays";
+const STORAGE_KEY = "flame-people-counting-overlays-v2";
+const DURATION = 1600;
+const EASING = "cubic-bezier(0.65, 0, 0.35, 1)";
+
+function animationStyle(anim: AnimationType, inView: boolean, delay: number): React.CSSProperties {
+  const t = (prop: string) => `${prop} ${DURATION}ms ${EASING} ${delay}ms`;
+  switch (anim) {
+    case "wipe-right":
+      return { clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)", transition: t("clip-path") };
+    case "wipe-left":
+      return { clipPath: inView ? "inset(0 100% 0 0)" : "inset(0 0 0 0%)", transition: t("clip-path") };
+    case "wipe-down":
+      return { clipPath: inView ? "inset(100% 0 0 0)" : "inset(0 0 0 0%)", transition: t("clip-path") };
+    case "wipe-up":
+      return { clipPath: inView ? "inset(0 0 100% 0)" : "inset(0 0 0 0%)", transition: t("clip-path") };
+    case "fade":
+      return { opacity: inView ? 0 : 1, transition: t("opacity") };
+    case "scale-out":
+      return { transform: inView ? "scale(0)" : "scale(1)", transformOrigin: "center", transition: t("transform") };
+    case "slide-right":
+      return { transform: inView ? "translateX(100%)" : "translateX(0)", transition: t("transform") };
+    case "slide-left":
+      return { transform: inView ? "translateX(-100%)" : "translateX(0)", transition: t("transform") };
+    case "slide-up":
+      return { transform: inView ? "translateY(-100%)" : "translateY(0)", transition: t("transform") };
+    case "slide-down":
+      return { transform: inView ? "translateY(100%)" : "translateY(0)", transition: t("transform") };
+  }
+}
 
 function useInView<T extends Element>(threshold = 0.2, enabled = true) {
   const ref = useRef<T>(null);
@@ -61,13 +117,11 @@ export default function AnimatedPeopleCountingChart() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { ref: inViewRef, inView } = useInView<HTMLDivElement>(0.2, !editMode);
 
-  // Combinamos refs en wrapperRef + inViewRef
   const setRefs = (node: HTMLDivElement | null) => {
     wrapperRef.current = node;
     (inViewRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
   };
 
-  // Detectar query ?edit=1 al montar
   useEffect(() => {
     if (typeof window === "undefined") return;
     const sp = new URLSearchParams(window.location.search);
@@ -80,15 +134,24 @@ export default function AnimatedPeopleCountingChart() {
     }
   }, []);
 
-  // Persistir al cambiar (solo en edit mode)
   useEffect(() => {
-    if (editMode) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(overlays));
-    }
+    if (editMode) localStorage.setItem(STORAGE_KEY, JSON.stringify(overlays));
   }, [overlays, editMode]);
 
   const updateOverlay = (id: string, patch: Partial<OverlayCfg>) => {
     setOverlays((prev) => prev.map((o) => (o.id === id ? { ...o, ...patch } : o)));
+  };
+  const addOverlay = () => {
+    const id = `overlay-${Date.now().toString(36)}`;
+    setOverlays((prev) => [...prev, {
+      id, label: `Overlay ${prev.length + 1}`,
+      left: 25, top: 25, right: 25, bottom: 25,
+      delay: prev.length * 300,
+      animation: "wipe-right",
+    }]);
+  };
+  const removeOverlay = (id: string) => {
+    setOverlays((prev) => prev.filter((o) => o.id !== id));
   };
 
   return (
@@ -102,7 +165,6 @@ export default function AnimatedPeopleCountingChart() {
         position: "relative",
       }}
     >
-      {/* IMAGEN ORIGINAL */}
       <img
         src="/wp-content/uploads/2026/01/People-Counting_recorte.png"
         alt="Flame People Counting dashboard"
@@ -110,9 +172,11 @@ export default function AnimatedPeopleCountingChart() {
       />
 
       {editMode ? (
-        <EditableOverlays
+        <Editor
           overlays={overlays}
           onChange={updateOverlay}
+          onAdd={addOverlay}
+          onRemove={removeOverlay}
           wrapperRef={wrapperRef}
           onReset={() => {
             setOverlays(DEFAULT_OVERLAYS);
@@ -129,8 +193,7 @@ export default function AnimatedPeopleCountingChart() {
               left: `${o.left}%`,  right: `${o.right}%`,
               top:  `${o.top}%`,   bottom: `${o.bottom}%`,
               background: "#fff",
-              clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
-              transition: `clip-path 1600ms cubic-bezier(0.65, 0, 0.35, 1) ${o.delay}ms`,
+              ...animationStyle(o.animation, inView, o.delay),
             }}
           />
         ))
@@ -138,10 +201,7 @@ export default function AnimatedPeopleCountingChart() {
 
       <style>{`
         @media (prefers-reduced-motion: reduce) {
-          .apc-wrap > div[aria-hidden] {
-            clip-path: inset(0 0 0 100%) !important;
-            transition: none !important;
-          }
+          .apc-wrap > div[aria-hidden] { transition: none !important; }
         }
       `}</style>
     </div>
@@ -149,23 +209,28 @@ export default function AnimatedPeopleCountingChart() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-// EDITOR VISUAL
+// EDITOR
 // ═══════════════════════════════════════════════════════════════════════
 
-type EditableOverlaysProps = {
+type EditorProps = {
   overlays: OverlayCfg[];
   onChange: (id: string, patch: Partial<OverlayCfg>) => void;
+  onAdd: () => void;
+  onRemove: (id: string) => void;
   wrapperRef: React.MutableRefObject<HTMLDivElement | null>;
   onReset: () => void;
 };
 
-function EditableOverlays({ overlays, onChange, wrapperRef, onReset }: EditableOverlaysProps) {
+function Editor({ overlays, onChange, onAdd, onRemove, wrapperRef, onReset }: EditorProps) {
   const [selected, setSelected] = useState<string>(overlays[0]?.id || "");
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    const json = JSON.stringify(overlays.map(({ id, label, left, top, right, bottom, delay }) => ({
-      id, label, left: round(left, 2), top: round(top, 2), right: round(right, 2), bottom: round(bottom, 2), delay,
+    const json = JSON.stringify(overlays.map(({ id, label, left, top, right, bottom, delay, animation }) => ({
+      id, label,
+      left: round(left, 2), top: round(top, 2),
+      right: round(right, 2), bottom: round(bottom, 2),
+      delay, animation,
     })), null, 2);
     navigator.clipboard.writeText(json).then(() => {
       setCopied(true);
@@ -186,19 +251,13 @@ function EditableOverlays({ overlays, onChange, wrapperRef, onReset }: EditableO
         />
       ))}
 
-      {/* Panel de control flotante */}
       <div
         style={{
           position: "fixed",
-          right: 24,
-          bottom: 24,
-          width: 380,
-          maxHeight: "70vh",
-          overflow: "auto",
-          background: "#0F172A",
-          color: "#fff",
-          borderRadius: 12,
-          padding: 16,
+          right: 24, bottom: 24,
+          width: 420, maxHeight: "82vh", overflow: "auto",
+          background: "#0F172A", color: "#fff",
+          borderRadius: 12, padding: 16,
           boxShadow: "0 20px 60px -10px rgba(0,0,0,0.5)",
           zIndex: 9999,
           fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
@@ -207,76 +266,127 @@ function EditableOverlays({ overlays, onChange, wrapperRef, onReset }: EditableO
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
           <strong style={{ fontFamily: "sans-serif", fontSize: 13 }}>🎯 Editor de overlays</strong>
-          <button
-            onClick={handleCopy}
-            style={{
-              background: copied ? "#10B981" : "#31b1f8",
-              color: "#fff",
-              border: "none",
-              padding: "6px 12px",
-              borderRadius: 6,
-              cursor: "pointer",
-              fontSize: 12,
-              fontWeight: 600,
-              fontFamily: "sans-serif",
-            }}
-          >
-            {copied ? "✓ Copiado" : "Copiar JSON"}
-          </button>
+          <div style={{ display: "flex", gap: 6 }}>
+            <button onClick={onAdd} style={btnPrimary}>+ Añadir</button>
+            <button onClick={handleCopy} style={{ ...btnPrimary, background: copied ? "#10B981" : "#31b1f8" }}>
+              {copied ? "✓ Copiado" : "Copiar JSON"}
+            </button>
+          </div>
         </div>
+
+        {overlays.length === 0 && (
+          <div style={{ padding: 12, opacity: 0.6, fontFamily: "sans-serif", textAlign: "center" }}>
+            No hay overlays. Pulsa "+ Añadir" para crear el primero.
+          </div>
+        )}
 
         {overlays.map((o) => (
           <div
             key={o.id}
             onClick={() => setSelected(o.id)}
             style={{
-              padding: 8,
-              marginBottom: 4,
+              padding: 10, marginBottom: 6,
               borderRadius: 6,
-              background: selected === o.id ? "rgba(49,177,248,0.2)" : "transparent",
+              background: selected === o.id ? "rgba(49,177,248,0.18)" : "rgba(255,255,255,0.04)",
+              border: selected === o.id ? "1px solid #31b1f8" : "1px solid rgba(255,255,255,0.06)",
               cursor: "pointer",
-              border: selected === o.id ? "1px solid #31b1f8" : "1px solid transparent",
             }}
           >
-            <div style={{ display: "flex", justifyContent: "space-between", fontFamily: "sans-serif", marginBottom: 2 }}>
-              <span style={{ fontWeight: 600 }}>{o.label}</span>
-              <span style={{ opacity: 0.6 }}>delay {o.delay}ms</span>
+            <div style={{ display: "flex", gap: 6, alignItems: "center", marginBottom: 6 }}>
+              <input
+                value={o.label}
+                onChange={(e) => onChange(o.id, { label: e.target.value })}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  flex: 1, background: "rgba(255,255,255,0.06)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "#fff", padding: "4px 8px",
+                  borderRadius: 4, fontFamily: "sans-serif", fontSize: 12, fontWeight: 600,
+                }}
+              />
+              <button
+                onClick={(e) => { e.stopPropagation(); onRemove(o.id); }}
+                style={{ ...btnSecondary, color: "#FCA5A5", border: "1px solid rgba(252,165,165,0.25)" }}
+                title="Eliminar overlay"
+              >
+                🗑
+              </button>
             </div>
-            <div style={{ opacity: 0.85 }}>
+
+            <div style={{ display: "flex", gap: 6, marginBottom: 6, fontFamily: "sans-serif", fontSize: 11 }}>
+              <label style={fieldLabel}>
+                <span style={{ opacity: 0.6 }}>delay (ms)</span>
+                <input
+                  type="number"
+                  value={o.delay}
+                  step={100}
+                  onChange={(e) => onChange(o.id, { delay: Number(e.target.value) || 0 })}
+                  onClick={(e) => e.stopPropagation()}
+                  style={fieldInput}
+                />
+              </label>
+              <label style={fieldLabel}>
+                <span style={{ opacity: 0.6 }}>animación</span>
+                <select
+                  value={o.animation}
+                  onChange={(e) => onChange(o.id, { animation: e.target.value as AnimationType })}
+                  onClick={(e) => e.stopPropagation()}
+                  style={fieldInput}
+                >
+                  {(Object.keys(ANIM_LABELS) as AnimationType[]).map((a) => (
+                    <option key={a} value={a}>{ANIM_LABELS[a]}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div style={{ opacity: 0.7, fontSize: 11 }}>
               L:{o.left.toFixed(2)}% · T:{o.top.toFixed(2)}% · R:{o.right.toFixed(2)}% · B:{o.bottom.toFixed(2)}%
             </div>
           </div>
         ))}
 
-        <button
-          onClick={onReset}
-          style={{
-            marginTop: 8, width: "100%",
-            background: "transparent",
-            color: "#94A3B8",
-            border: "1px solid #334155",
-            padding: "6px 12px",
-            borderRadius: 6,
-            cursor: "pointer",
-            fontSize: 11,
-            fontFamily: "sans-serif",
-          }}
-        >
+        <button onClick={onReset} style={{ ...btnSecondary, width: "100%", marginTop: 4 }}>
           ↺ Reset a valores por defecto
         </button>
 
-        <p style={{ marginTop: 12, opacity: 0.6, fontFamily: "sans-serif", lineHeight: 1.4 }}>
-          Arrastra desde dentro de cada caja para mover. Arrastra desde los puntos cyan para redimensionar. Cambios se guardan en localStorage.
+        <p style={{ marginTop: 12, opacity: 0.5, fontFamily: "sans-serif", lineHeight: 1.4, fontSize: 11 }}>
+          Arrastra desde dentro de cada caja para mover. Arrastra los puntos cyan para redimensionar. Cambios guardados automáticamente.
         </p>
       </div>
     </>
   );
 }
 
+const btnPrimary: React.CSSProperties = {
+  background: "#31b1f8", color: "#fff", border: "none",
+  padding: "6px 12px", borderRadius: 6,
+  cursor: "pointer", fontSize: 12, fontWeight: 600,
+  fontFamily: "sans-serif",
+};
+const btnSecondary: React.CSSProperties = {
+  background: "transparent", color: "#94A3B8",
+  border: "1px solid #334155",
+  padding: "6px 12px", borderRadius: 6,
+  cursor: "pointer", fontSize: 12,
+  fontFamily: "sans-serif",
+};
+const fieldLabel: React.CSSProperties = {
+  display: "flex", flexDirection: "column", gap: 2, flex: 1,
+};
+const fieldInput: React.CSSProperties = {
+  background: "rgba(255,255,255,0.06)",
+  border: "1px solid rgba(255,255,255,0.1)",
+  color: "#fff", padding: "4px 8px",
+  borderRadius: 4, fontFamily: "sans-serif", fontSize: 11,
+};
+
 function round(n: number, d: number) {
   const m = Math.pow(10, d);
   return Math.round(n * m) / m;
 }
+
+type DragMode = "move" | "n" | "s" | "e" | "w" | "ne" | "nw" | "se" | "sw";
 
 type EditableBoxProps = {
   overlay: OverlayCfg;
@@ -285,8 +395,6 @@ type EditableBoxProps = {
   onChange: (patch: Partial<OverlayCfg>) => void;
   wrapperRef: React.MutableRefObject<HTMLDivElement | null>;
 };
-
-type DragMode = "move" | "n" | "s" | "e" | "w" | "ne" | "nw" | "se" | "sw";
 
 function EditableBox({ overlay, isSelected, onSelect, onChange, wrapperRef }: EditableBoxProps) {
   const startRef = useRef<{ x: number; y: number; o: OverlayCfg; mode: DragMode; W: number; H: number } | null>(null);
@@ -299,12 +407,9 @@ function EditableBox({ overlay, isSelected, onSelect, onChange, wrapperRef }: Ed
     if (!wrap) return;
     const rect = wrap.getBoundingClientRect();
     startRef.current = {
-      x: e.clientX,
-      y: e.clientY,
-      o: { ...overlay },
-      mode,
-      W: rect.width,
-      H: rect.height,
+      x: e.clientX, y: e.clientY,
+      o: { ...overlay }, mode,
+      W: rect.width, H: rect.height,
     };
     (e.target as Element).setPointerCapture(e.pointerId);
   };
@@ -360,10 +465,8 @@ function EditableBox({ overlay, isSelected, onSelect, onChange, wrapperRef }: Ed
       onPointerCancel={endDrag}
       style={{
         position: "absolute",
-        left: `${overlay.left}%`,
-        top: `${overlay.top}%`,
-        right: `${overlay.right}%`,
-        bottom: `${overlay.bottom}%`,
+        left: `${overlay.left}%`, top: `${overlay.top}%`,
+        right: `${overlay.right}%`, bottom: `${overlay.bottom}%`,
         background: isSelected ? "rgba(49,177,248,0.18)" : "rgba(49,177,248,0.08)",
         border: `2px solid ${isSelected ? "#31b1f8" : "rgba(49,177,248,0.5)"}`,
         cursor: "move",
@@ -372,22 +475,17 @@ function EditableBox({ overlay, isSelected, onSelect, onChange, wrapperRef }: Ed
     >
       <div style={{
         position: "absolute",
-        top: -22,
-        left: 0,
+        top: -22, left: 0,
         background: isSelected ? "#31b1f8" : "rgba(49,177,248,0.7)",
-        color: "#fff",
-        fontSize: 11,
-        fontWeight: 600,
-        padding: "2px 8px",
-        borderRadius: 4,
+        color: "#fff", fontSize: 11, fontWeight: 600,
+        padding: "2px 8px", borderRadius: 4,
         whiteSpace: "nowrap",
         fontFamily: "sans-serif",
         pointerEvents: "none",
       }}>
-        {overlay.label}
+        {overlay.label} · {ANIM_LABELS[overlay.animation]} · {overlay.delay}ms
       </div>
 
-      {/* 8 handles de resize */}
       {handle("nw", { left: -6, top: -6 })}
       {handle("n",  { left: "50%", top: -6, transform: "translateX(-50%)" })}
       {handle("ne", { right: -6, top: -6 })}
