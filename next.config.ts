@@ -154,6 +154,14 @@ const nextConfig: NextConfig = {
       // (Regla previa de /wp-content/uploads/:rest* eliminada — rompía vídeos .mp4/.webm
       // y otros assets binarios que ahora dan 200 al servirse directamente desde public/)
 
+      // PDFs de WP que aún rankean en GSC pero ya no existen físicamente:
+      // 1) Descubre-los-KPIs.pdf — 267 impr / 15 clicks / 90d → redirect al post equivalente.
+      {
+        source: "/wp-content/uploads/2021/09/Descubre-los-KPIS.pptx_compressed.pdf",
+        destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",
+        permanent: true,
+      },
+
       // ══════════════════════════════════════════════════════════════════
       // Redirects de URLs sin idioma con backlinks (SE Ranking 1.659 backlinks
       // analizados, 720 reales tras filtrar spam turco). Estas URLs viejas
@@ -292,6 +300,80 @@ const nextConfig: NextConfig = {
       { source: "/es/casos-de-exito",  destination: "/es/categoria/casos-de-exito/",       permanent: true },
       { source: "/en/case-studies",    destination: "/en/category/case-studies/",          permanent: true },
       { source: "/es/clienting",       destination: "/es/comunidad/",                      permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // Patrones WP que devolvían 404: feed, paginación, autor, about sin lang
+      // ══════════════════════════════════════════════════════════════════
+      // Feed RSS antiguo (Google/agregadores aún los pegan)
+      { source: "/feed",                            destination: "/es/comunidad/",       permanent: true },
+      { source: "/feed/:rest*",                     destination: "/es/comunidad/",       permanent: true },
+      { source: "/es/feed",                         destination: "/es/comunidad/",       permanent: true },
+      { source: "/es/feed/:rest*",                  destination: "/es/comunidad/",       permanent: true },
+      { source: "/en/feed",                         destination: "/en/community/",       permanent: true },
+      { source: "/en/feed/:rest*",                  destination: "/en/community/",       permanent: true },
+      { source: "/comments/feed",                   destination: "/es/comunidad/",       permanent: true },
+      { source: "/comments/feed/:rest*",            destination: "/es/comunidad/",       permanent: true },
+
+      // Paginación WP /page/N/
+      { source: "/page/:n",                         destination: "/es/comunidad/",       permanent: true },
+      { source: "/page/:n/:rest*",                  destination: "/es/comunidad/",       permanent: true },
+      { source: "/es/page/:n",                      destination: "/es/comunidad/",       permanent: true },
+      { source: "/es/page/:n/:rest*",               destination: "/es/comunidad/",       permanent: true },
+      { source: "/en/page/:n",                      destination: "/en/community/",       permanent: true },
+      { source: "/en/page/:n/:rest*",               destination: "/en/community/",       permanent: true },
+
+      // Author archive WP
+      { source: "/author/:slug",                    destination: "/es/sobre-nosotros/",  permanent: true },
+      { source: "/author/:slug/:rest*",             destination: "/es/sobre-nosotros/",  permanent: true },
+      { source: "/es/author/:slug",                 destination: "/es/sobre-nosotros/",  permanent: true },
+      { source: "/en/author/:slug",                 destination: "/en/about-us/",        permanent: true },
+
+      // About-us sin prefijo de idioma
+      { source: "/sobre-nosotros",                  destination: "/es/sobre-nosotros/",  permanent: true },
+      { source: "/sobre-nosotros/:rest*",           destination: "/es/sobre-nosotros/",  permanent: true },
+      { source: "/about-us",                        destination: "/en/about-us/",        permanent: true },
+      { source: "/about-us/:rest*",                 destination: "/en/about-us/",        permanent: true },
+
+      // ?p=<id> y ?page_id=<id> de WP — Google los descubre por sitemap viejo
+      { source: "/", has: [{ type: "query", key: "p"      }], destination: "/es/",        permanent: true },
+      { source: "/", has: [{ type: "query", key: "page_id" }], destination: "/es/",       permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // URLs WP cuyo snapshot HTML estático en public/ se borró el 09-jun
+      // 2026 (causaban canonical="index.html"). Las redirigimos al equivalente
+      // Next o al hub más cercano para no dejar 404s con tráfico residual.
+      // ══════════════════════════════════════════════════════════════════
+      // Compliance / legal — pendiente recrear página Next propia (Ley 2/2023).
+      // Mientras tanto, redirect a la política de seguridad de la información.
+      { source: "/es/sistema-interno-de-informacion",            destination: "/es/politica-de-seguridad-de-la-informacion/", permanent: true },
+      { source: "/es/sistema-interno-de-informacion/:rest*",     destination: "/es/politica-de-seguridad-de-la-informacion/", permanent: true },
+      // Programa Kit Consulting — sin equivalente directo. Redirect a contacto.
+      { source: "/es/kit-consulting",                            destination: "/es/contacta/",                       permanent: true },
+      { source: "/es/kit-consulting/:rest*",                     destination: "/es/contacta/",                       permanent: true },
+      // Opt-out MAC tracking — privacidad.
+      { source: "/es/opt-out-mac",                               destination: "/es/politica-de-privacidad/",         permanent: true },
+      { source: "/es/opt-out-mac/:rest*",                        destination: "/es/politica-de-privacidad/",         permanent: true },
+      // Comunidad / eventos
+      { source: "/es/flame-community",                           destination: "/es/comunidad/",                      permanent: true },
+      { source: "/es/flame-eventos-gracias",                     destination: "/es/flame-eventos/",                  permanent: true },
+      { source: "/es/formulario-de-inscripcion-a-los-webinars-de-flame", destination: "/es/inscripcion-webinars/",   permanent: true },
+      // Páginas "gracias" residuales → hub de gracias
+      { source: "/es/gracias-old",                               destination: "/es/gracias/",                        permanent: true },
+      { source: "/es/gracias-partner",                           destination: "/es/gracias/",                        permanent: true },
+      { source: "/es/gracias-solicitud-video",                   destination: "/es/gracias/",                        permanent: true },
+      { source: "/es/gracias-whitepaper",                        destination: "/es/gracias/",                        permanent: true },
+      // EN: páginas borradas sin equivalente directo → community / contact-us
+      { source: "/en/queue-analytics-2",                         destination: "/en/queue-analytic/",                 permanent: true },
+      { source: "/en/thank-you-2",                               destination: "/en/thank-you-contact/",              permanent: true },
+      { source: "/en/webinars",                                  destination: "/en/community/",                      permanent: true },
+      { source: "/en/event-registration",                        destination: "/en/community/",                      permanent: true },
+      { source: "/en/encuesta-flame-talks-2026",                 destination: "/en/community/",                      permanent: true },
+      { source: "/en/flame-named-finalist-in-the-2023-mapic-awards-for-best-retail-innovation-solution", destination: "/en/community/", permanent: true },
+      { source: "/en/flame-talks-2025-transforming-shopping-centers-innovation-data-experience-and-sustainability", destination: "/en/community/", permanent: true },
+      { source: "/en/flame-webinar-registration",                destination: "/en/community/",                      permanent: true },
+      { source: "/en/flame-webinar-the-10-kpis-that-every-shopping-center-should-measure", destination: "/en/community/", permanent: true },
+      { source: "/en/intelligent-video-analytics-solution-for-retail", destination: "/en/solution-for-retail-sector/", permanent: true },
+      { source: "/en/join-our-webinar-advanced-retail-solutions-moving-beyond-security", destination: "/en/community/", permanent: true },
 
       // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];

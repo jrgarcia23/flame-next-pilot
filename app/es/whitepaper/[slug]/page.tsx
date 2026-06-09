@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
-import { getWhitepaper, getAllWhitepaperSlugs, shortExcerpt, hasInlineFaq } from "@/lib/blog";
-import { blogPostingSchema, breadcrumbSchema, faqSchema, postBreadcrumb } from "@/lib/schema";
-import { getFaqForSlug } from "@/lib/faqs";
+import { getWhitepaper, getAllWhitepaperSlugs, shortExcerpt } from "@/lib/blog";
+import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -20,7 +19,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${titleText} · Whitepaper · Flame Analytics`,
     description: descText,
-    alternates: { canonical: `/es/whitepaper/${slug}/` },
+    alternates: {
+      canonical: `/es/whitepaper/${slug}/`,
+      languages: { es: `/es/whitepaper/${slug}/`, "x-default": `/es/whitepaper/${slug}/` },
+    },
+    openGraph: {
+      type: "article",
+      url: `/es/whitepaper/${slug}/`,
+      title: titleText,
+      description: descText,
+      images: wp.hero ? [{ url: wp.hero }] : undefined,
+    },
   };
 }
 
@@ -33,10 +42,6 @@ export default async function WhitepaperEs({ params }: { params: Promise<{ slug:
     blogPostingSchema(wp, "es"),
     breadcrumbSchema(postBreadcrumb(wp, "es")),
   ];
-  if (!hasInlineFaq(wp.html)) {
-    const faq = getFaqForSlug(slug, "es");
-    if (faq) schemas.push(faqSchema(faq));
-  }
 
   return (
     <>

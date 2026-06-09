@@ -70,12 +70,10 @@ const OVERRIDES: Record<string, PostOverride> = {
   },
 };
 
-// Lee el HTML reescrito desde la carpeta canónica del repo agencia.
+// Lee los HTML reescritos desde data/post-rewrites-es/ (dentro del repo).
+// Carpeta canónica en el repo agencia: esconzeta-mc/_local/_global/clientes/flame/seo/rewrites-es-2026-05
 // Se ejecuta en build time (los page.tsx son SSG con generateStaticParams).
-const REWRITES_DIR = path.resolve(
-  process.cwd(),
-  "../../../../esconzeta-mc/_local/_global/clientes/flame/seo/rewrites-es-2026-05",
-);
+const REWRITES_DIR = path.resolve(process.cwd(), "data", "post-rewrites-es");
 
 function readHtml(file: string): string | null {
   const full = path.join(REWRITES_DIR, file);

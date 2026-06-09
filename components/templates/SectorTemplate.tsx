@@ -221,6 +221,27 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         `}</style>
       </section>
 
+      {/* FAQPage JSON-LD a partir de cfg.faqs (mantiene coherencia con la FAQ visual) */}
+      {cfg.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: cfg.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q.replace(/<[^>]+>/g, "").trim(),
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.a.replace(/<[^>]+>/g, "").trim(),
+                },
+              })),
+            }),
+          }}
+        />
+      )}
+
       {/* FAQ (oculto si no hay faqs) */}
       {cfg.faqs.length > 0 && (
       <section className="py-24" style={{ background: "var(--color-navy)", color: "white" }}>

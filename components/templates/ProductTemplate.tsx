@@ -318,6 +318,27 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
         `}</style>
       </section>
 
+      {/* FAQPage JSON-LD desde cfg.faqs (coherente con la FAQ visible) */}
+      {cfg.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: cfg.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.q.replace(/<[^>]+>/g, "").trim(),
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: f.a.replace(/<[^>]+>/g, "").trim(),
+                },
+              })),
+            }),
+          }}
+        />
+      )}
+
       {/* FAQ */}
       <section className="py-24" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">

@@ -3,10 +3,10 @@ import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
-import { getPost, getAllPostSlugs, shortExcerpt, hasInlineFaq } from "@/lib/blog";
+import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
-import { blogPostingSchema, breadcrumbSchema, faqSchema, postBreadcrumb } from "@/lib/schema";
-import { getFaqForSlug } from "@/lib/faqs";
+import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
+import { getOtherLangSlug } from "@/lib/lang-pairs";
 
 export const dynamicParams = false;
 
@@ -20,12 +20,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "Not found · Flame Analytics" };
   const titleText = post.title.replace(/<[^>]+>/g, "").trim();
   const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
+  const esSlug = getOtherLangSlug(slug, "en");
+  // x-default por defecto apunta a ES (default del middleware) si hay versión ES;
+  // si no, queda apuntando a la URL EN como fallback.
+  const languages: Record<string, string> = { en: `/en/${slug}/` };
+  if (esSlug) {
+    languages.es = `/es/${esSlug}/`;
+    languages["x-default"] = `/es/${esSlug}/`;
+  } else {
+    languages["x-default"] = `/en/${slug}/`;
+  }
   return {
     title: `${titleText} · Flame Analytics`,
     description: descText,
     alternates: {
       canonical: `/en/${slug}/`,
-      languages: { en: `/en/${slug}/`, "x-default": `/en/${slug}/` },
+      languages,
     },
     openGraph: {
       title: titleText,
@@ -52,10 +62,6 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
     blogPostingSchema(post, "en"),
     breadcrumbSchema(postBreadcrumb(post, "en")),
   ];
-  if (!hasInlineFaq(post.html)) {
-    const faq = getFaqForSlug(slug, "en");
-    if (faq) schemas.push(faqSchema(faq));
-  }
 
   return (
     <>

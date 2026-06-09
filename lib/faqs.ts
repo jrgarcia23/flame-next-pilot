@@ -38,25 +38,11 @@ const PAGE_TO_TOPIC: Record<string, string> = {
   "traffic-insights": "traffic",
 };
 
-// Heurística adicional: si el slug contiene cierta keyword, asociamos topic.
-const KEYWORD_TO_TOPIC: Array<[RegExp, string]> = [
-  [/people[- ]?counting|conteo[- ]?personas/i, "people-counting"],
-  [/customer[- ]?journey/i, "customer-journey"],
-  [/hypersensor/i, "hypersensor"],
-  [/occupancy|ocupaci[oó]n/i, "occupancy"],
-  [/hospitality|hoteles/i, "hospitality"],
-  [/public[- ]?venues|espacios[- ]?p[uú]blicos/i, "public-venues"],
-  [/retail/i, "retail"],
-  [/shopping[- ]?mall|centro[- ]?comercial/i, "shopping-malls"],
-  [/traffic|tr[aá]fico/i, "traffic"],
-];
-
+// Solo mapeo explícito. La heurística por keyword se quitó porque inyectaba
+// el mismo FAQPage en cientos de posts sin que su contenido respondiera a esas
+// preguntas, riesgo de "FAQPage spam" para Google.
 export function getTopicForSlug(slug: string): string | null {
-  if (PAGE_TO_TOPIC[slug]) return PAGE_TO_TOPIC[slug];
-  for (const [rx, topic] of KEYWORD_TO_TOPIC) {
-    if (rx.test(slug)) return topic;
-  }
-  return null;
+  return PAGE_TO_TOPIC[slug] || null;
 }
 
 export function getFaqBlock(topic: string, lang: Lang): FaqBlock | null {

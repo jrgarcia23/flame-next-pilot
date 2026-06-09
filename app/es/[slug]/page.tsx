@@ -3,10 +3,10 @@ import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
-import { getPost, getAllPostSlugs, shortExcerpt, hasInlineFaq } from "@/lib/blog";
+import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
-import { blogPostingSchema, breadcrumbSchema, faqSchema, postBreadcrumb } from "@/lib/schema";
-import { getFaqForSlug } from "@/lib/faqs";
+import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
+import { getOtherLangSlug } from "@/lib/lang-pairs";
 
 export const dynamicParams = false;
 
@@ -20,12 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return { title: "No encontrado · Flame Analytics" };
   const titleText = post.title.replace(/<[^>]+>/g, "").trim();
   const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
+  const enSlug = getOtherLangSlug(slug, "es");
+  const languages: Record<string, string> = { es: `/es/${slug}/`, "x-default": `/es/${slug}/` };
+  if (enSlug) languages.en = `/en/${enSlug}/`;
   return {
     title: `${titleText} · Flame Analytics`,
     description: descText,
     alternates: {
       canonical: `/es/${slug}/`,
-      languages: { es: `/es/${slug}/`, "x-default": `/es/${slug}/` },
+      languages,
     },
     openGraph: {
       title: titleText,
@@ -49,16 +52,12 @@ export default async function PostEs({ params }: { params: Promise<{ slug: strin
   // Posts especiales con maquetación Elementor preservada (flame-talks-2026, etc.)
   const elementor = getElementorContent(slug);
 
-  // Schemas: BlogPosting + Breadcrumb siempre, FAQ si el slug mapea a un topic.
+  // Schemas mínimos para post: BlogPosting + Breadcrumb. FAQ no aplica aquí
+  // (vive en páginas servicio vía SectorTemplate/ProductTemplate o embedida en el HTML).
   const schemas: unknown[] = [
     blogPostingSchema(post, "es"),
     breadcrumbSchema(postBreadcrumb(post, "es")),
   ];
-  // Solo inyectamos FAQ genérico si el HTML del post no trae ya un bloque FAQ propio.
-  if (!hasInlineFaq(post.html)) {
-    const faq = getFaqForSlug(slug, "es");
-    if (faq) schemas.push(faqSchema(faq));
-  }
 
   return (
     <>
