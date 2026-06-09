@@ -80,8 +80,8 @@ export default function AnimatedBehaviorChart() {
         aria-hidden
         style={{
           position: "absolute",
-          left: "15.2%", right: "2.0%",
-          top:  "25.5%", bottom: "41.0%",
+          left: "14.8%", right: "1.5%",
+          top:  "22.0%", bottom: "37.5%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1)",
