@@ -29,23 +29,26 @@
 
 import { useEffect, useRef, useState } from "react";
 
-function useInView<T extends Element>(threshold = 0.25) {
+function useInView<T extends Element>(threshold = 0.1) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     if (!ref.current || inView) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold }
+      { threshold, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(ref.current);
-    return () => obs.disconnect();
+    // Fallback móvil: si tras 5s no ha disparado, forzar para no dejar
+    // los Sankey tapados de forma permanente.
+    const fallback = window.setTimeout(() => setInView(true), 5000);
+    return () => { obs.disconnect(); clearTimeout(fallback); };
   }, [inView, threshold]);
   return { ref, inView };
 }
 
 export default function AnimatedBehaviorChart() {
-  const { ref, inView } = useInView<HTMLDivElement>(0.25);
+  const { ref, inView } = useInView<HTMLDivElement>(0.1);
 
   return (
     <div

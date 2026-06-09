@@ -70,23 +70,21 @@ const ANIM_LABELS: Record<AnimationType, string> = {
 };
 
 const DEFAULT_ELEMENTS: ElementCfg[] = [
-  // Overlay sobre el gráfico "Queue length" (centro del dashboard)
+  // Calibrados por JR en el editor visual
   { id: "overlay-queue-chart", kind: "overlay", label: "Gráfica Queue length",
-    left: 22, top: 40, right: 1, bottom: 12, delay: 400, animation: "wipe-right" },
-  // 3 contadores sobre los KPIs (108 / 192 / 34.27).
-  // Posiciones iniciales aproximadas — JR las afina con el editor ?edit=1.
+    left: 23.57, top: 51.83, right: 2.19, bottom: 15.21, delay: 400, animation: "wipe-right" },
   { id: "counter-avg",  kind: "counter", label: "Average queue length (108)",
-    left: 25.5, top: 23.5, right: 60, bottom: 65,
+    left: 24.21, top: 21.31, right: 67.29, bottom: 67.19,
     delay: 0,   value: 108,   decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
-    fontSize: 28, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+    fontSize: 20, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-max",  kind: "counter", label: "Maximum length (192)",
-    left: 51, top: 23.5, right: 34, bottom: 65,
+    left: 50.42, top: 21.46, right: 40.42, bottom: 67.04,
     delay: 200, value: 192,   decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
-    fontSize: 28, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+    fontSize: 20, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-comp", kind: "counter", label: "Queue compliance (34.27%)",
-    left: 76.5, top: 23.5, right: 9, bottom: 65,
+    left: 76.50, top: 22.78, right: 13.87, bottom: 68.18,
     delay: 400, value: 34.27, decimals: 2, thousandsSep: "",  prefix: "", suffix: "",
-    fontSize: 28, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+    fontSize: 20, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
 ];
 
 const STORAGE_KEY = "flame-queue-analytics-elements-v1";
@@ -117,17 +115,19 @@ function formatNumber(v: number, decimals: number, sep: "," | "." | "") {
   return fracPart ? `${withSep}${sep === "," ? "." : ","}${fracPart}` : withSep;
 }
 
-function useInView<T extends Element>(threshold = 0.2, enabled = true) {
-  const ref = useRef<T>(null);
+function useInView<T extends Element>(threshold = 0.1, enabled = true) {
+  const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     if (!enabled || !ref.current || inView) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold }
+      { threshold, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(ref.current);
-    return () => obs.disconnect();
+    // Fallback móvil: si tras 5s no ha disparado, forzar.
+    const fallback = window.setTimeout(() => setInView(true), 5000);
+    return () => { obs.disconnect(); clearTimeout(fallback); };
   }, [inView, threshold, enabled]);
   return { ref, inView };
 }

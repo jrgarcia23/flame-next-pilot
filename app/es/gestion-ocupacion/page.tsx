@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
@@ -71,5 +72,22 @@ const cfg: UseCaseConfig = {
 };
 
 export default function GestionOcupacionDraft() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/occupancy-management/" />;
+  return (
+    <UseCaseTemplate
+      cfg={cfg}
+      enHref="/en/occupancy-management/"
+      bigSectionVisualOverride={
+        <AnimatedDashboardImage
+          src="/wp-content/uploads/2026/01/Occupancy-Management_recorte.png"
+          alt="Flame dashboard"
+          storageKey="flame-occupancy"
+          elements={[
+            { id: "ov1", kind: "overlay", label: "Reveal completo",
+              left: 0, top: 0, right: 0, bottom: 0,
+              delay: 0, animation: "wipe-right" },
+          ]}
+        />
+      }
+    />
+  );
 }

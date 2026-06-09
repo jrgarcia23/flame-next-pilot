@@ -119,17 +119,19 @@ function formatNumber(v: number, decimals: number, sep: "," | "." | "") {
   return fracPart ? `${withSep}${sep === "," ? "." : ","}${fracPart}` : withSep;
 }
 
-function useInView<T extends Element>(threshold = 0.2, enabled = true) {
-  const ref = useRef<T>(null);
+function useInView<T extends Element>(threshold = 0.1, enabled = true) {
+  const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     if (!enabled || !ref.current || inView) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold }
+      { threshold, rootMargin: "0px 0px -10% 0px" }
     );
     obs.observe(ref.current);
-    return () => obs.disconnect();
+    // Fallback móvil: si tras 5s no ha disparado, forzar.
+    const fallback = window.setTimeout(() => setInView(true), 5000);
+    return () => { obs.disconnect(); clearTimeout(fallback); };
   }, [inView, threshold, enabled]);
   return { ref, inView };
 }

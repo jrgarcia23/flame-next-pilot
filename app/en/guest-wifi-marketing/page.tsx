@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -76,5 +77,22 @@ const cfg: UseCaseConfig = {
 };
 
 export default function GuestWifiMarketingEN() {
-  return <UseCaseTemplate cfg={cfg} enHref="/es/marketing-wifi-para-invitados/" currentLang="en" />;
+  return (
+    <UseCaseTemplate
+      cfg={cfg}
+      enHref="/es/marketing-wifi-para-invitados/" currentLang="en"
+      bigSectionVisualOverride={
+        <AnimatedDashboardImage
+          src="/wp-content/uploads/2026/01/Guest_wifi.png"
+          alt="Flame dashboard"
+          storageKey="flame-guest-wifi"
+          elements={[
+            { id: "ov1", kind: "overlay", label: "Reveal completo",
+              left: 0, top: 0, right: 0, bottom: 0,
+              delay: 0, animation: "wipe-right" },
+          ]}
+        />
+      }
+    />
+  );
 }

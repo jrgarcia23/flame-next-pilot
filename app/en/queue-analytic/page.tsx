@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedQueueAnalyticsChart from "@/components/AnimatedQueueAnalyticsChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -76,5 +77,12 @@ const cfg: UseCaseConfig = {
 };
 
 export default function QueueAnalyticEN() {
-  return <UseCaseTemplate cfg={cfg} enHref="/es/analitica-de-colas/" currentLang="en" />;
+  return (
+    <UseCaseTemplate
+      cfg={cfg}
+      enHref="/es/analitica-de-colas/"
+      currentLang="en"
+      bigSectionVisualOverride={<AnimatedQueueAnalyticsChart />}
+    />
+  );
 }
