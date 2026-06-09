@@ -116,7 +116,7 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
     delay: 0, value: 10.8, decimals: 1, thousandsSep: "", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-mq6mdr7k", kind: "counter", label: "Contador 13 (28.105)",
-    left: 54.14, top: 42.05, right: 36.07, bottom: 51.78,
+    left: 53.47, top: 41.92, right: 35.74, bottom: 51.91,
     delay: 0, value: 28105, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   // 61.76 → seguramente un porcentaje con 2 decimales (no miles).
