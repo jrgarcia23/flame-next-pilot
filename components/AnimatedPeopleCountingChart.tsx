@@ -70,18 +70,22 @@ const ANIM_LABELS: Record<AnimationType, string> = {
 };
 
 const DEFAULT_ELEMENTS: ElementCfg[] = [
-  // Overlays ya ajustados por JR
+  // Overlays ya ajustados por JR (panel del editor visual)
   { id: "overlay-mq6hs3td", kind: "overlay", label: "Overlay 2",  left: 32.92, top: 19.72, right: 25.23, bottom: 51.83, delay: 300,  animation: "wipe-up" },
   { id: "overlay-mq6hugy8", kind: "overlay", label: "Overlay 3",  left: 56.56, top: 57.30, right: 1.01,  bottom: 16.53, delay: 600,  animation: "wipe-right" },
   { id: "heatmap",          kind: "overlay", label: "Heatmap",    left: 8.14,  top: 57.22, right: 53.21, bottom: 13.89, delay: 800,  animation: "wipe-up" },
   { id: "overlay-mq6hv8fj", kind: "overlay", label: "Overlay 4",  left: 16.09, top: 22.38, right: 73.17, bottom: 68.51, delay: 900,  animation: "wipe-right" },
   { id: "overlay-mq6hvk30", kind: "overlay", label: "Overlay 5",  left: 16.35, top: 39.81, right: 73.66, bottom: 49.26, delay: 1200, animation: "wipe-right" },
-  // Counters por defecto — JR ajusta posición con el editor
-  { id: "counter-visits",   kind: "counter", label: "Visits 11.337", left: 17, top: 13.5, right: 67, bottom: 80,
-    delay: 200, value: 11337, decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
-    fontSize: 40, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
-  { id: "counter-avg",      kind: "counter", label: "Avg 428",       left: 17, top: 22,   right: 72, bottom: 71.5,
-    delay: 500, value: 428,   decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
+  // Contadores calibrados por JR en el editor visual (KPIs 11.337 y 428)
+  // Nota: corrijo value: 11.337 → 11337 (JR escribió con punto pensando en separador
+  //       de miles, pero JS interpreta '.' como decimal — el contador real es 11.337)
+  { id: "counter-mq6j1phb", kind: "counter", label: "Contador 1 (Visits 11.337)",
+    left: 4.59, top: 21.10, right: 86.34, bottom: 73.25,
+    delay: 200, value: 11337, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
+    fontSize: 36, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+  { id: "counter-mq6j2lv0", kind: "counter", label: "Contador 2 (Avg 428)",
+    left: 4.82, top: 39.04, right: 88.16, bottom: 53.97,
+    delay: 200, value: 428, decimals: 0, thousandsSep: "", prefix: "", suffix: "",
     fontSize: 36, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
 ];
 
