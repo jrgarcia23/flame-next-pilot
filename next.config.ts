@@ -152,7 +152,10 @@ const nextConfig: NextConfig = {
       { source: "/encuestas-flame/:path*",                     destination: "/es/comunidad/",                       permanent: true },
       { source: "/en/collaborators-blog/:path*",               destination: "/en/community/",                       permanent: true },
       { source: "/en/sectors/:path*",                          destination: "/en/solution-for-retail-sector/",      permanent: true },
-      { source: "/en/category/:path*",                         destination: "/en/community/",                       permanent: true },
+      // NOTA: el catch-all "/en/category/:path*" → "/en/community/" se eliminó
+      // (2026-06-09) porque rompía las URLs reales del listado de categoría:
+      // /en/category/case-studies/, /blog/, /webinars/, /interviews/. Esas
+      // rutas existen como páginas Next y deben devolver 200, no redirect.
 
       // (Regla previa de /wp-content/uploads/:rest* eliminada — rompía vídeos .mp4/.webm
       // y otros assets binarios que ahora dan 200 al servirse directamente desde public/)
