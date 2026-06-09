@@ -4,7 +4,7 @@ import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 
-export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en" }) {
+export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
@@ -139,9 +139,13 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es" }: { c
             )}
           </div>
           <div className="grid gap-12 items-center mtc-grid" style={{ gridTemplateColumns: "1.55fr 1fr" }}>
-            <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
-              <img src={cfg.imageBigSrc} alt={cfg.imageBigAlt} style={{ width: "100%", height: "auto", display: "block" }} />
-            </div>
+            {bigSectionVisualOverride ? (
+              <div>{bigSectionVisualOverride}</div>
+            ) : (
+              <div className="rounded-2xl overflow-hidden" style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+                <img src={cfg.imageBigSrc} alt={cfg.imageBigAlt} style={{ width: "100%", height: "auto", display: "block" }} />
+              </div>
+            )}
             <div>
               <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.bigSectionPara1}</p>
               <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.65] mb-7" style={{ color: "var(--color-ink-2)" }}>{cfg.bigSectionPara2}</p>
