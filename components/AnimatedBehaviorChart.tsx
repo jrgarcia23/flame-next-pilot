@@ -29,6 +29,23 @@
 
 import { useEffect, useRef, useState } from "react";
 
+/** En móvil (<768px) las animaciones se desactivan: la imagen se sirve
+ *  estática para evitar bugs de clip-path en iOS Safari y escalado de
+ *  contadores. Se inicializa true para SSR (mostrar imagen pelada hasta
+ *  hidratación) y se ajusta tras hidratar. */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isMobile;
+}
+
 function useInView<T extends Element>(threshold = 0.1) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
@@ -49,6 +66,21 @@ function useInView<T extends Element>(threshold = 0.1) {
 
 export default function AnimatedBehaviorChart() {
   const { ref, inView } = useInView<HTMLDivElement>(0.1);
+  const isMobile = useIsMobile();
+
+  // En móvil: sirve solo la imagen estática (sin overlays animados).
+  if (isMobile) {
+    return (
+      <div className="abc-wrap rounded-2xl overflow-hidden relative"
+        style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+        <img
+          src="/wp-content/uploads/2026/01/Customer_behavior_recorte.png"
+          alt="Flame Customer Behavior — dashboard Locations Journey con Sankey de Customer flow y Direct interaction"
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

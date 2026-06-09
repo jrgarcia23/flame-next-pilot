@@ -119,6 +119,22 @@ function formatNumber(v: number, decimals: number, sep: "," | "." | "") {
   return fracPart ? `${withSep}${sep === "," ? "." : ","}${fracPart}` : withSep;
 }
 
+/** En móvil (<768px) desactivamos animaciones: la imagen se sirve
+ *  estática para evitar bugs de clip-path en iOS Safari y problemas
+ *  de escalado de fontSize en counters. */
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(true);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+  return isMobile;
+}
+
 function useInView<T extends Element>(threshold = 0.1, enabled = true) {
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
@@ -166,6 +182,21 @@ export default function AnimatedPeopleCountingChart() {
   const [elements, setElements] = useState<ElementCfg[]>(DEFAULT_ELEMENTS);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const { ref: inViewRef, inView } = useInView<HTMLDivElement>(0.2, !editMode);
+  const isMobile = useIsMobile();
+
+  // En móvil (no en modo editor): imagen estática, sin overlays/counters.
+  if (isMobile && !editMode) {
+    return (
+      <div className="apc-wrap rounded-2xl overflow-hidden relative"
+        style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+        <img
+          src="/wp-content/uploads/2026/01/People-Counting_recorte.png"
+          alt="Flame People Counting dashboard"
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
+    );
+  }
 
   const setRefs = (node: HTMLDivElement | null) => {
     wrapperRef.current = node;
