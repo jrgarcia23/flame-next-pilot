@@ -82,11 +82,11 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
   { id: "counter-mq6j1phb", kind: "counter", label: "Contador 1 (Visits 11.337)",
     left: 4.59, top: 21.10, right: 86.34, bottom: 73.25,
     delay: 200, value: 11337, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
-    fontSize: 36, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+    fontSize: 26, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-mq6j2lv0", kind: "counter", label: "Contador 2 (Avg 428)",
     left: 4.82, top: 39.04, right: 88.16, bottom: 53.97,
     delay: 200, value: 428, decimals: 0, thousandsSep: "", prefix: "", suffix: "",
-    fontSize: 36, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+    fontSize: 26, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
 ];
 
 const STORAGE_KEY = "flame-people-counting-elements-v3";
