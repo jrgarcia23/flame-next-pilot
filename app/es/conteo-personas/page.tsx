@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedPeopleCountingChart from "@/components/AnimatedPeopleCountingChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
@@ -72,5 +73,11 @@ const cfg: UseCaseConfig = {
 };
 
 export default function CuentaPersonasDraft() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/people-counting/" />;
+  return (
+    <UseCaseTemplate
+      cfg={cfg}
+      enHref="/en/people-counting/"
+      bigSectionVisualOverride={<AnimatedPeopleCountingChart />}
+    />
+  );
 }

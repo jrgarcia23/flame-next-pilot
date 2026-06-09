@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedBehaviorChart from "@/components/AnimatedBehaviorChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -77,5 +78,11 @@ const cfg: UseCaseConfig = {
 };
 
 export default function CustomerBehaviorDraft() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/customer-behavior/" />;
+  return (
+    <UseCaseTemplate
+      cfg={cfg}
+      enHref="/en/customer-behavior/"
+      bigSectionVisualOverride={<AnimatedBehaviorChart />}
+    />
+  );
 }
