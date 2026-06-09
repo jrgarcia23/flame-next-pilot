@@ -101,9 +101,6 @@ export default function GestionAseosDraft() {
             { id: "overlay-mq6pm5xx", kind: "overlay", label: "Overlay 4",
               left: 17.08, top: 41.29, right: 73.91, bottom: 50.01,
               delay: 900, animation: "wipe-right" },
-            { id: "overlay-mq6pmif1", kind: "overlay", label: "Overlay 5",
-              left: 32.54, top: 29.12, right: 52.76, bottom: 51.96,
-              delay: 1200, animation: "wipe-right" },
             // Contadores. 11.337 → 11337 (JR usó '.' como separador de miles)
             { id: "counter-mq6pn0m4", kind: "counter", label: "Contador 11.337",
               left: 6.02, top: 21.55, right: 85.78, bottom: 72.77,
