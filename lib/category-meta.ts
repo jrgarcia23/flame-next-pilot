@@ -29,7 +29,6 @@ export const CATEGORY_META: Record<string, CategoryMeta> = {
   // EN
   "interviews":         { heroImg: "/wp-content/uploads/2026/01/Partners-1-scaled-1.png", taglineEs: "Conversaciones con líderes del retail.",                                    taglineEn: "Conversations with retail leaders." },
   "case-studies":       { heroImg: "/wp-content/uploads/2026/01/Industries_Retail-1.png", taglineEs: "Casos de éxito reales de Flame.",                                           taglineEn: "Real Flame customer success stories." },
-  "webinars":           { heroImg: "/wp-content/uploads/2026/01/Connect-1-1.png",         taglineEs: "Sesiones en vídeo con expertos del sector.",                                taglineEn: "Recorded sessions with industry experts." },
   "tips":               { heroImg: "/wp-content/uploads/2026/01/Customer_behavior-1-scaled-1.png", taglineEs: "Consejos prácticos para tu negocio.",                              taglineEn: "Practical tips for your business." },
   "retail":             { heroImg: "/wp-content/uploads/2026/01/Industries_Retail-1.png", taglineEs: "Análisis del sector retail.",                                               taglineEn: "Retail sector analysis." },
   "retail-interviews":  { heroImg: "/wp-content/uploads/2026/01/Partners-1-scaled-1.png", taglineEs: "Entrevistas con líderes del retail.",                                       taglineEn: "Interviews with retail leaders." },
