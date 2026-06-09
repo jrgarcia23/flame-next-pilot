@@ -65,15 +65,24 @@ export default function AnimatedBehaviorChart() {
         style={{ width: "100%", height: "auto", display: "block" }}
       />
 
+      {/*
+        Coordenadas calibradas con la marca roja de JR sobre el dashboard:
+          OVERLAY 1 (Customer flow Sankey): top 25.5% · bottom 41% ·
+                                             left 15.2% · right 2%
+          OVERLAY 2 (Direct interaction Sankey): top 64.5% · bottom 2.5% ·
+                                                  left 15.2% · right 2%
+        Cubren EXCLUSIVAMENTE el dibujo del Sankey de cada card (no los
+        headers ⓘ Customer flow / Number dropdown ni ⓘ Direct interaction).
+      */}
+
       {/* OVERLAY 1: tapa el Sankey de Customer flow. Se "come" de izq → der */}
       <div
         aria-hidden
         style={{
           position: "absolute",
-          left: "16.0%", right: "1.5%",
-          top: "19.0%",  bottom: "53.5%",
+          left: "15.2%", right: "2.0%",
+          top:  "25.5%", bottom: "41.0%",
           background: "#fff",
-          // clip-path inset(top right bottom left) → cuando left crece, se va revelando lo de debajo
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1)",
         }}
@@ -84,8 +93,8 @@ export default function AnimatedBehaviorChart() {
         aria-hidden
         style={{
           position: "absolute",
-          left: "16.0%", right: "1.5%",
-          top: "57.0%",  bottom: "1.5%",
+          left: "15.2%", right: "2.0%",
+          top:  "64.5%", bottom: "2.5%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1) 600ms",
