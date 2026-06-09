@@ -79,14 +79,16 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
   // Contadores calibrados por JR en el editor visual (KPIs 11.337 y 428)
   // Nota: corrijo value: 11.337 → 11337 (JR escribió con punto pensando en separador
   //       de miles, pero JS interpreta '.' como decimal — el contador real es 11.337)
-  { id: "counter-mq6j1phb", kind: "counter", label: "Contador 1 (Visits 11.337)",
-    left: 4.59, top: 21.10, right: 86.34, bottom: 73.25,
-    delay: 200, value: 11337, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
-    fontSize: 26, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
-  { id: "counter-mq6j2lv0", kind: "counter", label: "Contador 2 (Avg 428)",
-    left: 4.82, top: 39.04, right: 88.16, bottom: 53.97,
-    delay: 200, value: 428, decimals: 0, thousandsSep: "", prefix: "", suffix: "",
-    fontSize: 26, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+  // Nota: value 11337 (no 11.337 como en el JSON original — JS interpreta '.'
+  //       como decimal). Formateado con thousandsSep ',' → muestra "11,337".
+  { id: "counter-mq6j1phb", kind: "counter", label: "Contador 1",
+    left: 5.93, top: 19.60, right: 85.24, bottom: 71.49,
+    delay: 200, value: 11337, decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
+    fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+  { id: "counter-mq6j2lv0", kind: "counter", label: "Contador 2",
+    left: 5.71, top: 39.82, right: 87.27, bottom: 53.18,
+    delay: 200, value: 428, decimals: 0, thousandsSep: ",", prefix: "", suffix: "",
+    fontSize: 17, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
 ];
 
 const STORAGE_KEY = "flame-people-counting-elements-v3";
