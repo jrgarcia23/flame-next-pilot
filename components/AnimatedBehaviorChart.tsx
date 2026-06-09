@@ -88,7 +88,7 @@ export default function AnimatedBehaviorChart() {
         style={{
           position: "absolute",
           left: "15.3%", right: "1.9%",
-          top:  "25.6%", bottom: "40.8%",
+          top:  "24.8%", bottom: "40.8%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1)",
@@ -101,7 +101,7 @@ export default function AnimatedBehaviorChart() {
         style={{
           position: "absolute",
           left: "15.3%", right: "1.9%",
-          top:  "65.2%", bottom: "2.9%",
+          top:  "65.2%", bottom: "1.8%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1) 600ms",
