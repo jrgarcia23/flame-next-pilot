@@ -72,9 +72,10 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   communityTitleHl: "comunidad Flame",
   communitySub: "Donde el contenido se convierte en valor para la comunidad: historias, ideas y aprendizajes con impacto.",
   communityCards: [
-    { icon: "users",    title: "Casos de éxito", href: "/es/categoria/casos-de-exito/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
-    { icon: "reports",  title: "Blog",           href: "/es/categoria/blog/",            img: "/wp-content/uploads/2026/01/Noticias-2.png" },
-    { icon: "calendar", title: "Entrevistas",    href: "/es/categoria/entrevistas/",     img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
+    { icon: "users",    title: "Casos de éxito", href: "/es/categoria/casos-de-exito/",  img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
+    { icon: "reports",  title: "Blog",           href: "/es/categoria/blog/",             img: "/wp-content/uploads/2026/01/Noticias-2.png" },
+    { icon: "play",     title: "Webinars",       href: "/es/categoria/webinars-es-cat/",  img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
+    { icon: "calendar", title: "Entrevistas",    href: "/es/categoria/entrevistas/",      img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
   ],
 };
 
@@ -150,8 +151,9 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   communityTitleHl: "Flame community",
   communitySub: "Where content becomes value for the community: stories, ideas and learnings with impact.",
   communityCards: [
-    { icon: "users",    title: "Case studies", href: "/en/category/case-studies/", img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
-    { icon: "reports",  title: "Blog",         href: "/en/category/blog/",          img: "/wp-content/uploads/2026/01/Noticias-2.png" },
-    { icon: "calendar", title: "Interviews",   href: "/en/category/interviews/",    img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
+    { icon: "users",    title: "Case studies", href: "/en/category/case-studies/",     img: "/wp-content/uploads/2026/01/Whitepapers-5.png" },
+    { icon: "reports",  title: "Blog",         href: "/en/category/blog/",              img: "/wp-content/uploads/2026/01/Noticias-2.png" },
+    { icon: "play",     title: "Webinars",     href: "/en/category/webinars-en-cat/",   img: "/wp-content/uploads/2026/01/Whitepapers-7.png" },
+    { icon: "calendar", title: "Interviews",   href: "/en/category/interviews/",        img: "/wp-content/uploads/2026/01/Whitepapers-6.png" },
   ],
 };
