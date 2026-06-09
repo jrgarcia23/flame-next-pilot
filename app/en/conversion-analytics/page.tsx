@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
-import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
+import AnimatedConversionAnalyticsChart from "@/components/AnimatedConversionAnalyticsChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
@@ -81,19 +81,9 @@ export default function ConversionAnalyticsEN() {
   return (
     <UseCaseTemplate
       cfg={cfg}
-      enHref="/es/analitica-conversion/" currentLang="en"
-      bigSectionVisualOverride={
-        <AnimatedDashboardImage
-          src="/wp-content/uploads/2026/01/Conversion_analytics_recorte.png"
-          alt="Flame dashboard"
-          storageKey="flame-conversion"
-          elements={[
-            { id: "ov1", kind: "overlay", label: "Reveal completo",
-              left: 0, top: 0, right: 0, bottom: 0,
-              delay: 0, animation: "wipe-right" },
-          ]}
-        />
-      }
+      enHref="/es/analitica-conversion/"
+      currentLang="en"
+      bigSectionVisualOverride={<AnimatedConversionAnalyticsChart />}
     />
   );
 }
