@@ -99,7 +99,7 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
 
   // 6 contadores (valores con punto = miles → corregidos a enteros)
   { id: "counter-mq6m9npw", kind: "counter", label: "Contador 9 (11.371)",
-    left: 6.11,  top: 21.91, right: 85.21, bottom: 70.86,
+    left: 6.11,  top: 21.91, right: 85.21, bottom: 71.64,
     delay: 0, value: 11371, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-mq6mb0d9", kind: "counter", label: "Contador 10 (10.322)",
@@ -107,7 +107,7 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
     delay: 0, value: 10322, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-mq6mc2a2", kind: "counter", label: "Contador 11 (1.814)",
-    left: 53.56, top: 23.21, right: 38.86, bottom: 71.09,
+    left: 53.56, top: 23.21, right: 38.86, bottom: 71.38,
     delay: 0, value: 1814, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   // 10.8 → posiblemente un porcentaje decimal real (no miles). Mantengo con 1 decimal.
@@ -116,7 +116,7 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
     delay: 0, value: 10.8, decimals: 1, thousandsSep: "", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   { id: "counter-mq6mdr7k", kind: "counter", label: "Contador 13 (28.105)",
-    left: 53.47, top: 41.92, right: 35.74, bottom: 51.91,
+    left: 53.16, top: 41.92, right: 35.74, bottom: 51.91,
     delay: 0, value: 28105, decimals: 0, thousandsSep: ".", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
   // 61.76 → seguramente un porcentaje con 2 decimales (no miles).
