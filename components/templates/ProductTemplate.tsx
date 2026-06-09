@@ -69,6 +69,11 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
           .logo-track:hover { animation-play-state: paused; }
+          @media (max-width: 767px) {
+            .logo-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
+            .logo-marquee::-webkit-scrollbar { display: none; }
+            .logo-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
+          }
           .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @media (max-width: 700px) { .logo-img { height: 65px; } }

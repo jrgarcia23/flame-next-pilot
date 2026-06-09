@@ -136,6 +136,11 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
           .logo-track:hover { animation-play-state: paused; }
+          @media (max-width: 767px) {
+            .logo-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
+            .logo-marquee::-webkit-scrollbar { display: none; }
+            .logo-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
+          }
           .logo-img { height: 56px; width: auto; opacity: 0.65; filter: grayscale(100%) brightness(0.4); transition: opacity 280ms ease, filter 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; filter: grayscale(0%) brightness(1); }
           @media (max-width: 700px) { .logo-img { height: 44px; } }
@@ -333,6 +338,11 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
           .testimonials-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
           .testimonials-track { display: flex; gap: 28px; width: max-content; align-items: stretch; animation: marquee-x 60s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
           .testimonials-track:hover { animation-play-state: paused; }
+          @media (max-width: 767px) {
+            .testimonials-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
+            .testimonials-marquee::-webkit-scrollbar { display: none; }
+            .testimonials-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
+          }
           .testimonial-card { width: 460px; flex: 0 0 460px; }
           @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
         `}</style>
