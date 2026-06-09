@@ -23,7 +23,8 @@ import { useEffect, useRef, useState } from "react";
 type AnimationType =
   | "wipe-right" | "wipe-left" | "wipe-down" | "wipe-up"
   | "fade" | "scale-out"
-  | "slide-right" | "slide-left" | "slide-up" | "slide-down";
+  | "slide-right" | "slide-left" | "slide-up" | "slide-down"
+  | "fade-in-up" | "fade-in-down" | "fade-in-left" | "fade-in-right";
 
 type BaseCfg = {
   id: string;
@@ -61,12 +62,16 @@ const ANIM_LABELS: Record<AnimationType, string> = {
   "wipe-left":   "Cortina → izq",
   "wipe-down":   "Cortina ↓",
   "wipe-up":     "Cortina ↑",
-  "fade":        "Fade out",
+  "fade":         "Aparece (fade)",
   "scale-out":   "Encoge al centro",
   "slide-right": "Sale por la der",
   "slide-left":  "Sale por la izq",
   "slide-up":    "Sale por arriba",
   "slide-down":  "Sale por abajo",
+  "fade-in-up":   "Aparece subiendo",
+  "fade-in-down": "Aparece bajando",
+  "fade-in-left": "Aparece desde izq",
+  "fade-in-right":"Aparece desde der",
 };
 
 // Calibrados por JR en el editor visual ?edit=1
@@ -141,7 +146,11 @@ function animationStyle(anim: AnimationType, inView: boolean, delay: number): Re
     case "slide-right":return { transform: inView ? "translateX(100%)" : "translateX(0)", transition: t("transform") };
     case "slide-left": return { transform: inView ? "translateX(-100%)" : "translateX(0)", transition: t("transform") };
     case "slide-up":   return { transform: inView ? "translateY(-100%)" : "translateY(0)", transition: t("transform") };
-    case "slide-down": return { transform: inView ? "translateY(100%)" : "translateY(0)", transition: t("transform") };
+        case "slide-down": return { transform: inView ? "translateY(100%)" : "translateY(0)", transition: t("transform") };
+    case "fade-in-up":   return { opacity: inView ? 0 : 1, transform: inView ? "translateY(-12%)" : "translateY(0)", transition: `opacity ${DURATION}ms ${EASING} ${delay}ms, transform ${DURATION}ms ${EASING} ${delay}ms` };
+    case "fade-in-down": return { opacity: inView ? 0 : 1, transform: inView ? "translateY(12%)"  : "translateY(0)", transition: `opacity ${DURATION}ms ${EASING} ${delay}ms, transform ${DURATION}ms ${EASING} ${delay}ms` };
+    case "fade-in-left": return { opacity: inView ? 0 : 1, transform: inView ? "translateX(-12%)" : "translateX(0)", transition: `opacity ${DURATION}ms ${EASING} ${delay}ms, transform ${DURATION}ms ${EASING} ${delay}ms` };
+    case "fade-in-right":return { opacity: inView ? 0 : 1, transform: inView ? "translateX(12%)"  : "translateX(0)", transition: `opacity ${DURATION}ms ${EASING} ${delay}ms, transform ${DURATION}ms ${EASING} ${delay}ms` };
   }
 }
 
