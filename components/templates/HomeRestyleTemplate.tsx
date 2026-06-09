@@ -42,6 +42,7 @@ export type HomeRestyleConfig = {
   reportsBody: string;
   reportsImg: string;
   reportsImgAlt: string;
+  reportsNode?: React.ReactNode;
   reportsCta: string;
   reportsHref: string;
   integrationTitle: string;
@@ -270,7 +271,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
               </a>
             </div>
             <div>
-              <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 14 }} />
+              {cfg.reportsNode ?? <img src={cfg.reportsImg} alt={cfg.reportsImgAlt} style={{ width: "100%", height: "auto", display: "block", borderRadius: 14 }} />}
             </div>
           </div>
         </div>
