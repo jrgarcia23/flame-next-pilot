@@ -66,10 +66,20 @@ export default function AnimatedBehaviorChart() {
       />
 
       {/*
-        Ajuste 4ª iter (JR): +3px arriba, +10px corrido a la derecha
-        sobre wrapper ~1400×880px:
-          top:  25.2% → 24.85% (-0.35% ≈ -3px)
-          left: 15.6% → 16.3%  (+0.7%  ≈ +10px)
+        Coordenadas medidas directamente sobre los recuadros rojos del
+        screenshot de JR (1424×882). Pixel-precisas para cubrir
+        EXACTAMENTE el dibujo del Sankey de cada card, sin sobrepasar.
+
+        Recuadro 1 (Customer flow):
+          left  ≈ 218/1424 = 15.3%
+          right ≈ 27/1424  = 1.9%
+          top   ≈ 226/882  = 25.6%
+          bot   ≈ 360/882  = 40.8%
+        Recuadro 2 (Direct interaction):
+          left  ≈ 218/1424 = 15.3%
+          right ≈ 27/1424  = 1.9%
+          top   ≈ 575/882  = 65.2%
+          bot   ≈ 26/882   = 2.9%
       */}
 
       {/* OVERLAY 1: tapa el Sankey de Customer flow. Se "come" de izq → der */}
@@ -77,8 +87,8 @@ export default function AnimatedBehaviorChart() {
         aria-hidden
         style={{
           position: "absolute",
-          left: "16.3%", right: "2.0%",
-          top:  "24.85%", bottom: "39.0%",
+          left: "15.3%", right: "1.9%",
+          top:  "25.6%", bottom: "40.8%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1)",
@@ -90,8 +100,8 @@ export default function AnimatedBehaviorChart() {
         aria-hidden
         style={{
           position: "absolute",
-          left: "16.3%", right: "2.0%",
-          top:  "64.5%", bottom: "2.5%",
+          left: "15.3%", right: "1.9%",
+          top:  "65.2%", bottom: "2.9%",
           background: "#fff",
           clipPath: inView ? "inset(0 0 0 100%)" : "inset(0 0 0 0%)",
           transition: "clip-path 1800ms cubic-bezier(0.65, 0, 0.35, 1) 600ms",
