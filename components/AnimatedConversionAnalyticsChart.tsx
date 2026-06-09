@@ -153,7 +153,7 @@ function formatNumber(v: number, decimals: number, sep: "," | "." | "") {
  *  estática para evitar bugs de clip-path en iOS Safari y problemas
  *  de escalado de fontSize en counters. */
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(max-width: 767px)");
@@ -214,19 +214,6 @@ export default function AnimatedConversionAnalyticsChart() {
   const { ref: inViewRef, inView } = useInView<HTMLDivElement>(0.2, !editMode);
   const isMobile = useIsMobile();
 
-  if (isMobile && !editMode) {
-    return (
-      <div className="aca-wrap rounded-2xl overflow-hidden relative"
-        style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
-        <img
-          src="/wp-content/uploads/2026/01/Conversion_analytics_recorte.png"
-          alt="Flame Conversion Analytics dashboard"
-          style={{ width: "100%", height: "auto", display: "block" }}
-        />
-      </div>
-    );
-  }
-
   const setRefs = (node: HTMLDivElement | null) => {
     wrapperRef.current = node;
     (inViewRef as React.MutableRefObject<HTMLDivElement | null>).current = node;
@@ -273,6 +260,19 @@ export default function AnimatedConversionAnalyticsChart() {
     }]);
   };
   const removeElement = (id: string) => setElements((prev) => prev.filter((e) => e.id !== id));
+
+  if (isMobile && !editMode) {
+    return (
+      <div className="aca-wrap rounded-2xl overflow-hidden relative"
+        style={{ background: "#fff", border: "1px solid var(--color-rule)", boxShadow: "var(--shadow-md)" }}>
+        <img
+          src="/wp-content/uploads/2026/01/Conversion_analytics_recorte.png"
+          alt="Flame Conversion Analytics dashboard"
+          style={{ width: "100%", height: "auto", display: "block" }}
+        />
+      </div>
+    );
+  }
 
   return (
     <div

@@ -34,7 +34,7 @@ import { useEffect, useRef, useState } from "react";
  *  contadores. Se inicializa true para SSR (mostrar imagen pelada hasta
  *  hidratación) y se ajusta tras hidratar. */
 function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(max-width: 767px)");
