@@ -110,12 +110,11 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         </section>
       )}
 
-      {/* SECCIONES alternadas image+text (real content de la live) */}
+      {/* SECCIONES alternadas image+text — TODAS fondo blanco (JR) */}
       {cfg.sections.map((s, i) => {
         const reverse = i % 2 === 1;
-        const bg = i % 2 === 0 ? "#fff" : "var(--color-paper)";
         return (
-          <section key={i} className="py-24" style={{ background: bg }}>
+          <section key={i} className="py-24" style={{ background: "#fff" }}>
             <div className="flame-container">
               <div className="grid gap-14 items-center sec-grid" style={{ gridTemplateColumns: reverse ? "1fr 1.2fr" : "1.2fr 1fr" }}>
                 <div style={{ order: reverse ? 2 : 1 }}>
