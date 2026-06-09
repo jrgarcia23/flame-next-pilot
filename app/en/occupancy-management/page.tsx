@@ -82,9 +82,19 @@ export default function OccupancyManagementEN() {
           alt="Flame dashboard"
           storageKey="flame-occupancy"
           elements={[
-            { id: "ov1", kind: "overlay", label: "Reveal completo",
-              left: 0, top: 0, right: 0, bottom: 0,
-              delay: 0, animation: "wipe-right" },
+            { id: "ov1", kind: "overlay", label: "Central chart",
+              left: 26, top: 51.82, right: 2.58, bottom: 15.68,
+              delay: 0, animation: "wipe-up" },
+            { id: "counter-occ-1", kind: "counter", label: "Counter 192",
+              left: 50.07, top: 24.63, right: 42.22, bottom: 70.26,
+              delay: 200, value: 192, decimals: 0, thousandsSep: ",",
+              prefix: "", suffix: "",
+              fontSize: 19, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+            { id: "counter-occ-2", kind: "counter", label: "Counter 34.27",
+              left: 76.40, top: 24.62, right: 15.62, bottom: 70.46,
+              delay: 200, value: 34.27, decimals: 2, thousandsSep: "",
+              prefix: "", suffix: "",
+              fontSize: 18, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
           ]}
         />
       }

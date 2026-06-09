@@ -88,8 +88,8 @@ export default function GuestWifiMarketingEN() {
           storageKey="flame-guest-wifi"
           elements={[
             { id: "ov1", kind: "overlay", label: "Reveal completo",
-              left: 0, top: 0, right: 0, bottom: 0,
-              delay: 0, animation: "wipe-right" },
+              left: 53.96, top: 21.51, right: 27.25, bottom: 13.88,
+              delay: 0, animation: "fade" },
           ]}
         />
       }
