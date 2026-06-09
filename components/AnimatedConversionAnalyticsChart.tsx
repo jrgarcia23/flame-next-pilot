@@ -119,6 +119,10 @@ const DEFAULT_ELEMENTS: ElementCfg[] = [
     left: 77.78, top: 42.19, right: 13.70, bottom: 51.56,
     delay: 200, value: 61.76, decimals: 2, thousandsSep: "", prefix: "", suffix: "",
     fontSize: 16, fontWeight: 600, color: "#15163A", align: "left", duration: 1600 },
+
+  // Overlay extra del gráfico que faltaba (JR, sesión posterior)
+  { id: "overlay-mq6ox5ei", kind: "overlay", label: "Overlay 15",
+    left: 64.52, top: 43.60, right: 25.33, bottom: 46.12, delay: 4200, animation: "wipe-right" },
 ];
 
 const STORAGE_KEY = "flame-conversion-analytics-elements-v1";
