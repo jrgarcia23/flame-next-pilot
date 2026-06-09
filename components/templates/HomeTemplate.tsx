@@ -134,7 +134,7 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
         </div>
         <style>{`
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
+          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
           .logo-track:hover { animation-play-state: paused; }
           .logo-img { height: 56px; width: auto; opacity: 0.65; filter: grayscale(100%) brightness(0.4); transition: opacity 280ms ease, filter 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; filter: grayscale(0%) brightness(1); }
@@ -331,7 +331,7 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
         </div>
         <style>{`
           .testimonials-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .testimonials-track { display: flex; gap: 28px; width: max-content; align-items: stretch; animation: marquee-x 60s linear infinite; }
+          .testimonials-track { display: flex; gap: 28px; width: max-content; align-items: stretch; animation: marquee-x 60s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
           .testimonials-track:hover { animation-play-state: paused; }
           .testimonial-card { width: 460px; flex: 0 0 460px; }
           @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
