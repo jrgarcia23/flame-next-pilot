@@ -87,8 +87,8 @@ export default function CorporateWifiAccessEN() {
           alt="Flame dashboard"
           storageKey="flame-wifi-corp"
           elements={[
-            { id: "ov1", kind: "overlay", label: "Reveal completo",
-              left: 0, top: 0, right: 0, bottom: 0,
+            { id: "ov1", kind: "overlay", label: "Full reveal",
+              left: 22.40, top: 15.27, right: 55.02, bottom: 18.92,
               delay: 0, animation: "wipe-right" },
           ]}
         />
