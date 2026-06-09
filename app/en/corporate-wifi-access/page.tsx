@@ -89,7 +89,7 @@ export default function CorporateWifiAccessEN() {
           elements={[
             { id: "ov1", kind: "overlay", label: "Full reveal",
               left: 22.40, top: 15.27, right: 55.02, bottom: 18.92,
-              delay: 0, animation: "wipe-right" },
+              delay: 0, animation: "fade" },
           ]}
         />
       }
