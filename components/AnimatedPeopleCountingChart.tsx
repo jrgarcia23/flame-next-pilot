@@ -59,11 +59,12 @@ const ANIM_LABELS: Record<AnimationType, string> = {
 };
 
 const DEFAULT_OVERLAYS: OverlayCfg[] = [
-  { id: "kpis",    label: "Fila KPIs",            left: 4,  top: 8,  right: 1,  bottom: 76, delay: 0,    animation: "wipe-right" },
-  { id: "visits",  label: "Gráfica Visits",       left: 26, top: 8,  right: 27, bottom: 76, delay: 400,  animation: "wipe-right" },
-  { id: "heatmap", label: "Heatmap",              left: 4,  top: 28, right: 51, bottom: 14, delay: 800,  animation: "wipe-right" },
-  { id: "hourly",  label: "Hourly distribution",  left: 51, top: 28, right: 1,  bottom: 14, delay: 1000, animation: "wipe-right" },
-  { id: "daily",   label: "Daily distribution",   left: 4,  top: 86, right: 1,  bottom: 1,  delay: 1300, animation: "wipe-right" },
+  // Overlays calibrados por JR en el editor visual (?edit=1)
+  { id: "overlay-mq6hs3td", label: "Overlay 2",  left: 32.92, top: 19.72, right: 25.23, bottom: 51.83, delay: 300,  animation: "wipe-up" },
+  { id: "overlay-mq6hugy8", label: "Overlay 3",  left: 56.56, top: 57.30, right: 1.01,  bottom: 16.53, delay: 600,  animation: "wipe-right" },
+  { id: "heatmap",          label: "Heatmap",    left: 8.14,  top: 57.22, right: 53.21, bottom: 13.89, delay: 800,  animation: "wipe-up" },
+  { id: "overlay-mq6hv8fj", label: "Overlay 4",  left: 16.09, top: 22.38, right: 73.17, bottom: 68.51, delay: 900,  animation: "wipe-right" },
+  { id: "overlay-mq6hvk30", label: "Overlay 5",  left: 16.35, top: 39.81, right: 73.66, bottom: 49.26, delay: 1200, animation: "wipe-right" },
 ];
 
 const STORAGE_KEY = "flame-people-counting-overlays-v2";
