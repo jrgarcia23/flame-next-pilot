@@ -694,6 +694,38 @@ function EditableBox({ element: e, isSelected, onSelect, onChange, wrapperRef }:
         pointerEvents: "none",
       }}>{tooltip}</div>
 
+      {/* Si es Counter, mostramos el VALOR FINAL renderizado con el estilo
+          real (fontSize, fontWeight, color, align) sobre fondo blanco.
+          Permite al usuario comparar visualmente con el número del PNG y
+          ajustar fontSize sin tener que salir del modo edit. */}
+      {e.kind === "counter" && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent:
+              e.align === "left" ? "flex-start" :
+              e.align === "right" ? "flex-end" : "center",
+            color: e.color,
+            fontFamily: "var(--font-display)",
+            fontSize: e.fontSize,
+            fontWeight: e.fontWeight,
+            letterSpacing: "-0.02em",
+            lineHeight: 1,
+            fontVariantNumeric: "tabular-nums",
+            pointerEvents: "none",
+            // Subrayado morado sutil para indicar que está en modo preview
+            outline: `1px dashed ${themeColor}66`,
+            outlineOffset: -1,
+          }}
+        >
+          {e.prefix}{formatNumber(e.value, e.decimals, e.thousandsSep)}{e.suffix}
+        </div>
+      )}
+
       {handle("nw", { left: -6, top: -6 })}
       {handle("n",  { left: "50%", top: -6, transform: "translateX(-50%)" })}
       {handle("ne", { right: -6, top: -6 })}
