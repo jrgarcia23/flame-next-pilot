@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ThankYouEvent() {
   return (
     <ThankYouTemplate
-      currentLang="en" enHref="/en/thank-you-event/"
+      currentLang="en" enHref="/es/gracias-evento/"
       heroImage="/wp-content/uploads/2026/04/6-1.jpg"
       eyebrow="Seat reserved"
       title="See you at the" titleHl="event!"

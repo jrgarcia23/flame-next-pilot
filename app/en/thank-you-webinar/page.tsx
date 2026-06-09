@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ThankYouWebinar() {
   return (
     <ThankYouTemplate
-      currentLang="en" enHref="/en/thank-you-webinar/"
+      currentLang="en" enHref="/es/gracias-webinar/"
       heroImage="/wp-content/uploads/2026/01/Connect-1-1.png"
       eyebrow="Registration confirmed"
       title="See you at the" titleHl="webinar!"

@@ -28,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function MeetTheTeam() {
-  return <TeamTemplate currentLang="en" enHref="/en/about-us/meet-the-team/" />;
+  return <TeamTemplate currentLang="en" enHref="/es/sobre-nosotros/conoce-al-equipo/" />;
 }

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ThankYouContact() {
   return (
     <ThankYouTemplate
-      currentLang="en" enHref="/en/thank-you-contact/"
+      currentLang="en" enHref="/es/gracias-contacto/"
       heroImage="/wp-content/uploads/2026/01/Traffic2-1.png"
       eyebrow="Message received"
       title="Thanks for" titleHl="reaching out"

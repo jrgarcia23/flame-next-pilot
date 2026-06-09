@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 export default function ThankYouDemo() {
   return (
     <ThankYouTemplate
-      currentLang="en" enHref="/en/thank-you-demo/"
+      currentLang="en" enHref="/es/gracias-demo/"
       heroImage="/wp-content/uploads/2026/01/Traffic2-1.png"
       eyebrow="Request received"
       title="Thank you for requesting your" titleHl="demo"

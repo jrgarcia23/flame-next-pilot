@@ -30,5 +30,5 @@ export const metadata: Metadata = {
 };
 
 export default function HomeENPage() {
-  return <HomeRestyleTemplate cfg={HOME_CFG_EN} enHref="/en/" currentLang="en" />;
+  return <HomeRestyleTemplate cfg={HOME_CFG_EN} enHref="/es/" currentLang="en" />;
 }

@@ -46,7 +46,7 @@ export default function CommunityHubEn() {
   return (
     <>
       <CtaStyles />
-      <SiteHeader currentLang={currentLang} enHref="/en/community/" />
+      <SiteHeader currentLang={currentLang} enHref="/es/comunidad/" />
 
       <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "#fff", backgroundImage: "url('/wp-content/uploads/2026/01/Partners-1-scaled-1.png')", backgroundPosition: "center top", backgroundSize: "cover", backgroundRepeat: "no-repeat", paddingTop: "clamp(80px, 9vw, 140px)", paddingBottom: "clamp(56px, 6vw, 96px)" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, rgba(21,22,58,.95) 0%, rgba(21,22,58,.85) 38%, rgba(21,22,58,.55) 72%, rgba(21,22,58,.25) 100%)" }} />
