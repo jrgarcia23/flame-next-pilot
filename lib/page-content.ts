@@ -292,7 +292,17 @@ export type SectorConfig = {
   productsTitle: string;
   productsTitleHl: string;
   productsSub: string;
-  products: Array<{ title: string; desc: string; href: string; img: string }>;
+  productsBullets?: string[];   // Bullets opcionales (estilo Hypersensor)
+  products: Array<{
+    title: string;
+    desc: string;
+    href: string;
+    img: string;
+    // Aliases nuevos (estilo Hypersensor); si están, ganan a title/img
+    name?: string;
+    iconImg?: string;
+    cta?: string;
+  }>;
   testimonialsIdx: number[];
   faqs: Array<{ q: string; a: string }>;
   ctaStripBold: string;

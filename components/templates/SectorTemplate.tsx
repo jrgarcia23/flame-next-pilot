@@ -143,36 +143,58 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         );
       })}
 
-      {/* PRODUCTOS INTEGRALES */}
-      <section className="py-24" style={{ background: "var(--color-navy)", color: "white" }}>
+      {/* PRODUCTOS — mismo layout que Hypersensor (2 cols: izq texto+bullets / der 3 cards blancas)
+          Fondo paper para no chocar con la stripe blanca anterior ni con el CTA strip blanco posterior */}
+      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
-          <div className="text-center mb-14 mx-auto" style={{ maxWidth: 720 }}>
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
-            </h2>
-            <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>{cfg.productsSub}</p>
-          </div>
-          <div className="grid gap-6 prods-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-            {cfg.products.map((p, i) => (
-              <a key={i} href={p.href} className="prod-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
-                <div className="mb-5 rounded-xl overflow-hidden" style={{ aspectRatio: "16 / 10", background: "rgb(255 255 255 / 0.04)" }}>
-                  <img src={p.img} alt={p.title} style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }} />
-                </div>
-                <h3 className="text-[22px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.008em" }}>{p.title}</h3>
-                <p className="text-[15.5px] leading-[1.6] flex-1" style={{ color: "rgb(255 255 255 / 0.7)" }}>{p.desc}</p>
-                <span className="prod-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
-                  Descúbrelo <Icon name="arrow" className="w-3.5 h-3.5" />
-                </span>
-              </a>
-            ))}
+          <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
+            <div>
+              <h2 className="text-[clamp(26px,2.8vw,40px)] font-medium mb-5" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
+                {cfg.productsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.productsTitleHl}</span>
+              </h2>
+              <p className="text-[clamp(17px,1.25vw,19px)] leading-[1.55] mb-6" style={{ color: "var(--color-ink-2)" }}>{cfg.productsSub}</p>
+              {cfg.productsBullets && cfg.productsBullets.length > 0 && (
+                <ul className="flex flex-col gap-3">
+                  {cfg.productsBullets.map((b) => (
+                    <li key={b} className="inline-flex items-center gap-2.5 text-[15.5px] font-medium" style={{ color: "var(--color-navy)" }}>
+                      <span className="inline-flex items-center justify-center rounded-full" style={{ width: 22, height: 22, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent-deep)", flexShrink: 0 }}>
+                        <Icon name="check" className="w-3.5 h-3.5" />
+                      </span>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+            <div className="grid gap-5 prod3-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+              {cfg.products.map((p) => {
+                // Compatibilidad: el cfg actual usa {title, img}, el nuevo {name, iconImg, cta}
+                const name = (p as { name?: string }).name || p.title;
+                const iconImg = (p as { iconImg?: string }).iconImg || p.img;
+                const cta = (p as { cta?: string }).cta || (currentLang === "en" ? "Discover" : "Descúbrelo");
+                return (
+                  <a key={name} href={p.href} className="prod3-card rounded-2xl p-6 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                    <div className="prod3-iconwrap inline-flex items-center justify-center rounded-[14px] mb-5" style={{ width: 56, height: 56, background: "rgb(49 177 248 / 0.12)" }}>
+                      <img src={iconImg} alt={name} style={{ width: 32, height: 32, objectFit: "contain", display: "block" }} />
+                    </div>
+                    <h3 className="text-[20px] font-normal mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.014em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>{name}</h3>
+                    <p className="text-[14.5px] leading-[1.6] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                    <span className="prod3-cta inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                      {cta} <Icon name="arrow" className="w-3.5 h-3.5" />
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
         <style>{`
-          @media (max-width: 900px) { .prods-grid { grid-template-columns: 1fr !important; } }
-          .prod-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms, border-color 420ms; }
-          .prod-card:hover { transform: translateY(-2px); background: rgb(255 255 255 / 0.07) !important; border-color: rgb(255 255 255 / 0.18) !important; }
-          .prod-card .prod-cta { transition: gap 420ms; }
-          .prod-card:hover .prod-cta { gap: 10px; }
+          @media (max-width: 980px) { .prod-split { grid-template-columns: 1fr !important; } }
+          @media (max-width: 700px) { .prod3-grid { grid-template-columns: 1fr !important; } }
+          .prod3-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms, box-shadow 420ms; }
+          .prod3-card:hover { transform: translateY(-2px); border-color: var(--color-rule-strong) !important; box-shadow: 0 8px 22px -14px rgb(15 23 42 / 0.12); }
+          .prod3-card .prod3-cta { transition: gap 420ms; }
+          .prod3-card:hover .prod3-cta { gap: 10px; }
         `}</style>
       </section>
 
