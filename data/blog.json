@@ -21,25 +21,6 @@
       "thumbnail": "/wp-content/uploads/2026/06/WEBINAR-AI-Agents.jpg"
     },
     {
-      "id": 94889,
-      "slug": "webinar-resumen-retail-centros-comerciales-agentes-ia",
-      "lang": "es",
-      "type": "post",
-      "title": "Webinar — Resumen: Retail y centros comerciales en la era de los agentes de IA",
-      "excerpt": "Resumen del webinar de Jonathan Solís sobre cómo los agentes de IA están transformando el retail físico: del análisis al automatismo autónomo, con casos reales en plantilla, energía y gestión de espacios.",
-      "html": "<h2>Resumen del webinar: Retail y centros comerciales en la era de los agentes de IA</h2>\n<p>El 4 de junio de 2026, Flame Analytics organizó un webinar en directo para explorar una de las tendencias más transformadoras del sector retail: los <strong>agentes de IA</strong>. La sesión, conducida por <strong>Jonathan Solís, CEO y cofundador de Flame Analytics</strong>, se centró en cómo los agentes inteligentes están dejando atrás la analítica tradicional para automatizar decisiones y procesos operativos en tiendas y centros comerciales.</p>\n<p>El webinar reunió a profesionales del retail, gestores de centros comerciales y líderes tecnológicos interesados en entender cómo la Inteligencia Artificial está evolucionando: ya no es solo una herramienta de análisis de datos, sino una tecnología capaz de ejecutar acciones en tiempo real.</p>\n\n<h2>Del análisis de datos a la toma de decisiones autónoma</h2>\n<p>Durante años, los retailers han invertido en recopilar y analizar datos. Aunque las plataformas analíticas han ayudado a las organizaciones a entender mejor el comportamiento del cliente, los patrones de afluencia y el rendimiento operativo, muchos procesos siguen requiriendo intervención manual para convertir los insights en acciones.</p>\n<p>Jonathan Solís destacó un cambio importante: la aparición de <strong>agentes de IA capaces de interpretar datos, tomar decisiones y desencadenar acciones automáticamente</strong> según objetivos de negocio predefinidos.</p>\n<p>Esta evolución permite a retailers y operadores de centros comerciales pasar de modelos reactivos a operaciones más proactivas y autónomas. En lugar de simplemente recibir informes y dashboards, ahora pueden aprovechar la IA para responder de forma inmediata a los cambios que ocurren en sus espacios físicos.</p>\n\n<h2>Presentación de Flame Agents</h2>\n<p>Un tema central de la sesión fue la presentación de <strong>Flame Agents</strong>, la plataforma de IA desarrollada por Flame Analytics específicamente para entornos retail físicos.</p>\n<p>Flame Agents está diseñada para transformar datos en tiempo real en decisiones operativas automatizadas. Al monitorizar continuamente el comportamiento de los visitantes, los niveles de ocupación, los flujos de tráfico y otros indicadores operativos, estos agentes inteligentes ayudan a las organizaciones a optimizar recursos y mejorar la eficiencia global.</p>\n<p>La plataforma cierra la brecha entre recopilación de datos y ejecución de acciones, permitiendo a las empresas reaccionar más rápido y reducir la dependencia de procesos manuales.</p>\n\n<h2>Aplicaciones reales en retail y centros comerciales</h2>\n<p>Una de las partes más valiosas del webinar fue la discusión de casos de uso prácticos que demuestran cómo aplicar los agentes de IA en entornos retail reales.</p>\n<p>Los ejemplos presentados incluyeron:</p>\n<ul>\n<li><strong>Automatización de decisiones operativas</strong> basadas en patrones de tráfico de visitantes, niveles de ocupación y comportamiento de clientes.</li>\n<li><strong>Optimización de plantilla</strong>, ayudando a los retailers a asignar personal de forma más eficiente según la demanda real de visitantes.</li>\n<li><strong>Optimización energética</strong>: usando datos de ocupación y movimiento en tiempo real para reducir el consumo manteniendo entornos confortables.</li>\n<li><strong>Gestión del espacio</strong>: entender cómo los visitantes interactúan con las distintas zonas permite tomar decisiones más informadas sobre layout y prioridades operativas.</li>\n</ul>\n\n<h2>El papel del dato en tiempo real</h2>\n<p>Un tema recurrente fue la importancia de la integración de datos en tiempo real.</p>\n<p>El verdadero valor de los agentes de IA emerge cuando los datos no solo se recopilan y analizan, sino que se conectan directamente a flujos de trabajo automatizados. Esto crea un ciclo continuo en el que la información se transforma en acciones inmediatas sin requerir supervisión humana constante.</p>\n<p>Estas capacidades permiten a las empresas reaccionar al comportamiento del visitante a medida que sucede, mejorando la agilidad y el rendimiento operativo mientras se reducen los retrasos asociados a la toma de decisiones tradicional.</p>\n\n<h2>Preparándose para el futuro del retail</h2>\n<p>El webinar concluyó con una visión más amplia del futuro de la gestión de tiendas y centros comerciales.</p>\n<p>Jonathan Solís enfatizó que las organizaciones que adopten automatización inteligente y analítica avanzada estarán mejor posicionadas para adaptarse a las expectativas cambiantes del consumidor y a las condiciones del mercado. A medida que los entornos retail se vuelven más complejos, <strong>la capacidad de automatizar decisiones y optimizar operaciones en tiempo real será una ventaja competitiva significativa</strong>.</p>\n<p>El mensaje clave: el futuro ya no se trata simplemente de recopilar datos. El éxito dependerá de la capacidad de <strong>transformar los datos en acciones inteligentes que generen impacto medible en el negocio</strong>.</p>\n<p>A través de los agentes de IA y la automatización, retailers y centros comerciales pueden desbloquear nuevos niveles de eficiencia, capacidad de respuesta y experiencia de cliente — abriendo el camino a una industria más inteligente y ágil.</p>",
-      "date": "2026-06-09T16:00:00",
-      "modified": "2026-06-09T16:00:00",
-      "hero": "/wp-content/uploads/2026/06/WEBINAR-AI-Agents.jpg",
-      "category": {
-        "slug": "webinars-es-cat",
-        "name": "Webinars"
-      },
-      "link_legacy": "",
-      "status": "published",
-      "thumbnail": "/wp-content/uploads/2026/06/WEBINAR-AI-Agents.jpg"
-    },
-    {
       "id": 94888,
       "slug": "new-webinar-retail-shopping-centers-in-the-age-of-ai-agents",
       "lang": "en",
@@ -51,8 +32,8 @@
       "modified": "2026-05-27T10:42:06",
       "hero": "/wp-content/uploads/2026/05/WEBINAR-2.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "https://flameanalytics.com/en/new-webinar-retail-shopping-centers-in-the-age-of-ai-agents/",
       "status": "published",
@@ -5023,7 +5004,7 @@
       "modified": "2026-03-24T14:22:18",
       "hero": "",
       "category": {
-        "slug": "webinars-es-cat",
+        "slug": "webinars",
         "name": "Webinars"
       },
       "link_legacy": "https://flameanalytics.com/es/la-revolucion-de-la-videoanalitica-en-retail-asi-fue-nuestro-webinar-con-roi-iglesias/",
@@ -6201,7 +6182,7 @@
       "modified": "2026-03-24T14:22:40",
       "hero": "",
       "category": {
-        "slug": "webinars-es-cat",
+        "slug": "webinars",
         "name": "Webinars"
       },
       "link_legacy": "https://flameanalytics.com/es/webinar-las-5-campanas-de-marketing-para-centros-comerciales-mas-exitosas-de-2021/",
@@ -7167,7 +7148,7 @@
       "modified": "2026-03-24T14:23:01",
       "hero": "",
       "category": {
-        "slug": "webinars-es-cat",
+        "slug": "webinars",
         "name": "Webinars"
       },
       "link_legacy": "https://flameanalytics.com/es/webinar-de-jonathan-solis-los-10-kpis-que-debes-medir-en-un-centro-comercial/",

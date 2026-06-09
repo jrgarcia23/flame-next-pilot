@@ -44,7 +44,7 @@ export const MEGA_INDUSTRIES: NavLeaf[] = [
 export const MEGA_COMMUNITY: NavLeaf[] = [
   { label: "Casos de éxito", href: "/es/categoria/casos-de-exito/",     iconImg: "/wp-content/uploads/2025/09/Cases.png",      desc: "Cómo clientes reales miden y deciden con Flame." },
   { label: "Blog",           href: "/es/categoria/blog/",                iconImg: "/wp-content/uploads/2025/09/Interview.png",  desc: "Artículos sobre analítica del espacio físico." },
-  { label: "Webinars",       href: "/es/categoria/webinars-es-cat/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Sesiones técnicas con expertos del sector." },
+  { label: "Webinars",       href: "/es/categoria/webinars/",     iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Sesiones técnicas con expertos del sector." },
   { label: "Entrevistas",    href: "/es/categoria/entrevistas/",         iconImg: "/wp-content/uploads/2025/09/Webinar1.png",   desc: "Conversaciones con líderes del retail." },
 ];
 

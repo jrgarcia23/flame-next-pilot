@@ -142,7 +142,7 @@ const CAT_LABELS_ES: Record<string,string> = {
   "retail-entrevistas": "Retail",
   "casos-de-exito": "Casos de éxito",
   "retail-casos": "Retail",
-  "webinars-es-cat": "Webinars",
+  "webinars": "Webinars",
   "retail-blog": "Retail",
   "corporativo": "Corporativo",
   "eventos": "Eventos",

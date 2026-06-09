@@ -35,12 +35,12 @@ export default function ComunidadHubEs() {
   const ent = getCategoryListing("entrevistas",     currentLang).slice(0, 4);
   const cas = getCategoryListing("casos-de-exito",  currentLang).slice(0, 4);
   const blo = getCategoryListing("blog",            currentLang).slice(0, 4);
-  const web = getCategoryListing("webinars-es-cat", currentLang).slice(0, 4);
+  const web = getCategoryListing("webinars", currentLang).slice(0, 4);
   const wp  = getAllWhitepapers(currentLang).slice(0, 6);
   const countEnt = getCategoryListing("entrevistas",     currentLang).length;
   const countCas = getCategoryListing("casos-de-exito",  currentLang).length;
   const countBlo = getCategoryListing("blog",            currentLang).length;
-  const countWeb = getCategoryListing("webinars-es-cat", currentLang).length;
+  const countWeb = getCategoryListing("webinars", currentLang).length;
   const countWp  = getAllWhitepapers(currentLang).length;
 
   return (
@@ -102,7 +102,7 @@ export default function ComunidadHubEs() {
       {blo.length > 0 && <Section sid="blog" bg="paper" eyebrow="Artículos del blog" h2a="Análisis aplicado al" h2b="espacio físico" link={`Ver los ${countBlo}`} href="/es/categoria/blog/" items={blo} />}
 
       {/* WEBINARS */}
-      {web.length > 0 && <Section sid="webinars" bg="navy-dark" eyebrow="Webinars" h2a="Sesiones técnicas con" h2b="expertos" link="Ver todos" href="/es/categoria/webinars-es-cat/" items={web} play />}
+      {web.length > 0 && <Section sid="webinars" bg="navy-dark" eyebrow="Webinars" h2a="Sesiones técnicas con" h2b="expertos" link="Ver todos" href="/es/categoria/webinars/" items={web} play />}
 
       {/* DESCARGABLES */}
       {wp.length > 0 && (

@@ -94,6 +94,9 @@ const nextConfig: NextConfig = {
       { source: "/casos-de-exito/:slug",             destination: "/es/:slug/",                           permanent: true },
       { source: "/corporativo/:slug",                destination: "/es/:slug/",                           permanent: true },
       { source: "/webinars-es-cat/:slug",            destination: "/es/:slug/",                           permanent: true },
+      // Redirect viejo slug categoría → nuevo
+      { source: "/es/categoria/webinars-es-cat",     destination: "/es/categoria/webinars/",              permanent: true },
+      { source: "/es/categoria/webinars-es-cat/",    destination: "/es/categoria/webinars/",              permanent: true },
       { source: "/eventos/:slug",                    destination: "/es/:slug/",                           permanent: true },
       // Idem con prefijo /es/<cat>/<slug>/ (WPML)
       { source: "/es/blog/:slug",                    destination: "/es/:slug/",                           permanent: true },
