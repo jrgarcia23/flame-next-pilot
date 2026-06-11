@@ -44,12 +44,12 @@ const nextConfig: NextConfig = {
             key: "Content-Security-Policy-Report-Only",
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://*.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://*.vercel-insights.com https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms https://*.clarity.ms",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' data: https://fonts.gstatic.com",
               "img-src 'self' data: blob: https:",
               "media-src 'self' blob:",
-              "connect-src 'self' https://*.supabase.co https://api.resend.com https://va.vercel-scripts.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com",
+              "connect-src 'self' https://*.supabase.co https://api.resend.com https://va.vercel-scripts.com https://*.vercel-insights.com https://www.google-analytics.com https://region1.google-analytics.com https://www.clarity.ms https://*.clarity.ms",
               "frame-src 'self'",
               // frame-ancestors omitido a propósito: X-Frame-Options: SAMEORIGIN
               // ya bloquea embedding por terceros a nivel browser. Mantenerlo aquí
