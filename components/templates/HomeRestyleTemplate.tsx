@@ -299,9 +299,11 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </div>
       </section>
 
-      {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent */}
+      {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent
+          min-height para igualar alto al CTA strip de SectorTemplate
+          (cuyo texto es más largo y por eso queda más alto). */}
       {cfg.ctaStripBold && (
-        <section className="py-[56px]" style={{ background: "var(--color-navy)" }}>
+        <section className="py-[56px] flex flex-col justify-center" style={{ background: "var(--color-navy)", minHeight: 200 }}>
           <div className="flame-container">
             <div className="flex items-center gap-8 cta-strip-row">
               <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
