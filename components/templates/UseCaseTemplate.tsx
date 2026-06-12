@@ -205,14 +205,14 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
         `}</style>
       </section>
 
-      {/* CTA strip — mismo estilo que el de la home (navy + accent btn) */}
-      <section className="py-[56px]" style={{ background: "var(--color-navy)" }}>
+      {/* CTA strip — frase izquierda (2 líneas), botón derecha, no wrap */}
+      <section className="py-8" style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)", borderBottom: "1px solid var(--color-rule)" }}>
         <div className="flame-container">
           <div className="flex items-center gap-8 cta-strip-row">
-            <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
-              {cfg.ctaStripBold}<br /><span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
+            <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "var(--color-ink)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
+              {cfg.ctaStripBold}<br /><span style={{ color: "var(--color-ink-3)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
             </p>
-            <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+            <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-navy)", color: "#fff" }}>
               {t.requestDemo}
               <Icon name="arrow" className="w-4 h-4" />
             </a>
