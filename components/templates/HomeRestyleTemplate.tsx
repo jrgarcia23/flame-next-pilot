@@ -301,7 +301,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
 
       {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent */}
       {cfg.ctaStripBold && (
-        <section className="py-[80px]" style={{ background: "var(--color-navy)" }}>
+        <section className="py-[56px]" style={{ background: "var(--color-navy)" }}>
           <div className="flame-container">
             <div className="flex items-center gap-8 cta-strip-row">
               <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
