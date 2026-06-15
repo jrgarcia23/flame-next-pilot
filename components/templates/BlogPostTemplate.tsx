@@ -45,8 +45,19 @@ const NON_EDITORIAL_SLUG_PATTERNS = [
   /^inscribete/i,
 ];
 
+// Categorías que SÍ se procesan con el formato editorial (TOC + CTAs auto + pull-quotes).
+// El resto cae a non-editorial (banner como hero, sin procesamiento) o a su template propio
+// (entrevistas → InterviewPostTemplate, casos → otra ruta).
+const EDITORIAL_CATEGORIES = new Set([
+  "blog",
+  "tips",
+  "tips-retail",
+  "corporate",
+  "corporativo",
+]);
+
 function shouldUseEditorialFormat(slug: string, categorySlug: string): boolean {
-  if (categorySlug !== "blog") return false;
+  if (!EDITORIAL_CATEGORIES.has(categorySlug)) return false;
   return !NON_EDITORIAL_SLUG_PATTERNS.some(re => re.test(slug));
 }
 
