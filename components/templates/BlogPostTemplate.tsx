@@ -301,7 +301,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             <span>›</span>
             <a href={catPath} style={{ color: "inherit" }}>{catLabel}</a>
           </nav>
-          <h1 className="text-[clamp(32px,4.4vw,52px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.1, fontFamily: "var(--font-display)" }} dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title) }} />
+          <h1 className="text-[clamp(34px,4.4vw,54px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.1, fontFamily: "var(--font-display)" }} dangerouslySetInnerHTML={{ __html: sanitizeTitle(post.title) }} />
           <div className="flex items-center gap-4 text-[14.5px] flex-wrap" style={{ color: "rgb(255 255 255 / 0.78)" }}>
             <a href={catPath} className="text-[12.5px] uppercase font-semibold inline-flex items-center" style={{ color: "var(--color-accent)", letterSpacing: "0.08em" }}>{catLabel}</a>
             <span style={{ color: "rgb(255 255 255 / 0.3)" }}>·</span>
@@ -319,7 +319,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             no repetimos la imagen aquí. Los posts entrevistas/casos/whitepapers
             que sí muestran la imagen arriba se gestionan en sus propios templates.
           */}
-          <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "18px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
+          <div className="mx-auto post-body" style={{ maxWidth: 720, color: "var(--color-ink)", fontSize: "19px", lineHeight: 1.65, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
           {editorial && (
             <aside className="mx-auto end-cta" style={{ maxWidth: 760, marginTop: 64 }}>
@@ -341,8 +341,8 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
           .post-body strong { color: var(--color-ink); font-weight: 600; }
           .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
-          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
-          .post-body h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 19px; margin: 28px 0 10px; }
+          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(21px, 2vw, 25px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
+          .post-body h4 { font-family: var(--font-body); font-weight: 700; color: var(--color-accent-deep); font-size: clamp(15px, 1.2vw, 16.5px); text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a:hover { color: var(--color-accent); }
           .post-body a.auto-link { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
@@ -351,7 +351,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body li { margin-bottom: 10px; }
           .post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
           .post-body figure { margin: 32px 0; }
-          .post-body figcaption { font-size: 13px; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
+          .post-body figcaption { font-size: 14px; font-style: italic; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
 
           .post-body blockquote,
           .post-body .auto-pull-quote {
@@ -359,7 +359,7 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             padding: 0 0 0 32px;
             border-left: 4px solid var(--color-accent);
             font-family: var(--font-display);
-            font-size: clamp(22px, 2.4vw, 30px);
+            font-size: clamp(22px, 2.4vw, 28px);
             font-weight: 400;
             line-height: 1.32;
             color: var(--color-navy);
@@ -368,9 +368,9 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             max-width: 34ch;
           }
 
-          .post-body table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: var(--font-body); font-size: 15px; border-top: 2px solid var(--color-navy); border-bottom: 2px solid var(--color-navy); }
+          .post-body table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: var(--font-body); font-size: 15.5px; border-top: 2px solid var(--color-navy); border-bottom: 2px solid var(--color-navy); }
           .post-body thead { background: rgba(49, 177, 248, 0.06); }
-          .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--color-navy); letter-spacing: -0.005em; border-bottom: 1px solid var(--color-rule); }
+          .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--color-rule); }
           .post-body td { padding: 14px 16px; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); line-height: 1.5; }
           .post-body tbody tr:nth-child(even) { background: rgba(49, 177, 248, 0.03); }
           .post-body tbody tr:last-child td { border-bottom: 0; }
@@ -392,14 +392,14 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body .mid-cta { margin: 48px 0; background: rgba(49, 177, 248, 0.08); border: 1px solid rgba(49, 177, 248, 0.2); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
           .post-body .mid-cta-text { flex: 1; min-width: 220px; }
           .post-body .mid-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin: 0 0 6px; }
-          .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(18px, 1.9vw, 22px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
-          .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 14.5px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; border: none; flex-shrink: 0; transition: filter 240ms, transform 240ms, box-shadow 240ms; }
+          .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(20px, 2vw, 24px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
+          .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; border: none; flex-shrink: 0; transition: filter 240ms, transform 240ms, box-shadow 240ms; }
           .post-body .mid-cta-btn:hover { filter: brightness(0.94); transform: translateY(-1px); box-shadow: 0 6px 16px -10px rgb(15 23 42 / 0.18); }
 
           .end-cta { background: var(--color-navy); border-radius: 14px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #fff; }
           .end-cta-text { flex: 1; min-width: 280px; }
           .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
-          .end-cta-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
+          .end-cta-title { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 30px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
           .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0; max-width: 58ch; }
 
           @media (max-width: 700px) {
