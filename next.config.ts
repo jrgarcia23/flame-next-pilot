@@ -6,6 +6,19 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
 
+  // Excluir uploads del tracing serverless de /admin/media — los archivos
+  // pesan >300 MB y disparan el límite de tamaño de la Vercel Function.
+  // Las imágenes ya están servidas desde Supabase Storage CDN (commit ad53f16),
+  // por lo que el listado fs.readdir aquí queda vacío en runtime hasta que
+  // se refactorice admin/media para leer del bucket de Supabase.
+  outputFileTracingExcludes: {
+    "/admin/media": [
+      "./public/wp-content/**",
+      "./public/_legacy-wp/**",
+      "./public/wp-includes/**",
+    ],
+  },
+
   // Security headers globales — pentest defensivo 2026-06-05.
   // CSP NO se aplica aún (requiere report-only mode + auditoría 2-3 sem antes de enforce).
   // Los demás son seguros de aplicar directos: no afectan layout ni navegación.
