@@ -34,6 +34,17 @@ type DataShape = {
 
 const D = data as DataShape;
 
+// ---------- FILTRO DE STATUS ----------
+// Solo los posts con status="published" aparecen en la web pública.
+// Los "draft" (importados desde la demo WP) viven en el JSON pero no se
+// listan ni son accesibles por URL. Sí son visibles desde /admin/content/.
+function isPublic(p: BlogPost): boolean {
+  // Cualquier valor distinto de "draft"/"pending"/"private" se considera público.
+  // Default seguro: si el campo viene vacío, asumimos published (compat retro).
+  const st = (p as { status?: string }).status;
+  return !st || st === "published" || st === "publish";
+}
+
 // ---------- INDEX ----------
 const byKey: Record<string, BlogPost> = {};
 for (const p of [...D.posts, ...D.pages, ...D.whitepapers]) {
@@ -42,21 +53,31 @@ for (const p of [...D.posts, ...D.pages, ...D.whitepapers]) {
 
 export function getPost(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`post/${lang}/${slug}`];
-  if (!raw) return null;
+  if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
   return ov ? applyOverride(raw, ov) : raw;
 }
 export function getPage(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`page/${lang}/${slug}`];
-  if (!raw) return null;
+  if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
   return ov ? applyOverride(raw, ov) : raw;
 }
 export function getWhitepaper(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`whitepaper/${lang}/${slug}`];
-  if (!raw) return null;
+  if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
   return ov ? applyOverride(raw, ov) : raw;
+}
+
+// ---------- ADMIN-ONLY (sin filtro de status) ----------
+// Para usar exclusivamente desde /admin/content/. Devuelve TODOS los posts
+// incluyendo drafts. Nunca usar desde páginas públicas.
+export function adminGetAllPosts(): BlogPost[] {
+  return [...D.posts, ...D.pages, ...D.whitepapers];
+}
+export function adminGetPostByKey(type: string, lang: Lang, slug: string): BlogPost | null {
+  return byKey[`${type}/${lang}/${slug}`] || null;
 }
 
 // Heurística: el HTML del post ya trae su propia FAQ.
@@ -70,32 +91,32 @@ export function hasInlineFaq(html: string): boolean {
   return !!matches && matches.length >= 3;
 }
 
-// ---------- LISTING ----------
+// ---------- LISTING (solo published) ----------
 export function getAllPostSlugs(lang: Lang): string[] {
-  return D.posts.filter(p => p.lang === lang).map(p => p.slug);
+  return D.posts.filter(p => p.lang === lang && isPublic(p)).map(p => p.slug);
 }
 export function getAllWhitepaperSlugs(lang: Lang): string[] {
-  return D.whitepapers.filter(p => p.lang === lang).map(p => p.slug);
+  return D.whitepapers.filter(p => p.lang === lang && isPublic(p)).map(p => p.slug);
 }
 export function getAllPosts(lang: Lang): BlogPost[] {
-  return D.posts.filter(p => p.lang === lang);
+  return D.posts.filter(p => p.lang === lang && isPublic(p));
 }
 export function getAllWhitepapers(lang: Lang): BlogPost[] {
-  return D.whitepapers.filter(p => p.lang === lang);
+  return D.whitepapers.filter(p => p.lang === lang && isPublic(p));
 }
 
 // ---------- CATEGORIAS ----------
 // Agrupa los posts publicados por slug de categoría WP.
 export function getCategoryListing(categorySlug: string, lang: Lang): BlogPost[] {
   return D.posts
-    .filter(p => p.lang === lang && p.category?.slug === categorySlug)
+    .filter(p => p.lang === lang && isPublic(p) && p.category?.slug === categorySlug)
     .sort((a, b) => (b.date > a.date ? 1 : -1));
 }
 
 export function getAllCategories(lang: Lang): { slug: string; name: string; count: number }[] {
   const map = new Map<string, { name: string; count: number }>();
   for (const p of D.posts) {
-    if (p.lang !== lang) continue;
+    if (p.lang !== lang || !isPublic(p)) continue;
     const k = p.category?.slug || "blog";
     const name = p.category?.name || "Blog";
     const cur = map.get(k) || { name, count: 0 };
@@ -110,7 +131,7 @@ export function getAllCategories(lang: Lang): { slug: string; name: string; coun
 // ---------- RELACIONADOS ----------
 export function getRelatedPosts(currentSlug: string, categorySlug: string, lang: Lang, max = 3): BlogPost[] {
   return D.posts
-    .filter(p => p.lang === lang && p.slug !== currentSlug && p.category?.slug === categorySlug)
+    .filter(p => p.lang === lang && isPublic(p) && p.slug !== currentSlug && p.category?.slug === categorySlug)
     .slice(0, max);
 }
 

@@ -1,11 +1,13 @@
 import Link from "next/link";
 
-type AdminSection = "leads" | "events" | "webinars";
+type AdminSection = "leads" | "events" | "webinars" | "content" | "media";
 
 const NAV: { key: AdminSection; label: string; href: string }[] = [
-  { key: "leads",    label: "Leads",    href: "/admin/leads/" },
-  { key: "events",   label: "Eventos",  href: "/admin/events/" },
-  { key: "webinars", label: "Webinars", href: "/admin/webinars/" },
+  { key: "leads",    label: "Leads",     href: "/admin/leads/" },
+  { key: "events",   label: "Eventos",   href: "/admin/events/" },
+  { key: "webinars", label: "Webinars",  href: "/admin/webinars/" },
+  { key: "content",  label: "Contenido", href: "/admin/content/" },
+  { key: "media",    label: "Imágenes",  href: "/admin/media/" },
 ];
 
 export default function AdminTopbar({ email, active = "leads" }: { email: string; active?: AdminSection }) {
