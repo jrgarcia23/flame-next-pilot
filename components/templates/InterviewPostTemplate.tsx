@@ -161,10 +161,11 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
       <CtaStyles />
       <SiteHeader currentLang={lang} enHref={enHref} />
 
-      {/* HERO entrevista: foto cuadrada izq + cita display derecha */}
-      <section className="relative overflow-hidden" style={{ background: "#fff", borderBottom: "1px solid var(--color-rule)", paddingTop: "clamp(64px, 7.4vw, 108px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>
-        <div className="flame-container">
-          <nav className="text-[14px] mb-8 flex items-center gap-1.5" style={{ color: "var(--color-ink-3)" }}>
+      {/* HERO entrevista: navy con radial-gradient cyan (mismo lenguaje que BlogPostTemplate) */}
+      <section className="relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white", paddingTop: "clamp(64px, 7.4vw, 108px)", paddingBottom: "clamp(40px, 5vw, 72px)" }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.14), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.08), transparent 72%)" }} />
+        <div className="flame-container relative z-10">
+          <nav className="text-[14px] mb-8 flex items-center gap-1.5" style={{ color: "rgb(255 255 255 / 0.6)" }}>
             <a href={`/${lang}/`} style={{ color: "inherit" }}>{t.breadcrumbHome}</a>
             <span>›</span>
             <a href={catPath} style={{ color: "inherit" }}>{catLabel}</a>
@@ -185,10 +186,10 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
       {/* BODY */}
       <article className="py-20" style={{ background: "#fff" }}>
         <div className="flame-container">
-          <div className="mx-auto post-body" style={{ maxWidth: 760, color: "var(--color-ink)", fontSize: "18px", lineHeight: 1.75, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
+          <div className="mx-auto post-body" style={{ maxWidth: 720, color: "var(--color-ink)", fontSize: "19px", lineHeight: 1.65, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
           {/* CTA final */}
-          <aside className="mx-auto end-cta" style={{ maxWidth: 760, marginTop: 64 }}>
+          <aside className="mx-auto end-cta" style={{ maxWidth: 720, marginTop: 64 }}>
             <div className="end-cta-text">
               <p className="end-cta-eyebrow">{t.endCtaEyebrow}</p>
               <p className="end-cta-title">{t.endCtaTitle}</p>
@@ -201,12 +202,12 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
         </div>
 
         <style>{`
-          /* HERO */
+          /* HERO — navy con foto izq + cita derecha */
           .interview-hero-grid { display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
-          .interview-hero-photo { width: 260px; height: 260px; border-radius: 6px; background-color: #ddd; background-position: center; background-size: cover; flex-shrink: 0; box-shadow: 0 18px 50px -22px rgba(15, 23, 42, 0.22); }
-          .interview-eyebrow { font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin-bottom: 18px; }
-          .interview-name { font-family: var(--font-display); font-size: clamp(20px, 2vw, 26px); color: var(--color-ink-2); font-weight: 400; margin-bottom: 18px; letter-spacing: -0.01em; }
-          .interview-quote { font-family: var(--font-display); font-size: clamp(30px, 4vw, 50px); font-weight: 400; letter-spacing: -0.022em; line-height: 1.08; color: var(--color-navy); max-width: 26ch; margin: 0; font-style: italic; }
+          .interview-hero-photo { width: 260px; height: 260px; border-radius: 6px; background-color: rgba(255,255,255,0.08); background-position: center; background-size: cover; flex-shrink: 0; box-shadow: 0 24px 60px -18px rgba(0, 0, 0, 0.55); }
+          .interview-eyebrow { font-family: var(--font-body); font-size: 12.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 18px; }
+          .interview-name { font-family: var(--font-display); font-size: clamp(20px, 2vw, 26px); color: rgb(255 255 255 / 0.78); font-weight: 400; margin-bottom: 18px; letter-spacing: -0.01em; }
+          .interview-quote { font-family: var(--font-display); font-size: clamp(30px, 4vw, 50px); font-weight: 400; letter-spacing: -0.022em; line-height: 1.08; color: #fff; max-width: 26ch; margin: 0; font-style: italic; }
           .interview-quote::before { content: "«"; color: var(--color-accent); font-style: normal; margin-right: 4px; }
           .interview-quote::after { content: "»"; color: var(--color-accent); font-style: normal; margin-left: 4px; }
           @media (max-width: 760px) {
@@ -214,22 +215,22 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
             .interview-hero-photo { width: 180px; height: 180px; }
           }
 
-          /* BODY base */
+          /* BODY base — !important para pisar estilos inline legacy WP */
           .post-body { color: var(--color-ink-2); }
           .post-body > h1:first-child { display: none; }
-          .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
+          .post-body p { margin: 0 0 22px; color: var(--color-ink-2); font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
           .post-body strong { color: var(--color-ink); font-weight: 600; }
-          .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
-          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
-          .post-body h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 19px; margin: 28px 0 10px; }
+          .post-body h2 { font-family: var(--font-display) !important; font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px) !important; letter-spacing: -0.02em; line-height: 1.15 !important; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
+          .post-body h3 { font-family: var(--font-display) !important; font-weight: 500; color: var(--color-navy); font-size: clamp(21px, 2vw, 25px) !important; letter-spacing: -0.015em; line-height: 1.2 !important; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
+          .post-body h4 { font-family: var(--font-body) !important; font-weight: 700; color: var(--color-accent-deep) !important; font-size: clamp(15px, 1.2vw, 16.5px) !important; text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a.auto-link { text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
           .post-body ul, .post-body ol { margin: 0 0 22px 24px; }
-          .post-body li { margin-bottom: 10px; }
+          .post-body li { margin-bottom: 10px; font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
           .post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
           .post-body figure { margin: 32px 0; }
-          .post-body figcaption { font-size: 13px; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
-          .post-body blockquote { margin: 48px 0; padding: 0 0 0 32px; border-left: 4px solid var(--color-accent); font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 400; line-height: 1.32; color: var(--color-navy); letter-spacing: -0.014em; font-style: italic; max-width: 34ch; }
+          .post-body figcaption { font-size: 14px; font-style: italic; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
+          .post-body blockquote { margin: 48px 0; padding: 0 0 0 32px; border-left: 4px solid var(--color-accent); font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.32; color: var(--color-navy); letter-spacing: -0.014em; font-style: italic; max-width: 34ch; }
 
           /* Q&A numerado: número grande naranja + pregunta */
           .post-body .qa-block { display: grid; grid-template-columns: 64px 1fr; gap: 18px; margin: 56px 0 14px; align-items: start; }
@@ -250,7 +251,7 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
           .end-cta { background: var(--color-navy); border-radius: 14px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #fff; }
           .end-cta-text { flex: 1; min-width: 280px; }
           .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
-          .end-cta-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
+          .end-cta-title { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 30px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
           .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0; max-width: 58ch; }
 
           @media (max-width: 700px) {

@@ -338,11 +338,15 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
         <style>{`
           .post-body { color: var(--color-ink-2); }
           .post-body > h1:first-child { display: none; }
-          .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
+          /* font-size con !important para pisar los style="font-size:NNpx" inline
+             que vienen embebidos en el HTML scraped del WP legacy (10-36 px sueltos).
+             Sin esto, el sistema tipográfico no gana contra los inline. */
+          .post-body p { margin: 0 0 22px; color: var(--color-ink-2); font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
           .post-body strong { color: var(--color-ink); font-weight: 600; }
-          .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
-          .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(21px, 2vw, 25px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
-          .post-body h4 { font-family: var(--font-body); font-weight: 700; color: var(--color-accent-deep); font-size: clamp(15px, 1.2vw, 16.5px); text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
+          .post-body h2 { font-family: var(--font-display) !important; font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px) !important; letter-spacing: -0.02em; line-height: 1.15 !important; margin: 48px 0 16px; max-width: 28ch; scroll-margin-top: 80px; }
+          .post-body h3 { font-family: var(--font-display) !important; font-weight: 500; color: var(--color-navy); font-size: clamp(21px, 2vw, 25px) !important; letter-spacing: -0.015em; line-height: 1.2 !important; margin: 36px 0 12px; max-width: 30ch; scroll-margin-top: 80px; }
+          .post-body h4 { font-family: var(--font-body) !important; font-weight: 700; color: var(--color-accent-deep) !important; font-size: clamp(15px, 1.2vw, 16.5px) !important; text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
+          .post-body li { font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a:hover { color: var(--color-accent); }
           .post-body a.auto-link { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
