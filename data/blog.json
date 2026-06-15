@@ -9937,25 +9937,6 @@
       "thumbnail": ""
     },
     {
-      "id": 80140,
-      "slug": "",
-      "lang": "en",
-      "type": "post",
-      "title": "Elementor #80140",
-      "excerpt": "",
-      "html": "\t\t<div data-elementor-type=\"wp-post\" data-elementor-id=\"80140\" class=\"elementor elementor-80140\" data-elementor-post-type=\"post\">\n\t\t\t\t<div class=\"elementor-element elementor-element-a744eea e-flex e-con-boxed wpr-particle-no wpr-jarallax-no wpr-parallax-no wpr-sticky-section-no wpr-column-slider-no wpr-equal-height-no e-con e-parent\" data-id=\"a744eea\" data-element_type=\"container\" data-e-type=\"container\">\n\t\t\t\t\t<div class=\"e-con-inner\">\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t",
-      "date": "2026-03-13T21:01:30",
-      "modified": "2026-03-13T21:01:30",
-      "hero": "",
-      "category": {
-        "slug": "tips-retail",
-        "name": "Tips"
-      },
-      "link_legacy": "",
-      "status": "draft",
-      "thumbnail": ""
-    },
-    {
       "id": 79988,
       "slug": "blog-shopping-mall-analytics-european-benchmarking-study-2025",
       "lang": "en",
