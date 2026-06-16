@@ -6,7 +6,7 @@ import DemoFormInline from "@/components/DemoFormInline";
 import { LOGOS, TESTIMONIALS_ALL, UI } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
 
-const HERO_BG = "/wp-content/uploads/2026/01/Industries_Retail-1.png";
+const HERO_BG = "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png";
 
 export const metadata: Metadata = {
   title: "Conteo de personas en retail · Mide cada tienda con IA · Flame Analytics",
