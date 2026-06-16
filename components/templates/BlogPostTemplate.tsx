@@ -60,6 +60,13 @@ const EDITORIAL_CATEGORIES = new Set([
   "shopping-malls-case-studies",
 ]);
 
+const CASE_STUDY_CATEGORIES = new Set([
+  "casos-de-exito",
+  "case-studies",
+  "retail-case-studies",
+  "shopping-malls-case-studies",
+]);
+
 function shouldUseEditorialFormat(slug: string, categorySlug: string): boolean {
   if (!EDITORIAL_CATEGORIES.has(categorySlug)) return false;
   return !NON_EDITORIAL_SLUG_PATTERNS.some(re => re.test(slug));
@@ -333,7 +340,14 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
             Para non-editorial el banner ya aparece como fondo del hero;
             no repetimos la imagen aquí. Los posts entrevistas/casos/whitepapers
             que sí muestran la imagen arriba se gestionan en sus propios templates.
+            EXCEPCIÓN: case studies con hero distinto al thumbnail muestran el hero
+            como banner editorial bajo el navy (foto real del cliente, no la card).
           */}
+          {editorial && CASE_STUDY_CATEGORIES.has(post.category.slug) && post.hero && (
+            <figure className="mx-auto case-study-banner" style={{ maxWidth: 960, margin: "0 auto 56px" }}>
+              <img src={post.hero} alt={post.title.replace(/<[^>]+>/g, "")} style={{ width: "100%", height: "auto", borderRadius: 16, display: "block" }} />
+            </figure>
+          )}
           <div className="mx-auto post-body" style={{ maxWidth: 720, color: "var(--color-ink)", fontSize: "19px", lineHeight: 1.65, fontFamily: "var(--font-body)" }} dangerouslySetInnerHTML={{ __html: processedHtml }} />
 
           {editorial && (
