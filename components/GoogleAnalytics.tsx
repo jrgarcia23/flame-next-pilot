@@ -4,6 +4,7 @@ import Script from "next/script";
 import { useEffect } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-SF7P1Q5BV2";
+const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || "AW-11095510705";
 const PREFS_KEY = "flame_consent_prefs";
 
 type Prefs = { necessary?: true; analytics?: boolean; marketing?: boolean };
@@ -70,6 +71,7 @@ export default function GoogleAnalytics() {
       <Script id="ga-init" strategy="afterInteractive">{`
         gtag('js', new Date());
         gtag('config', '${GA_ID}', { anonymize_ip: true });
+        gtag('config', '${ADS_ID}');
       `}</Script>
     </>
   );
