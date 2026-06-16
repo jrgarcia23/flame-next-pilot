@@ -54,6 +54,10 @@ const EDITORIAL_CATEGORIES = new Set([
   "tips-retail",
   "corporate",
   "corporativo",
+  "casos-de-exito",
+  "case-studies",
+  "retail-case-studies",
+  "shopping-malls-case-studies",
 ]);
 
 function shouldUseEditorialFormat(slug: string, categorySlug: string): boolean {
