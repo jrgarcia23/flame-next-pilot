@@ -7,6 +7,7 @@ import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 import { CMS_CATEGORIES, slugify } from "@/lib/cms-categories";
+import MediaPickerModal from "@/components/admin/MediaPickerModal";
 
 type SavedPost = {
   id: number;
@@ -44,6 +45,8 @@ const btn: React.CSSProperties = { padding: "8px 16px", borderRadius: 8, fontSiz
 const btnPrimary: React.CSSProperties = { ...btn, background: navy, color: "#fff", border: "none", fontWeight: 600 };
 const btnAccent: React.CSSProperties = { ...btn, background: accent, color: "#fff", border: "none", fontWeight: 600 };
 
+const AUTOSAVE_MS = 10_000;
+
 export default function PostEditor({ initial }: Props) {
   const [lang, setLang] = useState<"es" | "en">(initial?.lang || "es");
   const [title, setTitle] = useState(initial?.title || "");
@@ -56,7 +59,11 @@ export default function PostEditor({ initial }: Props) {
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const [savedId, setSavedId] = useState<number | undefined>(initial?.id);
+  const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
   const [showPreview, setShowPreview] = useState(false);
+  const [picker, setPicker] = useState<null | "hero" | "thumb" | "body">(null);
+  const dirtyRef = useRef(false);
+  const lastSavedSnapshotRef = useRef<string>("");
   const heroInputRef = useRef<HTMLInputElement | null>(null);
   const thumbInputRef = useRef<HTMLInputElement | null>(null);
   const bodyImgInputRef = useRef<HTMLInputElement | null>(null);
@@ -80,12 +87,16 @@ export default function PostEditor({ initial }: Props) {
     ],
     content: initial?.html || "",
     immediatelyRender: false,
+    onUpdate: () => { dirtyRef.current = true; },
   });
 
   // Slug auto desde título cuando el slug no está bloqueado
   useEffect(() => {
     if (!slugLocked && title) setSlug(slugify(title));
   }, [title, slugLocked]);
+
+  // marcar dirty al cambiar campos
+  useEffect(() => { dirtyRef.current = true; }, [title, slug, excerpt, category, hero, thumbnail, lang]);
 
   const uploadImage = useCallback(async (file: File, folder = "cms"): Promise<string | null> => {
     const fd = new FormData();
@@ -134,18 +145,27 @@ export default function PostEditor({ initial }: Props) {
     editor.chain().focus().extendMarkRange("link").setLink({ href }).run();
   };
 
-  const save = async (asPublished: boolean) => {
-    if (!editor) return;
-    setStatus("saving"); setErrorMsg("");
-    const html = editor.getHTML();
-    const payload = {
+  const buildPayload = useCallback(() => {
+    if (!editor) return null;
+    return {
       id: savedId,
       lang, title, slug, excerpt,
-      html,
+      html: editor.getHTML(),
       hero, thumbnail,
       category_slug: category,
-      status: asPublished ? "published" : "draft",
     };
+  }, [editor, savedId, lang, title, slug, excerpt, hero, thumbnail, category]);
+
+  const saveCore = useCallback(async (asPublished: boolean): Promise<SavedPost | null> => {
+    const base = buildPayload();
+    if (!base) return null;
+    const payload = { ...base, status: asPublished ? "published" : "draft" };
+    const snapshot = JSON.stringify(payload);
+    if (snapshot === lastSavedSnapshotRef.current) {
+      // No hay cambios reales — no insistimos al server
+      return null;
+    }
+    setStatus("saving"); setErrorMsg("");
     const res = await fetch("/api/admin/posts/save/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -155,17 +175,67 @@ export default function PostEditor({ initial }: Props) {
     if (!res.ok || !data?.ok) {
       setStatus("error");
       setErrorMsg(data?.error || "Error guardando");
-      return;
+      return null;
     }
     const saved = data.post as SavedPost;
     setSavedId(saved.id);
     setSlugLocked(true);
     setStatus("saved");
-    setTimeout(() => setStatus("idle"), 2500);
-    if (asPublished) {
-      // Abrir vista previa real en otra pestaña
+    setLastSavedAt(new Date());
+    lastSavedSnapshotRef.current = snapshot;
+    dirtyRef.current = false;
+    setTimeout(() => setStatus(s => (s === "saved" ? "idle" : s)), 2500);
+    return saved;
+  }, [buildPayload]);
+
+  const save = useCallback(async (asPublished: boolean) => {
+    const saved = await saveCore(asPublished);
+    if (saved && asPublished) {
       window.open(`/${saved.lang}/${saved.slug}/`, "_blank", "noopener");
     }
+  }, [saveCore]);
+
+  // Auto-save cada 10s solo si hay dirty + título + html mínimos
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (!dirtyRef.current) return;
+      const html = editor?.getHTML() || "";
+      if (!title.trim() || !html.replace(/<[^>]+>/g, "").trim()) return;
+      // Auto-save siempre como borrador (no toca status si ya está publicado)
+      const wasPublished = lastSavedSnapshotRef.current
+        ? JSON.parse(lastSavedSnapshotRef.current).status === "published"
+        : false;
+      saveCore(wasPublished);
+    }, AUTOSAVE_MS);
+    return () => clearInterval(t);
+  }, [editor, title, saveCore]);
+
+  // Aviso si intentas salir con cambios sin guardar
+  useEffect(() => {
+    const beforeUnload = (e: BeforeUnloadEvent) => {
+      if (dirtyRef.current) {
+        e.preventDefault();
+        e.returnValue = "";
+      }
+    };
+    window.addEventListener("beforeunload", beforeUnload);
+    return () => window.removeEventListener("beforeunload", beforeUnload);
+  }, []);
+
+  const duplicateTo = async (targetLang: "es" | "en") => {
+    if (!savedId) return;
+    if (!confirm(`Crear una copia de este post en ${targetLang.toUpperCase()} como borrador?`)) return;
+    const res = await fetch("/api/admin/posts/duplicate/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: savedId, target_lang: targetLang }),
+    });
+    const data = await res.json();
+    if (!res.ok || !data?.ok) {
+      alert(`Error duplicando: ${data?.error || res.status}`);
+      return;
+    }
+    window.location.href = `/admin/posts/${data.post.id}/`;
   };
 
   const btnTb: React.CSSProperties = { padding: "6px 10px", borderRadius: 6, border: `1px solid ${rule}`, background: "#fff", cursor: "pointer", fontSize: 13, color: navy, fontFamily: "inherit", minWidth: 30 };
@@ -211,7 +281,8 @@ export default function PostEditor({ initial }: Props) {
             <button type="button" onClick={() => editor?.chain().focus().toggleOrderedList().run()} style={editor?.isActive("orderedList") ? btnTbActive : btnTb} title="Lista numerada">1.</button>
             <button type="button" onClick={() => editor?.chain().focus().toggleBlockquote().run()} style={editor?.isActive("blockquote") ? btnTbActive : btnTb} title="Cita destacada">&ldquo;</button>
             <span style={{ width: 1, background: rule, margin: "0 4px" }} />
-            <button type="button" onClick={() => bodyImgInputRef.current?.click()} style={btnTb} title="Insertar imagen en el cuerpo">🖼 Imagen</button>
+            <button type="button" onClick={() => bodyImgInputRef.current?.click()} style={btnTb} title="Subir imagen al cuerpo">🖼 Subir</button>
+            <button type="button" onClick={() => setPicker("body")} style={btnTb} title="Elegir imagen ya subida">📚 Biblioteca</button>
             <input ref={bodyImgInputRef} type="file" accept="image/*" onChange={onPickBodyImg} hidden />
             <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
               <button type="button" onClick={() => editor?.chain().focus().undo().run()} style={btnTb} title="Deshacer">↶</button>
@@ -241,21 +312,6 @@ export default function PostEditor({ initial }: Props) {
           />
           <div style={{ fontSize: 11, color: ink3, marginTop: 4, textAlign: "right" }}>{excerpt.length} / 200</div>
         </div>
-
-        {/* Estilo Editor + acciones flotantes */}
-        <style>{`
-          .tiptap-editor :is(p) { margin: 0 0 14px; }
-          .tiptap-editor :is(h2) { font-family: var(--font-display); font-weight: 500; color: ${navy}; font-size: 26px; letter-spacing: -0.02em; line-height: 1.18; margin: 28px 0 12px; }
-          .tiptap-editor :is(h3) { font-family: var(--font-display); font-weight: 500; color: ${navy}; font-size: 21px; letter-spacing: -0.015em; line-height: 1.22; margin: 22px 0 10px; }
-          .tiptap-editor :is(strong) { color: ${navy}; font-weight: 600; }
-          .tiptap-editor :is(a) { color: ${accentDeep}; text-decoration: underline; text-underline-offset: 3px; }
-          .tiptap-editor :is(ul, ol) { margin: 0 0 14px 22px; }
-          .tiptap-editor :is(li) { margin-bottom: 6px; }
-          .tiptap-editor :is(blockquote) { margin: 24px 0; padding: 0 0 0 22px; border-left: 4px solid ${accent}; font-family: var(--font-display); font-size: 21px; font-style: italic; color: ${navy}; }
-          .tiptap-editor :is(img) { max-width: 100%; height: auto; border-radius: 10px; margin: 18px 0; }
-          .tiptap-editor :is(p.is-editor-empty:first-child)::before { content: attr(data-placeholder); float: left; color: ${ink3}; pointer-events: none; height: 0; }
-          .ProseMirror:focus { outline: none; }
-        `}</style>
       </div>
 
       {/* Sidebar */}
@@ -272,12 +328,29 @@ export default function PostEditor({ initial }: Props) {
           </div>
           {status === "saved" && <p style={{ fontSize: 12, color: "#10b981", margin: 0 }}>✓ Guardado correctamente</p>}
           {status === "error" && <p style={{ fontSize: 12, color: "#DC2626", margin: 0 }}>✗ {errorMsg}</p>}
+          {lastSavedAt && status !== "error" && (
+            <p style={{ fontSize: 11, color: ink3, margin: "8px 0 0" }}>
+              Auto-guardado: {lastSavedAt.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
+            </p>
+          )}
           {savedId && (
             <p style={{ fontSize: 11, color: ink3, margin: "8px 0 0" }}>
               Post id <code>{savedId}</code> · <a href={`/${lang}/${slug}/`} target="_blank" rel="noreferrer" style={{ color: accentDeep }}>Ver en la web →</a>
             </p>
           )}
         </div>
+
+        {savedId && (
+          <div style={card}>
+            <div style={{ fontSize: 11, color: ink3, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, marginBottom: 10 }}>Duplicar</div>
+            <div style={{ display: "flex", gap: 6 }}>
+              <button type="button" onClick={() => duplicateTo(lang === "es" ? "en" : "es")} style={{ ...btn, flex: 1 }}>
+                → {lang === "es" ? "Variante EN" : "Variante ES"}
+              </button>
+              <button type="button" onClick={() => duplicateTo(lang)} style={btn} title="Duplicar en el mismo idioma">📋</button>
+            </div>
+          </div>
+        )}
 
         <div style={card}>
           <label style={{ fontSize: 11, color: ink3, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Idioma</label>
@@ -303,14 +376,20 @@ export default function PostEditor({ initial }: Props) {
             <div style={{ marginTop: 8 }}>
               <img src={hero} alt="hero" style={{ width: "100%", borderRadius: 8, border: `1px solid ${rule}` }} />
               <div style={{ display: "flex", gap: 6, marginTop: 6 }}>
-                <button type="button" onClick={() => heroInputRef.current?.click()} style={{ ...btn, flex: 1 }}>Cambiar</button>
+                <button type="button" onClick={() => heroInputRef.current?.click()} style={{ ...btn, flex: 1 }}>Subir</button>
+                <button type="button" onClick={() => setPicker("hero")} style={{ ...btn, flex: 1 }} title="Elegir de la biblioteca">📚</button>
                 <button type="button" onClick={() => setHero("")} style={btn}>✕</button>
               </div>
             </div>
           ) : (
-            <button type="button" onClick={() => heroInputRef.current?.click()} style={{ ...btn, width: "100%", marginTop: 8, padding: "20px 12px", borderStyle: "dashed" }}>
-              ⬆ Subir imagen
-            </button>
+            <div style={{ display: "flex", gap: 6, marginTop: 8 }}>
+              <button type="button" onClick={() => heroInputRef.current?.click()} style={{ ...btn, flex: 1, padding: "16px 8px", borderStyle: "dashed" }}>
+                ⬆ Subir
+              </button>
+              <button type="button" onClick={() => setPicker("hero")} style={{ ...btn, flex: 1, padding: "16px 8px", borderStyle: "dashed" }}>
+                📚 Biblioteca
+              </button>
+            </div>
           )}
           <input ref={heroInputRef} type="file" accept="image/*" onChange={onPickHero} hidden />
         </div>
@@ -322,18 +401,31 @@ export default function PostEditor({ initial }: Props) {
             <div>
               <img src={thumbnail} alt="thumb" style={{ width: "100%", borderRadius: 8, border: `1px solid ${rule}` }} />
               <div style={{ display: "flex", gap: 6, marginTop: 6 }}>
-                <button type="button" onClick={() => thumbInputRef.current?.click()} style={{ ...btn, flex: 1 }}>Cambiar</button>
+                <button type="button" onClick={() => thumbInputRef.current?.click()} style={{ ...btn, flex: 1 }}>Subir</button>
+                <button type="button" onClick={() => setPicker("thumb")} style={{ ...btn, flex: 1 }}>📚</button>
                 <button type="button" onClick={() => setThumbnail("")} style={btn}>✕</button>
               </div>
             </div>
           ) : (
-            <button type="button" onClick={() => thumbInputRef.current?.click()} style={{ ...btn, width: "100%", padding: "16px 12px", borderStyle: "dashed" }}>
-              ⬆ Subir imagen
-            </button>
+            <div style={{ display: "flex", gap: 6 }}>
+              <button type="button" onClick={() => thumbInputRef.current?.click()} style={{ ...btn, flex: 1, padding: "14px 8px", borderStyle: "dashed" }}>⬆ Subir</button>
+              <button type="button" onClick={() => setPicker("thumb")} style={{ ...btn, flex: 1, padding: "14px 8px", borderStyle: "dashed" }}>📚 Biblioteca</button>
+            </div>
           )}
           <input ref={thumbInputRef} type="file" accept="image/*" onChange={onPickThumb} hidden />
         </div>
       </aside>
+
+      <MediaPickerModal
+        open={picker !== null}
+        onClose={() => setPicker(null)}
+        onPick={(url) => {
+          if (picker === "hero") setHero(url);
+          else if (picker === "thumb") setThumbnail(url);
+          else if (picker === "body" && editor) editor.chain().focus().setImage({ src: url }).run();
+        }}
+        title={picker === "hero" ? "Elegir imagen de cabecera" : picker === "thumb" ? "Elegir imagen del listado" : "Elegir imagen para el cuerpo"}
+      />
 
       <style jsx global>{`
         .ProseMirror { min-height: 320px; }
