@@ -1,12 +1,13 @@
 import Link from "next/link";
 
-type AdminSection = "leads" | "events" | "webinars" | "content" | "media";
+type AdminSection = "leads" | "events" | "webinars" | "content" | "posts" | "media";
 
 const NAV: { key: AdminSection; label: string; href: string }[] = [
   { key: "leads",    label: "Leads",     href: "/admin/leads/" },
   { key: "events",   label: "Eventos",   href: "/admin/events/" },
   { key: "webinars", label: "Webinars",  href: "/admin/webinars/" },
-  { key: "content",  label: "Posts",     href: "/admin/posts/" },
+  { key: "posts",    label: "Posts CMS", href: "/admin/posts/" },
+  { key: "content",  label: "Archivo",   href: "/admin/content/" },
   { key: "media",    label: "Imágenes",  href: "/admin/media/" },
 ];
 
