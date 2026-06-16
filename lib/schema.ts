@@ -86,8 +86,11 @@ export function postBreadcrumb(post: BlogPost, lang: Lang): BreadcrumbItem[] {
 // ---------- BLOG POSTING ----------
 export function blogPostingSchema(post: BlogPost, lang: Lang) {
   const url = `${SITE}/${lang}/${post.slug}/`;
-  const image = post.hero
-    ? [post.hero.startsWith("http") ? post.hero : `${SITE}${post.hero}`]
+  // Fallback: si el post no tiene hero (algunos importados del WP solo guardaron
+  // thumbnail), usar thumbnail. Sin imagen, Google rechaza el rich result.
+  const heroOrThumb = post.hero || post.thumbnail || "";
+  const image = heroOrThumb
+    ? [heroOrThumb.startsWith("http") ? heroOrThumb : `${SITE}${heroOrThumb}`]
     : undefined;
   return {
     "@context": "https://schema.org",
