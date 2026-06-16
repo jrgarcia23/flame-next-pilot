@@ -3,12 +3,12 @@ import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
-import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
+import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return getAllPostSlugs("en").map(slug => ({ slug }));
@@ -16,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug, "en");
+  const post = await getPostAsync(slug, "en");
   if (!post) return { title: "Not found · Flame Analytics" };
   const titleText = post.title.replace(/<[^>]+>/g, "").trim();
   const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
@@ -53,7 +53,7 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.flameanalytics.com
 
 export default async function PostEn({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPost(slug, "en");
+  const post = await getPostAsync(slug, "en");
   if (!post) return notFound();
 
   const elementor = getElementorContent(slug);

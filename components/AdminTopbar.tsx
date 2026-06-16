@@ -6,7 +6,7 @@ const NAV: { key: AdminSection; label: string; href: string }[] = [
   { key: "leads",    label: "Leads",     href: "/admin/leads/" },
   { key: "events",   label: "Eventos",   href: "/admin/events/" },
   { key: "webinars", label: "Webinars",  href: "/admin/webinars/" },
-  { key: "content",  label: "Contenido", href: "/admin/content/" },
+  { key: "content",  label: "Posts",     href: "/admin/posts/" },
   { key: "media",    label: "Imágenes",  href: "/admin/media/" },
 ];
 

@@ -3,12 +3,14 @@ import { notFound } from "next/navigation";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
-import { getPost, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
+import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 
-export const dynamicParams = false;
+// Permitir slugs no presentes en blog.json (posts nuevos del CMS): Next los renderiza
+// on-demand y los añade al cache estático tras la primera visita.
+export const dynamicParams = true;
 
 export function generateStaticParams() {
   return getAllPostSlugs("es").map(slug => ({ slug }));
@@ -16,7 +18,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug, "es");
+  const post = await getPostAsync(slug, "es");
   if (!post) return { title: "No encontrado · Flame Analytics" };
   const titleText = post.title.replace(/<[^>]+>/g, "").trim();
   const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
@@ -46,7 +48,7 @@ const SITE = process.env.NEXT_PUBLIC_SITE_URL || "https://www.flameanalytics.com
 
 export default async function PostEs({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const post = getPost(slug, "es");
+  const post = await getPostAsync(slug, "es");
   if (!post) return notFound();
 
   // Posts especiales con maquetación Elementor preservada (flame-talks-2026, etc.)

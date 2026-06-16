@@ -80,6 +80,40 @@ export function adminGetPostByKey(type: string, lang: Lang, slug: string): BlogP
   return byKey[`${type}/${lang}/${slug}`] || null;
 }
 
+// ---------- CMS MERGE (legacy JSON + Supabase) ----------
+// Versiones async que mergean los posts del CMS (Supabase) con los legacy.
+// Las páginas /es/[slug] y /en/[slug] las prefieren sobre getPost() sync.
+// El merge prioriza el CMS: si un (lang, slug) existe en ambas, gana el CMS.
+
+export async function getPostAsync(slug: string, lang: Lang): Promise<BlogPost | null> {
+  const { getCmsPostBySlugCached } = await import("@/lib/blog-cms-merge");
+  const cms = await getCmsPostBySlugCached(lang, slug);
+  if (cms) return cms;
+  return getPost(slug, lang);
+}
+
+export async function getAllPostSlugsAsync(lang: Lang): Promise<string[]> {
+  const { getCmsPostsCached } = await import("@/lib/blog-cms-merge");
+  const cms = await getCmsPostsCached();
+  const cmsSlugs = cms.filter(p => p.lang === lang).map(p => p.slug);
+  const jsonSlugs = getAllPostSlugs(lang);
+  return Array.from(new Set([...cmsSlugs, ...jsonSlugs]));
+}
+
+export async function getCategoryListingAsync(categorySlug: string, lang: Lang): Promise<BlogPost[]> {
+  const { getCmsPostsCached } = await import("@/lib/blog-cms-merge");
+  const cms = await getCmsPostsCached();
+  const cmsInCat = cms.filter(p => p.lang === lang && p.category?.slug === categorySlug);
+  const cmsKeys = new Set(cmsInCat.map(p => `${p.lang}::${p.slug}`));
+  const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !cmsKeys.has(`${p.lang}::${p.slug}`));
+  return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1));
+}
+
+export async function getRelatedPostsAsync(currentSlug: string, categorySlug: string, lang: Lang, max = 3): Promise<BlogPost[]> {
+  const all = await getCategoryListingAsync(categorySlug, lang);
+  return all.filter(p => p.slug !== currentSlug).slice(0, max);
+}
+
 // Heurística: el HTML del post ya trae su propia FAQ.
 // Casos detectados:
 //   - JSON-LD FAQPage embebido (typical en posts importados con su propio schema)
