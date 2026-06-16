@@ -145,13 +145,18 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   const all: Row[] = [...cmsRows, ...legacyRows];
 
   // ---- Filtros ----
+  // status y lang son MULTI-select: vienen como CSV ("published,scheduled" / "es,en").
+  // "all" o vacío = sin filtrar.
   const tab = sp.tab || "all";
-  const lang = sp.lang || "all";
-  const status = sp.status || "all";
+  const langCsv = (sp.lang || "").trim();
+  const statusCsv = (sp.status || "").trim();
   const category = sp.category || "all";
   const source = sp.source || "all";
   const search = (sp.search || "").trim().toLowerCase();
   const page = Math.max(1, parseInt(sp.page || "1"));
+
+  const langSet = new Set(langCsv && langCsv !== "all" ? langCsv.split(",").map(s => s.trim()).filter(Boolean) : []);
+  const statusSet = new Set(statusCsv && statusCsv !== "all" ? statusCsv.split(",").map(s => s.trim()).filter(Boolean) : []);
 
   // Mapa de la pestaña activa a su set de categorías
   const tabDef = TABS.find(t => t.key === tab) || null;
@@ -171,8 +176,8 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
 
   let filtered = all;
   if (tabCategories) filtered = filtered.filter(p => tabCategories.has(p.category?.slug || "blog"));
-  if (lang !== "all") filtered = filtered.filter(p => p.lang === lang);
-  if (status !== "all") filtered = filtered.filter(p => p.status === status);
+  if (langSet.size > 0) filtered = filtered.filter(p => langSet.has(p.lang));
+  if (statusSet.size > 0) filtered = filtered.filter(p => statusSet.has(p.status));
   if (category !== "all") filtered = filtered.filter(p => (p.category?.slug || "blog") === category);
   if (source !== "all") filtered = filtered.filter(p => p.source === source);
   if (search) filtered = filtered.filter(p =>
@@ -187,14 +192,31 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   const from = (page - 1) * PER_PAGE;
   const rows = filtered.slice(from, from + PER_PAGE);
 
-  // ---- Stats sobre TODOS los posts (no respeta tab/filtros para que JR los vea siempre) ----
+  // ---- Stats sobre el scope de la pestaña activa (para que los chips reflejen el contexto) ----
+  const scopeForStats = tabCategories
+    ? all.filter(p => tabCategories.has(p.category?.slug || "blog"))
+    : all;
   const stats = {
     total: all.length,
-    es_pub: all.filter(p => p.lang === "es" && p.status === "published").length,
-    es_draft: all.filter(p => p.lang === "es" && (p.status === "draft" || p.status === "scheduled")).length,
-    en_pub: all.filter(p => p.lang === "en" && p.status === "published").length,
-    en_draft: all.filter(p => p.lang === "en" && (p.status === "draft" || p.status === "scheduled")).length,
-    scheduled: all.filter(p => p.status === "scheduled").length,
+    scoped: scopeForStats.length,
+    es_pub: scopeForStats.filter(p => p.lang === "es" && p.status === "published").length,
+    en_pub: scopeForStats.filter(p => p.lang === "en" && p.status === "published").length,
+    scheduled: scopeForStats.filter(p => p.status === "scheduled").length,
+    byStatus: {
+      published: scopeForStats.filter(p => p.status === "published").length,
+      draft:     scopeForStats.filter(p => p.status === "draft").length,
+      scheduled: scopeForStats.filter(p => p.status === "scheduled").length,
+    },
+    byLang: {
+      es: scopeForStats.filter(p => p.lang === "es").length,
+      en: scopeForStats.filter(p => p.lang === "en").length,
+    },
+    byStatusLang: {
+      es_draft:     scopeForStats.filter(p => p.lang === "es" && p.status === "draft").length,
+      es_scheduled: scopeForStats.filter(p => p.lang === "es" && p.status === "scheduled").length,
+      en_draft:     scopeForStats.filter(p => p.lang === "en" && p.status === "draft").length,
+      en_scheduled: scopeForStats.filter(p => p.lang === "en" && p.status === "scheduled").length,
+    },
   };
 
   // Contador por pestaña — útil en el chip de la tab
@@ -239,30 +261,38 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
           ))}
         </div>
 
-        {/* Stats por idioma + estado */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>
-          <Stat label="ES publicados" value={stats.es_pub} href={mkHref({ lang: "es", status: "published", page: "" })} color="#10b981" />
-          <Stat label="ES drafts / progr." value={stats.es_draft} href={mkHref({ lang: "es", status: "draft", page: "" })} color="#f59e0b" />
-          <Stat label="EN publicados" value={stats.en_pub} href={mkHref({ lang: "en", status: "published", page: "" })} color="#10b981" />
-          <Stat label="EN drafts / progr." value={stats.en_draft} href={mkHref({ lang: "en", status: "draft", page: "" })} color="#f59e0b" />
+        {/* Filtros principales: chips multi-select (estado + idioma) */}
+        <div style={{ ...card, marginBottom: 14, padding: "14px 18px" }}>
+          <div style={{ display: "flex", gap: 18, alignItems: "center", flexWrap: "wrap" }}>
+            <FilterGroup
+              label="Estado"
+              options={[
+                { value: "published", label: "Publicado", color: "#10b981", count: stats.byStatus.published },
+                { value: "draft",     label: "Borrador",  color: "#f59e0b", count: stats.byStatus.draft },
+                { value: "scheduled", label: "Programado", color: "#1E89C7", count: stats.byStatus.scheduled },
+              ]}
+              selected={statusSet}
+              mkHref={(values) => mkHref({ status: values.length === 0 ? "" : values.join(","), page: "" })}
+            />
+            <div style={{ width: 1, alignSelf: "stretch", background: "rgba(15,23,42,0.06)" }} />
+            <FilterGroup
+              label="Idioma"
+              options={[
+                { value: "es", label: "ES", color: "#15163A", count: stats.byLang.es },
+                { value: "en", label: "EN", color: "#15163A", count: stats.byLang.en },
+              ]}
+              selected={langSet}
+              mkHref={(values) => mkHref({ lang: values.length === 0 ? "" : values.join(","), page: "" })}
+            />
+          </div>
         </div>
 
-        {/* Filtros secundarios */}
-        <form method="get" style={{ ...card, marginBottom: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
-          {/* Preserva la pestaña activa en el form */}
+        {/* Filtros secundarios — categoría/fuente/búsqueda */}
+        <form method="get" style={{ ...card, marginBottom: 14, padding: "12px 18px", display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
           <input type="hidden" name="tab" value={tab} />
+          <input type="hidden" name="lang" value={langCsv} />
+          <input type="hidden" name="status" value={statusCsv} />
           <input name="search" placeholder="Buscar slug o título…" defaultValue={sp.search || ""} style={{ ...inp, flex: 1, minWidth: 220 }} />
-          <select name="lang" defaultValue={lang} style={inp}>
-            <option value="all">Todos los idiomas</option>
-            <option value="es">ES</option>
-            <option value="en">EN</option>
-          </select>
-          <select name="status" defaultValue={status} style={inp}>
-            <option value="all">Todos los estados</option>
-            <option value="published">Publicados</option>
-            <option value="draft">Borradores</option>
-            <option value="scheduled">Programados</option>
-          </select>
           <select name="category" defaultValue={category} style={inp}>
             <option value="all">Todas las categorías</option>
             {categories.map(c => (
@@ -275,10 +305,21 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
             <option value="legacy">Legacy</option>
           </select>
           <button type="submit" style={{ ...btn, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Filtrar</button>
-          {(lang !== "all" || status !== "all" || category !== "all" || source !== "all" || search) && (
+          {(langSet.size > 0 || statusSet.size > 0 || category !== "all" || source !== "all" || search) && (
             <Link href={mkHref({ lang: "", status: "", category: "", source: "", search: "", page: "" })} style={{ ...btn, fontSize: 12 }}>Limpiar</Link>
           )}
         </form>
+
+        {/* Mini-stats: línea sutil de resumen */}
+        <div style={{ display: "flex", gap: 16, fontSize: 11, color: "#6E7488", padding: "0 4px 14px", flexWrap: "wrap" }}>
+          <MiniStat dotColor="#10b981" label="ES publicados" value={stats.es_pub} href={mkHref({ lang: "es", status: "published", page: "" })} />
+          <MiniStat dotColor="#f59e0b" label="ES borradores" value={stats.byStatusLang.es_draft} href={mkHref({ lang: "es", status: "draft", page: "" })} />
+          <MiniStat dotColor="#1E89C7" label="ES programados" value={stats.byStatusLang.es_scheduled} href={mkHref({ lang: "es", status: "scheduled", page: "" })} />
+          <span style={{ color: "#94A3B8" }}>·</span>
+          <MiniStat dotColor="#10b981" label="EN publicados" value={stats.en_pub} href={mkHref({ lang: "en", status: "published", page: "" })} />
+          <MiniStat dotColor="#f59e0b" label="EN borradores" value={stats.byStatusLang.en_draft} href={mkHref({ lang: "en", status: "draft", page: "" })} />
+          <MiniStat dotColor="#1E89C7" label="EN programados" value={stats.byStatusLang.en_scheduled} href={mkHref({ lang: "en", status: "scheduled", page: "" })} />
+        </div>
 
         {/* Resultados */}
         <div style={{ ...card, padding: 0, overflow: "hidden" }}>
@@ -368,11 +409,74 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   );
 }
 
-function Stat({ label, value, href, color }: { label: string; value: number; href: string; color: string }) {
+function FilterGroup({
+  label,
+  options,
+  selected,
+  mkHref,
+}: {
+  label: string;
+  options: { value: string; label: string; color: string; count: number }[];
+  selected: Set<string>;
+  mkHref: (values: string[]) => string;
+}) {
   return (
-    <Link href={href} style={{ ...card, textDecoration: "none", color: "inherit", display: "block", borderLeft: `4px solid ${color}` }}>
-      <div style={{ fontSize: 28, fontWeight: 700, color: "#15163A" }}>{value.toLocaleString()}</div>
-      <div style={{ fontSize: 11, color: "#6E7488", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 4 }}>{label}</div>
+    <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+      <span style={{ fontSize: 11, color: "#6E7488", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 600 }}>{label}</span>
+      <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        {options.map(o => {
+          const isOn = selected.has(o.value);
+          const next = new Set(selected);
+          if (isOn) next.delete(o.value);
+          else next.add(o.value);
+          const href = mkHref([...next]);
+          return (
+            <Link
+              key={o.value}
+              href={href}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                padding: "8px 14px",
+                borderRadius: 999,
+                fontSize: 13,
+                fontWeight: 600,
+                textDecoration: "none",
+                border: `1.5px solid ${isOn ? o.color : "rgba(15,23,42,0.14)"}`,
+                background: isOn ? `${o.color}` : "#fff",
+                color: isOn ? "#fff" : "#15163A",
+                transition: "all 120ms",
+              }}
+            >
+              <span style={{
+                width: 8, height: 8, borderRadius: 999,
+                background: isOn ? "#fff" : o.color,
+                opacity: isOn ? 1 : 0.7,
+              }} />
+              {o.label}
+              <span style={{
+                fontSize: 11,
+                padding: "1px 7px",
+                borderRadius: 999,
+                background: isOn ? "rgba(255,255,255,0.22)" : "#F6F7FB",
+                color: isOn ? "#fff" : "#6E7488",
+                fontWeight: 600,
+              }}>{o.count.toLocaleString()}</span>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MiniStat({ label, value, href, dotColor }: { label: string; value: number; href: string; dotColor: string }) {
+  return (
+    <Link href={href} style={{ display: "inline-flex", alignItems: "center", gap: 6, color: "#6E7488", textDecoration: "none" }}>
+      <span style={{ width: 6, height: 6, borderRadius: 999, background: dotColor, display: "inline-block" }} />
+      <strong style={{ color: "#15163A", fontWeight: 600 }}>{value.toLocaleString()}</strong>
+      {label}
     </Link>
   );
 }
