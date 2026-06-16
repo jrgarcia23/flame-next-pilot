@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { getLeadContext } from "@/lib/lead-context";
+import { trackFormSubmit } from "@/lib/track-form";
 
 const accent = "#31B1F8";
 const accentDeep = "#1E89C7";
@@ -153,6 +154,8 @@ export default function PartnersForm({ lang, category = "" }: Props) {
         setStatus("error");
         return;
       }
+      // Tracking GA4 (+ Google Ads vía import GA4) ANTES del redirect.
+      trackFormSubmit("partners", lang);
       // Partners → thank-you de contacto (no creamos gracias-partner separada)
       window.location.href = lang === "en" ? "/en/thank-you-contact/" : "/es/gracias-contacto/";
     } catch {

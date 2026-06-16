@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { getLeadContext } from "@/lib/lead-context";
+import { trackFormSubmit } from "@/lib/track-form";
 
 const accent = "#31B1F8";
 const accentDeep = "#1E89C7";
@@ -78,8 +79,11 @@ export default function RegisterForm(p: RegisterFormProps) {
         setStatus("error");
         return;
       }
-      // Redirect: events → gracias-evento · webinars → gracias-webinar
+      // Tracking GA4 (+ Google Ads vía import GA4) ANTES del redirect.
       const isWebinar = p.kind === "webinars";
+      const lang = p.privacyHref.startsWith("/en/") ? "en" : "es";
+      trackFormSubmit(isWebinar ? "webinar" : "event", lang);
+      // Redirect: events → gracias-evento · webinars → gracias-webinar
       const slug = isWebinar
         ? (p.privacyHref.startsWith("/en/") ? "/en/thank-you-webinar/" : "/es/gracias-webinar/")
         : (p.privacyHref.startsWith("/en/") ? "/en/thank-you-event/"   : "/es/gracias-evento/");

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from "react";
 import Icon from "@/components/templates/Icon";
 import { getLeadContext } from "@/lib/lead-context";
+import { trackFormSubmit } from "@/lib/track-form";
 
 const accent = "#31B1F8";
 const accentDeep = "#1E89C7";
@@ -115,6 +116,8 @@ export default function ContactForm({ lang }: Props) {
         setStatus("error");
         return;
       }
+      // Tracking GA4 (+ Google Ads vía import GA4) ANTES del redirect.
+      trackFormSubmit("contact", lang);
       // Redirect a la página de gracias específica de contacto
       window.location.href = lang === "en" ? "/en/thank-you-contact/" : "/es/gracias-contacto/";
     } catch {

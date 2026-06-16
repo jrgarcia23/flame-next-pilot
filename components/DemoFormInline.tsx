@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import { getLeadContext } from "@/lib/lead-context";
+import { trackFormSubmit, type FormType } from "@/lib/track-form";
 
 const accent = "#31B1F8";
 const accentDeep = "#1E89C7";
@@ -111,6 +112,11 @@ export default function DemoFormInline({ lang, variant = "demo", gridClass = "",
         setStatus("error");
         return;
       }
+      // Tracking GA4 (+ Google Ads vía import GA4) ANTES del redirect.
+      const FORM_TYPE_MAP: Record<string, FormType> = {
+        demo: "demo", pilot: "demo", contact: "contact", partners: "partners",
+      };
+      trackFormSubmit(FORM_TYPE_MAP[variant] || "demo", lang);
       // Redirect a la thank-you adecuada según variant
       const THANK_YOU: Record<string, { es: string; en: string }> = {
         demo:     { es: "/es/gracias-demo/",     en: "/en/thank-you-demo/" },
