@@ -29,8 +29,24 @@ type Props = {
     thumbnail: string;
     category_slug: string;
     status: "draft" | "published";
+    date?: string; // ISO; si está en el futuro y status=published → "programado"
   };
 };
+
+function toLocalDateTimeInput(iso: string): string {
+  // Convierte ISO → yyyy-MM-ddTHH:mm en hora local para <input type="datetime-local">
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
+function localDateTimeToIso(value: string): string {
+  // El input type=datetime-local devuelve una fecha local sin TZ; la convertimos a ISO UTC.
+  if (!value) return "";
+  const d = new Date(value);
+  return isNaN(d.getTime()) ? "" : d.toISOString();
+}
 
 const accent = "#31B1F8";
 const accentDeep = "#1E89C7";
@@ -47,7 +63,22 @@ const btnAccent: React.CSSProperties = { ...btn, background: accent, color: "#ff
 
 const AUTOSAVE_MS = 10_000;
 
+type PublishMode = "draft" | "publish-now" | "schedule";
+
+function detectInitialMode(initial?: Props["initial"]): { mode: PublishMode; scheduledFor: string } {
+  if (!initial) return { mode: "draft", scheduledFor: "" };
+  if (initial.status !== "published") return { mode: "draft", scheduledFor: "" };
+  if (initial.date) {
+    const d = new Date(initial.date);
+    if (!isNaN(d.getTime()) && d > new Date()) {
+      return { mode: "schedule", scheduledFor: toLocalDateTimeInput(initial.date) };
+    }
+  }
+  return { mode: "publish-now", scheduledFor: "" };
+}
+
 export default function PostEditor({ initial }: Props) {
+  const initMode = detectInitialMode(initial);
   const [lang, setLang] = useState<"es" | "en">(initial?.lang || "es");
   const [title, setTitle] = useState(initial?.title || "");
   const [slug, setSlug] = useState(initial?.slug || "");
@@ -62,6 +93,9 @@ export default function PostEditor({ initial }: Props) {
   const [lastSavedAt, setLastSavedAt] = useState<Date | null>(null);
   const [showPreview, setShowPreview] = useState(false);
   const [picker, setPicker] = useState<null | "hero" | "thumb" | "body">(null);
+  const [publishMode, setPublishMode] = useState<PublishMode>(initMode.mode);
+  const [scheduledFor, setScheduledFor] = useState<string>(initMode.scheduledFor);
+  const [showScheduleUI, setShowScheduleUI] = useState(initMode.mode === "schedule");
   const dirtyRef = useRef(false);
   const lastSavedSnapshotRef = useRef<string>("");
   const heroInputRef = useRef<HTMLInputElement | null>(null);
@@ -145,21 +179,31 @@ export default function PostEditor({ initial }: Props) {
     editor.chain().focus().extendMarkRange("link").setLink({ href }).run();
   };
 
-  const buildPayload = useCallback(() => {
+  const buildPayload = useCallback((mode: PublishMode, scheduled: string) => {
     if (!editor) return null;
-    return {
+    const base: Record<string, unknown> = {
       id: savedId,
       lang, title, slug, excerpt,
       html: editor.getHTML(),
       hero, thumbnail,
       category_slug: category,
     };
+    if (mode === "draft") {
+      base.status = "draft";
+    } else if (mode === "publish-now") {
+      base.status = "published";
+      base.date = new Date().toISOString();
+    } else {
+      base.status = "published";
+      const iso = localDateTimeToIso(scheduled);
+      if (iso) base.date = iso;
+    }
+    return base;
   }, [editor, savedId, lang, title, slug, excerpt, hero, thumbnail, category]);
 
-  const saveCore = useCallback(async (asPublished: boolean): Promise<SavedPost | null> => {
-    const base = buildPayload();
-    if (!base) return null;
-    const payload = { ...base, status: asPublished ? "published" : "draft" };
+  const saveCore = useCallback(async (mode: PublishMode, scheduled: string): Promise<SavedPost | null> => {
+    const payload = buildPayload(mode, scheduled);
+    if (!payload) return null;
     const snapshot = JSON.stringify(payload);
     if (snapshot === lastSavedSnapshotRef.current) {
       // No hay cambios reales — no insistimos al server
@@ -188,27 +232,29 @@ export default function PostEditor({ initial }: Props) {
     return saved;
   }, [buildPayload]);
 
-  const save = useCallback(async (asPublished: boolean) => {
-    const saved = await saveCore(asPublished);
-    if (saved && asPublished) {
-      window.open(`/${saved.lang}/${saved.slug}/`, "_blank", "noopener");
+  const save = useCallback(async (mode: PublishMode) => {
+    if (mode === "schedule" && !scheduledFor) {
+      setShowScheduleUI(true);
+      return;
     }
-  }, [saveCore]);
+    setPublishMode(mode);
+    const saved = await saveCore(mode, scheduledFor);
+    if (saved && mode === "publish-now") {
+      // Abrir la preview interna del backoffice tras publicar
+      window.open(`/admin/preview/?cms_id=${saved.id}`, "_blank", "noopener");
+    }
+  }, [saveCore, scheduledFor]);
 
-  // Auto-save cada 10s solo si hay dirty + título + html mínimos
+  // Auto-save cada 10s preservando modo actual (draft/publish/schedule)
   useEffect(() => {
     const t = setInterval(() => {
       if (!dirtyRef.current) return;
       const html = editor?.getHTML() || "";
       if (!title.trim() || !html.replace(/<[^>]+>/g, "").trim()) return;
-      // Auto-save siempre como borrador (no toca status si ya está publicado)
-      const wasPublished = lastSavedSnapshotRef.current
-        ? JSON.parse(lastSavedSnapshotRef.current).status === "published"
-        : false;
-      saveCore(wasPublished);
+      saveCore(publishMode, scheduledFor);
     }, AUTOSAVE_MS);
     return () => clearInterval(t);
-  }, [editor, title, saveCore]);
+  }, [editor, title, saveCore, publishMode, scheduledFor]);
 
   // Aviso si intentas salir con cambios sin guardar
   useEffect(() => {
@@ -318,16 +364,56 @@ export default function PostEditor({ initial }: Props) {
       <aside style={{ display: "flex", flexDirection: "column", gap: 14, position: "sticky", top: 20 }}>
         <div style={card}>
           <div style={{ fontSize: 11, color: ink3, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600, marginBottom: 12 }}>Publicación</div>
-          <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
-            <button type="button" onClick={() => save(false)} disabled={status === "saving"} style={{ ...btn, flex: 1, opacity: status === "saving" ? 0.6 : 1 }}>
-              {status === "saving" ? "Guardando…" : "Guardar borrador"}
+
+          {/* Estado actual del post */}
+          <div style={{ fontSize: 12, color: ink3, marginBottom: 12, padding: "8px 10px", background: "#F6F7FB", borderRadius: 6 }}>
+            <strong style={{ color: navy }}>Estado: </strong>
+            {publishMode === "draft" && <span style={{ color: "#f59e0b" }}>Borrador</span>}
+            {publishMode === "publish-now" && <span style={{ color: "#10b981" }}>Publicado</span>}
+            {publishMode === "schedule" && scheduledFor && (
+              <span style={{ color: "#1E89C7" }}>Programado para {new Date(localDateTimeToIso(scheduledFor)).toLocaleString("es-ES", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}</span>
+            )}
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 8 }}>
+            <button type="button" onClick={() => { setShowScheduleUI(false); save("draft"); }} disabled={status === "saving"} style={{ ...btn, opacity: status === "saving" ? 0.6 : 1 }}>
+              {status === "saving" ? "…" : "Guardar borrador"}
             </button>
-            <button type="button" onClick={() => save(true)} disabled={status === "saving"} style={{ ...btnAccent, flex: 1, opacity: status === "saving" ? 0.6 : 1 }}>
-              Publicar →
+            <button type="button" onClick={() => { setShowScheduleUI(false); setScheduledFor(""); save("publish-now"); }} disabled={status === "saving"} style={{ ...btnAccent, opacity: status === "saving" ? 0.6 : 1 }}>
+              Publicar ahora
             </button>
           </div>
-          {status === "saved" && <p style={{ fontSize: 12, color: "#10b981", margin: 0 }}>✓ Guardado correctamente</p>}
-          {status === "error" && <p style={{ fontSize: 12, color: "#DC2626", margin: 0 }}>✗ {errorMsg}</p>}
+
+          <button type="button" onClick={() => setShowScheduleUI(v => !v)} style={{ ...btn, width: "100%", fontSize: 12, color: ink3 }}>
+            ⏱ {showScheduleUI ? "Ocultar programación" : "Programar publicación"}
+          </button>
+
+          {showScheduleUI && (
+            <div style={{ marginTop: 10, padding: 10, background: "#FAFBFC", borderRadius: 8, border: `1px solid ${rule}` }}>
+              <label style={{ fontSize: 11, color: ink3, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" }}>Fecha y hora</label>
+              <input
+                type="datetime-local"
+                value={scheduledFor}
+                onChange={(e) => setScheduledFor(e.target.value)}
+                min={toLocalDateTimeInput(new Date(Date.now() + 60_000).toISOString())}
+                style={{ ...inp, marginTop: 6, padding: "8px 10px", fontSize: 13 }}
+              />
+              <button
+                type="button"
+                onClick={() => save("schedule")}
+                disabled={!scheduledFor || status === "saving"}
+                style={{ ...btnPrimary, width: "100%", marginTop: 8, opacity: (!scheduledFor || status === "saving") ? 0.5 : 1 }}
+              >
+                Programar para esta fecha →
+              </button>
+              {scheduledFor && new Date(localDateTimeToIso(scheduledFor)) <= new Date() && (
+                <p style={{ fontSize: 11, color: "#DC2626", margin: "6px 0 0" }}>La fecha debe ser futura.</p>
+              )}
+            </div>
+          )}
+
+          {status === "saved" && <p style={{ fontSize: 12, color: "#10b981", margin: "10px 0 0" }}>✓ Guardado</p>}
+          {status === "error" && <p style={{ fontSize: 12, color: "#DC2626", margin: "10px 0 0" }}>✗ {errorMsg}</p>}
           {lastSavedAt && status !== "error" && (
             <p style={{ fontSize: 11, color: ink3, margin: "8px 0 0" }}>
               Auto-guardado: {lastSavedAt.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}
@@ -335,7 +421,7 @@ export default function PostEditor({ initial }: Props) {
           )}
           {savedId && (
             <p style={{ fontSize: 11, color: ink3, margin: "8px 0 0" }}>
-              Post id <code>{savedId}</code> · <a href={`/${lang}/${slug}/`} target="_blank" rel="noreferrer" style={{ color: accentDeep }}>Ver en la web →</a>
+              Post id <code>{savedId}</code> · <a href={`/admin/preview/?cms_id=${savedId}`} target="_blank" rel="noreferrer" style={{ color: accentDeep }}>Vista previa →</a>
             </p>
           )}
         </div>

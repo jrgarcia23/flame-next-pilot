@@ -57,10 +57,18 @@ export async function listAllCmsPosts(): Promise<CmsPost[]> {
   return (data || []) as CmsPost[];
 }
 
-/** Solo posts publicados — para el reader público con cache. */
+/** Solo posts publicados con date <= ahora — para el reader público.
+ * Los posts con status="published" y date futuro se consideran "programados":
+ * existen en la tabla pero no salen al público hasta que pase su fecha.
+ */
 export async function listPublishedCmsPosts(): Promise<CmsPost[]> {
   const db = createSupabaseAdminClient();
-  const { data, error } = await db.from(TABLE).select("*").eq("status", "published").order("date", { ascending: false });
+  const nowIso = new Date().toISOString();
+  const { data, error } = await db.from(TABLE)
+    .select("*")
+    .eq("status", "published")
+    .lte("date", nowIso)
+    .order("date", { ascending: false });
   if (error) {
     console.error("[cms-posts] listPublishedCmsPosts error:", error.message);
     return [];

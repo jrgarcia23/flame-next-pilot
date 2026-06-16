@@ -2,23 +2,24 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
-import ContentSubnav from "@/components/admin/ContentSubnav";
 import { adminGetAllPosts, type BlogPost } from "@/lib/blog";
 import { listAllCmsPosts, type CmsPost } from "@/lib/cms-posts";
-import PromoteToCmsButton from "@/components/admin/PromoteToCmsButton";
 
 export const dynamic = "force-dynamic";
 
 const PER_PAGE = 50;
 
 type Filter = {
-  lang?: string;       // es | en | all
-  status?: string;     // published | draft | all
-  category?: string;   // any slug | all
-  source?: string;     // cms | legacy | all
+  tab?: string;
+  lang?: string;
+  status?: string;
+  category?: string;
+  source?: string;
   search?: string;
   page?: string;
 };
+
+type DerivedStatus = "published" | "draft" | "scheduled";
 
 type Row = {
   source: "cms" | "legacy";
@@ -31,16 +32,49 @@ type Row = {
   excerpt: string;
   html: string;
   date: string;
-  status: "published" | "draft";
+  status: DerivedStatus;
   category: { slug: string; name: string };
 };
 
-function normalizeStatus(s?: string): "published" | "draft" {
-  if (s === "draft" || s === "pending" || s === "private") return "draft";
+// 4 pestañas principales que pidió JR. Cada una agrupa todas las categorías
+// equivalentes (ES y EN, sub-secciones).
+const TABS: { key: string; label: string; categories: string[] }[] = [
+  {
+    key: "blog",
+    label: "Blog",
+    categories: ["blog", "tips-retail", "tips", "consejos", "corporate", "corporativo", "retail-blog"],
+  },
+  {
+    key: "webinar",
+    label: "Webinar",
+    categories: ["webinars"],
+  },
+  {
+    key: "entrevistas",
+    label: "Entrevistas",
+    categories: ["entrevistas", "interviews", "retail-entrevistas"],
+  },
+  {
+    key: "casos-de-exito",
+    label: "Casos de éxito",
+    categories: ["casos-de-exito", "case-studies", "retail-case-studies", "shopping-malls-case-studies", "retail-casos", "shopping-malls"],
+  },
+];
+
+function deriveStatus(p: CmsPost | BlogPost, isCms: boolean, now: Date): DerivedStatus {
+  if (isCms) {
+    const cms = p as CmsPost;
+    if (cms.status === "draft") return "draft";
+    const d = new Date(cms.date);
+    if (cms.status === "published" && d > now) return "scheduled";
+    return "published";
+  }
+  const st = (p as { status?: string }).status;
+  if (st === "draft" || st === "pending" || st === "private") return "draft";
   return "published";
 }
 
-function legacyToRow(p: BlogPost): Row {
+function legacyToRow(p: BlogPost, now: Date): Row {
   return {
     source: "legacy",
     id: p.id,
@@ -51,12 +85,12 @@ function legacyToRow(p: BlogPost): Row {
     excerpt: p.excerpt || "",
     html: p.html || "",
     date: p.date,
-    status: normalizeStatus((p as { status?: string }).status),
+    status: deriveStatus(p, false, now),
     category: p.category,
   };
 }
 
-function cmsToRow(p: CmsPost): Row {
+function cmsToRow(p: CmsPost, now: Date): Row {
   return {
     source: "cms",
     cms_id: p.id,
@@ -68,7 +102,7 @@ function cmsToRow(p: CmsPost): Row {
     excerpt: p.excerpt || "",
     html: p.html || "",
     date: p.date,
-    status: p.status,
+    status: deriveStatus(p, true, now),
     category: { slug: p.category_slug, name: p.category_name },
   };
 }
@@ -81,26 +115,52 @@ const card: React.CSSProperties = { background: "#fff", border: "1px solid rgba(
 const inp: React.CSSProperties = { padding: "8px 12px", borderRadius: 6, border: "1px solid rgba(15,23,42,0.1)", background: "#fff", fontSize: 13, outline: "none", fontFamily: "inherit" };
 const btn: React.CSSProperties = { padding: "6px 12px", borderRadius: 6, fontSize: 12, border: "1px solid rgba(15,23,42,0.16)", background: "#fff", cursor: "pointer", color: "#15163A", textDecoration: "none", display: "inline-block" };
 
+const STATUS_COLOR: Record<DerivedStatus, string> = {
+  published: "#10b981",
+  draft: "#f59e0b",
+  scheduled: "#1E89C7",
+};
+const STATUS_LABEL: Record<DerivedStatus, string> = {
+  published: "publicado",
+  draft: "borrador",
+  scheduled: "programado",
+};
+
 export default async function ContentAdminPage({ searchParams }: { searchParams: Promise<Filter> }) {
   const sp = await searchParams;
   const email = await getCurrentUserEmail();
   if (!email || !isEmailAllowed(email)) redirect(`/admin/login/?next=${encodeURIComponent("/admin/content/")}`);
 
   // ---- Cargar fuentes: legacy (blog.json) + CMS (Supabase) ----
+  const now = new Date();
   const [legacyPosts, cmsPosts] = await Promise.all([
     Promise.resolve(adminGetAllPosts()),
     listAllCmsPosts().catch(() => [] as CmsPost[]),
   ]);
 
   // Mergear: si un (lang, slug) está en CMS, ese gana sobre el legacy
-  const cmsRows = cmsPosts.map(cmsToRow);
+  const cmsRows = cmsPosts.map(p => cmsToRow(p, now));
   const cmsKeys = new Set(cmsRows.map(r => `${r.lang}::${r.slug}`));
-  const legacyRows = legacyPosts.map(legacyToRow).filter(r => !cmsKeys.has(`${r.lang}::${r.slug}`));
+  const legacyRows = legacyPosts.map(p => legacyToRow(p, now)).filter(r => !cmsKeys.has(`${r.lang}::${r.slug}`));
   const all: Row[] = [...cmsRows, ...legacyRows];
 
-  // ---- Cómputo de filtros disponibles ----
+  // ---- Filtros ----
+  const tab = sp.tab || "all";
+  const lang = sp.lang || "all";
+  const status = sp.status || "all";
+  const category = sp.category || "all";
+  const source = sp.source || "all";
+  const search = (sp.search || "").trim().toLowerCase();
+  const page = Math.max(1, parseInt(sp.page || "1"));
+
+  // Mapa de la pestaña activa a su set de categorías
+  const tabDef = TABS.find(t => t.key === tab) || null;
+  const tabCategories = tabDef ? new Set(tabDef.categories) : null;
+
+  // Categorías disponibles dentro del scope actual de pestaña
   const catSet = new Map<string, { name: string; count: number }>();
   for (const p of all) {
+    if (tabCategories && !tabCategories.has(p.category?.slug || "blog")) continue;
     const slug = p.category?.slug || "blog";
     const name = p.category?.name || "Blog";
     const cur = catSet.get(slug) || { name, count: 0 };
@@ -109,15 +169,8 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   }
   const categories = [...catSet.entries()].map(([s, v]) => ({ slug: s, name: v.name, count: v.count })).sort((a, b) => b.count - a.count);
 
-  // ---- Aplicar filtros ----
-  const lang = sp.lang || "all";
-  const status = sp.status || "all";
-  const category = sp.category || "all";
-  const source = sp.source || "all";
-  const search = (sp.search || "").trim().toLowerCase();
-  const page = Math.max(1, parseInt(sp.page || "1"));
-
   let filtered = all;
+  if (tabCategories) filtered = filtered.filter(p => tabCategories.has(p.category?.slug || "blog"));
   if (lang !== "all") filtered = filtered.filter(p => p.lang === lang);
   if (status !== "all") filtered = filtered.filter(p => p.status === status);
   if (category !== "all") filtered = filtered.filter(p => (p.category?.slug || "blog") === category);
@@ -134,16 +187,22 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   const from = (page - 1) * PER_PAGE;
   const rows = filtered.slice(from, from + PER_PAGE);
 
-  // ---- Stats globales (sobre TODO, no sobre filtrado) ----
+  // ---- Stats sobre TODOS los posts (no respeta tab/filtros para que JR los vea siempre) ----
   const stats = {
     total: all.length,
     es_pub: all.filter(p => p.lang === "es" && p.status === "published").length,
-    es_draft: all.filter(p => p.lang === "es" && p.status === "draft").length,
+    es_draft: all.filter(p => p.lang === "es" && (p.status === "draft" || p.status === "scheduled")).length,
     en_pub: all.filter(p => p.lang === "en" && p.status === "published").length,
-    en_draft: all.filter(p => p.lang === "en" && p.status === "draft").length,
-    cms: all.filter(p => p.source === "cms").length,
-    legacy: all.filter(p => p.source === "legacy").length,
+    en_draft: all.filter(p => p.lang === "en" && (p.status === "draft" || p.status === "scheduled")).length,
+    scheduled: all.filter(p => p.status === "scheduled").length,
   };
+
+  // Contador por pestaña — útil en el chip de la tab
+  const tabCounts: Record<string, number> = { all: all.length };
+  for (const t of TABS) {
+    const set = new Set(t.categories);
+    tabCounts[t.key] = all.filter(p => set.has(p.category?.slug || "blog")).length;
+  }
 
   function mkHref(overrides: Partial<Filter>): string {
     const next = { ...sp, ...overrides };
@@ -156,27 +215,42 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} active="content-media" />
-      <ContentSubnav active="posts" />
+      <AdminTopbar email={email} active="content" />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "28px 32px" }}>
-        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 20 }}>
+        <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 18 }}>
           <div>
             <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Contenidos</h1>
-            <p style={{ fontSize: 12, color: "#6E7488", margin: "4px 0 0" }}>{stats.total.toLocaleString()} posts totales · {stats.cms} editables en el CMS · {stats.legacy} legacy promocionables</p>
+            <p style={{ fontSize: 12, color: "#6E7488", margin: "4px 0 0" }}>
+              {stats.total.toLocaleString()} posts totales{stats.scheduled > 0 ? ` · ${stats.scheduled} programados` : ""}
+            </p>
           </div>
           <Link href="/admin/posts/new/" style={{ ...btn, background: "#31B1F8", color: "#fff", border: "none", fontWeight: 600, padding: "10px 18px", fontSize: 13 }}>+ Crear nuevo</Link>
+        </div>
+
+        {/* 4 pestañas principales + Todos */}
+        <div style={{ display: "flex", gap: 4, marginBottom: 18, borderBottom: "1px solid rgba(15,23,42,0.08)", flexWrap: "wrap" }}>
+          <Link href={mkHref({ tab: "", page: "", category: "" })} style={tabStyle(tab === "all")}>
+            Todos <span style={tabCount(tab === "all")}>{tabCounts.all.toLocaleString()}</span>
+          </Link>
+          {TABS.map(t => (
+            <Link key={t.key} href={mkHref({ tab: t.key, page: "", category: "" })} style={tabStyle(tab === t.key)}>
+              {t.label} <span style={tabCount(tab === t.key)}>{(tabCounts[t.key] || 0).toLocaleString()}</span>
+            </Link>
+          ))}
         </div>
 
         {/* Stats por idioma + estado */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12, marginBottom: 20 }}>
           <Stat label="ES publicados" value={stats.es_pub} href={mkHref({ lang: "es", status: "published", page: "" })} color="#10b981" />
-          <Stat label="ES drafts" value={stats.es_draft} href={mkHref({ lang: "es", status: "draft", page: "" })} color="#f59e0b" />
+          <Stat label="ES drafts / progr." value={stats.es_draft} href={mkHref({ lang: "es", status: "draft", page: "" })} color="#f59e0b" />
           <Stat label="EN publicados" value={stats.en_pub} href={mkHref({ lang: "en", status: "published", page: "" })} color="#10b981" />
-          <Stat label="EN drafts" value={stats.en_draft} href={mkHref({ lang: "en", status: "draft", page: "" })} color="#f59e0b" />
+          <Stat label="EN drafts / progr." value={stats.en_draft} href={mkHref({ lang: "en", status: "draft", page: "" })} color="#f59e0b" />
         </div>
 
-        {/* Filtros */}
+        {/* Filtros secundarios */}
         <form method="get" style={{ ...card, marginBottom: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
+          {/* Preserva la pestaña activa en el form */}
+          <input type="hidden" name="tab" value={tab} />
           <input name="search" placeholder="Buscar slug o título…" defaultValue={sp.search || ""} style={{ ...inp, flex: 1, minWidth: 220 }} />
           <select name="lang" defaultValue={lang} style={inp}>
             <option value="all">Todos los idiomas</option>
@@ -186,7 +260,8 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
           <select name="status" defaultValue={status} style={inp}>
             <option value="all">Todos los estados</option>
             <option value="published">Publicados</option>
-            <option value="draft">Drafts</option>
+            <option value="draft">Borradores</option>
+            <option value="scheduled">Programados</option>
           </select>
           <select name="category" defaultValue={category} style={inp}>
             <option value="all">Todas las categorías</option>
@@ -201,7 +276,7 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
           </select>
           <button type="submit" style={{ ...btn, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Filtrar</button>
           {(lang !== "all" || status !== "all" || category !== "all" || source !== "all" || search) && (
-            <Link href="/admin/content/" style={{ ...btn, fontSize: 12 }}>Limpiar</Link>
+            <Link href={mkHref({ lang: "", status: "", category: "", source: "", search: "", page: "" })} style={{ ...btn, fontSize: 12 }}>Limpiar</Link>
           )}
         </form>
 
@@ -231,20 +306,28 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
             </thead>
             <tbody>
               {rows.map((p) => {
-                const st = p.status;
-                const stColor = st === "published" ? "#10b981" : "#f59e0b";
+                const stColor = STATUS_COLOR[p.status];
                 const srcColor = p.source === "cms" ? "#1E89C7" : "#6E7488";
+                const publicUrl = `/${p.lang}/${p.slug}/`;
+                const previewHref = p.source === "cms"
+                  ? `/admin/preview/?cms_id=${p.cms_id}`
+                  : `/admin/preview/?lang=${p.lang}&slug=${p.slug}&type=${p.type}`;
+                const editHref = p.source === "cms"
+                  ? `/admin/posts/${p.cms_id}/`
+                  : `/admin/posts/from-legacy/?lang=${p.lang}&slug=${p.slug}&type=${p.type}`;
+                const titleTarget = p.status === "published" ? publicUrl : previewHref;
+                const titleNewTab = p.status === "published";
                 return (
                   <tr key={`${p.source}/${p.lang}/${p.slug}`} style={{ borderTop: "1px solid rgba(15,23,42,0.04)" }}>
                     <td style={td}>
-                      <span style={{ fontSize: 11, padding: "2px 8px", background: `${stColor}22`, color: stColor, borderRadius: 999, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{st}</span>
+                      <span style={{ fontSize: 11, padding: "2px 8px", background: `${stColor}22`, color: stColor, borderRadius: 999, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{STATUS_LABEL[p.status]}</span>
                     </td>
                     <td style={td}>
                       <span style={{ fontSize: 11, padding: "2px 6px", background: "#F6F7FB", borderRadius: 4, fontWeight: 600 }}>{p.lang.toUpperCase()}</span>
                     </td>
                     <td style={{ ...td, maxWidth: 460 }}>
-                      <div style={{ fontWeight: 600, color: "#15163A", marginBottom: 2, lineHeight: 1.3 }} dangerouslySetInnerHTML={{ __html: p.title || "(sin título)" }} />
-                      <div style={{ fontSize: 11, color: "#6E7488" }}>/{p.lang}/{p.slug}</div>
+                      <a href={titleTarget} target={titleNewTab ? "_blank" : undefined} rel={titleNewTab ? "noreferrer" : undefined} style={{ fontWeight: 600, color: "#15163A", marginBottom: 2, lineHeight: 1.3, textDecoration: "none", display: "block" }} dangerouslySetInnerHTML={{ __html: p.title || "(sin título)" }} />
+                      <div style={{ fontSize: 11, color: "#6E7488" }}>/{p.lang}/{p.slug}{titleNewTab ? " ↗" : ""}</div>
                       {p.excerpt && <div style={{ fontSize: 11, color: "#94A3B8", marginTop: 4 }}>{summarize(p.excerpt, 100)}</div>}
                     </td>
                     <td style={td}>
@@ -258,14 +341,8 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
                     </td>
                     <td style={{ ...td, whiteSpace: "nowrap" }}>
                       <div style={{ display: "flex", gap: 6 }}>
-                        {st === "published" && (
-                          <a href={`/${p.lang}/${p.slug}/`} target="_blank" rel="noreferrer" style={{ ...btn, fontSize: 11 }}>Ver</a>
-                        )}
-                        {p.source === "cms" && p.cms_id ? (
-                          <Link href={`/admin/posts/${p.cms_id}/`} style={{ ...btn, fontSize: 11, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Editar</Link>
-                        ) : (
-                          <PromoteToCmsButton lang={p.lang} slug={p.slug} type={p.type} label="Editar" style={{ background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }} />
-                        )}
+                        <Link href={previewHref} style={{ ...btn, fontSize: 11 }}>Ver</Link>
+                        <Link href={editHref} style={{ ...btn, fontSize: 11, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Editar</Link>
                       </div>
                     </td>
                   </tr>
@@ -298,6 +375,31 @@ function Stat({ label, value, href, color }: { label: string; value: number; hre
       <div style={{ fontSize: 11, color: "#6E7488", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 4 }}>{label}</div>
     </Link>
   );
+}
+
+function tabStyle(active: boolean): React.CSSProperties {
+  return {
+    fontSize: 13,
+    padding: "10px 16px",
+    fontWeight: active ? 600 : 500,
+    color: active ? "#15163A" : "#6E7488",
+    textDecoration: "none",
+    borderBottom: active ? "2px solid #31B1F8" : "2px solid transparent",
+    marginBottom: -1,
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+  };
+}
+function tabCount(active: boolean): React.CSSProperties {
+  return {
+    fontSize: 11,
+    padding: "1px 7px",
+    borderRadius: 999,
+    background: active ? "#31B1F8" : "#F6F7FB",
+    color: active ? "#fff" : "#6E7488",
+    fontWeight: 600,
+  };
 }
 
 const th: React.CSSProperties = { padding: "10px 14px", textAlign: "left", fontSize: 11, fontWeight: 600, color: "#6E7488", textTransform: "uppercase", letterSpacing: "0.06em" };
