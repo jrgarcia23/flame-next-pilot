@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import { upsertCmsPost } from "@/lib/cms-posts";
-import { categoryNameFor, CMS_CATEGORIES, slugify } from "@/lib/cms-categories";
+import { CMS_CATEGORIES, slugFor, nameFor, keyFromAnySlug, slugify } from "@/lib/cms-categories";
 import { invalidateCmsCache } from "@/lib/blog-cms-merge";
 
 export const runtime = "nodejs";
@@ -17,6 +17,10 @@ type SaveBody = {
   html?: string;
   hero?: string;
   thumbnail?: string;
+  /** El editor envía la key canónica (blog / webinar / entrevista / caso-exito).
+   *  El servidor decide el slug WP final según el idioma. */
+  category_key?: string;
+  /** Compat retro: si el cliente envía un slug WP suelto, lo aceptamos también. */
   category_slug?: string;
   status?: string;
   date?: string;
@@ -39,13 +43,22 @@ export async function POST(req: NextRequest) {
   const title = (body.title || "").trim();
   const html = (body.html || "").trim();
   const status = body.status === "published" ? "published" : "draft";
-  const category_slug = (body.category_slug || "").trim();
 
   if (!title) return NextResponse.json({ ok: false, error: "El título es obligatorio" }, { status: 400 });
   if (!html) return NextResponse.json({ ok: false, error: "El contenido está vacío" }, { status: 400 });
-  if (!category_slug || !CMS_CATEGORIES.find(c => c.slug === category_slug)) {
+
+  // Resolver categoría: aceptamos category_key (formato nuevo) o category_slug
+  // (compatibilidad con código previo / posts heredados).
+  const rawKey = (body.category_key || "").trim();
+  const rawSlugCompat = (body.category_slug || "").trim();
+  const categoryKey = rawKey
+    ? rawKey
+    : (rawSlugCompat ? keyFromAnySlug(rawSlugCompat) : "");
+  if (!categoryKey || !CMS_CATEGORIES.find(c => c.key === categoryKey)) {
     return NextResponse.json({ ok: false, error: "Categoría no válida" }, { status: 400 });
   }
+  const finalSlug = slugFor(categoryKey, lang);
+  const finalName = nameFor(categoryKey, lang);
 
   const slug = body.slug && body.slug.trim() ? slugify(body.slug) : slugify(title);
   if (!slug) return NextResponse.json({ ok: false, error: "Slug vacío" }, { status: 400 });
@@ -60,8 +73,8 @@ export async function POST(req: NextRequest) {
     date: body.date,
     hero: body.hero || "",
     thumbnail: body.thumbnail || body.hero || "",
-    category_slug,
-    category_name: categoryNameFor(category_slug, lang),
+    category_slug: finalSlug,
+    category_name: finalName,
     status,
     actor_email: email,
   });
@@ -77,8 +90,8 @@ export async function POST(req: NextRequest) {
   invalidateCmsCache();
   try {
     revalidatePath(`/${lang}/${slug}/`);
-    revalidatePath(`/${lang}/categoria/${category_slug}/`);
-    if (lang === "en") revalidatePath(`/${lang}/category/${category_slug}/`);
+    revalidatePath(`/${lang}/categoria/${finalSlug}/`);
+    if (lang === "en") revalidatePath(`/${lang}/category/${finalSlug}/`);
     revalidatePath(`/${lang}/`);
     revalidatePath("/admin/posts/");
   } catch {

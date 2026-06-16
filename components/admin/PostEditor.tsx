@@ -6,7 +6,7 @@ import StarterKit from "@tiptap/starter-kit";
 import Link from "@tiptap/extension-link";
 import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
-import { CMS_CATEGORIES, slugify } from "@/lib/cms-categories";
+import { CMS_CATEGORIES, keyFromAnySlug, slugify } from "@/lib/cms-categories";
 import MediaPickerModal from "@/components/admin/MediaPickerModal";
 
 type SavedPost = {
@@ -84,7 +84,7 @@ export default function PostEditor({ initial }: Props) {
   const [slug, setSlug] = useState(initial?.slug || "");
   const [slugLocked, setSlugLocked] = useState(!!initial?.id);
   const [excerpt, setExcerpt] = useState(initial?.excerpt || "");
-  const [category, setCategory] = useState(initial?.category_slug || "blog");
+  const [categoryKey, setCategoryKey] = useState<string>(initial?.category_slug ? keyFromAnySlug(initial.category_slug) : "blog");
   const [hero, setHero] = useState(initial?.hero || "");
   const [thumbnail, setThumbnail] = useState(initial?.thumbnail || "");
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
@@ -130,7 +130,7 @@ export default function PostEditor({ initial }: Props) {
   }, [title, slugLocked]);
 
   // marcar dirty al cambiar campos
-  useEffect(() => { dirtyRef.current = true; }, [title, slug, excerpt, category, hero, thumbnail, lang]);
+  useEffect(() => { dirtyRef.current = true; }, [title, slug, excerpt, categoryKey, hero, thumbnail, lang]);
 
   const uploadImage = useCallback(async (file: File, folder = "cms"): Promise<string | null> => {
     const fd = new FormData();
@@ -186,7 +186,7 @@ export default function PostEditor({ initial }: Props) {
       lang, title, slug, excerpt,
       html: editor.getHTML(),
       hero, thumbnail,
-      category_slug: category,
+      category_key: categoryKey,
     };
     if (mode === "draft") {
       base.status = "draft";
@@ -199,7 +199,7 @@ export default function PostEditor({ initial }: Props) {
       if (iso) base.date = iso;
     }
     return base;
-  }, [editor, savedId, lang, title, slug, excerpt, hero, thumbnail, category]);
+  }, [editor, savedId, lang, title, slug, excerpt, hero, thumbnail, categoryKey]);
 
   const saveCore = useCallback(async (mode: PublishMode, scheduled: string): Promise<SavedPost | null> => {
     const payload = buildPayload(mode, scheduled);
@@ -449,9 +449,9 @@ export default function PostEditor({ initial }: Props) {
 
         <div style={card}>
           <label style={{ fontSize: 11, color: ink3, textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 600 }}>Categoría</label>
-          <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ ...inp, marginTop: 6 }}>
+          <select value={categoryKey} onChange={(e) => setCategoryKey(e.target.value)} style={{ ...inp, marginTop: 6 }}>
             {CMS_CATEGORIES.map(c => (
-              <option key={c.slug} value={c.slug}>{lang === "es" ? c.name_es : c.name_en} ({c.slug})</option>
+              <option key={c.key} value={c.key}>{lang === "es" ? c.name_es : c.name_en}</option>
             ))}
           </select>
         </div>

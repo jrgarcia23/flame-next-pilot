@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import { getCmsPostById, upsertCmsPost } from "@/lib/cms-posts";
-import { categoryNameFor } from "@/lib/cms-categories";
+import { keyFromAnySlug, slugFor, nameFor } from "@/lib/cms-categories";
 import { invalidateCmsCache } from "@/lib/blog-cms-merge";
 
 export const runtime = "nodejs";
@@ -63,6 +63,11 @@ async function tryInsertWithRetry(opts: {
   const { source, target_lang, actor_email } = opts;
   if (!source) return { ok: false, error: "source missing" };
 
+  // Resolver categoría en el idioma destino (usa el slug canónico equivalente).
+  const catKey = keyFromAnySlug(source.category_slug);
+  const targetCategorySlug = slugFor(catKey, target_lang);
+  const targetCategoryName = nameFor(catKey, target_lang);
+
   for (let n = 0; n < 6; n++) {
     const slug = n === 0 ? opts.base : `${opts.base}-${n + 1}`;
     const res = await upsertCmsPost({
@@ -73,8 +78,8 @@ async function tryInsertWithRetry(opts: {
       html: source.html,
       hero: source.hero,
       thumbnail: source.thumbnail,
-      category_slug: source.category_slug,
-      category_name: categoryNameFor(source.category_slug, target_lang),
+      category_slug: targetCategorySlug,
+      category_name: targetCategoryName,
       status: "draft",
       type: source.type,
       actor_email,
