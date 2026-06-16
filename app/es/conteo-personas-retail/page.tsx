@@ -99,7 +99,7 @@ const DEPARTMENTS: Department[] = [
 ];
 
 const WHY_FLAME = [
-  { icon: "eye",      title: "Precisión real del 99 %",          desc: "Algoritmo de IA propio entrenado durante 12 años con +500 instalaciones." },
+  { icon: "eye",      title: "Precisión real del 99 %",          desc: "Algoritmo de visión por computador propio, validado en condiciones reales de tiendas y red retail." },
   { icon: "users",    title: "Sin biometría",                     desc: "Cumplimiento GDPR de serie. No almacenamos rasgos faciales ni identidades." },
   { icon: "grid",     title: "Compatible con tu CCTV",            desc: "Aprovecha las cámaras que ya tienes instaladas en cada tienda." },
   { icon: "trending", title: "Operativo en 7 días",               desc: "Despliegue remoto en toda la red. Sin obra ni visita técnica." },
@@ -326,7 +326,7 @@ export default function ConteoPersonasRetail() {
               Por qué elegir <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
-              12 años desarrollando analítica para retail físico. La plataforma que cadenas con cientos de tiendas usan a diario para decidir con dato real.
+              Plataforma de analítica retail en la que confían cadenas y marcas con presencia internacional para decidir plantilla, horarios y conversión con dato real.
             </p>
           </div>
           <div className="grid gap-5 why-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>

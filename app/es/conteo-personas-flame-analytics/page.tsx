@@ -107,7 +107,7 @@ const DEPARTMENTS: Department[] = [
 ];
 
 const WHY_FLAME = [
-  { icon: "eye",      title: "Precisión real del 99 %",  desc: "Algoritmo de IA propio entrenado durante 12 años con +500 instalaciones." },
+  { icon: "eye",      title: "Precisión real del 99 %",  desc: "Algoritmo de visión por computador propio, validado en condiciones reales de espacios físicos." },
   { icon: "users",    title: "Sin biometría",             desc: "Cumplimiento GDPR de serie. No almacenamos rasgos faciales ni identidades." },
   { icon: "grid",     title: "Compatible con tu CCTV",    desc: "Aprovecha las cámaras que ya tienes instaladas. Sin proyecto de hardware." },
   { icon: "trending", title: "Operativo en 7 días",       desc: "Despliegue remoto en toda la red. Sin obra ni visita técnica." },
@@ -373,7 +373,7 @@ export default function ConteoPersonasFlameAnalytics() {
               Por qué elegir <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Flame</span>
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
-              12 años desarrollando analítica para espacios físicos. La plataforma que cientos de marcas usan a diario para decidir con dato real.
+              Plataforma de analítica para espacios físicos en la que confían marcas del retail, centros comerciales, hostelería y espacios públicos para decidir con dato real.
             </p>
           </div>
           <div className="grid gap-5 why-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
