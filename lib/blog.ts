@@ -86,13 +86,14 @@ export function adminGetPostByKey(type: string, lang: Lang, slug: string): BlogP
 // El merge prioriza el CMS: si un (lang, slug) existe en ambas, gana el CMS.
 
 export async function getPostAsync(slug: string, lang: Lang): Promise<BlogPost | null> {
-  const { getCmsPostBySlugCached, isCmsSlugClaimed } = await import("@/lib/blog-cms-merge");
-  // 1) Si hay un post CMS publicado → ese gana
+  const { getCmsPostBySlugCached } = await import("@/lib/blog-cms-merge");
+  // Si hay un post CMS publicado para ese slug, gana sobre el legacy.
+  // Si solo hay un CMS draft (sin published), igualmente cae al legacy: editar un
+  // post desde el editor NO debe despublicarlo nunca por error. Si en algún
+  // momento quieres ocultar un legacy, marca su status como draft directamente
+  // en blog.json o pásalo a published vacío en CMS.
   const cms = await getCmsPostBySlugCached(lang, slug);
   if (cms) return cms;
-  // 2) Si el CMS tiene una entrada para este slug (draft), oculta el legacy
-  if (await isCmsSlugClaimed(lang, slug)) return null;
-  // 3) Fallback al legacy de blog.json
   return getPost(slug, lang);
 }
 
@@ -105,11 +106,14 @@ export async function getAllPostSlugsAsync(lang: Lang): Promise<string[]> {
 }
 
 export async function getCategoryListingAsync(categorySlug: string, lang: Lang): Promise<BlogPost[]> {
-  const { getCmsPostsCached, getCmsTakenKeysCached } = await import("@/lib/blog-cms-merge");
-  const [cms, claimed] = await Promise.all([getCmsPostsCached(), getCmsTakenKeysCached()]);
+  const { getCmsPostsCached } = await import("@/lib/blog-cms-merge");
+  const cms = await getCmsPostsCached();
   const cmsInCat = cms.filter(p => p.lang === lang && p.category?.slug === categorySlug);
-  // Legacy solo si su (lang, slug) NO ha sido reclamado por el CMS en ningún estado
-  const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !claimed.has(`${p.lang}::${p.slug}`));
+  // Excluir del legacy solo los slugs que el CMS publica (no los drafts) para
+  // evitar duplicados sin ocultar legacy publicados que el editor solo está
+  // editando como borrador.
+  const publishedCmsKeys = new Set(cmsInCat.map(p => `${p.lang}::${p.slug}`));
+  const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !publishedCmsKeys.has(`${p.lang}::${p.slug}`));
   return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1));
 }
 
