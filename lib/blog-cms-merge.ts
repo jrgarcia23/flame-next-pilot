@@ -13,9 +13,11 @@
 
 import "server-only";
 import type { BlogPost } from "@/lib/blog";
-import { listPublishedCmsPosts, type CmsPost } from "@/lib/cms-posts";
+import { listAllCmsPosts, type CmsPost } from "@/lib/cms-posts";
 
-function cmsToBlogPost(p: CmsPost): BlogPost {
+type CmsRow = BlogPost & { status: "draft" | "published" };
+
+function cmsToBlogPost(p: CmsPost): CmsRow {
   return {
     id: p.id,
     slug: p.slug,
@@ -30,32 +32,43 @@ function cmsToBlogPost(p: CmsPost): BlogPost {
     thumbnail: p.thumbnail || p.hero || "",
     category: { slug: p.category_slug, name: p.category_name },
     link_legacy: "",
+    status: p.status,
   };
 }
 
 // Cache process-local de 60s para no martillar Supabase con cada request.
-// Se invalida al instante porque revalidatePath() en /api/admin/posts/save
-// fuerza re-render de las rutas, y al re-renderizar miramos si la entrada
-// del cache ha expirado (no esperamos a los 60s).
-let memo: { at: number; rows: BlogPost[] } | null = null;
+// Se invalida al instante porque /api/admin/posts/save llama a invalidateCmsCache().
+let memo: { at: number; rows: CmsRow[] } | null = null;
 const TTL_MS = 60_000;
 
-export async function getCmsPostsCached(): Promise<BlogPost[]> {
-  // En entornos sin credenciales (build local sin env, preview sin secrets),
-  // devolvemos vacío en vez de petar el render.
+async function getCmsRowsCached(): Promise<CmsRow[]> {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
     return [];
   }
   const now = Date.now();
   if (memo && now - memo.at < TTL_MS) return memo.rows;
   try {
-    const rows = (await listPublishedCmsPosts()).map(cmsToBlogPost);
+    const rows = (await listAllCmsPosts()).map(cmsToBlogPost);
     memo = { at: now, rows };
     return rows;
   } catch (err) {
-    console.error("[blog-cms-merge] getCmsPostsCached error:", err instanceof Error ? err.message : err);
+    console.error("[blog-cms-merge] getCmsRowsCached error:", err instanceof Error ? err.message : err);
     return memo?.rows || [];
   }
+}
+
+/** Devuelve sólo los publicados, sin la columna status. Para el reader público. */
+export async function getCmsPostsCached(): Promise<BlogPost[]> {
+  const rows = await getCmsRowsCached();
+  return rows.filter(r => r.status === "published").map(({ status: _s, ...rest }) => rest);
+}
+
+/** Set "{lang}::{slug}" para TODAS las entradas del CMS (draft + published).
+ * Sirve para "tapar" un legacy que ha sido promovido al CMS, aunque esté en draft.
+ */
+export async function getCmsTakenKeysCached(): Promise<Set<string>> {
+  const rows = await getCmsRowsCached();
+  return new Set(rows.map(r => `${r.lang}::${r.slug}`));
 }
 
 export function invalidateCmsCache() {
@@ -65,4 +78,9 @@ export function invalidateCmsCache() {
 export async function getCmsPostBySlugCached(lang: "es" | "en", slug: string): Promise<BlogPost | null> {
   const all = await getCmsPostsCached();
   return all.find(p => p.lang === lang && p.slug === slug) || null;
+}
+
+export async function isCmsSlugClaimed(lang: "es" | "en", slug: string): Promise<boolean> {
+  const keys = await getCmsTakenKeysCached();
+  return keys.has(`${lang}::${slug}`);
 }

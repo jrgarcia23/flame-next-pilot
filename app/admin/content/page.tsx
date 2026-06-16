@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
 import { adminGetAllPosts } from "@/lib/blog";
+import PromoteToCmsButton from "@/components/admin/PromoteToCmsButton";
 
 export const dynamic = "force-dynamic";
 
@@ -181,16 +182,7 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
                         {st === "published" && (
                           <a href={`/${p.lang}/${p.slug}/`} target="_blank" rel="noreferrer" style={{ ...btn, fontSize: 11 }}>Ver</a>
                         )}
-                        <form action="/api/admin/content/toggle-status" method="post" style={{ margin: 0 }}>
-                          <input type="hidden" name="id" value={p.id} />
-                          <input type="hidden" name="lang" value={p.lang} />
-                          <input type="hidden" name="slug" value={p.slug} />
-                          <input type="hidden" name="next_status" value={st === "published" ? "draft" : "published"} />
-                          <input type="hidden" name="back" value={mkHref({ page: String(page) })} />
-                          <button type="submit" style={{ ...btn, fontSize: 11, background: st === "published" ? "#fff" : "#10b981", color: st === "published" ? "#15163A" : "#fff", border: st === "published" ? "1px solid rgba(15,23,42,0.16)" : "none", fontWeight: st === "published" ? 400 : 600 }}>
-                            {st === "published" ? "Despublicar" : "Publicar"}
-                          </button>
-                        </form>
+                        <PromoteToCmsButton lang={p.lang} slug={p.slug} type={p.type} label="Editar" style={{ background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }} />
                       </div>
                     </td>
                   </tr>

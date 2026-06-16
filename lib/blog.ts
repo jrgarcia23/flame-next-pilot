@@ -86,9 +86,13 @@ export function adminGetPostByKey(type: string, lang: Lang, slug: string): BlogP
 // El merge prioriza el CMS: si un (lang, slug) existe en ambas, gana el CMS.
 
 export async function getPostAsync(slug: string, lang: Lang): Promise<BlogPost | null> {
-  const { getCmsPostBySlugCached } = await import("@/lib/blog-cms-merge");
+  const { getCmsPostBySlugCached, isCmsSlugClaimed } = await import("@/lib/blog-cms-merge");
+  // 1) Si hay un post CMS publicado → ese gana
   const cms = await getCmsPostBySlugCached(lang, slug);
   if (cms) return cms;
+  // 2) Si el CMS tiene una entrada para este slug (draft), oculta el legacy
+  if (await isCmsSlugClaimed(lang, slug)) return null;
+  // 3) Fallback al legacy de blog.json
   return getPost(slug, lang);
 }
 
@@ -101,11 +105,11 @@ export async function getAllPostSlugsAsync(lang: Lang): Promise<string[]> {
 }
 
 export async function getCategoryListingAsync(categorySlug: string, lang: Lang): Promise<BlogPost[]> {
-  const { getCmsPostsCached } = await import("@/lib/blog-cms-merge");
-  const cms = await getCmsPostsCached();
+  const { getCmsPostsCached, getCmsTakenKeysCached } = await import("@/lib/blog-cms-merge");
+  const [cms, claimed] = await Promise.all([getCmsPostsCached(), getCmsTakenKeysCached()]);
   const cmsInCat = cms.filter(p => p.lang === lang && p.category?.slug === categorySlug);
-  const cmsKeys = new Set(cmsInCat.map(p => `${p.lang}::${p.slug}`));
-  const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !cmsKeys.has(`${p.lang}::${p.slug}`));
+  // Legacy solo si su (lang, slug) NO ha sido reclamado por el CMS en ningún estado
+  const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !claimed.has(`${p.lang}::${p.slug}`));
   return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1));
 }
 
