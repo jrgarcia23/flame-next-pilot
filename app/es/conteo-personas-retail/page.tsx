@@ -99,7 +99,7 @@ const DEPARTMENTS: Department[] = [
 ];
 
 const WHY_FLAME = [
-  { icon: "eye",      title: "Precisión real del 99 %",          desc: "Algoritmo de visión por computador propio, validado en condiciones reales de tiendas y red retail." },
+  { icon: "eye",      title: "Precisión real del 99 %",          desc: "Medición fiable tienda a tienda: cambios de luz, picos de afluencia o paso múltiple no afectan al dato." },
   { icon: "users",    title: "Sin biometría",                     desc: "Cumplimiento GDPR de serie. No almacenamos rasgos faciales ni identidades." },
   { icon: "grid",     title: "Compatible con tu CCTV",            desc: "Aprovecha las cámaras que ya tienes instaladas en cada tienda." },
   { icon: "trending", title: "Operativo en 7 días",               desc: "Despliegue remoto en toda la red. Sin obra ni visita técnica." },
