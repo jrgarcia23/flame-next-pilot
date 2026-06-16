@@ -123,9 +123,25 @@ export default function RegisterForm(p: RegisterFormProps) {
       <label htmlFor="rf-sector" className="sr-only">Sector</label>
       <select id="rf-sector" style={inputStyle} name="sector" defaultValue="" required>
         <option value="" disabled>Sector</option>
-        <option>Centros comerciales</option>
-        <option>Retail</option>
-        <option>Otros</option>
+        {p.privacyHref.startsWith("/en/") ? (
+          <>
+            <option>Retail</option>
+            <option>Shopping malls</option>
+            <option>Hotels</option>
+            <option>Public venues</option>
+            <option>Banking</option>
+            <option>Other</option>
+          </>
+        ) : (
+          <>
+            <option>Retail</option>
+            <option>Centros comerciales</option>
+            <option>Hotelería</option>
+            <option>Espacios públicos</option>
+            <option>Banca</option>
+            <option>Otro</option>
+          </>
+        )}
       </select>
       {!p.topicName && p.topicOptions && p.topicOptions.length > 0 && (
         <>
