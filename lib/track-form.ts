@@ -9,17 +9,16 @@
 
 export type FormType = "demo" | "contact" | "partners" | "event" | "webinar";
 
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+// `window.gtag` ya viene declarado en components/GoogleAnalytics.tsx — no lo
+// re-declaramos aquí para no chocar con `All declarations of 'gtag' must have
+// identical modifiers`.
 
 export function trackFormSubmit(formType: FormType, lang: "es" | "en" = "es"): void {
   if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") return;
+  const w = window as unknown as { gtag?: (...args: unknown[]) => void };
+  if (typeof w.gtag !== "function") return;
   try {
-    window.gtag("event", "generate_lead", {
+    w.gtag("event", "generate_lead", {
       form_type: formType,
       page_path: window.location.pathname,
       page_location: window.location.href,
