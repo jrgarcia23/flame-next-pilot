@@ -225,8 +225,12 @@ export default function InterviewPostTemplate({ post }: { post: BlogPost }) {
           .post-body h4 { font-family: var(--font-body) !important; font-weight: 700; color: var(--color-accent-deep) !important; font-size: clamp(15px, 1.2vw, 16.5px) !important; text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
           .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
           .post-body a.auto-link { text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
-          .post-body ul, .post-body ol { margin: 0 0 22px 24px; }
-          .post-body li { margin-bottom: 10px; font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
+          /* Tailwind preflight pone list-style:none por defecto. Lo restauramos. */
+          .post-body ul { list-style: disc outside !important; margin: 0 0 22px 26px; padding-left: 0; }
+          .post-body ol { list-style: decimal outside !important; margin: 0 0 22px 26px; padding-left: 0; }
+          .post-body ul ul { list-style: circle outside !important; }
+          .post-body li { display: list-item; margin-bottom: 10px; padding-left: 6px; font-size: 19px !important; line-height: 1.65 !important; font-family: var(--font-body) !important; }
+          .post-body li::marker { color: var(--color-accent-deep); font-weight: 600; }
           .post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
           .post-body figure { margin: 32px 0; }
           .post-body figcaption { font-size: 14px; font-style: italic; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }

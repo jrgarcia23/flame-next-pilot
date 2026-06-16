@@ -380,8 +380,14 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .post-body a:hover { color: var(--color-accent); }
           .post-body a.auto-link { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(49,177,248,.5); text-decoration-thickness: 1.5px; }
           .post-body a.auto-link:hover { color: var(--color-accent); text-decoration-color: var(--color-accent); }
-          .post-body ul, .post-body ol { margin: 0 0 22px 24px; }
-          .post-body li { margin-bottom: 10px; }
+          /* Tailwind preflight pone list-style:none por defecto. Lo restauramos
+             explícitamente para que aparezcan bullets y números en los posts. */
+          .post-body ul { list-style: disc outside !important; margin: 0 0 22px 26px; padding-left: 0; }
+          .post-body ol { list-style: decimal outside !important; margin: 0 0 22px 26px; padding-left: 0; }
+          .post-body ul ul { list-style: circle outside !important; }
+          .post-body ul ul ul { list-style: square outside !important; }
+          .post-body li { display: list-item; margin-bottom: 10px; padding-left: 6px; }
+          .post-body li::marker { color: var(--color-accent-deep); font-weight: 600; }
           .post-body img { max-width: 100%; height: auto; border-radius: 12px; margin: 24px 0; }
           .post-body figure { margin: 32px 0; }
           .post-body figcaption { font-size: 14px; font-style: italic; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }

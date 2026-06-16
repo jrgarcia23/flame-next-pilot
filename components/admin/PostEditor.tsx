@@ -520,8 +520,11 @@ export default function PostEditor({ initial }: Props) {
         .ProseMirror h3 { font-family: var(--font-display); font-weight: 500; color: ${navy}; font-size: 21px; letter-spacing: -0.015em; line-height: 1.22; margin: 22px 0 10px; }
         .ProseMirror strong { color: ${navy}; font-weight: 600; }
         .ProseMirror a { color: ${accentDeep}; text-decoration: underline; text-underline-offset: 3px; }
-        .ProseMirror ul, .ProseMirror ol { margin: 0 0 14px 22px; }
-        .ProseMirror li { margin-bottom: 6px; }
+        .ProseMirror ul { list-style: disc outside !important; margin: 0 0 14px 24px; padding-left: 0; }
+        .ProseMirror ol { list-style: decimal outside !important; margin: 0 0 14px 24px; padding-left: 0; }
+        .ProseMirror ul ul { list-style: circle outside !important; }
+        .ProseMirror li { display: list-item; margin-bottom: 6px; padding-left: 4px; }
+        .ProseMirror li::marker { color: ${accentDeep}; font-weight: 600; }
         .ProseMirror blockquote { margin: 24px 0; padding: 0 0 0 22px; border-left: 4px solid ${accent}; font-family: var(--font-display); font-size: 21px; font-style: italic; color: ${navy}; }
         .ProseMirror img { max-width: 100%; height: auto; border-radius: 10px; margin: 18px 0; }
         .ProseMirror p.is-editor-empty:first-child::before { content: attr(data-placeholder); float: left; color: ${ink3}; pointer-events: none; height: 0; }
