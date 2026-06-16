@@ -2,7 +2,9 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
-import { adminGetAllPosts } from "@/lib/blog";
+import ContentSubnav from "@/components/admin/ContentSubnav";
+import { adminGetAllPosts, type BlogPost } from "@/lib/blog";
+import { listAllCmsPosts, type CmsPost } from "@/lib/cms-posts";
 import PromoteToCmsButton from "@/components/admin/PromoteToCmsButton";
 
 export const dynamic = "force-dynamic";
@@ -13,13 +15,62 @@ type Filter = {
   lang?: string;       // es | en | all
   status?: string;     // published | draft | all
   category?: string;   // any slug | all
+  source?: string;     // cms | legacy | all
   search?: string;
   page?: string;
+};
+
+type Row = {
+  source: "cms" | "legacy";
+  cms_id?: number;
+  id: number;
+  slug: string;
+  lang: "es" | "en";
+  type: string;
+  title: string;
+  excerpt: string;
+  html: string;
+  date: string;
+  status: "published" | "draft";
+  category: { slug: string; name: string };
 };
 
 function normalizeStatus(s?: string): "published" | "draft" {
   if (s === "draft" || s === "pending" || s === "private") return "draft";
   return "published";
+}
+
+function legacyToRow(p: BlogPost): Row {
+  return {
+    source: "legacy",
+    id: p.id,
+    slug: p.slug,
+    lang: p.lang,
+    type: p.type,
+    title: p.title,
+    excerpt: p.excerpt || "",
+    html: p.html || "",
+    date: p.date,
+    status: normalizeStatus((p as { status?: string }).status),
+    category: p.category,
+  };
+}
+
+function cmsToRow(p: CmsPost): Row {
+  return {
+    source: "cms",
+    cms_id: p.id,
+    id: p.id,
+    slug: p.slug,
+    lang: p.lang,
+    type: p.type,
+    title: p.title,
+    excerpt: p.excerpt || "",
+    html: p.html || "",
+    date: p.date,
+    status: p.status,
+    category: { slug: p.category_slug, name: p.category_name },
+  };
 }
 
 function summarize(html: string, n = 140): string {
@@ -35,7 +86,17 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   const email = await getCurrentUserEmail();
   if (!email || !isEmailAllowed(email)) redirect(`/admin/login/?next=${encodeURIComponent("/admin/content/")}`);
 
-  const all = adminGetAllPosts();
+  // ---- Cargar fuentes: legacy (blog.json) + CMS (Supabase) ----
+  const [legacyPosts, cmsPosts] = await Promise.all([
+    Promise.resolve(adminGetAllPosts()),
+    listAllCmsPosts().catch(() => [] as CmsPost[]),
+  ]);
+
+  // Mergear: si un (lang, slug) está en CMS, ese gana sobre el legacy
+  const cmsRows = cmsPosts.map(cmsToRow);
+  const cmsKeys = new Set(cmsRows.map(r => `${r.lang}::${r.slug}`));
+  const legacyRows = legacyPosts.map(legacyToRow).filter(r => !cmsKeys.has(`${r.lang}::${r.slug}`));
+  const all: Row[] = [...cmsRows, ...legacyRows];
 
   // ---- Cómputo de filtros disponibles ----
   const catSet = new Map<string, { name: string; count: number }>();
@@ -52,13 +113,15 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   const lang = sp.lang || "all";
   const status = sp.status || "all";
   const category = sp.category || "all";
+  const source = sp.source || "all";
   const search = (sp.search || "").trim().toLowerCase();
   const page = Math.max(1, parseInt(sp.page || "1"));
 
   let filtered = all;
   if (lang !== "all") filtered = filtered.filter(p => p.lang === lang);
-  if (status !== "all") filtered = filtered.filter(p => normalizeStatus((p as { status?: string }).status) === status);
+  if (status !== "all") filtered = filtered.filter(p => p.status === status);
   if (category !== "all") filtered = filtered.filter(p => (p.category?.slug || "blog") === category);
+  if (source !== "all") filtered = filtered.filter(p => p.source === source);
   if (search) filtered = filtered.filter(p =>
     p.slug.toLowerCase().includes(search) ||
     (p.title || "").toLowerCase().includes(search)
@@ -74,10 +137,12 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
   // ---- Stats globales (sobre TODO, no sobre filtrado) ----
   const stats = {
     total: all.length,
-    es_pub: all.filter(p => p.lang === "es" && normalizeStatus((p as { status?: string }).status) === "published").length,
-    es_draft: all.filter(p => p.lang === "es" && normalizeStatus((p as { status?: string }).status) === "draft").length,
-    en_pub: all.filter(p => p.lang === "en" && normalizeStatus((p as { status?: string }).status) === "published").length,
-    en_draft: all.filter(p => p.lang === "en" && normalizeStatus((p as { status?: string }).status) === "draft").length,
+    es_pub: all.filter(p => p.lang === "es" && p.status === "published").length,
+    es_draft: all.filter(p => p.lang === "es" && p.status === "draft").length,
+    en_pub: all.filter(p => p.lang === "en" && p.status === "published").length,
+    en_draft: all.filter(p => p.lang === "en" && p.status === "draft").length,
+    cms: all.filter(p => p.source === "cms").length,
+    legacy: all.filter(p => p.source === "legacy").length,
   };
 
   function mkHref(overrides: Partial<Filter>): string {
@@ -91,11 +156,15 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} active="content" />
+      <AdminTopbar email={email} active="content-media" />
+      <ContentSubnav active="posts" />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "28px 32px" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 20 }}>
-          <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Contenido · Blog &amp; Casos</h1>
-          <span style={{ fontSize: 12, color: "#6E7488" }}>{stats.total.toLocaleString()} items totales</span>
+          <div>
+            <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Contenidos</h1>
+            <p style={{ fontSize: 12, color: "#6E7488", margin: "4px 0 0" }}>{stats.total.toLocaleString()} posts totales · {stats.cms} editables en el CMS · {stats.legacy} legacy promocionables</p>
+          </div>
+          <Link href="/admin/posts/new/" style={{ ...btn, background: "#31B1F8", color: "#fff", border: "none", fontWeight: 600, padding: "10px 18px", fontSize: 13 }}>+ Crear nuevo</Link>
         </div>
 
         {/* Stats por idioma + estado */}
@@ -125,8 +194,13 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
               <option key={c.slug} value={c.slug}>{c.name} ({c.count})</option>
             ))}
           </select>
+          <select name="source" defaultValue={source} style={inp}>
+            <option value="all">Cualquier fuente</option>
+            <option value="cms">CMS</option>
+            <option value="legacy">Legacy</option>
+          </select>
           <button type="submit" style={{ ...btn, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Filtrar</button>
-          {(lang !== "all" || status !== "all" || category !== "all" || search) && (
+          {(lang !== "all" || status !== "all" || category !== "all" || source !== "all" || search) && (
             <Link href="/admin/content/" style={{ ...btn, fontSize: 12 }}>Limpiar</Link>
           )}
         </form>
@@ -150,16 +224,18 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
                 <th style={th}>Lang</th>
                 <th style={th}>Título</th>
                 <th style={th}>Categoría</th>
+                <th style={th}>Fuente</th>
                 <th style={th}>Fecha</th>
                 <th style={th}>Acciones</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((p) => {
-                const st = normalizeStatus((p as { status?: string }).status);
+                const st = p.status;
                 const stColor = st === "published" ? "#10b981" : "#f59e0b";
+                const srcColor = p.source === "cms" ? "#1E89C7" : "#6E7488";
                 return (
-                  <tr key={`${p.type}/${p.lang}/${p.slug}`} style={{ borderTop: "1px solid rgba(15,23,42,0.04)" }}>
+                  <tr key={`${p.source}/${p.lang}/${p.slug}`} style={{ borderTop: "1px solid rgba(15,23,42,0.04)" }}>
                     <td style={td}>
                       <span style={{ fontSize: 11, padding: "2px 8px", background: `${stColor}22`, color: stColor, borderRadius: 999, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{st}</span>
                     </td>
@@ -175,6 +251,9 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
                       <span style={{ fontSize: 11, color: "#6E7488" }}>{p.category?.name || "—"}</span>
                     </td>
                     <td style={td}>
+                      <span style={{ fontSize: 10, padding: "2px 6px", background: `${srcColor}15`, color: srcColor, borderRadius: 4, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em" }}>{p.source}</span>
+                    </td>
+                    <td style={td}>
                       <span style={{ fontSize: 11, color: "#6E7488" }}>{p.date?.slice(0, 10) || "—"}</span>
                     </td>
                     <td style={{ ...td, whiteSpace: "nowrap" }}>
@@ -182,14 +261,18 @@ export default async function ContentAdminPage({ searchParams }: { searchParams:
                         {st === "published" && (
                           <a href={`/${p.lang}/${p.slug}/`} target="_blank" rel="noreferrer" style={{ ...btn, fontSize: 11 }}>Ver</a>
                         )}
-                        <PromoteToCmsButton lang={p.lang} slug={p.slug} type={p.type} label="Editar" style={{ background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }} />
+                        {p.source === "cms" && p.cms_id ? (
+                          <Link href={`/admin/posts/${p.cms_id}/`} style={{ ...btn, fontSize: 11, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Editar</Link>
+                        ) : (
+                          <PromoteToCmsButton lang={p.lang} slug={p.slug} type={p.type} label="Editar" style={{ background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }} />
+                        )}
                       </div>
                     </td>
                   </tr>
                 );
               })}
               {rows.length === 0 && (
-                <tr><td colSpan={6} style={{ ...td, textAlign: "center", padding: "40px 20px", color: "#94A3B8" }}>Sin resultados</td></tr>
+                <tr><td colSpan={7} style={{ ...td, textAlign: "center", padding: "40px 20px", color: "#94A3B8" }}>Sin resultados</td></tr>
               )}
             </tbody>
           </table>

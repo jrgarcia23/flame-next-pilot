@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
+import ContentSubnav from "@/components/admin/ContentSubnav";
 import PostEditor from "@/components/admin/PostEditor";
 import { CMS_TEMPLATES, getTemplate } from "@/lib/cms-templates";
 
@@ -31,10 +32,11 @@ export default async function NewPostPage({ searchParams }: { searchParams: Prom
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} active="posts" />
+      <AdminTopbar email={email} active="content-media" />
+      <ContentSubnav active="new" />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "28px 32px" }}>
         <div style={{ marginBottom: 20 }}>
-          <Link href="/admin/posts/" style={{ fontSize: 12, color: "#6E7488", textDecoration: "none" }}>← Listado</Link>
+          <Link href="/admin/content/" style={{ fontSize: 12, color: "#6E7488", textDecoration: "none" }}>← Listado</Link>
           <h1 style={{ fontSize: 24, fontWeight: 600, letterSpacing: "-0.02em", margin: "6px 0 0" }}>
             {tpl ? `Nuevo desde plantilla: ${lang === "es" ? tpl.label_es : tpl.label_en}` : "Nuevo post"}
           </h1>

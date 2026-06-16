@@ -2,6 +2,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
+import ContentSubnav from "@/components/admin/ContentSubnav";
 import { promises as fs } from "fs";
 import path from "path";
 
@@ -104,7 +105,8 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
 
   return (
     <div style={{ minHeight: "100vh", background: "#F6F7FB", fontFamily: '-apple-system, "Segoe UI", "Inter", sans-serif', color: "#15163A" }}>
-      <AdminTopbar email={email} active="media" />
+      <AdminTopbar email={email} active="content-media" />
+      <ContentSubnav active="media" />
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "28px 32px" }}>
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 20 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Biblioteca de imágenes</h1>
