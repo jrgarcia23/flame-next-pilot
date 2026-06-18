@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
+
+// Token para previsualizar mientras la landing está oculta. Compártelo solo
+// con quien tenga que validar. Cuando se publique la página, eliminar el gate.
+const PREVIEW_TOKEN = "jr2026";
 
 // ──────────────────────────────────────────────────────────────────────────
 // DOOH · Solución (DRAFT — NO indexable, no enlazado desde el header).
@@ -79,6 +84,8 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Auditoría gratuita del potencial DOOH de tu centro. 30 minutos.",
 };
 
-export default function DoohSolutionDraft() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/dooh/" />;
+export default async function DoohSolutionDraft({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
+  const sp = await searchParams;
+  if (sp.preview !== PREVIEW_TOKEN) notFound();
+  return <UseCaseTemplate cfg={cfg} enHref={`/en/dooh/?preview=${PREVIEW_TOKEN}`} />;
 }

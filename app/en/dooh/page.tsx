@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
+
+const PREVIEW_TOKEN = "jr2026";
 
 // ──────────────────────────────────────────────────────────────────────────
 // DOOH · Solution (DRAFT — noindex, not linked from header).
@@ -79,6 +82,8 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Free DOOH potential audit of your venue. 30 minutes.",
 };
 
-export default function DoohSolutionDraft() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/dooh/" />;
+export default async function DoohSolutionDraft({ searchParams }: { searchParams: Promise<{ preview?: string }> }) {
+  const sp = await searchParams;
+  if (sp.preview !== PREVIEW_TOKEN) notFound();
+  return <UseCaseTemplate cfg={cfg} enHref={`/en/dooh/?preview=${PREVIEW_TOKEN}`} />;
 }
