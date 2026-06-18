@@ -45,7 +45,7 @@ const cfg: UseCaseConfig = {
   metaTitle: "DOOH · Flame Analytics",
   metaDescription: "Audited DOOH audience measurement and retail media analytics.",
   heroTitle: "DOOH Measurement",
-  heroBgImage: "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png",
+  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero.png",
   heroBgPosition: "center center",
   heroSub: "Turn your digital screens into a real retail media business. Flame measures the audience walking past every screen, proves ROI to brands and delivers the reports your media kit needs to sell to premium advertisers. The same rigor digital advertising already demands, applied to the physical world.",
   heroBullets: ["90+ B2B clients", "12 countries", "On top of your cameras", "No facial recognition"],
