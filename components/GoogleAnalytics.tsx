@@ -34,6 +34,26 @@ export default function GoogleAnalytics() {
     // hace fallback a esto cuando el submit no tiene parámetros en la URL).
     persistAttributionFromURL();
 
+    // Cuando GA4 esté listo, mandar el client_id a Clarity como Custom Tag.
+    // Permite buscar en Clarity la sesión exacta de cada lead (filter:
+    // Custom Tag → ga_client_id = <valor del lead en BD>) y ver la grabación.
+    const sendClarityTag = () => {
+      try {
+        const w = window as unknown as {
+          clarity?: (cmd: string, ...args: unknown[]) => void;
+          gtag?: (cmd: string, id: string, params: Record<string, unknown>) => void;
+        };
+        if (typeof w.clarity !== "function" || typeof w.gtag !== "function") return;
+        w.gtag("get", GA_ID, "client_id", (cid: unknown) => {
+          if (typeof cid === "string" && cid && w.clarity) {
+            w.clarity("set", "ga_client_id", cid);
+          }
+        });
+      } catch { /* gtag get aún no disponible: silencioso */ }
+    };
+    // Pequeño delay para asegurar que gtag y clarity hayan cargado.
+    const tagTimer = window.setTimeout(sendClarityTag, 2000);
+
     // Si el usuario ya tenía un consent guardado, propagarlo a gtag al montar.
     const apply = (prefs: Prefs) => {
       if (typeof window.gtag !== "function") return;
@@ -55,7 +75,10 @@ export default function GoogleAnalytics() {
       if (detail) apply(detail);
     };
     window.addEventListener("flame-consent-updated", onUpdate);
-    return () => window.removeEventListener("flame-consent-updated", onUpdate);
+    return () => {
+      window.removeEventListener("flame-consent-updated", onUpdate);
+      window.clearTimeout(tagTimer);
+    };
   }, []);
 
   return (
