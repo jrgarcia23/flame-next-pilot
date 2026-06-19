@@ -44,7 +44,10 @@ export default function GoogleAnalytics() {
           gtag?: (cmd: string, id: string, params: Record<string, unknown>) => void;
         };
         if (typeof w.clarity !== "function" || typeof w.gtag !== "function") return;
-        w.gtag("get", GA_ID, "client_id", (cid: unknown) => {
+        // gtag('get') tiene firma variadic (4 args) — castear a relaxed type
+        // para evitar TS2554 contra el tipo de window.gtag declarado en globals.
+        const gtagAny = w.gtag as unknown as (...args: unknown[]) => void;
+        gtagAny("get", GA_ID, "client_id", (cid: unknown) => {
           if (typeof cid === "string" && cid && w.clarity) {
             w.clarity("set", "ga_client_id", cid);
           }
