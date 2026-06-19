@@ -1,5 +1,12 @@
 // Helper para capturar UTMs, referrer, ga_client_id y demás contexto del lead.
 // Llamar desde un Client Component justo antes de POSTear al endpoint.
+//
+// IMPORTANTE: Hace fallback a lib/attribution.ts (localStorage) cuando la URL
+// del submit no tiene gclid/utm_* — necesario porque la mayoría de leads de
+// Ads aterrizan en una LP, navegan, y rellenan el form en otra página. Sin
+// este fallback, todos los leads de Ads aparecen como "referral interno".
+
+import { getStoredAttribution } from "./attribution";
 
 export type LeadContext = {
   pagina: string;
@@ -43,14 +50,20 @@ export function getLeadContext(paginaOverride?: string): LeadContext {
   const get = (k: string) => params.get(k) || "";
   const referrer = document.referrer || "";
 
-  const utm_source   = get("utm_source");
-  const utm_medium   = get("utm_medium");
-  const utm_campaign = get("utm_campaign");
-  const utm_term     = get("utm_term");
-  const utm_content  = get("utm_content");
-  const gclid        = get("gclid");
-  const fbclid       = get("fbclid");
-  const msclkid      = get("msclkid");
+  // Fallback al localStorage cuando URL no trae nada (lead llegó por Ads y
+  // navegó antes de rellenar el form). Persistido por persistAttributionFromURL().
+  const stored = getStoredAttribution();
+  const fb = (urlVal: string, key: keyof NonNullable<typeof stored>) =>
+    urlVal || (stored ? String(stored[key] || "") : "");
+
+  const utm_source   = fb(get("utm_source"),   "utm_source");
+  const utm_medium   = fb(get("utm_medium"),   "utm_medium");
+  const utm_campaign = fb(get("utm_campaign"), "utm_campaign");
+  const utm_term     = fb(get("utm_term"),     "utm_term");
+  const utm_content  = fb(get("utm_content"),  "utm_content");
+  const gclid        = fb(get("gclid"),        "gclid");
+  const fbclid       = fb(get("fbclid"),       "fbclid");
+  const msclkid      = fb(get("msclkid"),      "msclkid");
 
   let source = utm_source;
   let medium = utm_medium;

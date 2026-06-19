@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect } from "react";
+import { persistAttributionFromURL } from "@/lib/attribution";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-SF7P1Q5BV2";
 const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || "AW-11095510705";
@@ -27,6 +28,11 @@ declare global {
 export default function GoogleAnalytics() {
   useEffect(() => {
     if (typeof window === "undefined") return;
+
+    // Persistir gclid/UTMs del URL en localStorage para no perder atribución
+    // si el visitante navega antes de rellenar el form (lib/lead-context.ts
+    // hace fallback a esto cuando el submit no tiene parámetros en la URL).
+    persistAttributionFromURL();
 
     // Si el usuario ya tenía un consent guardado, propagarlo a gtag al montar.
     const apply = (prefs: Prefs) => {
