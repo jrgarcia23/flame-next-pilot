@@ -145,10 +145,6 @@ export default function ConteoPersonasFlameAnalytics() {
         <div className="flame-container relative z-10">
           <div className="hero-cp-grid" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "start" }}>
             <div>
-              <span className="inline-flex items-center gap-2 mb-5" style={{ padding: "6px 14px", borderRadius: 999, background: "rgb(49 177 248 / 0.18)", color: "var(--color-accent)", fontSize: 13, fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase" }}>
-                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--color-accent)", boxShadow: "0 0 0 4px rgb(49 177 248 / 0.25)" }} />
-                Conteo de personas con IA
-              </span>
               <h1 className="text-[clamp(40px,5.2vw,64px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
                 Conteo de personas
               </h1>
