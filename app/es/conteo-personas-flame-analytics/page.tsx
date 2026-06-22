@@ -127,9 +127,9 @@ export default function ConteoPersonasFlameAnalytics() {
       <CtaStyles />
       <SiteHeader enHref="/en/people-counting/" currentLang={currentLang} />
 
-      {/* HERO + LOGOS */}
+      {/* HERO con FORM en el primer pliegue + LOGOS */}
       <section
-        className="relative overflow-hidden"
+        className="relative overflow-hidden hero-cp"
         style={{
           background: "var(--color-navy)",
           color: "white",
@@ -141,33 +141,49 @@ export default function ConteoPersonasFlameAnalytics() {
           paddingBottom: "clamp(20px, 2.4vw, 32px)",
         }}
       >
-        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, var(--color-navy) 0%, rgb(21 22 58 / 0.92) 38%, rgb(21 22 58 / 0.5) 65%, rgb(21 22 58 / 0.2) 100%)" }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, var(--color-navy) 0%, rgb(21 22 58 / 0.92) 42%, rgb(21 22 58 / 0.78) 100%)" }} />
         <div className="flame-container relative z-10">
-          <div style={{ maxWidth: 680 }}>
-            <h1 className="text-[clamp(40px,5.2vw,64px)] font-normal mb-6" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
-              Conteo de personas
-            </h1>
-            <p className="text-[clamp(17px,1.35vw,19px)] leading-[1.55] mb-8" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "62ch", fontFamily: "var(--font-body)" }}>
-              Flame mide con precisión el flujo de visitantes en cualquier espacio físico y lo cruza con tu operación y ventas. Diseñado para retail, centros comerciales y espacios públicos que quieren entender qué pasa en cada ubicación, no en la media.
-            </p>
-            <ul className="grid gap-3 mb-9 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
-              {HERO_BULLETS.map((b) => (
-                <li key={b} className="inline-flex items-center gap-2.5 text-[16px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
-                  <span className="inline-flex items-center justify-center rounded-full" style={{ width: 24, height: 24, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
-                    <Icon name="check" className="w-4 h-4" />
-                  </span>
-                  {b}
-                </li>
-              ))}
-            </ul>
-            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              {t.requestDemo}
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
+          <div className="hero-cp-grid" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "start" }}>
+            <div>
+              <span className="inline-flex items-center gap-2 mb-5" style={{ padding: "6px 14px", borderRadius: 999, background: "rgb(49 177 248 / 0.18)", color: "var(--color-accent)", fontSize: 13, fontWeight: 600, letterSpacing: "0.02em", textTransform: "uppercase" }}>
+                <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--color-accent)", boxShadow: "0 0 0 4px rgb(49 177 248 / 0.25)" }} />
+                Conteo de personas con IA
+              </span>
+              <h1 className="text-[clamp(38px,4.8vw,58px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
+                Sabe cuánta gente entra en tu espacio. Y qué hacer con ese dato.
+              </h1>
+              <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.55] mb-7" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "52ch", fontFamily: "var(--font-body)" }}>
+                Precisión 99 %, sin biometría y compatible con las cámaras CCTV que ya tienes. Operativo en 7 días.
+              </p>
+              <ul className="grid gap-3 mb-7 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
+                {HERO_BULLETS.map((b) => (
+                  <li key={b} className="inline-flex items-center gap-2.5 text-[15px]" style={{ color: "rgb(255 255 255 / 0.92)" }}>
+                    <span className="inline-flex items-center justify-center rounded-full" style={{ width: 22, height: 22, background: "rgb(49 177 248 / 0.2)", color: "var(--color-accent)", flexShrink: 0 }}>
+                      <Icon name="check" className="w-3.5 h-3.5" />
+                    </span>
+                    {b}
+                  </li>
+                ))}
+              </ul>
+              <a href={t.contactHref} className="cta-btn cta-btn--lg hero-cta-mobile" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                Pedir demo gratuita
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+
+            <div className="hero-form-card" style={{ background: "#fff", borderRadius: 16, padding: "28px 28px 24px", boxShadow: "0 24px 60px -20px rgb(0 0 0 / 0.45), 0 8px 20px -12px rgb(0 0 0 / 0.25)", color: "var(--color-navy)" }}>
+              <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 22, lineHeight: 1.2, color: "var(--color-navy)", margin: "0 0 6px", letterSpacing: "-0.01em" }}>
+                Demo personalizada en 20 min
+              </h2>
+              <p style={{ fontSize: 14, color: "var(--color-ink-2)", lineHeight: 1.5, margin: "0 0 18px" }}>
+                Te enseñamos cómo se ven tus tiendas con datos reales. Sin compromiso.
+              </p>
+              <DemoFormInline lang={currentLang} variant="demo" gridClass="hero-form-grid" />
+            </div>
           </div>
         </div>
-        <div className="relative z-10 mt-28 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
-          <p className="text-center mb-3 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
+        <div className="relative z-10 mt-16 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
+          <p className="text-center mb-3 text-[clamp(14px,1.1vw,16px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
             {t.logosBanner}
           </p>
           <div className="logo-marquee">
@@ -182,11 +198,51 @@ export default function ConteoPersonasFlameAnalytics() {
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; }
           .logo-track:hover { animation-play-state: paused; }
-          .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
+          .logo-img { height: 64px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
-          @media (max-width: 700px) { .logo-img { height: 65px; } .hero-bullets { grid-template-columns: 1fr !important; } }
+          .hero-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+          .hero-form-grid .col-span-2 { grid-column: span 2 / span 2; }
+          .hero-form-card .cf-in { min-height: 46px; padding: 11px 14px; font-size: 14.5px; }
+          .hero-form-card textarea.cf-in { min-height: 80px; }
+          .hero-form-card button[type="submit"] { width: 100%; padding: 13px 22px; font-size: 15px; }
+          /* Ocultamos el CTA del hero solo en desktop: el form ya está visible al lado */
+          .hero-cta-mobile { display: none !important; }
+          @media (max-width: 980px) {
+            .hero-cp-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+            .hero-form-card { padding: 22px 20px 18px !important; }
+            .hero-cta-mobile { display: inline-flex !important; }
+            /* En mobile, escondemos el form del hero y dejamos solo el CTA → ancla al #contact abajo */
+            .hero-form-card { display: none; }
+          }
+          @media (max-width: 700px) { .logo-img { height: 52px; } .hero-bullets { grid-template-columns: 1fr !important; } }
+          @media (max-width: 480px) {
+            .hero-form-grid { grid-template-columns: 1fr !important; }
+            .hero-form-grid .col-span-2 { grid-column: span 1 / span 1 !important; }
+          }
         `}</style>
       </section>
+
+      {/* CTA flotante mobile — visible cuando el hero ha salido */}
+      <a
+        href={t.contactHref}
+        className="mobile-cta-float cta-btn"
+        style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}
+      >
+        Pedir demo
+        <Icon name="arrow" className="w-4 h-4" />
+      </a>
+      <style>{`
+        .mobile-cta-float {
+          position: fixed; left: 16px; right: 16px; bottom: 16px;
+          display: none; justify-content: center; align-items: center;
+          font-size: 16px; padding: 14px 22px; border-radius: 8px;
+          z-index: 50;
+          box-shadow: 0 14px 32px -10px rgb(15 23 42 / 0.45);
+        }
+        @media (max-width: 980px) {
+          .mobile-cta-float { display: inline-flex; }
+        }
+      `}</style>
 
       {/* BENEFICIOS */}
       <section className="py-24" style={{ background: "#fff" }}>
@@ -214,8 +270,6 @@ export default function ConteoPersonasFlameAnalytics() {
         <style>{`
           @media (max-width: 1100px) { .b-grid { grid-template-columns: repeat(2, 1fr) !important; } }
           @media (max-width: 600px) { .b-grid { grid-template-columns: 1fr !important; } }
-          .benefit-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms, border-color 420ms, box-shadow 420ms; }
-          .benefit-card:hover { transform: translateY(-1px); background: var(--color-paper-soft) !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
         `}</style>
       </section>
 
@@ -299,7 +353,7 @@ export default function ConteoPersonasFlameAnalytics() {
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14, maxWidth: 540 }}>
               {SECTORS.map((s) => (
-                <div key={s.title} style={{ display: "flex", gap: 18, alignItems: "flex-start", padding: "18px 20px", background: "var(--color-paper)", border: "1px solid var(--color-rule)", borderRadius: 14, transition: "border-color .25s, background .25s" }}>
+                <div key={s.title} style={{ display: "flex", gap: 18, alignItems: "flex-start", padding: "18px 20px", background: "var(--color-paper)", border: "1px solid var(--color-rule)", borderRadius: 14 }}>
                   <span style={{ width: 40, height: 40, borderRadius: 10, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <Icon name={s.icon} className="w-5 h-5" />
                   </span>
@@ -309,6 +363,10 @@ export default function ConteoPersonasFlameAnalytics() {
                   </div>
                 </div>
               ))}
+              <a href={t.contactHref} className="cta-btn cta-btn--md" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, alignSelf: "flex-start", marginTop: 4 }}>
+                Pedir demo para mi sector
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
             </div>
           </div>
 
@@ -387,12 +445,16 @@ export default function ConteoPersonasFlameAnalytics() {
               </article>
             ))}
           </div>
+          <div className="mt-12 flex justify-center">
+            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+              Pedir demo gratuita
+              <Icon name="arrow" className="w-4 h-4" />
+            </a>
+          </div>
         </div>
         <style>{`
           @media (max-width: 1000px) { .why-grid { grid-template-columns: repeat(2, 1fr) !important; } }
           @media (max-width: 560px) { .why-grid { grid-template-columns: 1fr !important; } }
-          .why-card { transition: transform 420ms, background 420ms, border-color 420ms; }
-          .why-card:hover { transform: translateY(-1px); background: rgb(255 255 255 / 0.07) !important; border-color: rgb(255 255 255 / 0.16) !important; }
         `}</style>
       </section>
 
