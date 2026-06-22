@@ -149,11 +149,11 @@ export default function ConteoPersonasFlameAnalytics() {
                 <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--color-accent)", boxShadow: "0 0 0 4px rgb(49 177 248 / 0.25)" }} />
                 Conteo de personas con IA
               </span>
-              <h1 className="text-[clamp(38px,4.8vw,58px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
-                Sabe cuánta gente entra en tu espacio. Y qué hacer con ese dato.
+              <h1 className="text-[clamp(40px,5.2vw,64px)] font-normal mb-5" style={{ color: "#fff", letterSpacing: "-0.022em", lineHeight: 1.06, fontFamily: "var(--font-display)" }}>
+                Conteo de personas
               </h1>
-              <p className="text-[clamp(16px,1.25vw,18px)] leading-[1.55] mb-7" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "52ch", fontFamily: "var(--font-body)" }}>
-                Precisión 99 %, sin biometría y compatible con las cámaras CCTV que ya tienes. Operativo en 7 días.
+              <p className="text-[clamp(17px,1.35vw,19px)] leading-[1.55] mb-7" style={{ color: "rgb(255 255 255 / 0.82)", maxWidth: "56ch", fontFamily: "var(--font-body)" }}>
+                Mide con precisión cuánta gente entra en tu espacio físico y cruza el dato con tus ventas, plantilla y campañas. Sin biometría, con las cámaras CCTV que ya tienes.
               </p>
               <ul className="grid gap-3 mb-7 hero-bullets" style={{ gridTemplateColumns: "repeat(2, minmax(0, max-content))" }}>
                 {HERO_BULLETS.map((b) => (
