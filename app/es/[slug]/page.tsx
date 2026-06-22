@@ -5,7 +5,7 @@ import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate"
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
-import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
+import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 
 // Permitir slugs no presentes en blog.json (posts nuevos del CMS): Next los renderiza
@@ -54,12 +54,14 @@ export default async function PostEs({ params }: { params: Promise<{ slug: strin
   // Posts especiales con maquetación Elementor preservada (flame-talks-2026, etc.)
   const elementor = getElementorContent(slug);
 
-  // Schemas mínimos para post: BlogPosting + Breadcrumb. FAQ no aplica aquí
-  // (vive en páginas servicio vía SectorTemplate/ProductTemplate o embedida en el HTML).
+  // Schemas: BlogPosting + Breadcrumb siempre. FAQPage si el HTML del post
+  // contiene 3+ pares <details><summary>...</summary>...</details>.
   const schemas: unknown[] = [
     blogPostingSchema(post, "es"),
     breadcrumbSchema(postBreadcrumb(post, "es")),
   ];
+  const faqPage = faqSchemaFromHtml(post.html);
+  if (faqPage) schemas.push(faqPage);
 
   return (
     <>

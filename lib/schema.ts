@@ -137,3 +137,30 @@ export function faqSchema(faq: FaqBlock) {
 export function serializeSchemas(schemas: unknown[]): string {
   return schemas.map((s) => JSON.stringify(s)).join("\n");
 }
+
+// Extrae FAQs de un HTML que use <details><summary>...</summary>...</details>
+// Si encuentra 3+ pares válidos, devuelve un FAQPage schema; si no, null.
+export function faqSchemaFromHtml(html: string): unknown | null {
+  const detailsRx = /<details\b[^>]*>([\s\S]*?)<\/details>/gi;
+  const items: { q: string; a: string }[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = detailsRx.exec(html)) !== null) {
+    const inner = m[1];
+    const summary = inner.match(/<summary\b[^>]*>([\s\S]*?)<\/summary>/i);
+    if (!summary) continue;
+    const q = STRIP_HTML(summary[1]);
+    const rest = inner.replace(summary[0], "");
+    const a = STRIP_HTML(rest);
+    if (q && a) items.push({ q, a });
+  }
+  if (items.length < 3) return null;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
+}

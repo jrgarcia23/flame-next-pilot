@@ -5,7 +5,7 @@ import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate"
 import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
-import { blogPostingSchema, breadcrumbSchema, postBreadcrumb } from "@/lib/schema";
+import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 
 export const dynamicParams = true;
@@ -62,6 +62,8 @@ export default async function PostEn({ params }: { params: Promise<{ slug: strin
     blogPostingSchema(post, "en"),
     breadcrumbSchema(postBreadcrumb(post, "en")),
   ];
+  const faqPage = faqSchemaFromHtml(post.html);
+  if (faqPage) schemas.push(faqPage);
 
   return (
     <>
