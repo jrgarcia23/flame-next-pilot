@@ -68,23 +68,35 @@ export function getLeadContext(paginaOverride?: string): LeadContext {
   let source = utm_source;
   let medium = utm_medium;
   const campaign = utm_campaign;
+  // Detectar referrer interno (mismo host que la página actual) — no aporta info real.
+  const ownHost = typeof window !== "undefined" ? window.location.hostname.replace(/^www\./, "") : "";
+  let refHost = "";
+  let refIsInternal = false;
+  if (referrer) {
+    try {
+      const r = new URL(referrer);
+      refHost = r.hostname.replace(/^www\./, "");
+      refIsInternal = !!ownHost && refHost === ownHost;
+    } catch { /* referrer malformado */ }
+  }
+
   if (!source) {
     if (gclid) { source = "google"; }
     else if (fbclid) { source = "facebook"; }
     else if (msclkid) { source = "bing"; }
-    else if (referrer) {
-      try {
-        const r = new URL(referrer);
-        const host = r.hostname.replace(/^www\./, "");
-        source = host.split(".")[0] || "(direct)";
-      } catch { source = "(direct)"; }
+    else if (refHost && !refIsInternal) {
+      // Para referrals externos guardamos el host completo (no solo "google" o "facebook"),
+      // así distinguimos chatgpt.com, perplexity.ai, linkedin.com, etc.
+      source = refHost;
     } else {
-      source = "(direct)";
+      // Referrer interno o sin referrer → desconocido / direct
+      source = referrer ? "(unknown)" : "(direct)";
     }
   }
   if (!medium) {
     if (gclid || fbclid || msclkid) medium = "cpc";
-    else if (referrer) medium = "referral";
+    else if (refHost && !refIsInternal) medium = "referral";
+    else if (refIsInternal) medium = "(unknown)";
     else medium = "(none)";
   }
 
