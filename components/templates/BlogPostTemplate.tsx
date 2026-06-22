@@ -441,6 +441,19 @@ export default function BlogPostTemplate({ post }: { post: BlogPost }) {
           .end-cta-title { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 30px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
           .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0; max-width: 58ch; }
 
+          /* FAQs (<details><summary>...</summary>...</details>) — mismo lenguaje
+             que las FAQ de las páginas servicio (SectorTemplate/ProductTemplate). */
+          .post-body details { background: #fff; border: 1px solid var(--color-rule); border-radius: 16px; padding: 22px 26px; margin: 12px 0; transition: border-color 200ms, box-shadow 200ms; list-style: none; }
+          .post-body details:hover { border-color: rgba(49, 177, 248, 0.32); }
+          .post-body details[open] { border-color: rgba(49, 177, 248, 0.45); box-shadow: 0 10px 30px -18px rgba(15, 23, 42, 0.18); }
+          .post-body details > summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; cursor: pointer; list-style: none; font-family: var(--font-body) !important; font-size: 17px !important; font-weight: 600; color: var(--color-navy); line-height: 1.35; letter-spacing: -0.005em; }
+          .post-body details > summary::-webkit-details-marker { display: none; }
+          .post-body details > summary::marker { content: ""; }
+          .post-body details > summary::after { content: "+"; flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 999px; background: rgba(49, 177, 248, 0.12); color: var(--color-accent-deep); font-family: var(--font-body); font-size: 20px; font-weight: 500; line-height: 1; transition: transform 200ms, background 200ms, color 200ms; }
+          .post-body details[open] > summary::after { content: "×"; background: var(--color-accent); color: #fff; transform: rotate(0deg); }
+          .post-body details > p, .post-body details > div { margin: 14px 0 0 !important; font-size: 16px !important; line-height: 1.65 !important; color: var(--color-ink-2); }
+          .post-body details + details { margin-top: 10px; }
+
           @media (max-width: 700px) {
             .post-body { font-size: 17px !important; line-height: 1.7; }
             .post-body .toc-top ol { grid-template-columns: 1fr; gap: 10px; }
