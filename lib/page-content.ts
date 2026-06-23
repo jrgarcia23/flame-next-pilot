@@ -37,6 +37,7 @@ export const MEGA_USE_CASES: NavLeaf[] = [
 export const MEGA_INDUSTRIES: NavLeaf[] = [
   { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Más conversión y staffing dinámico en tienda." },
   { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimiza el mix de inquilinos y la afluencia." },
+  { label: "Supermercados",       href: "/es/supermercados/",                       iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Optimiza layout, operaciones y conversión por zona." },
   { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
   { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
 ];
@@ -80,6 +81,7 @@ export const MEGA_USE_CASES_EN: NavLeaf[] = [
 export const MEGA_INDUSTRIES_EN: NavLeaf[] = [
   { label: "Retail",         href: "/en/solution-for-retail-sector/",   iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "More conversion and dynamic staffing in store." },
   { label: "Shopping malls", href: "/en/solution-for-shopping-malls/",  iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimize tenant mix and footfall." },
+  { label: "Supermarkets",   href: "/en/supermarkets/",                 iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Optimise layout, operations and conversion by zone." },
   { label: "Hospitality",    href: "/en/hospitality/",                  iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Capture guest data and enrich your CRM." },
   { label: "Public venues",  href: "/en/public-venues/",                iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Intelligence for museums, transport and campuses." },
 ];
@@ -107,6 +109,7 @@ export const LOGOS: [string, string][] = [
 export const INDUSTRIES = [
   { icon: "mall",   title: "Centros comerciales", desc: "Mejora la experiencia, la rentabilidad y la toma de decisiones en todo tu centro comercial.", href: "/es/solucion-para-centros-comerciales/" },
   { icon: "retail", title: "Retail",              desc: "Impulsa el éxito del sector minorista con insights de clientes en tiempo real.",              href: "/es/solucion-para-el-sector-retail/" },
+  { icon: "retail", title: "Supermercados",       desc: "Optimiza el layout, la operación en tiempo real y la conversión en cada pasillo del supermercado.", href: "/es/supermercados/" },
   { icon: "venue",  title: "Espacios públicos",   desc: "Comprende el valor de tus espacios públicos convirtiendo los datos en acciones estratégicas.", href: "/es/espacios-publicos/" },
   { icon: "hotel",  title: "Hotelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
 ];
@@ -114,6 +117,7 @@ export const INDUSTRIES = [
 export const INDUSTRIES_EN = [
   { icon: "mall",   title: "Shopping malls",  desc: "Improve experience, profitability and decision-making across every mall in your portfolio.", href: "/en/solution-for-shopping-malls/" },
   { icon: "retail", title: "Retail",          desc: "Drive retail success with real-time customer insights.",                                       href: "/en/solution-for-retail-sector/" },
+  { icon: "retail", title: "Supermarkets",    desc: "Optimise layout, real-time operations and conversion across every aisle.",                     href: "/en/supermarkets/" },
   { icon: "venue",  title: "Public venues",   desc: "Unlock the value of your public spaces by turning data into strategic actions.",               href: "/en/public-venues/" },
   { icon: "hotel",  title: "Hospitality",     desc: "Use data-driven insight to anticipate guest needs and improve service quality.",               href: "/en/hospitality/" },
 ];
@@ -192,7 +196,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     ["Marketing WiFi invitados", "/es/marketing-wifi-para-invitados/"],
     ["Acceso WiFi corporativo", "/es/acceso-wifi-corporativo/"],
   ] },
-  { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
+  { title: "Sectores",   links: [["Retail","/es/solucion-para-el-sector-retail/"],["Centros comerciales","/es/solucion-para-centros-comerciales/"],["Supermercados","/es/supermercados/"],["Hoteles","/es/hoteles/"],["Espacios públicos","/es/espacios-publicos/"]] },
   { title: "Comunidad",  links: [["Blog","/es/categoria/blog/"],["Casos de éxito","/es/categoria/casos-de-exito/"],["Entrevistas","/es/categoria/entrevistas/"]] },
   { title: "Empresa",    links: [["Partners","/es/partners/"],["Nosotros","/es/sobre-nosotros/"],["Contacto","/es/contacta/"]] },
 ];
@@ -200,7 +204,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
 export const FOOTER_COLS_EN: { title: string; links: [string, string][] }[] = [
   { title: "Products",   links: [["Traffic","/en/traffic-insights/"],["Customer Journey","/en/customer-journey/"],["Connect","/en/connect/"],["Hypersensor","/en/hypersensor/"]] },
   { title: "Solutions",  links: [["People Counting","/en/people-counting/"],["Conversion Analytics","/en/conversion-analytics/"],["Customer Behavior","/en/customer-behavior/"],["Occupancy Management","/en/occupancy-management/"],["Queue Analytics","/en/queue-analytic/"],["Restroom Management","/en/restroom-management/"],["Guest Wifi Marketing","/en/guest-wifi-marketing/"],["Corporate Wifi Access","/en/corporate-wifi-access/"]] },
-  { title: "Industries", links: [["Retail","/en/solution-for-retail-sector/"],["Shopping malls","/en/solution-for-shopping-malls/"],["Hospitality","/en/hospitality/"],["Public venues","/en/public-venues/"]] },
+  { title: "Industries", links: [["Retail","/en/solution-for-retail-sector/"],["Shopping malls","/en/solution-for-shopping-malls/"],["Supermarkets","/en/supermarkets/"],["Hospitality","/en/hospitality/"],["Public venues","/en/public-venues/"]] },
   { title: "Community",  links: [["Blog","/en/category/blog/"],["Case studies","/en/category/case-studies/"],["Interviews","/en/category/interviews/"]] },
   { title: "Company",    links: [["Partners","/en/partners/"],["About us","/en/about-us/"],["Contact","/en/contact-us/"]] },
 ];
