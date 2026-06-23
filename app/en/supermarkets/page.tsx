@@ -130,5 +130,7 @@ const cfg: SectorConfig = {
 };
 
 export default function SupermarketsSector() {
-  return <SectorTemplate cfg={cfg} enHref="/en/supermarkets/" />;
+  // El prop "enHref" del SectorTemplate se usa como "URL del idioma alternativo".
+  // Para una página EN, debe apuntar a su par ES.
+  return <SectorTemplate cfg={cfg} enHref="/es/supermercados/" />;
 }

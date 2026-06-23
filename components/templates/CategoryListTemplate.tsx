@@ -2,6 +2,7 @@ import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { BlogPost, categoryLabel, formatDate, shortExcerpt, Lang } from "@/lib/blog";
 import { getCategoryMeta, POSTS_PER_PAGE } from "@/lib/category-meta";
 import { sanitizeTitle } from "@/lib/sanitize-title";
+import { keyFromAnySlug, slugFor } from "@/lib/cms-categories";
 
 type Props = {
   lang: Lang;
@@ -25,13 +26,22 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
   const homePath = lang === "es" ? "/es/" : "/en/";
   const communityPath = lang === "es" ? "/es/comunidad/" : "/en/community/";
 
+  // URL del idioma alternativo para el lang-switch del header.
+  // Mapea slug WP heredado → key canónica → slug correcto del otro idioma.
+  // P.ej. /en/category/case-studies/ → /es/categoria/casos-de-exito/.
+  const altLangKey = keyFromAnySlug(categorySlug);
+  const altLangSlug = slugFor(altLangKey, lang === "es" ? "en" : "es");
+  const altLangHref = lang === "es"
+    ? `/en/category/${altLangSlug}/`
+    : `/es/categoria/${altLangSlug}/`;
+
   // Helper para link a página N
   const pageHref = (n: number) => (n === 1 ? basePath : `${basePath}page/${n}/`);
 
   return (
     <>
       <CtaStyles />
-      <SiteHeader currentLang={lang} />
+      <SiteHeader currentLang={lang} enHref={altLangHref} />
 
       {/* HERO con imagen de fondo + texto alineado a la izquierda al borde del flame-container */}
       <section
