@@ -28,9 +28,17 @@ export const metadata: Metadata = {
 };
 
 const body = `
-<p><em>Placeholder — final legal copy pending from client. Replace with the official Privacy Policy approved by Flame Analytics legal team.</em></p>
-
 <p><strong>Flame Analytics S.L.</strong> (hereinafter "Flame") is the controller of the personal data collected through this website.</p>
+
+<h2>Data controller</h2>
+<ul>
+<li><strong>Legal name</strong>: Flame Analytics S.L.</li>
+<li><strong>Tax ID (CIF)</strong>: B52543691</li>
+<li><strong>Address</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias, Spain</li>
+<li><strong>Phone</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
+<li><strong>Data Protection Officer (DPO)</strong>: <a href="mailto:dpo@flameanalytics.com">dpo@flameanalytics.com</a></li>
+</ul>
 
 <h2>1. Data we collect</h2>
 <p>We collect only the personal data you voluntarily provide through forms on the site (name, email, company, role, country) and technical browsing data (IP, browser, language) processed anonymously to improve the service.</p>

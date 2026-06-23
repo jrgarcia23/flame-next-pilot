@@ -30,6 +30,15 @@ export const metadata: Metadata = {
 const body = `
 <p>Esta política explica qué son las cookies, cuáles usamos en <strong>flameanalytics.com</strong>, con qué finalidad y cómo puedes gestionarlas o desactivarlas.</p>
 
+<h2>Responsable del tratamiento</h2>
+<ul>
+<li><strong>Razón social</strong>: Flame Analytics S.L.</li>
+<li><strong>CIF</strong>: B52543691</li>
+<li><strong>Dirección</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias</li>
+<li><strong>Teléfono</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
+</ul>
+
 <h2>1. Qué son las cookies</h2>
 <p>Las cookies son pequeños archivos que se descargan en tu dispositivo al visitar un sitio web. Permiten al sitio recordar tu acción y preferencia (idioma, sesión, configuración) durante un periodo de tiempo.</p>
 

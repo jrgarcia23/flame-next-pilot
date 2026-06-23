@@ -28,9 +28,16 @@ export const metadata: Metadata = {
 };
 
 const body = `
-<p><em>Placeholder — final legal copy pending from client. Replace with the official Cookie Policy approved by Flame Analytics legal team.</em></p>
-
 <p>This Cookie Policy explains what cookies are, what types we use on flameanalytics.com, and how you can manage them.</p>
+
+<h2>Data controller</h2>
+<ul>
+<li><strong>Legal name</strong>: Flame Analytics S.L.</li>
+<li><strong>Tax ID (CIF)</strong>: B52543691</li>
+<li><strong>Address</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias, Spain</li>
+<li><strong>Phone</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
+</ul>
 
 <h2>1. What are cookies?</h2>
 <p>Cookies are small text files stored on your device when you visit a website. They serve different purposes: keeping you logged in, remembering preferences, measuring usage or showing relevant ads.</p>

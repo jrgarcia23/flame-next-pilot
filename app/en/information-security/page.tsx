@@ -28,9 +28,16 @@ export const metadata: Metadata = {
 };
 
 const body = `
-<p><em>Placeholder — final legal copy pending from client. Replace with the official Information Security Policy approved by Flame Analytics legal team.</em></p>
-
 <p>At Flame Analytics, information security is a strategic commitment. This policy describes our principles and management framework.</p>
+
+<h2>Controller</h2>
+<ul>
+<li><strong>Legal name</strong>: Flame Analytics S.L.</li>
+<li><strong>Tax ID (CIF)</strong>: B52543691</li>
+<li><strong>Address</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias, Spain</li>
+<li><strong>Phone</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:security@flameanalytics.com">security@flameanalytics.com</a></li>
+</ul>
 
 <h2>1. Scope</h2>
 <p>This policy applies to all personnel, contractors and third parties with access to information systems and data managed by Flame.</p>

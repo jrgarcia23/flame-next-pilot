@@ -31,7 +31,14 @@ const body = `
 <p>El uso de este sitio web (flameanalytics.com) implica la aceptación de las presentes condiciones por parte del usuario.</p>
 
 <h2>1. Identificación del titular</h2>
-<p><strong>Flame Analytics S.L.</strong>, con CIF B-XXXXXXXX y domicilio en Madrid, es titular del sitio web flameanalytics.com.</p>
+<p><strong>Flame Analytics S.L.</strong> es titular del sitio web flameanalytics.com. Datos de contacto:</p>
+<ul>
+<li><strong>Razón social</strong>: Flame Analytics S.L.</li>
+<li><strong>CIF</strong>: B52543691</li>
+<li><strong>Dirección</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias</li>
+<li><strong>Teléfono</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
+</ul>
 
 <h2>2. Acceso al sitio</h2>
 <p>El acceso al sitio es gratuito y libre. Algunas áreas pueden requerir registro previo. El usuario se compromete a usar el sitio de buena fe y a no realizar acciones que pongan en riesgo su funcionamiento.</p>
@@ -49,7 +56,7 @@ const body = `
 <p>Flame se reserva el derecho a modificar estas condiciones en cualquier momento. Las modificaciones serán efectivas desde su publicación.</p>
 
 <h2>7. Legislación aplicable</h2>
-<p>Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Madrid.</p>
+<p>Estas condiciones se rigen por la legislación española. Para cualquier controversia, las partes se someten a los Juzgados y Tribunales de Gijón (Asturias).</p>
 `;
 
 export default function CondicionesUsoDraft() {

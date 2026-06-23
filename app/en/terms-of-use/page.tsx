@@ -28,9 +28,16 @@ export const metadata: Metadata = {
 };
 
 const body = `
-<p><em>Placeholder — final legal copy pending from client. Replace with the official Terms of Use approved by Flame Analytics legal team.</em></p>
-
 <p>These terms govern the use of the flameanalytics.com website, owned by <strong>Flame Analytics S.L.</strong></p>
+
+<h2>Owner identification</h2>
+<ul>
+<li><strong>Legal name</strong>: Flame Analytics S.L.</li>
+<li><strong>Tax ID (CIF)</strong>: B52543691</li>
+<li><strong>Address</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias, Spain</li>
+<li><strong>Phone</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:legal@flameanalytics.com">legal@flameanalytics.com</a></li>
+</ul>
 
 <h2>1. Object</h2>
 <p>The website provides information about Flame's products, services and content. Use of the site implies full acceptance of these terms.</p>
@@ -48,7 +55,7 @@ const body = `
 <p>Flame may modify these terms at any time, publishing the updated version on this page. Continued use of the site implies acceptance of the changes.</p>
 
 <h2>6. Applicable law</h2>
-<p>These terms are governed by Spanish law. Any dispute will be submitted to the courts of Madrid.</p>
+<p>These terms are governed by Spanish law. Any dispute will be submitted to the courts of Gijón (Asturias, Spain).</p>
 
 <h2>7. Contact</h2>
 <p>For questions about these terms, write to <a href="mailto:legal@flameanalytics.com">legal@flameanalytics.com</a>.</p>

@@ -30,6 +30,15 @@ export const metadata: Metadata = {
 const body = `
 <p>Flame Analytics considera la seguridad de la información como un elemento estratégico de su actividad. Esta política establece los principios sobre los que se sustenta su <strong>Sistema de Gestión de la Seguridad de la Información (SGSI)</strong>.</p>
 
+<h2>Responsable</h2>
+<ul>
+<li><strong>Razón social</strong>: Flame Analytics S.L.</li>
+<li><strong>CIF</strong>: B52543691</li>
+<li><strong>Dirección</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias</li>
+<li><strong>Teléfono</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:security@flameanalytics.com">security@flameanalytics.com</a></li>
+</ul>
+
 <h2>1. Compromiso de la dirección</h2>
 <p>La dirección de Flame se compromete a:</p>
 <ul>

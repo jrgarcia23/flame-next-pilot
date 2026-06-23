@@ -28,7 +28,17 @@ export const metadata: Metadata = {
 };
 
 const body = `
-<p><strong>Flame Analytics S.L.</strong>, con CIF B-XXXXXXXX y domicilio en Madrid (en adelante, "Flame"), es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
+<p><strong>Flame Analytics S.L.</strong> (en adelante, "Flame") es el responsable del tratamiento de los datos personales recogidos a través de este sitio web.</p>
+
+<h2>Datos del responsable</h2>
+<ul>
+<li><strong>Razón social</strong>: Flame Analytics S.L.</li>
+<li><strong>CIF</strong>: B52543691</li>
+<li><strong>Dirección</strong>: Espacio Tecnológico Molinón, El Molinón 100, 33203 Gijón, Asturias</li>
+<li><strong>Teléfono</strong>: +34 984 19 14 05</li>
+<li><strong>Email</strong>: <a href="mailto:privacy@flameanalytics.com">privacy@flameanalytics.com</a></li>
+<li><strong>Delegado de Protección de Datos (DPO)</strong>: <a href="mailto:dpo@flameanalytics.com">dpo@flameanalytics.com</a></li>
+</ul>
 
 <h2>1. Datos que recopilamos</h2>
 <p>Recogemos únicamente los datos personales que nos proporcionas voluntariamente a través de los formularios del sitio (nombre, email, empresa, cargo, país) y datos técnicos de navegación (IP, navegador, idioma) que tratamos de forma anónima para mejorar el servicio.</p>
