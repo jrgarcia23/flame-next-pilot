@@ -39,7 +39,7 @@ const cfg: SectorConfig = {
   heroBgImage: `${CDN}/supermercados-hero.png`,
   heroBgPosition: "center center",
   heroTitle: "Data intelligence for supermarkets",
-  heroSub: "Flame combines video and a wide range of data with AI to improve decision-making and performance in every supermarket. Understand shopper behaviour in aisles and shelves, optimise day-to-day operations in real time and connect with your visitors to build relationships and loyalty.",
+  heroSub: "Flame combines video and a wide range of data with AI to improve decision-making and performance in every supermarket: understand customer behaviour, measure the performance of your spaces and connect with your visitors.",
   pillars: [
     { title: "Understand", desc: "Real customer behaviour across aisles, sections and shelves. Map journeys, detect hotspots and discover where purchase decisions happen.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Measure",    desc: "The performance of every square metre of your supermarket. Compare stores, identify high- and low-performance zones, and connect in-store behaviour with sales.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },
