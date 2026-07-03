@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flame · Chat Section — Draft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  background: #111116;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  gap: 14px;
+}
+.draft-label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.18);
+}
+
+/* ══════════════════════════════
+   SECTION — 1032 × 559 px
+   Fondo neutral, sin azul
+   ══════════════════════════════ */
+.flame-section {
+  width: 1032px;
+  height: 559px;
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+
+  /* Neutral: gris cálido oscuro sin saturación */
+  background: #1c1c22;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 32px 80px -20px rgba(0,0,0,.7);
+}
+
+/* Texture neutral — grain muy sutil */
+.flame-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Radial glow cálido y neutro, no cyan */
+  background:
+    radial-gradient(ellipse 65% 65% at 50% 115%, rgba(200,200,220,.07) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 40% at 10% 0%,   rgba(255,255,255,.04) 0%, transparent 50%),
+    radial-gradient(ellipse 35% 35% at 90% 0%,   rgba(255,255,255,.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+/* Dot grid muy discreto */
+.flame-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+/* ══════════════════════════════
+   GLASS CARD — encima del fondo
+   ══════════════════════════════ */
+.glass-card {
+  position: relative;
+  z-index: 1;
+  border-radius: 28px;
+  background: rgba(255,255,255,.04);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid rgba(255,255,255,.09);
+  box-shadow:
+    0 2px 0 rgba(255,255,255,.07) inset,
+    0 -1px 0 rgba(0,0,0,.3) inset,
+    0 24px 60px -12px rgba(0,0,0,.55);
+  padding: 18px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ══════════════════════════════
+   TABLET (iPad landscape, CSS puro)
+   ══════════════════════════════ */
+.tablet {
+  position: relative;
+  width: 780px;
+  height: 480px;
+  background: #2a2a34;
+  border-radius: 22px;
+  border: 1.5px solid rgba(255,255,255,.1);
+  box-shadow:
+    0 0 0 1px rgba(0,0,0,.6),
+    inset 0 1px 0 rgba(255,255,255,.1),
+    inset 0 -1px 0 rgba(0,0,0,.4),
+    0 20px 50px -10px rgba(0,0,0,.6);
+  overflow: visible;
+}
+
+/* Cámara frontal (izquierda en landscape) */
+.tablet::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #3a3a46;
+  border: 1px solid rgba(255,255,255,.08);
+  z-index: 2;
+}
+
+/* Botones laterales derecha (volumen + power) */
+.tablet__btns {
+  position: absolute;
+  right: -5px;
+  top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.tablet__btn {
+  width: 4px;
+  height: 28px;
+  background: #353540;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+.tablet__btn--power {
+  height: 40px;
+  top: -30px;
+  position: absolute;
+  right: -5px;
+  width: 4px;
+  background: #353540;
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* Pantalla — área de contenido */
+.tablet__screen {
+  position: absolute;
+  inset: 14px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f7f8fa;
+}
+
+/* Reflection sutil en el bisel superior */
+.tablet__glare {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, transparent 100%);
+  border-radius: 22px 22px 0 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Pie de la glass card (sombra inferior) */
+.glass-card__foot {
+  width: 200px;
+  height: 4px;
+  background: rgba(0,0,0,.35);
+  border-radius: 0 0 4px 4px;
+  filter: blur(6px);
+  margin-top: 6px;
+}
+
+/* ══════════════════════════════
+   CHAT WIDGET
+   ══════════════════════════════ */
+:root {
+  --navy:        #15163A;
+  --accent:      #31b1f8;
+  --accent-deep: #0c6fd5;
+  --ink-3:       #8896ab;
+}
+
+.fdc {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #f7f8fa;
+}
+
+.fdc__head {
+  background: var(--navy);
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.fdc__title {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,.68);
+  letter-spacing: .15px;
+}
+.fdc__status {
+  font-size: 11px;
+  color: #5fe39a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.fdc__status::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #3ddc6f;
+  display: inline-block;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow: 0 0 0 0 rgba(61,220,111,.4); }
+  55%      { box-shadow: 0 0 0 4px rgba(61,220,111,0); }
+}
+
+.fdc__body {
+  flex: 1;
+  padding: 16px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+.fdc__body::-webkit-scrollbar { width: 0; }
+
+.fdc-row { display: flex; width: 100%; }
+.fdc-row.user { justify-content: flex-end; }
+.fdc-row.bot  { justify-content: flex-start; }
+
+.fdc-bubble {
+  max-width: 65%;
+  padding: 11px 16px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--navy);
+}
+.fdc-bubble b { font-weight: 600; }
+
+.fdc-row.user .fdc-bubble {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  border-radius: 18px;
+  border-bottom-right-radius: 4px;
+  opacity: 0;
+  transform: translate(14px, 10px) scale(.96);
+  animation: fdcR .42s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.fdc-row.bot .fdc-bubble {
+  background: #fff;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 4px 14px -6px rgba(21,22,58,.16);
+  border: 1px solid rgba(21,22,58,.05);
+  opacity: 0;
+  transform: translate(-14px, 10px) scale(.96);
+  animation: fdcL .42s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes fdcR { to { opacity:1; transform:translate(0,0) scale(1); } }
+@keyframes fdcL { to { opacity:1; transform:translate(0,0) scale(1); } }
+
+.fdc-metric {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+}
+.fdc-card {
+  background: rgba(49,177,248,.09);
+  border-radius: 13px;
+  padding: 10px 13px;
+  flex: 1;
+}
+.fdc-card b {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent-deep);
+  line-height: 1.1;
+}
+.fdc-card span { font-size: 11px; color: var(--ink-3); }
+
+.fdc-funnel { margin-top: 11px; display: flex; flex-direction: column; gap: 8px; }
+.fdc-step { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--ink-3); }
+.fdc-step__lbl { min-width: 72px; }
+.fdc-bar {
+  height: 10px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+}
+.fdc-step b {
+  color: var(--navy);
+  font-weight: 600;
+  font-size: 13px;
+  min-width: 46px;
+  text-align: right;
+}
+
+.fdc-typing {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #fff;
+  padding: 12px 15px;
+  border-radius: 18px;
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 4px 14px -6px rgba(21,22,58,.16);
+  border: 1px solid rgba(21,22,58,.05);
+  width: fit-content;
+  opacity: 0;
+  animation: fdcL .35s ease forwards;
+}
+.fdc-typing span {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: #c3cdda;
+  display: inline-block;
+  animation: fdcBlink 1.3s infinite ease-in-out;
+}
+.fdc-typing span:nth-child(2) { animation-delay: .2s; }
+.fdc-typing span:nth-child(3) { animation-delay: .4s; }
+@keyframes fdcBlink {
+  0%,60%,100% { transform:translateY(0); opacity:.4; }
+  30%          { transform:translateY(-5px); opacity:1; }
+}
+
+.fdc__input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 18px;
+  background: #fff;
+  border-top: 1px solid rgba(21,22,58,.06);
+  flex-shrink: 0;
+}
+.fdc__fake { flex:1; font-size:13px; color:#9aa6b6; }
+.fdc__send {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+</style>
+</head>
+<body>
+
+<p class="draft-label">Draft preview · flameanalytics.com · no publicado</p>
+
+<!-- ══ SECTION 1032 × 559 ══ -->
+<section class="flame-section">
+
+  <!-- Glass card flotante -->
+  <div class="glass-card">
+
+    <!-- Tablet landscape -->
+    <div class="tablet">
+
+      <!-- Botones laterales -->
+      <div class="tablet__btns">
+        <div class="tablet__btn"></div>
+        <div class="tablet__btn"></div>
+      </div>
+      <div class="tablet__btn--power"></div>
+
+      <!-- Glare superior -->
+      <div class="tablet__glare"></div>
+
+      <!-- Pantalla con el chat -->
+      <div class="tablet__screen">
+        <div class="fdc">
+          <div class="fdc__head">
+            <span class="fdc__title">Pregunta a tus datos de tienda</span>
+            <span class="fdc__status">En línea</span>
+          </div>
+          <div class="fdc__body" id="chat-body"></div>
+          <div class="fdc__input">
+            <span class="fdc__fake">Escribe una pregunta sobre conversión, funnel o zonas…</span>
+            <span class="fdc__send" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                <path d="M3 12l18-9-9 18-2.5-6.5L3 12z" fill="#fff"/>
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tablet -->
+
+    <div class="glass-card__foot"></div>
+  </div>
+
+</section>
+
+<p class="draft-label">1032 × 559 px — same dimensions as Home_Dashboard.png</p>
+
+<script>
+const SCRIPT = [
+  { from:"user", text:"¿Cuál fue mi tasa de conversión esta semana?", pauseAfter:900 },
+  {
+    from:"bot", typingMs:1400,
+    text:"<b>26,4%</b> — sube <b>+3,1 pts</b> respecto a la semana pasada 📈",
+    metrics:[["26,4%","Conversión"],["41%","Captación"],["+3,1","pts vs. ant."]],
+    pauseAfter:1900,
+  },
+  { from:"user", text:"¿Dónde pierdo clientes en el funnel?", pauseAfter:900 },
+  {
+    from:"bot", typingMs:1500,
+    text:"La mayor fuga está en escaparate → entrada. Del tráfico de calle, solo entra el 26%:",
+    funnel:[
+      ["Paseantes","8.430",100],
+      ["Visitantes","2.180",62],
+      ["Interesados","1.140",38],
+      ["Compradores","576",20],
+    ],
+    pauseAfter:2300,
+  },
+  { from:"user", text:"¿Qué zona convierte mejor?", pauseAfter:900 },
+  {
+    from:"bot", typingMs:1300,
+    text:"<b>Novedades</b> lidera con un 34% de atracción y 9 min de permanencia media.",
+    metrics:[["Novedades","Top zona"],["34%","Atracción"],["9 min","Permanencia"]],
+    pauseAfter:2600,
+  },
+];
+
+const body = document.getElementById("chat-body");
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+const scroll = () => requestAnimationFrame(() => { body.scrollTop = body.scrollHeight; });
+
+function buildBubble(msg) {
+  const row = document.createElement("div");
+  row.className = `fdc-row ${msg.from}`;
+  const bubble = document.createElement("div");
+  bubble.className = "fdc-bubble";
+  bubble.innerHTML = msg.text;
+  if (msg.from === "bot" && msg.metrics) {
+    const wrap = document.createElement("div");
+    wrap.className = "fdc-metric";
+    msg.metrics.forEach(([v, l]) => {
+      const card = document.createElement("div");
+      card.className = "fdc-card";
+      card.innerHTML = `<b>${v}</b><span>${l}</span>`;
+      wrap.appendChild(card);
+    });
+    bubble.appendChild(wrap);
+  }
+  if (msg.from === "bot" && msg.funnel) {
+    const wrap = document.createElement("div");
+    wrap.className = "fdc-funnel";
+    msg.funnel.forEach(([label, val, pct]) => {
+      const step = document.createElement("div");
+      step.className = "fdc-step";
+      step.innerHTML = `<span class="fdc-step__lbl">${label}</span><span class="fdc-bar" style="width:${pct}%"></span><b>${val}</b>`;
+      wrap.appendChild(step);
+    });
+    bubble.appendChild(wrap);
+  }
+  row.appendChild(bubble);
+  return row;
+}
+
+function showTyping() {
+  const row = document.createElement("div");
+  row.className = "fdc-row bot";
+  row.innerHTML = `<div class="fdc-typing"><span></span><span></span><span></span></div>`;
+  body.appendChild(row);
+  scroll();
+  return row;
+}
+
+async function run() {
+  while (true) {
+    body.innerHTML = "";
+    await sleep(600);
+    for (const msg of SCRIPT) {
+      if (msg.from === "bot") {
+        const t = showTyping();
+        await sleep(msg.typingMs ?? 1200);
+        t.remove();
+      }
+      body.appendChild(buildBubble(msg));
+      scroll();
+      await sleep(msg.pauseAfter ?? 1000);
+    }
+    await sleep(2600);
+  }
+}
+run();
+</script>
+</body>
+</html>

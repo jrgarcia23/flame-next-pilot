@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipografía blog Flame — preview</title>
+<style>
+  /* === FUENTES OFICIALES FLAME (servidas desde public/fonts) === */
+  @font-face {
+    font-family: "Clash Grotesk Variable";
+    src: url("/fonts/ClashGrotesk-Variable.woff2") format("woff2-variations"),
+         url("/fonts/ClashGrotesk-Variable.woff2") format("woff2");
+    font-weight: 200 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Instrument Sans Flame";
+    src: url("/fonts/InstrumentSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --color-navy: #15163a;
+    --color-navy-soft: #1f2055;
+    --color-accent: #31b1f8;
+    --color-accent-deep: #1d8bca;
+    --color-paper: #f3f3f3;
+    --color-ink: #15192e;
+    --color-ink-2: #2d3349;
+    --color-ink-3: #7a7f93;
+    --color-rule: #e6e8ef;
+    --font-display: "Clash Grotesk Variable", "Clash Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-body: "Instrument Sans Flame", "Instrument Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-body); color: var(--color-ink-2); background: #fff; }
+  .flame-container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  /* CONTROLES */
+  .toolbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(21,22,58,0.96); backdrop-filter: blur(6px);
+    color: #fff; padding: 14px 24px; display: flex; gap: 16px; align-items: center;
+    font-size: 13px; font-family: var(--font-body);
+  }
+  .toolbar strong { font-weight: 600; }
+  .toolbar button {
+    background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit;
+  }
+  .toolbar button.active { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-navy); font-weight: 600; }
+  .toolbar .info { margin-left: auto; opacity: 0.8; font-size: 12px; }
+
+  /* HERO */
+  .hero {
+    background: var(--color-navy);
+    color: #fff;
+    padding: 110px 0 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.14), transparent 62%),
+                radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.08), transparent 72%);
+  }
+  .hero .flame-container { max-width: 820px; position: relative; z-index: 1; }
+  .breadcrumb { font-size: 14px; margin-bottom: 24px; color: rgb(255 255 255 / 0.6); }
+  .breadcrumb a { color: inherit; text-decoration: none; }
+  .badge { font-size: 12.5px; font-weight: 600; text-transform: uppercase; color: var(--color-accent); letter-spacing: 0.08em; font-family: var(--font-body); }
+  .meta { display: flex; align-items: center; gap: 14px; font-size: 14.5px; color: rgb(255 255 255 / 0.78); flex-wrap: wrap; font-family: var(--font-body); }
+  .meta span.sep { color: rgb(255 255 255 / 0.3); }
+
+  article { background: #fff; padding: 80px 0 96px; }
+
+  /* === DESPUÉS === */
+  .after h1.hero-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(34px, 4.4vw, 54px); letter-spacing: -0.022em; line-height: 1.1; margin: 0 0 24px; color: #fff; }
+  .after .post-body { max-width: 720px; margin: 0 auto; color: var(--color-ink); font-size: 19px; line-height: 1.65; font-family: var(--font-body); }
+  .after .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
+  .after .post-body strong { color: var(--color-ink); font-weight: 600; }
+  .after .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; }
+  .after .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(21px, 2vw, 25px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; }
+  .after .post-body h4 { font-family: var(--font-body); font-weight: 700; color: var(--color-accent-deep); font-size: clamp(15px, 1.2vw, 16.5px); text-transform: uppercase; letter-spacing: 0.06em; margin: 32px 0 10px; }
+  .after .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .after .post-body ul, .after .post-body ol { margin: 0 0 22px 24px; }
+  .after .post-body li { margin-bottom: 10px; }
+  .after .post-body figure { margin: 32px 0; }
+  .after .post-body figcaption { font-size: 14px; font-style: italic; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
+  .after .post-body blockquote { margin: 48px 0; padding: 0 0 0 32px; border-left: 4px solid var(--color-accent); font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.32; color: var(--color-navy); letter-spacing: -0.014em; font-style: italic; max-width: 34ch; }
+  .after .post-body table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: var(--font-body); font-size: 15.5px; border-top: 2px solid var(--color-navy); border-bottom: 2px solid var(--color-navy); }
+  .after .post-body thead { background: rgba(49, 177, 248, 0.06); }
+  .after .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--color-navy); text-transform: uppercase; letter-spacing: 0.06em; border-bottom: 1px solid var(--color-rule); }
+  .after .post-body td { padding: 14px 16px; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); line-height: 1.5; }
+  .after .post-body .mid-cta { margin: 48px 0; background: rgba(49, 177, 248, 0.08); border: 1px solid rgba(49, 177, 248, 0.2); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .after .post-body .mid-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin: 0 0 6px; }
+  .after .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(20px, 2vw, 24px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
+  .after .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 15px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; }
+  .after .end-cta { max-width: 720px; margin: 64px auto 0; background: var(--color-navy); border-radius: 14px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #fff; }
+  .after .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
+  .after .end-cta-title { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 30px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
+  .after .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0 0 16px 0; max-width: 58ch; }
+  .after .end-cta-btn { background: var(--color-accent); color: #fff; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-family: var(--font-body); }
+
+  /* === ANTES === */
+  .before h1.hero-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(32px, 4.4vw, 52px); letter-spacing: -0.022em; line-height: 1.1; margin: 0 0 24px; color: #fff; }
+  .before .post-body { max-width: 760px; margin: 0 auto; color: var(--color-ink); font-size: 18px; line-height: 1.75; font-family: var(--font-body); }
+  .before .post-body p { margin: 0 0 22px; color: var(--color-ink-2); }
+  .before .post-body strong { color: var(--color-ink); font-weight: 600; }
+  .before .post-body h2 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(28px, 2.8vw, 36px); letter-spacing: -0.02em; line-height: 1.15; margin: 48px 0 16px; max-width: 28ch; }
+  .before .post-body h3 { font-family: var(--font-display); font-weight: 500; color: var(--color-navy); font-size: clamp(22px, 2vw, 26px); letter-spacing: -0.015em; line-height: 1.2; margin: 36px 0 12px; max-width: 30ch; }
+  .before .post-body h4 { font-family: var(--font-display); font-weight: 600; color: var(--color-navy); font-size: 19px; margin: 28px 0 10px; }
+  .before .post-body a { color: var(--color-accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+  .before .post-body ul, .before .post-body ol { margin: 0 0 22px 24px; }
+  .before .post-body li { margin-bottom: 10px; }
+  .before .post-body figure { margin: 32px 0; }
+  .before .post-body figcaption { font-size: 13px; color: var(--color-ink-3); text-align: center; margin-top: 8px; font-family: var(--font-body); }
+  .before .post-body blockquote { margin: 48px 0; padding: 0 0 0 32px; border-left: 4px solid var(--color-accent); font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 30px); font-weight: 400; line-height: 1.32; color: var(--color-navy); letter-spacing: -0.014em; font-style: italic; max-width: 34ch; }
+  .before .post-body table { width: 100%; border-collapse: collapse; margin: 40px 0; font-family: var(--font-body); font-size: 15px; border-top: 2px solid var(--color-navy); border-bottom: 2px solid var(--color-navy); }
+  .before .post-body thead { background: rgba(49, 177, 248, 0.06); }
+  .before .post-body th { text-align: left; padding: 14px 16px; font-family: var(--font-display); font-weight: 500; font-size: 14px; color: var(--color-navy); letter-spacing: -0.005em; border-bottom: 1px solid var(--color-rule); }
+  .before .post-body td { padding: 14px 16px; border-bottom: 1px solid var(--color-rule); color: var(--color-ink-2); line-height: 1.5; }
+  .before .post-body .mid-cta { margin: 48px 0; background: rgba(49, 177, 248, 0.08); border: 1px solid rgba(49, 177, 248, 0.2); border-radius: 12px; padding: 24px 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .before .post-body .mid-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent-deep); margin: 0 0 6px; }
+  .before .post-body .mid-cta-title { font-family: var(--font-display); font-size: clamp(18px, 1.9vw, 22px); font-weight: 500; line-height: 1.25; color: var(--color-navy); letter-spacing: -0.012em; margin: 0; max-width: 30ch; }
+  .before .post-body .mid-cta-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--color-accent); color: #fff !important; font-family: var(--font-body); font-weight: 700; font-size: 14.5px; padding: 12px 22px; border-radius: 4px; text-decoration: none !important; }
+  .before .end-cta { max-width: 760px; margin: 64px auto 0; background: var(--color-navy); border-radius: 14px; padding: 32px 36px; display: flex; align-items: center; justify-content: space-between; gap: 28px; flex-wrap: wrap; color: #fff; }
+  .before .end-cta-eyebrow { font-family: var(--font-body); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700; color: var(--color-accent); margin-bottom: 10px; }
+  .before .end-cta-title { font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 28px); font-weight: 400; line-height: 1.2; color: #fff; letter-spacing: -0.014em; margin: 0 0 10px; max-width: 28ch; }
+  .before .end-cta-sub { font-family: var(--font-body); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.74); margin: 0 0 16px 0; max-width: 58ch; }
+  .before .end-cta-btn { background: var(--color-accent); color: #fff; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-family: var(--font-body); }
+
+  .end-cta-text { flex: 1; min-width: 280px; }
+
+  body.show-before .after { display: none; }
+  body:not(.show-before) .before { display: none; }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <strong>Preview tipografía blog Flame</strong>
+  <button id="btn-after" class="active">DESPUÉS (nuevo)</button>
+  <button id="btn-before">ANTES (anterior)</button>
+  <span class="info">Teclas A/B alternan · Móvil: DevTools 375px · Clash Grotesk + Instrument Sans cargados desde /fonts/</span>
+</div>
+
+<!-- ============================ DESPUÉS ============================ -->
+<section class="after">
+  <div class="hero">
+    <div class="flame-container">
+      <nav class="breadcrumb"><a href="#">Inicio</a> › <a href="#">Blog</a></nav>
+      <h1 class="hero-title">Los 10 KPIS que todo centro comercial debe medir</h1>
+      <div class="meta">
+        <a href="#" class="badge">Blog</a>
+        <span class="sep">·</span>
+        <span>15 de junio de 2026</span>
+        <span class="sep">·</span>
+        <span>⏱ 8 min</span>
+      </div>
+    </div>
+  </div>
+  <article>
+    <div class="flame-container">
+      <div class="post-body">
+        <p>Un centro comercial en España gestiona entre 30 y 200 operadores bajo el mismo techo, cada uno con sus propios objetivos, y comparte espacios comunes que afectan a todos. <strong>Sin un cuadro de mando común, las decisiones de marketing, mix de operadores, eventos y mantenimiento se toman a ciegas</strong> o con la sensación de "este mes ha venido menos gente".</p>
+
+        <p>Estos son los 10 indicadores que la <a href="#">Asociación Española de Centros y Parques Comerciales (AECC)</a> y las propias gestoras de centros como Lar España, Klépierre o URW manejan como mínimo común denominador.</p>
+
+        <h2>Fase 1: captación — ¿cuántos vienen y desde dónde?</h2>
+
+        <h3>1. Visitantes únicos al mes</h3>
+        <p>El KPI principal. No confundir con "visitas" (un mismo cliente que entra dos veces el mismo mes son 1 visitante único y 2 visitas). Benchmarks 2026 para centros comerciales medianos españoles (40 000–80 000 m² SBA):</p>
+        <ul>
+          <li>Centro sano: 600 000–1 200 000 visitantes únicos/mes</li>
+          <li>Centro en declive: caída &gt;5% interanual sostenida 6+ meses</li>
+          <li>Centro premium urbano: 1 500 000–2 500 000 (Diagonal Mar, La Maquinista)</li>
+        </ul>
+
+        <h4>Métrica complementaria</h4>
+        <p>Visitantes únicos sin filtrar por zona puede esconder un problema: tres pasillos hipercongestionados y siete vacíos dan el mismo total que un centro con tráfico uniforme. Cruzar siempre con dwell time por zona.</p>
+
+        <blockquote>El error que se repite: gestoras que compran tecnología sin definir antes qué decisiones cambiarán con esos datos.</blockquote>
+
+        <h3>2. Tasa de captación del área de influencia</h3>
+        <p>De los habitantes que viven a menos de 20 minutos en coche, ¿qué porcentaje visita el centro al menos una vez al mes? <strong>Por debajo del 25%, el centro tiene un problema de notoriedad o de propuesta.</strong></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de centro</th>
+              <th>Captación sana</th>
+              <th>Frecuencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Suburbano</td><td>30–45%</td><td>1,8–2,4 visitas/mes</td></tr>
+            <tr><td>Urbano céntrico</td><td>20–35%</td><td>1,2–1,8 visitas/mes</td></tr>
+            <tr><td>Turístico</td><td>5–15%</td><td>0,3–0,8 visitas/mes</td></tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <div style="background:linear-gradient(135deg,#15163a 0%,#31b1f8 100%);height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:18px;">imagen de ejemplo</div>
+          <figcaption>Fig. 1 — Mapa de calor de un centro comercial mostrando concentración de tráfico en pasillos principales.</figcaption>
+        </figure>
+
+        <div class="mid-cta">
+          <div>
+            <p class="mid-cta-eyebrow">¿Quieres saber más?</p>
+            <p class="mid-cta-title">Te montamos el cuadro de mando completo para tu centro</p>
+          </div>
+          <a href="#" class="mid-cta-btn">Solicitar demo →</a>
+        </div>
+
+        <h3>3. Procedencia geográfica del tráfico</h3>
+        <p>Vía geofencing o wifi-tracking se mide de qué códigos postales viene cada visitante. Ese dato cambia el plan de medios: si el 60% del tráfico viene de 3 códigos postales, la inversión publicitaria local debe concentrarse ahí.</p>
+      </div>
+
+      <aside class="end-cta">
+        <div class="end-cta-text">
+          <p class="end-cta-eyebrow">Pasamos a la acción</p>
+          <p class="end-cta-title">¿Quieres saber qué KPIs faltan en tu centro?</p>
+          <p class="end-cta-sub">Auditoría inicial gratuita en 30 minutos: identificamos las palancas con mayor retorno en los próximos 12 meses.</p>
+        </div>
+        <a href="#" class="end-cta-btn">Hablar con un experto</a>
+      </aside>
+    </div>
+  </article>
+</section>
+
+<!-- ============================ ANTES ============================ -->
+<section class="before">
+  <div class="hero">
+    <div class="flame-container">
+      <nav class="breadcrumb"><a href="#">Inicio</a> › <a href="#">Blog</a></nav>
+      <h1 class="hero-title">Los 10 KPIS que todo centro comercial debe medir</h1>
+      <div class="meta">
+        <a href="#" class="badge">Blog</a>
+        <span class="sep">·</span>
+        <span>15 de junio de 2026</span>
+        <span class="sep">·</span>
+        <span>⏱ 8 min</span>
+      </div>
+    </div>
+  </div>
+  <article>
+    <div class="flame-container">
+      <div class="post-body">
+        <p>Un centro comercial en España gestiona entre 30 y 200 operadores bajo el mismo techo, cada uno con sus propios objetivos, y comparte espacios comunes que afectan a todos. <strong>Sin un cuadro de mando común, las decisiones de marketing, mix de operadores, eventos y mantenimiento se toman a ciegas</strong> o con la sensación de "este mes ha venido menos gente".</p>
+
+        <p>Estos son los 10 indicadores que la <a href="#">Asociación Española de Centros y Parques Comerciales (AECC)</a> y las propias gestoras de centros como Lar España, Klépierre o URW manejan como mínimo común denominador.</p>
+
+        <h2>Fase 1: captación — ¿cuántos vienen y desde dónde?</h2>
+
+        <h3>1. Visitantes únicos al mes</h3>
+        <p>El KPI principal. No confundir con "visitas" (un mismo cliente que entra dos veces el mismo mes son 1 visitante único y 2 visitas). Benchmarks 2026 para centros comerciales medianos españoles (40 000–80 000 m² SBA):</p>
+        <ul>
+          <li>Centro sano: 600 000–1 200 000 visitantes únicos/mes</li>
+          <li>Centro en declive: caída &gt;5% interanual sostenida 6+ meses</li>
+          <li>Centro premium urbano: 1 500 000–2 500 000 (Diagonal Mar, La Maquinista)</li>
+        </ul>
+
+        <h4>Métrica complementaria</h4>
+        <p>Visitantes únicos sin filtrar por zona puede esconder un problema: tres pasillos hipercongestionados y siete vacíos dan el mismo total que un centro con tráfico uniforme. Cruzar siempre con dwell time por zona.</p>
+
+        <blockquote>El error que se repite: gestoras que compran tecnología sin definir antes qué decisiones cambiarán con esos datos.</blockquote>
+
+        <h3>2. Tasa de captación del área de influencia</h3>
+        <p>De los habitantes que viven a menos de 20 minutos en coche, ¿qué porcentaje visita el centro al menos una vez al mes? <strong>Por debajo del 25%, el centro tiene un problema de notoriedad o de propuesta.</strong></p>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de centro</th>
+              <th>Captación sana</th>
+              <th>Frecuencia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Suburbano</td><td>30–45%</td><td>1,8–2,4 visitas/mes</td></tr>
+            <tr><td>Urbano céntrico</td><td>20–35%</td><td>1,2–1,8 visitas/mes</td></tr>
+            <tr><td>Turístico</td><td>5–15%</td><td>0,3–0,8 visitas/mes</td></tr>
+          </tbody>
+        </table>
+
+        <figure>
+          <div style="background:linear-gradient(135deg,#15163a 0%,#31b1f8 100%);height:200px;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:18px;">imagen de ejemplo</div>
+          <figcaption>Fig. 1 — Mapa de calor de un centro comercial mostrando concentración de tráfico en pasillos principales.</figcaption>
+        </figure>
+
+        <div class="mid-cta">
+          <div>
+            <p class="mid-cta-eyebrow">¿Quieres saber más?</p>
+            <p class="mid-cta-title">Te montamos el cuadro de mando completo para tu centro</p>
+          </div>
+          <a href="#" class="mid-cta-btn">Solicitar demo →</a>
+        </div>
+
+        <h3>3. Procedencia geográfica del tráfico</h3>
+        <p>Vía geofencing o wifi-tracking se mide de qué códigos postales viene cada visitante. Ese dato cambia el plan de medios: si el 60% del tráfico viene de 3 códigos postales, la inversión publicitaria local debe concentrarse ahí.</p>
+      </div>
+
+      <aside class="end-cta">
+        <div class="end-cta-text">
+          <p class="end-cta-eyebrow">Pasamos a la acción</p>
+          <p class="end-cta-title">¿Quieres saber qué KPIs faltan en tu centro?</p>
+          <p class="end-cta-sub">Auditoría inicial gratuita en 30 minutos: identificamos las palancas con mayor retorno en los próximos 12 meses.</p>
+        </div>
+        <a href="#" class="end-cta-btn">Hablar con un experto</a>
+      </aside>
+    </div>
+  </article>
+</section>
+
+<script>
+  const btnAfter = document.getElementById('btn-after');
+  const btnBefore = document.getElementById('btn-before');
+  function show(view) {
+    if (view === 'before') {
+      document.body.classList.add('show-before');
+      btnBefore.classList.add('active'); btnAfter.classList.remove('active');
+    } else {
+      document.body.classList.remove('show-before');
+      btnAfter.classList.add('active'); btnBefore.classList.remove('active');
+    }
+  }
+  btnAfter.addEventListener('click', () => show('after'));
+  btnBefore.addEventListener('click', () => show('before'));
+  document.addEventListener('keydown', e => {
+    if (e.key === 'a' || e.key === 'A') show('after');
+    if (e.key === 'b' || e.key === 'B') show('before');
+  });
+</script>
+</body>
+</html>
