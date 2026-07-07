@@ -284,8 +284,10 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
               {t.industriesSub}
             </p>
           </div>
-          <div className="grid gap-5 ind-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {inds.map((it, i) => (
+        </div>
+        <div className="industries-marquee">
+          <div className="industries-track">
+            {[...inds, ...inds].map((it, i) => (
               <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
                 <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}>
                   <Icon name={it.icon} className="w-6 h-6" />
@@ -300,14 +302,16 @@ export default function HomeTemplate({ cfg, enHref, currentLang = "es" }: { cfg:
           </div>
         </div>
         <style>{`
-          @media (max-width: 1000px) { .ind-grid { grid-template-columns: repeat(2, 1fr) !important; } }
-          @media (max-width: 560px) { .ind-grid { grid-template-columns: 1fr !important; } }
-          .industry-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; }
+          .industries-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
+          .industries-track { display: flex; gap: 20px; width: max-content; align-items: stretch; animation: marquee-x 50s linear infinite; }
+          .industries-track:hover { animation-play-state: paused; }
+          .industry-card { width: 320px; flex: 0 0 320px; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none; }
           .industry-card:hover { transform: translateY(-1px); background: rgb(255 255 255 / 0.07) !important; border-color: rgb(255 255 255 / 0.16) !important; box-shadow: 0 8px 24px -14px rgb(0 0 0 / 0.4); }
           .industry-card .industry-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1); }
           .industry-card:hover .industry-icon { background: rgb(49 177 248 / 0.22) !important; }
           .industry-card .industry-cta { transition: gap 420ms cubic-bezier(0.22, 1, 0.36, 1); }
           .industry-card:hover .industry-cta { gap: 10px; }
+          @media (max-width: 700px) { .industry-card { width: 260px; flex: 0 0 260px; } .industries-track { gap: 14px; } }
         `}</style>
       </section>
 
