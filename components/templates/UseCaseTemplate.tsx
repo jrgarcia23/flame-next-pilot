@@ -134,7 +134,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="text-center mx-auto mb-14 mtc-title-wrap" style={{ maxWidth: "44ch" }}>
-            <h2 className="text-[clamp(26px,2.6vw,36px)] font-normal mtc-title" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.2, fontFamily: "var(--font-display)" }}>
+            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal mtc-title" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
               {cfg.bigSectionTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{cfg.bigSectionTitleHl}</span>
             </h2>
             {cfg.bigSectionEyebrow && (
