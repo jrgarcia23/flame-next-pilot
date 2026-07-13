@@ -63,6 +63,9 @@ export function injectInternalLinks(html: string, currentPath: string, lang: Lan
     if (linksInjected >= MAX_LINKS_PER_POST) return match;
     // Skip si ya hay un <a> en el párrafo
     if (/<a\s/i.test(inner)) return match;
+    // Skip si el párrafo envuelve un <script> (JSON-LD embebido en posts importados
+    // de WP: inyectar un <a> dentro rompe el JSON y GSC marca error de análisis)
+    if (/<script\b/i.test(inner)) return match;
 
     let modified = inner;
     for (const c of allCompiled) {
