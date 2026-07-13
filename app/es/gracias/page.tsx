@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "x-default": "/es/gracias/",
     },
   },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     url: "https://www.flameanalytics.com/es/gracias/",

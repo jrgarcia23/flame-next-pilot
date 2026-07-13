@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
   // Los demás son seguros de aplicar directos: no afectan layout ni navegación.
   async headers() {
     return [
+      // Media legacy WP (imágenes/PDFs bajo /wp-content/) — Google los tiene
+      // indexados como "páginas" (29 detectados en la purga 2026-07-13).
+      // noindex los saca del índice SIN dejar de servirlos: los posts antiguos
+      // siguen usando estos archivos embebidos. NO bloquear, solo noindex.
+      {
+        source: "/wp-content/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
       {
         source: "/:path*",
         headers: [
@@ -96,6 +104,26 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════════════
       // SEO 301s — preservar URLs históricas WP (Google Search Console)
       // ══════════════════════════════════════════════════════════════════
+
+      // ── Fix redirects rotos (purga índice 2026-07-13) ──────────────────
+      // Las reglas genéricas /<lang>/blog/:slug → /<lang>/:slug/ mandaban
+      // estos slugs de CATEGORÍA (y 3 posts no migrados) a páginas que no
+      // existen en Next → cadena 308→404. Reglas específicas ANTES de las
+      // genéricas (Next evalúa en orden, gana la primera que matchea).
+      // Inventario: _local/_global/clientes/flame/seo/purga-indice-2026-07.csv
+      { source: "/es/blog/consejos",                 destination: "/es/comunidad/",                permanent: true },
+      { source: "/es/blog/retail-blog",              destination: "/es/comunidad/",                permanent: true },
+      { source: "/es/casos-de-exito/retail-casos",   destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/en/blog/corporate",                destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/hospitality-blog",         destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/retail",                   destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/shopping-malls",           destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/tips",                     destination: "/en/community/",                permanent: true },
+      { source: "/en/interviews/retail-interviews",  destination: "/en/category/interviews/",      permanent: true },
+      // 3 posts EN que nunca se migraron a Next (el genérico los mandaba a 404)
+      { source: "/en/blog/8-ways-retailers-can-utilize-instagram",                        destination: "/en/community/", permanent: true },
+      { source: "/en/blog/flame-analytics-has-won-three-badges-in-the-g2-fall-reports",   destination: "/en/community/", permanent: true },
+      { source: "/en/blog/why-digital-transformation-in-retail-is-more-important-now",    destination: "/en/community/", permanent: true },
 
       // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
       // El demo redirigía /<categoria>/<slug>/ y /<lang>/<categoria>/<slug>/ a /<lang>/<slug>/.
@@ -175,8 +203,10 @@ const nextConfig: NextConfig = {
 
       // PDFs de WP que aún rankean en GSC pero ya no existen físicamente:
       // 1) Descubre-los-KPIs.pdf — 267 impr / 15 clicks / 90d → redirect al post equivalente.
+      //    (2026-07-13: corregido el filename real, la regla anterior tenía el nombre
+      //    truncado y nunca matcheaba; el post ya enlaza la copia de Supabase Storage)
       {
-        source: "/wp-content/uploads/2021/09/Descubre-los-KPIS.pptx_compressed.pdf",
+        source: "/wp-content/uploads/2021/09/Descubre-los-KPIS-que-debes-medir-en-Retail.pptx_compressed.pdf",
         destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",
         permanent: true,
       },
