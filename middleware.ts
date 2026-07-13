@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import deletedSlugs from "./data/deleted-slugs.json";
 
 // Matcher amplio: necesitamos ejecutar el middleware tanto en "/" (redirect raíz)
 // como en /es/* y /en/* (inyectar header x-flame-lang que lee el root layout).
@@ -47,6 +48,22 @@ function langFromPath(pathname: string): Lang | null {
   return null;
 }
 
+// 410 Gone — poda SEO del blog (Fase 1, julio 2026). Los posts eliminados
+// deliberadamente están en draft en blog.json (dejan de servirse y salen del
+// sitemap) y sus slugs viven en data/deleted-slugs.json: aquí devolvemos 410
+// en vez de 404 para que Google los retire del índice sin reintentos.
+// Reversible: quitar el slug del JSON + devolver status "published" en blog.json.
+const DELETED: Record<Lang, Set<string>> = {
+  es: new Set(deletedSlugs.es),
+  en: new Set(deletedSlugs.en),
+};
+
+function isDeletedPostPath(pathname: string, lang: Lang): boolean {
+  // Solo URLs planas de post: /es/<slug>/ o /en/<slug>/ (con o sin barra final).
+  const m = pathname.match(/^\/(?:es|en)\/([^/]+)\/?$/);
+  return m !== null && DELETED[lang].has(m[1]);
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
@@ -65,6 +82,10 @@ export function middleware(request: NextRequest) {
   //    x-flame-lang inyectado para que el root layout pueda setear <html lang>.
   const pathLang = langFromPath(pathname);
   if (pathLang) {
+    // 2a. Posts podados (poda SEO) → 410 Gone antes de tocar el router.
+    if (isDeletedPostPath(pathname, pathLang)) {
+      return new NextResponse(null, { status: 410 });
+    }
     const response = NextResponse.next();
     response.headers.set("x-flame-lang", pathLang);
     // Necesitamos que el header sobreviva al server component que lo lee:
