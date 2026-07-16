@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import LegalTemplate from "@/components/templates/LegalTemplate";
 
 export const metadata: Metadata = {
-  title: "Información detallada sobre el tratamiento de datos · Flame Analytics",
+  title: "Información sobre tratamiento de datos · Flame Analytics",
   description: "Información ampliada sobre el tratamiento de datos personales por Flame Analytics S.L., conforme al RGPD.",
   alternates: {
     canonical: "/es/informacion-detallada/",
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.flameanalytics.com/es/informacion-detallada/",
     siteName: "Flame Analytics",
-    title: "Información detallada sobre el tratamiento de datos · Flame Analytics",
+    title: "Información sobre tratamiento de datos · Flame Analytics",
     description: "Información ampliada sobre el tratamiento de datos personales por Flame Analytics S.L., conforme al RGPD.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Información detallada sobre el tratamiento de datos · Flame Analytics",
+    title: "Información sobre tratamiento de datos · Flame Analytics",
     description: "Información ampliada sobre el tratamiento de datos personales por Flame Analytics S.L., conforme al RGPD.",
   },
 };

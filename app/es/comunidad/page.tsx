@@ -7,7 +7,7 @@ import { sanitizeTitle } from "@/lib/sanitize-title";
 
 export const metadata: Metadata = {
   title: "Comunidad · Flame Analytics",
-  description: "Entrevistas, casos de éxito, blog, webinars y whitepapers sobre retail, centros comerciales, hostelería y espacios públicos. La comunidad de inteligencia para espacios físicos de Flame Analytics.",
+  description: "Entrevistas, casos de éxito, blog, webinars y whitepapers sobre retail, centros comerciales y espacios físicos, por Flame Analytics.",
   alternates: { canonical: "/es/comunidad/", languages: {
     es: "/es/comunidad/", en: "/en/community/", "x-default": "/es/comunidad/",
   } },

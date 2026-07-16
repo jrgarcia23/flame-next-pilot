@@ -6,7 +6,7 @@ import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Customer Journey · Recorridos y dwell time · Flame Analytics",
   description:
-    "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",
+    "Analiza recorridos y dwell time en tienda: optimiza el layout, aumenta la interacción y mide el customer journey completo.",
   alternates: {
     canonical: "/es/recorrido-del-cliente/",
     languages: {
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     url: "https://www.flameanalytics.com/es/recorrido-del-cliente/",
     siteName: "Flame Analytics",
     title: "Customer Journey · Recorridos y dwell time · Flame Analytics",
-    description: "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",
+    description: "Analiza recorridos y dwell time en tienda: optimiza el layout, aumenta la interacción y mide el customer journey completo.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
     title: "Customer Journey · Recorridos y dwell time · Flame Analytics",
-    description: "Convierte el comportamiento de los visitantes en mejores experiencias. Analiza recorridos, optimiza la disposición, aumenta la interacción y mide el journey completo.",
+    description: "Analiza recorridos y dwell time en tienda: optimiza el layout, aumenta la interacción y mide el customer journey completo.",
   },
 };
 

@@ -5,7 +5,7 @@ import { SectorConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-  description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+  description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
   alternates: {
     canonical: "/es/solucion-para-centros-comerciales/",
     languages: {
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     url: "https://www.flameanalytics.com/es/solucion-para-centros-comerciales/",
     siteName: "Flame Analytics",
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-    description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+    description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
     locale: "es_ES",
     images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-    description: "Optimización de la combinación de arrendatarios y experiencia del cliente. Soluciones de analítica y marketing para centros comerciales basadas en big data e IA.",
+    description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
     images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
   },
 };

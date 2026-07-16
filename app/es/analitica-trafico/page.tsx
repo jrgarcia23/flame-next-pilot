@@ -4,9 +4,9 @@ import { ProductConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
+  title: "Traffic · Analítica de tráfico con IA · Flame Analytics",
   description:
-    "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+    "Convierte el tráfico físico en decisiones de negocio: afluencia, tendencias y rendimiento por zona con la IA de Flame.",
   alternates: {
     canonical: "/es/analitica-trafico/",
     languages: {
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.flameanalytics.com/es/analitica-trafico/",
     siteName: "Flame Analytics",
-    title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
-    description: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+    title: "Traffic · Analítica de tráfico con IA · Flame Analytics",
+    description: "Convierte el tráfico físico en decisiones de negocio: afluencia, tendencias y rendimiento por zona con la IA de Flame.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Traffic · Analítica de tráfico físico con IA · Flame Analytics",
-    description: "Convierte el tráfico físico en decisiones empresariales basadas en datos. Flame transforma el movimiento de personas en información accionable que impulsa el rendimiento.",
+    title: "Traffic · Analítica de tráfico con IA · Flame Analytics",
+    description: "Convierte el tráfico físico en decisiones de negocio: afluencia, tendencias y rendimiento por zona con la IA de Flame.",
   },
 };
 

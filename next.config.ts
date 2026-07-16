@@ -238,8 +238,8 @@ const nextConfig: NextConfig = {
       { source: "/es/manuel-amat-la-tecnologia-en-retail-genera-una-relacion-de-amor-odio/",                       destination: "/es/4-estrategias-para-retailers-casos-de-exito-y-soluciones-clave/",   permanent: true },
       { source: "/es/raul-g-serapio-el-cliente-no-es-fiel-si-quieres-fidelidad-mejor-comprate-un-perro/",          destination: "/es/10-consejos-para-atraer-mas-clientes-al-punto-de-venta/",           permanent: true },
       { source: "/es/eduardo-suarez-hoy-en-dia-no-podemos-vivir-de-espaldas-a-los-avances-tecnologicos/",          destination: "/es/",                                                                   permanent: true },
-      { source: "/es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail/",                                 destination: "/es/categoria/webinars-es-cat/",                                         permanent: true },
-      { source: "/es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica/",                destination: "/es/categoria/webinars-es-cat/",                                         permanent: true },
+      { source: "/es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail/",                                 destination: "/es/categoria/webinars/",                                                permanent: true },
+      { source: "/es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica/",                destination: "/es/categoria/webinars/",                                                permanent: true },
       { source: "/es/ratio-de-conversion-en-retail-que-es-y-como-mejorarlo/",                                      destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",                  permanent: true },
 
       // Posts EN borrados de WP antes de la migración.
@@ -265,7 +265,7 @@ const nextConfig: NextConfig = {
       // (subrutas que existieron brevemente y luego eliminé; Google puede haberlas cacheado)
       { source: "/es/comunidad/blog/",               destination: "/es/categoria/blog/",                 permanent: true },
       { source: "/es/comunidad/casos-de-exito/",     destination: "/es/categoria/casos-de-exito/",       permanent: true },
-      { source: "/es/comunidad/webinars/",           destination: "/es/categoria/webinars-es-cat/",      permanent: true },
+      { source: "/es/comunidad/webinars/",           destination: "/es/categoria/webinars/",             permanent: true },
       { source: "/es/comunidad/entrevistas/",        destination: "/es/categoria/entrevistas/",          permanent: true },
       { source: "/es/comunidad/whitepapers/",        destination: "/es/comunidad/",                      permanent: true },
       // EN equivalentes
@@ -473,7 +473,7 @@ const nextConfig: NextConfig = {
       { source: "/es/viaje-del-cliente",                                       destination: "/es/recorrido-del-cliente/",  permanent: true },
       { source: "/es/angela-reina-",                                           destination: "/es/comunidad/",  permanent: true },
       { source: "/es/socios",                                                  destination: "/es/partners/",  permanent: true },
-      { source: "/es/es-blog-analitica-video-cctv-inteligencia-negocio",       destination: "/es/comunidad/",  permanent: true },
+      { source: "/es/es-blog-analitica-video-cctv-inteligencia-negocio",       destination: "/es/analitica-de-video-cctv-inteligencia-negocio/",  permanent: true },
       { source: "/es/celebrando-un-ano-increible-en-flame-analytics-ð",        destination: "/es/comunidad/",  permanent: true },
       { source: "/en/pompeii-confia-en-la-analitica-retail-de-flame-analytics", destination: "/en/community/",  permanent: true },
       { source: "/en/location",                                                destination: "/en/people-counting/",  permanent: true },
@@ -582,6 +582,28 @@ const nextConfig: NextConfig = {
       { source: "/en/how-to-use-key-metrics-to-track-digital-marketing-success-of-retail-brands", destination: "/en/community/",  permanent: true },
       { source: "/en/retail-staff-training-tips-to-improve-customer-service-sales", destination: "/en/community/",  permanent: true },
       { source: "/en/webinar-transport-analytics-understanding-passenger-behaviour", destination: "/en/community/",  permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // Fixes auditoría SE Ranking 2026-07-13 (aplicados 2026-07-16)
+      // ══════════════════════════════════════════════════════════════════
+      // Slugs de fichero de trabajo "es-blog-*/en-blog-*" que se colaron como
+      // URLs (enlaces internos + un slug real ya renombrado). 301 al post real.
+      { source: "/es/es-blog-cuenta-personas-retail-guia-completa",                   destination: "/es/cuenta-personas-retail-guia-completa/",                       permanent: true },
+      { source: "/en/en-blog-cctv-analytics-turn-existing-cameras-business-intelligence", destination: "/en/cctv-analytics-turn-existing-cameras-business-intelligence/", permanent: true },
+      { source: "/en/en-blog-people-counting-systems-complete-guide",                 destination: "/en/people-counting-systems-complete-guide/",                     permanent: true },
+      // El post del CMS tenía el slug malformado: renombrado en Supabase el 2026-07-16.
+      { source: "/en/en-blog-conversion-analytics-retail-measure-optimize",           destination: "/en/conversion-analytics-retail-measure-optimize/",               permanent: true },
+      // Casos de éxito retirados (draft, sin equivalente vivo) → hub de casos de éxito
+      { source: "/es/estepark-analitica-y-marketing-a-medida-de-sus-clientes",        destination: "/es/categoria/casos-de-exito/",  permanent: true },
+      { source: "/es/optimizacion-de-experiencia-y-estrategia-de-marketing-en-abc-serrano", destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/en/optimizing-experience-and-marketing-strategy-at-abc-serrano",    destination: "/en/category/case-studies/",     permanent: true },
+      // Producto legacy "Engage" (WP) → página de producto equivalente (marketing WiFi)
+      { source: "/engage",            destination: "/es/marketing-wifi-para-invitados/", permanent: true },
+      { source: "/engage/:rest*",     destination: "/es/marketing-wifi-para-invitados/", permanent: true },
+      { source: "/es/engage",         destination: "/es/marketing-wifi-para-invitados/", permanent: true },
+      { source: "/en/engage",         destination: "/en/guest-wifi-marketing/",          permanent: true },
+      // Slug de categoría con idioma mezclado (categoria ES + case-studies EN)
+      { source: "/en/categoria/case-studies", destination: "/en/category/case-studies/", permanent: true },
 
       // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];

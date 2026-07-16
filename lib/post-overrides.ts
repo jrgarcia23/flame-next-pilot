@@ -66,7 +66,66 @@ const OVERRIDES: Record<string, PostOverride> = {
     htmlFile: "02-estrategias-retailers-id56837.html",
   },
   "es/los-10-kpis-que-todo-centro-comercial-debe-medir": {
+    title: "KPIs de centros comerciales: los 10 clave",
+    excerpt: "Los 10 KPIs que todo centro comercial debe medir: afluencia, conversión, dwell time y más, con benchmarks reales del sector.",
     htmlFile: "03-kpis-centro-comercial-id25712.html",
+  },
+
+  // ---------- Auditoría SE Ranking 2026-07-13: titles >60 y descriptions >160 ----------
+  // 20 páginas prioritarias (servicio + guías KEEP de la poda). El <title> final añade
+  // " · Flame Analytics" (18 chars): título aquí <= 42 chars. Descriptions <= 155 y únicas.
+  "es/cuenta-personas-retail-guia-completa": {
+    title: "Cuenta personas retail: guía completa",
+    excerpt: "Guía completa de sistemas cuenta personas para retail: tecnologías, métricas, implementación y ROI, con IA y sin biometría.",
+  },
+  "es/analitica-de-video-cctv-inteligencia-negocio": {
+    title: "Analítica de vídeo CCTV: guía para retail",
+    excerpt: "Convierte tus cámaras CCTV existentes en business intelligence para retail. Sin hardware nuevo, sin biometría, con IA.",
+  },
+  "es/rgpd-video-analitica-compliance-centros-comerciales": {
+    title: "RGPD y videoanalítica: guía completa",
+    excerpt: "Cómo cumplir el RGPD usando videoanalítica en centros comerciales: bases legales, EIPD, sanciones reales y alternativas sin biometría.",
+  },
+  "es/campanas-marketing-centros-comerciales": {
+    title: "Marketing de centros comerciales: campañas",
+    excerpt: "Las campañas de marketing para centros comerciales más efectivas se basan en datos de afluencia. Estrategias, ROI y optimización con IA.",
+  },
+  "es/inteligencia-artificial-retail-analitica-tienda-fisica": {
+    title: "Inteligencia artificial retail: analítica",
+    excerpt: "Cómo la IA revoluciona la analítica de la tienda física: visión artificial, conteo de personas, heatmaps y predicción de afluencia.",
+  },
+  "es/gestion-red-tiendas-visibilidad-cadena-retail": {
+    title: "Gestión de red de tiendas: guía retail",
+    excerpt: "Gestión de red de tiendas retail: KPIs comparables, visibilidad en tiempo real y decisiones con datos para cadenas multi-tienda.",
+  },
+  "es/supermercados-analitica-ia-flame": {
+    title: "Analítica para supermercados con IA (2026)",
+    excerpt: "Analítica avanzada e IA en supermercados: cifras del sector, comparativa con Mercadona, Carrefour, Lidl, Eroski y Dia, y mejoras medibles.",
+  },
+  "es/queue-analytics-eficiencia-y-satisfaccion-en-el-sector-retail": {
+    title: "Queue Analytics para retail: guía",
+    excerpt: "Queue analytics en retail: mide colas y tiempos de espera, mejora la satisfacción del cliente y evita ventas perdidas con IA.",
+  },
+  "es/beneficios-de-la-inteligencia-artificial-en-el-analisis-del-customer-journey": {
+    title: "IA en el customer journey: beneficios",
+    excerpt: "Beneficios de la inteligencia artificial en el análisis del customer journey: personalización, predicción y decisiones con datos.",
+  },
+  "es/claves-experiencia-de-compra-centro-comercial": {
+    title: "Webinar: 5 claves de experiencia de compra",
+    excerpt: "Las 5 claves para impulsar la experiencia de compra en tu centro comercial, explicadas en el webinar de Flame Analytics.",
+  },
+  "es/cuenta-personas-que-miden-y-cuales-son-los-beneficios": {
+    title: "Cuenta personas: qué miden y beneficios",
+    excerpt: "Qué miden los cuenta personas y qué beneficios aportan al retail: afluencia exacta, conversión y decisiones de personal con datos fiables.",
+  },
+  // 2 descriptions duplicadas entre sí (webinar Roi Iglesias + whitepaper IA retail)
+  "es/la-revolucion-de-la-videoanalitica-en-retail-asi-fue-nuestro-webinar-con-roi-iglesias": {
+    title: "Webinar de videoanalítica con Roi Iglesias",
+    excerpt: "Resumen del webinar con Roi Iglesias: cómo la videoanalítica con IA transforma el retail, casos reales y preguntas de la audiencia.",
+  },
+  "es/la-ia-al-servicio-del-retail-descubre-el-poder-del-video-analytics": {
+    title: "La IA al servicio del retail (whitepaper)",
+    excerpt: "Whitepaper: la IA al servicio del retail. Qué aporta el vídeo analytics a tiendas y centros comerciales y cómo empezar a aplicarlo.",
   },
 };
 

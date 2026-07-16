@@ -47,9 +47,9 @@ export type HypersensorContent = {
 
 export const HS_ES: HypersensorContent = {
   meta: {
-    title: "Flame Hypersensor · Analítica de vídeo con IA avanzada · Flame Analytics",
+    title: "Flame Hypersensor · Videoanalítica IA · Flame Analytics",
     description:
-      "Convierte tus cámaras CCTV en herramientas de analítica avanzada. Flame Hypersensor mide tráfico, recorridos, conversión y ocupación con IA — sin biometría, 100 % RGPD.",
+      "Convierte tus cámaras CCTV en analítica avanzada: tráfico, recorridos, conversión y ocupación con IA. Sin biometría, 100 % RGPD.",
   },
   hero: {
     eyebrow: "Análisis de vídeo con IA avanzada",

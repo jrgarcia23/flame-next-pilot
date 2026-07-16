@@ -7,7 +7,7 @@ const CDN = "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/b
 
 export const metadata: Metadata = {
   title: "Data Intelligence para Supermercados · Flame Analytics",
-  description: "Optimiza el layout, la operación y la conversión en supermercado. Soluciones de analítica avanzada que combinan vídeo e IA para entender al cliente, mejorar el rendimiento y conectar con el visitante.",
+  description: "Optimiza layout, operación y conversión en supermercados con analítica de vídeo e IA: entiende al cliente y mejora el rendimiento.",
   alternates: {
     canonical: "/es/supermercados/",
     languages: {

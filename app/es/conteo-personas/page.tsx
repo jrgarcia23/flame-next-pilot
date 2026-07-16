@@ -5,7 +5,7 @@ import { UseCaseConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
-  title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
+  title: "Conteo de personas con IA · Flame Analytics",
   description:
     "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
   alternates: {
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.flameanalytics.com/es/conteo-personas/",
     siteName: "Flame Analytics",
-    title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
+    title: "Conteo de personas con IA · Flame Analytics",
     description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Conteo de personas · Conteo de visitantes con IA · Flame Analytics",
+    title: "Conteo de personas con IA · Flame Analytics",
     description: "Mide con precisión el tráfico en entradas, plantas y recintos con IA de vídeo. Optimiza operaciones, planifica recursos y aumenta la conversión.",
   },
 };
