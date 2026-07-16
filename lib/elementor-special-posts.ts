@@ -15,6 +15,9 @@ import path from "node:path";
 
 const SPECIAL_SLUGS: string[] = [
   "flame-talks-2026-4a-edicion-centros-comerciales-y-retail-del-dato-al-agente-de-ia-para-crecer-juntos",
+  // Casos de éxito en el nuevo formato (HTML+CSS propio en data/elementor/<slug>.html)
+  "alain-afflelou-confia-en-la-analitica-de-flame-para-sus-tiendas-en-espana",
+  "alain-afflelou-relies-on-flame-analytics-for-people-counting-across-its-stores-in-spain",
 ];
 
 type ElementorMeta = {

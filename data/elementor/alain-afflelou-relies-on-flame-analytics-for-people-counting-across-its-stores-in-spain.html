@@ -1,0 +1,422 @@
+<style>
+.mo-case-root {
+  --color-navy: #15163a;
+  --color-accent: #31b1f8;
+  --color-accent-deep: #1d8bca;
+  --color-paper: #f3f3f3;
+  --color-paper-soft: #f7f8fa;
+  --color-ink: #0f172a;
+  --color-ink-2: #475569;
+  --color-ink-3: #64748b;
+  --color-ink-4: #94a3b8;
+  --color-rule: rgb(15 23 42 / 0.08);
+  --color-rule-strong: rgb(15 23 42 / 0.16);
+  --font-display: "Clash Grotesk Variable", "Clash Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Instrument Sans Flame", "Instrument Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+.mo-case-root, .mo-case-root *, .mo-case-root *::before, .mo-case-root *::after { box-sizing: border-box; }
+.mo-case-root { font-family: var(--font-body); color: var(--color-ink); background: #fff; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+.mo-case-root a { color: var(--color-accent-deep); text-decoration: none; }
+.mo-case-root a:hover { color: var(--color-accent); }
+.mo-case-root ::selection { background: var(--color-accent); color: #fff; }
+.mo-case-root img { max-width: 100%; display: block; }
+
+
+.mo-btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 4px; font-family: var(--font-body); font-weight: 600; transition: background .15s ease, transform .12s ease, filter .15s ease; }
+.mo-btn--sm { font-size: 14px; padding: 10px 18px; }
+.mo-btn--lg { font-size: 16px; padding: 16px 28px; }
+.mo-btn-accent { background: var(--color-accent); color: #fff; }
+.mo-btn-accent:hover { background: var(--color-accent-deep); }
+.mo-btn-white { background: #fff; color: var(--color-navy); }
+.mo-btn-white:hover { transform: translateY(-2px); }
+
+
+.mo-header { position: sticky; top: 0; z-index: 50; background: rgb(21 22 58 / 0.92); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border-bottom: 1px solid rgb(255 255 255 / 0.08); }
+.mo-nav { max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mo-logo { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: #fff; }
+.mo-nav-right { display: flex; align-items: center; gap: 30px; }
+.mo-nav-links { display: flex; gap: 26px; font-size: 14.5px; font-weight: 500; color: rgb(255 255 255 / 0.82); }
+.mo-nav-links a { color: inherit; }
+.mo-nav-links a:hover { color: #fff; }
+
+
+.mo-eyebrow-wrap { display: inline-flex; flex-direction: column; gap: 12px; }
+.mo-eyebrow-bar { width: 44px; height: 3px; background: var(--color-accent); border-radius: 2px; }
+.mo-eyebrow-label { font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; }
+
+
+.mo-hero { position: relative; background: var(--color-navy); color: #fff; overflow: hidden; }
+.mo-hero-glow { position: absolute; top: -180px; right: -120px; width: 520px; height: 520px; background: radial-gradient(circle, rgb(49 177 248 / 0.22) 0%, rgb(49 177 248 / 0) 70%); pointer-events: none; }
+.mo-breadcrumb { position: relative; max-width: 1240px; margin: 0 auto; padding: 26px 32px 0; display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgb(255 255 255 / 0.5); font-weight: 500; }
+.mo-breadcrumb a { color: inherit; }
+.mo-hero-grid { position: relative; max-width: 1240px; margin: 0 auto; padding: 44px 32px 68px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }
+.mo-hero h1 { font-family: var(--font-display); font-weight: 400; font-size: clamp(38px, 4.4vw, 54px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 22px; color: #fff; }
+.mo-hero .sub { font-size: 18px; line-height: 1.55; color: rgb(255 255 255 / 0.72); max-width: 560px; margin: 0 0 30px; }
+.mo-hero-meta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.mo-badge { display: flex; align-items: center; gap: 12px; background: rgb(255 255 255 / 0.06); border: 1px solid rgb(255 255 255 / 0.1); border-radius: 12px; padding: 10px 16px; }
+.mo-badge .client { font-family: var(--font-display); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; color: #fff; }
+.mo-badge .x { color: rgb(255 255 255 / 0.32); font-size: 15px; }
+.mo-badge .flame-word { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: #fff; letter-spacing: -0.01em; }
+.mo-hero-dates { display: flex; align-items: center; gap: 16px; font-size: 13.5px; color: rgb(255 255 255 / 0.55); }
+.mo-hero-dates span { display: inline-flex; align-items: center; gap: 6px; }
+.mo-hero-dates svg { width: 15px; height: 15px; }
+
+.mo-hero-shot-wrap { position: relative; }
+.mo-hero-shot { position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 70px rgb(0 0 0 / 0.45); aspect-ratio: 4/3; border: 1px solid rgb(255 255 255 / 0.1); background: var(--color-paper-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--color-ink-3); }
+.mo-hero-shot svg { width: 34px; height: 34px; stroke: var(--color-ink-4); }
+.mo-hero-shot .ph-label { font-size: 13px; font-weight: 600; color: var(--color-ink-2); text-align: center; padding: 0 24px; }
+.mo-hero-shot-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(21 22 58 / 0) 45%, rgb(21 22 58 / 0.55) 100%); pointer-events: none; }
+.mo-stat-float { position: absolute; left: -18px; bottom: 26px; background: #fff; color: var(--color-navy); border-radius: 14px; padding: 16px 20px; box-shadow: 0 18px 40px rgb(0 0 0 / 0.35); display: flex; align-items: center; gap: 14px; }
+.mo-stat-float .icon-wrap { display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: 11px; background: rgb(49 177 248 / 0.12); color: var(--color-accent-deep); }
+.mo-stat-float .icon-wrap svg { width: 22px; height: 22px; }
+.mo-stat-float .value { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1; color: var(--color-navy); }
+.mo-stat-float .label { font-size: 12.5px; color: var(--color-ink-3); font-weight: 500; margin-top: 3px; }
+
+
+.mo-quote-section { background: var(--color-paper); }
+.mo-quote-inner { max-width: 1000px; margin: 0 auto; padding: 72px 32px; text-align: center; }
+.mo-quote-inner svg.quote-icon { width: 40px; height: 40px; color: var(--color-accent); }
+.mo-quote-inner blockquote { font-family: var(--font-display); font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.3; letter-spacing: -0.015em; color: var(--color-navy); margin: 22px 0 30px; }
+.mo-quote-author { font-size: 14.5px; font-weight: 600; color: var(--color-navy); }
+.mo-quote-role { font-size: 13.5px; color: var(--color-ink-3); }
+
+
+.mo-article-section { background: #fff; }
+.mo-lead { max-width: 1000px; margin: 0 auto; padding: 84px 32px 32px; }
+.mo-lead p.lead-p { font-family: var(--font-display); font-weight: 400; font-size: 22px; line-height: 1.5; letter-spacing: -0.01em; color: var(--color-navy); margin: 0 0 22px; }
+.mo-lead p.lead-p a { color: var(--color-accent-deep); font-weight: 600; border-bottom: 1px solid rgb(29 139 202 / 0.35); }
+.mo-lead p.body-p { font-size: 17px; line-height: 1.75; color: var(--color-ink-2); margin: 0 0 20px; }
+
+.mo-article-wrap { max-width: 1000px; margin: 0 auto; padding: 8px 32px 48px; }
+.mo-block { padding: 56px 0; border-bottom: 1px solid var(--color-rule); display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 48px; align-items: start; }
+.mo-block:last-of-type { padding-bottom: 0; border-bottom: none; }
+.mo-block-side { position: sticky; top: 100px; }
+.mo-num-row { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.mo-num { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 11px; background: var(--color-accent); color: #fff; font-family: var(--font-display); font-weight: 700; font-size: 16px; }
+.mo-eyebrow-inline { font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-deep); }
+.mo-block-side h2 { font-family: var(--font-display); font-weight: 400; font-size: 32px; line-height: 1.12; letter-spacing: -0.02em; color: var(--color-navy); margin: 0; }
+.mo-block-side .underline-bar { display: block; width: 64px; height: 4px; background: var(--color-accent); border-radius: 2px; margin: 20px 0 0; }
+.mo-block-body p { font-size: 17px; line-height: 1.75; color: var(--color-ink-2); margin: 0 0 20px; }
+.mo-block-body h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; line-height: 1.2; letter-spacing: -0.01em; color: var(--color-navy); margin: 0 0 16px; }
+.mo-help-list { list-style: none; padding: 0; margin: 0 0 26px; display: flex; flex-direction: column; gap: 12px; }
+.mo-help-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.5; color: var(--color-ink-2); }
+.mo-help-list li svg { flex: none; margin-top: 4px; width: 17px; height: 17px; color: var(--color-accent-deep); }
+.mo-inline-quote { border-left: 3px solid var(--color-accent); padding: 2px 0 2px 24px; margin: 0; font-family: var(--font-display); font-weight: 400; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; color: var(--color-navy); }
+
+.mo-mid-figure { margin: 44px 0; }
+.mo-mid-shot { position: relative; border-radius: 16px; overflow: hidden; border: 1px solid var(--color-rule); box-shadow: 0 18px 40px rgb(15 23 42 / 0.12); aspect-ratio: 16/8; background: var(--color-paper-soft); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--color-ink-3); }
+.mo-mid-shot svg { width: 34px; height: 34px; stroke: var(--color-ink-4); }
+.mo-mid-shot .ph-label { font-size: 13px; font-weight: 600; color: var(--color-ink-2); text-align: center; padding: 0 24px; }
+.mo-mid-tag { position: absolute; top: 14px; left: 16px; display: inline-flex; align-items: center; gap: 7px; background: rgb(21 22 58 / 0.82); color: #fff; font-size: 11.5px; font-weight: 600; letter-spacing: 0.04em; padding: 6px 12px; border-radius: 999px; pointer-events: none; }
+.mo-mid-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--color-accent); }
+.mo-mid-figure figcaption { font-size: 13px; color: var(--color-ink-4); margin-top: 12px; text-align: center; }
+
+
+.mo-kpi-section { background: var(--color-paper); }
+.mo-section-inner { max-width: 1240px; margin: 0 auto; padding: 72px 32px; }
+.mo-section-head { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.mo-section-head h2 { font-family: var(--font-display); font-weight: 400; font-size: 32px; letter-spacing: -0.02em; margin: 2px 0 0; color: var(--color-navy); }
+.mo-kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.mo-kpi-card { background: #fff; border: 1px solid var(--color-rule); border-radius: 16px; padding: 26px 24px; box-shadow: 0 2px 6px rgb(15 23 42 / 0.06); }
+.mo-kpi-card .kpi-label { font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 14px; }
+.mo-kpi-card .kpi-value { font-family: var(--font-display); font-weight: 700; font-size: 44px; line-height: 0.95; letter-spacing: -0.02em; color: var(--color-navy); }
+.mo-kpi-card .kpi-desc { font-size: 13.5px; color: var(--color-ink-3); line-height: 1.45; margin-top: 12px; }
+
+
+
+.mo-sol-section { background: var(--color-navy); color: #fff; }
+.mo-sol-section .mo-section-head { max-width: 680px; }
+.mo-sol-section .mo-section-head h2 { color: #fff; font-size: 34px; line-height: 1.1; }
+.mo-sol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mo-sol-card { background: rgb(255 255 255 / 0.06); border: 1px solid rgb(255 255 255 / 0.1); border-radius: 16px; padding: 30px 28px; }
+.mo-sol-card .icon-wrap { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 13px; background: rgb(49 177 248 / 0.16); color: var(--color-accent); margin-bottom: 20px; }
+.mo-sol-card .icon-wrap svg { width: 25px; height: 25px; }
+.mo-sol-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 0 0 8px; color: #fff; }
+.mo-sol-card p { font-size: 14.5px; line-height: 1.55; color: rgb(255 255 255 / 0.7); margin: 0; }
+
+
+.mo-prod-section { background: var(--color-paper); }
+.mo-prod-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.mo-prod-card { background: #fff; border: 1px solid var(--color-rule); border-radius: 16px; padding: 28px; transition: box-shadow .18s ease, transform .18s ease; }
+.mo-prod-card:hover { box-shadow: 0 18px 40px rgb(15 23 42 / 0.12); transform: translateY(-3px); }
+.mo-prod-card .icon-wrap { display: inline-flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 13px; background: rgb(49 177 248 / 0.12); color: var(--color-accent-deep); margin-bottom: 20px; }
+.mo-prod-card .icon-wrap svg { width: 25px; height: 25px; }
+.mo-prod-card h3 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 0 0 8px; color: var(--color-navy); }
+.mo-prod-card p { font-size: 14.5px; line-height: 1.55; color: var(--color-ink-2); margin: 0 0 16px; }
+.mo-prod-card .more-link { font-size: 14px; font-weight: 600; color: var(--color-accent-deep); display: inline-flex; align-items: center; gap: 6px; }
+.mo-prod-card .more-link svg { width: 15px; height: 15px; }
+
+
+
+.mo-cta-section { background: var(--color-paper); color: var(--color-ink); }
+.mo-cta-grid { max-width: 1240px; margin: 0 auto; padding: 76px 32px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: center; }
+.mo-cta-eyebrow { font-size: 12.5px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--color-accent-deep); margin-bottom: 16px; }
+.mo-cta-grid h2 { font-family: var(--font-display); font-weight: 400; font-size: 38px; line-height: 1.1; letter-spacing: -0.02em; margin: 0 0 18px; color: var(--color-navy); }
+.mo-cta-grid .sub { font-size: 17px; line-height: 1.6; color: var(--color-ink-2); margin: 0; max-width: 560px; }
+.mo-cta-right { display: flex; flex-direction: column; gap: 18px; align-items: flex-start; }
+.mo-cta-stats { display: flex; align-items: center; gap: 24px; font-size: 14px; color: var(--color-ink-3); font-weight: 500; }
+.mo-cta-stats span { display: inline-flex; align-items: center; gap: 7px; }
+.mo-cta-stats svg { width: 16px; height: 16px; color: var(--color-accent-deep); }
+
+
+.mo-related-section { max-width: 1240px; margin: 0 auto; padding: 80px 32px; }
+.mo-related-section > h2 { font-family: var(--font-display); font-weight: 400; font-size: 28px; letter-spacing: -0.02em; margin: 0 0 28px; color: var(--color-navy); }
+
+.mo-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.mo-related-card { display: block; background: #fff; border: 1px solid var(--color-rule); border-radius: 16px; overflow: hidden; transition: transform 280ms cubic-bezier(0.22,1,0.36,1), box-shadow 280ms; }
+.mo-related-card:hover { transform: translateY(-3px); box-shadow: 0 16px 36px -18px rgb(15 23 42 / 0.18); }
+.mo-related-cover { aspect-ratio: 1/1; background-size: cover; background-position: center; }
+.mo-related-body { padding: 20px; }
+.mo-related-body .tag { display: block; font-size: 11.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-deep); margin-bottom: 8px; }
+.mo-related-body h3 { font-family: var(--font-display); font-weight: 500; font-size: 18px; line-height: 1.22; color: var(--color-navy); margin: 0 0 8px; transition: color 200ms; }
+.mo-related-card:hover .mo-related-body h3 { color: var(--color-accent-deep); }
+.mo-related-body .excerpt { font-size: 13.5px; line-height: 1.5; color: var(--color-ink-2); margin: 0 0 8px; }
+.mo-related-body .date { font-size: 12px; color: var(--color-ink-3); margin: 0; }
+
+
+.mo-footer { background: var(--color-navy); color: rgb(255 255 255 / 0.62); }
+.mo-footer-grid { max-width: 1240px; margin: 0 auto; padding: 56px 32px 40px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; }
+.mo-footer-brand p { font-size: 14px; line-height: 1.6; max-width: 280px; margin: 0; }
+.mo-footer-brand .logo { font-family: var(--font-display); font-weight: 700; font-size: 22px; color: #fff; letter-spacing: -0.02em; margin-bottom: 18px; display: block; }
+.mo-footer-col-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: 16px; }
+.mo-footer-links { display: flex; flex-direction: column; gap: 10px; }
+.mo-footer-links a { font-size: 14px; color: rgb(255 255 255 / 0.62); }
+.mo-footer-links a:hover { color: #fff; }
+.mo-footer-bottom { border-top: 1px solid rgb(255 255 255 / 0.09); }
+.mo-footer-bottom-inner { max-width: 1240px; margin: 0 auto; padding: 20px 32px; font-size: 13px; color: rgb(255 255 255 / 0.42); }
+
+@media (max-width: 900px) {
+  .mo-hero-grid, .mo-cta-grid { grid-template-columns: 1fr !important; }
+  .mo-block { grid-template-columns: 1fr !important; }
+  .mo-block-side { position: static !important; }
+  .mo-kpi-grid, .mo-sol-grid, .mo-prod-grid, .mo-related-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .mo-footer-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 600px) {
+  .mo-kpi-grid, .mo-sol-grid, .mo-prod-grid, .mo-related-grid, .mo-footer-grid { grid-template-columns: 1fr !important; }
+}
+</style>
+<div class="mo-case-root"><section class="mo-hero">
+  <div class="mo-hero-glow"></div>
+  <div class="mo-breadcrumb">
+    <a href="/en/">Home</a><span>›</span><a href="/en/category/case-studies/" style="color:rgb(255 255 255 / 0.72);">Case studies</a>
+  </div>
+  <div class="mo-hero-grid">
+    <div>
+      <div class="mo-eyebrow-wrap" style="margin-bottom:24px;">
+        <span class="mo-eyebrow-bar"></span>
+        <span class="mo-eyebrow-label" style="color:var(--color-accent);">Case study · Optical retail</span>
+      </div>
+      <h1>How Alain Afflelou accurately measures footfall across its stores in Spain</h1>
+      <p class="sub">Alain Afflelou deploys Flame Analytics’ people counting solution across its stores in Spain to gain an accurate understanding of the footfall at each retail location.</p>
+      <div class="mo-hero-meta-row">
+        <div class="mo-badge">
+          <span class="client">Alain Afflelou</span>
+          <span class="x">×</span>
+          <span class="flame-word">FLAME</span>
+        </div>
+        <div class="mo-hero-dates">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> June 2026</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> 4 min read</span>
+        </div>
+      </div>
+    </div>
+    <div class="mo-hero-shot-wrap">
+      <div class="mo-hero-shot" style="background-image:url('https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/06/alain-afflelou-blog-mqqp8bjt.jpg');background-size:cover;background-position:center;">
+        <div class="mo-hero-shot-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mo-quote-section">
+  <div class="mo-quote-inner">
+    <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2-2-2H4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031C2 20.612 2.5 21 3 21z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2-2-2h-4c-1.25 0-2 .75-2 2v6c0 1.25.75 2 2 2h.75c0 2.25.25 4-3.75 4v2c0 .607.5 1 1 1z"/></svg>
+    <blockquote>&ldquo;Measuring to understand, analyzing to improve, and deciding with data: key factors for optimizing the management of any retail network.&rdquo;</blockquote>
+    <div class="mo-eyebrow-bar" style="margin:0 auto 20px;"></div>
+    <div class="mo-quote-role">From the Alain Afflelou success story with Flame Analytics</div>
+  </div>
+</section>
+
+
+<section class="mo-article-section" id="historia">
+  <div class="mo-lead">
+    <div class="mo-eyebrow-wrap" style="margin-bottom:24px;">
+      <span class="mo-eyebrow-bar"></span>
+      <span class="mo-eyebrow-label" style="color:var(--color-accent-deep);">The story</span>
+    </div>
+    <p class="lead-p">Alain Afflelou, one of Europe’s leading optical retail chains, has chosen Flame Analytics to deploy a <a href="/en/people-counting/">people counting</a> solution across its stores in Spain. The goal is to obtain accurate visitor traffic data and gain a clear understanding of footfall levels at each retail location.</p>
+    <p class="body-p">In the retail industry, having reliable information about the number of people visiting a store is essential for making data-driven decisions. Footfall measurement helps businesses evaluate store performance, identify trends, and optimize resource planning.</p>
+    <p class="body-p" style="margin-bottom:0;">Thanks to Flame Analytics’ technology, Alain Afflelou can access up-to-date information on visitor flows across its stores, enabling more effective analysis and management of its retail network.</p>
+  </div>
+
+  <div class="mo-article-wrap">
+    <article>
+
+      
+      <div class="mo-block" id="reto">
+        <div class="mo-block-side">
+          <div class="mo-num-row">
+            <span class="mo-num">01</span>
+            <span class="mo-eyebrow-inline">The challenge</span>
+          </div>
+          <h2>Reliably measuring footfall at every store</h2>
+          <span class="underline-bar"></span>
+        </div>
+        <div class="mo-block-body">
+          <p>People counting has become an essential tool for retailers seeking a deeper understanding of the performance of their physical stores.</p>
+          <p>Knowing how many people enter a store provides an objective view of customer traffic and allows businesses to establish key performance indicators that support decision-making. This information is particularly valuable for analyzing the performance of each location and identifying opportunities for improvement.</p>
+          <p>Alain Afflelou wanted a people counting solution able to accurately measure:</p>
+          <ul class="mo-help-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Number of visitors per store.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Traffic trends over time.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Distribution of visits by day and time slot.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Comparisons between different store locations.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Footfall trends during specific periods.</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Occupancy peaks and high-traffic periods.</li>
+          </ul>
+          <blockquote class="mo-inline-quote">Having access to these insights enables more efficient management of retail spaces and provides a solid foundation for operational planning.</blockquote>
+        </div>
+      </div>
+
+      
+      <div class="mo-block" id="solucion">
+        <div class="mo-block-side">
+          <div class="mo-num-row">
+            <span class="mo-num">02</span>
+            <span class="mo-eyebrow-inline">The solution</span>
+          </div>
+          <h2>Flame people counting across its network in Spain</h2>
+          <span class="underline-bar"></span>
+        </div>
+        <div class="mo-block-body">
+          <p>Flame Analytics deployed its people counting solution across Alain Afflelou’s stores in Spain, with the goal of accurately measuring the traffic each retail location receives.</p>
+          <p>Large retail organizations require tools that enable centralized monitoring of store performance. A professional <a href="/en/people-counting/">people counting</a> solution provides consistent and comparable data across all locations, making it easier to analyze performance at both local and network-wide levels.</p>
+          <p>The ability to measure visitor traffic in real time and analyze historical trends makes people counting a strategic asset for any organization operating physical locations.</p>
+          
+
+          
+          <figure class="mo-mid-figure">
+            <div class="mo-mid-shot" style="aspect-ratio:auto; display:block; padding:0; background:#fff;">
+              <span class="mo-mid-tag"><span class="dot"></span> Flame dashboard</span>
+              <img src="/case-studies/panel-flame-demo.png" alt="Flame footfall dashboard — Visits, heatmap and hourly distribution" style="width:100%; height:auto; display:block;" />
+            </div>
+            <figcaption>A view of Flame’s people counting dashboard — footfall by store, trends and comparisons.</figcaption>
+          </figure>
+
+          <h3>An accurate view of footfall across its stores in Spain</h3>
+          <p>For Alain Afflelou, the implementation of Flame Analytics technology delivers an accurate view of footfall across its stores in Spain and provides reliable metrics to support business decisions.</p>
+          <p>Having consistent data across all locations makes it possible to compare performance between stores in the same network and analyze the business as a whole.</p>
+          <p style="margin-bottom:0;">The result is a reliable footfall dataset on which to base the management of the entire retail network.</p>
+        </div>
+      </div>
+
+      
+      <div class="mo-block" id="resultados">
+        <div class="mo-block-side">
+          <div class="mo-num-row">
+            <span class="mo-num">03</span>
+            <span class="mo-eyebrow-inline">In progress</span>
+          </div>
+          <h2>Reliable data for better decisions</h2>
+          <span class="underline-bar"></span>
+        </div>
+        <div class="mo-block-body">
+          <p>One of the main benefits of people counting is the ability to transform visitor traffic into actionable insights. With accurate footfall data, Alain Afflelou can objectively evaluate traffic patterns and monitor the performance of its stores over time.</p>
+          <p>Continuous measurement helps identify visitor trends, detect changes in demand, and compare results across different locations within the same retail network.</p>
+          <p>In addition, historical traffic data supports better forecasting, resource allocation, and operational planning, allowing each store to adapt to actual visitor demand.</p>
+          
+          <h3>Measuring to understand, analyzing to improve</h3>
+          <p>People counting is one of the key pillars for understanding the performance of retail environments. Through Flame Analytics solutions, Alain Afflelou can access accurate visitor traffic data and gain a clear understanding of footfall behavior across its stores.</p>
+          
+          
+          <blockquote class="mo-inline-quote">Measuring to understand, analyzing to improve, and making decisions based on data are essential factors for optimizing the management of any retail network in an increasingly competitive market.</blockquote>
+        </div>
+      </div>
+
+    </article>
+  </div>
+</section>
+
+
+
+<section class="mo-sol-section">
+  <div class="mo-section-inner">
+    <div class="mo-section-head">
+      <span class="mo-eyebrow-bar"></span>
+      <span class="mo-eyebrow-label" style="color:var(--color-accent);">Solutions used</span>
+      <h2>Flame capabilities applied at Alain Afflelou</h2>
+    </div>
+    <div class="mo-sol-grid">
+      <div class="mo-sol-card">
+        <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+        <h3>People counting</h3>
+        <p>Accurate measurement of the number of visitors at each store.</p>
+      </div>
+      <div class="mo-sol-card">
+        <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <h3>Trend analysis</h3>
+        <p>Traffic trends by day, time slot and specific periods.</p>
+      </div>
+      <div class="mo-sol-card">
+        <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></span>
+        <h3>Network comparison</h3>
+        <p>Consistent, comparable data across all of the chain’s locations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mo-cta-section" id="demo">
+  <div class="mo-cta-grid">
+    <div>
+      <div class="mo-cta-eyebrow">Personalized demo · 20 minutes</div>
+      <h2>Turn physical footfall into business decisions</h2>
+      <p class="sub">We show you how Flame measures footfall, conversion and audience profile in your stores, malls or hotels. A real case from your sector, with no biometrics and GDPR by design.</p>
+    </div>
+    <div class="mo-cta-right">
+      <a href="/en/contact-us/" class="mo-btn mo-btn--lg mo-btn-accent">Request a demo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <div class="mo-cta-stats">
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 12 countries</span>
+        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg> 90+ B2B clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mo-related-section">
+  <h2>Other success stories</h2>
+  <div class="mo-related-grid">
+    <a href="/en/success-story-repsol-and-flame-analytics-transform-the-experience-in-1000-gas-stations/" class="mo-related-card">
+      <div class="mo-related-cover" style="background-image:url('https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/03/repsol-service-stations-connectivity-flame-connect-flame-analytics-2.png');"></div>
+      <div class="mo-related-body">
+        <span class="tag">Case studies</span>
+        <h3>Success Story: Repsol and Flame Analytics Transform the Experience in 1000 Gas Stations</h3>
+        <p class="excerpt">In an increasingly digitalized world, connectivity has become a key factor in providing a…</p>
+        <p class="date">March 14, 2025</p>
+      </div>
+    </a>
+    <a href="/en/case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition/" class="mo-related-card">
+      <div class="mo-related-cover" style="background-image:url('https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/11/cbre-spain-shopping-centers-loyalty-system-connect-mall-flame-analytics.png');"></div>
+      <div class="mo-related-body">
+        <span class="tag">Case studies</span>
+        <h3>Case Study: Enhancing Customer Loyalty in Shopping Centers with CBRE Spain and Connect Mall Edition</h3>
+        <p class="excerpt">In the competitive world of shopping centers, customer loyalty and experience have become…</p>
+        <p class="date">November 8, 2024</p>
+      </div>
+    </a>
+    <a href="/en/transforming-the-experience-at-moritz-store/" class="mo-related-card">
+      <div class="mo-related-cover" style="background-image:url('https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/03/moritz-store-barcelona-traffic-analytics-customer-experience-flame-analytics.png');"></div>
+      <div class="mo-related-body">
+        <span class="tag">Case studies</span>
+        <h3>Transforming the Experience at Moritz Store: A Success Story of Flame Analytics</h3>
+        <p class="excerpt">The Moritz Store in Barcelona has experienced a notable improvement in customer experience…</p>
+        <p class="date">March 4, 2024</p>
+      </div>
+    </a>
+  </div>
+</section>
+</div>
