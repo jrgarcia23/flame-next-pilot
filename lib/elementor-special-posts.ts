@@ -18,6 +18,10 @@ const SPECIAL_SLUGS: string[] = [
   // Casos de éxito en el nuevo formato (HTML+CSS propio en data/elementor/<slug>.html)
   "alain-afflelou-confia-en-la-analitica-de-flame-para-sus-tiendas-en-espana",
   "alain-afflelou-relies-on-flame-analytics-for-people-counting-across-its-stores-in-spain",
+  // MultiÓpticas (ES + EN) — DRAFT: los ficheros existen pero el post está en status=draft
+  // en Supabase y no en blog.json, así que la URL pública da 404 hasta publicar.
+  "multiopticas-convierte-el-trafico-en-tienda-en-decisiones-de-negocio",
+  "multiopticas-turns-in-store-footfall-into-business-decisions",
 ];
 
 type ElementorMeta = {
