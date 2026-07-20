@@ -4,8 +4,10 @@ import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import AdminTopbar from "@/components/AdminTopbar";
 import BlogPostTemplate from "@/components/templates/BlogPostTemplate";
 import InterviewPostTemplate from "@/components/templates/InterviewPostTemplate";
+import ElementorPostPage from "@/components/templates/ElementorPostPage";
 import { adminGetPostByKey, type Lang, type BlogPost } from "@/lib/blog";
 import { getCmsPostById } from "@/lib/cms-posts";
+import { getElementorContent } from "@/lib/elementor-special-posts";
 
 export const dynamic = "force-dynamic";
 
@@ -74,6 +76,9 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
   if (!post) notFound();
 
   const isInterview = post.category.slug === "entrevistas" || post.category.slug === "interviews";
+  // Casos de éxito en el nuevo formato: HTML+CSS propio en data/elementor/<slug>.html
+  // (mismo mecanismo que la ruta pública). Permite previsualizar drafts con su diseño real.
+  const elementor = getElementorContent(publicSlug);
   const publicUrl = `/${publicLang}/${publicSlug}/`;
 
   return (
@@ -107,9 +112,11 @@ export default async function PreviewPage({ searchParams }: { searchParams: Prom
 
       {/* Renderizado real con el mismo template que la web */}
       <div style={{ background: "#fff" }}>
-        {isInterview
-          ? <InterviewPostTemplate post={post} />
-          : <BlogPostTemplate post={post} />
+        {elementor
+          ? <ElementorPostPage lang={publicLang} post={post} content={elementor} />
+          : isInterview
+            ? <InterviewPostTemplate post={post} />
+            : <BlogPostTemplate post={post} />
         }
       </div>
     </div>
