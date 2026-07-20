@@ -2,6 +2,44 @@
   "generated_at": "2026-06-09T14:38:25.952240Z",
   "posts": [
     {
+      "id": 14,
+      "slug": "multiopticas-turns-in-store-footfall-into-business-decisions",
+      "lang": "en",
+      "type": "post",
+      "title": "How MultiÓpticas turns in-store footfall into business decisions",
+      "excerpt": "MultiÓpticas kicks off an advanced in-store analytics project with Flame Analytics to turn physical data into network intelligence.",
+      "html": "<p>MultiÓpticas kicks off an advanced in-store analytics project with Flame Analytics.</p>",
+      "date": "2026-07-20T10:28:16.974448Z",
+      "modified": "2026-07-20T10:28:16.974448Z",
+      "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/07/multiopticas-hero-6a5df7da.png",
+      "category": {
+        "slug": "case-studies",
+        "name": "Case Studies"
+      },
+      "link_legacy": "https://flameanalytics.com/en/multiopticas-turns-in-store-footfall-into-business-decisions/",
+      "status": "published",
+      "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/07/multiopticas-en-6a5df7da.jpg"
+    },
+    {
+      "id": 13,
+      "slug": "multiopticas-convierte-el-trafico-en-tienda-en-decisiones-de-negocio",
+      "lang": "es",
+      "type": "post",
+      "title": "Cómo MultiÓpticas convierte el tráfico en tienda en decisiones de negocio",
+      "excerpt": "MultiÓpticas inicia con Flame Analytics un proyecto de analítica avanzada en tienda para convertir el dato físico en inteligencia de red.",
+      "html": "<p>MultiÓpticas inicia con Flame Analytics un proyecto de analítica avanzada en tienda.</p>",
+      "date": "2026-07-20T10:28:16.974448Z",
+      "modified": "2026-07-20T10:28:16.974448Z",
+      "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/07/multiopticas-hero-6a5df7da.png",
+      "category": {
+        "slug": "casos-de-exito",
+        "name": "Casos de éxito"
+      },
+      "link_legacy": "https://flameanalytics.com/es/multiopticas-convierte-el-trafico-en-tienda-en-decisiones-de-negocio/",
+      "status": "published",
+      "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/07/multiopticas-es-6a5df7da.jpg"
+    },
+    {
       "id": 5,
       "slug": "alain-afflelou-relies-on-flame-analytics-for-people-counting-across-its-stores-in-spain",
       "lang": "en",
