@@ -47,7 +47,7 @@ const cfg: UseCaseConfig = {
   metaTitle: "DOOH · Flame Analytics",
   metaDescription: "Medición de audiencia DOOH y retail media auditable.",
   heroTitle: "Medición DOOH",
-  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero.png?v=2",
+  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero-v3.webp",
   heroBgPosition: "center center",
   heroSub: "Convierte tus pantallas digitales en un negocio retail media real. Flame mide la audiencia que pasa delante de cada pantalla, demuestra el ROI a las marcas y te da los reportes que necesitas para compartir el dato real con tus anunciantes. La misma rigurosidad que pide hoy el digital, aplicada al mundo físico.",
   heroBullets: ["90+ clientes B2B", "12 países", "Sobre tu red de cámaras", "Sin reconocimiento facial"],
