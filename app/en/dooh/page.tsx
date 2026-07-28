@@ -56,7 +56,7 @@ const cfg: UseCaseConfig = {
   bigSectionPara1: "Retailers and brands investing in retail media no longer accept estimates. They want to know how many people stood in front of each screen, with what profile, and how many later visited the advertised store.",
   bigSectionPara2: "Flame turns your camera network into an audited measurement layer for your DOOH inventory. No extra hardware, no facial recognition, aggregated and anonymous data under GDPR, and integration with the main signage CMS and DOOH platforms. The venue stops selling estimated impressions and starts selling verified audience.",
   bigSectionBullets: ["Real impressions", "Drive to store", "Anonymous demographics", "Campaign reports"],
-  benefitsTitle: "of measuring your DOOH with Flame",
+  benefitsTitle: "of measuring your DOOH",
   benefitsTitleHl: "Benefits",
   benefitsSub: "Move from selling screens to selling audiences. The difference between a retail media program that scales and a digital signage network that doesn't is whether you can prove the data.",
   benefits: [

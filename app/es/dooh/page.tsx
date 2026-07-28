@@ -58,7 +58,7 @@ const cfg: UseCaseConfig = {
   bigSectionPara1: "Los retailers y marcas que invierten en retail media ya no aceptan estimaciones. Quieren saber cuántas personas estuvieron frente a cada pantalla, con qué perfil y cuántas visitaron después la tienda anunciada.",
   bigSectionPara2: "Flame convierte tu red de cámaras en una capa de medición auditable para tu inventario DOOH. Sin hardware adicional, sin reconocimiento facial, con datos agregados y anonimizados bajo GDPR, e integrable con los principales CMS de señalética y plataformas DOOH. Así, el centro deja de vender impresiones estimadas para vender audiencia verificada.",
   bigSectionBullets: ["Impresiones reales", "Drive to store", "Datos demográficos anonimizados", "Informes y medición de campañas"],
-  benefitsTitle: "de medir tu DOOH con Flame",
+  benefitsTitle: "de medir tu DOOH",
   benefitsTitleHl: "Beneficios",
   benefitsSub: "Pasa de vender pantallas a vender audiencias. La diferencia entre un programa retail media que escala y un escaparate digital infrautilizado está en si puedes demostrar el dato.",
   benefits: [
