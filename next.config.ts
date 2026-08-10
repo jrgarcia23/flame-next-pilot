@@ -544,7 +544,8 @@ const nextConfig: NextConfig = {
       { source: "/es/dahua-technology-nuevo-partner-de-video-analytics-de-flame", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/descubre-las-ventajas-del-wifi-marketing-en-hoteles",     destination: "/es/comunidad/",  permanent: true },
       { source: "/es/el-trafico-en-los-puntos-de-venta-cae-un-40-en-agosto",   destination: "/es/comunidad/",  permanent: true },
-      { source: "/es/entender-al-consumidor-y-adaptarse-principales-retos-del-retail-en-el-futuro", destination: "/es/comunidad/",  permanent: true },
+      // (2026-08-10 Fase 2 poda: destino cambiado de /es/comunidad/ a la guía de tendencias)
+      { source: "/es/entender-al-consumidor-y-adaptarse-principales-retos-del-retail-en-el-futuro", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/",  permanent: true },
       { source: "/es/eriberto-pavon-bermejo-el-dato-mas-importante-para-una-tienda-es-el-trafico-sin-clientes-que-entren-nada-mas-funciona", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-analytics-actor-relevante-en-el-sector-del-geomarketing", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-analytics-colabora-en-el-libro-100-ideas-para-el-retail-de-la-era-digital-de-marcos-alvarez", destination: "/es/comunidad/",  permanent: true },
@@ -553,7 +554,8 @@ const nextConfig: NextConfig = {
       { source: "/es/flame-en-questionpro-analiticas-para-mejorar-la-experiencia-del-cliente-mas-alla-del-retail", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-estara-en-el-vi-foro-internacionales-sector-tic-organizado-por-asturex", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-habla-sobre-big-data-en-profesional-retail",        destination: "/es/comunidad/",  permanent: true },
-      { source: "/es/flame-retail-analytics-las-cuatro-patas-de-una-mesa",     destination: "/es/comunidad/",  permanent: true },
+      // (2026-08-10 Fase 2 poda: destino cambiado de /es/comunidad/ a la guía de KPIs)
+      { source: "/es/flame-retail-analytics-las-cuatro-patas-de-una-mesa",     destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",  permanent: true },
       { source: "/es/flame-se-va-a-silicon-valley-para-participar-en-el-tech-match", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/futuro_del_retail",                                       destination: "/es/comunidad/",  permanent: true },
       { source: "/es/la-ubicacion-de-tu-tienda-un-factor-primordial",          destination: "/es/comunidad/",  permanent: true },
@@ -604,6 +606,79 @@ const nextConfig: NextConfig = {
       { source: "/en/engage",         destination: "/en/guest-wifi-marketing/",          permanent: true },
       // Slug de categoría con idioma mezclado (categoria ES + case-studies EN)
       { source: "/en/categoria/case-studies", destination: "/en/category/case-studies/", permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // Fase 2 poda blog (2026-08-10) — 61 posts ES consolidados en 5 guías.
+      // 35 published pasados a draft + 26 drafts que daban 404. 301 al destino
+      // de su cluster. Detalle: _local/_global/clientes/flame/seo/poda-blog-2026-07.csv
+      // (repo esconzeta-mc). 2 slugs de esta lista ya tenían regla más arriba y se
+      // les cambió el destino en su sitio: entender-al-consumidor-... y
+      // flame-retail-analytics-las-cuatro-patas-de-una-mesa.
+      // ══════════════════════════════════════════════════════════════════
+      // Cluster KPIs (11) → /es/los-10-kpis-que-todo-centro-comercial-debe-medir/
+      { source: "/es/que-mide-flame-y-como-lo-hace-te-pierdas-las-ventajas-de-medir", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/quien-mide-triunfa-3-ratios-de-conversion-medir-en-retail", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/como-medir-el-cro-conversion-rate-optimization-en-una-tienda-fisica", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/la-importancia-de-medir-resultados", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/aumenta-las-ventas-en-tu-tienda-fisica-durante-la-temporada-de-navidad-kpis-y-analitica-en-tienda", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/como-puedo-medir-la-fidelidad-de-los-clientes-en-retail", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/lo-estoy-haciendo-bien-donde-debo-mejorar-o-como-medirlo", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/el-objetivo-de-medir-mas-fidelidad-compromiso-y-satisfaccion-del-cliente", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/jonathan-solis-en-latencia-cero-el-objetivo-es-medir-el-rendimiento-de-los-espacios-fisicos", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/mapas-de-calor-para-medir-el-trafico-en-parques-de-atracciones", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      { source: "/es/medicion-offline-la-historia-de-un-reto-con-final-feliz", destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/", permanent: true },
+      // Cluster fidelización (12) → /es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/
+      { source: "/es/como-se-construye-y-se-mide-el-engagement", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/cuales-son-las-herramientas-digitales-de-atencion-al-cliente-imprescindibles-en-retail", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/fidelizacion-en-retail-son-tus-clientes-fieles-sabes-cual-es-la-tasa-de-retorno-tu-tienda", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/la-atencion-al-cliente-clave-en-la-supervivencia-de-la-tienda-fisica", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/las-notificaciones-push-el-nuevo-canal-para-captar-y-fidelizar-a-sus-clientes", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/consejos-para-mejorar-el-customer-journey-en-tu-empresa", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/una-buena-experiencia-de-compra-esencial-para-la-satisfaccion-del-cliente", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/como-se-identifican-y-fidelizan-los-clientes", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/4-estrategias-de-marketing-digital-para-mejorar-el-customer-engagement", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/como-la-automatizacion-del-marketing-puede-fidelizar-a-tus-clientes", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/la-experiencia-de-cliente-una-pieza-central-de-toda-empresa-2", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      { source: "/es/experiencia-retail-como-mejorar-la-satisfaccion-del-cliente", destination: "/es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes/", permanent: true },
+      // Cluster tendencias (15) → /es/centros-comerciales-del-futuro-estudios-y-tendencias/
+      { source: "/es/conoceis-los-estilos-tendencias-la-decoracion-vuestro-comercio", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/flame-analytics-en-la-lista-de-startups-innovadoras-2024-un-reconocimiento-al-trabajo-y-la-innovacion", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/rakuten_anticipa_tendencias_retail_2014", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/retail-2024-navegando-hacia-un-futuro-experiencial-sostenible-e-innovador", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/los-expertos-en-retail-le-piden-al-2023-estabilidad-tecnologia-e-innovacion", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/la-innovacion-en-el-sector-retail-clave-para-adaptarse-a-las-necesidades-de-los-clientes", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/video-retail-como-seran-compras-futuro", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/7-tendencias-que-estan-cambiando-el-sector-del-retail", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/tendencias-en-innovacion-hotelera", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/reinvender-como-reinventar-las-tiendas-para-vender-en-el-futuro", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/jonathan-solis-en-trending-tools", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/el-retail-2020-marcado-por-emociones-y-experiencias", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/retail-video-will-purchases-future-2", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/el-futuro-del-retail-pasa-por-la-integracion-del-offline-y-del-online", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      { source: "/es/innovacion-en-retail-nuevos-espejos-probadores", destination: "/es/centros-comerciales-del-futuro-estudios-y-tendencias/", permanent: true },
+      // Cluster omnicanal (7) → /es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/
+      { source: "/es/experiencia-omnicanal-la-manera-de-perfeccionar-la-experiencia-del-cliente", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/herramientas-martech-mundo-fisico-y-omnicanalidad", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/que-te-cuenten-cuentos-10-mitos-sobre-el-retail-omnicanal", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/los-desafios-del-retail-omnichannel", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/omnichannel-la-receta-para-que-las-tiendas-tradicionales-sobrevivan-en-la-nueva-era-digital", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/la-estrategia-omnichannel-impulsa-las-ventas-del-retail", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      { source: "/es/el-showrooming-marca-el-futuro-del-retail", destination: "/es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones/", permanent: true },
+      // Cluster wifi marketing (14) → /es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/
+      { source: "/es/10-razones-para-tener-un-servicio-wifi-de-calidad-en-tu-hotel", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/que-es-el-wifi-marketing-y-por-que-debo-usarlo-en-mi-restaurante", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/wifi-fidelidad-conectar-con-el-cliente", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/mas-oportunidades-para-el-retail-gracias-flame-hablamos-de-wifi-tracking", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/wifi-en-restaurantes-motor-de-los-datos", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/wifi-social-fideliza-a-tus-clientes-y-saca-partido-a-tu-red-wifi", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/mide-la-fidelidad-de-tus-clientes-con-el-wifi-tracking", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/las-ventajas-del-wifi-tracking-sabes-cuanto-tiempo-estan-los-clientes-en-tu-tienda", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/gestionar-la-fidelidad-de-tus-clientes-traves-del-wifi", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/ya-disponible-el-video-del-webinar-sobre-wifi-tracking", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/6-razones-para-implantar-guest-wifi-en-un-restaurante", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/flame-analytics-un-player-clave-en-el-mercado-de-wi-fi-analytics", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/mide-el-nivel-de-engagement-o-compromiso-de-tus-clientes-con-wifi-tracking", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+      { source: "/es/flame-en-el-diario-expansion-conozca-y-seduzca-a-su-cliente-a-traves-del-wifi", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
 
       // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];

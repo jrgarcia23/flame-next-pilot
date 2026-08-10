@@ -1,0 +1,77 @@
+# Flame Analytics
+
+> Flame Analytics is a privacy-first AI video analytics platform for physical spaces. It transforms existing CCTV cameras into business intelligence tools — measuring foot traffic, customer journeys, conversion rates, and occupancy without biometrics. Fully GDPR and EU AI Act compliant. Trusted by IKEA, Decathlon, Repsol, Merlin Properties, CBRE, Cushman & Wakefield, and thousands of users across 7 countries.
+
+## Core Products
+
+- [Hypersensor — AI Video Analytics](https://flameanalytics.com/en/hypersensor/): Advanced AI that turns any IP camera (RTSP/ONVIF) into a smart analytics sensor. Silhouette-based detection, 95%+ accuracy, automatic staff exclusion, cross-camera reconnection. Zero biometrics, edge processing — video never leaves the premises.
+- [People Counting](https://flameanalytics.com/en/people-counting/): Accurate footfall measurement across entrances, floors, and zones. External traffic, vehicle counting, and real-time occupancy. No dedicated sensors needed — works on existing CCTV.
+- [Customer Journey](https://flameanalytics.com/en/customer-journey/): Cross-camera visitor path tracking, zone heatmaps, dwell time analysis, and behavioral segmentation — all without biometric identification.
+- [Conversion Analytics](https://flameanalytics.com/en/conversion-analytics/): Measure visitor-to-buyer ratio, identify drop-off points, and optimize store performance with real-time conversion data.
+- [Traffic Insights](https://flameanalytics.com/en/traffic-insights/): Real-time dashboards for pedestrian traffic patterns, peak hours, comparative benchmarks, and trend analysis across locations.
+- [Queue Analytics](https://flameanalytics.com/en/queue-analytic/): Monitor queue length and wait times in real time. Trigger staff alerts, optimize checkout allocation, and reduce abandonment.
+- [Occupancy Management](https://flameanalytics.com/en/occupancy-management/): Live capacity monitoring with configurable thresholds, automatic alerts, and compliance with safety regulations.
+- [Connect — Guest WiFi Marketing](https://flameanalytics.com/en/connect/): Captive portal WiFi analytics. Collect visitor contact data and run personalized marketing campaigns based on location, demographics, and visit behavior.
+- [Corporate WiFi Access](https://flameanalytics.com/en/corporate-wifi-access/): Secure network analytics for enterprise environments.
+- [Restroom Management](https://flameanalytics.com/en/restroom-management/): Smart facility monitoring for cleaning schedules, usage patterns, and resource optimization.
+
+## Industries
+
+- [Retail Stores](https://flameanalytics.com/en/solution-for-retail-sector/): Optimize layouts, measure campaign ROI, benchmark locations, improve staff scheduling. Clients: IKEA, Decathlon, Pompeii, Havaianas, Alain Afflelou, Cash Converters.
+- [Shopping Malls](https://flameanalytics.com/en/solution-for-shopping-malls/): Tenant performance analytics, common area optimization, loyalty programs, benchmarking across 50+ European malls. Clients: Merlin Properties, CBRE, Cushman & Wakefield, Westfield, Intu Xanadú, CC Plaza Éboli.
+- [Hospitality](https://flameanalytics.com/en/hospitality/): Guest flow analytics, event capacity management, venue optimization. Clients: B&B Hotels, Hotels VIVA, Ilunion Hotels.
+- [Public Venues](https://flameanalytics.com/en/public-venues/): Museums, stadiums, event spaces — visitor flow, exhibition performance, capacity planning. Client: CaixaForum.
+- **Gas Stations**: High-volume visitor analytics and WiFi engagement. Client: Repsol (1,000+ stations across Spain).
+
+## Success Stories
+
+- [Repsol — 1,000+ Gas Stations](https://flameanalytics.com/en/success-story-repsol-and-flame-analytics-transform-the-experience-in-1000-gas-stations/): WiFi connectivity and visitor analytics deployed at scale across Spain.
+- [Merlin Properties — 10 Shopping Centers](https://flameanalytics.com/en/driving-digital-transformation-flame-analytics-success-story-with-merlin-properties/): Integrated Traffic + Journey + Connect across 10 centers for data-driven decision-making.
+- [CaixaForum — Cultural Space Analytics](https://flameanalytics.com/en/transforming-the-visitor-experience-at-caixaforum-with-ai-powered-video-analytics/): AI video analytics for visitor experience and space management — without biometrics.
+- [CBRE Spain — Shopping Center Loyalty](https://flameanalytics.com/en/case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition/): Connect Mall Edition loyalty system with ticket scanning.
+- [Pompeii — Retail Brand Analytics](https://flameanalytics.com/en/pompeii-use-big-data-retail-sector/): Big data analytics for emerging retail brand.
+- [All Case Studies](https://flameanalytics.com/en/tag/case-studies/)
+
+## Key Differentiators
+
+- **Zero biometrics**: AI analytics without facial recognition — privacy by design, GDPR and EU AI Act compliant
+- **No new hardware**: Works with any existing IP camera (Hikvision, Dahua, Axis, Bosch, Hanwha — any RTSP/ONVIF)
+- **Edge processing**: Video processed locally, never sent to the cloud. Only structured data (metrics, alerts) reaches the dashboard
+- **All-in-one platform**: Only solution integrating people counting + customer journey + heatmaps + conversion + WiFi marketing
+- **Proprietary benchmarks**: Database from 50+ European shopping malls for industry-level comparison
+- **Proven at scale**: From single stores to 1,000+ locations
+
+## Recent Research & Guides
+
+- [Shopping Mall Analytics: 50+ European Centers Benchmarked (2025)](https://flameanalytics.com/en/blog-shopping-mall-analytics-european-benchmarking-study-2025/): Original benchmarking study with foot traffic, conversion, and occupancy data across 4 European regions.
+- [People Counting Systems: Complete Buyer's Guide 2026](https://flameanalytics.com/en/people-counting-systems-complete-guide/): Technologies, metrics, implementation, and ROI for retail people counting.
+- [CCTV Analytics: Turn Cameras into Business Intelligence](https://flameanalytics.com/en/cctv-analytics-turn-existing-cameras-business-intelligence/): How to repurpose existing security cameras for AI-powered retail analytics.
+- [GDPR & Video Analytics: Compliance Guide for Shopping Malls](https://flameanalytics.com/en/gdpr-video-analytics-compliance-guide-shopping-malls/): 15-point compliance checklist, real sanctions, and privacy-first implementation.
+- [AI in Retail Analytics: Transforming Physical Store Intelligence](https://flameanalytics.com/en/ai-retail-analytics-physical-stores/): How artificial intelligence is revolutionizing data analytics for brick-and-mortar retail.
+- [Shopping Mall Marketing Campaigns: Data-Driven Strategies](https://flameanalytics.com/en/shopping-mall-marketing-campaigns-data-driven-strategies/): Proven marketing campaigns for shopping centers backed by footfall and conversion data.
+
+## Company
+
+- **Name**: Flame Analytics S.L.
+- **Founded**: 2013 (as Neosystems), formally constituted 2016
+- **Leadership**: Jonathan Solis (CEO), David Zapico (CTO)
+- **Presence**: Spain, Mexico, USA, Chile, Panama, Czech Republic, UK
+- **Website**: [flameanalytics.com](https://flameanalytics.com/en/)
+- **Contact**: [Request a Demo](https://flameanalytics.com/en/contact-us/)
+
+## Resources
+
+- [Blog (EN)](https://flameanalytics.com/en/c/blog-flame/): Articles on retail analytics, people counting, and privacy-first AI
+- [Blog (ES)](https://flameanalytics.com/es/c/blog-flame/): Artículos en español
+- [About Us](https://flameanalytics.com/en/about-us/)
+- [Meet the Team](https://flameanalytics.com/en/about-us/meet-the-team/)
+- [Partners](https://flameanalytics.com/en/partners/)
+- [Webinars](https://flameanalytics.com/en/webinars/)
+- [Sitio en español](https://flameanalytics.com/es/)
+
+## Optional
+
+- [Privacy Policy](https://flameanalytics.com/en/privacy-policy/)
+- [Information Security](https://flameanalytics.com/en/information-security/)
+- [Terms of Use](https://flameanalytics.com/en/terms-of-use/)
+- [Cookie Policy](https://flameanalytics.com/en/cookie-policy/)
