@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CategoryListTemplate from "@/components/templates/CategoryListTemplate";
-import { getCategoryListing, getAllCategories, categoryLabel } from "@/lib/blog";
+import { getCategoryListingAsync, getAllCategories, categoryLabel } from "@/lib/blog";
 
 export const dynamicParams = false;
 
@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function CategoriaEs({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const posts = getCategoryListing(slug, "es");
+  const posts = await getCategoryListingAsync(slug, "es");
   if (!posts.length) return notFound();
   return <CategoryListTemplate lang="es" categorySlug={slug} posts={posts} currentPage={1} />;
 }

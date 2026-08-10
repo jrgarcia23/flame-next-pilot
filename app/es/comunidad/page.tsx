@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
-import { getCategoryListing, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
+import { getCategoryListing, getCategoryListingAsync, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
 import { UI } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 import { sanitizeTitle } from "@/lib/sanitize-title";
@@ -31,16 +31,25 @@ export const metadata: Metadata = {
 const currentLang = "es" as const;
 const t = UI[currentLang];
 
-export default function ComunidadHubEs() {
-  const ent = getCategoryListing("entrevistas",     currentLang).slice(0, 4);
-  const cas = getCategoryListing("casos-de-exito",  currentLang).slice(0, 4);
-  const blo = getCategoryListing("blog",            currentLang).slice(0, 4);
-  const web = getCategoryListing("webinars", currentLang).slice(0, 4);
+export default async function ComunidadHubEs() {
+  // Listados vía async: fusionan los posts publicados en el CMS (Supabase) con los de
+  // blog.json. Antes usaban la versión sync (solo blog.json), por eso las entrevistas
+  // publicadas desde el editor no aparecían aquí ni en /categoria/entrevistas/.
+  const [entAll, casAll, bloAll, webAll] = await Promise.all([
+    getCategoryListingAsync("entrevistas",    currentLang),
+    getCategoryListingAsync("casos-de-exito", currentLang),
+    getCategoryListingAsync("blog",           currentLang),
+    getCategoryListingAsync("webinars",       currentLang),
+  ]);
+  const ent = entAll.slice(0, 4);
+  const cas = casAll.slice(0, 4);
+  const blo = bloAll.slice(0, 4);
+  const web = webAll.slice(0, 4);
   const wp  = getAllWhitepapers(currentLang).slice(0, 6);
-  const countEnt = getCategoryListing("entrevistas",     currentLang).length;
-  const countCas = getCategoryListing("casos-de-exito",  currentLang).length;
-  const countBlo = getCategoryListing("blog",            currentLang).length;
-  const countWeb = getCategoryListing("webinars", currentLang).length;
+  const countEnt = entAll.length;
+  const countCas = casAll.length;
+  const countBlo = bloAll.length;
+  const countWeb = webAll.length;
   const countWp  = getAllWhitepapers(currentLang).length;
 
   return (
