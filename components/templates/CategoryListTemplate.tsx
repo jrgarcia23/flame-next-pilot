@@ -82,7 +82,7 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
       </section>
 
       {/* GRID 4 cols × 5 rows (20 por página) */}
-      <section className="py-16" style={{ background: "var(--color-paper)" }}>
+      <section className="py-16" style={{ background: categorySlug === "blog" ? "#ffffff" : "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-7 cat-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
             {pageItems.map((p) => {
