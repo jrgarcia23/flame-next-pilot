@@ -4,6 +4,7 @@ import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
 import { upsertCmsPost } from "@/lib/cms-posts";
 import { CMS_CATEGORIES, slugFor, nameFor, keyFromAnySlug, slugify } from "@/lib/cms-categories";
 import { invalidateCmsCache } from "@/lib/blog-cms-merge";
+import { notifyGoogleIndexing } from "@/lib/google-indexing";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -96,6 +97,13 @@ export async function POST(req: NextRequest) {
     revalidatePath("/admin/posts/");
   } catch {
     // revalidatePath puede lanzar en runtime edge: no es fatal
+  }
+
+  // Autoindexación: al PUBLICAR, avisa a Google Indexing API al instante (sin esperar
+  // al sitemap ni al cron diario). Se hace await para que no se aborte en serverless,
+  // pero nunca rompe el guardado (notifyGoogleIndexing no lanza).
+  if (status === "published") {
+    await notifyGoogleIndexing(`https://www.flameanalytics.com/${lang}/${slug}/`, "URL_UPDATED");
   }
 
   return NextResponse.json({ ok: true, post: result.post });
