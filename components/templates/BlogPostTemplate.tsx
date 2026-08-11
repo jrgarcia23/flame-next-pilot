@@ -1,6 +1,6 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
-import { BlogPost, categoryLabel, categoryUrl, formatDate, readingTime, getRelatedPosts, shortExcerpt, Lang } from "@/lib/blog";
+import { BlogPost, categoryLabel, categoryUrl, formatDate, readingTime, getRelatedPostsAsync, shortExcerpt, Lang } from "@/lib/blog";
 import { injectInternalLinks } from "@/lib/internal-linking";
 import { sanitizeTitle } from "@/lib/sanitize-title";
 
@@ -265,13 +265,13 @@ function processPostHtml(
   return processed;
 }
 
-export default function BlogPostTemplate({ post }: { post: BlogPost }) {
+export default async function BlogPostTemplate({ post }: { post: BlogPost }) {
   const lang: Lang = post.lang;
   const t = I18N[lang];
   const catLabel = categoryLabel(post.category.slug, lang);
   const catPath = categoryUrl(post.category.slug, lang);
   const minutes = readingTime(post.html);
-  const related = getRelatedPosts(post.slug, post.category.slug, lang, 3);
+  const related = await getRelatedPostsAsync(post.slug, post.category.slug, lang, 3);
   const enHref = lang === "es" ? `/en/` : `/es/`;
   const currentPath = `/${lang}/${post.slug}/`;
 

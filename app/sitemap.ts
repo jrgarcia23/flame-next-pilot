@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts, getAllWhitepapers, getAllCategories } from "@/lib/blog";
+import { getAllPostsAsync, getAllWhitepapers, getAllCategories } from "@/lib/blog";
 
 // Host canónico con www. El apex 308-redirige a www → mantener consistencia
 // entre canonical, sitemap y URLs servidas. Hardcodeado para evitar que
@@ -27,7 +27,7 @@ const STATIC_EN = [
   "privacy-policy", "cookie-policy", "information-security", "terms-of-use",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const today = new Date().toISOString().split("T")[0];
   const out: MetadataRoute.Sitemap = [];
 
@@ -37,10 +37,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Blog posts ES + EN
   for (const lang of ["es", "en"] as const) {
-    for (const post of getAllPosts(lang)) {
+    for (const post of await getAllPostsAsync(lang)) {
       out.push({
         url: `${BASE}/${lang}/${post.slug}/`,
-        lastModified: post.modified.split("T")[0],
+        lastModified: (post.modified || post.date).split("T")[0],
         changeFrequency: "monthly",
         priority: 0.6,
       });

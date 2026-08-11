@@ -143,6 +143,16 @@ export function getAllWhitepaperSlugs(lang: Lang): string[] {
 export function getAllPosts(lang: Lang): BlogPost[] {
   return D.posts.filter(p => p.lang === lang && isPublic(p));
 }
+// Versión CMS-aware: fusiona los posts publicados en el CMS (Supabase) con los de blog.json.
+// La usa el sitemap para que los posts del editor sean indexables por Google.
+export async function getAllPostsAsync(lang: Lang): Promise<BlogPost[]> {
+  const { getCmsPostsCached } = await import("@/lib/blog-cms-merge");
+  const cms = await getCmsPostsCached();
+  const cmsInLang = cms.filter(p => p.lang === lang);
+  const publishedCmsKeys = new Set(cmsInLang.map(p => `${p.lang}::${p.slug}`));
+  const jsonInLang = getAllPosts(lang).filter(p => !publishedCmsKeys.has(`${p.lang}::${p.slug}`));
+  return [...cmsInLang, ...jsonInLang];
+}
 export function getAllWhitepapers(lang: Lang): BlogPost[] {
   return D.whitepapers.filter(p => p.lang === lang && isPublic(p));
 }
