@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
-import { getCategoryListing, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
+import { getCategoryListing, getCategoryListingAsync, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
 import { UI } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 import { sanitizeTitle } from "@/lib/sanitize-title";
@@ -31,16 +31,23 @@ export const metadata: Metadata = {
 const currentLang = "en" as const;
 const t = UI[currentLang];
 
-export default function CommunityHubEn() {
-  const ent = getCategoryListing("interviews",   currentLang).slice(0, 4);
-  const cas = getCategoryListing("case-studies", currentLang).slice(0, 4);
-  const blo = getCategoryListing("blog",         currentLang).slice(0, 4);
-  const web = getCategoryListing("webinars",     currentLang).slice(0, 4);
+export default async function CommunityHubEn() {
+  // Listings via async: merge CMS-published posts with blog.json (same fix as ES).
+  const [entAll, casAll, bloAll, webAll] = await Promise.all([
+    getCategoryListingAsync("interviews",   currentLang),
+    getCategoryListingAsync("case-studies", currentLang),
+    getCategoryListingAsync("blog",         currentLang),
+    getCategoryListingAsync("webinars",     currentLang),
+  ]);
+  const ent = entAll.slice(0, 4);
+  const cas = casAll.slice(0, 4);
+  const blo = bloAll.slice(0, 4);
+  const web = webAll.slice(0, 4);
   const wp  = getAllWhitepapers(currentLang).slice(0, 6);
-  const countEnt = getCategoryListing("interviews",   currentLang).length;
-  const countCas = getCategoryListing("case-studies", currentLang).length;
-  const countBlo = getCategoryListing("blog",         currentLang).length;
-  const countWeb = getCategoryListing("webinars",     currentLang).length;
+  const countEnt = entAll.length;
+  const countCas = casAll.length;
+  const countBlo = bloAll.length;
+  const countWeb = webAll.length;
   const countWp  = getAllWhitepapers(currentLang).length;
 
   return (
