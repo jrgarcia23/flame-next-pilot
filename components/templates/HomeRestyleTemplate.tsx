@@ -1,6 +1,7 @@
 import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import ResizingIframe from "./ResizingIframe";
+import HeroVideo from "@/components/HeroVideo";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 
@@ -10,8 +11,8 @@ export type HomeRestyleConfig = {
   heroSupertitleHl: string;     // accent span inside h1
   heroHeadline: string;         // h2
   heroCta: string;              // "Solicita una demo ->"
-  videoWebm: string;
   videoMp4: string;
+  videoPoster: string;          // poster WebP ligero (primer frame del mp4)
   // 3 STEP CARDS
   stepsTitle: string;
   stepsTitleHl: string;         // "para Retail" accent
@@ -84,7 +85,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         className="relative overflow-hidden"
         style={{
           backgroundColor: "#15163A",
-          backgroundImage: "url('/wp-content/uploads/2026/01/02f81c6e339fb84de93b6d01a06a46fa5918ef10-scaled-1.jpg')",
+          backgroundImage: "url('/wp-content/uploads/2026/01/hero-bg-home.webp')",
           backgroundPosition: "center center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
@@ -120,10 +121,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           {/* Vídeo grande */}
           <div className="relative mx-auto" style={{ maxWidth: 1180 }}>
             <div className="rounded-2xl overflow-hidden" style={{ background: "rgb(255 255 255 / 0.03)", border: "1px solid rgb(255 255 255 / 0.12)", boxShadow: "0 40px 100px -25px rgb(0 0 0 / 0.6)" }}>
-              <video className="w-full h-auto block" autoPlay loop muted playsInline controlsList="nodownload">
-                <source src={cfg.videoWebm} type="video/webm" />
-                <source src={cfg.videoMp4} type="video/mp4" />
-              </video>
+              <HeroVideo srcMp4={cfg.videoMp4} poster={cfg.videoPoster} />
             </div>
           </div>
         </div>
