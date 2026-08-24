@@ -14,6 +14,10 @@ export type PostOverride = {
   excerpt?: string;
   // Si htmlFile está presente, lee el HTML desde disco al build time.
   htmlFile?: string;
+  // SEO-only (2026-08-24, pack CTR): afectan SOLO a <title>/<meta description>
+  // vía generateMetadata. NO tocan el H1 visible ni el excerpt de los listados.
+  seoTitle?: string;
+  seoDescription?: string;
 };
 
 // clave: `<lang>/<slug>`
@@ -64,11 +68,17 @@ const OVERRIDES: Record<string, PostOverride> = {
   },
   "es/4-estrategias-para-retailers-casos-de-exito-y-soluciones-clave": {
     htmlFile: "02-estrategias-retailers-id56837.html",
+    // Pack CTR 2026-08-24: "estrategia retail" pos 6,4 con 0 clicks/28d.
+    seoTitle: "Estrategia retail: 4 casos de éxito reales",
+    seoDescription: "Cuatro estrategias de retail que funcionan hoy, con casos de éxito reales y soluciones medibles en tienda física. Elige la tuya con datos.",
   },
   "es/los-10-kpis-que-todo-centro-comercial-debe-medir": {
     title: "KPIs de centros comerciales: los 10 clave",
     excerpt: "Los 10 KPIs que todo centro comercial debe medir: afluencia, conversión, dwell time y más, con benchmarks reales del sector.",
     htmlFile: "03-kpis-centro-comercial-id25712.html",
+    // Pack CTR 2026-08-24: "kpis centros comerciales" pos 1,4 con CTR 1,5% (esperable ~25%).
+    seoTitle: "KPIs de centros comerciales: guía 2026",
+    seoDescription: "Los 10 KPIs que todo centro comercial debe medir, con benchmarks reales del sector y un plan de 60 días. Descubre cuáles mueven ingresos.",
   },
 
   // ---------- Auditoría SE Ranking 2026-07-13: titles >60 y descriptions >160 ----------
@@ -77,6 +87,9 @@ const OVERRIDES: Record<string, PostOverride> = {
   "es/cuenta-personas-retail-guia-completa": {
     title: "Cuenta personas retail: guía completa",
     excerpt: "Guía completa de sistemas cuenta personas para retail: tecnologías, métricas, implementación y ROI, con IA y sin biometría.",
+    // Pack CTR 2026-08-24: "conteo de personas retail" pos 8,9 con 0 clicks/28d.
+    seoTitle: "Conteo de personas retail: guía completa",
+    seoDescription: "Conteo de personas en retail: tecnologías, precisión, métricas y ROI. Elige el sistema adecuado para tu tienda, con IA y sin biometría.",
   },
   "es/analitica-de-video-cctv-inteligencia-negocio": {
     title: "Analítica de vídeo CCTV: guía para retail",
@@ -89,6 +102,9 @@ const OVERRIDES: Record<string, PostOverride> = {
   "es/campanas-marketing-centros-comerciales": {
     title: "Marketing de centros comerciales: campañas",
     excerpt: "Las campañas de marketing para centros comerciales más efectivas se basan en datos de afluencia. Estrategias, ROI y optimización con IA.",
+    // Pack CTR 2026-08-24: "estrategias de marketing para centros comerciales" pos 7,7, 0 clicks/28d.
+    seoTitle: "Marketing de centros comerciales: estrategias",
+    seoDescription: "Estrategias de marketing para centros comerciales basadas en datos de afluencia: campañas, ROI y ejemplos reales. Aplica la primera esta semana.",
   },
   "es/inteligencia-artificial-retail-analitica-tienda-fisica": {
     title: "Inteligencia artificial retail: analítica",
@@ -126,6 +142,13 @@ const OVERRIDES: Record<string, PostOverride> = {
   "es/la-ia-al-servicio-del-retail-descubre-el-poder-del-video-analytics": {
     title: "La IA al servicio del retail (whitepaper)",
     excerpt: "Whitepaper: la IA al servicio del retail. Qué aporta el vídeo analytics a tiendas y centros comerciales y cómo empezar a aplicarlo.",
+  },
+
+  // ---------- Pack CTR 2026-08-24 (medición 3 GSC): queries pos 1-10 con CTR ~0 ----------
+  // "future of retail analytics" pos 2,8 con 224 imp/28d y 0 clicks.
+  "en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive": {
+    seoTitle: "Future of Retail Analytics: 2026 Trends",
+    seoDescription: "Where retail analytics is heading in 2026: AI, computer vision and in-store data that help physical stores thrive. See what to adopt first.",
   },
 };
 

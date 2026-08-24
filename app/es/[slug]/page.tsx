@@ -7,6 +7,7 @@ import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
+import { getOverride } from "@/lib/post-overrides";
 
 // Permitir slugs no presentes en blog.json (posts nuevos del CMS): Next los renderiza
 // on-demand y los añade al cache estático tras la primera visita.
@@ -20,8 +21,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await getPostAsync(slug, "es");
   if (!post) return { title: "No encontrado · Flame Analytics" };
-  const titleText = post.title.replace(/<[^>]+>/g, "").trim();
-  const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
+  const ov = getOverride(slug, "es");
+  const titleText = (ov?.seoTitle || post.title).replace(/<[^>]+>/g, "").trim();
+  const descText = (ov?.seoDescription || post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
   const enSlug = getOtherLangSlug(slug, "es");
   const languages: Record<string, string> = { es: `/es/${slug}/`, "x-default": `/es/${slug}/` };
   if (enSlug) languages.en = `/en/${enSlug}/`;

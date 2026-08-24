@@ -4,8 +4,8 @@ import AnimatedQueueAnalyticsChart from "@/components/AnimatedQueueAnalyticsChar
 import { UseCaseConfig } from "@/lib/page-content";
 
 export const metadata: Metadata = {
-  title: "Gestión de colas · Flame Analytics",
-  description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+  title: "Analítica de colas: mide y reduce esperas · Flame Analytics",
+  description: "Analítica de colas en tiempo real: mide tiempos de espera, evita abandonos y ajusta el personal en hora punta. Sin biometría. Pide una demo.",
   alternates: {
     canonical: "/es/analitica-de-colas/",
     languages: {
@@ -18,19 +18,19 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.flameanalytics.com/es/analitica-de-colas/",
     siteName: "Flame Analytics",
-    title: "Gestión de colas · Flame Analytics",
-    description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+    title: "Analítica de colas: mide y reduce esperas · Flame Analytics",
+    description: "Analítica de colas en tiempo real: mide tiempos de espera, evita abandonos y ajusta el personal en hora punta. Sin biometría. Pide una demo.",
     locale: "es_ES",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gestión de colas · Flame Analytics",
-    description: "Detecta colas en tiempo real, mide tiempos de espera y dimensiona personal en hora punta. Reduce abandonos y mejora la experiencia del cliente.",
+    title: "Analítica de colas: mide y reduce esperas · Flame Analytics",
+    description: "Analítica de colas en tiempo real: mide tiempos de espera, evita abandonos y ajusta el personal en hora punta. Sin biometría. Pide una demo.",
   },
 };
 
 const cfg: UseCaseConfig = {
-  metaTitle: "Gestión de colas · Flame Analytics",
+  metaTitle: "Analítica de colas: mide y reduce esperas · Flame Analytics",
   metaDescription: "Reduce esperas, evita abandonos y mantiene a los clientes satisfechos.",
   heroTitle: "Gestión de colas",
   heroBgImage: "/wp-content/uploads/2026/01/Queue_analytics.png",

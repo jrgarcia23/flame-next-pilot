@@ -7,6 +7,7 @@ import { getPostAsync, getAllPostSlugs, shortExcerpt } from "@/lib/blog";
 import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
+import { getOverride } from "@/lib/post-overrides";
 
 export const dynamicParams = true;
 
@@ -18,8 +19,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = await getPostAsync(slug, "en");
   if (!post) return { title: "Not found · Flame Analytics" };
-  const titleText = post.title.replace(/<[^>]+>/g, "").trim();
-  const descText = (post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
+  const ov = getOverride(slug, "en");
+  const titleText = (ov?.seoTitle || post.title).replace(/<[^>]+>/g, "").trim();
+  const descText = (ov?.seoDescription || post.excerpt || shortExcerpt(post.html, 160)).slice(0, 160);
   const esSlug = getOtherLangSlug(slug, "en");
   // x-default por defecto apunta a ES (default del middleware) si hay versión ES;
   // si no, queda apuntando a la URL EN como fallback.

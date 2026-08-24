@@ -541,7 +541,7 @@ const nextConfig: NextConfig = {
       { source: "/es/celestino-martinez-y-jonathan-solis-hablan-del-papel-de-la-tecnologia-en-la-evolucion-del-retail", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/como-hacer-crecer-tus-ventas-consejos-que-muchas-veces-olvidamos", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/como-se-consigue-la-omnicanalidad-en-retail",             destination: "/es/comunidad/",  permanent: true },
-      { source: "/es/dahua-technology-nuevo-partner-de-video-analytics-de-flame", destination: "/es/comunidad/",  permanent: true },
+      { source: "/es/dahua-technology-nuevo-partner-de-video-analytics-de-flame", destination: "/es/rgpd-video-analitica-compliance-centros-comerciales/",  permanent: true }, // F3 2026-08-24: destino del cluster video-analitica
       { source: "/es/descubre-las-ventajas-del-wifi-marketing-en-hoteles",     destination: "/es/comunidad/",  permanent: true },
       { source: "/es/el-trafico-en-los-puntos-de-venta-cae-un-40-en-agosto",   destination: "/es/comunidad/",  permanent: true },
       // (2026-08-10 Fase 2 poda: destino cambiado de /es/comunidad/ a la guía de tendencias)
@@ -553,7 +553,7 @@ const nextConfig: NextConfig = {
       { source: "/es/flame-en-la-revista-dealermarket",                        destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-en-questionpro-analiticas-para-mejorar-la-experiencia-del-cliente-mas-alla-del-retail", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-estara-en-el-vi-foro-internacionales-sector-tic-organizado-por-asturex", destination: "/es/comunidad/",  permanent: true },
-      { source: "/es/flame-habla-sobre-big-data-en-profesional-retail",        destination: "/es/comunidad/",  permanent: true },
+      { source: "/es/flame-habla-sobre-big-data-en-profesional-retail",        destination: "/es/ventajas-del-small-data-vs-big-data/",  permanent: true }, // F3 2026-08-24: destino del cluster big-data
       // (2026-08-10 Fase 2 poda: destino cambiado de /es/comunidad/ a la guía de KPIs)
       { source: "/es/flame-retail-analytics-las-cuatro-patas-de-una-mesa",     destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",  permanent: true },
       { source: "/es/flame-se-va-a-silicon-valley-para-participar-en-el-tech-match", destination: "/es/comunidad/",  permanent: true },
@@ -575,7 +575,7 @@ const nextConfig: NextConfig = {
       { source: "/en/5-ways-employee-training-and-engagement-in-retail-will-change", destination: "/en/community/",  permanent: true },
       { source: "/en/7-tips-to-create-a-customer-loyalty-program-for-a-shopping-mall", destination: "/en/community/",  permanent: true },
       { source: "/en/adapt-die-new-trends-omnichannel-retailing-comming",      destination: "/en/community/",  permanent: true },
-      { source: "/en/flame-analytics-shines-at-dahua-partner-day-2023-in-ibiza-driving-innovation-in-retail-solutions", destination: "/en/community/",  permanent: true },
+      { source: "/en/flame-analytics-shines-at-dahua-partner-day-2023-in-ibiza-driving-innovation-in-retail-solutions", destination: "/en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive/",  permanent: true }, // F3 2026-08-24: destino del cluster tendencias-futuro
       { source: "/en/flame-y-su-solucion-de-wifi-marketing-en-la-cadena-hotelera-bb-hotels", destination: "/en/community/",  permanent: true },
       { source: "/en/free-tapa-spending-time-bar",                             destination: "/en/community/",  permanent: true },
       { source: "/en/hotel-marketing-increasingly-personalized-thanks-technology", destination: "/en/community/",  permanent: true },
@@ -679,6 +679,82 @@ const nextConfig: NextConfig = {
       { source: "/es/flame-analytics-un-player-clave-en-el-mercado-de-wi-fi-analytics", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
       { source: "/es/mide-el-nivel-de-engagement-o-compromiso-de-tus-clientes-con-wifi-tracking", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
       { source: "/es/flame-en-el-diario-expansion-conozca-y-seduzca-a-su-cliente-a-traves-del-wifi", destination: "/es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing/", permanent: true },
+
+      // ══════════════════════════════════════════════════════════════════
+      // Fase 3 poda blog (2026-08-24) — clusters EN + menores + drafts con señal
+      // residual: 42 URLs del CSV (38 reglas nuevas aquí + 4 que ya tenían regla:
+      // personalization-in-marketing ya apuntaba bien; a dahua-technology, flame-habla-
+      // sobre-big-data y dahua-partner-day se les cambió el destino en su regla original).
+      // + 3 consolidaciones por canibalización GSC (mall analytics x2, cuenta personas).
+      // Fusión evaluada post a post: 17/18 published sin nada sustancial que rescatar
+      // (guest posts genéricos/promocionales/datados); destino ya cubre el tema.
+      // Detalle: _local/_global/clientes/flame/seo/poda-blog-2026-07.csv (repo esconzeta-mc).
+      // ══════════════════════════════════════════════════════════════════
+      // Cluster beacons-geoloc (1) → /en/effective-marketing-campaigns-in-malls-using-location-based-marketing/
+      { source: "/en/trend-watch-bringing-the-mobile-retailing-experience-in-store-with-beacon-technology-2", destination: "/en/effective-marketing-campaigns-in-malls-using-location-based-marketing/", permanent: true },
+      // Cluster beacons-geoloc (2) → /es/que-es-ibeacon-y-para-que-sirve/
+      { source: "/es/marketing-de-proximidad-el-uso-de-los-beacons-en-las-tiendas-fisicas", destination: "/es/que-es-ibeacon-y-para-que-sirve/", permanent: true },
+      { source: "/es/beacons-un-futuro-lleno-de-posibilidades", destination: "/es/que-es-ibeacon-y-para-que-sirve/", permanent: true },
+      // Cluster big-data (1) → /en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/
+      { source: "/en/flame-nominated-as-a-top-big-data-company-in-spain", destination: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", permanent: true },
+      // Cluster big-data (3) → /es/ventajas-del-small-data-vs-big-data/
+      { source: "/es/big-data-un-antes-y-un-despues-en-retail", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
+      { source: "/es/aplicaciones-del-big-data-en-el-retail-offline-analitica-in-store", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
+      { source: "/es/pablo-perez-los-centros-comerciales-colocamos-el-big-data-en-el-centro-de-nuestra-estrategia", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
+      // Cluster centros-comerciales (5) → /en/top-10-shopping-mall-innovation-features-transforming-experiences/
+      { source: "/en/brick-and-mortar-in-the-new-normal-adaptation-customers-and-employees", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
+      { source: "/en/how-to-utilize-analytics-for-customer-engagement-in-your-shopping-malls", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
+      { source: "/en/flame-in-high-style-life-shopping-mall-trends-to-look-out-for", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
+      { source: "/en/5-tips-for-small-retailers-to-increase-sales", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
+      { source: "/en/find-out-how-to-boost-influx-to-your-shopping-center", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
+      // Cluster centros-comerciales (1) → /es/8-consejos-para-impulsar-la-afluencia-en-un-centro-comercial/
+      { source: "/es/descubre-5-campanas-de-mkt-basado-en-localizacion-para-fidelizar-a-tus-clientes", destination: "/es/8-consejos-para-impulsar-la-afluencia-en-un-centro-comercial/", permanent: true },
+      // Cluster conteo-personas (4) → /es/cuenta-personas-retail-guia-completa/
+      { source: "/es/que-negocios-deben-instalar-un-contador-de-personas", destination: "/es/cuenta-personas-retail-guia-completa/", permanent: true },
+      { source: "/es/cuenta-personas-5-informes-que-cambiaran-tu-tienda", destination: "/es/cuenta-personas-retail-guia-completa/", permanent: true },
+      { source: "/es/cuenta-personas-en-retail-identifica-las-acciones-de-marketing-mas-eficaces-y-consigue-una-mayor-conversion-del-ratio-de-ventas", destination: "/es/cuenta-personas-retail-guia-completa/", permanent: true },
+      { source: "/es/itziar-ruiz-la-medicion-de-las-afluencias-es-uno-de-los-kpis-de-referencia-en-el-sector", destination: "/es/cuenta-personas-retail-guia-completa/", permanent: true },
+      // Cluster fidelizacion-cx (5) → /en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/
+      { source: "/en/how-to-develop-customer-loyalty-programs-for-different-industries", destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      { source: "/en/improving-customer-retention-in-retail-through-insights", destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      { source: "/en/50-tips-for-improving-customer-experience", destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      { source: "/en/7-hacks-for-engagement-customers", destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      { source: "/en/flame-in-porch-how-to-increase-your-customer-service", destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
+      // Cluster gestion-tienda (1) → /en/community/
+      { source: "/en/3-common-network-security-issues-in-smes", destination: "/en/community/", permanent: true },
+      // Cluster gestion-tienda (1) → /es/comunidad/
+      { source: "/es/cuales-son-las-10-principales-preocupaciones-de-los-retailers", destination: "/es/comunidad/", permanent: true },
+      // Cluster ia-retail (1) → /en/ai-retail-analytics-physical-stores/
+      { source: "/en/rethinking-retail-brand-storytelling-in-the-age-of-the-metaverse", destination: "/en/ai-retail-analytics-physical-stores/", permanent: true },
+      // Cluster ia-retail (1) → /es/inteligencia-artificial-retail-analitica-tienda-fisica/
+      { source: "/es/centros-comerciales-en-el-metaverso", destination: "/es/inteligencia-artificial-retail-analitica-tienda-fisica/", permanent: true },
+      // Cluster mapas-calor (1) → /en/heat-maps-the-best-tool-to-know-how-customers-behave-in-your-store/
+      { source: "/en/heat-maps-latest-customers-2", destination: "/en/heat-maps-the-best-tool-to-know-how-customers-behave-in-your-store/", permanent: true },
+      // Cluster marketing-retail (1) → /es/comunidad/
+      { source: "/es/neosystems-presenta-flame", destination: "/es/comunidad/", permanent: true },
+      // Cluster omnicanal-ecommerce (2) → /en/the-future-of-retail-lies-in-omnichannel-strategies/
+      { source: "/en/omnichannel-marketing-agencies-accompanying-clients-digital-transformation", destination: "/en/the-future-of-retail-lies-in-omnichannel-strategies/", permanent: true },
+      { source: "/en/martech-tools-physical-context-omnicanality", destination: "/en/the-future-of-retail-lies-in-omnichannel-strategies/", permanent: true },
+      // Cluster sin-cluster (1) → /es/comunidad/
+      { source: "/es/es-correcta-tu-estrategia-de-pricing", destination: "/es/comunidad/", permanent: true },
+      // Cluster tendencias-futuro (3) → /en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive/
+      { source: "/en/how-technology-is-shaping-the-future-of-hospitality-and-real-estate-industry", destination: "/en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive/", permanent: true },
+      { source: "/en/brick-and-mortar-trends-and-display-ideas", destination: "/en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive/", permanent: true },
+      { source: "/en/5-things-your-retail-business-needs-to-be-future-proof", destination: "/en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive/", permanent: true },
+      // Cluster video-analitica (1) → /en/5-ways-video-analytics-is-transforming-retail-stores/
+      { source: "/en/how-to-prepare-for-customer-flow-on-valentines-day-with-video-analytics", destination: "/en/5-ways-video-analytics-is-transforming-retail-stores/", permanent: true },
+      // Cluster video-analitica (2) → /es/rgpd-video-analitica-compliance-centros-comerciales/
+      { source: "/es/el-reconocimiento-facial-ya-es-una-realidad-en-el-retail", destination: "/es/rgpd-video-analitica-compliance-centros-comerciales/", permanent: true },
+      { source: "/es/videoanalitica-en-centros-comerciales-con-ia", destination: "/es/rgpd-video-analitica-compliance-centros-comerciales/", permanent: true },
+      // Cluster wifi-marketing (1) → /en/5-tips-create-successful-captive-portal/
+      { source: "/en/flame-analytics-an-active-player-in-wi-fi-analytics-market", destination: "/en/5-tips-create-successful-captive-portal/", permanent: true },
+      // Consolidaciones por canibalización (GSC 90d, medición 3)
+      // canibalizacion "mall analytics" (2.316 imp/90d en 3 URLs)
+      { source: "/en/harnessing-analytics-to-optimize-shopping-mall-performance-during-sale-seasons", destination: "/en/solution-for-shopping-malls/", permanent: true },
+      // canibalizacion "mall analytics"
+      { source: "/en/optimizing-customer-experiences-in-shopping-malls-through-data-analytics", destination: "/en/solution-for-shopping-malls/", permanent: true },
+      // canibalizacion "cuenta personas" (357 imp p12,3 vs guia)
+      { source: "/es/cuenta-personas-que-miden-y-cuales-son-los-beneficios", destination: "/es/cuenta-personas-retail-guia-completa/", permanent: true },
 
       // (raíz "/" → /es/ o /en/ según Accept-Language: ver middleware.ts)
     ];
