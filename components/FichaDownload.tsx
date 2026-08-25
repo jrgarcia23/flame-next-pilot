@@ -27,7 +27,7 @@ export default function FichaDownload({
       ? {
           eyebrow: "Solution datasheet",
           heading: `Download the ${title} datasheet`,
-          sub: "Leave your name and work email and we'll send you the PDF datasheet (technology, metrics and use cases). No spam.",
+          sub: "Leave your name and work email and we'll send you the PDF datasheet. No spam.",
           name: "Name",
           namePh: "Your name",
           email: "Work email",
@@ -41,7 +41,7 @@ export default function FichaDownload({
       : {
           eyebrow: "Ficha de solución",
           heading: `Descarga la ficha de ${title}`,
-          sub: "Déjanos tu nombre y email de trabajo y te enviamos la ficha en PDF (tecnología, métricas y casos). Sin spam.",
+          sub: "Déjanos tu nombre y email de trabajo y te enviamos la ficha en PDF. Sin spam.",
           name: "Nombre",
           namePh: "Tu nombre",
           email: "Email de trabajo",
