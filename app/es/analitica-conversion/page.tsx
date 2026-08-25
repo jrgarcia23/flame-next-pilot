@@ -77,6 +77,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Conoce tu tasa de conversión real, no la que crees que tienes.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
   fichaPdf: "/fichas/analitica-conversion.pdf",
+  fichaHook: "Cuánta de tu afluencia acaba comprando, y cómo subir ese porcentaje.",
 };
 
 export default function ConversionAnalyticsDraft() {

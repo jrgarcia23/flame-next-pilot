@@ -76,6 +76,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "WiFi corporativo: del caos a control total.",
   ctaStripLight: "Implementación en 1-2 semanas.",
   fichaPdf: "/fichas/acceso-wifi-corporativo.pdf",
+  fichaHook: "WiFi corporativo seguro y gestionado, con analítica de uso.",
 };
 
 export default function AccesoWifiCorporativoDraft() {

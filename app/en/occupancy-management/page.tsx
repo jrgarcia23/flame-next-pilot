@@ -70,6 +70,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Real-time occupancy, no inspection surprises.",
   ctaStripLight: "Personalized demo in 20 minutes.",
   fichaPdf: "/fichas/occupancy-management.pdf",
+  fichaHook: "Real-time capacity and occupancy, under control.",
 };
 
 export default function OccupancyManagementEN() {

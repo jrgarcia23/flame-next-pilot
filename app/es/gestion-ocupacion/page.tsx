@@ -70,6 +70,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Ocupación en tiempo real, sin sustos en inspección.",
   ctaStripLight: "Operativo en 7 días.",
   fichaPdf: "/fichas/gestion-ocupacion.pdf",
+  fichaHook: "Aforo y ocupación en tiempo real, bajo control.",
 };
 
 export default function GestionOcupacionDraft() {

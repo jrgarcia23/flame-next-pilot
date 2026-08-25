@@ -70,6 +70,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Start counting visitors with real accuracy.",
   ctaStripLight: "Live people counting in 7 days.",
   fichaPdf: "/fichas/people-counting.pdf",
+  fichaHook: "How many people really enter your space, and what to do with it.",
 };
 
 export default function PeopleCountingEN() {

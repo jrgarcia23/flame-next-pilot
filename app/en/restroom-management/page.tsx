@@ -75,6 +75,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Clean smarter, not more often.",
   ctaStripLight: "Personalized demo in 20 minutes.",
   fichaPdf: "/fichas/restroom-management.pdf",
+  fichaHook: "Cleaning based on real usage: better service, lower cost.",
 };
 
 export default function RestroomManagementEN() {

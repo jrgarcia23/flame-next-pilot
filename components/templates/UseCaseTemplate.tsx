@@ -204,7 +204,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
               {currentLang === "en" ? "Prefer the summary?" : "¿Prefieres el resumen?"}
             </h3>
             <p style={{ fontSize: 16, lineHeight: 1.5, color: "rgb(255 255 255 / 0.7)", margin: "0 0 26px" }}>
-              {currentLang === "en" ? "Take this solution in a one-pager." : "Llévate esta solución en una página."}
+              {cfg.fichaHook || (currentLang === "en" ? "Get the datasheet in PDF." : "Llévate la ficha en PDF.")}
             </p>
             <a href={cfg.fichaPdf} className="cta-btn cta-btn--lg fx-dl" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, boxShadow: "0 16px 34px -14px rgba(49,177,248,.6)" }}>
               <DownloadGlyph />

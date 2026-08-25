@@ -76,6 +76,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Limpia cuando lo necesita el aseo, no cuando lo manda el reloj.",
   ctaStripLight: "Operativo en 7 días.",
   fichaPdf: "/fichas/gestion-de-aseos.pdf",
+  fichaHook: "Limpieza según uso real: mejor servicio con menos coste.",
 };
 
 export default function GestionAseosDraft() {

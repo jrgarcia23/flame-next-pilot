@@ -71,6 +71,7 @@ const cfg: UseCaseConfig = {
   ctaStripBold: "Empieza a contar visitantes con precisión real.",
   ctaStripLight: "Conteo de personas operativo en 7 días.",
   fichaPdf: "/fichas/conteo-personas.pdf",
+  fichaHook: "Cuántas personas entran de verdad en tu espacio, y qué hacer con ese dato.",
   fichaTitle: "Conteo de personas",
 };
 
