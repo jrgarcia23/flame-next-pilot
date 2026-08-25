@@ -74,6 +74,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Reduce waits. Recover lost revenue at the queue.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/queue-analytic.pdf",
 };
 
 export default function QueueAnalyticEN() {

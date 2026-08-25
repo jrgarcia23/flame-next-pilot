@@ -74,6 +74,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Design spaces that sell, not spaces that just exist.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/customer-behavior.pdf",
 };
 
 export default function CustomerBehaviorEN() {

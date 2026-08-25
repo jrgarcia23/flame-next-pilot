@@ -69,6 +69,7 @@ const cfg: UseCaseConfig = {
   faqs: getFaqs("occupancy", "es"),
   ctaStripBold: "Ocupación en tiempo real, sin sustos en inspección.",
   ctaStripLight: "Operativo en 7 días.",
+  fichaPdf: "/fichas/gestion-ocupacion.pdf",
 };
 
 export default function GestionOcupacionDraft() {

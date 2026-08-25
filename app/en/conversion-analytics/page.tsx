@@ -75,6 +75,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Know your real conversion rate, not what you think it is.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/conversion-analytics.pdf",
 };
 
 export default function ConversionAnalyticsEN() {

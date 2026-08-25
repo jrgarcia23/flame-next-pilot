@@ -69,6 +69,7 @@ const cfg: UseCaseConfig = {
   faqs: getFaqs("occupancy", "en"),
   ctaStripBold: "Real-time occupancy, no inspection surprises.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/occupancy-management.pdf",
 };
 
 export default function OccupancyManagementEN() {

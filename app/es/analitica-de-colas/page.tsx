@@ -75,6 +75,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Cada minuto de espera cuesta. Anticípate.",
   ctaStripLight: "Gestión de colas operativa en 7 días.",
+  fichaPdf: "/fichas/analitica-de-colas.pdf",
 };
 
 export default function AnaliticaColasDraft() {

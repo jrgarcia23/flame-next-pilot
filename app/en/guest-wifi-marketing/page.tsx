@@ -74,6 +74,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Your WiFi is more than a utility — it's your most underused marketing channel.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/guest-wifi-marketing.pdf",
 };
 
 export default function GuestWifiMarketingEN() {

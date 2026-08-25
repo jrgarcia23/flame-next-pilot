@@ -74,6 +74,7 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "Enterprise WiFi access with full control.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/corporate-wifi-access.pdf",
 };
 
 export default function CorporateWifiAccessEN() {
