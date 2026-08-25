@@ -37,7 +37,7 @@ const cfg: UseCaseConfig = {
   heroTitle: "Conteo de personas",
   heroBgImage: "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png",
   heroBgPosition: "center center",
-  heroSub: "Flame te ayuda a medir con precisión el tráfico en entradas, plantas y recintos, dándote la visibilidad necesaria para optimizar operaciones, planificar recursos de forma eficiente y aumentar la conversión. Diseñado para retailers, centros comerciales y cualquier espacio físico que dependa de comprender el flujo y el rendimiento.",
+  heroSub: "Flame te ayuda a medir con precisión el tráfico en entradas, plantas y cualquier tipo de espacios, dándote la visibilidad necesaria para optimizar operaciones, planificar recursos de forma eficiente y aumentar la conversión. Diseñado para retailers, centros comerciales y cualquier espacio físico que dependa de comprender el flujo y el rendimiento.",
   heroBullets: ["Precisión del 99 %", "+500 tiendas medidas", "12 países", "Sin biometría"],
   imageBigSrc: "/wp-content/uploads/2026/01/People-Counting_recorte.png",
   imageBigAlt: "Flame people counting dashboard",
@@ -70,6 +70,8 @@ const cfg: UseCaseConfig = {
   faqs: getFaqs("people-counting", "es"),
   ctaStripBold: "Empieza a contar visitantes con precisión real.",
   ctaStripLight: "Conteo de personas operativo en 7 días.",
+  fichaPdf: "/fichas/conteo-personas.pdf",
+  fichaTitle: "Conteo de personas",
 };
 
 export default function CuentaPersonasDraft() {

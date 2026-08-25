@@ -272,6 +272,8 @@ export type UseCaseConfig = {
   faqs: Array<{ q: string; a: string }>;
   ctaStripBold: string;
   ctaStripLight: string;
+  fichaPdf?: string;             // ruta al PDF de la ficha de solución; si existe, muestra la descarga (botón hero + banda navy + modal de captura)
+  fichaTitle?: string;          // título del modal de descarga (default: heroTitle)
 };
 
 export type SectorSection = {

@@ -3,6 +3,16 @@ import FlameDataChat from "../FlameDataChat";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
+import FichaDownload from "@/components/FichaDownload";
+
+// Icono de descarga (bandeja + flecha), inline para no depender del set de Icon
+const DownloadGlyph = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+    <polyline points="7 10 12 15 17 10" />
+    <line x1="12" y1="15" x2="12" y2="3" />
+  </svg>
+);
 
 export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
@@ -51,10 +61,18 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
                 </li>
               ))}
             </ul>
-            <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              {t.requestDemo}
-              <Icon name="arrow" className="w-4 h-4" />
-            </a>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
+              <a href={t.contactHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                {t.requestDemo}
+                <Icon name="arrow" className="w-4 h-4" />
+              </a>
+              {cfg.fichaPdf && (
+                <a href={cfg.fichaPdf} className="cta-btn cta-btn--lg fx-dl" style={{ background: "#fff", color: "var(--color-navy)", border: "1px solid #fff", fontWeight: 700, whiteSpace: "nowrap" }}>
+                  <DownloadGlyph />
+                  {currentLang === "en" ? "Download datasheet" : "Descargar ficha"}
+                </a>
+              )}
+            </div>
           </div>
           {cfg.heroChat && (
             <div className="uc-hero-chat">
@@ -173,6 +191,28 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           .mtc-title { text-wrap: balance; }
         `}</style>
       </section>
+
+      {/* BANDA DESCARGA FICHA (navy, destaca sobre las secciones claras contiguas) */}
+      {cfg.fichaPdf && (
+        <section style={{ position: "relative", overflow: "hidden", background: "var(--color-navy)", padding: "clamp(48px, 5vw, 72px) 24px", textAlign: "center" }}>
+          <div aria-hidden style={{ position: "absolute", top: -120, left: "50%", transform: "translateX(-50%)", width: 520, height: 320, background: "radial-gradient(circle, rgb(49 177 248 / 0.22) 0%, rgb(49 177 248 / 0) 70%)", pointerEvents: "none" }} />
+          <div style={{ position: "relative", maxWidth: 720, margin: "0 auto" }}>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", margin: "0 0 16px" }}>
+              {currentLang === "en" ? "Solution datasheet" : "Ficha de solución"}
+            </p>
+            <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(26px, 2.8vw, 34px)", letterSpacing: "-0.02em", lineHeight: 1.12, color: "#fff", margin: "0 0 8px" }}>
+              {currentLang === "en" ? "Prefer the summary?" : "¿Prefieres el resumen?"}
+            </h3>
+            <p style={{ fontSize: 16, lineHeight: 1.5, color: "rgb(255 255 255 / 0.7)", margin: "0 0 26px" }}>
+              {currentLang === "en" ? "Take this solution in a one-pager." : "Llévate esta solución en una página."}
+            </p>
+            <a href={cfg.fichaPdf} className="cta-btn cta-btn--lg fx-dl" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, boxShadow: "0 16px 34px -14px rgba(49,177,248,.6)" }}>
+              <DownloadGlyph />
+              {currentLang === "en" ? "Download datasheet (PDF)" : "Descargar ficha (PDF)"}
+            </a>
+          </div>
+        </section>
+      )}
 
       {/* MÉTRICAS (6 cards) */}
       <section className="py-24" style={{ background: "#fff" }}>
@@ -379,6 +419,10 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
       </section>
 
       <SiteFooter currentLang={currentLang} />
+
+      {cfg.fichaPdf && (
+        <FichaDownload pdfHref={cfg.fichaPdf} title={cfg.fichaTitle || cfg.heroTitle} lang={currentLang} />
+      )}
     </>
   );
 }
