@@ -1,10 +1,11 @@
 import Link from "next/link";
 
-export type AdminSection = "leads" | "events" | "webinars" | "content" | "media";
+export type AdminSection = "leads" | "descargas" | "events" | "webinars" | "content" | "media";
 
 const NAV: { key: AdminSection; label: string; href: string }[] = [
-  { key: "leads",    label: "Leads",      href: "/admin/leads/" },
-  { key: "events",   label: "Eventos",    href: "/admin/events/" },
+  { key: "leads",     label: "Leads",         href: "/admin/leads/" },
+  { key: "descargas", label: "Descargas PDF", href: "/admin/descargas/" },
+  { key: "events",    label: "Eventos",       href: "/admin/events/" },
   { key: "webinars", label: "Webinar",    href: "/admin/webinars/" },
   { key: "content",  label: "Contenidos", href: "/admin/content/" },
   { key: "media",    label: "Imágenes",   href: "/admin/media/" },

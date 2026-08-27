@@ -29,7 +29,8 @@ async function fetchLeads(params: { search?: string; pagina?: string; source?: s
   const from = (page - 1) * perPage;
   const to = from + perPage - 1;
 
-  let q = supabase.from("leads").select("*", { count: "exact" }).order("created_at", { ascending: false }).range(from, to);
+  // Las descargas de ficha (source=ficha) NO son leads: viven en /admin/descargas.
+  let q = supabase.from("leads").select("*", { count: "exact" }).neq("source", "ficha").order("created_at", { ascending: false }).range(from, to);
 
   if (params.search) {
     const s = params.search.replace(/[^a-zA-Z0-9@._+\- ]/g, "").slice(0, 80);
@@ -57,16 +58,16 @@ async function fetchStats() {
   const day = new Date(Date.now() - 86400000).toISOString();
   const week = new Date(Date.now() - 7 * 86400000).toISOString();
   const [{ count: total }, { count: last24h }, { count: last7d }] = await Promise.all([
-    supabase.from("leads").select("id", { count: "exact", head: true }),
-    supabase.from("leads").select("id", { count: "exact", head: true }).gte("created_at", day),
-    supabase.from("leads").select("id", { count: "exact", head: true }).gte("created_at", week),
+    supabase.from("leads").select("id", { count: "exact", head: true }).neq("source", "ficha"),
+    supabase.from("leads").select("id", { count: "exact", head: true }).neq("source", "ficha").gte("created_at", day),
+    supabase.from("leads").select("id", { count: "exact", head: true }).neq("source", "ficha").gte("created_at", week),
   ]);
   return { total: total || 0, last24h: last24h || 0, last7d: last7d || 0 };
 }
 
 async function fetchFilterOptions() {
   const supabase = createSupabaseAdminClient();
-  const { data } = await supabase.from("leads").select("pagina,source,medium").limit(500);
+  const { data } = await supabase.from("leads").select("pagina,source,medium").neq("source", "ficha").limit(500);
   const setOf = (k: keyof NonNullable<typeof data>[number]) => {
     const s = new Set<string>();
     for (const r of data || []) {

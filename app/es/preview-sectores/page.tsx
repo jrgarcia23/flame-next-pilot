@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PreviewFeedback from "@/components/PreviewFeedback";
 
 export const metadata: Metadata = {
   title: "[BORRADOR] Páginas de sector · Flame Analytics",
@@ -52,6 +53,7 @@ export default function PreviewIndex() {
           ))}
         </div>
       </div>
+      <PreviewFeedback sectorLabel="Índice de sectores" />
     </main>
   );
 }
