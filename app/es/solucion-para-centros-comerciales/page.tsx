@@ -37,7 +37,7 @@ const cfg: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png",
   heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para centros comerciales",
-  heroSub: "Soluciones de analítica diseñadas para centros comerciales de todo el mundo. En Flame, desarrollamos e implementamos soluciones de analítica que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan al centro a comprender el comportamiento de los clientes.",
+  heroSub: "Flame convierte las cámaras que ya tienes en tu centro en datos accionables: afluencia, ocupación, conversión y comportamiento del visitante. Analítica de centros comerciales con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para gestionar el mix comercial, las operaciones y la experiencia con datos reales.",
   heroBullets: ["Precisión del 99 %", "Sin biometría · 100% RGPD", "Datos en tiempo real", "IA sobre tu CCTV existente"],
   // ---- NUEVO MODELO (capa CRO): pain-points → capacidades → casos ----
   painPointsTitle: "El día a día de tus datos.",
