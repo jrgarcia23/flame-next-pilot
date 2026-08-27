@@ -125,7 +125,7 @@ export const INDUSTRIES_EN = [
 // UI strings translated per locale
 export const UI = {
   es: {
-    logosBanner: "Marcas que ya miden con Flame",
+    logosBanner: "Marcas que ya trabajan con Flame",
     requestDemo: "Solicita una demo",
     industriesTitle: "Soluciones para cualquier", industriesTitleHl: "Industria",
     industriesSub: "Flame Analytics es una plataforma avanzada de analítica inteligente diseñada para dar soporte a una amplia variedad de industrias y sectores.",
@@ -148,7 +148,7 @@ export const UI = {
     readMoreArrow: "Leer más",
   },
   en: {
-    logosBanner: "Brands already measuring with Flame",
+    logosBanner: "Brands already working with Flame",
     requestDemo: "Request a demo",
     industriesTitle: "Solutions for any", industriesTitleHl: "Industry",
     industriesSub: "Flame Analytics is an advanced smart analytics platform designed to support a wide range of industries and sectors.",
