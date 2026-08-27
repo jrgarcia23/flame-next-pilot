@@ -5,7 +5,7 @@ import { SectorConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-  description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
+  description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
   alternates: {
     canonical: "/es/solucion-para-centros-comerciales/",
     languages: {
@@ -19,14 +19,14 @@ export const metadata: Metadata = {
     url: "https://www.flameanalytics.com/es/solucion-para-centros-comerciales/",
     siteName: "Flame Analytics",
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-    description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
+    description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
     locale: "es_ES",
     images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
-    description: "Analítica y marketing para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
+    description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
     images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
   },
 };
@@ -37,7 +37,7 @@ const cfg: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png",
   heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para centros comerciales",
-  heroSub: "Soluciones de analítica y marketing diseñadas para centros comerciales de todo el mundo. En Flame, desarrollamos e implementamos soluciones de analítica y marketing digital que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan al centro a comprender el comportamiento de los clientes.",
+  heroSub: "Soluciones de analítica diseñadas para centros comerciales de todo el mundo. En Flame, desarrollamos e implementamos soluciones de analítica que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan al centro a comprender el comportamiento de los clientes.",
   heroBullets: ["Precisión del 99 %", "Sin biometría · 100% RGPD", "Datos en tiempo real", "IA sobre tu CCTV existente"],
   // ---- NUEVO MODELO (capa CRO): pain-points → capacidades → casos ----
   painPointsTitle: "El día a día de tus datos.",

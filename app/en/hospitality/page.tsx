@@ -5,7 +5,7 @@ import { SectorConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Hospitality · Flame Analytics",
-  description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big dat",
+  description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy analytics solutions powered by big dat",
   alternates: {
     canonical: "/en/hospitality/",
     languages: {
@@ -19,25 +19,25 @@ export const metadata: Metadata = {
     url: "https://www.flameanalytics.com/en/hospitality/",
     siteName: "Flame Analytics",
     title: "Hospitality · Flame Analytics",
-    description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big dat",
+    description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy analytics solutions powered by big dat",
     locale: "en_US",
     images: [{ url: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hospitality · Flame Analytics",
-    description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big dat",
+    description: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy analytics solutions powered by big dat",
     images: ["/wp-content/uploads/2026/01/Industries_Hospitality-1.png"],
   },
 };
 
 const cfg: SectorConfig = {
   metaTitle: "Hospitality · Flame Analytics",
-  metaDescription: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big dat",
+  metaDescription: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy analytics solutions powered by big dat",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png",
   heroBgPosition: "center center",
   heroTitle: "Hospitality",
-  heroSub: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy digital marketing and analytics solutions powered by big data and AI to help hotels capture new customers and build loyalty.",
+  heroSub: "Comprehensive data analytics to gain valuable insight into customer behavior. We develop and deploy analytics solutions powered by big data and AI to help hotels capture new customers and build loyalty.",
   pillars: [
     { title: "Achieve", desc: "Significant increase in sales and a base of satisfied customers through strategic business approaches.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Generate", desc: "Direct bookings for your hotel, fostering a direct and profitable relationship with guests.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },

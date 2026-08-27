@@ -5,7 +5,7 @@ import { SectorConfig } from "@/lib/page-content";
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
   title: "Data Intelligence for Shopping Malls · Flame Analytics",
-  description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+  description: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
   alternates: {
     canonical: "/en/solution-for-shopping-malls/",
     languages: {
@@ -19,25 +19,25 @@ export const metadata: Metadata = {
     url: "https://www.flameanalytics.com/en/solution-for-shopping-malls/",
     siteName: "Flame Analytics",
     title: "Data Intelligence for Shopping Malls · Flame Analytics",
-    description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+    description: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
     locale: "en_US",
     images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence for Shopping Malls · Flame Analytics",
-    description: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+    description: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
     images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
   },
 };
 
 const cfg: SectorConfig = {
   metaTitle: "Data Intelligence for Shopping Malls · Flame Analytics",
-  metaDescription: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to he",
+  metaDescription: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png",
   heroBgPosition: "center center",
   heroTitle: "Data Intelligence for Shopping Malls",
-  heroSub: "Analytics and marketing solutions tailored for malls worldwide. We develop and deploy analytics and digital marketing solutions powered by big data and AI to help shopping centers understand their customers.",
+  heroSub: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to help shopping centers understand their customers.",
   pillars: [
     { title: "Drive", desc: "Comprehensive understanding of customer behavior through data analysis. By observing preferences and interactions, you gain insight for better customer-centric decisions and strategies.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Measure", desc: "Continuously improve overall mall performance through ongoing evaluation and improvement initiatives, ensuring operational excellence and optimal results.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },
