@@ -192,9 +192,83 @@ export const ESPACIOS_CFG: SectorConfig = {
   ctaStripBold: "Aforo, seguridad y flujos, en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
 };
 
+// ============================ BANCOS ============================
+export const BANCOS_CFG: SectorConfig = {
+  metaTitle: "Bancos y sucursales · Flame Analytics", metaDescription: "Analítica de afluencia y colas para redes de oficinas bancarias.",
+  heroBgImage: "/wp-content/uploads/2026/01/Traffic2-1.png", heroBgPosition: "center center",
+  heroTitle: "Inteligencia de datos para bancos y sucursales",
+  heroSub: "Analítica de espacios físicos para tu red de oficinas: mide la afluencia real de cada sucursal, dimensiona cajeros y gestores por franja y reduce los tiempos de espera. Todo sobre las cámaras que ya tienes instaladas, sin biometría y con pleno cumplimiento del RGPD.",
+  heroBullets: HERO_BULLETS,
+  sections: [],
+  painPointsTitle: "El día a día de tu red de oficinas.",
+  painPointsIntro: "Gestionar una red de sucursales sin medir lo que ocurre dentro de cada oficina obliga a decidir por intuición. Estos son los puntos que más lastran la experiencia del cliente y la eficiencia de tu red.",
+  painPoints: [
+    { svg: IC.clock, title: "Colas y esperas en la sucursal", desc: "Los clientes esperan en caja, en atención personal o para ver a un gestor sin que sepas cuándo ni por qué se forman los picos. La espera daña la experiencia y empuja al cliente hacia el canal digital." },
+    { svg: IC.staff, title: "Dotación de personal a ciegas", desc: "Asignas cajeros y gestores por costumbre o por históricos desactualizados. Unos días sobra plantilla en horas valle y otros falta justo en el pico de afluencia." },
+    { svg: IC.bars, title: "No sabes cómo se usa cada oficina", desc: "Decides horarios, cierres o reformas de la red sin una medición objetiva del tráfico real de cada sucursal. Faltan datos para justificar la inversión o el ajuste ante dirección." },
+    { svg: IC.shield, title: "Privacidad y cumplimiento bajo la lupa", desc: "El sector financiero no admite soluciones que identifiquen a las personas. Cualquier analítica de oficina tiene que respetar el RGPD y descartar la biometría desde el diseño." },
+  ],
+  capsTitle: "Todo lo que Flame mide y activa en tu sucursal",
+  capsSub: "Ocho capacidades de Flame adaptadas a la operativa de una sucursal bancaria y de toda tu red, sobre el CCTV que ya tienes instalado y sin identificar a ninguna persona.",
+  capabilities: [
+    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.staff, title: "Colas y dotación de personal por franja", desc: "La capacidad clave para la banca de oficina: cruza la afluencia real por franja horaria con tu plantilla para dimensionar cajeros y gestores en cada momento del día. Refuerza los picos, alivia las horas valle y reduce los tiempos de espera sin sobredimensionar el equipo." },
+    { span: 5, svg: IC.people, title: "Afluencia y flujo de personas", desc: "Mide entradas y salidas de cada sucursal y el tráfico por zonas a lo largo del día. Identifica las franjas de mayor y menor afluencia para planificar la operativa de la oficina con datos, no con impresiones." },
+    { span: 6, svg: IC.cart, title: "Conversión y uso de servicios", desc: "Descubre qué proporción de los que entran acaba en atención personal, con un gestor o en el cajero automático. Entiende qué servicios concentran la demanda real de cada oficina para redistribuir recursos." },
+    { span: 6, svg: IC.heatmap, title: "Comportamiento y mapas de calor", desc: "Visualiza con mapas de calor dónde se concentran los clientes: espera, autoservicio y atención personal. Detecta cuellos de botella y zonas infrautilizadas para rediseñar el layout de la sucursal." },
+    { span: 5, svg: IC.activity, title: "Ocupación y aforo en tiempo real", desc: "Conoce cuánta gente hay en cada zona de la oficina en cada momento. Controla el aforo de la sala de espera y de atención personal y anticipa la saturación antes de que el cliente la sufra." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Home_traffic.webp", svg: IC.bars, title: "Datos para operaciones y red", desc: "Compara el rendimiento de todas tus sucursales con un mismo criterio objetivo. Justifica horarios, dotación, cierres o reformas de la red con la medición real de uso de cada oficina, no con estimaciones." },
+    { span: 6, svg: IC.clock, title: "Gestión de colas en tiempo real", desc: "Monitoriza al momento la longitud de las colas en caja, atención al cliente y gestor. Recibe avisos cuando la espera supera tu umbral para reaccionar en el acto, no cuando el cliente ya se ha marchado." },
+    { span: 6, svg: IC.wifi, title: "Captación y comunicación por WiFi", desc: "Ofrece WiFi a los clientes mediante un portal cautivo y convierte la conexión en un canal de comunicación. Informa sobre productos y servicios mientras el cliente espera o es atendido en la oficina." },
+  ],
+  casesTitle: "Redes que ya deciden con datos, no con intuición",
+  casesSub: "Grandes redes distribuidas que miden con Flame la afluencia, las colas y el uso real de cada punto.",
+  caseStudies: pickCases(["repsol", "multiopticas", "afflelou"]),
+  productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
+  testimonialsIdx: [1, 5, 7], faqs: [],
+  ctaStripBold: "Menos colas, mejor dotación, red bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",
+};
+
+// ==================== TRANSPORTE Y AEROPUERTOS ====================
+export const TRANSPORTE_CFG: SectorConfig = {
+  metaTitle: "Transporte y aeropuertos · Flame Analytics", metaDescription: "Flujos de pasajeros, aforo y colas en aeropuertos y estaciones.",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", heroBgPosition: "center center",
+  heroTitle: "Inteligencia de datos para transporte y aeropuertos",
+  heroSub: "Analítica de espacios físicos con inteligencia artificial para aeropuertos, estaciones y terminales. Mide el flujo de pasajeros, anticipa aglomeraciones y optimiza cada zona en tiempo real, sin biometría y con pleno cumplimiento del RGPD, sobre las cámaras que ya tienes.",
+  heroBullets: HERO_BULLETS,
+  sections: [],
+  painPointsTitle: "El día a día de tu terminal.",
+  painPointsIntro: "Cada hora punta pone a prueba tu operación: miles de pasajeros que se concentran en los mismos puntos, colas que crecen sin aviso y decisiones que se toman sin datos. Estos son los problemas que Flame resuelve con medición en tiempo real.",
+  painPoints: [
+    { svg: IC.clock, title: "Colas eternas en los controles de seguridad", desc: "Las esperas en filtros, facturación y embarque disparan las quejas y el riesgo de vuelos perdidos. Sin una medición objetiva del tiempo real de espera, no puedes abrir posiciones a tiempo ni dimensionar el personal." },
+    { svg: IC.activity, title: "El pico de pasajeros te pilla desprevenido", desc: "Las aglomeraciones se forman antes de que puedas reaccionar. Gestionar los accesos y los turnos por intuición deja andenes y salas saturados justo cuando más control necesitas." },
+    { svg: IC.bars, title: "Zonas comerciales sin datos de tráfico real", desc: "Sin conocer cuántas personas pasan por cada local, restaurante o parking, es imposible optimizar la oferta ni justificar las rentas ante los operadores. El potencial comercial del recinto queda infravalorado." },
+    { svg: IC.shield, title: "Gestionas la seguridad a ciegas", desc: "En un espacio de alto volumen y alta sensibilidad, no ver el aforo por zona en tiempo real es un riesgo operativo. Actúas cuando la saturación ya es evidente, no antes." },
+  ],
+  capsTitle: "Todo lo que Flame mide y activa en tu terminal",
+  capsSub: "Ocho capacidades de Flame adaptadas a la realidad de un aeropuerto, una estación o un intercambiador de transporte, todas sobre tu infraestructura de cámaras actual y sin identificar a nadie.",
+  capabilities: [
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", svg: IC.shield, title: "Flujos peatonales, gestión de multitudes y seguridad", desc: "La capacidad clave para el sector: anticipa las aglomeraciones antes de que se formen y planifica accesos, personal y refuerzos en cada pico. Combina el aforo por zona con la detección de flujos para garantizar la seguridad y la operativa en tiempo real, sin biometría y con cumplimiento total del RGPD." },
+    { span: 5, svg: IC.people, title: "Afluencia y flujo de pasajeros", desc: "Contabiliza entradas y salidas con precisión y desglosa el tráfico por terminales, accesos y andenes. Conoce cuántos pasajeros circulan por cada punto y a qué hora, para planificar la operación con datos y no con estimaciones." },
+    { span: 6, svg: IC.activity, title: "Aforo y ocupación en tiempo real", desc: "Mide la ocupación de cada zona en directo, desde salas de espera hasta vestíbulos y andenes. Recibe alertas automáticas cuando una zona se acerca a su límite, para actuar antes de que se convierta en un problema." },
+    { span: 6, svg: IC.heatmap, title: "Comportamiento y mapas de calor", desc: "Visualiza los recorridos de los pasajeros por la terminal e identifica los cuellos de botella que ralentizan el tránsito. Mide los tiempos de desplazamiento entre puntos clave para rediseñar la señalética y los flujos de circulación." },
+    { span: 5, svg: IC.bars, title: "Uso de zonas y servicios", desc: "Analiza el rendimiento real de salas VIP, comercios, restauración y parking según el tráfico que reciben. Descubre qué espacios funcionan y cuáles están infrautilizados para tomar decisiones sobre la explotación del recinto." },
+    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.clock, title: "Gestión de colas en puntos de proceso", desc: "Mide el tiempo real de espera en controles de seguridad, facturación, taquillas y embarque para abrir posiciones antes de que la cola se dispare. Controla además el uso de los aseos y programa la limpieza según el tráfico real, no por horario fijo." },
+    { span: 6, svg: IC.wifi, title: "Captación y comunicación por WiFi", desc: "Ofrece conexión a los viajeros mediante un portal cautivo y convierte ese punto de contacto en un canal de comunicación. Informa de incidencias, retrasos o servicios del recinto mientras obtienes datos agregados de uso." },
+    { span: 6, svg: IC.share, title: "Datos para operaciones e ingresos comerciales", desc: "Planifica limpieza, personal y consumo energético según el uso real de cada espacio y elimina el sobrecoste de dimensionar a ojo. Valora los locales comerciales del recinto por el tráfico que reciben para negociar y justificar las rentas con datos objetivos." },
+  ],
+  casesTitle: "Grandes recintos que ya miden lo que gestionan",
+  casesSub: "Redes distribuidas y espacios de alto flujo que dirigen con Flame la afluencia, las colas y el uso real.",
+  caseStudies: pickCases(["repsol", "caixaforum", "multiopticas"]),
+  productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
+  testimonialsIdx: [0, 4, 8], faqs: [],
+  ctaStripBold: "Flujos, aforo y colas de tu terminal, en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
+};
+
 export const PREVIEW_SECTORS: Array<{ slug: string; label: string; cfg: SectorConfig; enHref: string }> = [
   { slug: "retail", label: "Retail", cfg: RETAIL_CFG, enHref: "/en/solution-for-retail-sector/" },
   { slug: "supermercados", label: "Supermercados", cfg: SUPERMERCADOS_CFG, enHref: "/en/supermarkets/" },
   { slug: "hoteles", label: "Hoteles", cfg: HOTELES_CFG, enHref: "/en/hospitality/" },
   { slug: "espacios-publicos", label: "Espacios públicos", cfg: ESPACIOS_CFG, enHref: "/en/public-venues/" },
+  { slug: "bancos", label: "Bancos y sucursales", cfg: BANCOS_CFG, enHref: "/en/" },
+  { slug: "transporte", label: "Transporte y aeropuertos", cfg: TRANSPORTE_CFG, enHref: "/en/" },
 ];

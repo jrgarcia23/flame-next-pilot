@@ -11,6 +11,8 @@ const SECTORS: Array<{ label: string; desc: string; href: string; status: "live"
   { label: "Supermercados", desc: "Borrador para revisión.", href: "/es/preview-sectores/supermercados/", status: "draft" },
   { label: "Hoteles", desc: "Borrador para revisión.", href: "/es/preview-sectores/hoteles/", status: "draft" },
   { label: "Espacios públicos", desc: "Borrador para revisión.", href: "/es/preview-sectores/espacios-publicos/", status: "draft" },
+  { label: "Bancos y sucursales", desc: "Nuevo sector (gap de competencia). Borrador para revisión.", href: "/es/preview-sectores/bancos/", status: "draft" },
+  { label: "Transporte y aeropuertos", desc: "Nuevo sector (gap de competencia). Borrador para revisión.", href: "/es/preview-sectores/transporte/", status: "draft" },
 ];
 
 export default function PreviewIndex() {
