@@ -55,6 +55,24 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({ ok: true, id: rec.id });
 }
 
+export async function DELETE(req: NextRequest) {
+  const ip = getClientIpForRateLimit(req);
+  const rl = rateLimit(`feedback-del:${ip}`, 40, 300);
+  if (!rl.ok) return NextResponse.json({ error: "rate" }, { status: 429 });
+  const id = (req.nextUrl.searchParams.get("id") || "").replace(/[^a-z0-9]/gi, "").slice(0, 40);
+  if (!id) return NextResponse.json({ error: "no-id" }, { status: 400 });
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    return NextResponse.json({ error: "server-not-configured" }, { status: 500 });
+  }
+  const supabase = createSupabaseAdminClient();
+  const { data: files } = await supabase.storage.from(BUCKET).list("", { limit: 1000 });
+  const target = (files || []).find((f) => f.name.endsWith(`__${id}.json`));
+  if (!target) return NextResponse.json({ ok: true, removed: 0 });
+  const { error } = await supabase.storage.from(BUCKET).remove([target.name]);
+  if (error) return NextResponse.json({ error: "delete-failed" }, { status: 500 });
+  return NextResponse.json({ ok: true, removed: 1 });
+}
+
 export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token") || "";
   if (token !== TOKEN) return NextResponse.json({ error: "unauthorized" }, { status: 401 });
