@@ -130,12 +130,12 @@ export default function PreviewFeedback({ sectorLabel }: { sectorLabel: string }
       )}
 
       <style>{`
-        .fb-widget { position: fixed; right: 20px; bottom: 20px; z-index: 900; font-family: var(--font-body); }
-        .fb-marker { position: absolute; z-index: 940; transform: translate(-50%, -100%); font-size: 26px; filter: drop-shadow(0 3px 6px rgba(0,0,0,.35)); pointer-events: none; animation: fbdrop .25s ease; }
+        .fb-widget { position: fixed; right: 20px; bottom: 20px; z-index: 10001; font-family: var(--font-body); }
+        .fb-marker { position: absolute; z-index: 10000; transform: translate(-50%, -100%); font-size: 26px; filter: drop-shadow(0 3px 6px rgba(0,0,0,.35)); pointer-events: none; animation: fbdrop .25s ease; }
         @keyframes fbdrop { from { transform: translate(-50%, -140%); opacity: 0; } to { transform: translate(-50%, -100%); opacity: 1; } }
         .fb-fab { display: inline-flex; align-items: center; gap: 9px; background: var(--color-accent); color: #fff; border: none; border-radius: 999px; padding: 13px 20px; font-size: 15px; font-weight: 700; cursor: pointer; box-shadow: 0 12px 30px -10px rgba(49,177,248,.6); }
         .fb-fab:hover { filter: brightness(.96); }
-        .fb-hint { position: fixed; left: 50%; top: 76px; transform: translateX(-50%); display: inline-flex; gap: 14px; align-items: center; background: #15163a; color: #fff; padding: 11px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; box-shadow: 0 14px 34px -12px rgba(0,0,0,.55); z-index: 950; }
+        .fb-hint { position: fixed; left: 50%; top: 76px; transform: translateX(-50%); display: inline-flex; gap: 14px; align-items: center; background: #15163a; color: #fff; padding: 11px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; box-shadow: 0 14px 34px -12px rgba(0,0,0,.55); z-index: 10002; }
         .fb-hint button { background: none; border: none; color: var(--color-accent); font-weight: 700; cursor: pointer; text-decoration: underline; }
         .fb-menu, .fb-panel { width: 340px; max-width: calc(100vw - 32px); background: #fff; border: 1px solid var(--color-rule-strong); border-radius: 16px; box-shadow: 0 30px 70px -24px rgba(9,10,32,.5); overflow: hidden; }
         .fb-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; background: #15163a; color: #fff; }
