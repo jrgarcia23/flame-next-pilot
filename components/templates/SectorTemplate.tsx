@@ -3,11 +3,43 @@ import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, SectorConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 
+// Badges de confianza del grid de capacidades (idénticos en todos los sectores).
+const TRUST: Array<{ svg: string; t: { es: string; en: string }; s: { es: string; en: string } }> = [
+  { svg: '<svg viewBox="0 0 24 24"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>', t: { es: "CCTV existente", en: "Existing CCTV" }, s: { es: "Aprovecha tus cámaras", en: "Use your cameras" } },
+  { svg: '<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>', t: { es: "Hypersensor", en: "Hypersensor" }, s: { es: "IA de sensado propia", en: "Our own sensing AI" } },
+  { svg: '<svg viewBox="0 0 24 24"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>', t: { es: "Sin biometría", en: "No biometrics" }, s: { es: "Datos 100% anónimos", en: "100% anonymous data" } },
+  { svg: '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/><polyline points="9 12 11 14 15 10"/></svg>', t: { es: "100% RGPD", en: "100% GDPR" }, s: { es: "Privacidad garantizada", en: "Privacy guaranteed" } },
+];
+
 export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cfg: SectorConfig; enHref: string; currentLang?: "es" | "en" }) {
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
+  // Nuevo modelo de sector (capa CRO): activo cuando el cfg define capacidades.
+  const isNewModel = !!(cfg.capabilities && cfg.capabilities.length);
+
+  // Franja CTA (misma que la home). Se coloca en distinta posición según el modelo:
+  // nuevo → tras las capacidades (antes de casos); antiguo → tras productos.
+  const ctaStrip = (
+    <section className="py-[56px]" style={{ background: "var(--color-navy)" }}>
+      <div className="flame-container">
+        <div className="flex items-center gap-8 cta-strip-row">
+          <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
+            {cfg.ctaStripBold}<br /><span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
+          </p>
+          <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+            {t.requestDemo} <Icon name="arrow" className="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+      <style>{`
+        .cta-btn--xl { font-size: 17px; padding: 16px 32px; }
+        @media (max-width: 700px) { .cta-strip-row { flex-direction: column; align-items: flex-start; gap: 20px; } .cta-strip-row > p { flex: none; } }
+      `}</style>
+    </section>
+  );
+
   return (
     <>
       {/* Preload del hero background — mejora LCP (Next hoiza al <head>). */}
@@ -82,8 +114,8 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         `}</style>
       </section>
 
-      {/* PILARES (3 cards · Impulsa/Mide/Transforma) — sólo si hay cfg.pillars */}
-      {cfg.pillars && cfg.pillars.length > 0 && (
+      {/* PILARES (3 cards · Impulsa/Mide/Transforma) — sólo modelo antiguo */}
+      {cfg.pillars && cfg.pillars.length > 0 && !isNewModel && (
         <section className="py-20" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
             <div className="grid gap-6 pillars-grid" style={{ gridTemplateColumns: `repeat(${cfg.pillars.length}, 1fr)` }}>
@@ -106,6 +138,146 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
             @media (max-width: 900px){.pillars-grid{grid-template-columns:1fr !important;}}
             .pillar-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms, box-shadow 420ms; }
             .pillar-card:hover { transform: translateY(-2px); border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
+          `}</style>
+        </section>
+      )}
+
+      {/* ===================== NUEVO MODELO (capa CRO) ===================== */}
+      {/* PAIN-POINTS — "El día a día de tus datos" (4 tarjetas de problema) */}
+      {isNewModel && cfg.painPoints && cfg.painPoints.length > 0 && (
+        <section className="py-24" style={{ background: "var(--color-paper)" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto mb-12" style={{ maxWidth: 640 }}>
+              <h2 className="text-[clamp(28px,3vw,40px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.12, fontFamily: "var(--font-display)" }}>{cfg.painPointsTitle}</h2>
+              {cfg.painPointsIntro && <p className="mt-3 mx-auto text-[clamp(15px,1.2vw,17px)] leading-[1.6]" style={{ color: "var(--color-ink-2)", maxWidth: "60ch" }}>{cfg.painPointsIntro}</p>}
+            </div>
+            <div className="grid gap-5 pains-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+              {cfg.painPoints.map((p, i) => (
+                <article key={i} className="rounded-2xl p-6" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  <span className="pain-ico inline-flex items-center justify-center mb-4" style={{ width: 44, height: 44, borderRadius: 11, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }} dangerouslySetInnerHTML={{ __html: p.svg }} />
+                  <h3 className="text-[17px] font-medium mb-2" style={{ color: "var(--color-navy)", letterSpacing: "-0.01em", lineHeight: 1.3, fontFamily: "var(--font-display)" }}>{p.title}</h3>
+                  <p className="text-[14px] leading-[1.55]" style={{ color: "var(--color-ink-2)" }}>{p.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .pain-ico svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+            @media (max-width: 980px){ .pains-grid { grid-template-columns: repeat(2,1fr) !important; } }
+            @media (max-width: 520px){ .pains-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
+        </section>
+      )}
+
+      {/* CAPACIDADES — bento asimétrico (8 cajas, 2 destacadas con foto) + trust badges */}
+      {isNewModel && cfg.capabilities && (
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="caps-head text-center" style={{ marginBottom: 44 }}>
+              <span className="caps-eyebrow">{currentLang === "en" ? "What you can do" : "Qué puedes hacer"}</span>
+              <h2 className="caps-h2">{cfg.capsTitle}</h2>
+              {cfg.capsSub && <p className="caps-sub">{cfg.capsSub}</p>}
+            </div>
+            <div className="vD-grid">
+              {cfg.capabilities.map((c, i) => c.featured ? (
+                <article key={i} className={`vD-tile vD-feat c${c.span || 7}`}>
+                  {c.img && <div className="vD-bg" style={{ backgroundImage: `url('${c.img}')` }} />}
+                  <div className="vD-in">
+                    <span className="vD-ico" dangerouslySetInnerHTML={{ __html: c.svg }} />
+                    <h3>{c.title}</h3><p>{c.desc}</p>
+                  </div>
+                </article>
+              ) : (
+                <article key={i} className={`vD-tile c${c.span || 6}`}>
+                  <span className="vD-ico" dangerouslySetInnerHTML={{ __html: c.svg }} />
+                  <h3>{c.title}</h3><p>{c.desc}</p>
+                </article>
+              ))}
+            </div>
+            <div className="caps-trust">
+              <span className="caps-trust-lead">{currentLang === "en" ? "And all of it, on top of what you already have, with full privacy:" : "Y todo, sobre lo que ya tienes y con total privacidad:"}</span>
+              <div className="caps-trust-grid">
+                {TRUST.map((b, i) => (
+                  <div key={i} className="trust-box"><span className="ti" dangerouslySetInnerHTML={{ __html: b.svg }} /><span className="tt"><b>{b.t[currentLang]}</b><span>{b.s[currentLang]}</span></span></div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <style>{`
+            .caps-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
+            .caps-h2 { font-family: var(--font-display); font-weight:400; font-size: clamp(26px,3vw,42px); letter-spacing:-0.02em; line-height:1.08; color: var(--color-navy); margin:0; white-space: nowrap; }
+            .caps-sub { font-size: clamp(16px,1.2vw,18px); line-height:1.6; color: var(--color-ink-2); margin:14px 0 0; white-space: nowrap; }
+            .vD-grid { display:grid; grid-template-columns: repeat(12,1fr); gap:20px; grid-auto-rows: minmax(226px,auto); }
+            .vD-tile { border:1px solid var(--color-rule); border-radius:20px; padding:32px 34px; display:flex; flex-direction:column; background:#fff; transition: transform .2s, box-shadow .2s, border-color .2s; overflow:hidden; position:relative; }
+            .vD-tile:hover { box-shadow: 0 28px 54px -32px rgb(15 22 58 / .28); border-color: rgb(49 177 248 / .4); transform: translateY(-3px); }
+            .vD-ico { width:50px; height:50px; border-radius:13px; background: rgb(49 177 248 / .12); color: var(--color-accent-deep); display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px; flex-shrink:0; }
+            .vD-ico svg { width:25px; height:25px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+            .vD-tile h3 { font-family: var(--font-display); font-weight:500; font-size:22px; letter-spacing:-.01em; color: var(--color-navy); margin:0 0 12px; line-height:1.2; }
+            .vD-tile p { font-size:15.5px; line-height:1.6; color: var(--color-ink-2); margin:0; }
+            .vD-in { display:flex; flex-direction:column; }
+            .vD-feat { color:#fff; background: var(--color-navy); justify-content:flex-end; min-height:300px; }
+            .vD-feat .vD-bg { position:absolute; inset:0; background-size:cover; background-position:center; opacity:.5; }
+            .vD-feat::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, rgb(21 22 58 / .12), rgb(21 22 58 / .90)); }
+            .vD-feat .vD-in { position:relative; z-index:2; margin-top:auto; }
+            .vD-feat h3 { color:#fff; font-size:25px; }
+            .vD-feat p { color: rgb(255 255 255 / .85); }
+            .vD-feat .vD-ico { background: rgb(255 255 255 / 0.16); color:#fff; }
+            .vD-grid .c5 { grid-column: span 5; } .vD-grid .c6 { grid-column: span 6; } .vD-grid .c7 { grid-column: span 7; }
+            .caps-trust { margin-top:50px; text-align:center; }
+            .caps-trust-lead { display:block; font-size:14px; font-weight:500; color: var(--color-ink-3); margin-bottom:20px; }
+            .caps-trust-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; }
+            .trust-box { display:flex; align-items:center; gap:13px; background:#fff; border:1px solid var(--color-rule); border-radius:15px; padding:16px 22px; box-shadow: 0 12px 26px -20px rgb(15 22 58 / .28); }
+            .trust-box .ti { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:12px; background: rgb(49 177 248 / .12); color: var(--color-accent-deep); flex-shrink:0; }
+            .trust-box .ti svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+            .trust-box .tt { text-align:left; }
+            .trust-box .tt b { display:block; font-family: var(--font-display); font-weight:500; font-size:15.5px; color: var(--color-navy); letter-spacing:-.01em; line-height:1.2; }
+            .trust-box .tt > span { font-size:12.5px; color: var(--color-ink-3); }
+            @media (max-width: 1120px){ .caps-h2, .caps-sub { white-space: normal; } }
+            @media (max-width: 1000px){ .vD-grid { grid-template-columns:1fr; } .vD-grid .c5,.vD-grid .c6,.vD-grid .c7 { grid-column: span 1; } }
+            @media (max-width: 640px){ .trust-box { flex: 1 1 44%; } }
+          `}</style>
+        </section>
+      )}
+
+      {/* CTA strip para el nuevo modelo — antes de casos (orden pedido por JR) */}
+      {isNewModel && ctaStrip}
+
+      {/* CASOS DE ÉXITO (3 tarjetas reales) */}
+      {isNewModel && cfg.caseStudies && cfg.caseStudies.length > 0 && (
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
+              <span className="cases-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
+              <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.casesTitle}</h2>
+              {cfg.casesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.casesSub}</p>}
+            </div>
+            <div className="grid gap-7 cases-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+              {cfg.caseStudies.map((cs, i) => (
+                <a key={i} href={cs.href} target="_blank" rel="noopener" className="case-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  <div style={{ aspectRatio: "16/10", background: `url('${cs.img}') center/cover` }} />
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
+                    <h3 className="text-[18px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{cs.title}</h3>
+                    <p className="text-[14px] leading-[1.55] flex-1" style={{ color: "var(--color-ink-2)" }}>{cs.excerpt}</p>
+                    <div className="flex items-center justify-between mt-4 pt-4" style={{ borderTop: "1px solid var(--color-rule)" }}>
+                      <span className="text-[12.5px]" style={{ color: "var(--color-ink-3)" }}>{cs.date}</span>
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>{currentLang === "en" ? "View" : "Ver caso"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="text-center" style={{ marginTop: 40 }}>
+              <a href={currentLang === "en" ? "https://www.flameanalytics.com/en/category/case-studies/" : "https://www.flameanalytics.com/es/categoria/casos-de-exito/"} target="_blank" rel="noopener" className="cta-btn cta-btn--lg" style={{ background: "#fff", color: "var(--color-navy)", border: "1px solid var(--color-rule-strong)", fontWeight: 700 }}>
+                {currentLang === "en" ? "See all case studies" : "Ver todos los casos de éxito"} <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <style>{`
+            .cases-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
+            .case-card { transition: transform .28s cubic-bezier(0.22,1,0.36,1), box-shadow .28s, border-color .28s; }
+            .case-card:hover { transform: translateY(-3px); box-shadow: 0 18px 40px -22px rgb(15 23 42 / 0.22); border-color: var(--color-rule-strong); }
+            @media (max-width: 900px){ .cases-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
           `}</style>
         </section>
       )}
@@ -197,23 +369,8 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         `}</style>
       </section>
 
-      {/* CTA strip — mismo estilo que el de la home (navy + accent btn) */}
-      <section className="py-[56px]" style={{ background: "var(--color-navy)" }}>
-        <div className="flame-container">
-          <div className="flex items-center gap-8 cta-strip-row">
-            <p className="text-[clamp(19px,1.55vw,24px)] font-medium flex-1" style={{ color: "#fff", fontFamily: "var(--font-body)", letterSpacing: "-0.005em", lineHeight: 1.35 }}>
-              {cfg.ctaStripBold}<br /><span style={{ color: "rgb(255 255 255 / 0.7)", fontWeight: 400 }}>{cfg.ctaStripLight}</span>
-            </p>
-            <a href={t.contactHref} className="cta-btn cta-btn--xl flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-              {t.requestDemo} <Icon name="arrow" className="w-4 h-4" />
-            </a>
-          </div>
-        </div>
-        <style>{`
-          .cta-btn--xl { font-size: 17px; padding: 16px 32px; }
-          @media (max-width: 700px) { .cta-strip-row { flex-direction: column; align-items: flex-start; gap: 20px; } .cta-strip-row > p { flex: none; } }
-        `}</style>
-      </section>
+      {/* CTA strip — modelo antiguo (tras productos). En el nuevo modelo va tras las capacidades. */}
+      {!isNewModel && ctaStrip}
 
       {/* TESTIMONIOS marquee */}
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>

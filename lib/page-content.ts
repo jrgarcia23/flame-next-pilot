@@ -314,6 +314,18 @@ export type SectorConfig = {
   faqs: Array<{ q: string; a: string }>;
   ctaStripBold: string;
   ctaStripLight: string;
+  // ---- NUEVO MODELO de sector (capa CRO). Si `capabilities` existe, el template
+  // renderiza: hero → pain-points → capacidades (bento) → CTA → casos → productos.
+  // Si no, se mantiene el modelo antiguo (pillars + sections). ----
+  painPointsTitle?: string;                                   // "El día a día de tus datos."
+  painPointsIntro?: string;
+  painPoints?: Array<{ svg: string; title: string; desc: string }>;   // 4 tarjetas de problema
+  capsTitle?: string;                                         // "Todo lo que Flame mide y activa en tu centro"
+  capsSub?: string;
+  capabilities?: Array<{ svg: string; title: string; desc: string; span?: 5 | 6 | 7; featured?: boolean; img?: string }>; // 8 capacidades (bento)
+  casesTitle?: string;                                        // "Marcas que ya convierten su afluencia en decisiones"
+  casesSub?: string;
+  caseStudies?: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>; // 3 casos de éxito
 };
 
 export type ProductConfig = {
