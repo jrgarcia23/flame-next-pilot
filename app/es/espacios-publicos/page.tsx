@@ -37,7 +37,7 @@ const cfg: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png",
   heroBgPosition: "center center",
   heroTitle: "Espacios públicos",
-  heroSub: "Mejora la inteligencia de datos en espacios públicos, desbloqueando información valiosa para una mejor toma de decisiones. En Flame, desarrollamos e implementamos soluciones de analítica que, gracias al big data y a la Inteligencia Artificial, nos permiten tomar las decisiones correctas en tiempo real y ofrecer una experiencia segura y satisfactoria.",
+  heroSub: "Flame convierte las cámaras que ya tienes en tu espacio en datos accionables: afluencia, aforo, seguridad y uso real de cada zona. Analítica de espacios públicos con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para gestionar la seguridad, planificar eventos y justificar el uso ante la administración con datos reales.",
   pillars: [
     { title: "Avanzado", desc: "Software para la planificación de rutas y la optimización de recursos, diseñado específicamente para sistemas de transporte público.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "En tiempo real", desc: "Análisis del flujo de visitantes e insights de datos para tomar decisiones informadas en museos.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },

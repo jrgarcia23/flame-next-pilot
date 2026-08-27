@@ -37,7 +37,7 @@ const cfg: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png",
   heroBgPosition: "center center",
   heroTitle: "Hoteles",
-  heroSub: "Análisis de datos integral para obtener valiosos conocimientos sobre el comportamiento del cliente. Desarrollamos e implantamos soluciones de analítica para espacios físicos que, gracias al big data y la inteligencia artificial, ayudan a los hoteles a captar nuevos clientes y generar más fidelidad.",
+  heroSub: "Flame convierte las cámaras y el WiFi que ya tienes en tu hotel en datos accionables: afluencia y ocupación del lobby, el restaurante o el spa. Analítica hotelera con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para ajustar el personal, controlar el aforo y justificar cada instalación con datos reales.",
   pillars: [
     { title: "Consigue", desc: "Un aumento significativo en las ventas y la construcción de una clientela de clientes satisfechos mediante enfoques empresariales estratégicos.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Genera", desc: "Reservas directas para tu hotel, fomentando una relación directa y rentable con los huéspedes.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },

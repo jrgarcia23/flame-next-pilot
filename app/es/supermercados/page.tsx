@@ -39,7 +39,7 @@ const cfg: SectorConfig = {
   heroBgImage: `${CDN}/supermercados-hero.png`,
   heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para supermercados",
-  heroSub: "Flame combina vídeo y una amplia gama de datos con IA para mejorar la toma de decisiones y el rendimiento de cada supermercado: entiende el comportamiento de los clientes, mide el rendimiento de tus espacios y conecta con tus visitantes.",
+  heroSub: "Flame convierte las cámaras que ya tienes en tu supermercado en datos accionables: afluencia por zonas, colas en caja, conversión y cesta. Analítica de supermercados con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para optimizar el surtido, la dotación de cajeros y el layout con datos reales.",
   pillars: [
     { title: "Entiende", desc: "El comportamiento real de tus clientes en pasillos, secciones y lineales. Mapea recorridos, detecta puntos calientes y descubre dónde se toman las decisiones de compra.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Mide",     desc: "El rendimiento de cada metro cuadrado del supermercado. Compara tiendas, identifica zonas de alto y bajo rendimiento, y conecta el comportamiento en sala con las ventas.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },

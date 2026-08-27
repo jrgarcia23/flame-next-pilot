@@ -37,7 +37,7 @@ const cfg: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png",
   heroBgPosition: "center center",
   heroTitle: "Data Intelligence para Retail",
-  heroSub: "En Flame desarrollamos e implantamos soluciones de analítica para espacios físicos que, gracias al big data y la Inteligencia Artificial, mejoran la gestión y ayudan a los retailers a entender el comportamiento de sus clientes.",
+  heroSub: "Flame convierte las cámaras que ya tienes en tu tienda en datos accionables: cuánta gente entra, cómo se mueve y qué convierte. Analítica de retail físico con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para decidir el layout, la dotación de personal, la ubicación de producto y tus campañas con datos reales.",
   pillars: [
     { title: "Impulsa", desc: "Información valiosa sobre el comportamiento de tus clientes mediante una vigilancia activa. Conociendo sus acciones, preferencias y pautas, podrás tomar decisiones basadas en datos objetivos y precisos.", iconImg: "/wp-content/uploads/2026/01/Vector-12.png" },
     { title: "Mide", desc: "Optimiza el rendimiento de tu punto de venta para alcanzar rentabilidad y eficiencia. Implementa análisis basados en datos para perfeccionar tu estrategia comercial y garantizar una operación más rentable.", iconImg: "/wp-content/uploads/2026/01/ep_operation.png" },
