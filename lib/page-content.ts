@@ -360,8 +360,11 @@ export type ProductConfig = {
   ctaStripBold: string;
   ctaStripLight: string;
   // Descarga de ficha de producto (mismo patrón que casos de uso). Si fichaPdf existe,
-  // el template muestra el botón en el hero + la banda navy + el modal de captación.
+  // el template muestra el botón en el hero + la descarga en el grid de Funcionalidades + el modal.
+  // En el grid: nº de funcionalidades PAR → banda a todo el ancho; IMPAR → caja-imagen que
+  // rellena el hueco (usa fichaImage, o heroBgImage como fallback).
   fichaPdf?: string;
   fichaTitle?: string;
   fichaHook?: string;
+  fichaImage?: string;          // imagen para la caja del hueco (caso impar); default: heroBgImage
 };

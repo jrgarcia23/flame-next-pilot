@@ -198,32 +198,50 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 </ul>
               </article>
             ))}
-            {cfg.fichaPdf && (
-              <article
-                className="feat-ficha fx-dl rounded-2xl"
-                role="button"
-                tabIndex={0}
-                style={{
-                  gridColumn: "1 / -1",
-                  background: "linear-gradient(120deg, rgb(49 177 248 / 0.10) 0%, rgb(49 177 248 / 0.03) 60%, rgb(49 177 248 / 0.06) 100%)",
-                  border: "1px solid rgb(49 177 248 / 0.38)",
-                  cursor: "pointer",
-                }}
-              >
-                <div className="feat-ficha-inner">
-                  <span className="feat-ficha-icon inline-flex items-center justify-center rounded-[14px] flex-shrink-0" style={{ width: 56, height: 56, background: "var(--color-accent)", color: "#fff" }}>
-                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            {cfg.fichaPdf && (() => {
+              const even = cfg.features.length % 2 === 0; // PAR → banda ancho completo · IMPAR → caja-imagen en el hueco
+              const title = currentLang === "en" ? "Product datasheet" : "Ficha de producto";
+              const hook = cfg.fichaHook || (currentLang === "en" ? "The whole product in a downloadable PDF." : "Todo el producto en un PDF descargable.");
+              const cta = currentLang === "en" ? "Download (PDF)" : "Descargar ficha (PDF)";
+              if (even) {
+                // Nº PAR de funcionalidades: banda de cierre a todo el ancho del grid
+                return (
+                  <article className="feat-ficha feat-ficha--band fx-dl rounded-2xl" role="button" tabIndex={0}
+                    style={{ gridColumn: "1 / -1", background: "linear-gradient(120deg, rgb(49 177 248 / 0.10) 0%, rgb(49 177 248 / 0.03) 60%, rgb(49 177 248 / 0.06) 100%)", border: "1px solid rgb(49 177 248 / 0.38)", cursor: "pointer" }}>
+                    <div className="feat-ficha-inner">
+                      <span className="feat-ficha-icon inline-flex items-center justify-center rounded-[14px] flex-shrink-0" style={{ width: 56, height: 56, background: "var(--color-accent)", color: "#fff" }}>
+                        <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                      </span>
+                      <div className="feat-ficha-text">
+                        <h3 className="text-[21px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{title}</h3>
+                        <p className="text-[15.5px] leading-[1.55] mt-1.5" style={{ color: "var(--color-ink-2)" }}>{hook}</p>
+                      </div>
+                      <span className="cta-btn cta-btn--lg flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, whiteSpace: "nowrap" }}>
+                        <DownloadGlyph /> {cta}
+                      </span>
+                    </div>
+                  </article>
+                );
+              }
+              // Nº IMPAR: caja-imagen que rellena el hueco, mismo tamaño que las cards
+              const img = cfg.fichaImage || cfg.heroBgImage || "/wp-content/uploads/2026/01/Characteristics-1.png";
+              return (
+                <article className="feat-ficha feat-ficha--card fx-dl rounded-2xl overflow-hidden" role="button" tabIndex={0}
+                  style={{ position: "relative", minHeight: 340, backgroundImage: `url('${img}')`, backgroundSize: "cover", backgroundPosition: "center", border: "1px solid var(--color-rule)", cursor: "pointer" }}>
+                  <span className="feat-ficha-badge" style={{ position: "absolute", top: 20, right: 20, zIndex: 2, display: "inline-flex", alignItems: "center", justifyContent: "center", width: 44, height: 44, borderRadius: 12, background: "var(--color-accent)", color: "#fff", boxShadow: "0 6px 18px -8px rgb(21 22 58 / 0.6)" }}>
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
                   </span>
-                  <div className="feat-ficha-text">
-                    <h3 className="text-[21px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{currentLang === "en" ? "Product datasheet" : "Ficha de producto"}</h3>
-                    <p className="text-[15.5px] leading-[1.55] mt-1.5" style={{ color: "var(--color-ink-2)" }}>{cfg.fichaHook || (currentLang === "en" ? "The whole product in a downloadable PDF." : "Todo el producto en un PDF descargable.")}</p>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgb(21 22 58 / 0.12) 0%, rgb(21 22 58 / 0.42) 44%, rgb(21 22 58 / 0.9) 100%)" }} />
+                  <div style={{ position: "relative", height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: 30 }}>
+                    <h3 className="text-[22px] font-semibold" style={{ color: "#fff", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{title}</h3>
+                    <p className="text-[15px] leading-[1.55] mt-2 mb-5" style={{ color: "rgb(255 255 255 / 0.86)", maxWidth: "34ch" }}>{hook}</p>
+                    <span className="cta-btn cta-btn--lg" style={{ alignSelf: "flex-start", background: "var(--color-accent)", color: "#fff", fontWeight: 700, whiteSpace: "nowrap" }}>
+                      <DownloadGlyph /> {cta}
+                    </span>
                   </div>
-                  <span className="cta-btn cta-btn--lg flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, whiteSpace: "nowrap" }}>
-                    <DownloadGlyph /> {currentLang === "en" ? "Download (PDF)" : "Descargar ficha (PDF)"}
-                  </span>
-                </div>
-              </article>
-            )}
+                </article>
+              );
+            })()}
           </div>
         </div>
         <style>{`
