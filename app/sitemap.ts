@@ -9,7 +9,7 @@ const BASE = "https://www.flameanalytics.com";
 
 const STATIC_ES = [
   "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",
-  "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "supermercados", "hoteles", "espacios-publicos",
+  "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "supermercados", "hoteles", "espacios-publicos", "banca", "transporte-y-aeropuertos",
   "conteo-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
   "comportamiento-del-cliente", "recorrido-del-cliente", "gestion-de-aseos", "gestion-ocupacion",
   "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect",
