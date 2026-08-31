@@ -330,10 +330,17 @@ export type SectorConfig = {
   painPoints?: Array<{ svg: string; title: string; desc: string }>;   // 4 tarjetas de problema
   capsTitle?: string;                                         // "Todo lo que Flame mide y activa en tu centro"
   capsSub?: string;
-  capabilities?: Array<{ svg: string; title: string; desc: string; span?: 5 | 6 | 7; featured?: boolean; img?: string }>; // 8 capacidades (bento)
+  capabilities?: Array<{ svg: string; title: string; desc: string; span?: 5 | 6 | 7; featured?: boolean; img?: string; href?: string }>; // 8 capacidades (bento); href opcional → la capacidad enlaza a su caso de uso (Opción A)
   casesTitle?: string;                                        // "Marcas que ya convierten su afluencia en decisiones"
   casesSub?: string;
   caseStudies?: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>; // 3 casos de éxito
+  // ---- DRAFT: casos de uso del sector (Opción B). Si `useCases` existe, se renderiza un
+  // módulo "Casos de uso" enlazando a las páginas de caso de uso. `hideProducts` oculta el bloque Productos. ----
+  useCasesEyebrow?: string;
+  useCasesTitle?: string;
+  useCasesSub?: string;
+  useCases?: Array<{ svg: string; title: string; desc: string; href: string }>;
+  hideProducts?: boolean;
 };
 
 export type ProductConfig = {

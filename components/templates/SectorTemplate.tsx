@@ -179,20 +179,29 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
               {cfg.capsSub && <p className="caps-sub">{cfg.capsSub}</p>}
             </div>
             <div className="vD-grid">
-              {cfg.capabilities.map((c, i) => c.featured ? (
-                <article key={i} className={`vD-tile vD-feat c${c.span || 7}`}>
-                  {c.img && <div className="vD-bg" style={{ backgroundImage: `url('${c.img}')` }} />}
-                  <div className="vD-in">
+              {cfg.capabilities.map((c, i) => {
+                const Tag: React.ElementType = c.href ? "a" : "article";
+                const linkProps = c.href ? { href: c.href } : {};
+                const cue = c.href ? (
+                  <span className="vD-cue">{currentLang === "en" ? "See use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                ) : null;
+                return c.featured ? (
+                  <Tag key={i} {...linkProps} className={`vD-tile vD-feat c${c.span || 7}${c.href ? " vD-link" : ""}`}>
+                    {c.img && <div className="vD-bg" style={{ backgroundImage: `url('${c.img}')` }} />}
+                    <div className="vD-in">
+                      <span className="vD-ico" dangerouslySetInnerHTML={{ __html: c.svg }} />
+                      <h3>{c.title}</h3><p>{c.desc}</p>
+                      {cue}
+                    </div>
+                  </Tag>
+                ) : (
+                  <Tag key={i} {...linkProps} className={`vD-tile c${c.span || 6}${c.href ? " vD-link" : ""}`}>
                     <span className="vD-ico" dangerouslySetInnerHTML={{ __html: c.svg }} />
                     <h3>{c.title}</h3><p>{c.desc}</p>
-                  </div>
-                </article>
-              ) : (
-                <article key={i} className={`vD-tile c${c.span || 6}`}>
-                  <span className="vD-ico" dangerouslySetInnerHTML={{ __html: c.svg }} />
-                  <h3>{c.title}</h3><p>{c.desc}</p>
-                </article>
-              ))}
+                    {cue}
+                  </Tag>
+                );
+              })}
             </div>
             <div className="caps-trust">
               <span className="caps-trust-lead">{currentLang === "en" ? "And all of it, on top of what you already have, with full privacy:" : "Y todo, sobre lo que ya tienes y con total privacidad:"}</span>
@@ -223,6 +232,11 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
             .vD-feat p { color: rgb(255 255 255 / .85); }
             .vD-feat .vD-ico { background: rgb(255 255 255 / 0.16); color:#fff; }
             .vD-grid .c5 { grid-column: span 5; } .vD-grid .c6 { grid-column: span 6; } .vD-grid .c7 { grid-column: span 7; }
+            .vD-link { text-decoration:none; cursor:pointer; }
+            .vD-cue { display:inline-flex; align-items:center; gap:6px; margin-top:16px; font-family: var(--font-body); font-size:14px; font-weight:600; color: var(--color-accent-deep); transition: gap .2s; }
+            .vD-tile:not(.vD-feat) .vD-cue { margin-top:auto; padding-top:16px; }
+            .vD-feat .vD-cue { color:#fff; }
+            .vD-link:hover .vD-cue { gap:11px; }
             .caps-trust { margin-top:50px; text-align:center; }
             .caps-trust-lead { display:block; font-size:14px; font-weight:500; color: var(--color-ink-3); margin-bottom:20px; }
             .caps-trust-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; }
@@ -314,8 +328,44 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         );
       })}
 
+      {/* CASOS DE USO DEL SECTOR (Opción B) — se renderiza si cfg.useCases existe */}
+      {isNewModel && cfg.useCases && cfg.useCases.length > 0 && (
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="mb-12 max-w-[720px]">
+              <span className="uc-eyebrow">{cfg.useCasesEyebrow || (currentLang === "en" ? "Use cases" : "Casos de uso")}</span>
+              <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.useCasesTitle}</h2>
+              {cfg.useCasesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.useCasesSub}</p>}
+            </div>
+            <div className="grid gap-6 uc-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+              {cfg.useCases.map((u, i) => (
+                <a key={i} href={u.href} className="uc-card rounded-2xl p-7 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  <span className="uc-ico inline-flex items-center justify-center rounded-[13px] mb-5" style={{ width: 50, height: 50, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }} dangerouslySetInnerHTML={{ __html: u.svg }} />
+                  <h3 className="text-[19px] font-medium mb-2.5" style={{ color: "var(--color-navy)", letterSpacing: "-0.01em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{u.title}</h3>
+                  <p className="text-[15px] leading-[1.6] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{u.desc}</p>
+                  <span className="uc-cta inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                    {currentLang === "en" ? "See use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .uc-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
+            .uc-ico svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+            .uc-card { text-decoration:none; transition: transform .3s cubic-bezier(0.22,1,0.36,1), border-color .3s, box-shadow .3s; }
+            .uc-card:hover { transform: translateY(-2px); border-color: rgb(49 177 248 / 0.4) !important; box-shadow: 0 10px 26px -16px rgb(15 23 42 / 0.18); }
+            .uc-card .uc-cta { transition: gap .3s; }
+            .uc-card:hover .uc-cta { gap: 10px; }
+            @media (max-width: 980px){ .uc-grid { grid-template-columns: repeat(2,1fr) !important; } }
+            @media (max-width: 640px){ .uc-grid { grid-template-columns: 1fr !important; } }
+          `}</style>
+        </section>
+      )}
+
       {/* PRODUCTOS — mismo layout que Hypersensor (2 cols: izq texto+bullets / der 3 cards blancas)
-          Fondo paper para no chocar con la stripe blanca anterior ni con el CTA strip blanco posterior */}
+          En la Opción B (cfg.hideProducts) no se muestra; en la A se reencabeza como "la plataforma" */}
+      {!cfg.hideProducts && (
       <section className="py-[80px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
@@ -368,6 +418,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
           .prod3-card:hover .prod3-cta { gap: 10px; }
         `}</style>
       </section>
+      )}
 
       {/* CTA strip — modelo antiguo (tras productos). En el nuevo modelo va tras las capacidades. */}
       {!isNewModel && ctaStrip}
