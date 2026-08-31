@@ -340,7 +340,9 @@ export type SectorConfig = {
   useCasesTitle?: string;
   useCasesSub?: string;
   useCases?: Array<{ svg: string; title: string; desc: string; href: string }>;
+  useCasesBeforeCases?: boolean;   // coloca el módulo de casos de uso por encima de los casos de éxito
   hideProducts?: boolean;
+  hideTestimonials?: boolean;      // oculta la sección de testimonios ("marcas que hablan de nosotros")
 };
 
 export type ProductConfig = {

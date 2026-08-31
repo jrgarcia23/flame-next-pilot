@@ -14,6 +14,8 @@ export const metadata: Metadata = {
 const cfg: SectorConfig = {
   ...RETAIL_CFG,
   hideProducts: true,
+  hideTestimonials: true,
+  useCasesBeforeCases: true,
   useCasesEyebrow: "Casos de uso",
   useCasesTitle: "Casos de uso para retail",
   useCasesSub: "Cada necesidad de tu tienda, resuelta con una capacidad concreta de Flame. Entra en el caso de uso que te interesa.",

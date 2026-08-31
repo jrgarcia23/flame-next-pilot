@@ -40,6 +40,41 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
     </section>
   );
 
+  // Módulo "Casos de uso del sector" (Opción B). Posición según cfg.useCasesBeforeCases.
+  const useCasesSection = cfg.useCases && cfg.useCases.length > 0 ? (
+    <section className="py-24" style={{ background: "#fff" }}>
+      <div className="flame-container">
+        <div className="mb-12 max-w-[720px]">
+          <span className="uc-eyebrow">{cfg.useCasesEyebrow || (currentLang === "en" ? "Use cases" : "Casos de uso")}</span>
+          <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.useCasesTitle}</h2>
+          {cfg.useCasesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.useCasesSub}</p>}
+        </div>
+        <div className="grid gap-6 uc-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+          {cfg.useCases.map((u, i) => (
+            <a key={i} href={u.href} className="uc-card rounded-2xl p-7 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+              <span className="uc-ico inline-flex items-center justify-center rounded-[13px] mb-5" style={{ width: 50, height: 50, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }} dangerouslySetInnerHTML={{ __html: u.svg }} />
+              <h3 className="text-[19px] font-medium mb-2.5" style={{ color: "var(--color-navy)", letterSpacing: "-0.01em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{u.title}</h3>
+              <p className="text-[15px] leading-[1.6] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{u.desc}</p>
+              <span className="uc-cta inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                {currentLang === "en" ? "See use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" />
+              </span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <style>{`
+        .uc-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
+        .uc-ico svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+        .uc-card { text-decoration:none; transition: transform .3s cubic-bezier(0.22,1,0.36,1), border-color .3s, box-shadow .3s; }
+        .uc-card:hover { transform: translateY(-2px); border-color: rgb(49 177 248 / 0.4) !important; box-shadow: 0 10px 26px -16px rgb(15 23 42 / 0.18); }
+        .uc-card .uc-cta { transition: gap .3s; }
+        .uc-card:hover .uc-cta { gap: 10px; }
+        @media (max-width: 980px){ .uc-grid { grid-template-columns: repeat(2,1fr) !important; } }
+        @media (max-width: 640px){ .uc-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </section>
+  ) : null;
+
   return (
     <>
       {/* Preload del hero background — mejora LCP (Next hoiza al <head>). */}
@@ -256,6 +291,9 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       {/* CTA strip para el nuevo modelo — antes de casos (orden pedido por JR) */}
       {isNewModel && ctaStrip}
 
+      {/* CASOS DE USO — por encima de casos de éxito cuando useCasesBeforeCases */}
+      {isNewModel && cfg.useCasesBeforeCases && useCasesSection}
+
       {/* CASOS DE ÉXITO (3 tarjetas reales) */}
       {isNewModel && cfg.caseStudies && cfg.caseStudies.length > 0 && (
         <section className="py-24" style={{ background: "var(--color-paper)" }}>
@@ -328,40 +366,8 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         );
       })}
 
-      {/* CASOS DE USO DEL SECTOR (Opción B) — se renderiza si cfg.useCases existe */}
-      {isNewModel && cfg.useCases && cfg.useCases.length > 0 && (
-        <section className="py-24" style={{ background: "#fff" }}>
-          <div className="flame-container">
-            <div className="mb-12 max-w-[720px]">
-              <span className="uc-eyebrow">{cfg.useCasesEyebrow || (currentLang === "en" ? "Use cases" : "Casos de uso")}</span>
-              <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.useCasesTitle}</h2>
-              {cfg.useCasesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.useCasesSub}</p>}
-            </div>
-            <div className="grid gap-6 uc-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-              {cfg.useCases.map((u, i) => (
-                <a key={i} href={u.href} className="uc-card rounded-2xl p-7 flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                  <span className="uc-ico inline-flex items-center justify-center rounded-[13px] mb-5" style={{ width: 50, height: 50, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }} dangerouslySetInnerHTML={{ __html: u.svg }} />
-                  <h3 className="text-[19px] font-medium mb-2.5" style={{ color: "var(--color-navy)", letterSpacing: "-0.01em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{u.title}</h3>
-                  <p className="text-[15px] leading-[1.6] flex-1 mb-5" style={{ color: "var(--color-ink-2)" }}>{u.desc}</p>
-                  <span className="uc-cta inline-flex items-center gap-1.5 text-[13.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
-                    {currentLang === "en" ? "See use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" />
-                  </span>
-                </a>
-              ))}
-            </div>
-          </div>
-          <style>{`
-            .uc-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
-            .uc-ico svg { width:24px; height:24px; fill:none; stroke:currentColor; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
-            .uc-card { text-decoration:none; transition: transform .3s cubic-bezier(0.22,1,0.36,1), border-color .3s, box-shadow .3s; }
-            .uc-card:hover { transform: translateY(-2px); border-color: rgb(49 177 248 / 0.4) !important; box-shadow: 0 10px 26px -16px rgb(15 23 42 / 0.18); }
-            .uc-card .uc-cta { transition: gap .3s; }
-            .uc-card:hover .uc-cta { gap: 10px; }
-            @media (max-width: 980px){ .uc-grid { grid-template-columns: repeat(2,1fr) !important; } }
-            @media (max-width: 640px){ .uc-grid { grid-template-columns: 1fr !important; } }
-          `}</style>
-        </section>
-      )}
+      {/* CASOS DE USO — posición por defecto (tras casos de éxito), salvo useCasesBeforeCases */}
+      {isNewModel && !cfg.useCasesBeforeCases && useCasesSection}
 
       {/* PRODUCTOS — mismo layout que Hypersensor (2 cols: izq texto+bullets / der 3 cards blancas)
           En la Opción B (cfg.hideProducts) no se muestra; en la A se reencabeza como "la plataforma" */}
@@ -423,7 +429,8 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       {/* CTA strip — modelo antiguo (tras productos). En el nuevo modelo va tras las capacidades. */}
       {!isNewModel && ctaStrip}
 
-      {/* TESTIMONIOS marquee */}
+      {/* TESTIMONIOS marquee (oculto si cfg.hideTestimonials) */}
+      {!cfg.hideTestimonials && (
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
@@ -454,6 +461,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
           @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
         `}</style>
       </section>
+      )}
 
       {/* FAQPage JSON-LD a partir de cfg.faqs (mantiene coherencia con la FAQ visual) */}
       {cfg.faqs.length > 0 && (
