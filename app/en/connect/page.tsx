@@ -68,6 +68,9 @@ const cfg: ProductConfig = {
   faqs: getFaqs("connect", "en"),
   ctaStripBold: "Your WiFi is more than a utility — it's your most underused marketing channel.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/connect-en.pdf",
+  fichaTitle: "Connect",
+  fichaHook: "How guest WiFi captures contacts, segments and activates campaigns: the Connect datasheet in a PDF.",
 };
 
 export default function ConnectEN() {

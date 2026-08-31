@@ -68,6 +68,9 @@ const cfg: ProductConfig = {
   faqs: getFaqs("traffic", "en"),
   ctaStripBold: "Turn every camera into an intelligence sensor.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/traffic-en.pdf",
+  fichaTitle: "Traffic",
+  fichaHook: "From the passer-by outside to the sale: Flame's 6 traffic analytics modules in a PDF.",
 };
 
 export default function TrafficInsightsEN() {

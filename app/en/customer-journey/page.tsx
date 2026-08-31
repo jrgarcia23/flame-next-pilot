@@ -70,6 +70,9 @@ const cfg: ProductConfig = {
   faqs: getFaqs("customer-journey", "en"),
   ctaStripBold: "Design spaces that sell, not spaces that just take up room.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  fichaPdf: "/fichas/journey-en.pdf",
+  fichaTitle: "Customer Journey",
+  fichaHook: "From entry to conversion: how Flame measures the full customer journey in the physical space, in a PDF.",
 };
 
 export default function CustomerJourneyEN() {
