@@ -198,9 +198,46 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 </ul>
               </article>
             ))}
+            {cfg.fichaPdf && (() => {
+              const wide = cfg.features.length % 2 === 0; // par → ancho completo; impar → rellena el hueco
+              return (
+                <article
+                  className="feat-ficha fx-dl rounded-2xl p-8"
+                  role="button"
+                  tabIndex={0}
+                  style={{
+                    gridColumn: wide ? "1 / -1" : "auto",
+                    background: "linear-gradient(135deg, rgb(49 177 248 / 0.11), rgb(49 177 248 / 0.04))",
+                    border: "1px solid rgb(49 177 248 / 0.45)",
+                    cursor: "pointer",
+                    display: "flex",
+                    flexWrap: "wrap",
+                    flexDirection: wide ? "row" : "column",
+                    alignItems: wide ? "center" : "flex-start",
+                    gap: wide ? 28 : 0,
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16, flex: wide ? "1 1 320px" : "none" }}>
+                    <span className="inline-flex items-center justify-center rounded-[12px] flex-shrink-0" style={{ width: 52, height: 52, background: "var(--color-accent)", color: "#fff" }}>
+                      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </span>
+                    <div>
+                      <h3 className="text-[22px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{currentLang === "en" ? "Product datasheet" : "Ficha de producto"}</h3>
+                      <p className="text-[15.5px] leading-[1.55] mt-2" style={{ color: "var(--color-ink-2)" }}>{cfg.fichaHook || (currentLang === "en" ? "The whole product in a downloadable PDF." : "Todo el producto en un PDF descargable.")}</p>
+                    </div>
+                  </div>
+                  <span className="cta-btn cta-btn--lg flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, marginTop: wide ? 0 : 22, whiteSpace: "nowrap" }}>
+                    <DownloadGlyph /> {currentLang === "en" ? "Download (PDF)" : "Descargar ficha (PDF)"}
+                  </span>
+                </article>
+              );
+            })()}
           </div>
         </div>
         <style>{`
+          .feat-ficha { transition: transform .3s cubic-bezier(0.22,1,0.36,1), box-shadow .3s; }
+          .feat-ficha:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -16px rgb(49 177 248 / 0.5); }
+          @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr !important; } .feat-ficha { flex-direction: column !important; align-items: flex-start !important; } .feat-ficha .cta-btn { margin-top: 22px !important; } }
           @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr !important; } }
           .feat-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
           .feat-card:hover { transform: translateY(-1px); background: var(--color-paper-soft) !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
@@ -208,28 +245,6 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
           .feat-card:hover .feat-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
         `}</style>
       </section>
-
-      {/* BANDA DESCARGA FICHA DE PRODUCTO (navy) — solo si cfg.fichaPdf */}
-      {cfg.fichaPdf && (
-        <section style={{ position: "relative", overflow: "hidden", background: "var(--color-navy)", padding: "clamp(48px, 5vw, 72px) 24px", textAlign: "center" }}>
-          <div aria-hidden style={{ position: "absolute", top: -120, left: "50%", transform: "translateX(-50%)", width: 520, height: 320, background: "radial-gradient(circle, rgb(49 177 248 / 0.22) 0%, rgb(49 177 248 / 0) 70%)", pointerEvents: "none" }} />
-          <div style={{ position: "relative", maxWidth: 720, margin: "0 auto" }}>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 600, fontSize: 12.5, letterSpacing: "0.18em", textTransform: "uppercase", color: "var(--color-accent)", margin: "0 0 16px" }}>
-              {currentLang === "en" ? "Product datasheet" : "Ficha de producto"}
-            </p>
-            <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 400, fontSize: "clamp(26px, 2.8vw, 34px)", letterSpacing: "-0.02em", lineHeight: 1.12, color: "#fff", margin: "0 0 8px" }}>
-              {currentLang === "en" ? "Prefer the summary?" : "¿Prefieres el resumen?"}
-            </h3>
-            <p style={{ fontSize: 16, lineHeight: 1.5, color: "rgb(255 255 255 / 0.7)", margin: "0 0 26px" }}>
-              {cfg.fichaHook || (currentLang === "en" ? "Get the datasheet in PDF." : "Llévate la ficha del producto en PDF.")}
-            </p>
-            <a href={cfg.fichaPdf} className="cta-btn cta-btn--lg fx-dl" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, boxShadow: "0 16px 34px -14px rgba(49,177,248,.6)" }}>
-              <DownloadGlyph />
-              {currentLang === "en" ? "Download datasheet (PDF)" : "Descargar ficha (PDF)"}
-            </a>
-          </div>
-        </section>
-      )}
 
       {/* CTA strip — frase izquierda (puede ocupar 2 líneas), botón derecha, no wrap */}
       <section className="py-8" style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)", borderBottom: "1px solid var(--color-rule)" }}>
