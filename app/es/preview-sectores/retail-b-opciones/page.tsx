@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 };
 
 const OPTS: { name: string; layout: UCLayout; note: string }[] = [
-  { name: "Compacto", layout: "compact", note: "3 columnas · icono + título + flecha (sin descripción)" },
-  { name: "Lista", layout: "list", note: "2 columnas · icono + título + descripción a una línea" },
-  { name: "Filas", layout: "rows", note: "ancho completo · líneas finas, sin cajas (editorial)" },
-  { name: "Mini-grid", layout: "minigrid", note: "3 columnas centradas · icono + título" },
-  { name: "Chips", layout: "chips", note: "píldoras que envuelven · icono + título (mínima altura)" },
-  { name: "Tarjetas", layout: "cards", note: "3 columnas · descripción completa (referencia, la más alta)" },
+  { name: "Pestañas (interactivo)", layout: "tabs", note: "fila de pestañas + panel del caso seleccionado (clicable)" },
+  { name: "Timeline", layout: "timeline", note: "recorrido vertical con nodos conectados por un rail" },
+  { name: "Índice (líneas guía)", layout: "directory", note: "2 columnas tipo menú con líneas punteadas" },
+  { name: "Editorial (números)", layout: "numbers", note: "2 columnas con números grandes y separadores" },
+  { name: "Filas", layout: "rows", note: "ancho completo · líneas finas, sin cajas" },
+  { name: "Compacto", layout: "compact", note: "3 columnas · icono + título + flecha" },
 ];
 
 export default function PreviewRetailBOpciones() {

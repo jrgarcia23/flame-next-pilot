@@ -1,7 +1,8 @@
 import Icon from "./Icon";
+import SectorUseCasesTabs from "./SectorUseCasesTabs";
 
 export type UCItem = { svg?: string; img?: string; title: string; desc: string; href: string };
-export type UCLayout = "cards" | "compact" | "list" | "rows" | "minigrid" | "chips";
+export type UCLayout = "cards" | "compact" | "list" | "rows" | "minigrid" | "chips" | "tabs" | "timeline" | "directory" | "numbers";
 
 export default function SectorUseCases({
   layout = "cards",
@@ -40,7 +41,49 @@ export default function SectorUseCases({
           </div>
         )}
 
-        {layout === "chips" ? (
+        {layout === "tabs" ? (
+          <SectorUseCasesTabs items={items} currentLang={currentLang} />
+        ) : layout === "timeline" ? (
+          <ol className="uc-tl">
+            {items.map((u, i) => (
+              <li key={i} className="uc-tli">
+                <a href={u.href} className="uc-tla">
+                  <span className="uc-tlnode">{icon(u, 24)}</span>
+                  <span className="uc-tlbody">
+                    <b>{u.title}</b>
+                    <span>{u.desc}</span>
+                    <span className="uc-tlcta">{see} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        ) : layout === "directory" ? (
+          <div className="uc-dir">
+            {items.map((u, i) => (
+              <a key={i} href={u.href} className="uc-dirow">
+                <span className="uc-dico">{icon(u, 26)}</span>
+                <span className="uc-dmain">
+                  <span className="uc-dtitle"><b>{u.title}</b><span className="uc-dlead" /><Icon name="arrow" className="uc-darrow w-3.5 h-3.5" /></span>
+                  <span className="uc-ddesc">{u.desc}</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        ) : layout === "numbers" ? (
+          <div className="uc-nums">
+            {items.map((u, i) => (
+              <a key={i} href={u.href} className="uc-numrow">
+                <span className="uc-bignum">{String(i + 1).padStart(2, "0")}</span>
+                <span className="uc-numbody">
+                  <span className="uc-numhead"><span className="uc-numico">{icon(u, 22)}</span><b>{u.title}</b></span>
+                  <span className="uc-numdesc">{u.desc}</span>
+                </span>
+                <Icon name="arrow" className="uc-numarrow w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        ) : layout === "chips" ? (
           <div className="uc-chips">
             {items.map((u, i) => (
               <a key={i} href={u.href} className="uc-chip">{icon(u, 24)}<span>{u.title}</span><Icon name="arrow" className="w-3.5 h-3.5" /></a>
@@ -150,6 +193,39 @@ export default function SectorUseCases({
         .uc-chip { display:inline-flex; align-items:center; gap:9px; padding:11px 17px; border:1px solid var(--color-rule); border-radius:999px; background:#fff; text-decoration:none; color: var(--color-navy); font-family: var(--font-display); font-weight:500; font-size:15.5px; letter-spacing:-.01em; transition: border-color .25s, box-shadow .25s, transform .25s; }
         .uc-chip:hover { transform: translateY(-1px); border-color: rgb(49 177 248 / .5); box-shadow: 0 8px 20px -14px rgb(15 23 42 / .22); }
         .uc-chip svg:last-child { color: var(--color-accent-deep); }
+        /* timeline: rail vertical + nodos */
+        .uc-tl { list-style:none; margin:0; padding:0; position:relative; }
+        .uc-tl::before { content:""; position:absolute; left:23px; top:14px; bottom:14px; width:2px; background: var(--color-rule); }
+        .uc-tla { display:flex; gap:20px; padding:14px 0; text-decoration:none; align-items:flex-start; }
+        .uc-tlnode { position:relative; z-index:1; flex-shrink:0; width:48px; height:48px; border-radius:50%; background:#fff; border:1px solid var(--color-rule); display:inline-flex; align-items:center; justify-content:center; color: var(--color-accent-deep); transition: border-color .2s, box-shadow .2s; }
+        .uc-tla:hover .uc-tlnode { border-color: var(--color-accent); box-shadow: 0 0 0 4px rgb(49 177 248 / .12); }
+        .uc-tlbody { flex:1; min-width:0; padding-top:3px; }
+        .uc-tlbody b { display:block; font-family: var(--font-display); font-weight:500; font-size:18px; color: var(--color-navy); letter-spacing:-.01em; }
+        .uc-tlbody > span { display:block; font-size:14.5px; color: var(--color-ink-2); margin-top:3px; line-height:1.5; max-width:70ch; }
+        .uc-tlcta { display:inline-flex !important; align-items:center; gap:6px; margin-top:8px; font-size:13.5px; font-weight:600; color: var(--color-accent-deep); }
+        /* directory: 2 col con líneas guía punteadas */
+        .uc-dir { display:grid; grid-template-columns: repeat(2,1fr); gap:8px 44px; }
+        .uc-dirow { display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--color-rule); text-decoration:none; }
+        .uc-dico { flex-shrink:0; display:inline-flex; color: var(--color-accent-deep); padding-top:2px; }
+        .uc-dmain { flex:1; min-width:0; }
+        .uc-dtitle { display:flex; align-items:center; gap:10px; }
+        .uc-dtitle b { font-family: var(--font-display); font-weight:500; font-size:17px; color: var(--color-navy); letter-spacing:-.01em; white-space:nowrap; }
+        .uc-dlead { flex:1; border-bottom:1px dotted var(--color-rule-strong); transform: translateY(-3px); }
+        .uc-darrow { color: var(--color-accent-deep); flex-shrink:0; transition: transform .2s; }
+        .uc-dirow:hover .uc-darrow { transform: translateX(3px); }
+        .uc-ddesc { display:block; font-size:13.5px; color: var(--color-ink-3); margin-top:5px; line-height:1.4; }
+        @media (max-width: 760px){ .uc-dir { grid-template-columns: 1fr; } }
+        /* numbers: editorial con números grandes */
+        .uc-nums { display:grid; grid-template-columns: repeat(2,1fr); gap:0 44px; }
+        .uc-numrow { display:flex; align-items:flex-start; gap:18px; padding:22px 0; border-top:1px solid var(--color-rule); text-decoration:none; }
+        .uc-bignum { font-family: var(--font-display); font-weight:700; font-size:34px; line-height:1; color: rgb(49 177 248 / .35); flex-shrink:0; width:44px; }
+        .uc-numbody { flex:1; min-width:0; }
+        .uc-numhead { display:flex; align-items:center; gap:10px; }
+        .uc-numico { display:inline-flex; color: var(--color-accent-deep); }
+        .uc-numhead b { font-family: var(--font-display); font-weight:500; font-size:18px; color: var(--color-navy); letter-spacing:-.01em; }
+        .uc-numdesc { display:block; font-size:14px; color: var(--color-ink-2); margin-top:6px; line-height:1.5; }
+        .uc-numarrow { color: var(--color-accent-deep); flex-shrink:0; margin-top:8px; }
+        @media (max-width: 760px){ .uc-nums { grid-template-columns: 1fr; gap:0; } }
       `}</style>
     </section>
   );
