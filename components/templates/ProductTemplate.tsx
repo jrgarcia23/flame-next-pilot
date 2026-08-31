@@ -198,46 +198,45 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 </ul>
               </article>
             ))}
-            {cfg.fichaPdf && (() => {
-              const wide = cfg.features.length % 2 === 0; // par → ancho completo; impar → rellena el hueco
-              return (
-                <article
-                  className="feat-ficha fx-dl rounded-2xl p-8"
-                  role="button"
-                  tabIndex={0}
-                  style={{
-                    gridColumn: wide ? "1 / -1" : "auto",
-                    background: "linear-gradient(135deg, rgb(49 177 248 / 0.11), rgb(49 177 248 / 0.04))",
-                    border: "1px solid rgb(49 177 248 / 0.45)",
-                    cursor: "pointer",
-                    display: "flex",
-                    flexWrap: "wrap",
-                    flexDirection: wide ? "row" : "column",
-                    alignItems: wide ? "center" : "flex-start",
-                    gap: wide ? 28 : 0,
-                  }}
-                >
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 16, flex: wide ? "1 1 320px" : "none" }}>
-                    <span className="inline-flex items-center justify-center rounded-[12px] flex-shrink-0" style={{ width: 52, height: 52, background: "var(--color-accent)", color: "#fff" }}>
-                      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                    </span>
-                    <div>
-                      <h3 className="text-[22px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{currentLang === "en" ? "Product datasheet" : "Ficha de producto"}</h3>
-                      <p className="text-[15.5px] leading-[1.55] mt-2" style={{ color: "var(--color-ink-2)" }}>{cfg.fichaHook || (currentLang === "en" ? "The whole product in a downloadable PDF." : "Todo el producto en un PDF descargable.")}</p>
-                    </div>
+            {cfg.fichaPdf && (
+              <article
+                className="feat-ficha fx-dl rounded-2xl"
+                role="button"
+                tabIndex={0}
+                style={{
+                  gridColumn: "1 / -1",
+                  background: "linear-gradient(120deg, rgb(49 177 248 / 0.10) 0%, rgb(49 177 248 / 0.03) 60%, rgb(49 177 248 / 0.06) 100%)",
+                  border: "1px solid rgb(49 177 248 / 0.38)",
+                  cursor: "pointer",
+                }}
+              >
+                <div className="feat-ficha-inner">
+                  <span className="feat-ficha-icon inline-flex items-center justify-center rounded-[14px] flex-shrink-0" style={{ width: 56, height: 56, background: "var(--color-accent)", color: "#fff" }}>
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  </span>
+                  <div className="feat-ficha-text">
+                    <h3 className="text-[21px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{currentLang === "en" ? "Product datasheet" : "Ficha de producto"}</h3>
+                    <p className="text-[15.5px] leading-[1.55] mt-1.5" style={{ color: "var(--color-ink-2)" }}>{cfg.fichaHook || (currentLang === "en" ? "The whole product in a downloadable PDF." : "Todo el producto en un PDF descargable.")}</p>
                   </div>
-                  <span className="cta-btn cta-btn--lg flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, marginTop: wide ? 0 : 22, whiteSpace: "nowrap" }}>
+                  <span className="cta-btn cta-btn--lg flex-shrink-0" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700, whiteSpace: "nowrap" }}>
                     <DownloadGlyph /> {currentLang === "en" ? "Download (PDF)" : "Descargar ficha (PDF)"}
                   </span>
-                </article>
-              );
-            })()}
+                </div>
+              </article>
+            )}
           </div>
         </div>
         <style>{`
-          .feat-ficha { transition: transform .3s cubic-bezier(0.22,1,0.36,1), box-shadow .3s; }
-          .feat-ficha:hover { transform: translateY(-2px); box-shadow: 0 12px 30px -16px rgb(49 177 248 / 0.5); }
-          @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr !important; } .feat-ficha { flex-direction: column !important; align-items: flex-start !important; } .feat-ficha .cta-btn { margin-top: 22px !important; } }
+          .feat-ficha { transition: transform .3s cubic-bezier(0.22,1,0.36,1), box-shadow .3s, border-color .3s; }
+          .feat-ficha:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -18px rgb(49 177 248 / 0.55); border-color: rgb(49 177 248 / 0.6) !important; }
+          .feat-ficha-inner { display: flex; align-items: center; gap: 24px; padding: 26px 32px; }
+          .feat-ficha-text { flex: 1 1 auto; min-width: 0; }
+          .feat-ficha-icon { transition: transform .3s cubic-bezier(0.22,1,0.36,1); }
+          .feat-ficha:hover .feat-ficha-icon { transform: scale(1.05); }
+          @media (max-width: 640px) {
+            .feat-ficha-inner { flex-direction: column; align-items: flex-start; gap: 18px; text-align: left; }
+            .feat-ficha-inner .cta-btn { width: 100%; justify-content: center; }
+          }
           @media (max-width: 900px) { .feat-grid { grid-template-columns: 1fr !important; } }
           .feat-card { transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
           .feat-card:hover { transform: translateY(-1px); background: var(--color-paper-soft) !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
