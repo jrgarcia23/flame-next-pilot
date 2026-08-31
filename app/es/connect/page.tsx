@@ -94,6 +94,9 @@ export const cfg: ProductConfig = {
   faqs: getFaqs("connect", "es"),
   ctaStripBold: "Tu WiFi no es una utility, es tu canal de marketing más infrautilizado.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
+  fichaPdf: "/fichas/connect.pdf",
+  fichaTitle: "Connect",
+  fichaHook: "Cómo el WiFi para invitados capta contactos, segmenta y activa campañas: la ficha de Connect en un PDF.",
 };
 
 export default function ConnectDraft() {

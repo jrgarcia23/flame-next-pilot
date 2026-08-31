@@ -86,6 +86,9 @@ export const cfg: ProductConfig = {
   faqs: getFaqs("traffic", "es"),
   ctaStripBold: "Convierte cada cámara en un sensor de inteligencia.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
+  fichaPdf: "/fichas/traffic.pdf",
+  fichaTitle: "Traffic",
+  fichaHook: "Del transeúnte exterior a la venta: los 6 módulos de analítica de tráfico de Flame en un PDF.",
 };
 
 export default function TrafficDraft() {
