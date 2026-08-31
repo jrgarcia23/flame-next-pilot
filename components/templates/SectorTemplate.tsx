@@ -244,7 +244,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
 
       {/* CASOS DE ÉXITO (3 tarjetas reales) */}
       {isNewModel && cfg.caseStudies && cfg.caseStudies.length > 0 && (
-        <section className="py-24" style={{ background: "#fff" }}>
+        <section className="py-24" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
               <span className="cases-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
@@ -316,7 +316,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
 
       {/* PRODUCTOS — mismo layout que Hypersensor (2 cols: izq texto+bullets / der 3 cards blancas)
           Fondo paper para no chocar con la stripe blanca anterior ni con el CTA strip blanco posterior */}
-      <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
+      <section className="py-[80px]" style={{ background: "#fff" }}>
         <div className="flame-container">
           <div className="grid gap-12 items-center prod-split" style={{ gridTemplateColumns: "1fr 1.35fr" }}>
             <div>
