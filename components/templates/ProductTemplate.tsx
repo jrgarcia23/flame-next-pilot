@@ -207,7 +207,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                 // Nº PAR de funcionalidades: banda de cierre a todo el ancho del grid
                 return (
                   <article className="feat-ficha feat-ficha--band fx-dl rounded-2xl" role="button" tabIndex={0}
-                    style={{ gridColumn: "1 / -1", background: "linear-gradient(120deg, rgb(49 177 248 / 0.10) 0%, rgb(49 177 248 / 0.03) 60%, rgb(49 177 248 / 0.06) 100%)", border: "1px solid rgb(49 177 248 / 0.38)", cursor: "pointer" }}>
+                    style={{ gridColumn: "1 / -1", background: "linear-gradient(120deg, rgb(49 177 248 / 0.22) 0%, rgb(49 177 248 / 0.11) 55%, rgb(49 177 248 / 0.18) 100%)", border: "1px solid rgb(49 177 248 / 0.55)", cursor: "pointer" }}>
                     <div className="feat-ficha-inner">
                       <span className="feat-ficha-icon inline-flex items-center justify-center rounded-[14px] flex-shrink-0" style={{ width: 56, height: 56, background: "var(--color-accent)", color: "#fff" }}>
                         <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -246,7 +246,8 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
         </div>
         <style>{`
           .feat-ficha { transition: transform .3s cubic-bezier(0.22,1,0.36,1), box-shadow .3s, border-color .3s; }
-          .feat-ficha:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -18px rgb(49 177 248 / 0.55); border-color: rgb(49 177 248 / 0.6) !important; }
+          .feat-ficha--band { box-shadow: 0 8px 24px -16px rgb(49 177 248 / 0.55); }
+          .feat-ficha:hover { transform: translateY(-2px); box-shadow: 0 16px 38px -18px rgb(49 177 248 / 0.6); border-color: rgb(49 177 248 / 0.7) !important; }
           .feat-ficha-inner { display: flex; align-items: center; gap: 24px; padding: 26px 32px; }
           .feat-ficha-text { flex: 1 1 auto; min-width: 0; }
           .feat-ficha-icon { transition: transform .3s cubic-bezier(0.22,1,0.36,1); }
