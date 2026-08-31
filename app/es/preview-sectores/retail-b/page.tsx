@@ -28,8 +28,8 @@ export const RETAIL_B_BASE: SectorConfig = {
   useCasesBeforeCases: true,
   useCasesLayout: "numbers",
   useCasesEyebrow: "Casos de uso",
-  useCasesTitle: "Casos de uso para retail",
-  useCasesSub: "Cada necesidad de tu tienda, resuelta con una capacidad concreta de Flame. Entra en el caso de uso que te interesa.",
+  useCasesTitle: "Un caso de uso para cada reto de tu tienda",
+  useCasesSub: "Tráfico, conversión, colas, ocupación, comportamiento o WiFi: sea cual sea la prioridad de tu tienda, Flame ya tiene un caso de uso para resolverla. Elige el tuyo y descubre cómo.",
   useCases: RETAIL_USE_CASES,
 };
 
