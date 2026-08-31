@@ -359,4 +359,9 @@ export type ProductConfig = {
   faqs: Array<{ q: string; a: string }>;
   ctaStripBold: string;
   ctaStripLight: string;
+  // Descarga de ficha de producto (mismo patrón que casos de uso). Si fichaPdf existe,
+  // el template muestra el botón en el hero + la banda navy + el modal de captación.
+  fichaPdf?: string;
+  fichaTitle?: string;
+  fichaHook?: string;
 };

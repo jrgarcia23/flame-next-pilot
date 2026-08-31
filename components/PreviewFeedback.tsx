@@ -75,7 +75,7 @@ export default function PreviewFeedback({ sectorLabel }: { sectorLabel: string }
     if (!body.trim()) return;
     setStatus("sending");
     try { localStorage.setItem("flame-fb-author", author); } catch {}
-    const sector = window.location.pathname.match(/preview-sectores\/([^/]+)/)?.[1] || "index";
+    const sector = window.location.pathname.match(/preview-[^/]+\/([^/]+)/)?.[1] || "index";
     const fullBody = pin?.context ? `[Sobre: “${pin.context}”] ${body.trim()}` : body.trim();
     const payload = { sector, sector_label: sectorLabel, page_url: window.location.pathname, author, website: website.current, kind: pin ? "pin" : "general", x: pin?.x, y: pin?.y, body: fullBody };
     try {

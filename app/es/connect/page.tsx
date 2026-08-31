@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-const cfg: ProductConfig = {
+export const cfg: ProductConfig = {
   metaTitle: "Connect · Flame",
   metaDescription: "WiFi que impulsa la fidelización y el retorno.",
   heroBgImage: "/wp-content/uploads/2026/01/Connect-1-1.png",
