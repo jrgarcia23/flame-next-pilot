@@ -53,7 +53,7 @@ export const RETAIL_CFG: SectorConfig = {
   metaTitle: "Retail · Flame Analytics", metaDescription: "Analítica de retail físico con IA.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png", heroBgPosition: "center center",
   heroTitle: "Data Intelligence para Retail",
-  heroSub: "Flame convierte las cámaras que ya tienes en tu tienda en datos accionables: cuánta gente entra, cómo se mueve y qué convierte. Analítica de retail físico con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para decidir el layout, la dotación de personal, la ubicación de producto y tus campañas con datos reales.",
+  heroSub: "Flame convierte las cámaras de tus tiendas en datos accionables: cuánta gente entra, cómo se mueve y qué convierte. Analítica de retail físico con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para decidir el layout, la dotación de personal, la ubicación de producto y tus campañas con datos reales.",
   heroBullets: HERO_BULLETS,
   sections: [],
   painPointsTitle: "El día a día de tus datos.",
