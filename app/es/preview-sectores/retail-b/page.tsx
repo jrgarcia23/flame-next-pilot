@@ -26,6 +26,7 @@ export const RETAIL_B_BASE: SectorConfig = {
   hideProducts: true,
   hideTestimonials: true,
   useCasesBeforeCases: true,
+  useCasesLayout: "numbers",
   useCasesEyebrow: "Casos de uso",
   useCasesTitle: "Casos de uso para retail",
   useCasesSub: "Cada necesidad de tu tienda, resuelta con una capacidad concreta de Flame. Entra en el caso de uso que te interesa.",
@@ -35,7 +36,7 @@ export const RETAIL_B_BASE: SectorConfig = {
 export default function PreviewRetailB() {
   return (
     <>
-      <PreviewBanner label="Retail · Opción B (tarjetas grandes — referencia)" />
+      <PreviewBanner label="Retail · Opción B DEFINITIVA (casos de uso editorial · números)" />
       <SectorTemplate cfg={RETAIL_B_BASE} enHref="/en/solution-for-retail-sector/" />
     </>
   );
