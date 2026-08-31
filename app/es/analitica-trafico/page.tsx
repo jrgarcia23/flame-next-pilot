@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
 };
 
-const cfg: ProductConfig = {
+export const cfg: ProductConfig = {
   metaTitle: "Traffic · Flame Analytics",
   metaDescription: "Analítica de tráfico físico con IA.",
   heroEyebrow: "Más allá de un sensor de cuenta personas",
