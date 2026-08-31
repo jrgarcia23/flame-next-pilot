@@ -340,7 +340,7 @@ export type SectorConfig = {
   useCasesTitle?: string;
   useCasesSub?: string;
   useCases?: Array<{ svg?: string; img?: string; title: string; desc: string; href: string }>; // img = icono del menú (iconImg); si no, svg
-  useCasesLayout?: "cards" | "compact" | "list" | "chips"; // densidad del módulo de casos de uso
+  useCasesLayout?: "cards" | "compact" | "list" | "rows" | "minigrid" | "chips"; // densidad del módulo de casos de uso
   useCasesBeforeCases?: boolean;   // coloca el módulo de casos de uso por encima de los casos de éxito
   hideProducts?: boolean;
   hideTestimonials?: boolean;      // oculta la sección de testimonios ("marcas que hablan de nosotros")
