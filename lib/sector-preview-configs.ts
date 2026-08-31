@@ -6,7 +6,7 @@ import { SectorConfig } from "./page-content";
 import { getFaqs } from "./live-faqs";
 
 // --- Iconos SVG reutilizables por tipo de capacidad ---
-const IC = {
+export const IC = {
   people: '<svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
   activity: '<svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>',
   cart: '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>',
@@ -269,6 +269,6 @@ export const PREVIEW_SECTORS: Array<{ slug: string; label: string; cfg: SectorCo
   { slug: "supermercados", label: "Supermercados", cfg: SUPERMERCADOS_CFG, enHref: "/en/supermarkets/" },
   { slug: "hoteles", label: "Hoteles", cfg: HOTELES_CFG, enHref: "/en/hospitality/" },
   { slug: "espacios-publicos", label: "Espacios públicos", cfg: ESPACIOS_CFG, enHref: "/en/public-venues/" },
-  { slug: "bancos", label: "Bancos y sucursales", cfg: BANCOS_CFG, enHref: "/en/" },
-  { slug: "transporte", label: "Transporte y aeropuertos", cfg: TRANSPORTE_CFG, enHref: "/en/" },
+  { slug: "bancos", label: "Bancos y sucursales", cfg: BANCOS_CFG, enHref: "/en/banking/" },
+  { slug: "transporte", label: "Transporte y aeropuertos", cfg: TRANSPORTE_CFG, enHref: "/en/transport-and-airports/" },
 ];

@@ -86,6 +86,8 @@ export const MEGA_INDUSTRIES_EN: NavLeaf[] = [
   { label: "Supermarkets",   href: "/en/supermarkets/",                 iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Optimise layout, operations and conversion by zone." },
   { label: "Hospitality",    href: "/en/hospitality/",                  iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Capture guest data and enrich your CRM." },
   { label: "Public venues",  href: "/en/public-venues/",                iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Intelligence for museums, transport and campuses." },
+  { label: "Banking",        href: "/en/banking/",                      iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Size tellers and advisers and cut waits." },
+  { label: "Transport & airports", href: "/en/transport-and-airports/", iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Passenger flows, capacity and queues in airports and stations." },
 ];
 
 export const MEGA_COMMUNITY_EN: NavLeaf[] = [
@@ -124,6 +126,8 @@ export const INDUSTRIES_EN = [
   { icon: "retail", title: "Supermarkets",    desc: "Optimise layout, real-time operations and conversion across every aisle.",                     href: "/en/supermarkets/" },
   { icon: "venue",  title: "Public venues",   desc: "Unlock the value of your public spaces by turning data into strategic actions.",               href: "/en/public-venues/" },
   { icon: "hotel",  title: "Hospitality",     desc: "Use data-driven insight to anticipate guest needs and improve service quality.",               href: "/en/hospitality/" },
+  { icon: "corp",   title: "Banking",         desc: "Footfall, queue and real-use analytics to size tellers and advisers across your branch network.", href: "/en/banking/" },
+  { icon: "vehicle", title: "Transport & airports", desc: "Passenger flows, capacity and queues in airports, stations and interchanges to anticipate crowds.", href: "/en/transport-and-airports/" },
 ];
 
 // UI strings translated per locale
