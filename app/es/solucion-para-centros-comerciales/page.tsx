@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
+import { uc, UC_COMMON } from "@/lib/sector-preview-configs";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
@@ -109,6 +110,17 @@ const cfg: SectorConfig = {
   faqs: getFaqs("shopping-malls", "es"),
   ctaStripBold: "Convierte la afluencia en valor para inquilinos y visitantes.",
   ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu centro",
+  useCasesSub: "Afluencia, conversión, ocupación, colas, comportamiento o WiFi: sea cual sea la prioridad de tu centro comercial, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide la afluencia total del centro y por accesos, y compara días, franjas y campañas."),
+    uc("conversion", "Cruza el tráfico con las ventas de los locales para conocer la conversión real por zona y operador."),
+    uc("comportamiento", "Mapas de calor y recorridos para optimizar el mix de inquilinos, la señalética y las zonas comunes."),
+    uc("ocupacion", "Controla el aforo en tiempo real por zona, con alertas para eventos y horas punta."),
+    uc("colas", "Detecta esperas en accesos, parking y zonas de restauración para mejorar la experiencia."),
+    uc("wifiInv", "Convierte el WiFi del centro en captación de contactos y comunicación con el visitante."),
+  ],
 };
 
 export default function CentrosComercialesSectorDraft() {

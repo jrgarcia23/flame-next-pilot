@@ -27,6 +27,21 @@ const PRODUCTS_TITLE_HL = "multiple solutions";
 const PRODUCTS_SUB = "Measure and improve space performance, understand how people behave and connect with your visitors.";
 const PRODUCTS_BULLETS = ["Measure and improve space performance", "Understand how people behave", "Connect with your visitors"];
 
+// --- Use-case catalog (real menu icons) for the new-model module ---
+const UCM: Record<string, { img: string; title: string; href: string }> = {
+  conteo:         { img: "/wp-content/uploads/2025/09/people_counting1.png",     title: "People counting",        href: "/en/people-counting/" },
+  conversion:     { img: "/wp-content/uploads/2025/09/Conversion_analytics1.png", title: "Conversion analytics",   href: "/en/conversion-analytics/" },
+  comportamiento: { img: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    title: "Behaviour and heatmaps", href: "/en/customer-behavior/" },
+  ocupacion:      { img: "/wp-content/uploads/2025/09/Occupancy_management1.png",  title: "Occupancy management",   href: "/en/occupancy-management/" },
+  colas:          { img: "/wp-content/uploads/2025/09/Queue1.png",                 title: "Queue management",       href: "/en/queue-analytic/" },
+  aseos:          { img: "/wp-content/uploads/2025/09/Restroom1.png",              title: "Restroom management",    href: "/en/restroom-management/" },
+  wifiInv:        { img: "/wp-content/uploads/2025/09/guest_wifi1.png",            title: "Guest WiFi marketing",   href: "/en/guest-wifi-marketing/" },
+  wifiCorp:       { img: "/wp-content/uploads/2025/09/corporate_wifi1.png",        title: "Corporate WiFi",         href: "/en/corporate-wifi-access/" },
+  recorrido:      { img: "/wp-content/uploads/2025/09/road-route-map-icon.png",    title: "Customer journey",       href: "/en/customer-journey/" },
+};
+export const uc = (k: keyof typeof UCM | string, desc: string) => ({ ...UCM[k], desc });
+export const UC_COMMON = { useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Use cases" };
+
 // ============================ RETAIL ============================
 export const RETAIL_CFG_EN: SectorConfig = {
   metaTitle: "Retail · Flame Analytics", metaDescription: "Physical retail analytics with AI.",
@@ -61,6 +76,17 @@ export const RETAIL_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [2, 4, 6], faqs: getFaqs("retail", "en"),
   ctaStripBold: "Every store is unique. Your data should prove it.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every retail challenge",
+  useCasesSub: "Footfall, conversion, queues, occupancy, behaviour or WiFi: whatever your store's priority, Flame already has a use case to solve it. Pick yours and see how.",
+  useCases: [
+    uc("conteo", "Accurately measure how many people come in and how they spread across time slots and store zones."),
+    uc("conversion", "Cross-reference traffic with your POS to know what share of visits ends up buying in each store."),
+    uc("comportamiento", "Paths, dwell time and cold and hot zones to improve layout and signage."),
+    uc("recorrido", "Reconstruct the full visitor journey, from the storefront to the checkout."),
+    uc("colas", "Measure checkout waits and open new positions before the customer abandons the purchase."),
+    uc("wifiInv", "Turn store WiFi into contact capture and segmented loyalty campaigns."),
+  ],
 };
 
 // ========================= SUPERMARKETS =========================
@@ -97,6 +123,17 @@ export const SUPERMERCADOS_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 1, 7], faqs: getFaqs("shopping-malls", "en"),
   ctaStripBold: "Fewer queues, better assortment, more conversion.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every supermarket challenge",
+  useCasesSub: "Footfall by zone, conversion, queues, occupancy, behaviour or WiFi: whatever your supermarket's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure footfall by section and time slot to know the real traffic of each zone."),
+    uc("conversion", "Cross-reference traffic with your POS to know what share buys and the real average basket."),
+    uc("comportamiento", "Heatmaps and aisle paths to improve layout, gondola ends and restocking."),
+    uc("ocupacion", "Control real-time capacity with alerts when a section or the checkout line saturates."),
+    uc("colas", "Measure checkout waits and open positions before the customer abandons the purchase."),
+    uc("wifiInv", "Turn supermarket WiFi into contact capture and segmented promotions."),
+  ],
 };
 
 // ============================ HOSPITALITY ============================
@@ -133,6 +170,17 @@ export const HOTELES_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [3, 5, 8], faqs: getFaqs("hospitality", "en"),
   ctaStripBold: "Every area of your hotel, measured and under control.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every challenge in your hotel",
+  useCasesSub: "Occupancy by zone, queues, restrooms, footfall, behaviour or WiFi: whatever your hotel's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure footfall in the lobby, the restaurant or the spa by time slot to adjust staff and services."),
+    uc("ocupacion", "Control real-time capacity of common areas and event rooms, with saturation alerts."),
+    uc("comportamiento", "Heatmaps of common areas to redistribute furniture, services and flows."),
+    uc("colas", "Detect waits at reception and check-in to open more positions when needed."),
+    uc("aseos", "Schedule restroom cleaning by real use, not a fixed timetable."),
+    uc("wifiInv", "Turn guest WiFi into capture for your CRM and loyalty campaigns during the stay."),
+  ],
 };
 
 // ======================= PUBLIC VENUES =======================
@@ -169,6 +217,17 @@ export const ESPACIOS_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 6, 2], faqs: getFaqs("public-venues", "en"),
   ctaStripBold: "Capacity, safety and flows, in real time.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every challenge in your venue",
+  useCasesSub: "Capacity, safety, queues, restrooms, behaviour or WiFi: whatever your public venue's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure how many people visit the space, by entrance and zone, and when peak hours occur."),
+    uc("ocupacion", "Control total and per-zone capacity in real time, with alerts to anticipate crowds."),
+    uc("comportamiento", "Analyse paths and heatmaps to detect bottlenecks and underused zones."),
+    uc("colas", "Control waits at entrances, ticket offices and information points at peak times."),
+    uc("aseos", "Plan restroom cleaning by real use and keep facilities ready."),
+    uc("wifiInv", "Offer WiFi through a captive portal and turn it into a channel to share activities and services."),
+  ],
 };
 
 // ============================ BANKING ============================
@@ -205,6 +264,17 @@ export const BANCOS_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [1, 5, 7], faqs: [],
   ctaStripBold: "Fewer waits, better team sizing, network under control.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every challenge in your branch network",
+  useCasesSub: "Queues, occupancy, footfall, behaviour, service usage or WiFi: whatever your branch's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure each branch's footfall by time slot to plan operations with real data."),
+    uc("colas", "Control waits at the counter, personal service and advisers, with alerts when the limit is exceeded."),
+    uc("ocupacion", "Check the capacity of waiting and service areas in real time and anticipate saturation."),
+    uc("comportamiento", "Heatmaps of waiting, self-service and personal-service areas to improve the layout."),
+    uc("conversion", "Discover which services each visitor uses (counter, adviser, ATM) to allocate resources by demand."),
+    uc("wifiCorp", "Guest WiFi with a captive portal and secure corporate networks for branch employees."),
+  ],
 };
 
 // ==================== TRANSPORT AND AIRPORTS ====================
@@ -241,4 +311,15 @@ export const TRANSPORTE_CFG_EN: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 4, 8], faqs: [],
   ctaStripBold: "Flows, occupancy and queues under control in real time.", ctaStripLight: "Personalised demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every challenge in your terminal",
+  useCasesSub: "Passenger flows, capacity, queues, restrooms, behaviour or WiFi: whatever your terminal's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure passenger traffic by terminal, entrance and platform, and when it concentrates."),
+    uc("ocupacion", "Control the capacity of waiting rooms, concourses and platforms in real time, with alerts."),
+    uc("colas", "Measure waits at security, check-in and boarding to open positions before they grow."),
+    uc("comportamiento", "Analyse paths and times between zones to improve signage and circulation."),
+    uc("aseos", "Plan restroom cleaning by real use, not fixed schedules."),
+    uc("wifiInv", "Offer WiFi via captive portal and turn it into a channel for incident, delay and service notices."),
+  ],
 };

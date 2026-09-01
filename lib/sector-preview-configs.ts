@@ -48,6 +48,24 @@ const PRODUCTS_TITLE_HL = "múltiples soluciones";
 const PRODUCTS_SUB = "Medir y mejorar el rendimiento del espacio, comprender el comportamiento de las personas y conectar con tus visitantes.";
 const PRODUCTS_BULLETS = ["Mide y mejora el rendimiento del espacio", "Comprende el comportamiento de las personas", "Conecta con tus visitantes"];
 
+// --- Catálogo de casos de uso (iconos reales del menú) para el módulo del modelo nuevo ---
+const UCM: Record<string, { img: string; title: string; href: string }> = {
+  conteo:        { img: "/wp-content/uploads/2025/09/people_counting1.png",     title: "Conteo de personas",             href: "/es/conteo-personas/" },
+  conversion:    { img: "/wp-content/uploads/2025/09/Conversion_analytics1.png", title: "Analítica de conversión",         href: "/es/analitica-conversion/" },
+  comportamiento:{ img: "/wp-content/uploads/2025/09/Customer_bahavior1.png",    title: "Comportamiento y mapas de calor", href: "/es/comportamiento-del-cliente/" },
+  ocupacion:     { img: "/wp-content/uploads/2025/09/Occupancy_management1.png",  title: "Gestión de ocupación",           href: "/es/gestion-ocupacion/" },
+  colas:         { img: "/wp-content/uploads/2025/09/Queue1.png",                 title: "Gestión de colas",               href: "/es/analitica-de-colas/" },
+  aseos:         { img: "/wp-content/uploads/2025/09/Restroom1.png",              title: "Gestión de aseos",               href: "/es/gestion-de-aseos/" },
+  wifiInv:       { img: "/wp-content/uploads/2025/09/guest_wifi1.png",            title: "Marketing WiFi",                 href: "/es/marketing-wifi-para-invitados/" },
+  wifiCorp:      { img: "/wp-content/uploads/2025/09/corporate_wifi1.png",        title: "WiFi corporativo",               href: "/es/acceso-wifi-corporativo/" },
+  recorrido:     { img: "/wp-content/uploads/2025/09/road-route-map-icon.png",    title: "Recorrido del cliente",          href: "/es/recorrido-del-cliente/" },
+};
+export const uc = (k: keyof typeof UCM | string, desc: string) => ({ ...UCM[k], desc });
+
+// Campos comunes del módulo "Casos de uso" (Opción B): editorial (números), encima de casos,
+// sin bloque de productos ni testimonios.
+export const UC_COMMON = { useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Casos de uso" };
+
 // ============================ RETAIL ============================
 export const RETAIL_CFG: SectorConfig = {
   metaTitle: "Retail · Flame Analytics", metaDescription: "Analítica de retail físico con IA.",
@@ -82,6 +100,17 @@ export const RETAIL_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [2, 4, 6], faqs: getFaqs("retail", "es"),
   ctaStripBold: "Cada tienda es única. Tu data debe demostrarlo.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu tienda",
+  useCasesSub: "Tráfico, conversión, colas, ocupación, comportamiento o WiFi: sea cual sea la prioridad de tu tienda, Flame ya tiene un caso de uso para resolverla. Elige el tuyo y descubre cómo.",
+  useCases: [
+    uc("conteo", "Mide con precisión cuánta gente entra y cómo se reparte por franjas y por zonas de la tienda."),
+    uc("conversion", "Cruza el tráfico con tu TPV para saber qué porcentaje de visitas acaba comprando en cada tienda."),
+    uc("comportamiento", "Trayectorias, permanencia y zonas frías y calientes para mejorar el layout y la señalética."),
+    uc("recorrido", "Reconstruye el recorrido completo del visitante, desde el escaparate hasta la caja."),
+    uc("colas", "Mide la espera en caja y abre nuevos puestos antes de que el cliente abandone la compra."),
+    uc("wifiInv", "Convierte el WiFi de tienda en captación de contactos y campañas de fidelización segmentadas."),
+  ],
 };
 
 // ========================= SUPERMERCADOS =========================
@@ -118,6 +147,17 @@ export const SUPERMERCADOS_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 1, 7], faqs: getFaqs("shopping-malls", "es"),
   ctaStripBold: "Menos colas, mejor surtido, más conversión.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu supermercado",
+  useCasesSub: "Afluencia por zonas, conversión, colas, ocupación, comportamiento o WiFi: sea cual sea la prioridad de tu supermercado, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide la afluencia por secciones y franjas para conocer el tráfico real de cada zona del súper."),
+    uc("conversion", "Cruza el tráfico con tu TPV para saber qué porcentaje compra y cuál es la cesta media real."),
+    uc("comportamiento", "Mapas de calor y recorridos por pasillo para mejorar el layout, las cabeceras y la reposición."),
+    uc("ocupacion", "Controla el aforo en tiempo real y recibe alertas cuando una zona o la línea de cajas se satura."),
+    uc("colas", "Mide la espera en caja y abre puestos antes de que el cliente abandone la compra."),
+    uc("wifiInv", "Convierte el WiFi del súper en captación de contactos y promociones segmentadas."),
+  ],
 };
 
 // ============================ HOTELES ============================
@@ -154,6 +194,17 @@ export const HOTELES_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [3, 5, 8], faqs: getFaqs("hospitality", "es"),
   ctaStripBold: "Cada zona de tu hotel, medida y bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu hotel",
+  useCasesSub: "Ocupación por zonas, colas, aseos, afluencia, comportamiento o WiFi: sea cual sea la prioridad de tu hotel, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide la afluencia del lobby, el restaurante o el spa por franjas para ajustar personal y servicios."),
+    uc("ocupacion", "Controla en tiempo real el aforo de zonas comunes y salas de eventos, con alertas de saturación."),
+    uc("comportamiento", "Mapas de calor de las zonas comunes para redistribuir mobiliario, servicios y flujos."),
+    uc("colas", "Detecta esperas en recepción y check-in para abrir más puestos cuando hace falta."),
+    uc("aseos", "Programa la limpieza de los aseos según su uso real, no por un horario fijo."),
+    uc("wifiInv", "Convierte el WiFi del huésped en captación para tu CRM y campañas de fidelización durante la estancia."),
+  ],
 };
 
 // ======================= ESPACIOS PÚBLICOS =======================
@@ -190,6 +241,17 @@ export const ESPACIOS_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 6, 2], faqs: getFaqs("public-venues", "es"),
   ctaStripBold: "Aforo, seguridad y flujos, en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu espacio",
+  useCasesSub: "Aforo, seguridad, colas, aseos, comportamiento o WiFi: sea cual sea la prioridad de tu espacio público, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide cuántas personas visitan el espacio, por accesos y zonas, y cuándo se producen las horas punta."),
+    uc("ocupacion", "Controla el aforo total y por zona en tiempo real, con alertas para anticipar aglomeraciones."),
+    uc("comportamiento", "Analiza recorridos y mapas de calor para detectar cuellos de botella y zonas infrautilizadas."),
+    uc("colas", "Controla las esperas en accesos, taquillas y puntos de información en horas punta."),
+    uc("aseos", "Planifica la limpieza de los aseos según su uso real y mantén las instalaciones a punto."),
+    uc("wifiInv", "Ofrece WiFi mediante portal cautivo y conviértelo en canal para informar de actividades y servicios."),
+  ],
 };
 
 // ============================ BANCOS ============================
@@ -226,6 +288,17 @@ export const BANCOS_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [1, 5, 7], faqs: [],
   ctaStripBold: "Menos esperas, mejor dimensionamiento de equipos, red bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu red de oficinas",
+  useCasesSub: "Colas, ocupación, afluencia, comportamiento, uso de servicios o WiFi: sea cual sea la prioridad de tu sucursal, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide la afluencia de cada sucursal por franjas para planificar la operativa con datos reales."),
+    uc("colas", "Controla la espera en caja, atención personal y gestor, con alertas cuando supera el límite."),
+    uc("ocupacion", "Consulta el aforo de las zonas de espera y atención en tiempo real y anticípate a la saturación."),
+    uc("comportamiento", "Mapas de calor de las zonas de espera, autoservicio y atención para mejorar la distribución."),
+    uc("conversion", "Descubre qué servicios usa cada visitante (caja, gestor, cajero) para asignar recursos según su demanda."),
+    uc("wifiCorp", "WiFi para clientes con portal cautivo y redes corporativas seguras para los empleados de la oficina."),
+  ],
 };
 
 // ==================== TRANSPORTE Y AEROPUERTOS ====================
@@ -262,6 +335,17 @@ export const TRANSPORTE_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 4, 8], faqs: [],
   ctaStripBold: "Flujos, ocupación y colas bajo control en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
+  ...UC_COMMON,
+  useCasesTitle: "Un caso de uso para cada reto de tu terminal",
+  useCasesSub: "Flujos de pasajeros, aforo, colas, aseos, comportamiento o WiFi: sea cual sea la prioridad de tu terminal, Flame ya tiene un caso de uso para resolverla.",
+  useCases: [
+    uc("conteo", "Mide el tráfico de pasajeros por terminales, accesos y andenes, y en qué horarios se concentra."),
+    uc("ocupacion", "Controla el aforo de salas de espera, vestíbulos y andenes en tiempo real, con alertas."),
+    uc("colas", "Mide la espera en controles, facturación y embarque para abrir posiciones antes de que crezca."),
+    uc("comportamiento", "Analiza recorridos y tiempos entre zonas para mejorar la señalética y la circulación."),
+    uc("aseos", "Planifica la limpieza de los aseos según su uso real, no por horarios fijos."),
+    uc("wifiInv", "Ofrece WiFi por portal cautivo y conviértelo en canal para avisos de incidencias, retrasos y servicios."),
+  ],
 };
 
 export const PREVIEW_SECTORS: Array<{ slug: string; label: string; cfg: SectorConfig; enHref: string }> = [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
+import { uc, UC_COMMON } from "@/lib/sector-configs-en";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
@@ -121,6 +122,17 @@ const cfg: SectorConfig = {
   faqs: getFaqs("shopping-malls", "en"),
   ctaStripBold: "Turn footfall into value for tenants and visitors.",
   ctaStripLight: "Personalized demo in 20 minutes.",
+  ...UC_COMMON,
+  useCasesTitle: "A use case for every challenge in your mall",
+  useCasesSub: "Footfall, conversion, occupancy, queues, behaviour or WiFi: whatever your mall's priority, Flame already has a use case to solve it.",
+  useCases: [
+    uc("conteo", "Measure the mall's total footfall and by entrance, and compare days, time slots and campaigns."),
+    uc("conversion", "Cross-reference traffic with tenant sales to know the real conversion by zone and operator."),
+    uc("comportamiento", "Heatmaps and paths to optimise the tenant mix, signage and common areas."),
+    uc("ocupacion", "Control real-time capacity by zone, with alerts for events and peak hours."),
+    uc("colas", "Detect waits at entrances, car parks and food-court areas to improve the experience."),
+    uc("wifiInv", "Turn the mall's WiFi into contact capture and communication with the visitor."),
+  ],
 };
 
 export default function SolutionForShoppingMallsEN() {
