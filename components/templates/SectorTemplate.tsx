@@ -270,7 +270,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       {isNewModel && ctaStrip}
 
       {/* CASOS DE USO — por encima de casos de éxito cuando useCasesBeforeCases */}
-      {isNewModel && cfg.useCasesBeforeCases && useCasesSection}
+      {isNewModel && cfg.showUseCases && cfg.useCasesBeforeCases && useCasesSection}
 
       {/* CASOS DE ÉXITO (3 tarjetas reales) */}
       {isNewModel && cfg.caseStudies && cfg.caseStudies.length > 0 && (
@@ -345,7 +345,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       })}
 
       {/* CASOS DE USO — posición por defecto (tras casos de éxito), salvo useCasesBeforeCases */}
-      {isNewModel && !cfg.useCasesBeforeCases && useCasesSection}
+      {isNewModel && cfg.showUseCases && !cfg.useCasesBeforeCases && useCasesSection}
 
       {/* PRODUCTOS — mismo layout que Hypersensor (2 cols: izq texto+bullets / der 3 cards blancas)
           En la Opción B (cfg.hideProducts) no se muestra; en la A se reencabeza como "la plataforma" */}

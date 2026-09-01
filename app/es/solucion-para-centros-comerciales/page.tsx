@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
-import { uc, UC_COMMON } from "@/lib/sector-preview-configs";
+import { uc } from "@/lib/sector-preview-configs";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   },
 };
 
-const cfg: SectorConfig = {
+export const CENTROS_CFG: SectorConfig = {
   metaTitle: "Centros Comerciales · Flame Analytics",
   metaDescription: "Optimización de tenant mix y experiencia del cliente.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png",
@@ -109,9 +109,7 @@ const cfg: SectorConfig = {
   testimonialsIdx: [0, 1, 7, 8],
   faqs: getFaqs("shopping-malls", "es"),
   ctaStripBold: "Convierte la afluencia en valor para inquilinos y visitantes.",
-  ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu centro",
+  ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu centro",
   useCasesSub: "Afluencia, conversión, ocupación, colas, comportamiento o WiFi: sea cual sea la prioridad de tu centro comercial, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide la afluencia total del centro y por accesos, y compara días, franjas y campañas."),
@@ -124,5 +122,5 @@ const cfg: SectorConfig = {
 };
 
 export default function CentrosComercialesSectorDraft() {
-  return <SectorTemplate cfg={cfg} enHref="/en/solution-for-shopping-malls/" />;
+  return <SectorTemplate cfg={CENTROS_CFG} enHref="/en/solution-for-shopping-malls/" />;
 }

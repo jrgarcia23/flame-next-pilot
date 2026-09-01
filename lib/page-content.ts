@@ -341,6 +341,7 @@ export type SectorConfig = {
   useCasesSub?: string;
   useCases?: Array<{ svg?: string; img?: string; title: string; desc: string; href: string }>; // img = icono del menú (iconImg); si no, svg
   useCasesLayout?: "cards" | "compact" | "list" | "rows" | "minigrid" | "chips" | "tabs" | "timeline" | "directory" | "numbers"; // diseño del módulo de casos de uso
+  showUseCases?: boolean;          // activa el módulo de casos de uso (si falso/ausente, no se renderiza aunque haya useCases)
   useCasesBeforeCases?: boolean;   // coloca el módulo de casos de uso por encima de los casos de éxito
   hideProducts?: boolean;
   hideTestimonials?: boolean;      // oculta la sección de testimonios ("marcas que hablan de nosotros")

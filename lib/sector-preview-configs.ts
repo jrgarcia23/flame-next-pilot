@@ -64,7 +64,7 @@ export const uc = (k: keyof typeof UCM | string, desc: string) => ({ ...UCM[k], 
 
 // Campos comunes del módulo "Casos de uso" (Opción B): editorial (números), encima de casos,
 // sin bloque de productos ni testimonios.
-export const UC_COMMON = { useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Casos de uso" };
+export const UC_COMMON = { showUseCases: true, useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Casos de uso" };
 
 // ============================ RETAIL ============================
 export const RETAIL_CFG: SectorConfig = {
@@ -99,9 +99,7 @@ export const RETAIL_CFG: SectorConfig = {
   caseStudies: pickCases(["multiopticas", "afflelou", "pompeii"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [2, 4, 6], faqs: getFaqs("retail", "es"),
-  ctaStripBold: "Cada tienda es única. Tu data debe demostrarlo.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu tienda",
+  ctaStripBold: "Cada tienda es única. Tu data debe demostrarlo.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu tienda",
   useCasesSub: "Tráfico, conversión, colas, ocupación, comportamiento o WiFi: sea cual sea la prioridad de tu tienda, Flame ya tiene un caso de uso para resolverla. Elige el tuyo y descubre cómo.",
   useCases: [
     uc("conteo", "Mide con precisión cuánta gente entra y cómo se reparte por franjas y por zonas de la tienda."),
@@ -146,9 +144,7 @@ export const SUPERMERCADOS_CFG: SectorConfig = {
   caseStudies: pickCases(["repsol", "multiopticas", "afflelou"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 1, 7], faqs: getFaqs("shopping-malls", "es"),
-  ctaStripBold: "Menos colas, mejor surtido, más conversión.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu supermercado",
+  ctaStripBold: "Menos colas, mejor surtido, más conversión.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu supermercado",
   useCasesSub: "Afluencia por zonas, conversión, colas, ocupación, comportamiento o WiFi: sea cual sea la prioridad de tu supermercado, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide la afluencia por secciones y franjas para conocer el tráfico real de cada zona del súper."),
@@ -193,9 +189,7 @@ export const HOTELES_CFG: SectorConfig = {
   caseStudies: pickCases(["caixaforum", "repsol", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [3, 5, 8], faqs: getFaqs("hospitality", "es"),
-  ctaStripBold: "Cada zona de tu hotel, medida y bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu hotel",
+  ctaStripBold: "Cada zona de tu hotel, medida y bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu hotel",
   useCasesSub: "Ocupación por zonas, colas, aseos, afluencia, comportamiento o WiFi: sea cual sea la prioridad de tu hotel, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide la afluencia del lobby, el restaurante o el spa por franjas para ajustar personal y servicios."),
@@ -240,9 +234,7 @@ export const ESPACIOS_CFG: SectorConfig = {
   caseStudies: pickCases(["caixaforum", "repsol", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 6, 2], faqs: getFaqs("public-venues", "es"),
-  ctaStripBold: "Aforo, seguridad y flujos, en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu espacio",
+  ctaStripBold: "Aforo, seguridad y flujos, en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu espacio",
   useCasesSub: "Aforo, seguridad, colas, aseos, comportamiento o WiFi: sea cual sea la prioridad de tu espacio público, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide cuántas personas visitan el espacio, por accesos y zonas, y cuándo se producen las horas punta."),
@@ -287,9 +279,7 @@ export const BANCOS_CFG: SectorConfig = {
   caseStudies: pickCases(["repsol", "multiopticas", "afflelou"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [1, 5, 7], faqs: [],
-  ctaStripBold: "Menos esperas, mejor dimensionamiento de equipos, red bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu red de oficinas",
+  ctaStripBold: "Menos esperas, mejor dimensionamiento de equipos, red bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu red de oficinas",
   useCasesSub: "Colas, ocupación, afluencia, comportamiento, uso de servicios o WiFi: sea cual sea la prioridad de tu sucursal, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide la afluencia de cada sucursal por franjas para planificar la operativa con datos reales."),
@@ -334,9 +324,7 @@ export const TRANSPORTE_CFG: SectorConfig = {
   caseStudies: pickCases(["repsol", "caixaforum", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 4, 8], faqs: [],
-  ctaStripBold: "Flujos, ocupación y colas bajo control en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",
-  ...UC_COMMON,
-  useCasesTitle: "Un caso de uso para cada reto de tu terminal",
+  ctaStripBold: "Flujos, ocupación y colas bajo control en tiempo real.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu terminal",
   useCasesSub: "Flujos de pasajeros, aforo, colas, aseos, comportamiento o WiFi: sea cual sea la prioridad de tu terminal, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide el tráfico de pasajeros por terminales, accesos y andenes, y en qué horarios se concentra."),

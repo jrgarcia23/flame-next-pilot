@@ -40,7 +40,7 @@ const UCM: Record<string, { img: string; title: string; href: string }> = {
   recorrido:      { img: "/wp-content/uploads/2025/09/road-route-map-icon.png",    title: "Customer journey",       href: "/en/customer-journey/" },
 };
 export const uc = (k: keyof typeof UCM | string, desc: string) => ({ ...UCM[k], desc });
-export const UC_COMMON = { useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Use cases" };
+export const UC_COMMON = { showUseCases: true, useCasesLayout: "numbers" as const, useCasesBeforeCases: true, hideProducts: true, hideTestimonials: true, useCasesEyebrow: "Use cases" };
 
 // ============================ RETAIL ============================
 export const RETAIL_CFG_EN: SectorConfig = {
@@ -75,9 +75,7 @@ export const RETAIL_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["multiopticas", "afflelou", "pompeii"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [2, 4, 6], faqs: getFaqs("retail", "en"),
-  ctaStripBold: "Every store is unique. Your data should prove it.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every retail challenge",
+  ctaStripBold: "Every store is unique. Your data should prove it.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every retail challenge",
   useCasesSub: "Footfall, conversion, queues, occupancy, behaviour or WiFi: whatever your store's priority, Flame already has a use case to solve it. Pick yours and see how.",
   useCases: [
     uc("conteo", "Accurately measure how many people come in and how they spread across time slots and store zones."),
@@ -122,9 +120,7 @@ export const SUPERMERCADOS_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["repsol", "multiopticas", "afflelou"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 1, 7], faqs: getFaqs("shopping-malls", "en"),
-  ctaStripBold: "Fewer queues, better assortment, more conversion.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every supermarket challenge",
+  ctaStripBold: "Fewer queues, better assortment, more conversion.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every supermarket challenge",
   useCasesSub: "Footfall by zone, conversion, queues, occupancy, behaviour or WiFi: whatever your supermarket's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure footfall by section and time slot to know the real traffic of each zone."),
@@ -169,9 +165,7 @@ export const HOTELES_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["caixaforum", "repsol", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [3, 5, 8], faqs: getFaqs("hospitality", "en"),
-  ctaStripBold: "Every area of your hotel, measured and under control.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every challenge in your hotel",
+  ctaStripBold: "Every area of your hotel, measured and under control.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every challenge in your hotel",
   useCasesSub: "Occupancy by zone, queues, restrooms, footfall, behaviour or WiFi: whatever your hotel's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure footfall in the lobby, the restaurant or the spa by time slot to adjust staff and services."),
@@ -216,9 +210,7 @@ export const ESPACIOS_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["caixaforum", "repsol", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 6, 2], faqs: getFaqs("public-venues", "en"),
-  ctaStripBold: "Capacity, safety and flows, in real time.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every challenge in your venue",
+  ctaStripBold: "Capacity, safety and flows, in real time.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every challenge in your venue",
   useCasesSub: "Capacity, safety, queues, restrooms, behaviour or WiFi: whatever your public venue's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure how many people visit the space, by entrance and zone, and when peak hours occur."),
@@ -263,9 +255,7 @@ export const BANCOS_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["repsol", "multiopticas", "afflelou"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [1, 5, 7], faqs: [],
-  ctaStripBold: "Fewer waits, better team sizing, network under control.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every challenge in your branch network",
+  ctaStripBold: "Fewer waits, better team sizing, network under control.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every challenge in your branch network",
   useCasesSub: "Queues, occupancy, footfall, behaviour, service usage or WiFi: whatever your branch's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure each branch's footfall by time slot to plan operations with real data."),
@@ -310,9 +300,7 @@ export const TRANSPORTE_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["repsol", "caixaforum", "multiopticas"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 4, 8], faqs: [],
-  ctaStripBold: "Flows, occupancy and queues under control in real time.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every challenge in your terminal",
+  ctaStripBold: "Flows, occupancy and queues under control in real time.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every challenge in your terminal",
   useCasesSub: "Passenger flows, capacity, queues, restrooms, behaviour or WiFi: whatever your terminal's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure passenger traffic by terminal, entrance and platform, and when it concentrates."),
@@ -357,9 +345,7 @@ export const CENTROS_CFG_EN: SectorConfig = {
   caseStudies: pickCases(["multiopticas", "afflelou", "caixaforum"]),
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [0, 1, 7], faqs: getFaqs("shopping-malls", "en"),
-  ctaStripBold: "Turn footfall into value for tenants and visitors.", ctaStripLight: "Personalised demo in 20 minutes.",
-  ...UC_COMMON,
-  useCasesTitle: "A use case for every challenge in your mall",
+  ctaStripBold: "Turn footfall into value for tenants and visitors.", ctaStripLight: "Personalised demo in 20 minutes.",  useCasesTitle: "A use case for every challenge in your mall",
   useCasesSub: "Footfall, conversion, occupancy, queues, behaviour or WiFi: whatever your mall's priority, Flame already has a use case to solve it.",
   useCases: [
     uc("conteo", "Measure the mall's total footfall and by entrance, and compare days, time slots and campaigns."),

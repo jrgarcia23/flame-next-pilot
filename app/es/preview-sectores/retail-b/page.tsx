@@ -23,6 +23,7 @@ export const RETAIL_USE_CASES: NonNullable<SectorConfig["useCases"]> = [
 
 export const RETAIL_B_BASE: SectorConfig = {
   ...RETAIL_CFG,
+  showUseCases: true,
   hideProducts: true,
   hideTestimonials: true,
   useCasesBeforeCases: true,
