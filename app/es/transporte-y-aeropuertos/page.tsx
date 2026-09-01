@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Transporte y aeropuertos · Flame Analytics",
     description: "Analítica de flujos de pasajeros, aforo y colas para aeropuertos, estaciones e intercambiadores con IA de vídeo, sin biometría y conforme al RGPD.",
     locale: "es_ES",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Transporte y aeropuertos · Flame Analytics",
     description: "Analítica de flujos de pasajeros, aforo y colas para aeropuertos, estaciones e intercambiadores con IA de vídeo, sin biometría y conforme al RGPD.",
-    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Transport-1.jpg"],
   },
 };
 

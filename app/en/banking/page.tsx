@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Banking · Flame Analytics",
     description: "Footfall, queue and real-use analytics for branch networks with video AI, no biometrics and GDPR-compliant.",
     locale: "en_US",
-    images: [{ url: "/wp-content/uploads/2026/01/Traffic2-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Banking-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Banking · Flame Analytics",
     description: "Footfall, queue and real-use analytics for branch networks with video AI, no biometrics and GDPR-compliant.",
-    images: ["/wp-content/uploads/2026/01/Traffic2-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Banking-1.jpg"],
   },
 };
 

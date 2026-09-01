@@ -90,7 +90,7 @@ export const RETAIL_CFG_EN: SectorConfig = {
 // ========================= SUPERMARKETS =========================
 export const SUPERMERCADOS_CFG_EN: SectorConfig = {
   metaTitle: "Supermarkets · Flame Analytics", metaDescription: "Supermarket analytics with AI.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png", heroBgPosition: "center center",
+  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/supermercados-hero.png", heroBgPosition: "center center",
   heroTitle: "Data intelligence for supermarkets",
   heroSub: "Flame turns the cameras you already have in your supermarket into actionable data: footfall by zone, checkout queues, conversion and basket. Supermarket analytics with artificial intelligence, no biometrics and fully GDPR-compliant, to optimise assortment, cashier staffing and layout with real data.",
   heroBullets: HERO_BULLETS,
@@ -225,7 +225,7 @@ export const ESPACIOS_CFG_EN: SectorConfig = {
 // ============================ BANKING ============================
 export const BANCOS_CFG_EN: SectorConfig = {
   metaTitle: "Banking · Flame Analytics", metaDescription: "Footfall and queue analytics for branch networks.",
-  heroBgImage: "/wp-content/uploads/2026/01/Traffic2-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Banking-1.jpg", heroBgPosition: "center center",
   heroTitle: "Data intelligence for banks and branches",
   heroSub: "Flame turns your branches' cameras into useful data on footfall, queues and the real use of each branch. Analytics for banking with artificial intelligence, no biometrics and GDPR-compliant, to size tellers and advisers, cut waits and optimise the whole network with real data.",
   heroBullets: HERO_BULLETS,
@@ -270,7 +270,7 @@ export const BANCOS_CFG_EN: SectorConfig = {
 // ==================== TRANSPORT AND AIRPORTS ====================
 export const TRANSPORTE_CFG_EN: SectorConfig = {
   metaTitle: "Transport and airports · Flame Analytics", metaDescription: "Passenger flows, capacity and queues in airports and stations.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg", heroBgPosition: "center center",
   heroTitle: "Data intelligence for transport and airports",
   heroSub: "Flame turns your terminal's cameras into useful data on passenger flows, capacity, queues and the use of each zone. Analytics for airports and stations with artificial intelligence, no biometrics and GDPR-compliant, to anticipate crowds, plan staff and optimise the commercial area with real data.",
   heroBullets: HERO_BULLETS,

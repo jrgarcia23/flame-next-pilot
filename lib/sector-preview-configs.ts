@@ -114,7 +114,7 @@ export const RETAIL_CFG: SectorConfig = {
 // ========================= SUPERMERCADOS =========================
 export const SUPERMERCADOS_CFG: SectorConfig = {
   metaTitle: "Supermercados · Flame Analytics", metaDescription: "Analítica de supermercados con IA.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png", heroBgPosition: "center center",
+  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/supermercados-hero.png", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para supermercados",
   heroSub: "Flame convierte las cámaras que ya tienes en tu supermercado en datos accionables: afluencia por zonas, colas en caja, conversión y cesta. Analítica de supermercados con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para optimizar el surtido, la dotación de cajeros y el layout con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -249,7 +249,7 @@ export const ESPACIOS_CFG: SectorConfig = {
 // ============================ BANCOS ============================
 export const BANCOS_CFG: SectorConfig = {
   metaTitle: "Bancos y sucursales · Flame Analytics", metaDescription: "Analítica de afluencia y colas para redes de oficinas bancarias.",
-  heroBgImage: "/wp-content/uploads/2026/01/Traffic2-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Banking-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para bancos y sucursales",
   heroSub: "Flame convierte las cámaras de tus oficinas en datos útiles sobre afluencia, colas y uso real de cada sucursal. Analítica para banca con inteligencia artificial, sin biometría y conforme al RGPD, para dimensionar cajeros y gestores, reducir esperas y optimizar toda la red con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -294,7 +294,7 @@ export const BANCOS_CFG: SectorConfig = {
 // ==================== TRANSPORTE Y AEROPUERTOS ====================
 export const TRANSPORTE_CFG: SectorConfig = {
   metaTitle: "Transporte y aeropuertos · Flame Analytics", metaDescription: "Flujos de pasajeros, aforo y colas en aeropuertos y estaciones.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para transporte y aeropuertos",
   heroSub: "Flame convierte las cámaras de tu terminal en datos útiles sobre flujos de pasajeros, aforo, colas y uso de cada zona. Analítica para aeropuertos y estaciones con inteligencia artificial, sin biometría y conforme al RGPD, para anticipar aglomeraciones, planificar el personal y optimizar el área comercial con datos reales.",
   heroBullets: HERO_BULLETS,

@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Transport and airports · Flame Analytics",
     description: "Passenger-flow, capacity and queue analytics for airports, stations and interchanges with video AI, no biometrics and GDPR-compliant.",
     locale: "en_US",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Transport and airports · Flame Analytics",
     description: "Passenger-flow, capacity and queue analytics for airports, stations and interchanges with video AI, no biometrics and GDPR-compliant.",
-    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Transport-1.jpg"],
   },
 };
 

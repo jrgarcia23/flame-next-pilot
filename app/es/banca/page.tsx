@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Bancos y sucursales · Flame Analytics",
     description: "Analítica de afluencia, colas y uso real para redes de oficinas bancarias con IA de vídeo, sin biometría y conforme al RGPD.",
     locale: "es_ES",
-    images: [{ url: "/wp-content/uploads/2026/01/Traffic2-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Banking-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Bancos y sucursales · Flame Analytics",
     description: "Analítica de afluencia, colas y uso real para redes de oficinas bancarias con IA de vídeo, sin biometría y conforme al RGPD.",
-    images: ["/wp-content/uploads/2026/01/Traffic2-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Banking-1.jpg"],
   },
 };
 
