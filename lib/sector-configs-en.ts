@@ -273,7 +273,7 @@ export const TRANSPORTE_CFG_EN: SectorConfig = {
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg", heroBgPosition: "center center",
   heroTitle: "Data intelligence for transport and airports",
   heroSub: "Flame turns your terminal's cameras into useful data on passenger flows, capacity, queues and the use of each zone, and offers WiFi so travellers stay connected throughout their time in the venue. Analytics for airports and stations with artificial intelligence, no biometrics and GDPR-compliant, to anticipate crowds, plan staff and optimise the commercial area with real data.",
-  heroBullets: HERO_BULLETS,
+  heroBullets: ["99% accuracy", "No biometrics · 100% GDPR", "Real-time data", "WiFi for travellers"],
   sections: [],
   painPointsTitle: "The day-to-day of your terminal.",
   painPointsIntro: "Every rush hour tests operations: thousands of passengers converge at the same points, queues grow without warning and decisions are made without information. These are the problems Flame solves with real-time data.",
