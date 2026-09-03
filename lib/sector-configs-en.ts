@@ -272,7 +272,7 @@ export const TRANSPORTE_CFG_EN: SectorConfig = {
   metaTitle: "Transport and airports · Flame Analytics", metaDescription: "Passenger flows, capacity and queues in airports and stations.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg", heroBgPosition: "center center",
   heroTitle: "Data intelligence for transport and airports",
-  heroSub: "Flame turns your terminal's cameras into useful data on passenger flows, capacity, queues and the use of each zone, and offers WiFi to travellers as a direct channel to inform them and to know the real use of the venue. Analytics for airports and stations with artificial intelligence, no biometrics and GDPR-compliant, to anticipate crowds, plan staff and optimise the commercial area with real data.",
+  heroSub: "Flame turns your terminal's cameras into useful data on passenger flows, capacity, queues and the use of each zone, and offers WiFi so travellers stay connected throughout their time in the venue. Analytics for airports and stations with artificial intelligence, no biometrics and GDPR-compliant, to anticipate crowds, plan staff and optimise the commercial area with real data.",
   heroBullets: HERO_BULLETS,
   sections: [],
   painPointsTitle: "The day-to-day of your terminal.",
@@ -286,7 +286,7 @@ export const TRANSPORTE_CFG_EN: SectorConfig = {
   capsTitle: "Everything Flame measures and activates in your terminal",
   capsSub: "Eight Flame capabilities to optimise airports, stations and interchanges using the existing camera infrastructure, without identifying anyone and fully GDPR-compliant.",
   capabilities: [
-    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.wifi, title: "WiFi for passengers and communication channel", desc: "Offer free WiFi to travellers through a captive portal and turn it into a direct channel: inform about incidents, delays and venue services, and gather aggregated data on network use and footfall flows, without identifying anyone." },
+    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.wifi, title: "WiFi for passengers", desc: "Offer free WiFi so travellers stay connected throughout their time in the venue. The captive portal also becomes a channel to inform about incidents, delays and services, and provides aggregated data on network use, without identifying anyone." },
     { span: 5, svg: IC.shield, title: "Pedestrian flows, crowd management and safety", desc: "Analyse the occupancy and flows of each zone to anticipate crowds before they form. Plan access, staff and reinforcements during footfall peaks and improve safety in real time." },
     { span: 6, svg: IC.people, title: "Passenger footfall and flow", desc: "Measure entries and exits and analyse traffic by terminal, entrance and platform. Discover how many passengers move through each point and at what times to plan operations with real data." },
     { span: 6, svg: IC.activity, title: "Real-time capacity and occupancy", desc: "Check the occupancy of waiting rooms, concourses and platforms and get alerts when a zone approaches its limit. Act before saturation affects safety or the passenger experience." },

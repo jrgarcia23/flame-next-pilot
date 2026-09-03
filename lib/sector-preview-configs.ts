@@ -296,7 +296,7 @@ export const TRANSPORTE_CFG: SectorConfig = {
   metaTitle: "Transporte y aeropuertos · Flame Analytics", metaDescription: "Flujos de pasajeros, aforo y colas en aeropuertos y estaciones.",
   heroBgImage: "/wp-content/uploads/2026/01/Industries_Transport-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para transporte y aeropuertos",
-  heroSub: "Flame convierte las cámaras de tu terminal en datos útiles sobre flujos de pasajeros, aforo, colas y uso de cada zona, y ofrece WiFi a los viajeros como canal directo para informar y conocer el uso real del recinto. Analítica para aeropuertos y estaciones con inteligencia artificial, sin biometría y conforme al RGPD, para anticipar aglomeraciones, planificar el personal y optimizar el área comercial con datos reales.",
+  heroSub: "Flame convierte las cámaras de tu terminal en datos útiles sobre flujos de pasajeros, aforo, colas y uso de cada zona, y ofrece WiFi a los viajeros para que estén conectados durante todo su paso por el recinto. Analítica para aeropuertos y estaciones con inteligencia artificial, sin biometría y conforme al RGPD, para anticipar aglomeraciones, planificar el personal y optimizar el área comercial con datos reales.",
   heroBullets: HERO_BULLETS,
   sections: [],
   painPointsTitle: "El día a día de tu terminal.",
@@ -310,7 +310,7 @@ export const TRANSPORTE_CFG: SectorConfig = {
   capsTitle: "Todo lo que Flame mide y activa en tu terminal",
   capsSub: "Ocho capacidades de Flame para optimizar aeropuertos, estaciones e intercambiadores utilizando la infraestructura de cámaras existente, sin identificar a ninguna persona y con pleno cumplimiento del RGPD.",
   capabilities: [
-    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.wifi, title: "WiFi para pasajeros y canal de comunicación", desc: "Ofrece WiFi gratuito a los viajeros mediante un portal cautivo y conviértelo en un canal directo: informa de incidencias, retrasos y servicios del recinto, y obtén datos agregados sobre el uso de la red y los flujos de afluencia, sin identificar a ninguna persona." },
+    { span: 7, featured: true, img: "/sectors/centros-afluencia.jpg", svg: IC.wifi, title: "WiFi para pasajeros", desc: "Ofrece WiFi gratuito a los viajeros para que estén conectados durante todo su paso por el recinto. Además, el portal cautivo se convierte en un canal para informar de incidencias, retrasos y servicios, y aporta datos agregados sobre el uso de la red, sin identificar a ninguna persona." },
     { span: 5, svg: IC.shield, title: "Flujos peatonales, multitudes y seguridad", desc: "Analiza la ocupación y los flujos de cada zona para anticipar aglomeraciones antes de que se formen. Planifica accesos, personal y refuerzos durante los picos de afluencia y mejora la seguridad en tiempo real." },
     { span: 6, svg: IC.people, title: "Afluencia y flujo de pasajeros", desc: "Mide las entradas y salidas y analiza el tráfico por terminales, accesos y andenes. Descubre cuántos pasajeros circulan por cada punto y en qué horarios para planificar la operativa con datos reales." },
     { span: 6, svg: IC.activity, title: "Aforo y ocupación en tiempo real", desc: "Consulta la ocupación de salas de espera, vestíbulos y andenes y recibe alertas cuando una zona se aproxima a su límite. Actúa antes de que la saturación afecte a la seguridad o a la experiencia del pasajero." },
