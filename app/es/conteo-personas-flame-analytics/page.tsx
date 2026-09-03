@@ -64,7 +64,7 @@ const METRICS: Metric[] = [
 const SECTORS: Sector[] = [
   { icon: "retail", title: "Retail",              desc: "Mide afluencia, conversión visita-venta y staff-to-traffic en cada tienda. Sin cambiar tu TPV." },
   { icon: "mall",   title: "Centros comerciales", desc: "Visión completa del flujo y rendimiento del centro. Decisiones operativas y de marketing con datos reales." },
-  { icon: "venue",  title: "Espacios públicos",   desc: "Aforo, recorridos y picos de afluencia en tiempo real para museos, estadios, recintos feriales." },
+  { icon: "venue",  title: "Espacios públicos",   desc: "Ocupación, recorridos y picos de afluencia en tiempo real para museos, estadios, recintos feriales." },
 ];
 
 const DEPARTMENTS: Department[] = [
