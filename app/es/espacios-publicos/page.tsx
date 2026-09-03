@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Espacios públicos · Flame Analytics",
     description: "Mejor experiencia del cliente y rendimiento del lugar. Soluciones de data intelligence para museos, transporte público y universidades con big data e IA.",
     locale: "es_ES",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Espacios públicos · Flame Analytics",
     description: "Mejor experiencia del cliente y rendimiento del lugar. Soluciones de data intelligence para museos, transporte público y universidades con big data e IA.",
-    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg"],
   },
 };
 

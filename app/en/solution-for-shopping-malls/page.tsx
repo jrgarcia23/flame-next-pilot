@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Data Intelligence for Shopping Malls · Flame Analytics",
     description: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
     locale: "en_US",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence for Shopping Malls · Flame Analytics",
     description: "Analytics solutions tailored for malls worldwide. We develop and deploy analytics solutions powered by big data and AI to he",
-    images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Malls2-1.jpg"],
   },
 };
 

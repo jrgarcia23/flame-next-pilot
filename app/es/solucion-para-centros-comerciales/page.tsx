@@ -22,20 +22,20 @@ export const metadata: Metadata = {
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
     description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
     locale: "es_ES",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Malls2-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence para Centros Comerciales · Flame Analytics",
     description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
-    images: ["/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Malls2-1.jpg"],
   },
 };
 
 export const CENTROS_CFG: SectorConfig = {
   metaTitle: "Centros Comerciales · Flame Analytics",
   metaDescription: "Optimización de tenant mix y experiencia del cliente.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-1.jpg",
   heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para centros comerciales",
   heroSub: "Flame convierte las cámaras que ya tienes en tu centro en datos accionables: afluencia, ocupación, conversión y comportamiento del visitante. Analítica de centros comerciales con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para gestionar el mix comercial, las operaciones y la experiencia con datos reales.",
@@ -57,7 +57,7 @@ export const CENTROS_CFG: SectorConfig = {
     { span: 6, svg: '<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>', title: "Conversión (visita → compra)", desc: "Cruza el tráfico de visitantes con los datos de tus sistemas de venta (TPV, POS, ERP…) para conocer la tasa real de conversión de cada local y del conjunto del centro. Descubre qué zonas y qué campañas convierten de verdad y deja de decidir por intuición." },
     { span: 6, svg: '<svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>', title: "Comportamiento y mapas de calor", desc: "Descubre las trayectorias más comunes, el tiempo de permanencia por zona y los mapas de calor del centro. Entiende cómo se mueve realmente el visitante para optimizar el layout, la señalética y la ubicación de cada marca." },
     { span: 5, svg: '<svg viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>', title: "Captación y fidelización por WiFi", desc: "Convierte el WiFi para visitantes en captación: portales cautivos, campañas personalizadas y conexión con tu CRM (MailChimp, Salesforce, Hubspot…) para fidelizar más allá de la visita." },
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Malls2-scaled-1.png", svg: '<svg viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M3 9h18"/><path d="M9 21v-6h6v6"/></svg>', title: "Rentas y mix de inquilinos", desc: "Datos de tráfico por local y por zona para valorar cada espacio por su rendimiento real, justificar las rentas y decidir el mix comercial con criterio. La analítica del centro como palanca de ingresos." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Malls2-1.jpg", svg: '<svg viewBox="0 0 24 24"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M3 9h18"/><path d="M9 21v-6h6v6"/></svg>', title: "Rentas y mix de inquilinos", desc: "Datos de tráfico por local y por zona para valorar cada espacio por su rendimiento real, justificar las rentas y decidir el mix comercial con criterio. La analítica del centro como palanca de ingresos." },
     { span: 6, svg: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>', title: "Gestión de colas y aseos", desc: "Mide los tiempos de espera y la tasa de abandono en las cajas, y programa la limpieza de los aseos según el uso real, no según un horario fijo. Mejora la experiencia justo en los puntos que más la deterioran." },
     { span: 6, svg: '<svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>', title: "Datos para inquilinos y operaciones", desc: "Comparte con tus inquilinos información de visitantes en tiempo real y refuerza la relación con datos que les ayudan a vender. Planifica limpieza, mantenimiento y seguridad según el flujo real del centro." },
   ],

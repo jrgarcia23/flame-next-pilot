@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Public Venues · Flame Analytics",
     description: "Enhance data intelligence for public venues, unlocking valuable insights for better decision-making. We develop and deploy analytics solut",
     locale: "en_US",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Public Venues · Flame Analytics",
     description: "Enhance data intelligence for public venues, unlocking valuable insights for better decision-making. We develop and deploy analytics solut",
-    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg"],
   },
 };
 

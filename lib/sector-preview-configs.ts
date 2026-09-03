@@ -69,7 +69,7 @@ export const UC_COMMON = { showUseCases: true, useCasesLayout: "numbers" as cons
 // ============================ RETAIL ============================
 export const RETAIL_CFG: SectorConfig = {
   metaTitle: "Retail · Flame Analytics", metaDescription: "Analítica de retail físico con IA.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Retail-1.jpg", heroBgPosition: "center center",
   heroTitle: "Data Intelligence para Retail",
   heroSub: "Flame convierte las cámaras de tus tiendas en datos accionables: cuánta gente entra, cómo se mueve y qué convierte. Analítica de retail físico con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para decidir el layout, la dotación de personal, la ubicación de producto y tus campañas con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -90,7 +90,7 @@ export const RETAIL_CFG: SectorConfig = {
     { span: 6, svg: IC.cart, title: "Conversión (visita → compra)", desc: "Cruza el tráfico con los datos de tus sistemas de venta (TPV, POS, ERP…) para conocer la tasa de conversión real de cada tienda y del conjunto de tu red. Descubre qué parte de tu afluencia acaba comprando." },
     { span: 6, svg: IC.heatmap, title: "Comportamiento y mapas de calor", desc: "Visualiza trayectorias, tiempos de permanencia y mapas de calor. Descubre cómo se mueve el cliente para mejorar el layout, la señalética y la ubicación de los productos." },
     { span: 5, svg: IC.eye, title: "Escaparate y captación", desc: "Mide cómo funciona tu escaparate: cuántos transeúntes pasan, cuántos entran y tu ratio de captación real. Descubre la capacidad de atracción de cada tienda y de cada ubicación." },
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Retail-1.png", svg: IC.bars, title: "Compara y optimiza tus tiendas", desc: "Mide los KPIs de cada tienda (tráfico exterior e interior, captación, conversión…) y compáralos entre sí. Identifica las mejores y peores prácticas por ubicación y replica lo que funciona en toda tu red." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Retail-1.jpg", svg: IC.bars, title: "Compara y optimiza tus tiendas", desc: "Mide los KPIs de cada tienda (tráfico exterior e interior, captación, conversión…) y compáralos entre sí. Identifica las mejores y peores prácticas por ubicación y replica lo que funciona en toda tu red." },
     { span: 6, svg: IC.target, title: "Atribución de marketing", desc: "Analiza la afluencia generada por cada campaña, evento o promoción y calcula el coste real por visita de cada canal. Deja de invertir en acciones que no atraen clientes a la tienda." },
     { span: 6, svg: IC.wifi, title: "Captación y fidelización por WiFi", desc: "Convierte el WiFi para clientes en captación: campañas personalizadas por ubicación y comportamiento, segmentación por perfil (edad, género, código postal) y conexión con tu CRM para fidelizar." },
   ],
@@ -114,7 +114,7 @@ export const RETAIL_CFG: SectorConfig = {
 // ========================= SUPERMERCADOS =========================
 export const SUPERMERCADOS_CFG: SectorConfig = {
   metaTitle: "Supermercados · Flame Analytics", metaDescription: "Analítica de supermercados con IA.",
-  heroBgImage: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/supermercados-hero.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Supermarket-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para supermercados",
   heroSub: "Flame convierte las cámaras que ya tienes en tu supermercado en datos accionables: afluencia por zonas, colas en caja, conversión y cesta. Analítica de supermercados con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para optimizar el surtido, la dotación de cajeros y el layout con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -130,7 +130,7 @@ export const SUPERMERCADOS_CFG: SectorConfig = {
   capsTitle: "Todo lo que Flame mide y activa en tu supermercado",
   capsSub: "Ocho capacidades que trabajan sobre las cámaras CCTV que ya tienes, adaptadas a la operativa de un supermercado.",
   capabilities: [
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Retail-1.png", svg: IC.building, title: "Optimización de secciones y planificación de cajeros", desc: "Cruza el flujo de cada sección con las ventas para mejorar el surtido y el espacio, y adapta la plantilla de cajeros a cada franja. Sitúa al personal donde y cuando la tienda lo necesita, sin sobrecostes ni colas." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Retail-1.jpg", svg: IC.building, title: "Optimización de secciones y planificación de cajeros", desc: "Cruza el flujo de cada sección con las ventas para mejorar el surtido y el espacio, y adapta la plantilla de cajeros a cada franja. Sitúa al personal donde y cuando la tienda lo necesita, sin sobrecostes ni colas." },
     { span: 5, svg: IC.people, title: "Afluencia y flujo por zonas", desc: "Mide las entradas y salidas y analiza cómo se mueve el cliente por el supermercado. Compara días, franjas y campañas para conocer el tráfico real y detectar las zonas con mayor afluencia." },
     { span: 6, svg: IC.cart, title: "Conversión de visita a compra", desc: "Cruza el tráfico real con tu TPV, POS o ERP para calcular la conversión y la cesta media reales. Descubre cuántos clientes entran en el supermercado y salen sin comprar." },
     { span: 6, svg: IC.heatmap, title: "Mapas de calor y comportamiento", desc: "Visualiza trayectorias, puntos calientes y tiempo de permanencia en cada pasillo. Descubre qué secciones atraen, cuáles se ignoran y cómo mejorar el layout y las cabeceras." },
@@ -159,7 +159,7 @@ export const SUPERMERCADOS_CFG: SectorConfig = {
 // ============================ HOTELES ============================
 export const HOTELES_CFG: SectorConfig = {
   metaTitle: "Hoteles · Flame Analytics", metaDescription: "Analítica de ocupación para hoteles.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Hospitality-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para hoteles",
   heroSub: "Flame convierte las cámaras y el WiFi que ya tienes en tu hotel en datos accionables: afluencia y ocupación del lobby, el restaurante o el spa. Analítica hotelera con inteligencia artificial, sin biometría y con pleno cumplimiento del RGPD, para ajustar el personal, controlar el aforo y justificar cada instalación con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -175,7 +175,7 @@ export const HOTELES_CFG: SectorConfig = {
   capsTitle: "Todo lo que Flame mide y activa en tu hotel",
   capsSub: "Ocho capacidades pensadas para la realidad de un hotel, sobre las cámaras y el WiFi que ya tienes y siempre sin biometría.",
   capabilities: [
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png", svg: IC.building, title: "Optimiza la ocupación y la dotación de personal", desc: "Mide la afluencia en el lobby, el restaurante, el spa o las salas de eventos por franja horaria. Ajusta la plantilla a la ocupación real, reduce los turnos innecesarios y evita esperas por falta de personal." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Hospitality-1.jpg", svg: IC.building, title: "Optimiza la ocupación y la dotación de personal", desc: "Mide la afluencia en el lobby, el restaurante, el spa o las salas de eventos por franja horaria. Ajusta la plantilla a la ocupación real, reduce los turnos innecesarios y evita esperas por falta de personal." },
     { span: 5, svg: IC.people, title: "Afluencia y flujo de huéspedes", desc: "Mide las entradas, salidas y el movimiento entre las diferentes zonas del hotel. Descubre cuántos huéspedes pasan por cada espacio y en qué horarios para tomar mejores decisiones operativas." },
     { span: 6, svg: IC.cart, title: "Uso de servicios y conversión", desc: "Cruza la afluencia con los datos de tu PMS o POS en espacios como el restaurante o el spa. Descubre qué porcentaje de huéspedes termina consumiendo y dónde estás perdiendo oportunidades de negocio." },
     { span: 6, svg: IC.heatmap, title: "Comportamiento y mapas de calor", desc: "Visualiza las trayectorias y el tiempo de permanencia en las zonas comunes con mapas de calor. Descubres qué rincones atraen a tus huéspedes y cuáles pasan desapercibidos para redistribuir mobiliario y servicios." },
@@ -204,7 +204,7 @@ export const HOTELES_CFG: SectorConfig = {
 // ======================= ESPACIOS PÚBLICOS =======================
 export const ESPACIOS_CFG: SectorConfig = {
   metaTitle: "Espacios públicos · Flame Analytics", metaDescription: "Aforo, seguridad y flujos en espacios públicos.",
-  heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", heroBgPosition: "center center",
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg", heroBgPosition: "center center",
   heroTitle: "Inteligencia de datos para espacios públicos",
   heroSub: "Flame convierte las cámaras de tu espacio en datos útiles sobre afluencia, ocupación, seguridad y uso de cada zona. Analítica con inteligencia artificial aplicada para espacios públicos, sin biometría y conforme al RGPD, para mejorar la seguridad, planificar eventos y justificar decisiones ante la administración con datos reales.",
   heroBullets: HERO_BULLETS,
@@ -220,7 +220,7 @@ export const ESPACIOS_CFG: SectorConfig = {
   capsTitle: "Todo lo que Flame mide y activa en tu espacio público",
   capsSub: "Ocho capacidades para gestionar tu espacio público con datos reales: desde el control del aforo hasta la justificación ante la administración. Todo sin biometría y con pleno cumplimiento del RGPD.",
   capabilities: [
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", svg: IC.shield, title: "Aforo y seguridad en tiempo real", desc: "Consulta la ocupación total y por zona y recibe alertas antes de alcanzar el límite. Analiza los flujos peatonales para anticipar aglomeraciones y planificar con seguridad eventos, aperturas y momentos de gran afluencia." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg", svg: IC.shield, title: "Aforo y seguridad en tiempo real", desc: "Consulta la ocupación total y por zona y recibe alertas antes de alcanzar el límite. Analiza los flujos peatonales para anticipar aglomeraciones y planificar con seguridad eventos, aperturas y momentos de gran afluencia." },
     { span: 5, svg: IC.people, title: "Afluencia y flujo de personas", desc: "Mide las entradas y salidas y analiza el tráfico por accesos, zonas y salas. Descubre cuántas personas visitan el espacio, cuándo se producen las horas punta y cómo se distribuyen entre los distintos servicios." },
     { span: 6, svg: IC.target, title: "Impacto de eventos y actividades", desc: "Mide la afluencia que genera cada exposición, evento o actividad y compárala con la programación habitual. Descubre qué contenidos atraen público de verdad y justifica la inversión cultural con datos objetivos." },
     { span: 6, svg: IC.bars, title: "Análisis de uso por zona y servicio", desc: "Identifica qué salas, exposiciones o servicios atraen más visitantes y cuáles están infrautilizados. Utiliza estos datos para programar contenidos, ajustar horarios y decidir dónde concentrar las inversiones." },
@@ -310,7 +310,7 @@ export const TRANSPORTE_CFG: SectorConfig = {
   capsTitle: "Todo lo que Flame mide y activa en tu terminal",
   capsSub: "Ocho capacidades de Flame para optimizar aeropuertos, estaciones e intercambiadores utilizando la infraestructura de cámaras existente, sin identificar a ninguna persona y con pleno cumplimiento del RGPD.",
   capabilities: [
-    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Public_venues-scaled-1.png", svg: IC.shield, title: "Flujos peatonales, gestión de multitudes y seguridad", desc: "Analiza la ocupación y los flujos de cada zona para anticipar aglomeraciones antes de que se formen. Planifica accesos, personal y refuerzos durante los picos de afluencia y mejora la seguridad en tiempo real, sin biometría y conforme al RGPD." },
+    { span: 7, featured: true, img: "/wp-content/uploads/2026/01/Industries_Public_venues-1.jpg", svg: IC.shield, title: "Flujos peatonales, gestión de multitudes y seguridad", desc: "Analiza la ocupación y los flujos de cada zona para anticipar aglomeraciones antes de que se formen. Planifica accesos, personal y refuerzos durante los picos de afluencia y mejora la seguridad en tiempo real, sin biometría y conforme al RGPD." },
     { span: 5, svg: IC.people, title: "Afluencia y flujo de pasajeros", desc: "Mide las entradas y salidas y analiza el tráfico por terminales, accesos y andenes. Descubre cuántos pasajeros circulan por cada punto y en qué horarios para planificar la operativa con datos reales." },
     { span: 6, svg: IC.activity, title: "Aforo y ocupación en tiempo real", desc: "Consulta la ocupación de salas de espera, vestíbulos y andenes y recibe alertas cuando una zona se aproxima a su límite. Actúa antes de que la saturación afecte a la seguridad o a la experiencia del pasajero." },
     { span: 6, svg: IC.heatmap, title: "Comportamiento y mapas de calor", desc: "Visualiza cómo se desplazan los pasajeros e identifica los puntos que ralentizan el tránsito. Mide los tiempos de recorrido entre zonas clave para mejorar la señalética y optimizar los flujos de circulación." },

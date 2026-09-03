@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Hoteles · Flame Analytics",
     description: "Mejora la gestión hotelera y aumenta la satisfacción y fidelidad de los huéspedes. Análisis integral de datos para hoteles con big data e IA.",
     locale: "es_ES",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Hospitality-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Hospitality-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hoteles · Flame Analytics",
     description: "Mejora la gestión hotelera y aumenta la satisfacción y fidelidad de los huéspedes. Análisis integral de datos para hoteles con big data e IA.",
-    images: ["/wp-content/uploads/2026/01/Industries_Hospitality-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Hospitality-1.jpg"],
   },
 };
 

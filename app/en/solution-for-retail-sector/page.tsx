@@ -20,13 +20,13 @@ export const metadata: Metadata = {
     title: "Data Intelligence for Retail · Flame Analytics",
     description: "At Flame we develop and deploy analytics solutions for physical spaces. Thanks to big data and AI, we help retailers understand their cust",
     locale: "en_US",
-    images: [{ url: "/wp-content/uploads/2026/01/Industries_Retail-1.png" }],
+    images: [{ url: "/wp-content/uploads/2026/01/Industries_Retail-1.jpg" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Data Intelligence for Retail · Flame Analytics",
     description: "At Flame we develop and deploy analytics solutions for physical spaces. Thanks to big data and AI, we help retailers understand their cust",
-    images: ["/wp-content/uploads/2026/01/Industries_Retail-1.png"],
+    images: ["/wp-content/uploads/2026/01/Industries_Retail-1.jpg"],
   },
 };
 
