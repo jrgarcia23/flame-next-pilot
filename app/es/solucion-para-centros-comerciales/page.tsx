@@ -115,7 +115,7 @@ export const CENTROS_CFG: SectorConfig = {
     uc("conteo", "Mide la afluencia total del centro y por accesos, y compara días, franjas y campañas."),
     uc("conversion", "Cruza el tráfico con las ventas de los locales para conocer la conversión real por zona y operador."),
     uc("comportamiento", "Mapas de calor y recorridos para optimizar el mix de inquilinos, la señalética y las zonas comunes."),
-    uc("ocupacion", "Controla el aforo en tiempo real por zona, con alertas para eventos y horas punta."),
+    uc("ocupacion", "Controla la ocupación en tiempo real por zona, con alertas para eventos y horas punta."),
     uc("colas", "Detecta esperas en accesos, parking y zonas de restauración para mejorar la experiencia."),
     uc("wifiInv", "Convierte el WiFi del centro en captación de contactos y comunicación con el visitante."),
   ],

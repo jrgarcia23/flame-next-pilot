@@ -41,7 +41,7 @@ export const MEGA_INDUSTRIES: NavLeaf[] = [
   { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
   { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
   { label: "Banca",               href: "/es/banca/",                               iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Dimensiona cajeros y gestores y reduce las esperas." },
-  { label: "Transporte y aeropuertos", href: "/es/transporte-y-aeropuertos/",       iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Flujos, aforo y colas en aeropuertos y estaciones." },
+  { label: "Transporte y aeropuertos", href: "/es/transporte-y-aeropuertos/",       iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Flujos, ocupación y colas en aeropuertos y estaciones." },
 ];
 
 export const MEGA_COMMUNITY: NavLeaf[] = [
@@ -117,7 +117,7 @@ export const INDUSTRIES = [
   { icon: "venue",  title: "Espacios públicos",   desc: "Comprende el valor de tus espacios públicos convirtiendo los datos en acciones estratégicas.", href: "/es/espacios-publicos/" },
   { icon: "hotel",  title: "Hotelería",          desc: "Utiliza información basada en datos para anticipar las necesidades de los huéspedes y mejorar la calidad del servicio.", href: "/es/hoteles/" },
   { icon: "corp",   title: "Banca",              desc: "Analítica de afluencia, colas y uso real para dimensionar cajeros y gestores en toda la red de sucursales.", href: "/es/banca/" },
-  { icon: "vehicle", title: "Transporte y aeropuertos", desc: "Flujos de pasajeros, aforo y colas en aeropuertos, estaciones e intercambiadores para anticipar aglomeraciones.", href: "/es/transporte-y-aeropuertos/" },
+  { icon: "vehicle", title: "Transporte y aeropuertos", desc: "Flujos de pasajeros, ocupación y colas en aeropuertos, estaciones e intercambiadores para anticipar aglomeraciones.", href: "/es/transporte-y-aeropuertos/" },
 ];
 
 export const INDUSTRIES_EN = [
