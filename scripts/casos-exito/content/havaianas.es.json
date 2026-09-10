@@ -1,0 +1,84 @@
+{
+  "eyebrow": "Caso de éxito · Retail de moda",
+  "h1": "Cómo Havaianas digitaliza la experiencia en tienda con datos en tiempo real",
+  "sub": "Havaianas impulsa la digitalización de sus tiendas con Flame Analytics para medir el comportamiento de los clientes, optimizar la experiencia de compra y obtener una visión más inteligente del rendimiento de su red retail.",
+  "badge": { "client": "Havaianas", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La digitalización del punto de venta nos permite comprender mejor el comportamiento de nuestros clientes y tomar decisiones basadas en datos reales.",
+    "author": "Equipo Retail Innovation",
+    "role": "Havaianas"
+  },
+  "elCaso": [
+    "Havaianas, una de las marcas de calzado más reconocidas del mundo, inició junto a Flame Analytics un proyecto de transformación digital de sus tiendas físicas con el objetivo de incorporar inteligencia de negocio al punto de venta.",
+    "Con presencia internacional y una red de tiendas propias en distintos mercados, la compañía buscaba disponer de información objetiva sobre el comportamiento de los visitantes para mejorar la experiencia del cliente, optimizar la operación diaria y apoyar la toma de decisiones con datos.",
+    "La implantación de Flame Analytics permite convertir cada tienda en una fuente continua de información sobre <a href=\"/es/conteo-personas/\">afluencia</a>, permanencia, recorridos y comportamiento de los clientes, ofreciendo una visión mucho más completa del rendimiento de los espacios comerciales."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Entender cómo interactúan los clientes con la tienda física",
+      "body": [
+        { "p": "En un entorno retail cada vez más omnicanal, conocer únicamente las ventas deja de ser suficiente para entender el rendimiento de un establecimiento." },
+        { "p": "Havaianas necesitaba comprender cómo utilizan los clientes el espacio físico, qué zonas generan mayor interés y cómo optimizar la experiencia de compra mediante información objetiva y continua." },
+        { "p": "Entre las principales necesidades del proyecto se encontraban:" },
+        { "list": [
+          "Medir la afluencia de visitantes en cada tienda.",
+          "Analizar el tiempo de permanencia de los clientes.",
+          "Comprender los recorridos dentro del establecimiento.",
+          "Identificar las zonas con mayor interacción.",
+          "Evaluar el impacto de cambios en el visual merchandising.",
+          "Comparar el comportamiento entre diferentes tiendas y mercados.",
+          "Obtener información en tiempo real para apoyar las decisiones operativas."
+        ] },
+        { "p": "El objetivo era incorporar una capa de inteligencia que permitiera convertir la actividad diaria de las tiendas en información útil para la gestión del negocio." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una plataforma para convertir el comportamiento en conocimiento",
+      "body": [
+        { "p": "Flame Analytics desplegó una plataforma de analítica en tienda capaz de capturar y procesar información sobre el comportamiento de los visitantes de forma totalmente anonimizada y respetando la privacidad." },
+        { "p": "Gracias a la tecnología de analítica WiFi y sensores inteligentes, Havaianas puede conocer indicadores clave como la afluencia, la frecuencia de visita, el tiempo de permanencia o los recorridos realizados dentro de la tienda." },
+        { "p": "Estos datos permiten entender cómo interactúan los clientes con el espacio comercial y evaluar la eficacia de la distribución de producto, las campañas promocionales y los cambios realizados en el establecimiento." },
+        { "p": "La plataforma ofrece además acceso a cuadros de mando en tiempo real desde los que los equipos pueden analizar la evolución de cada tienda y comparar resultados entre diferentes ubicaciones." },
+        { "h3": "Un proyecto pensado para una red internacional" },
+        { "p": "La solución fue diseñada para adaptarse a una red de tiendas distribuida en distintos países, permitiendo mantener una metodología de medición homogénea y disponer de indicadores comparables entre establecimientos." },
+        { "p": "Gracias a esta visión unificada, Havaianas puede analizar tendencias globales sin perder el detalle específico de cada tienda." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Tiendas conectadas y decisiones basadas en datos",
+      "body": [
+        { "p": "Con la implantación de Flame Analytics, Havaianas dispone de información continua sobre la actividad de sus tiendas físicas." },
+        { "p": "Los equipos pueden analizar la evolución de visitantes, identificar horas punta, estudiar patrones de comportamiento y evaluar el impacto de acciones comerciales prácticamente en tiempo real." },
+        { "p": "Esta información facilita decisiones relacionadas con:" },
+        { "list": [
+          "Optimización de layouts.",
+          "Gestión de recursos en tienda.",
+          "Evaluación de campañas.",
+          "Planificación comercial.",
+          "Mejora de la experiencia de cliente."
+        ] },
+        { "h3": "Del punto de venta a una gestión más inteligente" },
+        { "p": "El proyecto representa un paso importante dentro de la estrategia de <a href=\"/es/solucion-para-el-sector-retail/\">digitalización del retail</a> de Havaianas." },
+        { "p": "La disponibilidad de datos fiables sobre el comportamiento de los visitantes permite transformar la gestión tradicional de la tienda física en un modelo basado en información objetiva y análisis continuo." },
+        { "p": "Más allá de medir visitantes, la compañía incorpora una nueva capacidad para comprender mejor cómo funcionan sus espacios comerciales y cómo optimizar la experiencia de compra en cada mercado." }
+      ]
+    }
+  ],
+  "cifrasTitle": "La digitalización del retail, medida",
+  "cifras": [
+    { "value": "Internacional", "label": "Alcance del proyecto", "desc": "Implantación en tiendas de distintos mercados." },
+    { "value": "Tiempo real", "label": "Información continua", "desc": "Datos actualizados sobre afluencia, permanencia y comportamiento." },
+    { "value": "100%", "label": "Analítica anonimizada", "desc": "Información obtenida respetando la privacidad de los visitantes." },
+    { "value": "Retail Intelligence", "label": "Visión global", "desc": "Comparación entre tiendas y análisis centralizado de toda la red." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Havaianas",
+  "soluciones": [
+    { "icon": "users", "h3": "Analítica de visitantes", "p": "Medición de afluencia, recurrencia y tiempo de permanencia para comprender el comportamiento de los clientes." },
+    { "icon": "route", "h3": "Mapas de recorrido", "p": "Análisis de flujos y zonas de mayor interacción para optimizar el layout y la experiencia en tienda." },
+    { "icon": "chart", "h3": "Dashboards en tiempo real", "p": "Visualización centralizada de indicadores clave para apoyar la gestión diaria y la toma de decisiones." },
+    { "icon": "grid", "h3": "Comparativa entre tiendas", "p": "Indicadores homogéneos para analizar el rendimiento de establecimientos distribuidos en distintos mercados." }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "eyebrow": "Case study · Hotels",
+  "h1": "How B&amp;B Hotels turns the WiFi connection into a new way to know and build loyalty with its guests",
+  "sub": "B&amp;B Hotels chooses Flame Analytics to transform Guest WiFi into a digital channel for engaging with its customers, capturing guest knowledge and creating more personalized experiences.",
+  "badge": { "client": "B&amp;B Hotels", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Connectivity stops being merely a basic service and becomes an opportunity to build a closer relationship with the guest.",
+    "author": "Digital &amp; Customer Experience team",
+    "role": "B&amp;B Hotels"
+  },
+  "elCaso": [
+    "B&amp;B Hotels, one of the fastest-growing international <a href=\"/en/hospitality/\">hotel chains</a> in Europe, wanted to evolve the digital experience offered to its guests and improve the relationship with its customers beyond the moment of booking or the stay.",
+    "In a context where travelers expect simple, fast and personalized digital experiences, the chain needed a solution that would provide a quality WiFi connection and, at the same time, generate useful knowledge about its guests.",
+    "To achieve this, B&amp;B Hotels relied on Flame Analytics and its <a href=\"/en/guest-wifi-marketing/\">WiFi Marketing</a> solution, adding a personalized connection experience capable of turning WiFi access into a digital touchpoint with the customer."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Moving from a functional WiFi connection to a digital relationship with the guest",
+      "body": [
+        { "p": "WiFi connectivity has become one of the most valued services among hotel customers." },
+        { "p": "However, for a chain with multiple properties, the real value lies in leveraging that interaction to better understand the guest and build longer-lasting relationships." },
+        { "p": "B&amp;B Hotels wanted to answer key questions:" },
+        { "list": [
+          "How to offer a simple, quality WiFi connection?",
+          "How to better understand the profile of its guests?",
+          "How to build its own database with consented information?",
+          "How to segment different customer profiles?",
+          "How to improve communication before, during and after the stay?",
+          "How to foster a more direct relationship with the guest?"
+        ] },
+        { "quote": "The goal was to turn a basic service like WiFi into a strategic tool to improve experience and loyalty." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "A smart Guest WiFi connected to the customer strategy",
+      "body": [
+        { "p": "Flame Analytics deployed a WiFi Marketing solution that lets B&amp;B Hotels offer a personalized connection experience and use that interaction to enrich guest knowledge." },
+        { "p": "Through a <a href=\"/en/connect/\">brand-adapted WiFi portal</a>, users can connect easily while the chain gathers information provided with consent to improve the relationship with its customers." },
+        { "p": "The platform makes it possible to:" },
+        { "list": [
+          "Capture the guests' own data.",
+          "Create audience profiles and segments.",
+          "Analyze customer information.",
+          "Integrate the data with the CRM ecosystem.",
+          "Activate more relevant communications."
+        ] },
+        { "p": "This layer of knowledge helps B&amp;B Hotels move toward a more personalized experience focused on the needs of each guest." },
+        { "h3": "From guest data to a personalized experience" },
+        { "p": "Thanks to the Flame Analytics platform, B&amp;B Hotels can create segmented audiences and develop communication actions tailored to different moments of the customer relationship." },
+        { "p": "The information gathered makes it possible to work on different scenarios:" },
+        { "list": [
+          "Communication before the stay.",
+          "The relationship during the visit.",
+          "Actions after the stay.",
+          "Loyalty of recurring customers.",
+          "Improving knowledge of the guest profile."
+        ] },
+        { "quote": "The integration of connectivity, data and marketing makes it possible to turn every digital interaction into an opportunity to improve the experience." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "A more connected and personalized hotel experience",
+      "body": [
+        { "p": "With Flame Analytics, B&amp;B Hotels has a new way to connect with its guests and better understand their needs." },
+        { "p": "The solution makes it possible to move from a relationship based solely on the stay to a more connected model, where data helps improve communication and create more relevant experiences." },
+        { "p": "Teams can use this information to:" },
+        { "list": [
+          "Improve the guest's digital experience.",
+          "Better understand customer profiles.",
+          "Design more suitable communications.",
+          "Increase loyalty.",
+          "Strengthen the direct relationship with users."
+        ] },
+        { "h3": "From the WiFi connection to guest intelligence" },
+        { "p": "The project marks a step forward in the digitalization of B&amp;B Hotels' hotel experience." },
+        { "p": "The WiFi connection stops being merely a necessary infrastructure and becomes a strategic channel to get to know the customer, generate engagement and build stronger relationships." },
+        { "quote": "Thanks to Flame Analytics, B&amp;B Hotels turns every connection into an opportunity to improve the guest experience and move toward a more personalized, data-driven hospitality." }
+      ]
+    }
+  ],
+  "cifrasTitle": "The guest experience, connected",
+  "cifras": [
+    { "value": "40+", "label": "Hotels · reach", "desc": "Rollout of the Flame solution in hotels across Spain and Portugal." },
+    { "value": "Guest WiFi", "label": "New digital channel", "desc": "Personalized connectivity as a touchpoint with the guest." },
+    { "value": "1st-party", "label": "Customer knowledge", "desc": "Capturing consented information to enrich the relationship with users." },
+    { "value": "CRM", "label": "Connected ecosystem", "desc": "Data integration to improve customer management." }
+  ],
+  "solTitle": "Flame capabilities applied at B&amp;B Hotels",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Guest WiFi Experience", "p": "A personalized connectivity service to offer a simple experience tailored to the guest." },
+    { "icon": "target", "h3": "WiFi Marketing", "p": "Turning WiFi access into a channel for customer acquisition and engagement." },
+    { "icon": "users", "h3": "First-Party Data", "p": "Generating the chain's own knowledge about guests through consented data." },
+    { "icon": "layers", "h3": "CRM Integration", "p": "Connecting guest information with customer management systems." },
+    { "icon": "chart", "h3": "Segmentation and personalized campaigns", "p": "Creating audiences to improve communication and loyalty." }
+  ]
+}

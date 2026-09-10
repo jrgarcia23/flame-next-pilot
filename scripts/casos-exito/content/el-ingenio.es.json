@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo El Ingenio transforma el comportamiento de sus visitantes en decisiones de negocio",
+  "sub": "El Centro Comercial El Ingenio apuesta por Flame Analytics para comprender mejor el comportamiento de sus visitantes, optimizar la gestión del centro y mejorar la experiencia del cliente mediante servicios digitales apoyados en la conectividad WiFi.",
+  "badge": { "client": "Centro Comercial El Ingenio", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La transformación digital de un centro comercial comienza entendiendo cómo se comportan sus visitantes y utilizando esa información para mejorar continuamente su experiencia.",
+    "author": "Equipo de Dirección",
+    "role": "Centro Comercial El Ingenio"
+  },
+  "elCaso": [
+    "El Centro Comercial El Ingenio, gestionado por MVGM, ha impulsado una estrategia de digitalización orientada a conocer mejor a sus visitantes y mejorar la gestión del activo mediante el uso inteligente de los datos.",
+    "Con la colaboración de Flame Analytics, el centro incorpora una plataforma que combina analítica del comportamiento del cliente con servicios digitales asociados a la conectividad WiFi, permitiendo mejorar tanto la experiencia de los visitantes como la capacidad de análisis del equipo de gestión.",
+    "El resultado es un modelo de gestión basado en información objetiva, donde cada interacción ayuda a comprender mejor el funcionamiento del <a href=\"/es/solucion-para-centros-comerciales/\">centro comercial</a> y facilita una toma de decisiones más eficiente."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Comprender mejor cómo utilizan los visitantes el centro comercial",
+      "body": [
+        { "p": "Los centros comerciales reciben miles de personas cada semana, pero conocer únicamente la <a href=\"/es/analitica-trafico/\">afluencia</a> no siempre permite entender cómo interactúan los visitantes con el espacio." },
+        { "p": "El Ingenio buscaba incorporar una visión más completa que permitiera responder a cuestiones como:" },
+        { "list": [
+          "¿Cómo evolucionan los flujos de visitantes durante el día?",
+          "¿Qué patrones de comportamiento presentan los clientes?",
+          "¿Cómo mejorar la experiencia durante la visita?",
+          "¿Cómo aprovechar los servicios digitales para generar mayor valor?",
+          "¿Cómo obtener información que ayude a optimizar campañas y operaciones?",
+          "¿Cómo convertir los datos en una herramienta para la gestión diaria?"
+        ] },
+        { "quote": "El objetivo era disponer de una plataforma capaz de conectar la experiencia del visitante con la inteligencia de negocio del centro comercial." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Analítica del comportamiento y una experiencia digital conectada",
+      "body": [
+        { "p": "Flame Analytics implantó una solución que combina la <a href=\"/es/comportamiento-del-cliente/\">analítica del comportamiento</a> de los visitantes con servicios digitales asociados a la conectividad WiFi del centro comercial." },
+        { "p": "Gracias a esta plataforma, El Ingenio puede comprender mejor cómo interactúan los clientes con el espacio, analizar patrones de comportamiento y disponer de información útil para optimizar la gestión operativa y comercial." },
+        { "p": "La conectividad WiFi no solo mejora la experiencia del visitante durante su estancia, sino que también facilita la generación de datos first-party que enriquecen el conocimiento del cliente y permiten desarrollar acciones de marketing más relevantes." },
+        { "p": "Toda la información se centraliza en dashboards que ofrecen una visión continua de la actividad del centro y apoyan la toma de decisiones basada en datos." },
+        { "h3": "Una estrategia de digitalización orientada al cliente" },
+        { "p": "El proyecto se diseñó para convertir los datos generados por el centro comercial en una herramienta de gestión transversal." },
+        { "p": "La combinación de analítica, conectividad y conocimiento del visitante permite optimizar campañas, mejorar la experiencia del cliente y reforzar la relación entre el centro comercial y su audiencia." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Información para una gestión más eficiente",
+      "body": [
+        { "p": "Con Flame Analytics, El Ingenio dispone de una visión mucho más completa sobre el comportamiento de sus visitantes." },
+        { "p": "Los equipos pueden analizar patrones de afluencia, conocer mejor a sus clientes y evaluar el impacto de diferentes acciones comerciales mediante información actualizada y centralizada." },
+        { "p": "Esta capacidad facilita decisiones relacionadas con:" },
+        { "list": [
+          "Optimización de campañas.",
+          "Gestión operativa del centro.",
+          "Mejora de la experiencia de visita.",
+          "Planificación comercial.",
+          "Estrategias de fidelización."
+        ] },
+        { "h3": "Del comportamiento del visitante a la inteligencia del centro comercial" },
+        { "p": "El proyecto representa un paso adelante en la estrategia de transformación digital de El Ingenio." },
+        { "p": "La combinación de analítica del comportamiento y servicios digitales asociados al WiFi permite transformar cada visita en conocimiento útil para el negocio, ayudando a optimizar la operación diaria y a construir una relación más cercana con los visitantes." },
+        { "p": "Gracias a Flame Analytics, el centro comercial dispone de una plataforma que convierte los datos en una herramienta estratégica para mejorar continuamente la experiencia del cliente y el rendimiento del activo." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Una gestión más inteligente del centro comercial",
+  "cifras": [
+    { "value": "Customer Behavior", "label": "Conocimiento del visitante", "desc": "Información sobre patrones de comportamiento para optimizar la gestión del activo." },
+    { "value": "First-Party Data", "label": "Conocimiento del cliente", "desc": "Captación de datos propios mediante servicios digitales asociados al WiFi." },
+    { "value": "Tiempo real", "label": "Inteligencia operativa", "desc": "Información continua para apoyar decisiones comerciales y de operaciones." },
+    { "value": "Reconocimiento sectorial", "label": "Innovación", "desc": "Proyecto distinguido por la AECC por su enfoque de transformación digital." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en El Ingenio",
+  "soluciones": [
+    { "icon": "route", "h3": "Customer Behavior Analytics", "p": "Análisis del comportamiento de los visitantes para comprender cómo utilizan el centro comercial y detectar oportunidades de mejora." },
+    { "icon": "wifi", "h3": "Guest WiFi Experience", "p": "Servicios de conectividad que mejoran la experiencia del visitante y facilitan la generación de datos first-party." },
+    { "icon": "chart", "h3": "Marketing Intelligence", "p": "Información segmentada para diseñar campañas más relevantes y fortalecer la relación con los clientes." },
+    { "icon": "grid", "h3": "Dashboards inteligentes", "p": "Visualización centralizada de indicadores clave para apoyar la gestión operativa y estratégica del centro comercial." }
+  ]
+}

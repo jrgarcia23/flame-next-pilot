@@ -1,0 +1,92 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo Merlin Properties transforma los datos de sus visitantes en decisiones estratégicas",
+  "sub": "Merlin Properties impulsa la digitalización de sus centros comerciales junto a Flame Analytics para comprender mejor el comportamiento de los visitantes, optimizar la gestión de sus activos y mejorar la experiencia del cliente mediante analítica avanzada.",
+  "badge": { "client": "Merlin Properties", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "Los datos nos ayudan a adaptarnos, tomar mejores decisiones y diferenciarnos en un entorno cada vez más competitivo.",
+    "author": "Lucas Madiedo Riera",
+    "role": "Director de Transformación Digital en Centros Comerciales · Merlin Properties"
+  },
+  "elCaso": [
+    "Merlin Properties, una de las principales compañías inmobiliarias de España, ha apostado por la digitalización de sus <a href=\"/es/solucion-para-centros-comerciales/\">centros comerciales</a> incorporando analítica avanzada para comprender mejor cómo se comportan sus visitantes y mejorar la gestión de sus activos.",
+    "En colaboración con Flame Analytics, la compañía ha implantado una solución de inteligencia para espacios físicos que permite analizar indicadores clave del comportamiento del cliente, como visitantes únicos, <a href=\"/es/analitica-trafico/\">flujos de movimiento</a> y tiempos de permanencia dentro de los centros comerciales.",
+    "El proyecto responde a una necesidad estratégica: pasar de una gestión basada únicamente en indicadores tradicionales a un modelo donde los datos del visitante ayudan a optimizar la experiencia, mejorar la eficiencia operativa y tomar decisiones más informadas."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Entender al visitante más allá de la afluencia",
+      "body": [
+        { "p": "Los centros comerciales actuales necesitan conocer mucho más que el número de personas que los visitan." },
+        { "p": "La evolución del retail exige comprender cómo se comportan los clientes dentro del espacio: qué zonas utilizan, cuánto tiempo permanecen, cómo evolucionan sus hábitos y qué oportunidades existen para mejorar su experiencia." },
+        { "p": "Merlin Properties buscaba incorporar una visión más completa del comportamiento de sus visitantes para responder preguntas clave:" },
+        { "list": [
+          "¿Cuántos visitantes únicos recibe cada centro?",
+          "¿Cómo evolucionan las visitas a lo largo del tiempo?",
+          "¿Cuánto tiempo permanecen los clientes en cada zona?",
+          "¿Qué áreas generan mayor interacción?",
+          "¿Cómo comparar el rendimiento entre diferentes activos?",
+          "¿Cómo utilizar estos datos para optimizar operaciones y acciones comerciales?"
+        ] },
+        { "quote": "El objetivo era disponer de una visión global del portfolio que permitiera gestionar cada centro comercial con información objetiva y comparable." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una capa de inteligencia para gestionar centros comerciales basados en datos",
+      "body": [
+        { "p": "Flame Analytics implantó una plataforma de analítica avanzada que permite a Merlin Properties conocer mejor el comportamiento de los visitantes dentro de sus centros comerciales." },
+        { "p": "La solución proporciona información sobre:" },
+        { "list": [
+          "Número de visitantes únicos.",
+          "Flujos de movimiento.",
+          "Tiempo de permanencia.",
+          "Zonas de mayor actividad.",
+          "Patrones de comportamiento."
+        ] },
+        { "p": "Estos indicadores permiten entender mejor la relación entre los visitantes y el espacio físico, aportando una nueva perspectiva para optimizar la experiencia del cliente y la gestión del activo." },
+        { "p": "Además, la información generada ayuda a los equipos de Merlin Properties a tomar decisiones relacionadas con operaciones, planificación comercial, distribución de espacios y estrategias de marketing." },
+        { "h3": "Una visión común para una red de centros comerciales" },
+        { "p": "Uno de los grandes valores del proyecto es disponer de una metodología homogénea para analizar diferentes activos dentro del portfolio." },
+        { "p": "Contar con indicadores comparables permite identificar tendencias, detectar oportunidades de mejora y compartir aprendizajes entre centros comerciales." },
+        { "p": "Esta visión global facilita una gestión más inteligente del portfolio y permite adaptar cada espacio a las necesidades reales de sus visitantes." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "De la medición del tráfico a la inteligencia del visitante",
+      "body": [
+        { "p": "Con Flame Analytics, Merlin Properties dispone de una visión más profunda sobre cómo interactúan los visitantes con sus centros comerciales." },
+        { "p": "La información permite analizar patrones de comportamiento, identificar oportunidades de mejora y tomar decisiones con una perspectiva basada en datos." },
+        { "p": "Los equipos pueden utilizar estos insights para:" },
+        { "list": [
+          "Optimizar la experiencia del visitante.",
+          "Mejorar la eficiencia operativa.",
+          "Analizar el rendimiento de diferentes zonas.",
+          "Diseñar acciones comerciales más relevantes.",
+          "Compartir conocimiento entre activos."
+        ] },
+        { "h3": "Una nueva forma de gestionar los centros comerciales" },
+        { "p": "El proyecto representa un paso adelante en la transformación digital del retail inmobiliario." },
+        { "p": "Para Merlin Properties, la analítica deja de ser únicamente una herramienta de medición y se convierte en una capacidad estratégica para entender mejor al visitante y evolucionar continuamente sus espacios comerciales." },
+        { "p": "La combinación de datos, tecnología y conocimiento del cliente permite construir centros más eficientes, más adaptados a las necesidades de los usuarios y preparados para el futuro del retail." }
+      ]
+    }
+  ],
+  "cifrasTitle": "El comportamiento del visitante convertido en conocimiento",
+  "cifras": [
+    { "value": "10", "label": "Centros comerciales", "desc": "Implantación de analítica avanzada en una red de activos comerciales." },
+    { "value": "Visitante único", "label": "Nuevo KPI estratégico", "desc": "Métrica clave para conocer el volumen real de usuarios que visitan los centros." },
+    { "value": "Permanencia", "label": "Engagement del visitante", "desc": "Información para comprender la interacción con las diferentes zonas del centro." },
+    { "value": "Portfolio", "label": "Visión global", "desc": "Datos comparables para mejorar la gestión de una red de centros comerciales." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Merlin Properties",
+  "soluciones": [
+    { "icon": "users", "h3": "Customer Behavior Analytics", "p": "Análisis del comportamiento de los visitantes para comprender cómo utilizan los espacios comerciales." },
+    { "icon": "eye", "h3": "Visitor Intelligence", "p": "Medición de visitantes únicos, permanencia y patrones de interacción dentro del centro." },
+    { "icon": "route", "h3": "Customer Journey Analytics", "p": "Comprensión de recorridos y zonas de mayor actividad para mejorar la experiencia." },
+    { "icon": "grid", "h3": "Dashboards inteligentes", "p": "Visualización centralizada de KPIs para apoyar decisiones operativas y estratégicas." },
+    { "icon": "wifi", "h3": "Analítica WiFi", "p": "Uso de la conectividad como una fuente adicional de información para conocer mejor la actividad del visitante." }
+  ]
+}

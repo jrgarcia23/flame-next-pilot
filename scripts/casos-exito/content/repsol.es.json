@@ -1,0 +1,75 @@
+{
+  "eyebrow": "Caso de éxito · Estaciones de servicio",
+  "h1": "Cómo Repsol mejora la experiencia digital en más de 1.000 estaciones de servicio",
+  "sub": "Repsol confía en Flame Analytics para ofrecer conectividad inteligente en su red de estaciones de servicio, facilitar el uso de Waylet y obtener información de valor sobre la interacción de sus clientes.",
+  "badge": { "client": "Repsol", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La conectividad se ha convertido en una parte esencial de la experiencia del cliente y una oportunidad para generar inteligencia de negocio.",
+    "author": "Equipo de Digital Customer Experience",
+    "role": "Repsol"
+  },
+  "elCaso": [
+    "Repsol, una de las principales compañías multienergéticas de Europa, continúa impulsando la digitalización de su red de estaciones de servicio mediante soluciones que mejoran la experiencia de los clientes y facilitan nuevos servicios digitales.",
+    "Como parte de esta estrategia, la compañía implantó junto a Flame Analytics una plataforma de conectividad inteligente en más de 1.000 estaciones de servicio distribuidas por toda España.",
+    "El proyecto responde a un doble objetivo: garantizar una experiencia digital fluida para los usuarios y disponer de información que permita comprender mejor el uso de los servicios en cada estación."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Garantizar una experiencia digital sin interrupciones",
+      "body": [
+        { "p": "Cada vez más clientes utilizan aplicaciones móviles durante su visita a la estación de servicio para realizar pagos, acceder a promociones o gestionar programas de fidelización." },
+        { "p": "Sin embargo, la cobertura móvil no siempre ofrece una experiencia homogénea en todas las ubicaciones, especialmente en determinadas estaciones donde la conexión puede verse limitada." },
+        { "p": "Repsol buscaba una solución que permitiera:" },
+        { "list": [
+          "Garantizar la conectividad de los clientes durante su visita.",
+          "Facilitar el uso de Waylet como método de pago digital.",
+          "Mejorar la experiencia de usuario en toda la red.",
+          "Obtener información agregada sobre el uso del servicio.",
+          "Disponer de indicadores para optimizar la gestión de las estaciones.",
+          "Implantar una solución escalable en una red de gran tamaño."
+        ] },
+        { "quote": "El objetivo era convertir la conectividad en un servicio de valor añadido para el cliente y, al mismo tiempo, en una fuente de información útil para el negocio." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Conectividad inteligente para una red de gran escala",
+      "body": [
+        { "p": "Flame Analytics desplegó una solución de <a href=\"/es/marketing-wifi-para-invitados/\">conectividad inteligente</a> que permite a los clientes acceder a Internet de forma sencilla durante su estancia en la estación de servicio." },
+        { "p": "Esta infraestructura facilita el uso de servicios digitales como Waylet incluso en ubicaciones donde la cobertura móvil puede ser limitada, contribuyendo a ofrecer una experiencia más cómoda y continua." },
+        { "p": "Además de proporcionar acceso a la red, la plataforma genera indicadores sobre la utilización del servicio y la actividad de los usuarios, aportando información útil para el análisis operativo y la mejora continua de la experiencia de cliente." },
+        { "h3": "Una implantación preparada para miles de usuarios" },
+        { "p": "El proyecto fue diseñado para responder a las necesidades de una de las mayores redes de estaciones de servicio del país." },
+        { "p": "La escalabilidad de la solución permite mantener una experiencia homogénea en todas las ubicaciones y disponer de información centralizada para analizar el funcionamiento de la red desde una perspectiva global." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una experiencia conectada para miles de clientes",
+      "body": [
+        { "p": "Con la implantación de Flame Analytics, Repsol ofrece una experiencia digital más consistente en sus estaciones de servicio, facilitando el acceso a los servicios móviles de la compañía y reduciendo las barreras asociadas a la conectividad." },
+        { "p": "Los equipos pueden analizar el uso de la red, conocer la evolución de las conexiones y disponer de información que apoye la mejora continua del servicio." },
+        { "p": "Esta información permite optimizar tanto la experiencia del cliente como la <a href=\"/es/acceso-wifi-corporativo/\">gestión de una infraestructura distribuida</a> por todo el territorio." },
+        { "h3": "De la conectividad a la inteligencia operativa" },
+        { "p": "El proyecto representa un paso más en la estrategia de digitalización de Repsol." },
+        { "p": "La conectividad deja de ser únicamente un servicio adicional para convertirse en un elemento que mejora la experiencia del cliente y genera información útil para comprender el comportamiento de los usuarios dentro de la red de estaciones de servicio." },
+        { "quote": "Gracias a Flame Analytics, Repsol combina una mejor experiencia digital con una gestión basada en datos, reforzando su apuesta por la innovación y la transformación digital." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Una red conectada e inteligente",
+  "cifras": [
+    { "value": "1.000+", "label": "Estaciones · alcance", "desc": "Implantación de conectividad inteligente en toda España." },
+    { "value": "Waylet", "label": "Experiencia digital", "desc": "Conectividad que facilita el uso de la aplicación de pago y fidelización durante la visita." },
+    { "value": "Tiempo real", "label": "Analítica de uso", "desc": "Información continua sobre conexiones e interacción de los usuarios." },
+    { "value": "Escalabilidad", "label": "Gestión centralizada", "desc": "Una única plataforma para administrar y analizar una red nacional de estaciones de servicio." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Repsol",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Guest WiFi inteligente", "p": "Conectividad para mejorar la experiencia de cliente y facilitar el acceso a los servicios digitales de Repsol." },
+    { "icon": "chart", "h3": "Analítica de uso", "p": "Información sobre conexiones, utilización del servicio e indicadores de actividad para apoyar la toma de decisiones." },
+    { "icon": "layers", "h3": "Experiencia digital", "p": "Integración con el ecosistema digital de Repsol para facilitar el uso de Waylet y otros servicios móviles." },
+    { "icon": "grid", "h3": "Gestión de red", "p": "Plataforma centralizada para administrar y monitorizar el funcionamiento de más de 1.000 estaciones de servicio desde una única solución." }
+  ]
+}

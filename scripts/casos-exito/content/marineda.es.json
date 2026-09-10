@@ -1,0 +1,92 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo Marineda City convierte el comportamiento de sus visitantes en decisiones inteligentes",
+  "sub": "Marineda City apuesta por Flame Analytics para comprender cómo se mueven sus visitantes dentro del centro, analizar su comportamiento y optimizar la experiencia mediante datos reales.",
+  "badge": { "client": "Marineda City", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "Conocer cómo se comportan nuestros visitantes nos permite tomar mejores decisiones y adaptar el centro a sus necesidades.",
+    "author": "Equipo de Marketing y Gestión",
+    "role": "Marineda City"
+  },
+  "elCaso": [
+    "Marineda City, uno de los <a href=\"/es/solucion-para-centros-comerciales/\">centros comerciales</a> de referencia en Galicia y el noroeste peninsular, ha incorporado Flame Analytics como plataforma de inteligencia para conocer mejor el comportamiento de sus visitantes y mejorar la gestión del espacio comercial.",
+    "Con una media de más de 17 millones de visitantes anuales, el centro necesitaba una visión más profunda de lo que ocurre dentro de sus instalaciones: cómo se distribuyen los visitantes, qué zonas generan mayor interacción y cómo evolucionan sus patrones de comportamiento.",
+    "A través de la analítica avanzada de Flame, Marineda City puede transformar el <a href=\"/es/analitica-trafico/\">tráfico físico</a> en información útil para optimizar la experiencia del cliente, mejorar la toma de decisiones y desarrollar estrategias comerciales más efectivas."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Pasar de medir visitantes a comprender su comportamiento",
+      "body": [
+        { "p": "En un centro comercial de gran dimensión, conocer únicamente el número de visitantes no es suficiente." },
+        { "p": "La verdadera oportunidad está en entender qué ocurre durante la visita: cómo recorren los espacios los clientes, qué zonas atraen más atención y qué factores influyen en la experiencia dentro del centro." },
+        { "p": "Marineda City buscaba responder preguntas clave:" },
+        { "list": [
+          "¿Cómo se distribuyen los visitantes dentro del centro comercial?",
+          "¿Qué recorridos realizan durante su visita?",
+          "¿Qué zonas tienen mayor interacción?",
+          "¿Cuáles son los espacios con menor actividad?",
+          "¿Cómo afectan los cambios en el espacio al comportamiento del visitante?",
+          "¿Cómo comparar periodos y detectar tendencias?",
+          "¿Cómo utilizar estos datos para mejorar la experiencia?"
+        ] },
+        { "quote": "El objetivo era disponer de una visión basada en datos que permitiera gestionar el centro comercial de forma más inteligente y adaptada al comportamiento real de sus visitantes." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Analítica avanzada para entender el viaje del visitante",
+      "body": [
+        { "p": "Flame Analytics implantó una solución de analítica del comportamiento capaz de medir el tráfico, analizar los movimientos dentro del centro y comprender cómo interactúan los visitantes con las diferentes zonas." },
+        { "p": "La plataforma permite analizar:" },
+        { "list": [
+          "Afluencia general del centro.",
+          "Conteo de visitantes.",
+          "Flujos de movimiento.",
+          "Recorridos entre zonas.",
+          "Áreas de mayor y menor interacción.",
+          "Evolución del comportamiento a lo largo del tiempo."
+        ] },
+        { "p": "Mediante el módulo de <a href=\"/es/recorrido-del-cliente/\">Customer Journey</a>, Marineda City puede visualizar cómo se desplazan los visitantes por el espacio comercial e identificar oportunidades para optimizar la distribución, la experiencia y las acciones del centro." },
+        { "h3": "Del dato del visitante a la mejora de la experiencia" },
+        { "p": "La información generada por Flame permite al equipo de gestión tomar decisiones con una visión más completa del comportamiento del cliente." },
+        { "p": "Estos datos ayudan a evaluar cambios en el espacio, analizar campañas, detectar oportunidades comerciales y mejorar la experiencia global de la visita." },
+        { "p": "Además, la plataforma permite complementar esta inteligencia con capacidades de conexión y comunicación con los visitantes mediante servicios digitales como campañas segmentadas, reforzando la relación entre el centro y sus clientes." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una visión más completa del visitante",
+      "body": [
+        { "p": "Con Flame Analytics, Marineda City dispone de una nueva capa de conocimiento sobre el funcionamiento real de su espacio comercial." },
+        { "p": "Los equipos pueden analizar cómo evolucionan las visitas, qué zonas concentran mayor actividad y cómo responden los visitantes ante diferentes cambios o iniciativas." },
+        { "p": "Esta información permite apoyar decisiones relacionadas con:" },
+        { "list": [
+          "Optimización del recorrido del visitante.",
+          "Mejora de zonas comerciales.",
+          "Evaluación de acciones promocionales.",
+          "Gestión operativa del centro.",
+          "Diseño de nuevas experiencias."
+        ] },
+        { "h3": "Del tráfico comercial a la inteligencia del espacio" },
+        { "p": "El proyecto supone un avance en la digitalización de la gestión de centros comerciales." },
+        { "p": "Marineda City transforma los datos generados por la actividad diaria del centro en conocimiento accionable, pasando de una visión basada únicamente en afluencia a una comprensión mucho más profunda del comportamiento del visitante." },
+        { "p": "Gracias a Flame Analytics, el centro puede evolucionar continuamente su experiencia, adaptando sus espacios y decisiones a las necesidades reales de sus clientes." }
+      ]
+    }
+  ],
+  "cifrasTitle": "El comportamiento del visitante, medido",
+  "cifras": [
+    { "value": "17M+", "label": "Visitantes al año", "desc": "Una de las mayores afluencias comerciales de Galicia." },
+    { "value": "Customer Journey", "label": "Recorridos inteligentes", "desc": "Análisis de movimientos e interacción entre diferentes zonas del centro." },
+    { "value": "Traffic Analytics", "label": "Visión completa", "desc": "Medición de flujos y conteo de visitantes para comprender la actividad del espacio." },
+    { "value": "Visitor Intelligence", "label": "Decisiones basadas en datos", "desc": "Información objetiva para mejorar experiencia y gestión." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Marineda City",
+  "soluciones": [
+    { "icon": "trend", "h3": "Traffic Analytics", "p": "Medición del tráfico y afluencia para conocer el rendimiento general del centro comercial." },
+    { "icon": "route", "h3": "Customer Journey Analytics", "p": "Análisis de recorridos, movimientos y comportamiento de visitantes dentro de las diferentes zonas del espacio." },
+    { "icon": "users", "h3": "Visitor Intelligence", "p": "Transformación de los datos del visitante en información útil para operaciones, marketing y experiencia de cliente." },
+    { "icon": "target", "h3": "Connect y marketing WiFi", "p": "Capacidad para activar comunicaciones segmentadas y conectar con visitantes mediante servicios digitales asociados a la plataforma." }
+  ]
+}

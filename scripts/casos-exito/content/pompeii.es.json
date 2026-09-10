@@ -1,0 +1,101 @@
+{
+  "eyebrow": "Caso de éxito · Retail de moda",
+  "h1": "Cómo Pompeii convierte los datos de tienda en decisiones para mejorar el rendimiento retail",
+  "sub": "Pompeii apuesta por Flame Analytics para entender mejor el comportamiento de sus clientes en tienda, medir el rendimiento de cada punto de venta y tomar decisiones basadas en datos reales.",
+  "badge": { "client": "Pompeii", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "El dato físico de tienda nos permite entender qué ocurre antes de la venta y convertir esa información en decisiones de negocio.",
+    "author": "Equipo Retail",
+    "role": "Pompeii"
+  },
+  "elCaso": [
+    "Pompeii, marca española de calzado reconocida por su crecimiento en el canal digital y físico, se enfrentaba a un reto habitual en <a href=\"/es/solucion-para-el-sector-retail/\">retail</a>: entender qué sucede dentro de sus tiendas más allá del resultado final de ventas.",
+    "La compañía necesitaba incorporar una visión más completa sobre el comportamiento de los visitantes para conocer mejor el rendimiento de cada establecimiento, optimizar sus espacios comerciales y tomar decisiones basadas en información objetiva.",
+    "Con Flame Analytics, Pompeii incorpora una capa de inteligencia sobre sus tiendas físicas que permite analizar tráfico, permanencia, recorridos, conversión y otros indicadores clave para comprender mejor la experiencia del cliente y mejorar la gestión retail."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Entender qué ocurre antes de la venta",
+      "body": [
+        { "p": "En retail, las ventas muestran el resultado final, pero no explican todo lo que ocurre durante la experiencia de compra." },
+        { "p": "Dos tiendas con resultados similares pueden tener realidades completamente diferentes: una puede recibir más visitantes, otra puede convertir mejor, otra puede necesitar optimizar su distribución del espacio o mejorar la interacción con determinadas zonas." },
+        { "p": "Pompeii buscaba responder preguntas clave:" },
+        { "list": [
+          "¿Cuántas personas pasan frente a cada tienda?",
+          "¿Cuántos visitantes entran realmente en el establecimiento?",
+          "¿Cuál es la tasa de conversión de cada punto de venta?",
+          "¿Cuánto tiempo permanecen los clientes en tienda?",
+          "¿Qué zonas generan más interacción?",
+          "¿Cómo comparar el rendimiento entre establecimientos?",
+          "¿Qué cambios pueden mejorar la experiencia de compra?"
+        ] },
+        { "p": "El objetivo era dejar atrás decisiones basadas únicamente en intuición y construir una gestión retail apoyada en datos." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una capa de inteligencia para cada tienda",
+      "body": [
+        { "p": "Flame Analytics implantó una solución de analítica retail orientada a medir y comprender el comportamiento del cliente dentro del espacio físico." },
+        { "p": "La plataforma permite a Pompeii analizar indicadores fundamentales para la gestión de sus tiendas:" },
+        { "list": [
+          "Tráfico exterior e interior.",
+          "Tasa de entrada.",
+          "Conversión.",
+          "Tiempo de permanencia.",
+          "Recorridos dentro del establecimiento.",
+          "Rendimiento por tienda y zona."
+        ] },
+        { "p": "Esta información proporciona una visión más completa del customer journey físico y permite identificar oportunidades de mejora en la experiencia y operación del punto de venta." },
+        { "h3": "Del tráfico a la rentabilidad del espacio comercial" },
+        { "p": "Uno de los principales valores del proyecto es conectar lo que ocurre antes de la compra con los resultados comerciales." },
+        { "p": "Gracias a Flame Analytics, Pompeii puede analizar si una tienda funciona mejor por <a href=\"/es/analitica-trafico/\">volumen de tráfico</a>, por capacidad de conversión o por cómo está diseñado el espacio." },
+        { "p": "Esta información ayuda a tomar decisiones relacionadas con:" },
+        { "list": [
+          "Distribución del producto.",
+          "Organización de zonas.",
+          "Experiencia dentro de tienda.",
+          "Comparación entre establecimientos.",
+          "Optimización de la red comercial."
+        ] },
+        { "p": "La analítica permite convertir cada tienda en una fuente continua de aprendizaje para toda la organización." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una visión más inteligente del retail físico",
+      "body": [
+        { "p": "Con Flame Analytics, Pompeii dispone de una visión más profunda sobre cómo interactúan los clientes con sus tiendas." },
+        { "p": "Los equipos pueden analizar patrones de comportamiento, comparar ubicaciones y detectar oportunidades para mejorar la experiencia de compra." },
+        { "p": "La información permite apoyar decisiones relacionadas con:" },
+        { "list": [
+          "Apertura y evolución de tiendas.",
+          "Optimización del espacio comercial.",
+          "Mejora de conversión.",
+          "Análisis del rendimiento por ubicación.",
+          "Experiencia del cliente."
+        ] },
+        { "h3": "Del dato de tienda a una estrategia retail basada en inteligencia" },
+        { "p": "El proyecto representa un cambio en la forma de gestionar el punto de venta físico." },
+        { "p": "La tienda deja de ser un espacio donde únicamente se mide la venta final y se convierte en una fuente de información estratégica sobre el comportamiento del cliente." },
+        { "p": "Gracias a Flame Analytics, Pompeii transforma el tráfico, los recorridos y la interacción del visitante en conocimiento útil para mejorar continuamente su negocio retail." }
+      ]
+    }
+  ],
+  "cifrasTitle": "La tienda física convertida en datos",
+  "cifras": [
+    { "value": "Traffic Analytics", "label": "Visión completa", "desc": "Medición de transeúntes, visitantes y entrada en tienda." },
+    { "value": "Conversion Rate", "label": "Rendimiento comercial", "desc": "Análisis de la relación entre visitantes y ventas." },
+    { "value": "Dwell Time", "label": "Experiencia del cliente", "desc": "Medición del tiempo de permanencia y comportamiento dentro del espacio." },
+    { "value": "Customer Journey", "label": "Recorridos inteligentes", "desc": "Análisis de movimientos e interacción por zonas para optimizar la experiencia." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Pompeii",
+  "soluciones": [
+    { "icon": "trend", "h3": "Traffic Analytics", "p": "Medición del tráfico exterior e interior para conocer el verdadero potencial de cada ubicación." },
+    { "icon": "route", "h3": "Customer Journey Analytics", "p": "Análisis de recorridos, permanencia e interacción del cliente dentro de la tienda." },
+    { "icon": "target", "h3": "Conversion Analytics", "p": "Cruce entre visitantes y ventas para entender el rendimiento real del punto de venta." },
+    { "icon": "grid", "h3": "Retail Intelligence", "p": "Transformación de datos físicos en insights para mejorar decisiones comerciales." },
+    { "icon": "chart", "h3": "Dashboards inteligentes", "p": "Visualización centralizada de KPIs para comparar tiendas y detectar oportunidades." }
+  ]
+}

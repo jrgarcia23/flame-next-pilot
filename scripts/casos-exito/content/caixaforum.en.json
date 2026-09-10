@@ -1,0 +1,84 @@
+{
+  "eyebrow": "Case study · Cultural venues",
+  "h1": "How CaixaForum optimizes the visitor experience with AI video analytics",
+  "sub": "The “la Caixa” Foundation trusts Flame Analytics to get a real-time view of visitor behavior across the entire CaixaForum network and improve the management of its cultural spaces with objective data.",
+  "badge": { "client": "CaixaForum", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Understanding how visitors move through and use the spaces makes it possible to design more efficient, accessible and engaging cultural experiences.",
+    "author": "Innovation and Space Management team",
+    "role": "“la Caixa” Foundation"
+  },
+  "elCaso": [
+    "The “la Caixa” Foundation, responsible for the CaixaForum network of cultural centers, is driving the digitalization of its space management through the deployment of Flame Analytics' AI-powered video analytics platform.",
+    "The goal of the project is to better understand visitor behavior, optimize the use of exhibitions and support data-driven decision-making across all CaixaForum centers spread throughout Spain.",
+    "The solution provides continuous information on footfall, occupancy, journeys and dwell time, making it possible to turn the daily activity of <a href=\"/en/public-venues/\">cultural venues</a> into useful knowledge for management."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Understanding how visitors experience culture",
+      "body": [
+        { "p": "Cultural spaces welcome thousands of visitors with very different interests, journeys and dwell times." },
+        { "p": "Without objective information, it is difficult to know which exhibitions generate the most interest, how the public is distributed within the building or <a href=\"/en/occupancy-management/\">which areas concentrate the most activity</a>." },
+        { "p": "CaixaForum wanted to answer questions such as:" },
+        { "list": [
+          "How many visitors does each center receive?",
+          "How does footfall evolve throughout the day?",
+          "Which exhibitions generate the most interest?",
+          "What journeys do visitors take?",
+          "How long do they stay in each space?",
+          "How can the distribution of resources and staff be optimized?",
+          "How can behavior be compared across different cultural centers?"
+        ] },
+        { "p": "The need was not only to measure visitors, but to have information that would help improve both the cultural experience and operational efficiency." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "Real-time intelligence to better manage cultural spaces",
+      "body": [
+        { "p": "Flame Analytics deployed an artificial-intelligence-based video analytics solution across the entire CaixaForum network, using more than 250 sensors to capture information continuously and in a fully anonymized way." },
+        { "p": "The platform makes it possible to analyze indicators such as footfall, occupancy, <a href=\"/en/customer-journey/\">visitor journeys</a>, distribution by zone and dwell time across the different exhibitions." },
+        { "p": "Thanks to this data, teams can better understand how visitors interact with the spaces and optimize both exhibition planning and resource allocation." },
+        { "p": "All the information is presented through dynamic dashboards and can be integrated with other data analytics platforms, providing a unified view of the cultural centers' performance." },
+        { "h3": "A project for the whole CaixaForum network" },
+        { "p": "The solution was rolled out consistently across all CaixaForum centers in Spain, making it possible to compare indicators between sites and have a common methodology to analyze visitor behavior." },
+        { "p": "This network-wide view makes it easier to identify trends, share best practices and support strategic decision-making at a national level." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "Data to improve the cultural experience",
+      "body": [
+        { "p": "With Flame Analytics, CaixaForum has continuous information about how its cultural spaces are performing." },
+        { "p": "Teams can analyze the evolution of visitors, detect peak footfall hours, study behavior in the exhibitions and optimize the use of each space based on real data." },
+        { "p": "This information supports decisions related to:" },
+        { "list": [
+          "Exhibition planning.",
+          "Occupancy management.",
+          "Resource allocation.",
+          "Journey design.",
+          "Improving the visitor experience."
+        ] },
+        { "h3": "From counting visitors to cultural-space intelligence" },
+        { "p": "The project marks a step forward in CaixaForum's digital transformation strategy." },
+        { "p": "The information generated by the platform makes it possible to understand how visitors interact with the cultural spaces and turn that knowledge into a tool to optimize management, improve the experience and plan future initiatives with greater precision." },
+        { "p": "Thanks to Flame Analytics, CaixaForum gains a data-driven view that enables more efficient management and an increasingly personalized cultural experience." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Cultural-space intelligence, measured",
+  "cifras": [
+    { "value": "250+", "label": "Sensors · nationwide rollout", "desc": "AI video analytics deployed across the entire CaixaForum network in Spain." },
+    { "value": "Real-time", "label": "Continuous information", "desc": "Data on footfall, occupancy, journeys and dwell time of visitors." },
+    { "value": "100%", "label": "Privacy · responsible AI", "desc": "Fully anonymized analytics, with no use of biometric data or personal identification." },
+    { "value": "Data Integration", "label": "Connected ecosystem", "desc": "Integration with analytics platforms such as Snowflake to enrich decision-making." }
+  ],
+  "solTitle": "Flame capabilities applied at CaixaForum",
+  "soluciones": [
+    { "icon": "eye", "h3": "AI video analytics", "p": "Measuring footfall, occupancy and visitor behavior using the existing video infrastructure." },
+    { "icon": "route", "h3": "Customer Journey", "p": "Analysis of journeys, distribution by zone and dwell times to understand how visitors interact with the exhibitions." },
+    { "icon": "chart", "h3": "Smart dashboards", "p": "Real-time visualization of key indicators for the operational and strategic management of the cultural centers." },
+    { "icon": "layers", "h3": "Data integration", "p": "Connection with corporate platforms to combine visitor information with other business data and provide a unified view of the network's performance." }
+  ]
+}

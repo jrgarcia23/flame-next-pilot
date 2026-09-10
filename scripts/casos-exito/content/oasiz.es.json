@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo Oasiz Madrid conecta con sus visitantes mediante una experiencia WiFi inteligente",
+  "sub": "Oasiz Madrid apuesta por Flame Analytics para ofrecer conectividad a sus visitantes, facilitar una experiencia digital sencilla y obtener información útil sobre su audiencia mediante un portal WiFi personalizado.",
+  "badge": { "client": "Oasiz Madrid", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La conectividad se convierte en un nuevo punto de contacto con el visitante y permite conocer mejor cómo relacionarse con él.",
+    "author": "Equipo de Marketing",
+    "role": "Oasiz Madrid"
+  },
+  "elCaso": [
+    "Oasiz Madrid, uno de los mayores espacios comerciales y de ocio de Madrid, buscaba ofrecer a sus visitantes una experiencia digital acorde con un concepto de <a href=\"/es/solucion-para-centros-comerciales/\">centro comercial</a> diferente, basado en ocio, gastronomía, naturaleza y entretenimiento.",
+    "Con una superficie de 280.000 metros cuadrados y más de 120 establecimientos, el centro necesitaba una solución que facilitara la conexión de sus visitantes y permitiera transformar esa interacción digital en conocimiento útil para la gestión del espacio.",
+    "Para ello, Oasiz Madrid incorporó Flame Analytics como plataforma de Guest WiFi, creando un portal cautivo personalizado que permite ofrecer conectividad de forma sencilla y generar una primera relación digital con los usuarios."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Mejorar la experiencia digital del visitante",
+      "body": [
+        { "p": "Los centros comerciales y espacios de ocio actuales no solo compiten por atraer visitantes, sino también por ofrecer experiencias completas durante toda la estancia." },
+        { "p": "Oasiz Madrid necesitaba una solución que permitiera:" },
+        { "list": [
+          "Facilitar el acceso WiFi a los visitantes.",
+          "Ofrecer una experiencia de conexión rápida y sencilla.",
+          "Crear un punto de contacto digital dentro del centro.",
+          "Obtener información consentida sobre los usuarios.",
+          "Conocer mejor el perfil general de sus visitantes.",
+          "Disponer de una base de conocimiento para futuras iniciativas."
+        ] },
+        { "quote": "El reto era convertir un servicio habitual como la conectividad WiFi en una herramienta capaz de aportar valor tanto al visitante como al propio centro comercial." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Un portal WiFi personalizado para conectar con los visitantes",
+      "body": [
+        { "p": "Flame Analytics implantó una solución de Guest WiFi mediante un portal cautivo personalizado adaptado a la identidad y necesidades de Oasiz Madrid." },
+        { "p": "A través de este portal, los visitantes pueden acceder a la conexión WiFi del centro mediante un proceso sencillo, mientras Oasiz Madrid obtiene información proporcionada con consentimiento por los usuarios." },
+        { "p": "Esta interacción permite al centro:" },
+        { "list": [
+          "Incrementar el conocimiento de su audiencia.",
+          "Crear una base de datos propia de visitantes.",
+          "Analizar la evolución del uso del servicio.",
+          "Disponer de un nuevo canal de relación digital."
+        ] },
+        { "p": "La solución convierte la conectividad en una oportunidad para mejorar la experiencia del visitante y generar información útil para la gestión del centro." },
+        { "h3": "Una experiencia adaptada a un nuevo concepto de centro comercial" },
+        { "p": "Oasiz Madrid no es un centro comercial tradicional, sino un espacio híbrido donde conviven compras, restauración, ocio y experiencias." },
+        { "p": "Por ello, la conectividad digital juega un papel relevante para acompañar al visitante durante su estancia y reforzar la relación entre el espacio físico y los servicios digitales del centro." },
+        { "p": "Flame permite gestionar esta experiencia desde una plataforma centralizada, preparada para adaptarse a las necesidades del activo." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una nueva vía de conexión con los visitantes",
+      "body": [
+        { "p": "Con Flame Analytics, Oasiz Madrid dispone de una herramienta que mejora la experiencia digital de miles de visitantes que acceden diariamente al centro." },
+        { "p": "El servicio WiFi se convierte en un punto de contacto adicional que permite establecer una relación más cercana con los usuarios y obtener información útil para <a href=\"/es/comportamiento-del-cliente/\">comprender mejor la audiencia del centro</a>." },
+        { "p": "Esta capacidad facilita futuras estrategias orientadas a mejorar la experiencia y evolucionar la relación con los visitantes." },
+        { "h3": "De la conectividad al conocimiento del visitante" },
+        { "p": "El proyecto supone un avance en la digitalización de Oasiz Madrid." },
+        { "p": "La conexión WiFi deja de ser únicamente un servicio funcional para convertirse en una fuente de información que ayuda al centro a conocer mejor a sus visitantes y construir nuevas oportunidades de interacción." },
+        { "p": "Gracias a Flame Analytics, Oasiz Madrid incorpora una capa digital dentro de su experiencia física, conectando mejor con sus usuarios y preparándose para una gestión más inteligente del visitante." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Una experiencia conectada para un espacio único",
+  "cifras": [
+    { "value": "280.000 m²", "label": "Dimensión del activo", "desc": "Uno de los mayores espacios comerciales y de ocio de Madrid." },
+    { "value": "120+", "label": "Establecimientos", "desc": "Un entorno con múltiples experiencias comerciales, gastronómicas y de ocio." },
+    { "value": "Guest WiFi", "label": "Experiencia digital", "desc": "Portal cautivo personalizado para facilitar la conexión de visitantes." },
+    { "value": "1st-party", "label": "Conocimiento del usuario", "desc": "Datos consentidos para comprender mejor la audiencia del centro." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Oasiz Madrid",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Guest WiFi Experience", "p": "Conectividad WiFi mediante un portal cautivo personalizado adaptado a la identidad del centro." },
+    { "icon": "users", "h3": "Captación de datos consentidos", "p": "Generación de conocimiento sobre visitantes a través del proceso de conexión." },
+    { "icon": "eye", "h3": "Visitor Intelligence", "p": "Información útil para comprender mejor la audiencia y evolucionar la experiencia del visitante." },
+    { "icon": "layers", "h3": "Gestión digital del visitante", "p": "Una plataforma que conecta el espacio físico con nuevas oportunidades digitales." }
+  ]
+}

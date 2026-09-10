@@ -1,0 +1,91 @@
+{
+  "eyebrow": "Caso de éxito · Espacios culturales",
+  "h1": "Cómo La Casa Encendida transforma la gestión de sus espacios con analítica de ocupación en tiempo real",
+  "sub": "La Casa Encendida incorpora Flame Analytics para conocer la afluencia de visitantes, controlar la ocupación de sus espacios y mejorar la experiencia de quienes disfrutan de su programación cultural y social.",
+  "badge": { "client": "La Casa Encendida", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "Conocer cómo se utilizan nuestros espacios nos permite gestionarlos mejor y ofrecer una experiencia más cómoda y segura a nuestros visitantes.",
+    "author": "Equipo de Gestión",
+    "role": "La Casa Encendida"
+  },
+  "elCaso": [
+    "La Casa Encendida, centro cultural y social perteneciente a la Fundación Montemadrid, buscaba incorporar una solución que le permitiera conocer mejor la utilización de sus espacios y gestionar de forma más eficiente la afluencia de visitantes.",
+    "En un entorno con una programación diversa que combina cultura, solidaridad, medio ambiente y educación, la gestión de los <a href=\"/es/conteo-personas/\">flujos de personas</a> resulta clave para garantizar una experiencia adecuada y optimizar el funcionamiento del edificio.",
+    "Para ello, La Casa Encendida confió en Flame Analytics como plataforma de <a href=\"/es/gestion-ocupacion/\">analítica de ocupación</a>, incorporando información en tiempo real sobre afluencia y niveles de ocupación para mejorar la gestión del espacio físico."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Gestionar espacios culturales dinámicos con información objetiva",
+      "body": [
+        { "p": "Los <a href=\"/es/espacios-publicos/\">espacios culturales</a> reciben visitantes con comportamientos muy diferentes según la actividad, el momento del día o la zona utilizada." },
+        { "p": "Para ofrecer una buena experiencia, no basta con conocer el número total de asistentes: es necesario entender cómo se distribuyen las personas dentro del edificio y cómo evoluciona la ocupación de cada área." },
+        { "p": "La Casa Encendida necesitaba responder preguntas clave:" },
+        { "list": [
+          "¿Cuántas personas hay en cada espacio en tiempo real?",
+          "¿Cómo evoluciona la ocupación durante la jornada?",
+          "¿Qué zonas tienen mayor concentración de visitantes?",
+          "¿Cómo gestionar los límites de capacidad?",
+          "¿Cómo anticipar momentos de mayor afluencia?",
+          "¿Cómo optimizar los recursos necesarios en cada momento?"
+        ] },
+        { "p": "El objetivo era disponer de una visión más precisa del uso del espacio para mejorar la experiencia del visitante y la eficiencia operativa." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Analítica de ocupación para una gestión más inteligente del espacio",
+      "body": [
+        { "p": "Flame Analytics implantó una solución de analítica capaz de medir la afluencia y estimar la ocupación de diferentes zonas de La Casa Encendida." },
+        { "p": "La plataforma permite monitorizar en tiempo real el nivel de ocupación de espacios concretos, ayudando al equipo de gestión a tomar decisiones basadas en datos." },
+        { "p": "Entre los indicadores analizados se encuentran:" },
+        { "list": [
+          "Número de visitantes.",
+          "Nivel de ocupación por zona.",
+          "Evolución de la afluencia.",
+          "Control de capacidad.",
+          "Patrones de uso del espacio."
+        ] },
+        { "p": "Esta información permite gestionar de manera más eficiente las instalaciones y garantizar una experiencia más cómoda para los visitantes." },
+        { "h3": "Del control de ocupación a la inteligencia del espacio" },
+        { "p": "La solución no se limita a controlar la capacidad máxima de los espacios, sino que aporta una visión histórica del comportamiento de los visitantes." },
+        { "p": "Gracias a estos datos, La Casa Encendida puede analizar tendencias, identificar momentos de mayor demanda y optimizar la planificación de sus recursos." },
+        { "p": "El resultado es una gestión más flexible y basada en información real sobre cómo se utilizan sus instalaciones." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una experiencia cultural más eficiente y adaptada al visitante",
+      "body": [
+        { "p": "Con Flame Analytics, La Casa Encendida dispone de una visión continua sobre la ocupación de sus instalaciones." },
+        { "p": "Los equipos pueden conocer mejor el comportamiento de los visitantes y utilizar esa información para mejorar la organización del espacio, anticipar necesidades y ofrecer una experiencia más fluida." },
+        { "p": "Esta inteligencia permite apoyar decisiones relacionadas con:" },
+        { "list": [
+          "Gestión de accesos.",
+          "Organización de espacios.",
+          "Planificación operativa.",
+          "Distribución de recursos.",
+          "Mejora de la experiencia del visitante."
+        ] },
+        { "h3": "De la ocupación tradicional a la gestión inteligente del espacio" },
+        { "p": "El proyecto representa un avance en la digitalización de los espacios culturales." },
+        { "p": "La Casa Encendida transforma la información generada por sus visitantes en conocimiento útil para gestionar mejor sus instalaciones y adaptarse a las necesidades reales de su audiencia." },
+        { "p": "Gracias a Flame Analytics, el centro incorpora una nueva capa de inteligencia que conecta la actividad física del espacio con una gestión más eficiente, segura y orientada al visitante." }
+      ]
+    }
+  ],
+  "cifrasTitle": "La ocupación convertida en conocimiento",
+  "cifras": [
+    { "value": "Visitor Flow", "label": "Afluencia inteligente", "desc": "Medición del flujo de visitantes para comprender el uso real de los espacios." },
+    { "value": "Occupancy Analytics", "label": "Control de ocupación", "desc": "Información en tiempo real sobre niveles de ocupación y capacidad." },
+    { "value": "Espacios dinámicos", "label": "Gestión flexible", "desc": "Adaptación de recursos según la demanda y utilización de las instalaciones." },
+    { "value": "Experiencia del visitante", "label": "Mejora continua", "desc": "Datos objetivos para ofrecer una visita más cómoda y eficiente." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en La Casa Encendida",
+  "soluciones": [
+    { "icon": "eye", "h3": "Occupancy Analytics", "p": "Medición y control inteligente de la ocupación en diferentes zonas del centro." },
+    { "icon": "trend", "h3": "Traffic Analytics", "p": "Análisis de la afluencia y evolución de visitantes para comprender el uso del espacio." },
+    { "icon": "route", "h3": "Visitor Flow Analytics", "p": "Comprensión de los movimientos y distribución de personas dentro de las instalaciones." },
+    { "icon": "chart", "h3": "Dashboards inteligentes", "p": "Visualización centralizada de indicadores para apoyar la gestión diaria del centro." }
+  ]
+}

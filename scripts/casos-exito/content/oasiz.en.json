@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Case study · Shopping centers",
+  "h1": "How Oasiz Madrid connects with its visitors through a smart WiFi experience",
+  "sub": "Oasiz Madrid chooses Flame Analytics to offer connectivity to its visitors, deliver a simple digital experience and gain useful information about its audience through a personalized WiFi portal.",
+  "badge": { "client": "Oasiz Madrid", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Connectivity becomes a new touchpoint with the visitor and helps us better understand how to engage with them.",
+    "author": "Marketing team",
+    "role": "Oasiz Madrid"
+  },
+  "elCaso": [
+    "Oasiz Madrid, one of the largest retail and leisure spaces in Madrid, wanted to offer its visitors a digital experience in line with a different <a href=\"/en/solution-for-shopping-malls/\">shopping center</a> concept, based on leisure, gastronomy, nature and entertainment.",
+    "With a floor area of 280,000 square meters and more than 120 stores, the center needed a solution that would make it easier for visitors to connect and would turn that digital interaction into useful knowledge for managing the space.",
+    "To achieve this, Oasiz Madrid adopted Flame Analytics as its Guest WiFi platform, creating a personalized captive portal that offers connectivity in a simple way and builds a first digital relationship with users."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Improving the visitor's digital experience",
+      "body": [
+        { "p": "Today's shopping centers and leisure spaces not only compete to attract visitors, but also to offer complete experiences throughout their stay." },
+        { "p": "Oasiz Madrid needed a solution that would:" },
+        { "list": [
+          "Make WiFi access easy for visitors.",
+          "Offer a fast and simple connection experience.",
+          "Create a digital touchpoint within the center.",
+          "Obtain consented information about users.",
+          "Better understand the general profile of its visitors.",
+          "Have a knowledge base for future initiatives."
+        ] },
+        { "quote": "The challenge was to turn a common service such as WiFi connectivity into a tool capable of adding value both for the visitor and for the shopping center itself." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "A personalized WiFi portal to connect with visitors",
+      "body": [
+        { "p": "Flame Analytics deployed a Guest WiFi solution through a personalized captive portal adapted to the identity and needs of Oasiz Madrid." },
+        { "p": "Through this portal, visitors can access the center's WiFi connection via a simple process, while Oasiz Madrid obtains information provided with consent by users." },
+        { "p": "This interaction allows the center to:" },
+        { "list": [
+          "Increase knowledge of its audience.",
+          "Create its own visitor database.",
+          "Analyze how usage of the service evolves.",
+          "Have a new digital relationship channel."
+        ] },
+        { "p": "The solution turns connectivity into an opportunity to improve the visitor experience and generate useful information for managing the center." },
+        { "h3": "An experience tailored to a new shopping center concept" },
+        { "p": "Oasiz Madrid is not a traditional shopping center, but a hybrid space where shopping, dining, leisure and experiences coexist." },
+        { "p": "For this reason, digital connectivity plays an important role in accompanying the visitor throughout their stay and reinforcing the relationship between the physical space and the center's digital services." },
+        { "p": "Flame makes it possible to manage this experience from a centralized platform, ready to adapt to the needs of the asset." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "A new way of connecting with visitors",
+      "body": [
+        { "p": "With Flame Analytics, Oasiz Madrid has a tool that improves the digital experience of the thousands of visitors who come to the center every day." },
+        { "p": "The WiFi service becomes an additional touchpoint that helps build a closer relationship with users and gather useful information to <a href=\"/en/customer-behavior/\">better understand the center's audience</a>." },
+        { "p": "This capability supports future strategies aimed at improving the experience and evolving the relationship with visitors." },
+        { "h3": "From connectivity to visitor knowledge" },
+        { "p": "The project marks a step forward in the digitalization of Oasiz Madrid." },
+        { "p": "The WiFi connection stops being merely a functional service and becomes a source of information that helps the center get to know its visitors better and build new opportunities for interaction." },
+        { "p": "Thanks to Flame Analytics, Oasiz Madrid adds a digital layer to its physical experience, connecting better with its users and getting ready for smarter visitor management." }
+      ]
+    }
+  ],
+  "cifrasTitle": "A connected experience for a unique space",
+  "cifras": [
+    { "value": "280,000 m²", "label": "Asset size", "desc": "One of the largest retail and leisure spaces in Madrid." },
+    { "value": "120+", "label": "Stores", "desc": "An environment with multiple retail, dining and leisure experiences." },
+    { "value": "Guest WiFi", "label": "Digital experience", "desc": "A personalized captive portal to make it easy for visitors to connect." },
+    { "value": "1st-party", "label": "User knowledge", "desc": "Consented data to better understand the center's audience." }
+  ],
+  "solTitle": "Flame capabilities applied at Oasiz Madrid",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Guest WiFi Experience", "p": "WiFi connectivity through a personalized captive portal adapted to the center's identity." },
+    { "icon": "users", "h3": "Consented data capture", "p": "Generating knowledge about visitors through the connection process." },
+    { "icon": "eye", "h3": "Visitor Intelligence", "p": "Useful information to better understand the audience and evolve the visitor experience." },
+    { "icon": "layers", "h3": "Digital visitor management", "p": "A platform that connects the physical space with new digital opportunities." }
+  ]
+}

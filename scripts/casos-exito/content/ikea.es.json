@@ -1,0 +1,170 @@
+{
+  "eyebrow": "Caso de éxito · Retail",
+  "h1": "Cómo IKEA impulsa la inteligencia en tienda en sus establecimientos de México",
+  "sub": "IKEA confía en Flame Analytics para analizar el comportamiento de los visitantes en sus tiendas de México y transformar el tráfico físico en información clave para optimizar la operación y mejorar la experiencia de compra.",
+  "badge": {
+    "client": "IKEA",
+    "date": "Julio 2026",
+    "readTime": "4 min de lectura"
+  },
+  "quote": {
+    "text": "Comprender cómo se comportan los clientes dentro de la tienda es esencial para ofrecer una mejor experiencia y optimizar cada decisión operativa.",
+    "author": "Equipo Retail Operations",
+    "role": "IKEA Latinoamérica"
+  },
+  "elCaso": [
+    "Como parte de su crecimiento en Latinoamérica, IKEA apostó por incorporar herramientas de analítica avanzada que permitieran comprender mejor el comportamiento de los visitantes dentro de sus establecimientos en México.",
+    "Actualmente, Flame Analytics está implantado en dos tiendas de IKEA en el país, proporcionando información continua sobre el tráfico y la ocupación de los espacios comerciales. Además, la plataforma permite la captación de datos de clientes mediante formularios integrados en la conectividad WiFi, facilitando la obtención de información de forma sencilla y conforme a la normativa aplicable.",
+    "El objetivo es disponer de datos fiables que ayuden a optimizar la operación diaria, mejorar la experiencia de compra y respaldar la toma de decisiones con información objetiva."
+  ],
+  "blocks": [
+    {
+      "id": "reto",
+      "num": "01",
+      "eyebrow": "El reto",
+      "h2": "Comprender el comportamiento en grandes espacios comerciales",
+      "body": [
+        {
+          "p": "Las tiendas IKEA reciben miles de visitantes que recorren espacios de gran tamaño, con múltiples ambientes, <a href=\"/es/recorrido-del-cliente/\">recorridos</a> y zonas de exposición."
+        },
+        {
+          "p": "En este contexto, disponer únicamente de datos de ventas no permite entender completamente cómo utilizan los clientes el establecimiento ni cómo interactúan con cada espacio."
+        },
+        {
+          "p": "IKEA buscaba incorporar una plataforma capaz de responder a preguntas como:"
+        },
+        {
+          "list": [
+            "¿Cuántos visitantes acceden diariamente a la tienda?",
+            "¿Cómo evoluciona la afluencia según el día y la hora?",
+            "¿Qué niveles de ocupación presenta cada zona?",
+            "¿Cómo se comportan los clientes durante su recorrido?",
+            "¿Cómo optimizar la operación en función de la demanda real?",
+            "¿Cómo obtener datos de clientes de forma integrada mediante la red WiFi?"
+          ]
+        },
+        {
+          "p": "La necesidad iba más allá del conteo de personas: consistía en convertir el comportamiento de los visitantes en conocimiento útil para mejorar la gestión del punto de venta y disponer de una base de datos de clientes obtenida a través de formularios de acceso WiFi."
+        }
+      ]
+    },
+    {
+      "id": "solucion",
+      "num": "02",
+      "eyebrow": "La solución",
+      "h2": "Inteligencia en tiempo real para una mejor gestión de tienda",
+      "body": [
+        {
+          "p": "Flame Analytics implantó una plataforma de analítica capaz de medir la actividad dentro de los establecimientos mediante diferentes fuentes de datos, proporcionando una visión completa del funcionamiento de cada tienda."
+        },
+        {
+          "p": "La solución permite analizar indicadores como la afluencia, la ocupación, la presencia de visitantes y la evolución del tráfico en tiempo real."
+        },
+        {
+          "p": "Además, gracias a la conectividad WiFi, IKEA puede capturar datos de clientes mediante formularios de acceso, centralizando esta información de forma integrada dentro de la plataforma."
+        },
+        {
+          "p": "Con estos datos, los equipos pueden comprender mejor los patrones de comportamiento de los visitantes, identificar momentos de mayor actividad y optimizar la planificación operativa."
+        },
+        {
+          "p": "La plataforma facilita además la comparación entre periodos y entre establecimientos, proporcionando indicadores homogéneos para toda la red."
+        },
+        {
+          "h3": "Una plataforma preparada para acompañar el crecimiento"
+        },
+        {
+          "p": "La solución ha sido diseñada para escalar conforme IKEA continúe ampliando su presencia en Latinoamérica, permitiendo incorporar nuevos establecimientos bajo un mismo modelo de analítica y gestión de datos."
+        }
+      ]
+    },
+    {
+      "id": "resultados",
+      "num": "03",
+      "eyebrow": "En marcha",
+      "h2": "Datos para optimizar la operación diaria",
+      "body": [
+        {
+          "p": "Con Flame Analytics, IKEA dispone de información continua sobre la actividad de sus establecimientos."
+        },
+        {
+          "p": "Los equipos pueden analizar la evolución del tráfico, identificar horas punta, gestionar la ocupación de las diferentes áreas y disponer de información objetiva para optimizar la gestión diaria."
+        },
+        {
+          "p": "La plataforma también facilita la captación de datos de clientes mediante formularios conectados a la red WiFi, permitiendo ampliar el conocimiento de los visitantes y disponer de información de valor para futuras acciones comerciales realizadas a través de otras herramientas."
+        },
+        {
+          "p": "Esta información facilita decisiones relacionadas con:"
+        },
+        {
+          "list": [
+            "Planificación de recursos.",
+            "Optimización de recorridos.",
+            "Gestión de la ocupación.",
+            "Análisis del comportamiento de los visitantes.",
+            "Mejora de la experiencia de compra."
+          ]
+        },
+        {
+          "h3": "Una estrategia de crecimiento basada en datos"
+        },
+        {
+          "p": "La implantación de Flame Analytics forma parte de la estrategia de digitalización con la que IKEA acompaña el desarrollo de sus establecimientos en México."
+        },
+        {
+          "p": "Más allá de medir la afluencia, la compañía dispone de una plataforma que permite comprender cómo utilizan los clientes el espacio físico, optimizar la operación diaria y capturar datos de clientes mediante la infraestructura WiFi, generando información útil para el negocio y una visión cada vez más inteligente de <a href=\"/es/solucion-para-el-sector-retail/\">su red retail</a>."
+        }
+      ]
+    }
+  ],
+  "cifrasTitle": "La inteligencia del punto de venta, medida",
+  "cifras": [
+    {
+      "value": "2",
+      "label": "Tiendas en México",
+      "desc": "Flame Analytics proporciona inteligencia de negocio para los establecimientos de IKEA implantados en el país."
+    },
+    {
+      "value": "Tiempo real",
+      "label": "Información continua",
+      "desc": "Información sobre tráfico, ocupación y comportamiento de visitantes."
+    },
+    {
+      "value": "Gran formato",
+      "label": "Superficies comerciales",
+      "desc": "Analítica adaptada a superficies comerciales de gran tamaño."
+    },
+    {
+      "value": "Captación de datos",
+      "label": "Formularios WiFi",
+      "desc": "Formularios integrados mediante la conectividad WiFi para la obtención de datos de clientes."
+    }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en IKEA",
+  "soluciones": [
+    {
+      "icon": "trend",
+      "h3": "Analítica de tráfico",
+      "p": "Medición precisa de afluencia, ocupación y presencia para comprender el rendimiento de cada establecimiento."
+    },
+    {
+      "icon": "eye",
+      "h3": "Gestión de ocupación",
+      "p": "Monitorización en tiempo real de la actividad en diferentes zonas para optimizar la experiencia de los visitantes."
+    },
+    {
+      "icon": "wifi",
+      "h3": "Captación de datos mediante WiFi",
+      "p": "Recopilación de información de clientes a través de formularios integrados en la red inalámbrica."
+    },
+    {
+      "icon": "users",
+      "h3": "Análisis del comportamiento",
+      "p": "Información sobre patrones de tráfico y uso del espacio para apoyar decisiones de operaciones, visual merchandising y planificación."
+    },
+    {
+      "icon": "chart",
+      "h3": "Dashboards inteligentes",
+      "p": "Visualización centralizada de indicadores clave para comparar el rendimiento entre establecimientos y periodos."
+    }
+  ]
+}

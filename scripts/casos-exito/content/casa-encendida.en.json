@@ -1,0 +1,91 @@
+{
+  "eyebrow": "Case study · Cultural venues",
+  "h1": "How La Casa Encendida transforms space management with real-time occupancy analytics",
+  "sub": "La Casa Encendida adopts Flame Analytics to understand visitor footfall, control the occupancy of its spaces and improve the experience of everyone who enjoys its cultural and social programming.",
+  "badge": { "client": "La Casa Encendida", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Understanding how our spaces are used allows us to manage them better and offer a more comfortable and safe experience to our visitors.",
+    "author": "Management team",
+    "role": "La Casa Encendida"
+  },
+  "elCaso": [
+    "La Casa Encendida, a cultural and social center belonging to the Fundación Montemadrid, wanted to adopt a solution that would let it better understand how its spaces are used and manage visitor footfall more efficiently.",
+    "In an environment with a diverse program combining culture, solidarity, the environment and education, managing the <a href=\"/en/people-counting/\">flow of people</a> is key to ensuring a suitable experience and optimizing the operation of the building.",
+    "To do so, La Casa Encendida trusted Flame Analytics as its <a href=\"/en/occupancy-management/\">occupancy analytics</a> platform, adding real-time information on footfall and occupancy levels to improve the management of its physical space."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Managing dynamic cultural spaces with objective information",
+      "body": [
+        { "p": "<a href=\"/en/public-venues/\">Cultural venues</a> welcome visitors with very different behaviors depending on the activity, the time of day or the area being used." },
+        { "p": "To offer a good experience, it is not enough to know the total number of attendees: it is necessary to understand how people are distributed within the building and how the occupancy of each area evolves." },
+        { "p": "La Casa Encendida needed to answer key questions:" },
+        { "list": [
+          "How many people are in each space in real time?",
+          "How does occupancy evolve throughout the day?",
+          "Which areas have the highest concentration of visitors?",
+          "How can capacity limits be managed?",
+          "How can peak footfall moments be anticipated?",
+          "How can the resources needed at each moment be optimized?"
+        ] },
+        { "p": "The goal was to have a more precise view of how the space is used in order to improve the visitor experience and operational efficiency." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "Occupancy analytics for smarter space management",
+      "body": [
+        { "p": "Flame Analytics deployed an analytics solution able to measure footfall and estimate the occupancy of different areas of La Casa Encendida." },
+        { "p": "The platform makes it possible to monitor the occupancy level of specific spaces in real time, helping the management team make data-driven decisions." },
+        { "p": "The indicators analyzed include:" },
+        { "list": [
+          "Number of visitors.",
+          "Occupancy level by zone.",
+          "Evolution of footfall.",
+          "Capacity control.",
+          "Patterns of space use."
+        ] },
+        { "p": "This information makes it possible to manage the facilities more efficiently and ensure a more comfortable experience for visitors." },
+        { "h3": "From occupancy control to space intelligence" },
+        { "p": "The solution is not limited to controlling the maximum capacity of the spaces, but provides a historical view of visitor behavior." },
+        { "p": "Thanks to this data, La Casa Encendida can analyze trends, identify moments of higher demand and optimize the planning of its resources." },
+        { "p": "The result is more flexible management based on real information about how its facilities are used." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "A more efficient cultural experience tailored to the visitor",
+      "body": [
+        { "p": "With Flame Analytics, La Casa Encendida has a continuous view of the occupancy of its facilities." },
+        { "p": "Teams can better understand visitor behavior and use that information to improve the organization of the space, anticipate needs and offer a smoother experience." },
+        { "p": "This intelligence supports decisions related to:" },
+        { "list": [
+          "Access management.",
+          "Space organization.",
+          "Operational planning.",
+          "Resource allocation.",
+          "Improving the visitor experience."
+        ] },
+        { "h3": "From traditional occupancy to smart space management" },
+        { "p": "The project marks a step forward in the digitalization of cultural spaces." },
+        { "p": "La Casa Encendida turns the information generated by its visitors into useful knowledge to better manage its facilities and adapt to the real needs of its audience." },
+        { "p": "Thanks to Flame Analytics, the center gains a new layer of intelligence that connects the physical activity of the space with more efficient, safe and visitor-oriented management." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Occupancy turned into knowledge",
+  "cifras": [
+    { "value": "Visitor Flow", "label": "Smart footfall", "desc": "Measuring the flow of visitors to understand the real use of the spaces." },
+    { "value": "Occupancy Analytics", "label": "Occupancy control", "desc": "Real-time information on occupancy levels and capacity." },
+    { "value": "Dynamic spaces", "label": "Flexible management", "desc": "Adapting resources to the demand and use of the facilities." },
+    { "value": "Visitor experience", "label": "Continuous improvement", "desc": "Objective data to offer a more comfortable and efficient visit." }
+  ],
+  "solTitle": "Flame capabilities applied at La Casa Encendida",
+  "soluciones": [
+    { "icon": "eye", "h3": "Occupancy Analytics", "p": "Measuring and intelligently controlling occupancy across different areas of the center." },
+    { "icon": "trend", "h3": "Traffic Analytics", "p": "Analysis of footfall and visitor evolution to understand how the space is used." },
+    { "icon": "route", "h3": "Visitor Flow Analytics", "p": "Understanding the movements and distribution of people within the facilities." },
+    { "icon": "chart", "h3": "Smart dashboards", "p": "Centralized visualization of indicators to support the daily management of the center." }
+  ]
+}

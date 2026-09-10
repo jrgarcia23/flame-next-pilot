@@ -1,0 +1,84 @@
+{
+  "eyebrow": "Case study · Fashion retail",
+  "h1": "How Havaianas digitalizes the in-store experience with real-time data",
+  "sub": "Havaianas drives the digitalization of its stores with Flame Analytics to measure customer behavior, optimize the shopping experience and gain a smarter view of the performance of its retail network.",
+  "badge": { "client": "Havaianas", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Digitalizing the point of sale allows us to better understand our customers' behavior and make decisions based on real data.",
+    "author": "Retail Innovation team",
+    "role": "Havaianas"
+  },
+  "elCaso": [
+    "Havaianas, one of the world's most recognized footwear brands, launched a digital transformation project for its physical stores together with Flame Analytics, with the goal of bringing business intelligence to the point of sale.",
+    "With an international presence and a network of its own stores across different markets, the company wanted objective information on visitor behavior to improve the customer experience, optimize daily operations and support decision-making with data.",
+    "Deploying Flame Analytics turns each store into a continuous source of information on <a href=\"/en/people-counting/\">footfall</a>, dwell time, journeys and customer behavior, offering a much more complete view of the performance of its retail spaces."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Understanding how customers interact with the physical store",
+      "body": [
+        { "p": "In an increasingly omnichannel retail environment, knowing only sales figures is no longer enough to understand a store's performance." },
+        { "p": "Havaianas needed to understand how customers use the physical space, which areas generate the most interest and how to optimize the shopping experience with objective, continuous information." },
+        { "p": "The main needs of the project included:" },
+        { "list": [
+          "Measuring visitor footfall in each store.",
+          "Analyzing customer dwell time.",
+          "Understanding journeys within the store.",
+          "Identifying the areas with the most interaction.",
+          "Assessing the impact of changes in visual merchandising.",
+          "Comparing behavior across different stores and markets.",
+          "Getting real-time information to support operational decisions."
+        ] },
+        { "p": "The goal was to add a layer of intelligence that would turn the daily activity of the stores into useful information for managing the business." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "A platform to turn behavior into knowledge",
+      "body": [
+        { "p": "Flame Analytics deployed an in-store analytics platform able to capture and process information on visitor behavior in a fully anonymized, privacy-respecting way." },
+        { "p": "Thanks to WiFi analytics technology and smart sensors, Havaianas can learn key indicators such as footfall, visit frequency, dwell time or the journeys taken within the store." },
+        { "p": "This data makes it possible to understand how customers interact with the retail space and to assess the effectiveness of product distribution, promotional campaigns and changes made in the store." },
+        { "p": "The platform also provides access to real-time dashboards from which teams can analyze the evolution of each store and compare results across different locations." },
+        { "h3": "A project designed for an international network" },
+        { "p": "The solution was designed to adapt to a store network spread across different countries, making it possible to keep a consistent measurement methodology and have comparable indicators across stores." },
+        { "p": "Thanks to this unified view, Havaianas can analyze global trends without losing the specific detail of each store." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "Connected stores and data-driven decisions",
+      "body": [
+        { "p": "With the implementation of Flame Analytics, Havaianas has continuous information on the activity of its physical stores." },
+        { "p": "Teams can analyze the evolution of visitors, identify peak hours, study behavior patterns and assess the impact of commercial actions practically in real time." },
+        { "p": "This information supports decisions related to:" },
+        { "list": [
+          "Layout optimization.",
+          "In-store resource management.",
+          "Campaign evaluation.",
+          "Commercial planning.",
+          "Improving the customer experience."
+        ] },
+        { "h3": "From the point of sale to smarter management" },
+        { "p": "The project marks an important step within Havaianas' <a href=\"/en/solution-for-retail-sector/\">retail digitalization</a> strategy." },
+        { "p": "Having reliable data on visitor behavior makes it possible to transform the traditional management of the physical store into a model based on objective information and continuous analysis." },
+        { "p": "Beyond measuring visitors, the company gains a new capability to better understand how its retail spaces work and how to optimize the shopping experience in each market." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Retail digitalization, measured",
+  "cifras": [
+    { "value": "International", "label": "Project scope", "desc": "Rollout across stores in different markets." },
+    { "value": "Real-time", "label": "Continuous information", "desc": "Up-to-date data on footfall, dwell time and behavior." },
+    { "value": "100%", "label": "Anonymized analytics", "desc": "Information obtained while respecting visitor privacy." },
+    { "value": "Retail Intelligence", "label": "Global view", "desc": "Comparison across stores and centralized analysis of the entire network." }
+  ],
+  "solTitle": "Flame capabilities applied at Havaianas",
+  "soluciones": [
+    { "icon": "users", "h3": "Visitor analytics", "p": "Measuring footfall, recurrence and dwell time to understand customer behavior." },
+    { "icon": "route", "h3": "Journey maps", "p": "Analysis of flows and high-interaction areas to optimize the layout and the in-store experience." },
+    { "icon": "chart", "h3": "Real-time dashboards", "p": "Centralized visualization of key indicators to support daily management and decision-making." },
+    { "icon": "grid", "h3": "Store comparison", "p": "Consistent indicators to analyze the performance of stores spread across different markets." }
+  ]
+}

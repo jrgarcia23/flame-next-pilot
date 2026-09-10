@@ -1,0 +1,75 @@
+{
+  "eyebrow": "Case study · Service stations",
+  "h1": "How Repsol improves the digital experience across more than 1,000 service stations",
+  "sub": "Repsol relies on Flame Analytics to provide smart connectivity across its service-station network, make it easier to use Waylet and gain valuable insight into how its customers interact.",
+  "badge": { "client": "Repsol", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Connectivity has become an essential part of the customer experience and an opportunity to generate business intelligence.",
+    "author": "Digital Customer Experience team",
+    "role": "Repsol"
+  },
+  "elCaso": [
+    "Repsol, one of Europe's leading multi-energy companies, continues to drive the digitalization of its service-station network through solutions that improve the customer experience and enable new digital services.",
+    "As part of this strategy, the company deployed a smart connectivity platform together with Flame Analytics across more than 1,000 service stations throughout Spain.",
+    "The project responds to a twofold goal: to guarantee a smooth digital experience for users and to have information that makes it possible to better understand the use of services at each station."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Guaranteeing a seamless digital experience",
+      "body": [
+        { "p": "More and more customers use mobile apps during their visit to the service station to make payments, access promotions or manage loyalty programs." },
+        { "p": "However, mobile coverage does not always deliver a consistent experience across all locations, especially at certain stations where the connection can be limited." },
+        { "p": "Repsol was looking for a solution that would:" },
+        { "list": [
+          "Guarantee customers' connectivity during their visit.",
+          "Make it easier to use Waylet as a digital payment method.",
+          "Improve the user experience across the whole network.",
+          "Gather aggregated information on service usage.",
+          "Have indicators to optimize station management.",
+          "Deploy a scalable solution across a large network."
+        ] },
+        { "quote": "The goal was to turn connectivity into a value-added service for the customer and, at the same time, into a source of useful information for the business." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "Smart connectivity for a large-scale network",
+      "body": [
+        { "p": "Flame Analytics deployed a <a href=\"/en/guest-wifi-marketing/\">smart connectivity</a> solution that lets customers access the Internet easily during their stay at the service station." },
+        { "p": "This infrastructure makes it easier to use digital services such as Waylet even in locations where mobile coverage may be limited, helping to deliver a more comfortable and continuous experience." },
+        { "p": "In addition to providing network access, the platform generates indicators on service usage and user activity, providing useful information for operational analysis and the continuous improvement of the customer experience." },
+        { "h3": "A rollout ready for thousands of users" },
+        { "p": "The project was designed to meet the needs of one of the largest service-station networks in the country." },
+        { "p": "The scalability of the solution makes it possible to maintain a consistent experience across all locations and to have centralized information to analyze how the network performs from a global perspective." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "A connected experience for thousands of customers",
+      "body": [
+        { "p": "With the implementation of Flame Analytics, Repsol offers a more consistent digital experience at its service stations, making it easier to access the company's mobile services and reducing the barriers associated with connectivity." },
+        { "p": "Teams can analyze network usage, track how connections evolve and have information that supports the continuous improvement of the service." },
+        { "p": "This information makes it possible to optimize both the customer experience and the <a href=\"/en/corporate-wifi-access/\">management of a distributed infrastructure</a> across the whole territory." },
+        { "h3": "From connectivity to operational intelligence" },
+        { "p": "The project marks a further step in Repsol's digitalization strategy." },
+        { "p": "Connectivity stops being merely an additional service and becomes an element that improves the customer experience and generates useful information to understand user behavior within the service-station network." },
+        { "quote": "Thanks to Flame Analytics, Repsol combines a better digital experience with data-driven management, reinforcing its commitment to innovation and digital transformation." }
+      ]
+    }
+  ],
+  "cifrasTitle": "A connected, intelligent network",
+  "cifras": [
+    { "value": "1,000+", "label": "Stations · reach", "desc": "Rollout of smart connectivity across Spain." },
+    { "value": "Waylet", "label": "Digital experience", "desc": "Connectivity that makes it easier to use the payment and loyalty app during the visit." },
+    { "value": "Real-time", "label": "Usage analytics", "desc": "Continuous information on connections and user interaction." },
+    { "value": "Scalability", "label": "Centralized management", "desc": "A single platform to manage and analyze a national service-station network." }
+  ],
+  "solTitle": "Flame capabilities applied at Repsol",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Smart guest WiFi", "p": "Connectivity to improve the customer experience and make it easier to access Repsol's digital services." },
+    { "icon": "chart", "h3": "Usage analytics", "p": "Information on connections, service usage and activity indicators to support decision-making." },
+    { "icon": "layers", "h3": "Digital experience", "p": "Integration with Repsol's digital ecosystem to make it easier to use Waylet and other mobile services." },
+    { "icon": "grid", "h3": "Network management", "p": "A centralized platform to manage and monitor the performance of more than 1,000 service stations from a single solution." }
+  ]
+}

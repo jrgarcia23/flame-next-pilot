@@ -1,0 +1,77 @@
+{
+  "eyebrow": "Case study · Shopping centers",
+  "h1": "How CBRE digitalizes loyalty in shopping centers with real-time data",
+  "sub": "CBRE Spain drives the digital transformation of its loyalty programs together with Flame Analytics to connect better with visitors, gather valuable data and improve the experience across its shopping centers.",
+  "badge": { "client": "CBRE Spain", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Loyalty is no longer only about offering rewards, but about understanding the visitor better to deliver more relevant experiences.",
+    "author": "Retail &amp; Property Management team",
+    "role": "CBRE Spain"
+  },
+  "elCaso": [
+    "CBRE Spain, one of the leading international real estate and <a href=\"/en/solution-for-shopping-malls/\">shopping center</a> management companies, began a digitalization project with Flame Analytics aimed at modernizing its relationship with visitors and gaining a more complete view of customer behavior.",
+    "The initiative was born with a twofold goal: to improve the user experience through a fully digital loyalty program and to give management teams useful information to optimize the commercial activity of each asset.",
+    "The project started with a rollout across six shopping centers managed by CBRE in Spain, laying the foundations for more connected, data-driven management."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Evolving loyalty toward a data-driven model",
+      "body": [
+        { "p": "Traditional loyalty programs are no longer enough to meet the expectations of today's consumers." },
+        { "p": "CBRE was looking for a solution that would simplify visitor participation, encourage repeat visits and, at the same time, capture information to better understand <a href=\"/en/customer-behavior/\">shopping habits</a> within each center." },
+        { "p": "The main objectives of the project included:" },
+        { "list": [
+          "Digitalizing participation in loyalty campaigns.",
+          "Making it easy to register purchases from a mobile device.",
+          "Improving the visitor experience throughout the process.",
+          "Gathering aggregated information on shopping habits.",
+          "Increasing the frequency of visits.",
+          "Having indicators to support commercial decision-making.",
+          "Unifying program management across different shopping centers."
+        ] },
+        { "quote": "The challenge was to turn loyalty into a strategic tool capable of generating value both for visitors and for management teams." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "A platform to connect customer experience and commercial intelligence",
+      "body": [
+        { "p": "Flame Analytics deployed a <a href=\"/en/connect/\">digital loyalty</a> solution that lets visitors take part in promotions and campaigns by scanning their purchase receipts from their own mobile devices." },
+        { "p": "Digitalizing the process removes friction for the user and simplifies the operational management of the program, offering a much more agile and accessible experience." },
+        { "p": "At the same time, the platform generates real-time information on user participation and shopping habits, giving shopping-center managers a far more complete view of commercial activity." },
+        { "p": "This data makes it possible to evaluate campaigns, identify consumption trends and support future marketing actions with objective information." },
+        { "h3": "A solution ready for multiple assets" },
+        { "p": "From the outset, the project was designed to adapt to a network of shopping centers managed under a single operating model." },
+        { "p": "This approach makes it easier to roll out a consistent loyalty strategy, keeping indicators comparable across different locations and allowing the project to scale in an orderly way as business needs evolve." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "A new way of engaging with visitors",
+      "body": [
+        { "p": "Thanks to the implementation of Flame Analytics, CBRE has a tool that makes it easier both for customers to take part and for marketing teams to manage loyalty programs." },
+        { "p": "Digitalizing the process helps reduce manual tasks, speed up promotional campaigns and gain a continuous view of how visitors interact with the shopping center." },
+        { "p": "The data collected helps assess the effectiveness of campaigns, better understand user behavior and design increasingly personalized commercial actions." },
+        { "h3": "From loyalty to smarter shopping-center management" },
+        { "p": "The project marks a step forward in the digitalization strategy of the assets managed by CBRE." },
+        { "p": "Beyond offering promotions, the company gains a new capability to better understand its visitors and turn the information obtained into a tool to optimize the experience, improve the relationship with customers and support decision-making." },
+        { "quote": "Loyalty stops being merely an incentive program and becomes a continuous source of knowledge about user behavior." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Loyalty, powered by data",
+  "cifras": [
+    { "value": "6", "label": "Centers · first phase", "desc": "Initial rollout across assets managed by CBRE Spain." },
+    { "value": "100%", "label": "Digital experience", "desc": "Registration and campaign participation straight from mobile." },
+    { "value": "Real-time", "label": "Commercial intelligence", "desc": "Continuous information on participation and shopping habits." },
+    { "value": "1st-party", "label": "Own data", "desc": "Capturing first-party data to support campaigns and commercial decisions." }
+  ],
+  "solTitle": "Flame capabilities applied at CBRE Spain",
+  "soluciones": [
+    { "icon": "target", "h3": "Digital loyalty", "p": "A platform for promotional campaigns and participation through digital scanning of purchase receipts." },
+    { "icon": "users", "h3": "First-party data capture", "p": "Gathering the center's own visitor data to improve customer knowledge and personalize future actions." },
+    { "icon": "chart", "h3": "Campaign analytics", "p": "Real-time tracking of loyalty-action performance and user behavior." },
+    { "icon": "grid", "h3": "Multi-center management", "p": "A platform ready to operate consistently across different shopping centers under one marketing strategy." }
+  ]
+}

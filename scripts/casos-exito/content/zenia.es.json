@@ -1,0 +1,92 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo Zenia Boulevard transforma la relación con sus visitantes mediante datos e inteligencia comercial",
+  "sub": "Zenia Boulevard apuesta por Flame Analytics para conocer mejor a sus visitantes, generar conocimiento del cliente y mejorar la experiencia en uno de los centros comerciales al aire libre más relevantes de España.",
+  "badge": { "client": "Zenia Boulevard", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "Conocer mejor a nuestros visitantes nos permite crear experiencias más relevantes y establecer una relación más cercana con ellos.",
+    "author": "Equipo de Marketing",
+    "role": "Zenia Boulevard"
+  },
+  "elCaso": [
+    "Zenia Boulevard, uno de los principales <a href=\"/es/solucion-para-centros-comerciales/\">centros comerciales</a> al aire libre de España, ha incorporado Flame Analytics como plataforma de inteligencia para mejorar la relación con sus visitantes y evolucionar su estrategia de experiencia de cliente.",
+    "Con una amplia oferta comercial, gastronómica y de ocio, el centro necesitaba disponer de una visión más completa sobre quiénes son sus visitantes, <a href=\"/es/comportamiento-del-cliente/\">cómo interactúan con el espacio</a> y cómo convertir cada visita en una oportunidad para generar conocimiento.",
+    "A través de Flame Analytics, Zenia Boulevard integra capacidades de analítica, conectividad y marketing WiFi para transformar las interacciones de los visitantes en información útil para mejorar la experiencia y optimizar sus acciones comerciales."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Pasar de visitantes anónimos a clientes conocidos",
+      "body": [
+        { "p": "Los centros comerciales actuales no solo compiten por atraer visitantes, sino por construir relaciones duraderas con ellos." },
+        { "p": "Para lograrlo, necesitan comprender mejor quién visita el centro, qué intereses tiene y cómo interactúa con las diferentes propuestas comerciales." },
+        { "p": "Zenia Boulevard buscaba responder preguntas clave:" },
+        { "list": [
+          "¿Quiénes son sus visitantes?",
+          "¿Cómo construir una base de datos propia de clientes?",
+          "¿Cómo mejorar la comunicación con diferentes perfiles de usuarios?",
+          "¿Cómo crear experiencias más personalizadas?",
+          "¿Cómo aumentar la fidelización y la recurrencia?",
+          "¿Cómo transformar las interacciones digitales en conocimiento comercial?"
+        ] },
+        { "quote": "El objetivo era evolucionar desde una relación basada únicamente en la visita física hacia un modelo donde cada interacción aportase información útil para mejorar la experiencia del cliente." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una plataforma para conocer, conectar y activar al visitante",
+      "body": [
+        { "p": "Flame Analytics implantó una solución que combina servicios digitales asociados a la <a href=\"/es/marketing-wifi-para-invitados/\">conectividad WiFi</a> con capacidades de conocimiento del visitante y marketing basado en datos." },
+        { "p": "La plataforma permite a Zenia Boulevard captar información de sus visitantes mediante una experiencia digital sencilla, generando una base de datos propia que ayuda a comprender mejor a su audiencia." },
+        { "p": "Gracias a esta información, el centro puede:" },
+        { "list": [
+          "Crear perfiles de visitantes.",
+          "Segmentar audiencias.",
+          "Diseñar comunicaciones más relevantes.",
+          "Mejorar sus acciones de marketing.",
+          "Construir una relación más cercana con sus clientes."
+        ] },
+        { "p": "La información obtenida permite pasar de campañas generales a estrategias más personalizadas, adaptadas a los intereses y características de cada visitante." },
+        { "h3": "Del dato del visitante a una experiencia más personalizada" },
+        { "p": "La conectividad deja de ser únicamente un servicio añadido para convertirse en un punto de contacto digital capaz de generar valor." },
+        { "p": "Cada interacción ayuda a enriquecer el conocimiento del cliente y permite desarrollar acciones orientadas a mejorar la experiencia global dentro del centro comercial." },
+        { "p": "Esta visión combina tecnología y estrategia comercial para convertir los datos propios en una ventaja competitiva." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una relación más inteligente con los visitantes",
+      "body": [
+        { "p": "Con Flame Analytics, Zenia Boulevard dispone de nuevas capacidades para entender mejor a su audiencia y desarrollar acciones más relevantes." },
+        { "p": "Los equipos pueden analizar la información generada por los visitantes y utilizarla para mejorar iniciativas de marketing, comunicación y fidelización." },
+        { "p": "Esta inteligencia permite apoyar decisiones relacionadas con:" },
+        { "list": [
+          "Segmentación de clientes.",
+          "Campañas personalizadas.",
+          "Fidelización de visitantes.",
+          "Mejora de la experiencia.",
+          "Activación comercial."
+        ] },
+        { "h3": "De la captación de datos a la inteligencia del visitante" },
+        { "p": "El proyecto representa un paso adelante en la transformación digital de Zenia Boulevard." },
+        { "p": "La incorporación de datos propios permite al centro comercial construir una relación más directa con sus visitantes y comprender mejor sus necesidades." },
+        { "p": "Gracias a Flame Analytics, Zenia Boulevard convierte las interacciones digitales en conocimiento accionable, creando nuevas oportunidades para mejorar la experiencia, aumentar la fidelización y optimizar su estrategia comercial." }
+      ]
+    }
+  ],
+  "cifrasTitle": "El visitante convertido en conocimiento",
+  "cifras": [
+    { "value": "150+", "label": "Tiendas", "desc": "Centro comercial al aire libre con una amplia oferta comercial, gastronómica y de ocio." },
+    { "value": "First-Party Data", "label": "Conocimiento propio", "desc": "Captación de información de visitantes para construir una visión más completa del cliente." },
+    { "value": "Segmentación inteligente", "label": "Audiencias", "desc": "Datos preparados para crear comunicaciones más relevantes." },
+    { "value": "Customer Experience", "label": "Relación con visitantes", "desc": "Tecnología aplicada para mejorar la experiencia y la fidelización." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Zenia Boulevard",
+  "soluciones": [
+    { "icon": "users", "h3": "Visitor Intelligence", "p": "Conocimiento del visitante para comprender perfiles, intereses e interacción con el centro comercial." },
+    { "icon": "wifi", "h3": "Guest WiFi Experience", "p": "Conectividad como punto de contacto digital para mejorar la experiencia y generar datos propios." },
+    { "icon": "layers", "h3": "First-Party Data", "p": "Captación y enriquecimiento de información de clientes para construir una estrategia de relación directa." },
+    { "icon": "repeat", "h3": "Marketing Automation", "p": "Segmentación y activación de campañas personalizadas para mejorar engagement y fidelización." },
+    { "icon": "grid", "h3": "Dashboards inteligentes", "p": "Visualización de indicadores clave para analizar el rendimiento de las acciones comerciales." }
+  ]
+}

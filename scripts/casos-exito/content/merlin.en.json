@@ -1,0 +1,92 @@
+{
+  "eyebrow": "Case study · Shopping centers",
+  "h1": "How Merlin Properties turns its visitor data into strategic decisions",
+  "sub": "Merlin Properties drives the digitalization of its shopping centers together with Flame Analytics to better understand visitor behavior, optimize the management of its assets and improve the customer experience through advanced analytics.",
+  "badge": { "client": "Merlin Properties", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Data helps us adapt, make better decisions and stand out in an increasingly competitive environment.",
+    "author": "Lucas Madiedo Riera",
+    "role": "Digital Transformation Director for Shopping Centers · Merlin Properties"
+  },
+  "elCaso": [
+    "Merlin Properties, one of Spain's leading real estate companies, has committed to the digitalization of its <a href=\"/en/solution-for-shopping-malls/\">shopping centers</a> by incorporating advanced analytics to better understand how its visitors behave and improve the management of its assets.",
+    "In collaboration with Flame Analytics, the company has deployed a physical-space intelligence solution that makes it possible to analyze key indicators of customer behavior, such as unique visitors, <a href=\"/en/traffic-insights/\">movement flows</a> and dwell times within its shopping centers.",
+    "The project responds to a strategic need: to move from management based solely on traditional indicators to a model where visitor data helps optimize the experience, improve operational efficiency and make more informed decisions."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Understanding the visitor beyond footfall",
+      "body": [
+        { "p": "Today's shopping centers need to know much more than the number of people who visit them." },
+        { "p": "The evolution of retail requires understanding how customers behave within the space: which areas they use, how long they stay, how their habits evolve and what opportunities exist to improve their experience." },
+        { "p": "Merlin Properties wanted to incorporate a more complete view of its visitors' behavior in order to answer key questions:" },
+        { "list": [
+          "How many unique visitors does each center receive?",
+          "How do visits evolve over time?",
+          "How long do customers stay in each area?",
+          "Which areas generate the most interaction?",
+          "How can performance be compared across different assets?",
+          "How can this data be used to optimize operations and commercial actions?"
+        ] },
+        { "quote": "The goal was to have a global view of the portfolio that would make it possible to manage each shopping center with objective, comparable information." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "An intelligence layer to manage data-driven shopping centers",
+      "body": [
+        { "p": "Flame Analytics deployed an advanced analytics platform that allows Merlin Properties to better understand visitor behavior within its shopping centers." },
+        { "p": "The solution provides information on:" },
+        { "list": [
+          "Number of unique visitors.",
+          "Movement flows.",
+          "Dwell time.",
+          "Areas of greatest activity.",
+          "Behavior patterns."
+        ] },
+        { "p": "These indicators make it possible to better understand the relationship between visitors and the physical space, bringing a new perspective to optimize the customer experience and asset management." },
+        { "p": "In addition, the information generated helps Merlin Properties teams make decisions related to operations, commercial planning, space distribution and marketing strategies." },
+        { "h3": "A common view for a network of shopping centers" },
+        { "p": "One of the great values of the project is having a consistent methodology to analyze different assets within the portfolio." },
+        { "p": "Having comparable indicators makes it possible to identify trends, detect improvement opportunities and share learnings across shopping centers." },
+        { "p": "This global view enables smarter management of the portfolio and makes it possible to adapt each space to the real needs of its visitors." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "From measuring traffic to visitor intelligence",
+      "body": [
+        { "p": "With Flame Analytics, Merlin Properties has a deeper view of how visitors interact with its shopping centers." },
+        { "p": "This information makes it possible to analyze behavior patterns, identify improvement opportunities and make decisions from a data-driven perspective." },
+        { "p": "Teams can use these insights to:" },
+        { "list": [
+          "Optimize the visitor experience.",
+          "Improve operational efficiency.",
+          "Analyze the performance of different areas.",
+          "Design more relevant commercial actions.",
+          "Share knowledge across assets."
+        ] },
+        { "h3": "A new way of managing shopping centers" },
+        { "p": "The project marks a step forward in the digital transformation of real estate retail." },
+        { "p": "For Merlin Properties, analytics stops being merely a measurement tool and becomes a strategic capability to better understand the visitor and continuously evolve its commercial spaces." },
+        { "p": "The combination of data, technology and customer knowledge makes it possible to build more efficient centers, better adapted to users' needs and ready for the future of retail." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Visitor behavior turned into knowledge",
+  "cifras": [
+    { "value": "10", "label": "Shopping centers", "desc": "Rollout of advanced analytics across a network of retail assets." },
+    { "value": "Unique visitor", "label": "New strategic KPI", "desc": "A key metric to know the real volume of users who visit the centers." },
+    { "value": "Dwell time", "label": "Visitor engagement", "desc": "Information to understand interaction with the different areas of the center." },
+    { "value": "Portfolio", "label": "Global view", "desc": "Comparable data to improve the management of a network of shopping centers." }
+  ],
+  "solTitle": "Flame capabilities applied at Merlin Properties",
+  "soluciones": [
+    { "icon": "users", "h3": "Customer Behavior Analytics", "p": "Analysis of visitor behavior to understand how they use the commercial spaces." },
+    { "icon": "eye", "h3": "Visitor Intelligence", "p": "Measuring unique visitors, dwell time and interaction patterns within the center." },
+    { "icon": "route", "h3": "Customer Journey Analytics", "p": "Understanding journeys and areas of greatest activity to improve the experience." },
+    { "icon": "grid", "h3": "Smart dashboards", "p": "Centralized visualization of KPIs to support operational and strategic decisions." },
+    { "icon": "wifi", "h3": "WiFi Analytics", "p": "Using connectivity as an additional source of information to better understand visitor activity." }
+  ]
+}

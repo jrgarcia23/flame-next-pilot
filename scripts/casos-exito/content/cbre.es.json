@@ -1,0 +1,77 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo CBRE digitaliza la fidelización en centros comerciales con datos en tiempo real",
+  "sub": "CBRE España impulsa la transformación digital de sus programas de fidelización junto a Flame Analytics para conectar mejor con los visitantes, obtener datos de valor y mejorar la experiencia en sus centros comerciales.",
+  "badge": { "client": "CBRE España", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La fidelización ya no consiste únicamente en ofrecer recompensas, sino en comprender mejor al visitante para ofrecer experiencias más relevantes.",
+    "author": "Equipo de Retail &amp; Property Management",
+    "role": "CBRE España"
+  },
+  "elCaso": [
+    "CBRE España, una de las principales compañías internacionales de gestión inmobiliaria y de <a href=\"/es/solucion-para-centros-comerciales/\">centros comerciales</a>, inició junto a Flame Analytics un proyecto de digitalización orientado a modernizar la relación con los visitantes y obtener una visión más completa del comportamiento de sus clientes.",
+    "La iniciativa nace con un doble objetivo: mejorar la experiencia de los usuarios mediante un programa de fidelización completamente digital y proporcionar a los equipos de gestión información útil para optimizar la actividad comercial de cada activo.",
+    "El proyecto comenzó con el despliegue en seis centros comerciales gestionados por CBRE en España, sentando las bases para una gestión más conectada y basada en datos."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Evolucionar la fidelización hacia un modelo basado en datos",
+      "body": [
+        { "p": "Los programas tradicionales de fidelización han dejado de ser suficientes para responder a las expectativas de los consumidores actuales." },
+        { "p": "CBRE buscaba una solución que permitiera simplificar la participación de los visitantes, incentivar la recurrencia y, al mismo tiempo, obtener información que ayudara a comprender mejor los <a href=\"/es/comportamiento-del-cliente/\">hábitos de compra</a> dentro de cada centro comercial." },
+        { "p": "Entre los principales objetivos del proyecto se encontraban:" },
+        { "list": [
+          "Digitalizar el proceso de participación en campañas de fidelización.",
+          "Facilitar el registro de compras desde el móvil.",
+          "Mejorar la experiencia del visitante durante todo el proceso.",
+          "Obtener información agregada sobre hábitos de compra.",
+          "Incrementar la recurrencia de visitas.",
+          "Disponer de indicadores que apoyaran la toma de decisiones comerciales.",
+          "Unificar la gestión del programa en diferentes centros comerciales."
+        ] },
+        { "quote": "El reto consistía en transformar la fidelización en una herramienta estratégica capaz de generar valor tanto para los visitantes como para los equipos de gestión." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una plataforma para conectar experiencia de cliente e inteligencia comercial",
+      "body": [
+        { "p": "Flame Analytics implantó una solución de <a href=\"/es/connect/\">fidelización digital</a> que permite a los visitantes participar en promociones y campañas mediante el escaneo de sus tickets de compra desde sus propios dispositivos móviles." },
+        { "p": "La digitalización del proceso elimina fricciones para el usuario y simplifica la gestión operativa del programa, ofreciendo una experiencia mucho más ágil y accesible." },
+        { "p": "Al mismo tiempo, la plataforma genera información en tiempo real sobre la participación de los usuarios y los hábitos de compra, proporcionando a los gestores del centro comercial una visión mucho más completa de la actividad comercial." },
+        { "p": "Estos datos permiten evaluar campañas, identificar tendencias de consumo y apoyar futuras acciones de marketing con información objetiva." },
+        { "h3": "Una solución preparada para múltiples activos" },
+        { "p": "Desde el inicio, el proyecto se diseñó para adaptarse a una red de centros comerciales gestionados bajo un mismo modelo operativo." },
+        { "p": "Esta aproximación facilita la implantación de una estrategia homogénea de fidelización, manteniendo indicadores comparables entre diferentes ubicaciones y permitiendo escalar el proyecto de forma ordenada conforme evolucionan las necesidades del negocio." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una nueva forma de relacionarse con los visitantes",
+      "body": [
+        { "p": "Gracias a la implantación de Flame Analytics, CBRE dispone de una herramienta que facilita tanto la participación de los clientes como la gestión de los programas de fidelización por parte de los equipos de marketing." },
+        { "p": "La digitalización del proceso permite reducir tareas manuales, agilizar las campañas promocionales y obtener una visión continua sobre la interacción de los visitantes con el centro comercial." },
+        { "p": "Los datos recopilados ayudan a evaluar la eficacia de las campañas, conocer mejor el comportamiento de los usuarios y diseñar acciones comerciales cada vez más personalizadas." },
+        { "h3": "De la fidelización a una gestión más inteligente del centro comercial" },
+        { "p": "El proyecto representa un paso adelante en la estrategia de digitalización de los activos gestionados por CBRE." },
+        { "p": "Más allá de ofrecer promociones, la compañía incorpora una nueva capacidad para comprender mejor a sus visitantes y convertir la información obtenida en una herramienta para optimizar la experiencia, mejorar la relación con los clientes y apoyar la toma de decisiones." },
+        { "quote": "La fidelización deja de ser únicamente un programa de incentivos para convertirse en una fuente continua de conocimiento sobre el comportamiento de los usuarios." }
+      ]
+    }
+  ],
+  "cifrasTitle": "La fidelización, impulsada por datos",
+  "cifras": [
+    { "value": "6", "label": "Centros · primera fase", "desc": "Implantación inicial en activos gestionados por CBRE España." },
+    { "value": "100%", "label": "Experiencia digital", "desc": "Registro y participación en campañas directamente desde el móvil." },
+    { "value": "Tiempo real", "label": "Inteligencia comercial", "desc": "Información continua sobre participación y hábitos de compra." },
+    { "value": "1st-party", "label": "Datos propios", "desc": "Captación de datos propios para apoyar campañas y decisiones comerciales." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en CBRE España",
+  "soluciones": [
+    { "icon": "target", "h3": "Fidelización digital", "p": "Plataforma para campañas promocionales y participación mediante escaneo digital de tickets de compra." },
+    { "icon": "users", "h3": "Captación de datos First-Party", "p": "Obtención de información propia de los visitantes para mejorar el conocimiento del cliente y personalizar futuras acciones." },
+    { "icon": "chart", "h3": "Analítica de campañas", "p": "Seguimiento en tiempo real del rendimiento de las acciones de fidelización y del comportamiento de los usuarios." },
+    { "icon": "grid", "h3": "Gestión multi-centro", "p": "Plataforma preparada para operar de forma homogénea en distintos centros comerciales bajo una misma estrategia de marketing." }
+  ]
+}

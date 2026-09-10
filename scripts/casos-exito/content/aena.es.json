@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Caso de éxito · Transporte y aeropuertos",
+  "h1": "Cómo Aena gestiona más de 2 millones de conexiones WiFi con una experiencia digital escalable",
+  "sub": "Aena confía en Flame Analytics para ofrecer una experiencia de acceso WiFi sencilla y segura en su red de aeropuertos, gestionar millones de conexiones y obtener información de valor sobre el comportamiento de los viajeros.",
+  "badge": { "client": "Aena", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "La conectividad es un servicio esencial para mejorar la experiencia del pasajero y una fuente de información clave para optimizar la gestión de los aeropuertos.",
+    "author": "Equipo de Transformación Digital",
+    "role": "Aena"
+  },
+  "elCaso": [
+    "Aena, gestor de la mayor <a href=\"/es/transporte-y-aeropuertos/\">red de aeropuertos</a> de España, continúa impulsando la transformación digital de sus infraestructuras mediante soluciones que mejoran la experiencia de los pasajeros y optimizan la gestión de sus servicios digitales.",
+    "Como parte de esta estrategia, la compañía implantó junto a Flame Analytics una plataforma de Guest WiFi integrada con su CRM para gestionar millones de conexiones en un entorno de alta disponibilidad.",
+    "El proyecto responde a un doble objetivo: ofrecer un acceso WiFi sencillo y escalable para los pasajeros y disponer de información que permita comprender mejor el <a href=\"/es/analitica-trafico/\">comportamiento de los viajeros</a> en toda la red aeroportuaria."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Gestionar millones de conexiones con una experiencia de acceso sencilla",
+      "body": [
+        { "p": "Cada día, millones de pasajeros utilizan la conectividad WiFi de los aeropuertos para consultar información de vuelos, acceder a servicios digitales, trabajar o mantenerse conectados durante su viaje." },
+        { "p": "Gestionar este volumen de conexiones exige una infraestructura capaz de garantizar disponibilidad, rendimiento y una experiencia homogénea en todos los aeropuertos." },
+        { "p": "Aena buscaba una solución que permitiera:" },
+        { "list": [
+          "Gestionar más de 2 millones de conexiones WiFi de forma centralizada.",
+          "Garantizar un servicio de alta disponibilidad y gran escalabilidad.",
+          "Facilitar un acceso rápido y sencillo para los pasajeros.",
+          "Integrar la plataforma con su CRM.",
+          "Automatizar campañas y comunicaciones dirigidas a los usuarios.",
+          "Obtener información sobre el comportamiento y los patrones de uso de los viajeros."
+        ] },
+        { "quote": "El objetivo era convertir el servicio WiFi en una plataforma estratégica para mejorar la experiencia del pasajero y generar inteligencia de negocio basada en datos." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una plataforma Guest WiFi preparada para una red aeroportuaria de gran escala",
+      "body": [
+        { "p": "Flame Analytics desplegó una plataforma de <a href=\"/es/marketing-wifi-para-invitados/\">Guest WiFi</a> integrada con el CRM de Aena que permite gestionar de forma centralizada el acceso inalámbrico en toda la red de aeropuertos." },
+        { "p": "La solución incorpora funcionalidades como:" },
+        { "list": [
+          "Portal cautivo personalizable.",
+          "Segmentación de usuarios.",
+          "Reconexión automática.",
+          "Integración con CRM.",
+          "Gestión de eventos en tiempo real."
+        ] },
+        { "p": "Además de facilitar el acceso a Internet, la plataforma permite automatizar procesos comerciales, gestionar la relación con los usuarios y disponer de información en tiempo real para optimizar la operación." },
+        { "h3": "Una infraestructura preparada para millones de conexiones" },
+        { "p": "La solución ha sido diseñada para operar en un entorno de alta disponibilidad y soportar millones de conexiones, garantizando una experiencia consistente para los pasajeros y una administración centralizada de toda la infraestructura WiFi." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Una experiencia digital conectada para millones de pasajeros",
+      "body": [
+        { "p": "Con la implantación de Flame Analytics, Aena ofrece una experiencia de acceso WiFi más sencilla, rápida y consistente para los pasajeros en toda su red de aeropuertos." },
+        { "p": "La plataforma permite gestionar de forma centralizada el servicio, automatizar acciones de comunicación y disponer de información en tiempo real para mejorar continuamente la experiencia de los viajeros." },
+        { "p": "Gracias a la integración con el CRM y a las capacidades de segmentación, Aena puede ofrecer comunicaciones más relevantes y optimizar la relación con los usuarios durante su paso por el aeropuerto." },
+        { "h3": "Del acceso WiFi al conocimiento del viajero" },
+        { "p": "El proyecto representa un paso más en la estrategia de transformación digital de Aena." },
+        { "p": "La conectividad deja de ser únicamente un servicio para los pasajeros y se convierte en una plataforma que permite conocer mejor el comportamiento de los viajeros, automatizar campañas comerciales y apoyar la toma de decisiones mediante información en tiempo real." },
+        { "quote": "Gracias a Flame Analytics, Aena combina una experiencia digital de alta calidad con una gestión centralizada, escalable y basada en datos." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Una red WiFi preparada para millones de usuarios",
+  "cifras": [
+    { "value": "2M+", "label": "Conexiones WiFi", "desc": "Gestión de un servicio de alta disponibilidad para millones de pasajeros." },
+    { "value": "Alta disponibilidad", "label": "Infraestructura", "desc": "Infraestructura diseñada para garantizar continuidad del servicio y escalabilidad." },
+    { "value": "Tiempo real", "label": "Eventos y CRM", "desc": "Gestión de eventos, analítica de uso e integración con CRM." },
+    { "value": "Gestión centralizada", "label": "Red aeroportuaria", "desc": "Una única plataforma para administrar el servicio WiFi de toda la red de aeropuertos." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Aena",
+  "soluciones": [
+    { "icon": "wifi", "h3": "Guest WiFi inteligente", "p": "Plataforma para gestionar el acceso WiFi de millones de pasajeros de forma sencilla y escalable." },
+    { "icon": "target", "h3": "Portal cautivo", "p": "Acceso personalizado con una experiencia de usuario optimizada." },
+    { "icon": "layers", "h3": "CRM y automatización", "p": "Integración con CRM para segmentación de usuarios y automatización de campañas comerciales." },
+    { "icon": "chart", "h3": "Analítica en tiempo real", "p": "Información sobre conexiones, comportamiento de los viajeros y eventos para apoyar la toma de decisiones." },
+    { "icon": "grid", "h3": "Gestión centralizada", "p": "Administración unificada de toda la infraestructura WiFi de la red aeroportuaria." }
+  ]
+}

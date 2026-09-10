@@ -1,0 +1,83 @@
+{
+  "eyebrow": "Case study · Shopping centers",
+  "h1": "How Ferial Plaza turns the visitor experience into commercial intelligence",
+  "sub": "Ferial Plaza chooses Flame Analytics to better understand its visitors, boost the capture of first-party data and personalize communication with its customers through a data-driven strategy.",
+  "badge": { "client": "Ferial Plaza", "date": "July 2026", "readTime": "4 min read" },
+  "quote": {
+    "text": "Getting to know our visitors better lets us offer more relevant experiences and build a much closer relationship with them.",
+    "author": "Marketing team",
+    "role": "Ferial Plaza"
+  },
+  "elCaso": [
+    "Ferial Plaza, one of the leading <a href=\"/en/solution-for-shopping-malls/\">shopping centers</a> in Castilla-La Mancha, wanted to evolve its marketing strategy toward a more personalized model based on its own data.",
+    "With a wide commercial offering and a high volume of visitors, the center needed a solution that would let it know its audience better, improve communication with its customers and have useful information to support future commercial decisions.",
+    "To achieve this, Ferial Plaza trusted Flame Analytics to deploy a platform capable of capturing visitor data, segmenting it intelligently and turning every interaction into an opportunity to strengthen the relationship with its customers."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "The challenge",
+      "h2": "Moving from the anonymous visitor to the known customer",
+      "body": [
+        { "p": "Shopping centers welcome thousands of visitors every week, but often do not know who they are, what interests they have or how they interact with the center." },
+        { "p": "Ferial Plaza needed to transform that reality and answer key questions such as:" },
+        { "list": [
+          "Who visits the shopping center?",
+          "What demographic profile do the visitors have?",
+          "How can we build our own customer database?",
+          "How can we personalize marketing campaigns?",
+          "How can we increase the frequency of visits?",
+          "How can we improve the relevance of communications?",
+          "How can we measure the impact of the actions carried out?"
+        ] },
+        { "quote": "The goal was to turn the information generated during the visit into a tool to improve both the customer experience and the effectiveness of commercial actions." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "The solution",
+      "h2": "A platform to connect better with every visitor",
+      "body": [
+        { "p": "Flame Analytics deployed a solution that lets Ferial Plaza offer <a href=\"/en/guest-wifi-marketing/\">connectivity to visitors</a> while gathering, with their consent, relevant information to enrich its marketing strategy." },
+        { "p": "The platform facilitates the capture of first-party data and its automatic segmentation according to variables such as demographic profile, <a href=\"/en/customer-behavior/\">behavior</a> or interests, making it possible to build highly qualified audiences." },
+        { "p": "Thanks to this information, the marketing team can design more relevant campaigns, personalize communication and improve the relationship with visitors throughout their entire lifecycle." },
+        { "p": "All the information is managed from a single platform, simplifying campaign administration and providing real-time indicators on the performance of the actions carried out." },
+        { "h3": "From data to personalized marketing" },
+        { "p": "Beyond capturing information, the solution makes it possible to activate segmented campaigns aimed at specific audiences, increasing the relevance of each communication and improving interaction with customers." },
+        { "p": "This strategy based on first-party data helps reduce dependence on external platforms and strengthens the shopping center's ability to build lasting relationships with its audience." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "In progress",
+      "h2": "Smarter marketing thanks to data",
+      "body": [
+        { "p": "With Flame Analytics, Ferial Plaza has a far more complete view of its visitors and can transform that information into more effective marketing actions." },
+        { "p": "Teams can analyze the growth of their database, better understand the profile of their customers and evaluate the performance of the campaigns carried out." },
+        { "p": "This information supports decisions related to:" },
+        { "list": [
+          "Acquisition of new users.",
+          "Audience segmentation.",
+          "Campaign personalization.",
+          "Visitor loyalty.",
+          "Optimization of marketing actions."
+        ] },
+        { "h3": "From mass marketing to a personalized relationship" },
+        { "p": "The project marks an important step in Ferial Plaza's digitalization strategy." },
+        { "p": "Capturing first-party data makes it possible to build a direct relationship with visitors, better understand their interests and offer far more relevant communications." },
+        { "p": "Thanks to Flame Analytics, the shopping center turns every visit into an opportunity to generate knowledge, improve the customer experience and develop a more efficient and sustainable marketing strategy." }
+      ]
+    }
+  ],
+  "cifrasTitle": "Visitor knowledge, turned into value",
+  "cifras": [
+    { "value": "First-party data", "label": "Customer knowledge", "desc": "Capturing own data to build a qualified customer base." },
+    { "value": "Smart segmentation", "label": "Audiences", "desc": "Automatic classification of visitors according to profile and interests." },
+    { "value": "Personalized marketing", "label": "Communication", "desc": "Campaigns tailored to each type of visitor to improve engagement." },
+    { "value": "Real-time", "label": "Actionable information", "desc": "Continuous indicators to optimize commercial actions and loyalty." }
+  ],
+  "solTitle": "Flame capabilities applied at Ferial Plaza",
+  "soluciones": [
+    { "icon": "users", "h3": "First-party data capture", "p": "Gathering the visitors' own data through a simple, conversion-oriented digital experience." },
+    { "icon": "target", "h3": "Audience segmentation", "p": "Automatic classification of users to create more relevant and effective campaigns." },
+    { "icon": "repeat", "h3": "Marketing Automation", "p": "Activation of personalized campaigns based on the behavior and profile of each visitor." },
+    { "icon": "grid", "h3": "Smart dashboards", "p": "Real-time visualization of capture, segmentation and performance indicators to support the marketing team's decision-making." }
+  ]
+}

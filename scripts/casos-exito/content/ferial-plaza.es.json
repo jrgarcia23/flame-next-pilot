@@ -1,0 +1,83 @@
+{
+  "eyebrow": "Caso de éxito · Centros comerciales",
+  "h1": "Cómo Ferial Plaza convierte la experiencia del visitante en inteligencia comercial",
+  "sub": "Ferial Plaza apuesta por Flame Analytics para comprender mejor a sus visitantes, impulsar la captación de datos propios y personalizar la comunicación con sus clientes mediante una estrategia basada en datos.",
+  "badge": { "client": "Ferial Plaza", "date": "Julio 2026", "readTime": "4 min de lectura" },
+  "quote": {
+    "text": "Conocer mejor a nuestros visitantes nos permite ofrecer experiencias más relevantes y construir una relación mucho más cercana con ellos.",
+    "author": "Equipo de Marketing",
+    "role": "Ferial Plaza"
+  },
+  "elCaso": [
+    "Ferial Plaza, uno de los principales <a href=\"/es/solucion-para-centros-comerciales/\">centros comerciales</a> de Castilla-La Mancha, buscaba evolucionar su estrategia de marketing hacia un modelo más personalizado y basado en datos propios.",
+    "Con una amplia oferta comercial y un elevado volumen de visitantes, el centro necesitaba una solución que le permitiera conocer mejor a su audiencia, mejorar la comunicación con sus clientes y disponer de información útil para apoyar futuras decisiones comerciales.",
+    "Para ello, Ferial Plaza confió en Flame Analytics para implantar una plataforma capaz de captar datos de los visitantes, segmentarlos de forma inteligente y convertir cada interacción en una oportunidad para fortalecer la relación con sus clientes."
+  ],
+  "blocks": [
+    {
+      "id": "reto", "num": "01", "eyebrow": "El reto",
+      "h2": "Pasar del visitante anónimo al cliente conocido",
+      "body": [
+        { "p": "Los centros comerciales reciben miles de visitantes cada semana, pero en muchas ocasiones desconocen quiénes son, qué intereses tienen o cómo interactúan con el centro." },
+        { "p": "Ferial Plaza necesitaba transformar esa realidad y responder a preguntas clave como:" },
+        { "list": [
+          "¿Quiénes visitan el centro comercial?",
+          "¿Qué perfil demográfico tienen los visitantes?",
+          "¿Cómo construir una base de datos propia de clientes?",
+          "¿Cómo personalizar las campañas de marketing?",
+          "¿Cómo aumentar la recurrencia de las visitas?",
+          "¿Cómo mejorar la relevancia de las comunicaciones?",
+          "¿Cómo medir el impacto de las acciones realizadas?"
+        ] },
+        { "quote": "El objetivo era convertir la información generada durante la visita en una herramienta para mejorar tanto la experiencia del cliente como la eficacia de las acciones comerciales." }
+      ]
+    },
+    {
+      "id": "solucion", "num": "02", "eyebrow": "La solución",
+      "h2": "Una plataforma para conectar mejor con cada visitante",
+      "body": [
+        { "p": "Flame Analytics implantó una solución que permite a Ferial Plaza ofrecer <a href=\"/es/marketing-wifi-para-invitados/\">conectividad a los visitantes</a> mientras obtiene, con su consentimiento, información relevante para enriquecer su estrategia de marketing." },
+        { "p": "La plataforma facilita la captación de datos first-party y su segmentación automática según variables como perfil demográfico, <a href=\"/es/comportamiento-del-cliente/\">comportamiento</a> o intereses, permitiendo construir audiencias altamente cualificadas." },
+        { "p": "Gracias a esta información, el equipo de marketing puede diseñar campañas más relevantes, personalizar la comunicación y mejorar la relación con los visitantes durante todo su ciclo de vida." },
+        { "p": "Toda la información se gestiona desde una única plataforma, simplificando la administración de campañas y proporcionando indicadores en tiempo real sobre el rendimiento de las acciones realizadas." },
+        { "h3": "Del dato al marketing personalizado" },
+        { "p": "Más allá de la captación de información, la solución permite activar campañas segmentadas dirigidas a públicos específicos, incrementando la relevancia de cada comunicación y mejorando la interacción con los clientes." },
+        { "p": "Esta estrategia basada en datos propios ayuda a reducir la dependencia de plataformas externas y fortalece la capacidad del centro comercial para construir relaciones duraderas con su audiencia." }
+      ]
+    },
+    {
+      "id": "resultados", "num": "03", "eyebrow": "En marcha",
+      "h2": "Marketing más inteligente gracias a los datos",
+      "body": [
+        { "p": "Con Flame Analytics, Ferial Plaza dispone de una visión mucho más completa de sus visitantes y puede transformar esa información en acciones de marketing más eficaces." },
+        { "p": "Los equipos pueden analizar el crecimiento de su base de datos, conocer mejor el perfil de sus clientes y evaluar el rendimiento de las campañas realizadas." },
+        { "p": "Esta información facilita decisiones relacionadas con:" },
+        { "list": [
+          "Captación de nuevos usuarios.",
+          "Segmentación de audiencias.",
+          "Personalización de campañas.",
+          "Fidelización de visitantes.",
+          "Optimización de las acciones de marketing."
+        ] },
+        { "h3": "Del marketing masivo a una relación personalizada" },
+        { "p": "El proyecto representa un paso importante en la estrategia de digitalización de Ferial Plaza." },
+        { "p": "La captación de datos first-party permite construir una relación directa con los visitantes, comprender mejor sus intereses y ofrecer comunicaciones mucho más relevantes." },
+        { "p": "Gracias a Flame Analytics, el centro comercial transforma cada visita en una oportunidad para generar conocimiento, mejorar la experiencia del cliente y desarrollar una estrategia de marketing más eficiente y sostenible." }
+      ]
+    }
+  ],
+  "cifrasTitle": "El conocimiento del visitante, convertido en valor",
+  "cifras": [
+    { "value": "First-Party Data", "label": "Conocimiento del cliente", "desc": "Captación de datos propios para construir una base de clientes cualificada." },
+    { "value": "Segmentación inteligente", "label": "Audiencias", "desc": "Clasificación automática de visitantes según perfil e intereses." },
+    { "value": "Marketing personalizado", "label": "Comunicación", "desc": "Campañas adaptadas a cada tipo de visitante para mejorar el engagement." },
+    { "value": "Tiempo real", "label": "Información accionable", "desc": "Indicadores continuos para optimizar las acciones comerciales y la fidelización." }
+  ],
+  "solTitle": "Las capacidades de Flame aplicadas en Ferial Plaza",
+  "soluciones": [
+    { "icon": "users", "h3": "Captación de First-Party Data", "p": "Obtención de datos propios de los visitantes mediante una experiencia digital sencilla y orientada a la conversión." },
+    { "icon": "target", "h3": "Segmentación de audiencias", "p": "Clasificación automática de usuarios para crear campañas más relevantes y eficaces." },
+    { "icon": "repeat", "h3": "Marketing Automation", "p": "Activación de campañas personalizadas basadas en el comportamiento y el perfil de cada visitante." },
+    { "icon": "grid", "h3": "Dashboards inteligentes", "p": "Visualización en tiempo real de indicadores de captación, segmentación y rendimiento para apoyar la toma de decisiones del equipo de marketing." }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "eyebrow": "Case study · Retail",
+  "h1": "How IKEA drives in-store intelligence in its stores in Mexico",
+  "sub": "IKEA relies on Flame Analytics to analyze visitor behavior in its stores in Mexico and turn physical traffic into key information to optimize operations and improve the shopping experience.",
+  "badge": {
+    "client": "IKEA",
+    "date": "July 2026",
+    "readTime": "4 min read"
+  },
+  "quote": {
+    "text": "Understanding how customers behave inside the store is essential to deliver a better experience and optimize every operational decision.",
+    "author": "Retail Operations team",
+    "role": "IKEA Latin America"
+  },
+  "elCaso": [
+    "As part of its growth in Latin America, IKEA chose to adopt advanced analytics tools to better understand visitor behavior inside its stores in Mexico.",
+    "Flame Analytics is currently deployed in two IKEA stores in the country, providing continuous information on the traffic and occupancy of its retail spaces. In addition, the platform enables the capture of customer data through forms integrated into the WiFi connectivity, making it easy to gather information simply and in line with applicable regulations.",
+    "The goal is to have reliable data that helps optimize daily operations, improve the shopping experience and support decision-making with objective information."
+  ],
+  "blocks": [
+    {
+      "id": "reto",
+      "num": "01",
+      "eyebrow": "The challenge",
+      "h2": "Understanding behavior in large retail spaces",
+      "body": [
+        {
+          "p": "IKEA stores welcome thousands of visitors who move through large spaces, with multiple settings, <a href=\"/en/customer-journey/\">journeys</a> and display areas."
+        },
+        {
+          "p": "In this context, having only sales data does not allow a full understanding of how customers use the store or how they interact with each space."
+        },
+        {
+          "p": "IKEA wanted to add a platform able to answer questions such as:"
+        },
+        {
+          "list": [
+            "How many visitors access the store each day?",
+            "How does footfall evolve by day and time?",
+            "What occupancy levels does each area show?",
+            "How do customers behave during their journey?",
+            "How can operations be optimized based on real demand?",
+            "How can customer data be gathered in an integrated way through the WiFi network?"
+          ]
+        },
+        {
+          "p": "The need went beyond people counting: it was about turning visitor behavior into useful knowledge to improve point-of-sale management and to build a customer database gathered through WiFi access forms."
+        }
+      ]
+    },
+    {
+      "id": "solucion",
+      "num": "02",
+      "eyebrow": "The solution",
+      "h2": "Real-time intelligence for better store management",
+      "body": [
+        {
+          "p": "Flame Analytics deployed an analytics platform able to measure activity inside the stores through different data sources, providing a complete view of how each store works."
+        },
+        {
+          "p": "The solution makes it possible to analyze indicators such as footfall, occupancy, visitor presence and the evolution of traffic in real time."
+        },
+        {
+          "p": "In addition, thanks to WiFi connectivity, IKEA can capture customer data through access forms, centralizing this information in an integrated way within the platform."
+        },
+        {
+          "p": "With this data, teams can better understand visitor behavior patterns, identify moments of greatest activity and optimize operational planning."
+        },
+        {
+          "p": "The platform also makes it easier to compare periods and stores, providing consistent indicators for the entire network."
+        },
+        {
+          "h3": "A platform ready to support growth"
+        },
+        {
+          "p": "The solution has been designed to scale as IKEA continues to expand its presence in Latin America, allowing new stores to be added under the same analytics and data-management model."
+        }
+      ]
+    },
+    {
+      "id": "resultados",
+      "num": "03",
+      "eyebrow": "In progress",
+      "h2": "Data to optimize daily operations",
+      "body": [
+        {
+          "p": "With Flame Analytics, IKEA has continuous information on the activity of its stores."
+        },
+        {
+          "p": "Teams can analyze the evolution of traffic, identify peak hours, manage the occupancy of different areas and have objective information to optimize daily management."
+        },
+        {
+          "p": "The platform also makes it easier to capture customer data through forms connected to the WiFi network, allowing the company to expand visitor knowledge and have valuable information for future commercial actions carried out through other tools."
+        },
+        {
+          "p": "This information supports decisions related to:"
+        },
+        {
+          "list": [
+            "Resource planning.",
+            "Journey optimization.",
+            "Occupancy management.",
+            "Analysis of visitor behavior.",
+            "Improving the shopping experience."
+          ]
+        },
+        {
+          "h3": "A data-driven growth strategy"
+        },
+        {
+          "p": "The implementation of Flame Analytics is part of the digitalization strategy with which IKEA supports the development of its stores in Mexico."
+        },
+        {
+          "p": "Beyond measuring footfall, the company has a platform that makes it possible to understand how customers use the physical space, optimize daily operations and capture customer data through the WiFi infrastructure, generating useful information for the business and an increasingly intelligent view of <a href=\"/en/solution-for-retail-sector/\">its retail network</a>."
+        }
+      ]
+    }
+  ],
+  "cifrasTitle": "Point-of-sale intelligence, measured",
+  "cifras": [
+    {
+      "value": "2",
+      "label": "Stores in Mexico",
+      "desc": "Flame Analytics provides business intelligence for the IKEA stores deployed in the country."
+    },
+    {
+      "value": "Real-time",
+      "label": "Continuous information",
+      "desc": "Information on traffic, occupancy and visitor behavior."
+    },
+    {
+      "value": "Large format",
+      "label": "Big-box spaces",
+      "desc": "Analytics adapted to large-scale retail surfaces."
+    },
+    {
+      "value": "Data capture",
+      "label": "WiFi forms",
+      "desc": "Forms integrated through WiFi connectivity to gather customer data."
+    }
+  ],
+  "solTitle": "Flame capabilities applied at IKEA",
+  "soluciones": [
+    {
+      "icon": "trend",
+      "h3": "Traffic analytics",
+      "p": "Precise measurement of footfall, occupancy and presence to understand the performance of each store."
+    },
+    {
+      "icon": "eye",
+      "h3": "Occupancy management",
+      "p": "Real-time monitoring of activity across different areas to optimize the visitor experience."
+    },
+    {
+      "icon": "wifi",
+      "h3": "WiFi data capture",
+      "p": "Gathering customer information through forms integrated into the wireless network."
+    },
+    {
+      "icon": "users",
+      "h3": "Behavior analysis",
+      "p": "Information on traffic patterns and space usage to support decisions on operations, visual merchandising and planning."
+    },
+    {
+      "icon": "chart",
+      "h3": "Smart dashboards",
+      "p": "Centralized visualization of key indicators to compare performance across stores and periods."
+    }
+  ]
+}
