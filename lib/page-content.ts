@@ -345,6 +345,7 @@ export type SectorConfig = {
   useCasesBeforeCases?: boolean;   // coloca el módulo de casos de uso por encima de los casos de éxito
   hideProducts?: boolean;
   hideTestimonials?: boolean;      // oculta la sección de testimonios ("marcas que hablan de nosotros")
+  hideCaps?: boolean;              // oculta el bento de capacidades (deja solo la fila de confianza); útil con casos de uso
 };
 
 export type ProductConfig = {

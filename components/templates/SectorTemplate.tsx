@@ -186,6 +186,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       {isNewModel && cfg.capabilities && (
         <section className="py-24" style={{ background: "#fff" }}>
           <div className="flame-container">
+            {!cfg.hideCaps && (<>
             <div className="caps-head text-center" style={{ marginBottom: 44 }}>
               <span className="caps-eyebrow">{currentLang === "en" ? "What you can do" : "Qué puedes hacer"}</span>
               <h2 className="caps-h2">{cfg.capsTitle}</h2>
@@ -216,6 +217,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
                 );
               })}
             </div>
+            </>)}
             <div className="caps-trust">
               <span className="caps-trust-lead">{currentLang === "en" ? "And all of it, on top of what you already have, with full privacy:" : "Y todo, sobre lo que ya tienes y con total privacidad:"}</span>
               <div className="caps-trust-grid">
