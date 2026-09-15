@@ -18,7 +18,7 @@ export default function PreviewCasosUsoCentros() {
         ...CENTROS_CFG,
         showUseCases: true,        // activa el módulo de casos de uso
         hideProducts: true,        // quita el bloque "Productos integrales"
-        useCasesBeforeCases: false, // los casos de uso ocupan el sitio de los productos (tras los casos de éxito)
+        useCasesBeforeCases: true, // casos de uso justo debajo del CTA intermedio (antes de los casos de éxito)
         useCasesLayout: "numbers",
         useCasesEyebrow: "Casos de uso",
       }}

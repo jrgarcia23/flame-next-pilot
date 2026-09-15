@@ -20,6 +20,12 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
   // Nuevo modelo de sector (capa CRO): activo cuando el cfg define capacidades.
   const isNewModel = !!(cfg.capabilities && cfg.capabilities.length);
 
+  // Fondo de testimonios: normalmente paper. Si se ocultan los productos (el bloque
+  // blanco que separaba casos de éxito de testimonios) y los casos de uso NO van tras
+  // los casos de éxito, la sección anterior es "casos de éxito" (paper): en ese caso
+  // testimonios pasa a blanco para no encadenar dos fondos iguales.
+  const testimonialsBg = (cfg.hideProducts && (!cfg.showUseCases || cfg.useCasesBeforeCases)) ? "#fff" : "var(--color-paper)";
+
   // Franja CTA (misma que la home). Se coloca en distinta posición según el modelo:
   // nuevo → tras las capacidades (antes de casos); antiguo → tras productos.
   const ctaStrip = (
@@ -411,7 +417,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
 
       {/* TESTIMONIOS marquee (oculto si cfg.hideTestimonials) */}
       {!cfg.hideTestimonials && (
-      <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
+      <section className="py-24 overflow-hidden" style={{ background: testimonialsBg }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
             {t.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.testimonialsTitleHl}</span>
