@@ -1,0 +1,375 @@
+{
+  "_meta": {
+    "descripcion": "Etiquetado de casos de éxito para poder mostrarlos filtrados por sector / producto / caso de uso en las secciones de la web. Relleno 'otros' = todos los casos (por prioridad/fecha) cuando una sección no llega a N.",
+    "vocabularioSector": [
+      "retail",
+      "centros-comerciales",
+      "supermercados",
+      "hoteles",
+      "espacios-publicos",
+      "banca",
+      "transporte-y-aeropuertos"
+    ],
+    "vocabularioProducto": [
+      "Traffic",
+      "Connect",
+      "Customer Journey"
+    ],
+    "vocabularioCasoDeUso": [
+      "Conteo de personas",
+      "Analítica de conversión",
+      "Comportamiento y mapas de calor",
+      "Gestión de ocupación",
+      "Gestión de colas",
+      "Gestión de aseos",
+      "Marketing WiFi",
+      "WiFi corporativo",
+      "Recorrido del cliente",
+      "Interacción entre zonas y tiendas"
+    ],
+    "campos": {
+      "sector": "1+ slugs de sector (multi-valor permitido)",
+      "productos": "0+ productos Flame",
+      "casosDeUso": "0+ nombres EXACTOS de caso de uso de la web",
+      "prioridad": "1-5 (orden del relleno 'otros'; 5 = primero)",
+      "pendiente": "true = faltan tags producto/casoDeUso por completar (revisión JR)",
+      "revisar": "true = tags propuestos por mapeo del texto libre de la Excel; confirmar",
+      "slug": "'' = todavía no tiene página publicada"
+    }
+  },
+  "casos": [
+    {
+      "nombre": "Alain Afflelou",
+      "slug": "alain-afflelou-confia-en-la-analitica-de-flame-para-sus-tiendas-en-espana",
+      "sector": [
+        "retail"
+      ],
+      "productos": [
+        "Traffic"
+      ],
+      "casosDeUso": [
+        "Conteo de personas"
+      ],
+      "prioridad": 5
+    },
+    {
+      "nombre": "Havaianas",
+      "slug": "havainas-elige-flame-analytics-para-la-digitalizacion-de-sus-tiendas",
+      "sector": [
+        "retail"
+      ],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Marketing WiFi"
+      ],
+      "prioridad": 3
+    },
+    {
+      "nombre": "Ikea Latinoamérica",
+      "slug": "ikea-confia-en-flame-analytics-para-la-analitica-indoor-de-sus-nuevos-centros-en-latinoamerica",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 3,
+      "pendiente": true
+    },
+    {
+      "nombre": "Decathlon",
+      "slug": "decathlon-medir-y-mejorar-en-el-sector-retail",
+      "sector": [
+        "retail"
+      ],
+      "productos": [
+        "Customer Journey"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Recorrido del cliente",
+        "Analítica de conversión"
+      ],
+      "prioridad": 4
+    },
+    {
+      "nombre": "CBRE",
+      "slug": "caso-de-exito-potenciando-la-fidelizacion-en-centros-comerciales-en-cbre-espana",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
+      "prioridad": 5
+    },
+    {
+      "nombre": "Ferial Plaza",
+      "slug": "optimizacion-de-experiencia-de-clientes-en-cc-ferial-plaza-con-flame-analytics",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
+      "prioridad": 3
+    },
+    {
+      "nombre": "El Ingenio",
+      "slug": "centro-comercial-el-ingenio-caso-de-exito-flame-analytics",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Marketing WiFi",
+        "Comportamiento y mapas de calor"
+      ],
+      "prioridad": 3
+    },
+    {
+      "nombre": "Merlin Properties",
+      "slug": "impulsando-la-transformacion-digital-historia-de-exito-de-flame-analytics-en-merlin-properties",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Marketing WiFi",
+        "Comportamiento y mapas de calor"
+      ],
+      "prioridad": 4
+    },
+    {
+      "nombre": "Marineda City",
+      "slug": "centro-comercial-marineda-city-nuevo-cliente-de-flame-analytics",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Marketing WiFi",
+        "Comportamiento y mapas de calor"
+      ],
+      "prioridad": 4
+    },
+    {
+      "nombre": "Zenia Boulevard",
+      "slug": "el-centro-comercial-zenia-boulevard-nuevo-cliente-de-flame-analytics",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 3,
+      "pendiente": true
+    },
+    {
+      "nombre": "Plaza Eboli",
+      "slug": "plaza-eboli-reinventando-el-marketing-de-proximidad-del-centro-comercial",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 1,
+      "pendiente": true,
+      "nota": "Excel: 'creo que ya no es ni cliente' — confirmar si se mantiene"
+    },
+    {
+      "nombre": "Oasiz Madrid",
+      "slug": "oasiz-madrid-cuenta-con-flame-analytics-para-identificar-y-conectar-con-sus-clientes-de-forma-agil",
+      "sector": [
+        "centros-comerciales"
+      ],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
+      "prioridad": 3
+    },
+    {
+      "nombre": "La Casa Encendida",
+      "slug": "la-casa-encendida-una-experiencia-segura-con-flame-analytics",
+      "sector": [
+        "espacios-publicos"
+      ],
+      "productos": [
+        "Traffic"
+      ],
+      "casosDeUso": [
+        "Conteo de personas"
+      ],
+      "prioridad": 3
+    },
+    {
+      "nombre": "B&B Hotels",
+      "slug": "b-b-hotels-analitica-de-afluencia-flame-analytics",
+      "sector": [
+        "hoteles"
+      ],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
+      "prioridad": 3,
+      "nota": "página en DRAFT"
+    },
+    {
+      "nombre": "CaixaForum",
+      "slug": "transformando-la-experiencia-en-caixaforum-con-videoanalitica",
+      "sector": [
+        "espacios-publicos",
+        "banca"
+      ],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Gestión de ocupación",
+        "Marketing WiFi"
+      ],
+      "prioridad": 4,
+      "nota": "Excel lo tenía en Banking; JR: en ambos (cultura + banca)"
+    },
+    {
+      "nombre": "Repsol",
+      "slug": "caso-de-exito-repsol-y-flame-analytics-transforman-la-experiencia-en-1000-gasolineras",
+      "sector": [
+        "retail",
+        "supermercados"
+      ],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
+      "prioridad": 4,
+      "nota": "Excel Gasolineras; JR: retail + supermercados"
+    },
+    {
+      "nombre": "Aena",
+      "slug": "aena-analitica-de-pasajeros-en-aeropuertos-flame-analytics",
+      "sector": [
+        "transporte-y-aeropuertos"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 4,
+      "pendiente": true,
+      "nota": "página en DRAFT"
+    },
+    {
+      "nombre": "MultiÓpticas",
+      "slug": "multiopticas-convierte-el-trafico-en-tienda-en-decisiones-de-negocio",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 5,
+      "pendiente": true
+    },
+    {
+      "nombre": "Hoteles Viva",
+      "slug": "hotels-viva-mejora-la-experiencia-de-sus-huespedes-con-flame-analytics",
+      "sector": [
+        "hoteles"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "formato antiguo (no migrado al nuevo)"
+    },
+    {
+      "nombre": "Chafiras",
+      "slug": "las-chafiras-big-data-localizacion-indoor-para-descubrir-el-potencial-de-sus-puntos-de-venta",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "formato antiguo"
+    },
+    {
+      "nombre": "Johnny Rockets",
+      "slug": "johnny-rockets-experiencias-personalizadas-para-los-clientes",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "formato antiguo"
+    },
+    {
+      "nombre": "Fundación Santander",
+      "slug": "",
+      "sector": [
+        "banca"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "sin página; confirmar sector (¿banca o cultura?)"
+    },
+    {
+      "nombre": "Flying Tiger",
+      "slug": "",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "Excel: 'Pendiente de info'"
+    },
+    {
+      "nombre": "Hoff",
+      "slug": "",
+      "sector": [
+        "retail"
+      ],
+      "productos": [],
+      "casosDeUso": [],
+      "prioridad": 2,
+      "pendiente": true,
+      "nota": "Excel: 'Pendiente de info'"
+    }
+  ]
+}
