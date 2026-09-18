@@ -1,0 +1,97 @@
+{
+  "_fuente": "Matriz Industrias x Casos de uso (1).xlsx (rellenada por JR, 18-sep-2026)",
+  "industrias": {
+    "retail": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Analítica de conversión",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de colas",
+        "Gestión de aseos",
+        "Marketing WiFi",
+        "Interacción entre zonas y tiendas"
+      ],
+      "condicionales": [
+        "Gestión de aseos"
+      ]
+    },
+    "centros-comerciales": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Analítica de conversión",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de aseos",
+        "Marketing WiFi",
+        "WiFi corporativo",
+        "Recorrido del cliente",
+        "Interacción entre zonas y tiendas"
+      ],
+      "condicionales": [
+        "Analítica de conversión"
+      ]
+    },
+    "supermercados": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Analítica de conversión",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de colas",
+        "Gestión de aseos",
+        "Marketing WiFi",
+        "Recorrido del cliente",
+        "Interacción entre zonas y tiendas"
+      ],
+      "condicionales": [
+        "Gestión de aseos"
+      ]
+    },
+    "hoteles": {
+      "casosDeUso": [
+        "Marketing WiFi",
+        "WiFi corporativo",
+        "Interacción entre zonas y tiendas"
+      ],
+      "condicionales": [
+        "Interacción entre zonas y tiendas"
+      ]
+    },
+    "espacios-publicos": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de colas",
+        "Gestión de aseos",
+        "Marketing WiFi",
+        "Interacción entre zonas y tiendas"
+      ]
+    },
+    "banca": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de colas",
+        "Marketing WiFi",
+        "WiFi corporativo",
+        "Interacción entre zonas y tiendas"
+      ]
+    },
+    "transporte-y-aeropuertos": {
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Gestión de ocupación",
+        "Gestión de colas",
+        "Gestión de aseos",
+        "Marketing WiFi",
+        "WiFi corporativo",
+        "Recorrido del cliente",
+        "Interacción entre zonas y tiendas"
+      ]
+    }
+  }
+}

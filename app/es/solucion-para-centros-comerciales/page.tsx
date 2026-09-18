@@ -110,14 +110,17 @@ export const CENTROS_CFG: SectorConfig = {
   faqs: getFaqs("shopping-malls", "es"),
   ctaStripBold: "Convierte la afluencia en valor para inquilinos y visitantes.",
   ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu centro",
-  useCasesSub: "Conteo por zonas, tracking de clientes, conversión, ocupación, interacción entre tiendas o marketing WiFi: sea cual sea la prioridad de tu centro comercial, Flame ya tiene un caso de uso para resolverla.",
+  useCasesSub: "Conteo, comportamiento, recorrido, interacción, conversión, ocupación, aseos o WiFi: sea cual sea la prioridad de tu centro comercial, Flame ya tiene un caso de uso para resolverla.",
   useCases: [
     uc("conteo", "Mide la afluencia del centro por accesos y, además, por plantas, zonas y pasillos. Compara días, franjas horarias y el efecto de tus campañas."),
     { ...uc("comportamiento", "Recorridos, permanencia y mapas de calor por zona para optimizar el mix de inquilinos y la señalética, y medir el impacto real de tus acciones de marketing y de la publicidad en el centro."), title: "Tracking de clientes" },
-    uc("conversion", "Cruza el tráfico con las ventas de los locales para conocer la conversión real por zona y por operador."),
-    uc("ocupacion", "Controla la ocupación en tiempo real por zona y planta, con alertas para eventos y horas punta, incluidas las esperas en accesos, parking o restauración."),
-    uc("wifiInv", "Convierte el WiFi del centro en captación de contactos y conéctalo con tu programa de fidelización y tu CRM para comunicar y personalizar campañas."),
+    uc("recorrido", "Reconstruye el recorrido completo del visitante por el centro, de la entrada a las zonas y locales que visita, para entender los patrones de circulación."),
     { ...uc("recorrido", "Descubre cómo se relacionan las visitas entre zonas y tiendas: quién pasa del ocio a la moda, del súper a la restauración o de un anchor tenant a otras tiendas del centro."), title: "Interacción entre zonas y tiendas" },
+    uc("conversion", "Cruza las ventas de los locales con el tráfico y el conteo para conocer la conversión real por zona y por operador."),
+    uc("ocupacion", "Controla la ocupación en tiempo real por zona y planta, con alertas para eventos y horas punta."),
+    uc("aseos", "Programa la limpieza de los aseos según su uso real, no por un horario fijo, y mantén las instalaciones a punto en las horas de mayor afluencia."),
+    uc("wifiInv", "Convierte el WiFi del centro en captación de contactos y conéctalo con tu programa de fidelización y tu CRM para comunicar y personalizar campañas."),
+    uc("wifiCorp", "Ofrece redes WiFi corporativas seguras para los operadores y equipos del centro, separadas de la red de visitantes."),
   ],
 };
 
