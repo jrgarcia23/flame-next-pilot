@@ -419,7 +419,6 @@ const nextConfig: NextConfig = {
       { source: "/en/encuesta-flame-talks-2026",                 destination: "/en/community/",                      permanent: true },
       { source: "/en/flame-named-finalist-in-the-2023-mapic-awards-for-best-retail-innovation-solution", destination: "/en/community/", permanent: true },
       { source: "/en/flame-talks-2025-transforming-shopping-centers-innovation-data-experience-and-sustainability", destination: "/en/community/", permanent: true },
-      { source: "/en/flame-webinar-registration",                destination: "/en/community/",                      permanent: true },
       { source: "/en/flame-webinar-the-10-kpis-that-every-shopping-center-should-measure", destination: "/en/community/", permanent: true },
       { source: "/en/intelligent-video-analytics-solution-for-retail", destination: "/en/solution-for-retail-sector/", permanent: true },
       { source: "/en/join-our-webinar-advanced-retail-solutions-moving-beyond-security", destination: "/en/community/", permanent: true },
