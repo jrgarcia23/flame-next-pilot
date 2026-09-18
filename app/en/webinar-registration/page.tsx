@@ -8,16 +8,16 @@ export const metadata: Metadata = {
   title: "Webinar: Beyond Connectivity · Flame Analytics",
   description: "Free online webinar, 15 October 2026, 16:00 CEST. Discover how shopping centres can turn WiFi into a strategic tool for visitor data, engagement and loyalty. Hosted by Óscar García, CSO at Flame Analytics.",
   alternates: {
-    canonical: "/en/flame-webinar-registration/",
+    canonical: "/en/webinar-registration/",
     languages: {
       es: "/es/inscripcion-webinars/",
-      en: "/en/flame-webinar-registration/",
-      "x-default": "/en/flame-webinar-registration/",
+      en: "/en/webinar-registration/",
+      "x-default": "/en/webinar-registration/",
     },
   },
   openGraph: {
     type: "website",
-    url: "https://www.flameanalytics.com/en/flame-webinar-registration/",
+    url: "https://www.flameanalytics.com/en/webinar-registration/",
     siteName: "Flame Analytics",
     title: "Beyond Connectivity: How WiFi, Data & Loyalty Can Drive Shopping Centre Performance",
     description: "Free online webinar, 15 October 2026, 16:00 CEST. Turn shopping centre WiFi into a strategic source of visitor intelligence, engagement and loyalty.",

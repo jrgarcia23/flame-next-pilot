@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     canonical: "/es/inscripcion-webinars/",
     languages: {
     es: "/es/inscripcion-webinars/",
+    en: "/en/webinar-registration/",
     "x-default": "/es/inscripcion-webinars/",
   },
   },
@@ -37,7 +38,7 @@ export default function InscripcionWebinars() {
   return (
     <>
       <CtaStyles />
-      <SiteHeader enHref="/en/flame-webinar-registration/" currentLang={currentLang} />
+      <SiteHeader enHref="/en/webinar-registration/" currentLang={currentLang} />
 
       {/* HERO — 2-col: title + description + bullets izquierda · form derecha (mismo patrón que flame-eventos) */}
       <section
