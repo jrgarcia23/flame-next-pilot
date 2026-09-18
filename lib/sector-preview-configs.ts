@@ -190,14 +190,11 @@ export const HOTELES_CFG: SectorConfig = {
   productsTitle: PRODUCTS_TITLE, productsTitleHl: PRODUCTS_TITLE_HL, productsSub: PRODUCTS_SUB, productsBullets: PRODUCTS_BULLETS, products: PRODUCTS,
   testimonialsIdx: [3, 5, 8], faqs: getFaqs("hospitality", "es"),
   ctaStripBold: "Cada zona de tu hotel, medida y bajo control.", ctaStripLight: "Demo personalizada en 20 minutos.",  useCasesTitle: "Un caso de uso para cada reto de tu hotel",
-  useCasesSub: "Ocupación por zonas, colas, aseos, afluencia, comportamiento o WiFi: sea cual sea la prioridad de tu hotel, Flame ya tiene un caso de uso para resolverla.",
+  useCasesSub: "WiFi para huéspedes, interacción entre zonas y servicios o red corporativa: Flame ya tiene un caso de uso para tu hotel.",
   useCases: [
-    uc("conteo", "Mide la afluencia del lobby, el restaurante o el spa por franjas para ajustar personal y servicios."),
-    uc("ocupacion", "Controla en tiempo real la ocupación de zonas comunes y salas de eventos, con alertas de saturación."),
-    uc("comportamiento", "Mapas de calor de las zonas comunes para redistribuir mobiliario, servicios y flujos."),
-    uc("colas", "Detecta esperas en recepción y check-in para abrir más puestos cuando hace falta."),
-    uc("aseos", "Programa la limpieza de los aseos según su uso real, no por un horario fijo."),
-    uc("wifiInv", "Convierte el WiFi del huésped en captación para tu CRM y campañas de fidelización durante la estancia."),
+    uc("wifiInv", "Convierte el WiFi para huéspedes en captación de datos y conéctalo con tu CRM y tu programa de fidelización: da la bienvenida, lanza encuestas de estancia y comunica los servicios del hotel."),
+    { ...uc("recorrido", "Descubre cómo se mueven los huéspedes entre las zonas y servicios del hotel: quién pasa del lobby al restaurante, al spa o a las salas de eventos."), title: "Interacción entre zonas y servicios" },
+    uc("wifiCorp", "Ofrece una red WiFi corporativa segura para el personal y los sistemas del hotel, separada de la red de huéspedes."),
   ],
 };
 
