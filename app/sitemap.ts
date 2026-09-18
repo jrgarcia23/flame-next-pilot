@@ -23,7 +23,7 @@ const STATIC_EN = [
   "people-counting", "conversion-analytics", "queue-analytic", "traffic-insights",
   "customer-behavior", "customer-journey", "restroom-management", "occupancy-management",
   "corporate-wifi-access", "guest-wifi-marketing", "connect",
-  "detailed-information", "flame-events",
+  "detailed-information", "flame-events", "flame-webinar-registration",
   "privacy-policy", "cookie-policy", "information-security", "terms-of-use",
 ];
 

@@ -32,6 +32,24 @@ export type RegisterFormProps = {
 
 export default function RegisterForm(p: RegisterFormProps) {
   const isHero = (p.variant || "hero") === "hero";
+  const en = p.privacyHref.startsWith("/en/");
+  const L = en
+    ? {
+        name: "Name", email: "Email", company: "Company", role: "Job title", sector: "Sector",
+        topicLabel: p.kind === "events" ? "Event" : "Webinar",
+        topicPlaceholder: p.kind === "events" ? "Which event are you registering for?" : "Which webinar are you registering for?",
+        consentPre: "I agree to receive other communications from Flame. See our ", privacy: "privacy policy",
+        sending: "Sending…", submitFail: "The form could not be submitted.", netErr: "Network error. Please try again.",
+        okTitle: "Registration received", okBody: "We've emailed you the details. If you don't see it, check your spam folder.",
+      }
+    : {
+        name: "Nombre", email: "Email", company: "Empresa", role: "Cargo", sector: "Sector",
+        topicLabel: p.kind === "events" ? "Evento" : "Webinar",
+        topicPlaceholder: p.kind === "events" ? "¿A qué evento te inscribes?" : "¿A qué webinar te inscribes?",
+        consentPre: "Acepto recibir otras comunicaciones de Flame, consulta nuestra ", privacy: "política de privacidad",
+        sending: "Enviando…", submitFail: "No se pudo enviar el formulario.", netErr: "Error de red. Inténtalo de nuevo.",
+        okTitle: "Inscripción recibida", okBody: "Te enviamos un email con los detalles. Si no lo ves, revisa tu carpeta de spam.",
+      };
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -75,7 +93,7 @@ export default function RegisterForm(p: RegisterFormProps) {
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok || !data?.ok) {
-        setErrorMsg(data?.error || "No se pudo enviar el formulario.");
+        setErrorMsg(data?.error || L.submitFail);
         setStatus("error");
         return;
       }
@@ -89,7 +107,7 @@ export default function RegisterForm(p: RegisterFormProps) {
         : (p.privacyHref.startsWith("/en/") ? "/en/thank-you-event/"   : "/es/gracias-evento/");
       window.location.href = slug;
     } catch {
-      setErrorMsg("Error de red. Inténtalo de nuevo.");
+      setErrorMsg(L.netErr);
       setStatus("error");
     }
   }
@@ -102,8 +120,8 @@ export default function RegisterForm(p: RegisterFormProps) {
     return (
       <div style={{ background: "#fff", padding: 32, borderRadius: 16, boxShadow: "0 24px 60px -20px rgb(0 0 0 / 0.4)", textAlign: "center" }}>
         <div style={{ width: 56, height: 56, borderRadius: 999, background: "rgba(49,177,248,0.14)", color: accentDeep, display: "inline-flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", fontSize: 28 }}>✓</div>
-        <h3 style={{ fontSize: 22, fontWeight: 500, color: navy, margin: "0 0 12px", letterSpacing: "-0.018em" }}>Inscripción recibida</h3>
-        <p style={{ fontSize: 15, color: "#4A4F66", margin: 0, lineHeight: 1.6 }}>Te enviamos un email con los detalles. Si no lo ves, revisa tu carpeta de spam.</p>
+        <h3 style={{ fontSize: 22, fontWeight: 500, color: navy, margin: "0 0 12px", letterSpacing: "-0.018em" }}>{L.okTitle}</h3>
+        <p style={{ fontSize: 15, color: "#4A4F66", margin: 0, lineHeight: 1.6 }}>{L.okBody}</p>
       </div>
     );
   }
@@ -112,19 +130,19 @@ export default function RegisterForm(p: RegisterFormProps) {
     <form onSubmit={handleSubmit} className="grid gap-3" style={{ gap: isHero ? 12 : 16 }}>
       <input type="text" name="website" tabIndex={-1} autoComplete="off" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, opacity: 0 }} aria-hidden="true" />
 
-      <label htmlFor="rf-nombre" className="sr-only">Nombre</label>
-      <input id="rf-nombre" style={inputStyle} type="text" name="nombre" placeholder="Nombre" required autoComplete="name" />
-      <label htmlFor="rf-email" className="sr-only">Email</label>
-      <input id="rf-email" style={inputStyle} type="email" name="email" placeholder="Email" required autoComplete="email" />
-      <label htmlFor="rf-empresa" className="sr-only">Empresa</label>
-      <input id="rf-empresa" style={inputStyle} type="text" name="empresa" placeholder="Empresa" required autoComplete="organization" />
+      <label htmlFor="rf-nombre" className="sr-only">{L.name}</label>
+      <input id="rf-nombre" style={inputStyle} type="text" name="nombre" placeholder={L.name} required autoComplete="name" />
+      <label htmlFor="rf-email" className="sr-only">{L.email}</label>
+      <input id="rf-email" style={inputStyle} type="email" name="email" placeholder={L.email} required autoComplete="email" />
+      <label htmlFor="rf-empresa" className="sr-only">{L.company}</label>
+      <input id="rf-empresa" style={inputStyle} type="text" name="empresa" placeholder={L.company} required autoComplete="organization" />
       {(p.showCargo !== false) && (
         <>
-          <label htmlFor="rf-cargo" className="sr-only">Cargo</label>
-          <input id="rf-cargo" style={inputStyle} type="text" name="cargo" placeholder="Cargo" required autoComplete="organization-title" />
+          <label htmlFor="rf-cargo" className="sr-only">{L.role}</label>
+          <input id="rf-cargo" style={inputStyle} type="text" name="cargo" placeholder={L.role} required autoComplete="organization-title" />
         </>
       )}
-      <label htmlFor="rf-sector" className="sr-only">Sector</label>
+      <label htmlFor="rf-sector" className="sr-only">{L.sector}</label>
       <select id="rf-sector" style={inputStyle} name="sector" defaultValue="" required>
         <option value="" disabled>Sector</option>
         {p.privacyHref.startsWith("/en/") ? (
@@ -149,9 +167,9 @@ export default function RegisterForm(p: RegisterFormProps) {
       </select>
       {!p.topicName && p.topicOptions && p.topicOptions.length > 0 && (
         <>
-          <label htmlFor="rf-topic" className="sr-only">{p.kind === "events" ? "Evento" : "Webinar"}</label>
+          <label htmlFor="rf-topic" className="sr-only">{L.topicLabel}</label>
           <select id="rf-topic" style={inputStyle} name="topic_select" defaultValue="" required>
-            <option value="" disabled>{p.kind === "events" ? "¿A qué evento te inscribes?" : "¿A qué webinar te inscribes?"}</option>
+            <option value="" disabled>{L.topicPlaceholder}</option>
             {p.topicOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
           </select>
         </>
@@ -159,8 +177,8 @@ export default function RegisterForm(p: RegisterFormProps) {
       <label style={{ display: "flex", alignItems: "flex-start", gap: 8, fontSize: 13, color: ink3, marginTop: 4 }}>
         <input type="checkbox" name="consent" style={{ marginTop: 3, accentColor: accent }} required />
         <span>
-          Acepto recibir otras comunicaciones de Flame, consulta nuestra{" "}
-          <a href={p.privacyHref} style={{ color: accentDeep, borderBottom: "1px solid currentColor" }}>política de privacidad</a>.
+          {L.consentPre}
+          <a href={p.privacyHref} style={{ color: accentDeep, borderBottom: "1px solid currentColor" }}>{L.privacy}</a>.
         </span>
       </label>
 
@@ -172,7 +190,7 @@ export default function RegisterForm(p: RegisterFormProps) {
         className="cta-btn cta-btn--md"
         style={{ background: accent, color: "#fff", fontWeight: 700, justifyContent: "center", marginTop: 4, opacity: status === "sending" ? 0.65 : 1, cursor: status === "sending" ? "wait" : "pointer" }}
       >
-        {status === "sending" ? "Enviando…" : p.submitLabel}
+        {status === "sending" ? L.sending : p.submitLabel}
       </button>
     </form>
   );
