@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
     ga_client_id = "",
   } = body as Record<string, string>;
 
-  if (website) return NextResponse.json({ ok: true }); // honeypot
+  if (website) { console.warn("[webinars/register] honeypot activado (campo 'website' relleno; posible autofill del navegador) — email:", email); return NextResponse.json({ ok: true }); } // honeypot
   if (!nombre || !empresa || !email || !webinar_name) return NextResponse.json({ error: "Campos obligatorios" }, { status: 400 });
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return NextResponse.json({ error: "Email no válido" }, { status: 400 });
   if (nombre.length > 200 || empresa.length > 200) return NextResponse.json({ error: "Datos demasiado largos" }, { status: 400 });
@@ -59,12 +59,14 @@ export async function POST(req: NextRequest) {
   if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
     try {
       const supabase = createSupabaseAdminClient();
-      await supabase.from("webinar_registrations").insert({
+      const { error: insErr } = await supabase.from("webinar_registrations").insert({
         nombre, email, empresa, cargo, sector, pais, mensaje, webinar_name, webinar_date: webinar_date || null,
         pagina, page_url: pageUrl, page_path: pagePath, referrer,
         utm_source, utm_medium, utm_campaign, utm_term, utm_content,
         gclid, fbclid, msclkid, source, medium, campaign, ga_client_id,
       });
+      // supabase-js NO lanza excepción en error de insert: hay que revisar .error o el lead se pierde en silencio.
+      if (insErr) console.error("[webinars/register] supabase insert FAILED:", insErr.message, "| email:", email, "| webinar:", webinar_name);
     } catch (err) {
       console.error("[webinars/register] supabase insert error", { message: err instanceof Error ? err.message : "unknown" });
     }
