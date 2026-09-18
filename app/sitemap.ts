@@ -12,7 +12,7 @@ const STATIC_ES = [
   "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "supermercados", "hoteles", "espacios-publicos", "banca", "transporte-y-aeropuertos",
   "conteo-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
   "comportamiento-del-cliente", "recorrido-del-cliente", "gestion-de-aseos", "gestion-ocupacion",
-  "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect",
+  "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect", "dooh",
   "informacion-detallada", "piloto", "flame-eventos", "inscripcion-en-eventos", "inscripcion-webinars",
   "politica-de-privacidad", "politica-de-cookies", "politica-de-seguridad-de-la-informacion",
   "condiciones-de-uso",
@@ -22,7 +22,7 @@ const STATIC_EN = [
   "solution-for-shopping-malls", "solution-for-retail-sector", "supermarkets", "hospitality", "public-venues", "banking", "transport-and-airports",
   "people-counting", "conversion-analytics", "queue-analytic", "traffic-insights",
   "customer-behavior", "customer-journey", "restroom-management", "occupancy-management",
-  "corporate-wifi-access", "guest-wifi-marketing", "connect",
+  "corporate-wifi-access", "guest-wifi-marketing", "connect", "dooh",
   "detailed-information", "flame-events", "webinar-registration",
   "privacy-policy", "cookie-policy", "information-security", "terms-of-use",
 ];

@@ -30,6 +30,7 @@ export const MEGA_USE_CASES: NavLeaf[] = [
   { label: "Gestión de la ocupación",  href: "/es/gestion-ocupacion/",                  iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Ocupación en tiempo real con alertas de capacidad." },
   { label: "Gestión de colas",         href: "/es/analitica-de-colas/",                 iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Tiempos de espera y tasa de abandono en caja." },
   { label: "Gestión de aseos",         href: "/es/gestion-de-aseos/",                   iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Limpieza basada en uso real y satisfacción." },
+  { label: "Medición DOOH",            href: "/es/dooh/",                               iconImg: "/wp-content/uploads/2025/09/dooh1.png",                 desc: "Audiencia real de tus pantallas para vender retail media." },
   { label: "Marketing WiFi",           href: "/es/marketing-wifi-para-invitados/",      iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Portales cautivos + automatización marketing." },
   { label: "WiFi corporativo",         href: "/es/acceso-wifi-corporativo/",            iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Conectividad segura para empleados e invitados." },
 ];
@@ -76,6 +77,7 @@ export const MEGA_USE_CASES_EN: NavLeaf[] = [
   { label: "Occupancy management",   href: "/en/occupancy-management/",   iconImg: "/wp-content/uploads/2025/09/Occupancy_management1.png", desc: "Real-time occupancy with capacity alerts." },
   { label: "Queue analytics",        href: "/en/queue-analytic/",         iconImg: "/wp-content/uploads/2025/09/Queue1.png",                desc: "Wait times and checkout abandonment rate." },
   { label: "Restroom management",    href: "/en/restroom-management/",    iconImg: "/wp-content/uploads/2025/09/Restroom1.png",             desc: "Cleaning based on real usage and satisfaction." },
+  { label: "DOOH measurement",       href: "/en/dooh/",                   iconImg: "/wp-content/uploads/2025/09/dooh1.png",                 desc: "Real screen audience to sell retail media." },
   { label: "Guest WiFi marketing",   href: "/en/guest-wifi-marketing/",   iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png",           desc: "Captive portals + marketing automation." },
   { label: "Corporate WiFi access",  href: "/en/corporate-wifi-access/",  iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png",       desc: "Secure connectivity for employees and guests." },
 ];
@@ -201,6 +203,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
     ["Gestión de ocupación",    "/es/gestion-ocupacion/"],
     ["Analítica de colas",      "/es/analitica-de-colas/"],
     ["Gestión de aseos",        "/es/gestion-de-aseos/"],
+    ["Medición DOOH",           "/es/dooh/"],
     ["Marketing WiFi invitados", "/es/marketing-wifi-para-invitados/"],
     ["Acceso WiFi corporativo", "/es/acceso-wifi-corporativo/"],
   ] },
@@ -211,7 +214,7 @@ export const FOOTER_COLS: { title: string; links: [string, string][] }[] = [
 
 export const FOOTER_COLS_EN: { title: string; links: [string, string][] }[] = [
   { title: "Products",   links: [["Traffic","/en/traffic-insights/"],["Customer Journey","/en/customer-journey/"],["Connect","/en/connect/"],["Hypersensor","/en/hypersensor/"]] },
-  { title: "Solutions",  links: [["People Counting","/en/people-counting/"],["Conversion Analytics","/en/conversion-analytics/"],["Customer Behavior","/en/customer-behavior/"],["Occupancy Management","/en/occupancy-management/"],["Queue Analytics","/en/queue-analytic/"],["Restroom Management","/en/restroom-management/"],["Guest Wifi Marketing","/en/guest-wifi-marketing/"],["Corporate Wifi Access","/en/corporate-wifi-access/"]] },
+  { title: "Solutions",  links: [["People Counting","/en/people-counting/"],["Conversion Analytics","/en/conversion-analytics/"],["Customer Behavior","/en/customer-behavior/"],["Occupancy Management","/en/occupancy-management/"],["Queue Analytics","/en/queue-analytic/"],["Restroom Management","/en/restroom-management/"],["DOOH Measurement","/en/dooh/"],["Guest Wifi Marketing","/en/guest-wifi-marketing/"],["Corporate Wifi Access","/en/corporate-wifi-access/"]] },
   { title: "Industries", links: [["Retail","/en/solution-for-retail-sector/"],["Shopping malls","/en/solution-for-shopping-malls/"],["Supermarkets","/en/supermarkets/"],["Hospitality","/en/hospitality/"],["Public venues","/en/public-venues/"]] },
   { title: "Community",  links: [["Blog","/en/category/blog/"],["Case studies","/en/category/case-studies/"],["Interviews","/en/category/interviews/"]] },
   { title: "Company",    links: [["Partners","/en/partners/"],["About us","/en/about-us/"],["Contact","/en/contact-us/"]] },
