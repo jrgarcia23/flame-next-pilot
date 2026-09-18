@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { ESPACIOS_CFG } from "@/lib/sector-preview-configs";
+import { ESPACIOS_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
   title: "Espacios públicos · Flame Analytics",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function EspaciosPublicosSector() {
-  return <SectorTemplate cfg={ESPACIOS_CFG} enHref="/en/public-venues/" />;
+  return <SectorTemplate cfg={{ ...ESPACIOS_CFG, ...UC_COMMON }} enHref="/en/public-venues/" />;
 }

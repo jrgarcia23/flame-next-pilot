@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { BANCOS_CFG } from "@/lib/sector-preview-configs";
+import { BANCOS_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
   title: "Bancos y sucursales · Flame Analytics",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function BancaSector() {
-  return <SectorTemplate cfg={BANCOS_CFG} enHref="/en/banking/" />;
+  return <SectorTemplate cfg={{ ...BANCOS_CFG, ...UC_COMMON }} enHref="/en/banking/" />;
 }

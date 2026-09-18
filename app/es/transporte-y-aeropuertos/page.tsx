@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { TRANSPORTE_CFG } from "@/lib/sector-preview-configs";
+import { TRANSPORTE_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
   title: "Transporte y aeropuertos · Flame Analytics",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function TransporteAeropuertosSector() {
-  return <SectorTemplate cfg={TRANSPORTE_CFG} enHref="/en/transport-and-airports/" />;
+  return <SectorTemplate cfg={{ ...TRANSPORTE_CFG, ...UC_COMMON }} enHref="/en/transport-and-airports/" />;
 }

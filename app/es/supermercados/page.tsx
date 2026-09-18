@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { SUPERMERCADOS_CFG } from "@/lib/sector-preview-configs";
+import { SUPERMERCADOS_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 const CDN = "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings";
 
@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function SupermercadosSector() {
-  return <SectorTemplate cfg={SUPERMERCADOS_CFG} enHref="/en/supermarkets/" />;
+  return <SectorTemplate cfg={{ ...SUPERMERCADOS_CFG, ...UC_COMMON }} enHref="/en/supermarkets/" />;
 }

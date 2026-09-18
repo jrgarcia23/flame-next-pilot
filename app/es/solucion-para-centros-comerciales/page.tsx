@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { SectorConfig } from "@/lib/page-content";
-import { uc } from "@/lib/sector-preview-configs";
+import { uc, UC_COMMON } from "@/lib/sector-preview-configs";
 
 import { getFaqs } from "@/lib/live-faqs";
 export const metadata: Metadata = {
@@ -125,5 +125,5 @@ export const CENTROS_CFG: SectorConfig = {
 };
 
 export default function CentrosComercialesSectorDraft() {
-  return <SectorTemplate cfg={CENTROS_CFG} enHref="/en/solution-for-shopping-malls/" />;
+  return <SectorTemplate cfg={{ ...CENTROS_CFG, ...UC_COMMON }} enHref="/en/solution-for-shopping-malls/" />;
 }

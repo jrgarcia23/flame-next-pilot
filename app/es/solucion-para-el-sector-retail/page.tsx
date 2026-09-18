@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { RETAIL_CFG } from "@/lib/sector-preview-configs";
+import { RETAIL_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
   title: "Data Intelligence para Retail · Flame Analytics",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function RetailSector() {
-  return <SectorTemplate cfg={RETAIL_CFG} enHref="/en/solution-for-retail-sector/" />;
+  return <SectorTemplate cfg={{ ...RETAIL_CFG, ...UC_COMMON }} enHref="/en/solution-for-retail-sector/" />;
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
-import { HOTELES_CFG } from "@/lib/sector-preview-configs";
+import { HOTELES_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
   title: "Hoteles · Flame Analytics",
@@ -31,5 +31,5 @@ export const metadata: Metadata = {
 };
 
 export default function HotelesSector() {
-  return <SectorTemplate cfg={HOTELES_CFG} enHref="/en/hospitality/" />;
+  return <SectorTemplate cfg={{ ...HOTELES_CFG, ...UC_COMMON }} enHref="/en/hospitality/" />;
 }
