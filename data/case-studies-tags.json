@@ -282,10 +282,13 @@
       "sector": [
         "transporte-y-aeropuertos"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
       "prioridad": 4,
-      "pendiente": true,
       "nota": "página en DRAFT"
     },
     {
@@ -294,10 +297,14 @@
       "sector": [
         "retail"
       ],
-      "productos": [],
-      "casosDeUso": [],
-      "prioridad": 5,
-      "pendiente": true
+      "productos": [
+        "Traffic"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor"
+      ],
+      "prioridad": 5
     },
     {
       "nombre": "Hoteles Viva",
@@ -305,10 +312,13 @@
       "sector": [
         "hoteles"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Marketing WiFi"
+      ],
       "prioridad": 2,
-      "pendiente": true,
       "nota": "formato antiguo (no migrado al nuevo)"
     },
     {
@@ -317,10 +327,13 @@
       "sector": [
         "retail"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Traffic"
+      ],
+      "casosDeUso": [
+        "Conteo de personas"
+      ],
       "prioridad": 2,
-      "pendiente": true,
       "nota": "formato antiguo"
     },
     {
@@ -341,10 +354,16 @@
       "sector": [
         "banca"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Customer Journey"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Recorrido del cliente",
+        "Gestión de ocupación"
+      ],
       "prioridad": 2,
-      "pendiente": true,
       "nota": "sin página; confirmar sector (¿banca o cultura?)"
     },
     {
@@ -365,10 +384,14 @@
       "sector": [
         "retail"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Traffic"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor"
+      ],
       "prioridad": 2,
-      "pendiente": true,
       "nota": "Excel: 'Pendiente de info'"
     }
   ]
