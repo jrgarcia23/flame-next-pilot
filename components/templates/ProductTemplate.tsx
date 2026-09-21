@@ -399,6 +399,46 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
         `}</style>
       </section>
 
+      {/* CASOS DE ÉXITO relacionados — fondo blanco: paper (testimonios) → blanco → navy (FAQ) */}
+      {cfg.caseStudies && cfg.caseStudies.length > 0 && (
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
+              <span className="pt-cases-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
+              <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.casesTitle || (currentLang === "en" ? "Related case studies" : "Casos de éxito relacionados")}</h2>
+              {cfg.casesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.casesSub}</p>}
+            </div>
+            <div className="grid gap-7 pt-cases-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+              {cfg.caseStudies.map((cs, i) => (
+                <a key={i} href={cs.href} target="_blank" rel="noopener" className="pt-case-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
+                  <div style={{ aspectRatio: "16/10", background: `url('${cs.img}') center/cover` }} />
+                  <div className="p-6 flex flex-col flex-1">
+                    <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
+                    <h3 className="text-[18px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{cs.title}</h3>
+                    <p className="text-[14px] leading-[1.55] flex-1" style={{ color: "var(--color-ink-2)" }}>{cs.excerpt}</p>
+                    <div className="flex items-center justify-between mt-4 pt-4" style={{ borderTop: "1px solid var(--color-rule)" }}>
+                      <span className="text-[12.5px]" style={{ color: "var(--color-ink-3)" }}>{cs.date}</span>
+                      <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>{currentLang === "en" ? "View" : "Ver caso"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <div className="text-center" style={{ marginTop: 40 }}>
+              <a href={currentLang === "en" ? "https://www.flameanalytics.com/en/category/case-studies/" : "https://www.flameanalytics.com/es/categoria/casos-de-exito/"} target="_blank" rel="noopener" className="cta-btn cta-btn--lg" style={{ background: "#fff", color: "var(--color-navy)", border: "1px solid var(--color-rule-strong)", fontWeight: 700 }}>
+                {currentLang === "en" ? "See all case studies" : "Ver todos los casos de éxito"} <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <style>{`
+            .pt-cases-eyebrow { display:inline-block; font-family: var(--font-body); font-size:12.5px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color: var(--color-accent-deep); margin-bottom:14px; }
+            .pt-case-card { transition: transform 420ms cubic-bezier(0.22,1,0.36,1), box-shadow 420ms cubic-bezier(0.22,1,0.36,1), border-color 420ms cubic-bezier(0.22,1,0.36,1); }
+            .pt-case-card:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -22px rgb(15 23 42 / 0.35); border-color: var(--color-rule-strong); }
+            @media (max-width: 900px){ .pt-cases-grid { grid-template-columns: 1fr !important; max-width: 420px; margin: 0 auto; } }
+          `}</style>
+        </section>
+      )}
+
       {/* FAQPage JSON-LD desde cfg.faqs (coherente con la FAQ visible) */}
       {cfg.faqs.length > 0 && (
         <script

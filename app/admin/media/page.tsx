@@ -13,21 +13,23 @@ export const dynamic = "force-dynamic";
 
 const BUCKET = "blog-media";
 const PER_PAGE = 60;
-const CAP = 2000; // techo de seguridad por carpeta
+const CAP = 2000; // techo de seguridad por carpeta (o global en la vista "Todas")
 const IMG_EXTS = new Set([".png", ".jpg", ".jpeg", ".webp", ".gif", ".svg", ".avif"]);
+const ALL = "__all__"; // pseudo-carpeta: vista global (todas las carpetas)
 
 type MediaItem = { path: string; name: string; url: string; size: number; modified: number };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Db = any;
 
-async function walk(db: Db, prefix: string, depth: number, out: MediaItem[]): Promise<void> {
+async function walk(db: Db, prefix: string, depth: number, out: MediaItem[], err: { hit: boolean }): Promise<void> {
   if (depth > 4 || out.length >= CAP) return;
   const { data, error } = await db.storage.from(BUCKET).list(prefix, {
     limit: 1000,
     sortBy: { column: "updated_at", order: "desc" },
   });
-  if (error || !data) return;
+  if (error) { err.hit = true; return; }
+  if (!data) return;
 
   const subdirs: string[] = [];
   for (const entry of data) {
@@ -51,7 +53,7 @@ async function walk(db: Db, prefix: string, depth: number, out: MediaItem[]): Pr
     });
   }
   // bajar a subcarpetas en paralelo (más rápido que secuencial)
-  await Promise.all(subdirs.map((d) => walk(db, d, depth + 1, out)));
+  await Promise.all(subdirs.map((d) => walk(db, d, depth + 1, out, err)));
 }
 
 async function listTopFolders(db: Db): Promise<string[]> {
@@ -84,33 +86,46 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
   // luego años descendentes (2026, 2025…).
   const yearFolders = topFolders.filter((f) => /^\d{4}$/.test(f)).sort().reverse();
   const namedFolders = topFolders.filter((f) => !/^\d{4}$/.test(f)).sort();
-  const orderedFolders = [...namedFolders, ...yearFolders];
+  const orderedFolders = [ALL, ...namedFolders, ...yearFolders];
   // Default: año más reciente (siempre tiene contenido); si no hay años, la primera carpeta.
   const defaultFolder = yearFolders[0] || topFolders[0] || "";
-  const folder = sp.folder && topFolders.includes(sp.folder) ? sp.folder : defaultFolder;
+  const folder = sp.folder && (sp.folder === ALL || topFolders.includes(sp.folder)) ? sp.folder : defaultFolder;
+  const isAll = folder === ALL;
 
   const all: MediaItem[] = [];
-  await walk(db, folder, 0, all);
+  const err = { hit: false };
+  if (isAll) {
+    // Vista global: recorre todas las carpetas de nivel 1 en paralelo (latencia ≈ la
+    // carpeta más lenta, no la suma). Permite ver subidas recientes (cms/…) y buscar
+    // entre todas las carpetas, no solo la activa.
+    await Promise.all(topFolders.map((f) => walk(db, f, 0, all, err)));
+  } else {
+    await walk(db, folder, 0, all, err);
+  }
+
+  // El segmento de año de una ruta (p.ej. "2026/07/x" o "case-studies/2026/07/x" → "2026")
+  const yearOf = (p: string): string | null => (p.match(/(?:^|\/)(\d{4})\//) || [])[1] || null;
 
   // Filtros
   const search = (sp.search || "").trim().toLowerCase();
   const year = sp.year || "all";
-  const page = Math.max(1, parseInt(sp.page || "1", 10));
 
   let filtered = all;
-  if (year !== "all") filtered = filtered.filter((m) => m.path.includes(`/${year}/`));
+  if (year !== "all") filtered = filtered.filter((m) => yearOf(m.path) === year);
   if (search) filtered = filtered.filter((m) => m.name.toLowerCase().includes(search) || m.path.toLowerCase().includes(search));
   filtered = filtered.slice().sort((a, b) => b.modified - a.modified);
 
   const total = filtered.length;
   const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+  // Página válida: entre 1 y totalPages (evita "página 9999/5" con grid vacío)
+  const page = Math.min(Math.max(1, parseInt(sp.page || "1", 10) || 1), totalPages);
   const from = (page - 1) * PER_PAGE;
   const rows = filtered.slice(from, from + PER_PAGE);
 
   const yearSet = new Set<string>();
   for (const m of all) {
-    const match = m.path.match(/\/(\d{4})\//);
-    if (match) yearSet.add(match[1]);
+    const y = yearOf(m.path);
+    if (y) yearSet.add(y);
   }
   const years = [...yearSet].sort().reverse();
   const totalBytes = all.reduce((acc, m) => acc + m.size, 0);
@@ -132,9 +147,16 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
         <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", marginBottom: 16 }}>
           <h1 style={{ fontSize: 22, fontWeight: 600, letterSpacing: "-0.02em", margin: 0 }}>Biblioteca de imágenes</h1>
           <span style={{ fontSize: 12, color: "#6E7488" }}>
-            Supabase Storage · <strong style={{ color: "#15163A" }}>{BUCKET}</strong> · {all.length.toLocaleString()}{capped ? "+" : ""} en «{folder || "raíz"}» · {formatBytes(totalBytes)}
+            Supabase Storage · <strong style={{ color: "#15163A" }}>{BUCKET}</strong> · {all.length.toLocaleString()}{capped ? "+" : ""} en «{isAll ? "todas" : (folder || "raíz")}» · {formatBytes(totalBytes)}
           </span>
         </div>
+
+        {/* Aviso si Supabase devolvió error en alguna carpeta */}
+        {err.hit && (
+          <div style={{ ...card, marginBottom: 12, background: "#FEF3F2", borderColor: "#FECDCA", color: "#B42318", fontSize: 12.5 }}>
+            ⚠ No se pudo leer alguna carpeta de Supabase Storage. La lista puede estar incompleta; recarga o inténtalo de nuevo.
+          </div>
+        )}
 
         {/* Pestañas de carpeta */}
         <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 14 }}>
@@ -143,7 +165,7 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
             return (
               <Link key={f} href={mkHref({ folder: f, year: "", search: sp.search })}
                 style={{ ...btn, background: activeTab ? "#15163A" : "#fff", color: activeTab ? "#fff" : "#15163A", border: activeTab ? "none" : (btn.border as string), fontWeight: activeTab ? 600 : 400 }}>
-                {f}
+                {f === ALL ? "Todas" : f}
               </Link>
             );
           })}
@@ -152,11 +174,14 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
         {/* Filtros */}
         <form method="get" style={{ ...card, marginBottom: 16, display: "flex", gap: 12, alignItems: "center", flexWrap: "wrap" }}>
           <input type="hidden" name="folder" value={folder} />
-          <input name="search" placeholder="Buscar por nombre o ruta…" defaultValue={sp.search || ""} style={{ ...inp, flex: 1, minWidth: 240 }} />
-          <select name="year" defaultValue={year} style={inp}>
-            <option value="all">Todos los años</option>
-            {years.map((y) => <option key={y} value={y}>{y}</option>)}
-          </select>
+          <input name="search" placeholder={isAll ? "Buscar en todas las carpetas…" : "Buscar por nombre o ruta…"} defaultValue={sp.search || ""} style={{ ...inp, flex: 1, minWidth: 240 }} />
+          {/* El selector de año solo aporta cuando la carpeta abarca varios años (Todas, case-studies…); dentro de una carpeta de año es redundante */}
+          {years.length > 1 && (
+            <select name="year" defaultValue={year} style={inp}>
+              <option value="all">Todos los años</option>
+              {years.map((y) => <option key={y} value={y}>{y}</option>)}
+            </select>
+          )}
           <button type="submit" style={{ ...btn, background: "#15163A", color: "#fff", border: "none", fontWeight: 600 }}>Filtrar</button>
           {(year !== "all" || search) && <Link href={mkHref({ folder, year: "", search: "" })} style={{ ...btn }}>Limpiar</Link>}
         </form>
@@ -192,7 +217,7 @@ export default async function MediaAdminPage({ searchParams }: { searchParams: P
             </div>
           ))}
           {rows.length === 0 && (
-            <div style={{ ...card, gridColumn: "1 / -1", textAlign: "center", padding: 40, color: "#94A3B8" }}>Sin imágenes en esta carpeta</div>
+            <div style={{ ...card, gridColumn: "1 / -1", textAlign: "center", padding: 40, color: "#94A3B8" }}>{search || year !== "all" ? "Sin resultados para este filtro" : "Sin imágenes en esta carpeta"}</div>
           )}
         </div>
 

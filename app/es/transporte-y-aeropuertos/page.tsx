@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { TRANSPORTE_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TransporteAeropuertosSector() {
-  return <SectorTemplate cfg={{ ...TRANSPORTE_CFG, ...UC_COMMON }} enHref="/en/transport-and-airports/" />;
+export default async function TransporteAeropuertosSector() {
+  const caseStudies = await selectCaseCards({ sector: "transporte-y-aeropuertos" });
+  return <SectorTemplate cfg={{ ...TRANSPORTE_CFG, ...UC_COMMON, caseStudies }} enHref="/en/transport-and-airports/" />;
 }

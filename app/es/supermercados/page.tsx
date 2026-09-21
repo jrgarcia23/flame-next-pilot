@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { SUPERMERCADOS_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 const CDN = "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings";
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SupermercadosSector() {
-  return <SectorTemplate cfg={{ ...SUPERMERCADOS_CFG, ...UC_COMMON }} enHref="/en/supermarkets/" />;
+export default async function SupermercadosSector() {
+  const caseStudies = await selectCaseCards({ sector: "supermercados" });
+  return <SectorTemplate cfg={{ ...SUPERMERCADOS_CFG, ...UC_COMMON, caseStudies }} enHref="/en/supermarkets/" />;
 }

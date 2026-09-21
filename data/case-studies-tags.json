@@ -264,10 +264,11 @@
       "casosDeUso": [
         "Conteo de personas",
         "Gestión de ocupación",
-        "Marketing WiFi"
+        "Marketing WiFi",
+        "WiFi corporativo"
       ],
       "prioridad": 4,
-      "nota": "Excel lo tenía en Banking; JR: en ambos (cultura + banca)"
+      "nota": "Excel lo tenía en Banking; JR: en ambos (cultura + banca); WiFi corporativo (JR)"
     },
     {
       "nombre": "Repsol",
@@ -370,10 +371,11 @@
         "Conteo de personas",
         "Comportamiento y mapas de calor",
         "Recorrido del cliente",
-        "Gestión de ocupación"
+        "Gestión de ocupación",
+        "WiFi corporativo"
       ],
       "prioridad": 2,
-      "nota": "sin página; confirmar sector (¿banca o cultura?)"
+      "nota": "sin página (no puede salir como tarjeta hasta crearla); banca; WiFi corporativo (JR)"
     },
     {
       "nombre": "Flying Tiger",

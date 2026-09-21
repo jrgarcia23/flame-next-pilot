@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedPeopleCountingChart from "@/components/AnimatedPeopleCountingChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -75,10 +76,11 @@ const cfg: UseCaseConfig = {
   fichaTitle: "Conteo de personas",
 };
 
-export default function CuentaPersonasDraft() {
+export default async function CuentaPersonasDraft() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Conteo de personas" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/people-counting/"
       bigSectionVisualOverride={<AnimatedPeopleCountingChart />}
     />

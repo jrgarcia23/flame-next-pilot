@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Limpieza según uso real: mejor servicio con menos coste.",
 };
 
-export default function GestionAseosDraft() {
+export default async function GestionAseosDraft() {
+  const caseStudies = await selectCaseCards({ sector: "centros-comerciales", producto: "Connect" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/restroom-management/"
       bigSectionVisualOverride={
         <AnimatedDashboardImage

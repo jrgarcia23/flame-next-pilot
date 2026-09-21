@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedConversionAnalyticsChart from "@/components/AnimatedConversionAnalyticsChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -80,10 +81,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Cuánta de tu afluencia acaba comprando, y cómo subir ese porcentaje.",
 };
 
-export default function ConversionAnalyticsDraft() {
+export default async function ConversionAnalyticsDraft() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Analítica de conversión" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/conversion-analytics/"
       bigSectionVisualOverride={<AnimatedConversionAnalyticsChart />}
     />

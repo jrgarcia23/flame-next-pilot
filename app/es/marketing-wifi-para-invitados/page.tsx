@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Convierte el WiFi de invitados en datos, segmentación y campañas.",
 };
 
-export default function MarketingWifiInvitadosDraft() {
+export default async function MarketingWifiInvitadosDraft() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Marketing WiFi" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/guest-wifi-marketing/"
       bigSectionVisualOverride={
         <AnimatedDashboardImage

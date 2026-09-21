@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { RETAIL_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RetailSector() {
-  return <SectorTemplate cfg={{ ...RETAIL_CFG, ...UC_COMMON }} enHref="/en/solution-for-retail-sector/" />;
+export default async function RetailSector() {
+  const caseStudies = await selectCaseCards({ sector: "retail" });
+  return <SectorTemplate cfg={{ ...RETAIL_CFG, ...UC_COMMON, caseStudies }} enHref="/en/solution-for-retail-sector/" />;
 }

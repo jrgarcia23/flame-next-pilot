@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedQueueAnalyticsChart from "@/components/AnimatedQueueAnalyticsChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Detecta y reduce las esperas antes de que te cuesten ventas.",
 };
 
-export default function AnaliticaColasDraft() {
+export default async function AnaliticaColasDraft() {
+  const caseStudies = await selectCaseCards({ sector: "centros-comerciales", producto: "Connect" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/queue-analytic/"
       bigSectionVisualOverride={<AnimatedQueueAnalyticsChart />}
     />

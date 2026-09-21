@@ -286,6 +286,9 @@ export type UseCaseConfig = {
   fichaPdf?: string;             // ruta al PDF de la ficha de solución; si existe, muestra la descarga (botón hero + banda navy + modal de captura)
   fichaTitle?: string;          // título del modal de descarga (default: heroTitle)
   fichaHook?: string;           // subtexto de la banda de descarga: gancho propio de la solución (default: neutro sin nº de páginas)
+  caseStudies?: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>; // casos de éxito destacados (relativos al caso de uso), resueltos por selectCaseCards
+  casesTitle?: string;          // título de la sección de casos (default: "Casos de éxito relacionados")
+  casesSub?: string;            // subtítulo opcional
 };
 
 export type SectorSection = {
@@ -390,4 +393,7 @@ export type ProductConfig = {
   fichaTitle?: string;
   fichaHook?: string;
   fichaImage?: string;          // imagen para la caja del hueco (caso impar); default: heroBgImage
+  caseStudies?: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>; // casos de éxito destacados (resueltos por selectCaseCards); solo se renderiza si viene
+  casesTitle?: string;
+  casesSub?: string;
 };

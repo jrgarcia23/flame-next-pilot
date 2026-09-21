@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedBehaviorChart from "@/components/AnimatedBehaviorChart";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Recorridos, zonas calientes y tiempo de permanencia: cómo se mueve tu cliente.",
 };
 
-export default function CustomerBehaviorDraft() {
+export default async function CustomerBehaviorDraft() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Comportamiento y mapas de calor" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/customer-behavior/"
       bigSectionVisualOverride={<AnimatedBehaviorChart />}
     />

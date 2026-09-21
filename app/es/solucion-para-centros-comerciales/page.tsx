@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { SectorConfig } from "@/lib/page-content";
 import { uc, UC_COMMON } from "@/lib/sector-preview-configs";
 
@@ -124,6 +125,7 @@ export const CENTROS_CFG: SectorConfig = {
   ],
 };
 
-export default function CentrosComercialesSectorDraft() {
-  return <SectorTemplate cfg={{ ...CENTROS_CFG, ...UC_COMMON }} enHref="/en/solution-for-shopping-malls/" />;
+export default async function CentrosComercialesSectorDraft() {
+  const caseStudies = await selectCaseCards({ sector: "centros-comerciales" });
+  return <SectorTemplate cfg={{ ...CENTROS_CFG, ...UC_COMMON, caseStudies }} enHref="/en/solution-for-shopping-malls/" />;
 }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "WiFi corporativo seguro y gestionado, con analítica de uso.",
 };
 
-export default function AccesoWifiCorporativoDraft() {
+export default async function AccesoWifiCorporativoDraft() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "WiFi corporativo" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/en/corporate-wifi-access/"
       bigSectionVisualOverride={
         <AnimatedDashboardImage
