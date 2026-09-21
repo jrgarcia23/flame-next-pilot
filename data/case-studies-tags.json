@@ -74,10 +74,19 @@
       "sector": [
         "retail"
       ],
-      "productos": [],
-      "casosDeUso": [],
+      "productos": [
+        "Traffic",
+        "Connect"
+      ],
+      "casosDeUso": [
+        "Conteo de personas",
+        "Comportamiento y mapas de calor",
+        "Recorrido del cliente",
+        "Gestión de ocupación",
+        "Marketing WiFi"
+      ],
       "prioridad": 3,
-      "pendiente": true
+      "nota": "tags inferidos del contenido publicado (2 tiendas México: tráfico + ocupación + comportamiento + recorridos + captación WiFi)"
     },
     {
       "nombre": "Decathlon",

@@ -36,7 +36,7 @@ function MultiSelect({ value, options, onChange }: { value: string[]; options: s
   );
 }
 
-export default function CasosTagsTable({ rows: initial, vocab }: { rows: TagRow[]; vocab: Vocab }) {
+export default function CasosTagsTable({ rows: initial, vocab, readOnly = false }: { rows: TagRow[]; vocab: Vocab; readOnly?: boolean }) {
   const [rows, setRows] = useState<TagRow[]>(initial);
   const [fSector, setFSector] = useState("");
   const [fProd, setFProd] = useState("");
@@ -136,7 +136,7 @@ export default function CasosTagsTable({ rows: initial, vocab }: { rows: TagRow[
                       <td style={td}>{r.casos_de_uso.map((s) => <span key={s} style={chip}>{s}</span>)}</td>
                       <td style={td}>{r.prioridad || 0}</td>
                       <td style={td}>{r.pendiente ? <span style={{ ...chip, background: "#FFF3D6", color: "#b45309" }}>pendiente</span> : <span style={{ ...chip, background: "#E3F2E9", color: "#16a34a" }}>OK</span>}</td>
-                      <td style={td}><button onClick={() => startEdit(r)} style={{ fontSize: 12, padding: "6px 12px", background: "#fff", border: "1px solid #C9CDD4", borderRadius: 6, cursor: "pointer" }}>Editar</button></td>
+                      <td style={td}>{readOnly ? null : <button onClick={() => startEdit(r)} style={{ fontSize: 12, padding: "6px 12px", background: "#fff", border: "1px solid #C9CDD4", borderRadius: 6, cursor: "pointer" }}>Editar</button>}</td>
                     </>
                   )}
                 </tr>
