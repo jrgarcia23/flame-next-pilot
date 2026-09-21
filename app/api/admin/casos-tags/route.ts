@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createSupabaseAdminClient, getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
+import { getCurrentUserEmail, isEmailAllowed } from "@/lib/supabase-admin";
+import { readCasosTags, writeCasosTags } from "@/lib/casos-tags-store";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 // Vocabularios controlados (mismos que data/case-studies-tags.json _meta)
@@ -16,15 +18,17 @@ export async function PATCH(req: NextRequest) {
   const nombre = String(body.nombre || "").trim();
   if (!nombre) return NextResponse.json({ error: "Falta nombre" }, { status: 400 });
 
-  const upd: Record<string, unknown> = { updated_at: new Date().toISOString() };
-  if (Array.isArray(body.sector)) upd.sector = body.sector.filter((s: string) => SECTORS.includes(s));
-  if (Array.isArray(body.productos)) upd.productos = body.productos.filter((s: string) => PRODUCTOS.includes(s));
-  if (Array.isArray(body.casosDeUso)) upd.casos_de_uso = body.casosDeUso.filter((s: string) => USOS.includes(s));
-  if (body.prioridad !== undefined) upd.prioridad = Math.max(0, Math.min(5, Number(body.prioridad) || 0));
-  if (typeof body.pendiente === "boolean") upd.pendiente = body.pendiente;
+  const { doc } = await readCasosTags();
+  const c = doc.casos.find((x) => x.nombre === nombre);
+  if (!c) return NextResponse.json({ error: "Caso no encontrado" }, { status: 404 });
 
-  const db = createSupabaseAdminClient();
-  const { error } = await db.from("case_study_tags").update(upd).eq("nombre", nombre);
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (Array.isArray(body.sector)) c.sector = body.sector.filter((s: string) => SECTORS.includes(s));
+  if (Array.isArray(body.productos)) c.productos = body.productos.filter((s: string) => PRODUCTOS.includes(s));
+  if (Array.isArray(body.casosDeUso)) c.casosDeUso = body.casosDeUso.filter((s: string) => USOS.includes(s));
+  if (body.prioridad !== undefined) c.prioridad = Math.max(0, Math.min(5, Number(body.prioridad) || 0));
+  if (typeof body.pendiente === "boolean") c.pendiente = body.pendiente;
+
+  const res = await writeCasosTags(doc.casos);
+  if (!res.ok) return NextResponse.json({ error: res.error || "No se pudo guardar" }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
