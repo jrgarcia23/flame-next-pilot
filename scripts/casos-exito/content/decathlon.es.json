@@ -1,7 +1,7 @@
 {
   "eyebrow": "Caso de éxito · Retail deportivo",
-  "h1": "Cómo Decathlon convierte el comportamiento de sus clientes en decisiones de negocio",
-  "sub": "Decathlon apuesta por Flame Analytics para comprender mejor cómo interactúan los visitantes con sus tiendas y utilizar esa información para optimizar la experiencia de compra, mejorar la operación y apoyar la toma de decisiones basadas en datos.",
+  "h1": "Cómo Decathlon convirtió el comportamiento de sus clientes en decisiones de negocio",
+  "sub": "Decathlon apostó por Flame Analytics para comprender mejor cómo interactuaban los visitantes con sus tiendas y utilizar esa información para optimizar la experiencia de compra, mejorar la operación y apoyar la toma de decisiones basadas en datos.",
   "badge": { "client": "Decathlon", "date": "Julio 2026", "readTime": "4 min de lectura" },
   "quote": {
     "text": "Comprender cómo se comportan los clientes dentro de la tienda permite tomar mejores decisiones sobre el espacio, la operación y la experiencia de compra.",
@@ -10,7 +10,7 @@
   },
   "elCaso": [
     "Decathlon, uno de los mayores distribuidores de material deportivo del mundo, buscaba incorporar una visión más completa sobre el comportamiento de los clientes en sus establecimientos físicos.",
-    "Más allá de las ventas, la compañía necesitaba entender cómo interactúan los visitantes con el espacio comercial, qué zonas reciben mayor actividad y cómo optimizar la experiencia de compra mediante datos objetivos.",
+    "Más allá de las ventas, la compañía necesitaba entender cómo interactuaban los visitantes con el espacio comercial, qué zonas recibían mayor actividad y cómo optimizar la experiencia de compra mediante datos objetivos.",
     "Para ello, Decathlon implantó Flame Analytics como plataforma de <a href=\"/es/solucion-para-el-sector-retail/\">inteligencia retail</a>, incorporando información continua sobre el comportamiento de los clientes para apoyar la gestión diaria de sus tiendas."
   ],
   "blocks": [
@@ -37,20 +37,20 @@
       "h2": "Una visión completa del comportamiento en tienda",
       "body": [
         { "p": "Flame Analytics desplegó una plataforma capaz de medir y analizar la actividad de los visitantes dentro del establecimiento mediante indicadores de tráfico, permanencia y comportamiento." },
-        { "p": "Gracias a estos datos, Decathlon puede conocer cómo utilizan los clientes el espacio comercial, identificar las zonas con mayor actividad y evaluar el impacto de cambios en la distribución del producto o en las campañas comerciales." },
-        { "p": "La información se presenta mediante dashboards intuitivos que permiten analizar la evolución de cada tienda y apoyar la toma de decisiones con datos objetivos." },
+        { "p": "Gracias a estos datos, Decathlon podía conocer cómo utilizaban los clientes el espacio comercial, identificar las zonas con mayor actividad y evaluar el impacto de cambios en la distribución del producto o en las campañas comerciales." },
+        { "p": "La información se presentaba mediante dashboards intuitivos que permitían analizar la evolución de cada tienda y apoyar la toma de decisiones con datos objetivos." },
         { "h3": "Datos para optimizar la experiencia de compra" },
-        { "p": "La analítica generada por Flame ayuda a mejorar aspectos clave de la operación diaria, como la organización del espacio comercial, la planificación de recursos o la evaluación de iniciativas de marketing." },
-        { "p": "Esta información facilita una gestión más eficiente del punto de venta y permite adaptar continuamente la experiencia a las necesidades reales de los clientes." }
+        { "p": "La analítica generada por Flame ayudaba a mejorar aspectos clave de la operación diaria, como la organización del espacio comercial, la planificación de recursos o la evaluación de iniciativas de marketing." },
+        { "p": "Esta información facilitaba una gestión más eficiente del punto de venta y permitía adaptar continuamente la experiencia a las necesidades reales de los clientes." }
       ]
     },
     {
       "id": "resultados", "num": "03", "eyebrow": "En marcha",
       "h2": "Información para mejorar cada tienda",
       "body": [
-        { "p": "Con Flame Analytics, Decathlon dispone de información continua sobre la actividad de sus establecimientos." },
-        { "p": "Los equipos pueden analizar patrones de afluencia, estudiar los recorridos de los visitantes, identificar oportunidades de mejora y evaluar el impacto de los cambios realizados en el punto de venta." },
-        { "p": "Estos datos permiten apoyar decisiones relacionadas con:" },
+        { "p": "Con Flame Analytics, Decathlon dispuso de información continua sobre la actividad de sus establecimientos." },
+        { "p": "Los equipos podían analizar patrones de afluencia, estudiar los recorridos de los visitantes, identificar oportunidades de mejora y evaluar el impacto de los cambios realizados en el punto de venta." },
+        { "p": "Estos datos permitían apoyar decisiones relacionadas con:" },
         { "list": [
           "Optimización del layout.",
           "Organización del producto.",
@@ -59,9 +59,9 @@
           "Mejora de la experiencia del cliente."
         ] },
         { "h3": "Del comportamiento del cliente a la mejora continua" },
-        { "p": "El proyecto representa un paso más en la estrategia de Decathlon para gestionar sus tiendas mediante información objetiva." },
-        { "p": "La disponibilidad de indicadores sobre el comportamiento de los visitantes permite comprender mejor cómo funcionan los espacios comerciales y aplicar mejoras continuas basadas en datos reales." },
-        { "p": "Gracias a Flame Analytics, la compañía transforma la actividad diaria de sus tiendas en conocimiento útil para optimizar la operación, reforzar la experiencia de compra y mejorar el rendimiento de la red retail." }
+        { "p": "El proyecto representó un paso más en la estrategia de Decathlon para gestionar sus tiendas mediante información objetiva." },
+        { "p": "La disponibilidad de indicadores sobre el comportamiento de los visitantes permitía comprender mejor cómo funcionaban los espacios comerciales y aplicar mejoras continuas basadas en datos reales." },
+        { "p": "Gracias a Flame Analytics, la compañía transformó la actividad diaria de sus tiendas en conocimiento útil para optimizar la operación, reforzar la experiencia de compra y mejorar el rendimiento de la red retail." }
       ]
     }
   ],
@@ -75,7 +75,7 @@
   "solTitle": "Las capacidades de Flame aplicadas en Decathlon",
   "soluciones": [
     { "icon": "trend", "h3": "Analítica de tráfico", "p": "Medición de visitantes, afluencia y patrones de comportamiento para comprender el rendimiento de cada tienda." },
-    { "icon": "clock", "h3": "Análisis de permanencia", "p": "Información sobre el tiempo que los clientes permanecen en el establecimiento y su interacción con el espacio comercial." },
+    { "icon": "clock", "h3": "Análisis de permanencia", "p": "Información sobre el tiempo que los clientes permanecían en el establecimiento y su interacción con el espacio comercial." },
     { "icon": "route", "h3": "Customer Journey", "p": "Estudio de recorridos y zonas de mayor actividad para optimizar la distribución del producto y la experiencia de compra." },
     { "icon": "chart", "h3": "Dashboards inteligentes", "p": "Visualización en tiempo real de indicadores clave para apoyar la toma de decisiones de los equipos de retail." }
   ]

@@ -70,7 +70,7 @@
     { "value": "Customer Behavior", "label": "Visitor knowledge", "desc": "Information on behavior patterns to optimize the management of the asset." },
     { "value": "First-party data", "label": "Customer knowledge", "desc": "Capturing own data through digital services tied to WiFi." },
     { "value": "Real-time", "label": "Operational intelligence", "desc": "Continuous information to support commercial and operational decisions." },
-    { "value": "Industry recognition", "label": "Innovation", "desc": "Project recognized by the AECC for its digital transformation approach." }
+    { "value": "WiFi", "label": "Digital experience", "desc": "Digital services tied to WiFi connectivity to improve the visitor experience." }
   ],
   "solTitle": "Flame capabilities applied at El Ingenio",
   "soluciones": [

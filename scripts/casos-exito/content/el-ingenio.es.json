@@ -70,7 +70,7 @@
     { "value": "Customer Behavior", "label": "Conocimiento del visitante", "desc": "Información sobre patrones de comportamiento para optimizar la gestión del activo." },
     { "value": "First-Party Data", "label": "Conocimiento del cliente", "desc": "Captación de datos propios mediante servicios digitales asociados al WiFi." },
     { "value": "Tiempo real", "label": "Inteligencia operativa", "desc": "Información continua para apoyar decisiones comerciales y de operaciones." },
-    { "value": "Reconocimiento sectorial", "label": "Innovación", "desc": "Proyecto distinguido por la AECC por su enfoque de transformación digital." }
+    { "value": "WiFi", "label": "Experiencia digital", "desc": "Servicios digitales asociados a la conectividad WiFi para mejorar la experiencia del visitante." }
   ],
   "solTitle": "Las capacidades de Flame aplicadas en El Ingenio",
   "soluciones": [
