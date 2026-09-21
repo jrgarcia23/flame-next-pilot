@@ -15,7 +15,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
   heroTitleHl: "Now make it tell you.",
   heroSub:
     "Flame Connect turns the WiFi network you already have into a visitor database and a marketing channel: a branded captive portal, consent-based data capture and real-time campaigns. No new hardware, no rip and replace, and fully GDPR compliant.",
-  heroBullets: ["No new hardware", "100% GDPR", "Works with your current network", "Connects to your CRM"],
+  heroBullets: ["No new hardware", "100% GDPR", "Works with your current network", "CRM, ERP and BI ready"],
   sections: [],
 
   // ---------- Los problemas del director de centro ----------
@@ -47,7 +47,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
 
   // ---------- Todo lo que hace el WiFi conectado a Flame ----------
   capsTitle: "Everything your WiFi can do once it runs on Flame",
-  capsSub: "One network you are already paying for. Eight ways to turn it into data, contacts and campaigns.",
+  capsSub: "One network you are already paying for. Ten ways to turn it into data, contacts and campaigns.",
   capabilities: [
     {
       span: 7,
@@ -55,7 +55,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
       img: "/wp-content/uploads/2026/01/guest_wifi-2-scaled-1.png",
       svg: IC.wifi,
       title: "A captive portal that looks like your mall",
-      desc: "Design the login experience with your own brand: email or social login, sponsor slots, promotions and multi-language detection. The first screen every visitor sees becomes a marketing asset instead of a technical form.",
+      desc: "Design the login experience with your own brand: email or social login, sponsor slots, promotions, consent management and multi-language detection. The first screen every visitor sees becomes a marketing asset instead of a technical form.",
     },
     {
       span: 5,
@@ -66,20 +66,20 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
     {
       span: 6,
       svg: IC.target,
-      title: "Campaigns in real time",
-      desc: "Trigger a message the moment someone connects, walks into a zone or comes back after weeks away. Promotions, events and tenant offers delivered while the visitor is still inside the mall.",
+      title: "Campaigns by email, SMS and in-portal",
+      desc: "Automated workflows triggered by behaviour, visit frequency or location. Reach the visitor while they are still inside the mall, or bring them back weeks later, from the same platform.",
     },
     {
       span: 6,
       svg: IC.heatmap,
-      title: "Visit patterns per person",
-      desc: "Frequency, recency, dwell time, first visit or returning, preferred zone and time slot. The profile of who really fills your mall, not an estimate based on a sample.",
+      title: "The profile of who really visits you",
+      desc: "Frequency, recency, dwell time, first visit or returning, preferred zone and time slot, plus anonymous age and gender distribution. The real profile of your visitor, not an estimate from a sample.",
     },
     {
       span: 5,
-      svg: IC.share,
-      title: "It plugs into what you already use",
-      desc: "Sync profiles and consents with Salesforce, HubSpot, Mailchimp, your app or your loyalty programme, so the data lands where your team already works.",
+      svg: IC.grid,
+      title: "One portal for your whole portfolio",
+      desc: "Manage every mall from a single cloud platform, with content and design customised per site. From one centre to hundreds, without a team on the ground at each location.",
     },
     {
       span: 7,
@@ -87,19 +87,31 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
       img: "/wp-content/uploads/2026/01/Guest_wifi.png",
       svg: IC.bars,
       title: "Reporting that answers to the board",
-      desc: "Unique connections, captured contacts, opens and clicks, returning visitors and conversion per campaign. The numbers you need to show what the mall's own channel is worth.",
+      desc: "Unique connections, captured contacts, dwell time, demographics, returning visitors and conversion per campaign. The numbers you need to show what the mall's own channel is worth.",
     },
     {
-      svg: IC.shield,
       span: 6,
+      svg: IC.share,
+      title: "It plugs into what you already use",
+      desc: "Sync profiles and consents with your CRM (HubSpot, Salesforce, Brevo), your ERP or PMS and your BI tools (Power BI, Looker). Open APIs and webhooks for everything else, so the data lands where your team already works.",
+    },
+    {
+      span: 6,
+      svg: IC.activity,
+      title: "Inside your own app, with an SDK",
+      desc: "Embed WiFi access in your mall's app with the iOS and Android SDK: returning visitors are recognised automatically, connect without friction and can be activated in real time.",
+    },
+    {
+      span: 6,
+      svg: IC.shield,
       title: "Consent and GDPR, handled",
-      desc: "Granular purposes, optional double opt-in, automatic deletion on request and a full audit trail. Designed for European operators and their legal teams.",
+      desc: "Granular purposes, optional double opt-in, automatic deletion on request and a full audit trail. No biometrics and no personal data processing beyond what the visitor agreed to.",
     },
     {
       span: 6,
       svg: IC.building,
       title: "A new asset for your tenants",
-      desc: "Offer your operators visibility on the portal and segmented campaigns to the mall's audience. WiFi stops being a cost line and starts being a service you can monetise.",
+      desc: "Offer your operators visibility on the portal, segmented campaigns to the mall's audience and integration with your digital signage. WiFi stops being a cost line and starts being a service you can monetise.",
     },
   ],
 
