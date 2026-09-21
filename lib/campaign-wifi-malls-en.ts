@@ -1,0 +1,171 @@
+// LANDING DE CAMPAÑA (no SEO): aterrizaje de la secuencia de email "Campaña CC Europa"
+// (automatización 36 de ActiveCampaign). Solo WiFi/Connect, con un bloque final que
+// enseña el resto de casos de uso de Flame. Va con noindex y fuera del sitemap.
+import { SectorConfig } from "./page-content";
+import { IC } from "./sector-preview-configs";
+import { uc } from "./sector-configs-en";
+
+export const WIFI_MALLS_CFG_EN: SectorConfig = {
+  metaTitle: "Guest WiFi for Shopping Malls · Flame Analytics",
+  metaDescription: "Turn the WiFi your mall already has into a visitor database and a marketing channel. No new hardware, GDPR compliant.",
+
+  heroBgImage: "/wp-content/uploads/2026/01/Industries_Malls2-1.jpg",
+  heroBgPosition: "center center",
+  heroTitle: "Your mall's WiFi already knows who visits.",
+  heroTitleHl: "Now make it tell you.",
+  heroSub:
+    "Flame Connect turns the WiFi network you already have into a visitor database and a marketing channel: a branded captive portal, consent-based data capture and real-time campaigns. No new hardware, no rip and replace, and fully GDPR compliant.",
+  heroBullets: ["No new hardware", "100% GDPR", "Works with your current network", "Connects to your CRM"],
+  sections: [],
+
+  // ---------- Los problemas del director de centro ----------
+  painPointsTitle: "The day-to-day of your visitor data.",
+  painPointsIntro:
+    "Before we talk about a platform, let's talk about what you already deal with every week running your mall.",
+  painPoints: [
+    {
+      svg: IC.door,
+      title: "You lose the visitor at the door",
+      desc: "Thousands of people walk through your mall every day and leave no trace. The moment they step out, you have no way to reach them again.",
+    },
+    {
+      svg: IC.share,
+      title: "Your tenants own the shopper, you don't",
+      desc: "The relationship with the end customer sits with each operator. You manage the building, but you can't talk to the people who fill it.",
+    },
+    {
+      svg: IC.people,
+      title: "Your database barely grows",
+      desc: "Campaigns, events and loyalty schemes all depend on a contact list that hardly moves, while buying audiences gets more expensive every year.",
+    },
+    {
+      svg: IC.bars,
+      title: "You can't prove footfall when it matters",
+      desc: "In leasing and renewal negotiations you defend rents with estimates instead of the real traffic and visitor profile of your mall.",
+    },
+  ],
+
+  // ---------- Todo lo que hace el WiFi conectado a Flame ----------
+  capsTitle: "Everything your WiFi can do once it runs on Flame",
+  capsSub: "One network you are already paying for. Eight ways to turn it into data, contacts and campaigns.",
+  capabilities: [
+    {
+      span: 7,
+      featured: true,
+      img: "/wp-content/uploads/2026/01/guest_wifi-2-scaled-1.png",
+      svg: IC.wifi,
+      title: "A captive portal that looks like your mall",
+      desc: "Design the login experience with your own brand: email or social login, sponsor slots, promotions and multi-language detection. The first screen every visitor sees becomes a marketing asset instead of a technical form.",
+    },
+    {
+      span: 5,
+      svg: IC.people,
+      title: "Consent-based data capture",
+      desc: "Build your own first-party database: contact details, language, profile and visit history, with granular consent given by the visitor. Typical capture rates run between 25% and 40% when the portal offers a clear incentive.",
+    },
+    {
+      span: 6,
+      svg: IC.target,
+      title: "Campaigns in real time",
+      desc: "Trigger a message the moment someone connects, walks into a zone or comes back after weeks away. Promotions, events and tenant offers delivered while the visitor is still inside the mall.",
+    },
+    {
+      span: 6,
+      svg: IC.heatmap,
+      title: "Visit patterns per person",
+      desc: "Frequency, recency, dwell time, first visit or returning, preferred zone and time slot. The profile of who really fills your mall, not an estimate based on a sample.",
+    },
+    {
+      span: 5,
+      svg: IC.share,
+      title: "It plugs into what you already use",
+      desc: "Sync profiles and consents with Salesforce, HubSpot, Mailchimp, your app or your loyalty programme, so the data lands where your team already works.",
+    },
+    {
+      span: 7,
+      featured: true,
+      img: "/wp-content/uploads/2026/01/Guest_wifi.png",
+      svg: IC.bars,
+      title: "Reporting that answers to the board",
+      desc: "Unique connections, captured contacts, opens and clicks, returning visitors and conversion per campaign. The numbers you need to show what the mall's own channel is worth.",
+    },
+    {
+      svg: IC.shield,
+      span: 6,
+      title: "Consent and GDPR, handled",
+      desc: "Granular purposes, optional double opt-in, automatic deletion on request and a full audit trail. Designed for European operators and their legal teams.",
+    },
+    {
+      span: 6,
+      svg: IC.building,
+      title: "A new asset for your tenants",
+      desc: "Offer your operators visibility on the portal and segmented campaigns to the mall's audience. WiFi stops being a cost line and starts being a service you can monetise.",
+    },
+  ],
+
+  // ---------- Otros casos de uso (el bloque que pide JR) ----------
+  useCasesEyebrow: "Beyond WiFi",
+  useCasesTitle: "Other use cases you can work on with Flame",
+  useCasesSub:
+    "WiFi is where the relationship with the visitor starts. The same platform measures what happens inside your mall, using the cameras you already have.",
+  useCases: [
+    uc("conteo", "Measure total footfall and footfall per entrance, and compare days, time slots and campaigns."),
+    uc("conversion", "Cross traffic with tenant sales to know the real conversion by zone and operator."),
+    uc("comportamiento", "Heatmaps and paths to optimise tenant mix, signage and common areas."),
+    uc("ocupacion", "Control occupancy in real time by zone, with alerts for events and peak hours."),
+    uc("colas", "Detect waiting times at entrances, car parks and the food court."),
+    uc("aseos", "Schedule restroom cleaning by real use instead of a fixed timetable."),
+  ],
+  showUseCases: true,
+  useCasesLayout: "numbers",
+  useCasesBeforeCases: true,
+  hideProducts: true,
+
+  // ---------- Prueba ----------
+  casesTitle: "They already turn their WiFi into a relationship with the visitor",
+  casesSub: "Operators and large spaces that stopped treating connectivity as a utility.",
+  caseStudies: [
+    {
+      href: "https://www.flameanalytics.com/en/driving-digital-transformation-flame-analytics-success-story-with-merlin-properties/",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/06/merlin-properties-shopping-centers-digital-transformation-flame-analytics.png",
+      title: "Driving digital transformation: Flame Analytics and Merlin Properties",
+      excerpt:
+        "Merlin Properties leans on Flame to turn the connectivity of its shopping centres into visitor knowledge and digital transformation.",
+      date: "3 June 2024",
+    },
+    {
+      href: "https://www.flameanalytics.com/es/caso-de-exito-repsol-y-flame-analytics-transforman-la-experiencia-en-1000-gasolineras/",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/04/flame-en-repsol.jpg",
+      title: "Repsol transforms the experience across 1,000 sites",
+      excerpt:
+        "Traffic analytics and connectivity deployed at scale across a network of a thousand locations.",
+      date: "9 April 2025",
+    },
+    {
+      href: "https://www.flameanalytics.com/es/transformando-la-experiencia-en-caixaforum-con-videoanalitica/",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/02/CASOS-DE-EXITO-EN.jpg",
+      title: "Transforming the CaixaForum experience",
+      excerpt:
+        "The \"la Caixa\" Foundation measures and improves the visitor experience across its network of cultural centres.",
+      date: "12 February 2025",
+    },
+  ],
+
+  productsTitle: "", productsTitleHl: "", productsSub: "", products: [],
+  // Los testimonios de TESTIMONIALS_ALL están en español: en una landing inglesa se ocultan.
+  testimonialsIdx: [],
+  hideTestimonials: true,
+
+  // ---------- Las dos objeciones reales: red y RGPD ----------
+  faqs: [
+    { q: "Is it compatible with the WiFi infrastructure we already have?", a: "Yes. Flame Connect works with the main network vendors (Cisco, Aruba, Ruckus, Cambium, Ubiquiti and others) through standard RADIUS, WPA Enterprise or HTTP redirect protocols. There is no need to replace access points or add hardware." },
+    { q: "What capture rate can we expect?", a: "With a well designed portal and a clear incentive (free WiFi, a coupon, exclusive content), capture rates typically run between 25% and 40%. Without an incentive, between 8% and 15%." },
+    { q: "How is GDPR consent handled?", a: "Consent is granular and given in the portal: the visitor chooses what to share and for which purposes. Double opt-in is optional, and the right to be forgotten is handled with automatic deletion on request." },
+    { q: "Does it work in several languages?", a: "Yes. The portal detects the device language and supports configurable translation into more than 20 languages, with copy localised per language." },
+    { q: "What about MAC randomisation?", a: "Flame is optimised for environments with MAC randomisation (iOS 14 and later, Android 11 and later). Returning visitors are identified through the registered email and behavioural patterns, not the device address." },
+    { q: "How long does it take to go live?", a: "The portal and the integration with your network are configured without civil works or new devices. The timeline depends on your IT team and your network vendor, and we agree it in the first call." },
+  ],
+
+  ctaStripBold: "Your WiFi is already installed and already paid for.",
+  ctaStripLight: "Book a 15-minute call and see what it can give back.",
+};
