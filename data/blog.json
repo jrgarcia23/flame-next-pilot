@@ -207,7 +207,7 @@
         "name": "Case Studies"
       },
       "link_legacy": "https://flameanalytics.com/en/pompeii-analitica-retail-flame-analytics/",
-      "status": "published",
+      "status": "draft",
       "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/03/analitica-retail-pompeii-1030x1030-2.webp"
     },
     {
@@ -4066,7 +4066,7 @@
         "name": "Case Studies"
       },
       "link_legacy": "https://flameanalytics.com/en/pompeii-use-big-data-retail-sector/",
-      "status": "published"
+      "status": "draft"
     },
     {
       "id": 19375,

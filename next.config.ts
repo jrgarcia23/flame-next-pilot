@@ -125,6 +125,12 @@ const nextConfig: NextConfig = {
       { source: "/en/blog/flame-analytics-has-won-three-badges-in-the-g2-fall-reports",   destination: "/en/community/", permanent: true },
       { source: "/en/blog/why-digital-transformation-in-retail-is-more-important-now",    destination: "/en/community/", permanent: true },
 
+      // Pompeii: 2 casos EN duplicados pasados a draft → consolidan en el canónico EN (nuevo formato)
+      { source: "/en/pompeii-use-big-data-retail-sector",        destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
+      { source: "/en/pompeii-use-big-data-retail-sector/",       destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
+      { source: "/en/pompeii-analitica-retail-flame-analytics",  destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
+      { source: "/en/pompeii-analitica-retail-flame-analytics/", destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
+
       // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
       // El demo redirigía /<categoria>/<slug>/ y /<lang>/<categoria>/<slug>/ a /<lang>/<slug>/.
       // Cuando el demo se apague, replicamos esos 301s para no perder los enlaces externos
