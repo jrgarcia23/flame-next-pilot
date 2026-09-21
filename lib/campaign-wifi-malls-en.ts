@@ -135,31 +135,34 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
 
   // ---------- Prueba ----------
   casesTitle: "They already turn their WiFi into a relationship with the visitor",
-  casesSub: "Operators and large spaces that stopped treating connectivity as a utility.",
+  casesSub: "Shopping centres and operators that stopped treating connectivity as a utility.",
+  // Los tres casos de CENTRO COMERCIAL con Connect/Marketing WiFi mejor valorados
+  // en el CMS (data/case-studies-tags.json y su gemelo en Storage), con su artículo
+  // en inglés: CBRE (prioridad 5), Merlin (4) y El Ingenio (3).
   caseStudies: [
+    {
+      href: "https://www.flameanalytics.com/en/case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition/",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/11/cbre-spain-shopping-centers-loyalty-system-connect-mall-flame-analytics.png",
+      title: "CBRE Spain builds visitor loyalty with Connect Mall Edition",
+      excerpt:
+        "CBRE Spain rolls out Connect across the shopping centres it manages to turn WiFi into loyalty and a better visitor experience.",
+      date: "8 November 2024",
+    },
     {
       href: "https://www.flameanalytics.com/en/driving-digital-transformation-flame-analytics-success-story-with-merlin-properties/",
       img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/06/merlin-properties-shopping-centers-digital-transformation-flame-analytics.png",
-      title: "Driving digital transformation: Flame Analytics and Merlin Properties",
+      title: "Driving digital transformation with Merlin Properties",
       excerpt:
         "Merlin Properties leans on Flame to turn the connectivity of its shopping centres into visitor knowledge and digital transformation.",
       date: "3 June 2024",
     },
     {
-      href: "https://www.flameanalytics.com/es/caso-de-exito-repsol-y-flame-analytics-transforman-la-experiencia-en-1000-gasolineras/",
-      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/04/flame-en-repsol.jpg",
-      title: "Repsol transforms the experience across 1,000 sites",
+      href: "https://www.flameanalytics.com/en/success-in-el-ingenio-recognition-for-the-igenio-project-of-flame-analytics/",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/05/el-ingenio-shopping-center-innovation-igenio-flame-analytics.png",
+      title: "El Ingenio: the iGenio project earns industry recognition",
       excerpt:
-        "Traffic analytics and connectivity deployed at scale across a network of a thousand locations.",
-      date: "9 April 2025",
-    },
-    {
-      href: "https://www.flameanalytics.com/es/transformando-la-experiencia-en-caixaforum-con-videoanalitica/",
-      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/02/CASOS-DE-EXITO-EN.jpg",
-      title: "Transforming the CaixaForum experience",
-      excerpt:
-        "The \"la Caixa\" Foundation measures and improves the visitor experience across its network of cultural centres.",
-      date: "12 February 2025",
+        "El Ingenio shopping centre uses data and connectivity to stand out, and its iGenio project with Flame is recognised by the industry.",
+      date: "3 May 2024",
     },
   ],
 
