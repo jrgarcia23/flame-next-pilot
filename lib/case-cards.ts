@@ -51,7 +51,9 @@ export async function selectCaseCards(f: CaseFilter, limit = 3): Promise<CaseCar
     if (!t.slug) return null;
     const p = idx.get(t.slug);
     if (!p) return null;
-    const img = (p.hero || p.thumbnail || "").trim();
+    // La tarjeta usa el THUMBNAIL (carátula del rediseño, `<caso>-es-<hash>.png`);
+    // `hero` es la imagen interna del artículo (a veces la antigua). thumbnail > hero.
+    const img = (p.thumbnail || p.hero || "").trim();
     if (!img) return null;
     return {
       href: `https://www.flameanalytics.com/es/${t.slug}/`,
