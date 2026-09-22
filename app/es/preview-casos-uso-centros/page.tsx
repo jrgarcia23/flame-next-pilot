@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { CENTROS_CFG } from "@/app/es/solucion-para-centros-comerciales/page";
 
 // PREVIEW (noindex). Parte de la página REAL de Centros Comerciales y SOLO cambia
@@ -11,11 +12,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function PreviewCasosUsoCentros() {
+export default async function PreviewCasosUsoCentros() {
+  const caseStudies = await selectCaseCards({ sector: "centros-comerciales" });
   return (
     <SectorTemplate
       cfg={{
         ...CENTROS_CFG,
+        caseStudies,
         showUseCases: true,        // activa el módulo de casos de uso
         hideProducts: true,        // quita el bloque "Productos integrales"
         hideTestimonials: true,    // quita "Las mejores marcas hablan de nosotros"

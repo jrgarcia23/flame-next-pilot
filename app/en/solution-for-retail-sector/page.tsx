@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { RETAIL_CFG_EN } from "@/lib/sector-configs-en";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RetailSectorEN() {
-  return <SectorTemplate cfg={RETAIL_CFG_EN} enHref="/es/solucion-para-el-sector-retail/" currentLang="en" />;
+export default async function RetailSectorEN() {
+  const caseStudies = await selectCaseCards({ sector: "retail" }, { lang: "en" });
+  return <SectorTemplate cfg={{ ...RETAIL_CFG_EN, caseStudies }} enHref="/es/solucion-para-el-sector-retail/" currentLang="en" />;
 }

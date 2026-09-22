@@ -50,7 +50,8 @@
       "casosDeUso": [
         "Conteo de personas"
       ],
-      "prioridad": 5
+      "prioridad": 5,
+      "slugEn": "alain-afflelou-relies-on-flame-analytics-for-people-counting-across-its-stores-in-spain"
     },
     {
       "nombre": "Havaianas",
@@ -66,7 +67,8 @@
         "Conteo de personas",
         "Marketing WiFi"
       ],
-      "prioridad": 3
+      "prioridad": 3,
+      "slugEn": "havaianas-store-digitalization-flame-analytics"
     },
     {
       "nombre": "Ikea Latinoamérica",
@@ -86,7 +88,8 @@
         "Marketing WiFi"
       ],
       "prioridad": 3,
-      "nota": "tags inferidos del contenido publicado (2 tiendas México: tráfico + ocupación + comportamiento + recorridos + captación WiFi)"
+      "nota": "tags inferidos del contenido publicado (2 tiendas México: tráfico + ocupación + comportamiento + recorridos + captación WiFi)",
+      "slugEn": "ikea-relies-on-flame-analytics-for-the-indoor-analytics-of-its-new-centers-in-latin-america"
     },
     {
       "nombre": "Decathlon",
@@ -103,7 +106,8 @@
         "Recorrido del cliente",
         "Analítica de conversión"
       ],
-      "prioridad": 4
+      "prioridad": 4,
+      "slugEn": "decathlon-measure-and-improve-in-the-retail-sector"
     },
     {
       "nombre": "CBRE",
@@ -117,7 +121,8 @@
       "casosDeUso": [
         "Marketing WiFi"
       ],
-      "prioridad": 5
+      "prioridad": 5,
+      "slugEn": "case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition"
     },
     {
       "nombre": "Ferial Plaza",
@@ -131,7 +136,8 @@
       "casosDeUso": [
         "Marketing WiFi"
       ],
-      "prioridad": 3
+      "prioridad": 3,
+      "slugEn": "ferial-plaza-shopping-center-customer-experience-flame-analytics"
     },
     {
       "nombre": "El Ingenio",
@@ -148,7 +154,8 @@
         "Marketing WiFi",
         "Comportamiento y mapas de calor"
       ],
-      "prioridad": 3
+      "prioridad": 3,
+      "slugEn": "success-in-el-ingenio-recognition-for-the-igenio-project-of-flame-analytics"
     },
     {
       "nombre": "Merlin Properties",
@@ -165,7 +172,8 @@
         "Marketing WiFi",
         "Comportamiento y mapas de calor"
       ],
-      "prioridad": 4
+      "prioridad": 4,
+      "slugEn": "driving-digital-transformation-flame-analytics-success-story-with-merlin-properties"
     },
     {
       "nombre": "Marineda City",
@@ -182,7 +190,8 @@
         "Marketing WiFi",
         "Comportamiento y mapas de calor"
       ],
-      "prioridad": 4
+      "prioridad": 4,
+      "slugEn": "marineda-city-shopping-center-flame-analytics"
     },
     {
       "nombre": "Zenia Boulevard",
@@ -193,7 +202,8 @@
       "productos": [],
       "casosDeUso": [],
       "prioridad": 3,
-      "pendiente": true
+      "pendiente": true,
+      "slugEn": "zenia-boulevard-shopping-center-flame-analytics"
     },
     {
       "nombre": "Plaza Eboli",
@@ -219,7 +229,8 @@
       "casosDeUso": [
         "Marketing WiFi"
       ],
-      "prioridad": 3
+      "prioridad": 3,
+      "slugEn": "oasiz-madrid-implements-flame-analytics-to-identify-and-connect-with-its-customers-in-an-agile-way"
     },
     {
       "nombre": "La Casa Encendida",
@@ -233,7 +244,8 @@
       "casosDeUso": [
         "Conteo de personas"
       ],
-      "prioridad": 3
+      "prioridad": 3,
+      "slugEn": "la-casa-encendida-a-safe-experience-with-flame-analytics"
     },
     {
       "nombre": "B&B Hotels",
@@ -248,7 +260,8 @@
         "Marketing WiFi"
       ],
       "prioridad": 3,
-      "nota": "página en DRAFT"
+      "nota": "página en DRAFT",
+      "slugEn": "b-b-hotels-footfall-analytics-flame-analytics"
     },
     {
       "nombre": "CaixaForum",
@@ -268,7 +281,8 @@
         "WiFi corporativo"
       ],
       "prioridad": 4,
-      "nota": "Excel lo tenía en Banking; JR: en ambos (cultura + banca); WiFi corporativo (JR)"
+      "nota": "Excel lo tenía en Banking; JR: en ambos (cultura + banca); WiFi corporativo (JR)",
+      "slugEn": "caixaforum-video-analytics-visitor-experience"
     },
     {
       "nombre": "Repsol",
@@ -284,7 +298,8 @@
         "Marketing WiFi"
       ],
       "prioridad": 4,
-      "nota": "Excel Gasolineras; JR: retail + supermercados"
+      "nota": "Excel Gasolineras; JR: retail + supermercados",
+      "slugEn": "success-story-repsol-and-flame-analytics-transform-the-experience-in-1000-gas-stations"
     },
     {
       "nombre": "Aena",
@@ -299,7 +314,8 @@
         "Marketing WiFi"
       ],
       "prioridad": 4,
-      "nota": "página en DRAFT"
+      "nota": "página en DRAFT",
+      "slugEn": "aena-passenger-analytics-airports-flame-analytics"
     },
     {
       "nombre": "MultiÓpticas",
@@ -314,7 +330,8 @@
         "Conteo de personas",
         "Comportamiento y mapas de calor"
       ],
-      "prioridad": 5
+      "prioridad": 5,
+      "slugEn": "multiopticas-turns-in-store-footfall-into-business-decisions"
     },
     {
       "nombre": "Hoteles Viva",

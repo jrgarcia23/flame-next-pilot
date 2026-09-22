@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { TRANSPORTE_CFG } from "@/lib/sector-preview-configs";
 
 // PREVIEW (noindex). Transporte y Aeropuertos con el módulo "Casos de uso" (matriz JR) en vez de productos.
@@ -8,11 +9,13 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function PreviewCasosUsoTransporte() {
+export default async function PreviewCasosUsoTransporte() {
+  const caseStudies = await selectCaseCards({ sector: "transporte-y-aeropuertos" });
   return (
     <SectorTemplate
       cfg={{
         ...TRANSPORTE_CFG,
+        caseStudies,
         showUseCases: true,
         hideProducts: true,
         hideTestimonials: true,

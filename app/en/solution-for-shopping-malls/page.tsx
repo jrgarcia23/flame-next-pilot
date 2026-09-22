@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
+import { selectCaseCards } from "@/lib/case-cards";
 import { CENTROS_CFG_EN } from "@/lib/sector-configs-en";
 
 export const metadata: Metadata = {
@@ -30,6 +31,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ShoppingMallsSectorEN() {
-  return <SectorTemplate cfg={CENTROS_CFG_EN} enHref="/es/solucion-para-centros-comerciales/" currentLang="en" />;
+export default async function ShoppingMallsSectorEN() {
+  const caseStudies = await selectCaseCards({ sector: "centros-comerciales" }, { lang: "en" });
+  return <SectorTemplate cfg={{ ...CENTROS_CFG_EN, caseStudies }} enHref="/es/solucion-para-centros-comerciales/" currentLang="en" />;
 }

@@ -8,6 +8,7 @@ import tagsData from "@/data/case-studies-tags.json";
 export type CaseTag = {
   nombre: string;
   slug: string;
+  slugEn?: string;
   sector: string[];
   productos: string[];
   casosDeUso: string[];
