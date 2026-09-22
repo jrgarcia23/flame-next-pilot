@@ -4122,7 +4122,7 @@
         "name": "Case Studies"
       },
       "link_legacy": "https://flameanalytics.com/en/cuatro-caminos-a-personalized-and-customized-experience/",
-      "status": "published"
+      "status": "draft"
     },
     {
       "id": 19350,
@@ -4176,7 +4176,7 @@
         "name": "Case Studies"
       },
       "link_legacy": "https://flameanalytics.com/en/plaza-eboli-reinventing-malls-proximity-marketing/",
-      "status": "published"
+      "status": "draft"
     },
     {
       "id": 15580,
@@ -7343,7 +7343,7 @@
         "name": "Casos de éxito"
       },
       "link_legacy": "https://flameanalytics.com/es/cuatro-caminos-una-experiencia-personalizada-y-medida/",
-      "status": "published",
+      "status": "draft",
       "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/02/Cuatro-Caminos-centro-comercial.png"
     },
     {
@@ -7475,7 +7475,7 @@
         "name": "Casos de éxito"
       },
       "link_legacy": "https://flameanalytics.com/es/plaza-eboli-reinventando-el-marketing-de-proximidad-del-centro-comercial/",
-      "status": "published",
+      "status": "draft",
       "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2019/11/plaza-eboli-centro-comercial-cliente-flame.png"
     },
     {

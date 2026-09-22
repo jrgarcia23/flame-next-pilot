@@ -131,6 +131,16 @@ const nextConfig: NextConfig = {
       { source: "/en/pompeii-analitica-retail-flame-analytics",  destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
       { source: "/en/pompeii-analitica-retail-flame-analytics/", destination: "/en/pompeii-retail-analytics-case-study/", permanent: true },
 
+      // Cuatro Caminos y Plaza Éboli retirados (ocultos) → al listado de casos de éxito
+      { source: "/es/cuatro-caminos-una-experiencia-personalizada-y-medida",   destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/es/cuatro-caminos-una-experiencia-personalizada-y-medida/",  destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/en/cuatro-caminos-a-personalized-and-customized-experience",  destination: "/en/category/case-studies/", permanent: true },
+      { source: "/en/cuatro-caminos-a-personalized-and-customized-experience/", destination: "/en/category/case-studies/", permanent: true },
+      { source: "/es/plaza-eboli-reinventando-el-marketing-de-proximidad-del-centro-comercial",   destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/es/plaza-eboli-reinventando-el-marketing-de-proximidad-del-centro-comercial/",  destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing",  destination: "/en/category/case-studies/", permanent: true },
+      { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing/", destination: "/en/category/case-studies/", permanent: true },
+
       // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
       // El demo redirigía /<categoria>/<slug>/ y /<lang>/<categoria>/<slug>/ a /<lang>/<slug>/.
       // Cuando el demo se apague, replicamos esos 301s para no perder los enlaces externos
