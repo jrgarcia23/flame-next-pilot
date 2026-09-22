@@ -1,4 +1,5 @@
 import Icon from "./Icon";
+import { coverUrl } from "@/lib/img";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, ProductConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
@@ -411,7 +412,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
             <div className="grid gap-7 pt-cases-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
               {cfg.caseStudies.map((cs, i) => (
                 <a key={i} href={cs.href} target="_blank" rel="noopener" className="pt-case-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                  <div style={{ aspectRatio: "16/10", background: `url('${cs.img}') center/cover` }} />
+                  <div style={{ aspectRatio: "16/10", background: `url('${coverUrl(cs.img)}') center/cover` }} />
                   <div className="p-6 flex flex-col flex-1">
                     <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
                     <h3 className="text-[18px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{cs.title}</h3>

@@ -140,6 +140,8 @@ const nextConfig: NextConfig = {
       { source: "/es/plaza-eboli-reinventando-el-marketing-de-proximidad-del-centro-comercial/",  destination: "/es/categoria/casos-de-exito/", permanent: true },
       { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing",  destination: "/en/category/case-studies/", permanent: true },
       { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing/", destination: "/en/category/case-studies/", permanent: true },
+      { source: "/en/new-success-story-customer-loyalty-project-for-small-businesses",  destination: "/en/category/case-studies/", permanent: true },
+      { source: "/en/new-success-story-customer-loyalty-project-for-small-businesses/", destination: "/en/category/case-studies/", permanent: true },
 
       // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
       // El demo redirigía /<categoria>/<slug>/ y /<lang>/<categoria>/<slug>/ a /<lang>/<slug>/.

@@ -1,4 +1,5 @@
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
+import { coverUrl } from "@/lib/img";
 import { BlogPost, categoryLabel, formatDate, shortExcerpt, Lang } from "@/lib/blog";
 import { getCategoryMeta, POSTS_PER_PAGE } from "@/lib/category-meta";
 import { sanitizeTitle } from "@/lib/sanitize-title";
@@ -54,7 +55,7 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
       >
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `url('${meta.heroImg}')`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
+          style={{ backgroundImage: `url('${coverUrl(meta.heroImg, 1600, 70)}')`, backgroundPosition: "center", backgroundSize: "cover", backgroundRepeat: "no-repeat" }}
         />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -96,7 +97,7 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
                 >
                   {img && (
                     <div
-                      style={{ aspectRatio: "1/1", background: `url('${img}') center/cover` }}
+                      style={{ aspectRatio: "1/1", background: `url('${coverUrl(img)}') center/cover` }}
                     />
                   )}
                   <div className="p-5">
