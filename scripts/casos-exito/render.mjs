@@ -303,7 +303,6 @@ ${renderBlockBody(b.body)}
         <span class="tag">${t.catLabel}</span>
         <h3>${r.h3}</h3>
         ${r.excerpt ? `<p class="excerpt">${r.excerpt}</p>` : ""}
-        ${r.date ? `<p class="date">${r.date}</p>` : ""}
       </div>
     </a>`).join("\n");
 
@@ -336,7 +335,6 @@ ${renderBlockBody(b.body)}
           <span class="flame-word">${t.flameWord}</span>
         </div>
         <div class="mo-hero-dates">
-          <span>${CAL_SVG} ${d.badge.date}</span>
           <span>${CLK_SVG} ${d.badge.readTime}</span>
         </div>
       </div>
