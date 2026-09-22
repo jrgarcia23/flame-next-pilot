@@ -142,7 +142,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
   caseStudies: [
     {
       href: "https://www.flameanalytics.com/en/case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition/",
-      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/11/cbre-spain-shopping-centers-loyalty-system-connect-mall-flame-analytics.png",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/09/cbre-en-mu2dqx8k.png",
       title: "CBRE Spain builds visitor loyalty with Connect Mall Edition",
       excerpt:
         "CBRE Spain rolls out Connect across the shopping centres it manages to turn WiFi into loyalty and a better visitor experience.",
@@ -150,7 +150,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
     },
     {
       href: "https://www.flameanalytics.com/en/driving-digital-transformation-flame-analytics-success-story-with-merlin-properties/",
-      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/06/merlin-properties-shopping-centers-digital-transformation-flame-analytics.png",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/09/merlin-properties-es-2-mu2egfci.png",
       title: "Driving digital transformation with Merlin Properties",
       excerpt:
         "Merlin Properties leans on Flame to turn the connectivity of its shopping centres into visitor knowledge and digital transformation.",
@@ -158,7 +158,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
     },
     {
       href: "https://www.flameanalytics.com/en/success-in-el-ingenio-recognition-for-the-igenio-project-of-flame-analytics/",
-      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/05/el-ingenio-shopping-center-innovation-igenio-flame-analytics.png",
+      img: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/09/el-ingenio-en-mu2ih1e9.png",
       title: "El Ingenio: the iGenio project earns industry recognition",
       excerpt:
         "El Ingenio shopping centre uses data and connectivity to stand out, and its iGenio project with Flame is recognised by the industry.",
