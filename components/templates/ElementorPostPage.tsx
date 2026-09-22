@@ -39,6 +39,8 @@ export default function ElementorPostPage({
         .elementor-special-post { font-family: "Roboto", "Roboto Slab", "Helvetica Neue", Arial, sans-serif; line-height: 1.5; color: #15163A; }
         .elementor-special-post img { max-width: 100%; height: auto; }
         .elementor-special-post .elementor-widget-text-editor p { margin-bottom: 1em; }
+        /* Casos de éxito atemporales: ocultar la fecha de las tarjetas de "otros casos". */
+        .elementor-special-post .date { display: none !important; }
       `}</style>
 
       <SiteFooter currentLang={lang} />
