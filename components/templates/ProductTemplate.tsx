@@ -417,8 +417,7 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
                     <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
                     <h3 className="text-[18px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{cs.title}</h3>
                     <p className="text-[14px] leading-[1.55] flex-1" style={{ color: "var(--color-ink-2)" }}>{cs.excerpt}</p>
-                    <div className="flex items-center justify-between mt-4 pt-4" style={{ borderTop: "1px solid var(--color-rule)" }}>
-                      <span className="text-[12.5px]" style={{ color: "var(--color-ink-3)" }}>{cs.date}</span>
+                    <div className="flex items-center justify-end mt-4 pt-4" style={{ borderTop: "1px solid var(--color-rule)" }}>
                       <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>{currentLang === "en" ? "View" : "Ver caso"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
                     </div>
                   </div>

@@ -276,6 +276,8 @@ export default async function BlogPostTemplate({ post }: { post: BlogPost }) {
   const currentPath = `/${lang}/${post.slug}/`;
 
   const editorial = shouldUseEditorialFormat(post.slug, post.category.slug);
+  // Casos de éxito = atemporales: no se muestra la fecha en la ficha.
+  const isCaseStudy = CASE_STUDY_CATEGORIES.has(post.category.slug);
 
   // Procesamiento editorial: TOC (h2 con fallback a h3) + pull-quotes (si no hay ya) + CTAs.
   // Para non-editorial: solo limpieza mínima (imágenes rotas + styles inline en headings)
@@ -327,8 +329,12 @@ export default async function BlogPostTemplate({ post }: { post: BlogPost }) {
           <div className="flex items-center gap-4 text-[14.5px] flex-wrap" style={{ color: "rgb(255 255 255 / 0.78)" }}>
             <a href={catPath} className="text-[12.5px] uppercase font-semibold inline-flex items-center" style={{ color: "var(--color-accent)", letterSpacing: "0.08em" }}>{catLabel}</a>
             <span style={{ color: "rgb(255 255 255 / 0.3)" }}>·</span>
-            <span>{formatDate(post.date, lang)}</span>
-            <span style={{ color: "rgb(255 255 255 / 0.3)" }}>·</span>
+            {!isCaseStudy && (
+              <>
+                <span>{formatDate(post.date, lang)}</span>
+                <span style={{ color: "rgb(255 255 255 / 0.3)" }}>·</span>
+              </>
+            )}
             <span className="inline-flex items-center gap-1.5"><Icon name="clock" className="w-3.5 h-3.5" /> {minutes} {t.min}</span>
           </div>
         </div>

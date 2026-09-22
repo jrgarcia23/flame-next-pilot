@@ -14,6 +14,8 @@ type Props = {
 
 export default function CategoryListTemplate({ lang, categorySlug, posts, currentPage }: Props) {
   const meta = getCategoryMeta(categorySlug);
+  // Los casos de éxito son atemporales: no se muestra la fecha (ni en la tarjeta ni en la ficha).
+  const isCaseStudy = ["casos-de-exito", "case-studies", "retail-case-studies", "shopping-malls-case-studies"].includes(categorySlug);
   const label = categoryLabel(categorySlug, lang);
   const tagline = lang === "en" ? meta.taglineEn : meta.taglineEs;
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
@@ -115,9 +117,11 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
                     <p className="text-[13.5px] mb-2" style={{ color: "var(--color-ink-2)" }}>
                       {shortExcerpt(p.html, 100)}
                     </p>
-                    <p className="text-[12px]" style={{ color: "var(--color-ink-3)" }}>
-                      {formatDate(p.date, lang)}
-                    </p>
+                    {!isCaseStudy && (
+                      <p className="text-[12px]" style={{ color: "var(--color-ink-3)" }}>
+                        {formatDate(p.date, lang)}
+                      </p>
+                    )}
                   </div>
                 </a>
               );
