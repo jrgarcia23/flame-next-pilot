@@ -323,7 +323,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
             <div className="grid gap-7 uc-cases-grid" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
               {cfg.caseStudies.map((cs, i) => (
                 <a key={i} href={cs.href} target="_blank" rel="noopener" className="uc-case-card rounded-2xl overflow-hidden flex flex-col" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                  <div style={{ aspectRatio: "16/10", background: `url('${coverUrl(cs.img)}') center/cover` }} />
+                  <div style={{ aspectRatio: "1/1", background: `url('${coverUrl(cs.img)}') center/cover` }} />
                   <div className="p-6 flex flex-col flex-1">
                     <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
                     <h3 className="text-[18px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{cs.title}</h3>
