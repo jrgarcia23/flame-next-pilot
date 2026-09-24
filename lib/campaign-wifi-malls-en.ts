@@ -41,7 +41,7 @@ export const WIFI_MALLS_CFG_EN: SectorConfig = {
     {
       svg: IC.bars,
       title: "You can't prove footfall when it matters",
-      desc: "In leasing and renewal negotiations you defend rents with estimates instead of the real traffic and visitor profile of your mall.",
+      desc: "In leasing and renewal negotiations you defend rents with estimates instead of the real visitor trends and profile.",
     },
   ],
 
