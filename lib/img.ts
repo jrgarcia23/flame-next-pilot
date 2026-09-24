@@ -10,5 +10,7 @@ export function coverUrl(src: string, width = 600, quality = 65): string {
   if (i === -1) return src;
   const rendered = src.slice(0, i) + "/storage/v1/render/image/public/" + src.slice(i + marker.length);
   const sep = rendered.includes("?") ? "&" : "?";
-  return `${rendered}${sep}width=${width}&quality=${quality}`;
+  // resize=contain conserva la proporción (sin él, el modo 'cover' por defecto deforma
+  // p.ej. una carátula 1000x1000 a 600x1000 y la tarjeta la recorta).
+  return `${rendered}${sep}width=${width}&quality=${quality}&resize=contain`;
 }

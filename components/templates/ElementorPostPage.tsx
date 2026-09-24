@@ -14,6 +14,9 @@ export default function ElementorPostPage({
   lang, post, content,
 }: { lang: Lang; post: BlogPost; content: ElementorPostContent }) {
   const enHref = lang === "es" ? `/en/` : `/es/`;
+  // En casos de éxito el hero muestra la carátula (cuadrada, misma que el listado):
+  // el shot pasa a 1:1 y se quita el overlay para que se vea completa y sin oscurecer.
+  const isCase = ["casos-de-exito", "case-studies", "retail-case-studies", "shopping-malls-case-studies"].includes(post.category?.slug || "");
   return (
     <>
       <CtaStyles />
@@ -42,6 +45,12 @@ export default function ElementorPostPage({
         /* Casos de éxito atemporales: ocultar la fecha de las tarjetas de "otros casos". */
         .elementor-special-post .date { display: none !important; }
       `}</style>
+      {isCase && (
+        <style>{`
+          .elementor-special-post .mo-hero-shot { aspect-ratio: 1 / 1 !important; }
+          .elementor-special-post .mo-hero-shot-overlay { display: none !important; }
+        `}</style>
+      )}
 
       <SiteFooter currentLang={lang} />
     </>
