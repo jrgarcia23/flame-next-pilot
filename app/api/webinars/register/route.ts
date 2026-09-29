@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "@/lib/supabase-admin";
 import { rateLimit, getClientIpForRateLimit } from "@/lib/rate-limit";
+import { getWebinarAcConfig, syncWebinarRegistration } from "@/lib/activecampaign";
 
 export const dynamic = "force-dynamic";
 
@@ -72,6 +73,17 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  // Webinars gestionados en ActiveCampaign: la etiqueta dispara el flujo de inscritos, que envía la confirmación.
+  const acCfg = getWebinarAcConfig(webinar_name);
+  let acOk = false;
+  if (acCfg) {
+    try {
+      acOk = await syncWebinarRegistration(acCfg, { email, nombre });
+    } catch (err) {
+      console.error("[webinars/register] ActiveCampaign sync FAILED", { message: err instanceof Error ? err.message : "unknown", webinar: webinar_name });
+    }
+  }
+
   const when = new Date().toLocaleString("es-ES", { timeZone: "Europe/Madrid", dateStyle: "long", timeStyle: "short" });
   const notifyHtml = `<!DOCTYPE html><html><body style="font-family:'Helvetica Neue',Arial,sans-serif;background:#F6F7FB;padding:24px;color:#15163A">
     <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:14px;border:1px solid #E1E5EE;padding:28px">
@@ -90,11 +102,24 @@ export async function POST(req: NextRequest) {
     </div>
   </body></html>`;
 
+  const autoReplyEnHtml = `<!DOCTYPE html><html><body style="font-family:'Helvetica Neue',Arial,sans-serif;background:#F6F7FB;padding:24px;color:#15163A">
+    <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:14px;border:1px solid #E1E5EE;padding:28px">
+      <h1 style="font-size:22px;margin:0 0 14px">Registration received ✅</h1>
+      <p style="font-size:15px;line-height:1.6;color:#4A4F66">Hi ${escapeHtml((nombre.split(" ")[0]) || "")}, we have received your registration for the webinar <strong style="color:#15163A">${escapeHtml(webinar_name)}</strong>. We will email you the access links shortly.</p>
+      <p style="font-size:14px;color:#4A4F66;line-height:1.6;margin-top:18px">Best regards,<br><strong style="color:#15163A">The Flame Analytics team</strong></p>
+    </div>
+  </body></html>`;
+
+  const mails = [sendEmail({ from: FROM, to: NOTIFY, replyTo: email, subject: `Nueva al webinar · ${webinar_name}${acCfg && !acOk ? " · ⚠️ NO entró en ActiveCampaign" : ""}`, html: notifyHtml })];
+  // Si AC ha dado de alta al inscrito, la confirmación la envía el flujo de AC; si no, auto-reply de respaldo en el idioma del webinar.
+  if (!acOk) {
+    mails.push(acCfg?.lang === "en"
+      ? sendEmail({ from: FROM, to: [email], subject: `Registration received: ${webinar_name}`, html: autoReplyEnHtml })
+      : sendEmail({ from: FROM, to: [email], subject: `Inscripción recibida — ${webinar_name}`, html: autoReplyHtml }));
+  }
+
   try {
-    await Promise.all([
-      sendEmail({ from: FROM, to: NOTIFY, replyTo: email, subject: `Nueva al webinar · ${webinar_name}`, html: notifyHtml }),
-      sendEmail({ from: FROM, to: [email], subject: `Inscripción recibida — ${webinar_name}`, html: autoReplyHtml }),
-    ]);
+    await Promise.all(mails);
   } catch (err) {
     console.error("[webinars/register] email batch threw", { message: err instanceof Error ? err.message : "unknown" });
   }
