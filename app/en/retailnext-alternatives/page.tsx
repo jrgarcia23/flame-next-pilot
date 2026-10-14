@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import DraftComparisonPage, { draftComparisonMetadata } from "@/components/templates/DraftComparisonPage";
 import { getDraftComparison } from "@/lib/draft-comparisons";
 
-// BORRADOR pendiente del OK de JR (brief SEO, 14-oct-2026).
-// PARA PUBLICAR: poner DRAFT_NOINDEX = false y añadir el slug a STATIC_EN en app/sitemap.ts
+// PUBLICADA el 14-oct-2026 con OK de JR (brief SEO).
+// Publicada: DRAFT_NOINDEX = false y slug en STATIC_EN de app/sitemap.ts.
 // (checklist completo en lib/draft-comparisons.ts).
-const DRAFT_NOINDEX = true;
+const DRAFT_NOINDEX = false;
 
 const SLUG = "retailnext-alternatives";
 

@@ -25,6 +25,8 @@ const STATIC_EN = [
   "corporate-wifi-access", "guest-wifi-marketing", "connect", "dooh",
   "detailed-information", "flame-events", "webinar-registration",
   "privacy-policy", "cookie-policy", "information-security", "terms-of-use",
+  // Comparativas EN como rutas propias (lib/draft-comparisons.ts), publicadas 14-oct-2026
+  "best-guest-wifi-marketing-platforms-shopping-centres", "retailnext-alternatives",
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

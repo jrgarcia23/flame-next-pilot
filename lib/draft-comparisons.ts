@@ -1,6 +1,7 @@
 // Comparativas EN (briefs SEO #6 y #10, 14-oct-2026) servidas como rutas propias,
-// FUERA de data/blog.json: así no aparecen en el listado del blog, en categorías,
-// en "posts relacionados" ni en el sitemap mientras JR no dé el OK.
+// FUERA de data/blog.json. PUBLICADAS el 14-oct-2026 con OK de JR: con `listed: true`
+// entran en el listado del blog EN y en relacionados (lib/blog.ts) sin crear otra URL;
+// el sitemap las recoge por STATIC_EN (app/sitemap.ts).
 //
 // ============================ PARA PUBLICARLAS ============================
 // 1. En app/en/<slug>/page.tsx de cada pieza: poner DRAFT_NOINDEX = false
@@ -20,15 +21,20 @@ import { html as wifiHtml } from "@/data/draft-comparisons/best-guest-wifi-marke
 import { html as retailnextHtml } from "@/data/draft-comparisons/retailnext-alternatives";
 
 export type DraftComparison = {
+  // true = publicada: aparece en el listado del blog EN (categoría "blog") y en relacionados
+  // vía lib/blog.ts (getCategoryListing / getRelatedPosts). Su URL sigue siendo la ruta propia.
+  listed: boolean;
   post: BlogPost;
   seoTitle: string;
   seoDescription: string;
 };
 
-const CATEGORY = { slug: "tips-retail", name: "Tips" };
+// Categoría "blog": la misma de los posts EN del listado /en/community/#blog y /en/category/blog/.
+const CATEGORY = { slug: "blog", name: "Blog" };
 
 export const DRAFT_COMPARISONS: Record<string, DraftComparison> = {
   "best-guest-wifi-marketing-platforms-shopping-centres": {
+    listed: true,
     seoTitle: "Best Guest WiFi Marketing Platforms for Shopping Centres (2026)",
     seoDescription:
       "Purple, Aislelabs, Cloud4Wi and Flame Analytics compared for European shopping centres: captive portal, GDPR consent, CRM integration and visitor analytics.",
@@ -43,13 +49,14 @@ export const DRAFT_COMPARISONS: Record<string, DraftComparison> = {
       html: wifiHtml,
       date: "2026-10-14T10:00:00",
       modified: "2026-10-14T10:00:00",
-      hero: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/01/customer-engagement-guest-wifi-marketing.png",
-      thumbnail: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/01/customer-engagement-guest-wifi-marketing.png",
+      hero: "/wp-content/uploads/2026/10/guest-wifi-platforms-cover.webp",
+      thumbnail: "/wp-content/uploads/2026/10/guest-wifi-platforms-cover.webp",
       category: CATEGORY,
       link_legacy: "",
     },
   },
   "retailnext-alternatives": {
+    listed: true,
     seoTitle: "RetailNext Alternatives in 2026: 5 Options Compared for Europe",
     seoDescription:
       "Looking at RetailNext? Compare Flame Analytics, V-Count, FootfallCam, ShopperTrak and Xovis on technology, existing cameras, GDPR and multi-country deployment.",
@@ -62,15 +69,20 @@ export const DRAFT_COMPARISONS: Record<string, DraftComparison> = {
       excerpt:
         "Looking at RetailNext? Compare Flame Analytics, V-Count, FootfallCam, ShopperTrak and Xovis on technology, existing cameras, GDPR and multi-country deployment.",
       html: retailnextHtml,
-      date: "2026-10-14T10:00:00",
-      modified: "2026-10-14T10:00:00",
-      hero: "https://www.flameanalytics.com/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png",
-      thumbnail: "https://www.flameanalytics.com/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png",
+      date: "2026-10-14T10:30:00",
+      modified: "2026-10-14T10:30:00",
+      hero: "/wp-content/uploads/2026/10/retailnext-alternatives-cover.webp",
+      thumbnail: "/wp-content/uploads/2026/10/retailnext-alternatives-cover.webp",
       category: CATEGORY,
       link_legacy: "",
     },
   },
 };
+
+// Posts publicados para listados (categoría, comunidad y relacionados).
+export function listedComparisonPosts(): BlogPost[] {
+  return Object.values(DRAFT_COMPARISONS).filter(d => d.listed).map(d => d.post);
+}
 
 export function getDraftComparison(slug: string): DraftComparison {
   const d = DRAFT_COMPARISONS[slug];
