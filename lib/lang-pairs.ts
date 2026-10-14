@@ -43,6 +43,8 @@ const SERVICE_PAGES: Pair[] = [
 const POSTS: Pair[] = [
   // (Vacío inicialmente. Añadir cuando se confirme con SE Ranking o GSC que ambos
   // existen y son traducción 1:1, no contenido distinto reutilizando slug parecido.)
+  // Comparativas de conteo: misma estructura y mismos 5 proveedores (verificado 14-oct-2026).
+  { es: "mejor-sistema-conteo-personas-2026-comparativa", en: "best-people-counting-software-retail" },
 ];
 
 // Casos de éxito en el nuevo formato (ES ↔ EN son traducción 1:1). Ver scripts/casos-exito/.

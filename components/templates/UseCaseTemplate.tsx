@@ -350,6 +350,32 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
         </section>
       )}
 
+      {/* GUÍAS Y COMPARATIVAS del clúster: enlaces de texto en el HTML servido (enlazado interno SEO) */}
+      {cfg.relatedGuides && cfg.relatedGuides.length > 0 && (
+        <section className="py-20" style={{ background: "#fff", borderTop: "1px solid var(--color-rule)" }}>
+          <div className="flame-container">
+            <h2 className="text-center mx-auto mb-10 text-[clamp(24px,2.6vw,36px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)", maxWidth: 720 }}>
+              {cfg.relatedGuidesTitle || (currentLang === "en" ? "Guides and comparisons" : "Guías y comparativas")}
+            </h2>
+            <div className="grid gap-6 uc-guides-grid" style={{ gridTemplateColumns: `repeat(${Math.min(cfg.relatedGuides.length, 3)}, 1fr)` }}>
+              {cfg.relatedGuides.map((g, i) => (
+                <a key={i} href={g.href} className="uc-guide-card rounded-2xl p-7 flex flex-col" style={{ background: "var(--color-paper)", border: "1px solid var(--color-rule)" }}>
+                  <span className="text-[11.5px] font-semibold uppercase mb-2" style={{ color: "var(--color-accent-deep)", letterSpacing: "0.08em" }}>{g.tag}</span>
+                  <h3 className="text-[19px] font-medium mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>{g.title}</h3>
+                  <p className="text-[14.5px] leading-[1.55] flex-1" style={{ color: "var(--color-ink-2)" }}>{g.desc}</p>
+                  <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold mt-4" style={{ color: "var(--color-accent-deep)" }}>{currentLang === "en" ? "Read" : "Leer"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .uc-guide-card { transition: transform 420ms cubic-bezier(0.22,1,0.36,1), border-color 420ms cubic-bezier(0.22,1,0.36,1); }
+            .uc-guide-card:hover { transform: translateY(-1px); border-color: var(--color-rule-strong); }
+            @media (max-width: 900px){ .uc-guides-grid { grid-template-columns: 1fr !important; max-width: 520px; margin: 0 auto; } }
+          `}</style>
+        </section>
+      )}
+
       {/* TESTIMONIOS marquee */}
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">

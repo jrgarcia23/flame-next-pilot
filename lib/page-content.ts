@@ -289,6 +289,8 @@ export type UseCaseConfig = {
   caseStudies?: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>; // casos de éxito destacados (relativos al caso de uso), resueltos por selectCaseCards
   casesTitle?: string;          // título de la sección de casos (default: "Casos de éxito relacionados")
   casesSub?: string;            // subtítulo opcional
+  relatedGuides?: Array<{ href: string; tag: string; title: string; desc: string }>; // enlaces de texto a guías/comparativas del clúster (SEO: enlazado interno)
+  relatedGuidesTitle?: string;
 };
 
 export type SectorSection = {
