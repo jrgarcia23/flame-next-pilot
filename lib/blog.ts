@@ -48,7 +48,15 @@ function isPublic(p: BlogPost): boolean {
 
 // ---------- INDEX ----------
 const byKey: Record<string, BlogPost> = {};
+// Enlaces internos heredados de WP con el host sin www (~1.460 href en blog.json):
+// cada uno era un 308 extra y una señal más hacia el apex, que Google llega a elegir
+// como canónica en algunos posts. Se reescriben al host canónico con www al cargar
+// (solo atributos href; las imágenes no se tocan). Auditoría de indexación 14-oct-2026.
+const APEX_HREF = /href=(["'])https?:\/\/flameanalytics\.com(?=[/"'?#])/g;
 for (const p of [...D.posts, ...D.pages, ...D.whitepapers]) {
+  if (typeof p.html === "string" && p.html.includes("//flameanalytics.com")) {
+    p.html = p.html.replace(APEX_HREF, "href=$1https://www.flameanalytics.com");
+  }
   byKey[`${p.type}/${p.lang}/${p.slug}`] = p;
 }
 

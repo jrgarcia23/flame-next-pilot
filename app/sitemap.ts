@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPostsAsync, getAllWhitepapers, getAllCategories } from "@/lib/blog";
+import nextConfig from "../next.config";
 
 // Host canónico con www. El apex 308-redirige a www → mantener consistencia
 // entre canonical, sitemap y URLs servidas. Hardcodeado para evitar que
@@ -8,17 +9,17 @@ import { getAllPostsAsync, getAllWhitepapers, getAllCategories } from "@/lib/blo
 const BASE = "https://www.flameanalytics.com";
 
 const STATIC_ES = [
-  "", "comunidad", "sobre-nosotros", "contacta", "partners", "hypersensor",
+  "", "comunidad", "sobre-nosotros", "sobre-nosotros/conoce-al-equipo", "contacta", "partners", "hypersensor",
   "solucion-para-centros-comerciales", "solucion-para-el-sector-retail", "supermercados", "hoteles", "espacios-publicos", "banca", "transporte-y-aeropuertos",
   "conteo-personas", "analitica-conversion", "analitica-de-colas", "analitica-trafico",
   "comportamiento-del-cliente", "recorrido-del-cliente", "gestion-de-aseos", "gestion-ocupacion",
   "acceso-wifi-corporativo", "marketing-wifi-para-invitados", "connect", "dooh",
-  "informacion-detallada", "piloto", "flame-eventos", "inscripcion-en-eventos", "inscripcion-webinars",
+  "informacion-detallada", "flame-eventos", "inscripcion-en-eventos", "inscripcion-webinars",
   "politica-de-privacidad", "politica-de-cookies", "politica-de-seguridad-de-la-informacion",
   "condiciones-de-uso",
 ];
 const STATIC_EN = [
-  "", "community", "about-us", "contact-us", "partners", "hypersensor",
+  "", "community", "about-us", "about-us/meet-the-team", "contact-us", "partners", "hypersensor",
   "solution-for-shopping-malls", "solution-for-retail-sector", "supermarkets", "hospitality", "public-venues", "banking", "transport-and-airports",
   "people-counting", "conversion-analytics", "queue-analytic", "traffic-insights",
   "customer-behavior", "customer-journey", "restroom-management", "occupancy-management",
@@ -28,6 +29,22 @@ const STATIC_EN = [
   // Comparativas EN como rutas propias (lib/draft-comparisons.ts), publicadas 14-oct-2026
   "best-guest-wifi-marketing-platforms-shopping-centres", "retailnext-alternatives",
 ];
+
+// Rutas que next.config.ts redirige (fuentes exactas, sin parámetros). Un post puede
+// seguir "published" en blog.json y tener a la vez un 301 que gana al router: esas
+// URLs no deben ir al sitemap (auditoría de indexación 14-oct-2026: 17 URLs del
+// sitemap respondían 308). Se normalizan sin barra final para comparar.
+async function redirectedPaths(): Promise<Set<string>> {
+  const set = new Set<string>();
+  const list = nextConfig.redirects ? await nextConfig.redirects() : [];
+  for (const r of list) {
+    if ("has" in r && r.has) continue;
+    if ("missing" in r && r.missing) continue;
+    if (/[:(*]/.test(r.source)) continue;
+    set.add(r.source.replace(/\/+$/, ""));
+  }
+  return set;
+}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const out: MetadataRoute.Sitemap = [];
@@ -75,5 +92,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  return out;
+  const redirected = await redirectedPaths();
+  return out.filter((e) => !redirected.has(new URL(e.url).pathname.replace(/\/+$/, "")));
 }

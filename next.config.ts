@@ -32,6 +32,13 @@ const nextConfig: NextConfig = {
         source: "/wp-content/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
       },
+      // JS/CSS/fuentes de Next: se dejan RASTREAR (robots.txt ya no bloquea /_next/,
+      // auditoría de indexación 14-oct-2026: Google y Bing necesitan el CSS/JS para
+      // renderizar) pero NO indexar (GSC tenía 13 chunks .js/.css con impresiones).
+      {
+        source: "/_next/static/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex" }],
+      },
       {
         source: "/:path*",
         headers: [
@@ -264,7 +271,10 @@ const nextConfig: NextConfig = {
       { source: "/en/personalization-in-marketing-creating-tailored-experiences-for-your-customers/",              destination: "/en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction/", permanent: true },
       { source: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                  permanent: true },
       { source: "/en/boost-your-retail-business-with-real-time-analytics-top-trends-and-strategies-for-2024/",     destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                      permanent: true },
-      { source: "/en/alain-afflelou-relies-on-flame-analytics-for-his-stores-in-spain/",                           destination: "/en/",                                                                   permanent: true },
+      // Antes iba a /en/ (home): ahora al caso de éxito nuevo equivalente (auditoría indexación 14-oct-2026).
+      { source: "/en/alain-afflelou-relies-on-flame-analytics-for-his-stores-in-spain/",                           destination: "/en/alain-afflelou-relies-on-flame-analytics-for-people-counting-across-its-stores-in-spain/", permanent: true },
+      // URL truncada del caso Moritz (GSC la tiene con impresiones y da 404) → slug completo.
+      { source: "/es/transformando-la-experiencia-en-moritz-store-un-caso-de-exito-de-flame-analytics-de-analitica-de-afl/", destination: "/es/transformando-la-experiencia-en-moritz-store-un-caso-de-exito-de-flame-analytics-de-analitica-de-afluencia/", permanent: true },
       { source: "/en/how-to-collect-customer-data-the-right-way-in-retail-sector/",                                destination: "/en/20-kpis-for-shopping-centers-for-improvement/",                      permanent: true },
       { source: "/en/the-future-of-shopping-centers-adapting-to-changing-consumer-behaviors-and-technological-advancements/", destination: "/en/the-future-of-shopping-malls-experience-sustainability-and-data/", permanent: true },
       { source: "/en/we-support-our-customers-and-community/",                                                     destination: "/en/",                                                                   permanent: true },

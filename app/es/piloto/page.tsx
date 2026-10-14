@@ -5,6 +5,8 @@ import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteCh
 export const metadata: Metadata = {
   title: "Flame · Piloto Next · Navegación",
   description: "Punto único de entrada para navegar el piloto de Flame en Next.js. Páginas rediseñadas, clones literales y pendientes.",
+  // Página interna de navegación del piloto: fuera del índice y del sitemap (auditoría 14-oct-2026).
+  robots: { index: false, follow: true },
   alternates: {
     canonical: "/es/piloto/",
     languages: {
