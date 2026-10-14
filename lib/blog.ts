@@ -3,6 +3,7 @@
 // Whitepapers: /es/whitepaper/<slug>/ y /en/whitepaper/<slug>/.
 import data from "@/data/blog.json";
 import { getOverride, applyOverride } from "./post-overrides";
+import { listedComparisonPosts } from "./draft-comparisons";
 
 export type Lang = "es" | "en";
 export type PostType = "post" | "page" | "whitepaper";
@@ -159,9 +160,15 @@ export function getAllWhitepapers(lang: Lang): BlogPost[] {
 
 // ---------- CATEGORIAS ----------
 // Agrupa los posts publicados por slug de categoría WP.
+// Incluye las comparativas EN publicadas como rutas propias (lib/draft-comparisons.ts):
+// salen en el listado y en relacionados con su URL canónica /en/<slug>/, sin duplicarse en blog.json.
+function extraListed(lang: Lang, categorySlug: string): BlogPost[] {
+  return listedComparisonPosts().filter(p => p.lang === lang && p.category?.slug === categorySlug);
+}
+
 export function getCategoryListing(categorySlug: string, lang: Lang): BlogPost[] {
-  return D.posts
-    .filter(p => p.lang === lang && isPublic(p) && p.category?.slug === categorySlug)
+  return [...extraListed(lang, categorySlug), ...D.posts
+    .filter(p => p.lang === lang && isPublic(p) && p.category?.slug === categorySlug)]
     .sort((a, b) => (b.date > a.date ? 1 : -1));
 }
 
@@ -182,8 +189,8 @@ export function getAllCategories(lang: Lang): { slug: string; name: string; coun
 
 // ---------- RELACIONADOS ----------
 export function getRelatedPosts(currentSlug: string, categorySlug: string, lang: Lang, max = 3): BlogPost[] {
-  return D.posts
-    .filter(p => p.lang === lang && isPublic(p) && p.slug !== currentSlug && p.category?.slug === categorySlug)
+  return getCategoryListing(categorySlug, lang)
+    .filter(p => p.slug !== currentSlug)
     .slice(0, max);
 }
 
