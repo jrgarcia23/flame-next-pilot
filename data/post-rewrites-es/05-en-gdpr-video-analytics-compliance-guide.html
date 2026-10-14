@@ -1,0 +1,184 @@
+<style>
+.fa-rw-answer{border-left:4px solid #31b1f8;background:#f0f9ff;padding:18px 22px;border-radius:0 12px 12px 0;margin:0 0 20px}
+.fa-rw-answer p{font-size:17px;line-height:1.7;color:#15163A;margin:0}
+.fa-rw-meta{border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB;padding:12px 0;margin:0 0 32px;font-size:13px;line-height:1.7;color:#6B7280}
+.fa-rw-meta strong{color:#15163A}
+.fa-rw-table{overflow-x:auto;margin:0 0 28px}
+.fa-rw-table table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+.fa-rw-table th{background:#15163A;color:#fff;padding:12px 14px;text-align:left;font-weight:600;vertical-align:top}
+.fa-rw-table td{padding:12px 14px;border-bottom:1px solid #E5E7EB;color:#374151;vertical-align:top}
+.fa-rw-table tr.fa-rw-own td{background:#f0f9ff;color:#15163A}
+.fa-rw-card{background:#f8fafc;border-left:4px solid #15163A;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 18px;font-size:14px;line-height:1.7;color:#374151}
+.fa-rw-warn{background:#fffbeb;border-left:4px solid #f59e0b;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 24px;font-size:14px;line-height:1.7;color:#78350f}
+.fa-rw-checklist li{margin-bottom:10px}
+.fa-rw-sources li{font-size:13px;line-height:1.7;color:#6B7280;word-break:break-word}
+.fa-faq details{border-bottom:1px solid #e5e7eb}
+.fa-faq summary{padding:20px 0;font-size:15px;font-weight:bold;color:#15163a;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fa-faq summary::-webkit-details-marker{display:none}
+.fa-faq summary::after{content:"+";font-size:22px;color:#6b7280;transition:transform .3s}
+.fa-faq details[open] summary::after{transform:rotate(45deg)}
+.fa-faq .fa-faq-answer{font-size:15px;line-height:1.75;color:#374151;padding:0 0 24px;margin:0}
+.fa-cta{background:linear-gradient(135deg,#15163A,#1f2150);border-radius:16px;padding:32px;margin:40px 0;color:#fff}
+.fa-cta p{color:#fff}
+.fa-cta a{display:inline-block;background:#31b1f8;color:#15163A;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;letter-spacing:1px}
+</style>
+<div class="fa-lead fa-rw-answer">
+<p><strong>Short answer:</strong> video analytics is GDPR compliant when it processes images anonymously, without biometric templates or facial recognition and without storing images, under a documented legal basis with signage and a DPIA where required. Flame Hypersensor follows this model: it counts anonymous silhouettes on existing cameras and keeps only aggregated metrics.</p>
+</div>
+<p class="fa-rw-meta"><strong>Last updated:</strong> October 2026 · <strong>Author:</strong> Flame Analytics team · <strong>Sources:</strong> GDPR, EDPB Guidelines 3/2019, EU AI Act, Spanish DPA (AEPD) · <strong>Disclosure:</strong> Flame Analytics sells video analytics; it is used here as a declared example. This guide is not legal advice.</p>
+
+<h2 id="compliance-paradox">1. The compliance paradox: retailers need data but fear GDPR</h2>
+<p>Store-floor video analytics and GDPR are compatible: the regulation does not ban analytics, it bans processing personal data without a lawful basis and identifying people without a valid exception. The tension is real, though. Tenants and store managers want footfall, dwell time and conversion by zone, while data protection authorities look closely at cameras used beyond security.</p>
+<p>Many shopping centres react in one of two ways: they avoid analytics and lose insight, or they switch on vendor features without a legal review. Neither works. The way out is to know where the legal line sits (biometric identification) and to choose technology that stays clearly on the anonymous side of it.</p>
+
+<h2 id="gdpr-fundamentals">2. GDPR fundamentals for video analytics</h2>
+<p>Six GDPR articles decide whether a video analytics project in a mall or store is lawful. Footage of identifiable people is personal data, so the GDPR applies to the cameras even when the analytics output is anonymous.</p>
+<div class="fa-rw-table">
+<table>
+<thead><tr><th>GDPR article</th><th>What it covers</th><th>Impact on video analytics</th></tr></thead>
+<tbody>
+<tr><td><strong>Art. 6</strong> Lawful basis</td><td>Six legal grounds for processing</td><td>Legitimate interest (Art. 6(1)(f)) is the usual basis; analytics needs its own balancing test, separate from security</td></tr>
+<tr><td><strong>Art. 9</strong> Special categories</td><td>Biometric data processed to uniquely identify a person</td><td>Prohibited by default unless an Art. 9(2) exception applies, such as explicit consent</td></tr>
+<tr><td><strong>Art. 13</strong> Transparency</td><td>Information to data subjects</td><td>Layered information: a sign at entrances plus a full privacy notice</td></tr>
+<tr><td><strong>Art. 25</strong> Data protection by design</td><td>Privacy built into the system</td><td>The platform should minimise data by default: no images or identifiers kept</td></tr>
+<tr><td><strong>Art. 35</strong> DPIA</td><td>Data protection impact assessment</td><td>Required for systematic monitoring of a publicly accessible area on a large scale (Art. 35(3)(c))</td></tr>
+<tr><td><strong>Art. 28</strong> Processors</td><td>Contracts with service providers</td><td>Sign a data processing agreement with the analytics vendor</td></tr>
+</tbody>
+</table>
+</div>
+<p>The European Data Protection Board (EDPB) covers video in its <a href="https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en" target="_blank" rel="noopener">Guidelines 3/2019 on processing of personal data through video devices</a>. They note that intelligent video analysis can be "more intrusive (e.g. complex biometric technologies) or less intrusive (e.g. simple counting algorithms)", and that the legal analysis changes with each technology. That distinction is the basis of everything that follows.</p>
+
+<h2 id="existing-cctv">3. Does GDPR allow video analytics on existing CCTV?</h2>
+<p>Yes, GDPR allows video analytics on existing CCTV, but reusing security cameras for analytics is a new purpose and has to be justified as one. Security footage was collected to protect people and property; counting visitors or measuring dwell time is a different goal.</p>
+<p>In practice, that means five steps before you connect an analytics platform to cameras you already own:</p>
+<ol>
+<li><strong>Assess compatibility or a separate basis.</strong> Article 6(4) GDPR sets the test for further processing. Most retailers document a separate legitimate interest assessment for analytics.</li>
+<li><strong>Update the record of processing</strong> with the new purpose, data categories and retention.</li>
+<li><strong>Update signage and the privacy notice</strong> so visitors know the cameras are also used for anonymous statistics.</li>
+<li><strong>Run or update the DPIA</strong>, especially in shopping centres, where monitoring of publicly accessible areas is usually large scale.</li>
+<li><strong>Keep the two flows separate.</strong> Security recordings follow their own retention; the analytics flow should store no images at all.</li>
+</ol>
+<p>The technical side matters as much as the paperwork. Flame Analytics connects its <a href="/en/hypersensor/">GDPR-compliant AI video analytics</a> to existing IP cameras via RTSP and stores no images, so the analytics layer adds statistics, not recordings. The business case for reusing cameras is covered in our guide to <a href="/en/cctv-analytics-turn-existing-cameras-business-intelligence/">CCTV analytics for business intelligence</a>.</p>
+
+<h2 id="biometrics-line">4. The biometrics line: why some retailers cross it unknowingly</h2>
+<p>The legal line in video analytics is unique identification: once a system processes biometric data to identify or single out a specific person, Article 9 GDPR applies and the processing is prohibited by default.</p>
+<p>Article 4(14) GDPR defines biometric data as "personal data resulting from specific technical processing relating to the physical, physiological or behavioural characteristics of a natural person, which allow or confirm the unique identification of that natural person, such as facial images or dactyloscopic data". Article 9(1) lists "biometric data for the purpose of uniquely identifying a natural person" among the special categories.</p>
+<p>The EDPB draws the line with a retail example. A shop owner who classifies customers by gender and age "does not generate biometric templates in order to uniquely identify persons", so "the processing would not fall under Article 9". Article 9 applies when the controller stores biometric templates. Three features deserve a close look:</p>
+<div class="fa-rw-card"><strong>Re-identification across cameras or visits.</strong> Creating a persistent signature of a person's appearance to recognise them later can amount to unique identification. Ask how cross-camera tracking works, how long any identifier lives and whether it survives the visit.</div>
+<div class="fa-rw-card"><strong>Face-based demographics.</strong> Under the GDPR, classification without templates is outside Article 9 according to the EDPB, but it still processes personal data. Under the EU AI Act, biometric categorisation that infers sensitive attributes is prohibited (see section 6).</div>
+<div class="fa-rw-card"><strong>Emotion detection.</strong> The EU AI Act prohibits emotion recognition in workplaces and education institutions, which covers your staff on the shop floor, and lists other emotion recognition systems as high-risk.</div>
+<div class="fa-rw-warn"><strong>Warning:</strong> if a vendor offers "unique visitor detection" or "returning visitor recognition" from video, ask exactly how it works. If the answer involves any template or signature that allows recognising a specific person, treat it as biometric processing until your DPO says otherwise.</div>
+
+<h2 id="three-levels">5. Three levels of GDPR compliance in video analytics</h2>
+<p>Video analytics setups fall into three risk levels, depending on whether the system keeps images and whether it can single out individuals.</p>
+<div class="fa-rw-table">
+<table>
+<thead><tr><th>Level</th><th>Technology</th><th>Data processed</th><th>GDPR risk</th><th>Typical setup</th></tr></thead>
+<tbody>
+<tr><td><strong>1. Basic CCTV</strong></td><td>Recording only</td><td>Video footage (personal data)</td><td>Medium</td><td>Security cameras with a recorder; legitimate interest; signage and retention limits</td></tr>
+<tr><td><strong>2. Analytics with individual tracking</strong></td><td>AI that builds signatures, demographic profiles or re-identification</td><td>Appearance signatures, profiles, sometimes templates</td><td>High</td><td>May trigger Article 9 GDPR and AI Act restrictions</td></tr>
+<tr class="fa-rw-own"><td><strong>3. Privacy-first analytics</strong></td><td>AI that detects anonymous silhouettes</td><td>Aggregated counts, flows, dwell times and heatmaps; no images stored</td><td>Low</td><td>Legal basis, signage and DPIA still apply; no Article 9 trigger</td></tr>
+</tbody>
+</table>
+</div>
+<p>The difference between levels 2 and 3 is whether the system can link any output back to a specific person. Privacy-first platforms extract statistics and discard the images, which applies the data minimisation principle of Article 5(1)(c) by design.</p>
+
+<h2 id="hypersensor-approach">6. Flame Hypersensor: how to do video analytics without biometrics</h2>
+<p>Flame Hypersensor delivers footfall, flows, dwell time and occupancy from existing cameras while staying at level 3: no biometrics, no personal identifiers and no image storage. This is how it works, according to Flame's published product information:</p>
+<ol>
+<li><strong>Connection to existing cameras.</strong> Hypersensor connects to IP cameras via RTSP. Cameras need at least 720p and a top-down or angled-from-above position; Flame audits them for free before deployment.</li>
+<li><strong>Anonymous silhouettes, not faces.</strong> The model detects and counts silhouettes. It does not use facial recognition, individual tracking or personal data collection.</li>
+<li><strong>Cross-camera flows without biometrics.</strong> Detections are connected across cameras anonymously, "without biometrics, personal identifiers or image storage", to show how people move through the space.</li>
+<li><strong>Aggregated output only.</strong> The platform produces hourly counts, occupancy by zone and average dwell times, never individual profiles.</li>
+<li><strong>Staff exclusion without identification.</strong> Employees are excluded by zone and movement patterns, not by facial recognition.</li>
+<li><strong>EU processing and access control.</strong> Data is processed in the EU, with single sign-on (SSO). Processing runs in the cloud, or on site with edge devices that handle 8-16 cameras each for clients who prefer it. Flame's <a href="/en/information-security/">information security policy</a> commits to notifying clients of security incidents in less than 72 hours.</li>
+</ol>
+<p><strong>Why it matters for compliance:</strong> because the analytics layer never creates data that identifies a person, it stays outside Article 9 GDPR and outside the AI Act's biometric categories. You still need the legal basis, signage and DPIA described above, but the assessment becomes far simpler.</p>
+
+<h2 id="eu-ai-act">7. EU AI Act and video analytics: what changes</h2>
+<p>The EU AI Act adds a second layer to the GDPR: it regulates AI systems by risk, and its strictest rules target biometric uses, not anonymous counting. The Act is <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">Regulation (EU) 2024/1689</a>, and its prohibitions have applied since 2 February 2025.</p>
+<p>What it means for retail and shopping centres:</p>
+<ul>
+<li><strong>Prohibited (Article 5):</strong> emotion recognition in workplaces and education institutions; biometric categorisation that infers race, political opinions, trade union membership, religious or philosophical beliefs, sex life or sexual orientation; untargeted scraping of facial images from CCTV footage to build facial recognition databases; and real-time remote biometric identification in publicly accessible spaces for law enforcement, save narrow exceptions.</li>
+<li><strong>High-risk (Annex III, point 1):</strong> remote biometric identification, biometric categorisation according to sensitive or protected attributes, and emotion recognition systems. These carry conformity, documentation and human oversight obligations.</li>
+<li><strong>Anonymous counting:</strong> a system that detects silhouettes and produces aggregated statistics, without biometric data, does not fall into these biometric categories. GDPR obligations still apply to the camera images.</li>
+</ul>
+<p>The application dates for high-risk obligations are set in Article 113 and have been the subject of EU amendment proposals, so check the current consolidated text on EUR-Lex before planning a rollout.</p>
+
+<h2 id="compliance-checklist">8. GDPR compliance checklist: 15 items for video analytics in malls and retail</h2>
+<p>Use this 15-point checklist before deploying a new <a href="/en/people-counting-systems-complete-guide/">people counting system</a> or when auditing an existing video analytics installation.</p>
+<ol class="fa-rw-checklist">
+<li><strong>Carry out a DPIA</strong> before deploying analytics in publicly accessible areas (Art. 35). [Legal]</li>
+<li><strong>Document the legal basis</strong>: a legitimate interest assessment with a balancing test (Art. 6(1)(f)), separate from security. [Legal]</li>
+<li><strong>Get a written technical statement from the vendor</strong> confirming no biometric templates, no re-identification signatures and no image storage. [Technical]</li>
+<li><strong>Place signs at every entrance</strong> with the controller's identity, the purposes and where to find the full notice. [Transparency]</li>
+<li><strong>Publish a layered privacy notice</strong> with all Article 13 information online. [Transparency]</li>
+<li><strong>Set retention by purpose.</strong> In Spain, security images must be deleted within one month (AEPD guidance on Article 22 of Organic Law 3/2018); the EDPB expects stronger justification for anything beyond 72 hours. Aggregated anonymous metrics are not personal data. [Data management]</li>
+<li><strong>Control access</strong>: who can see live or recorded video and who only sees dashboards. [Security]</li>
+<li><strong>Sign a data processing agreement</strong> with the analytics vendor (Art. 28). [Legal]</li>
+<li><strong>Check international transfers</strong>: if data leaves the EU or EEA, confirm adequacy decisions or standard contractual clauses. [Legal]</li>
+<li><strong>Appoint or consult a DPO</strong> where large-scale monitoring of public areas is a core activity (Art. 37). [Governance]</li>
+<li><strong>Prepare for access requests</strong>: people can ask for footage of themselves held in security recordings. [Rights]</li>
+<li><strong>Minimise by design</strong>: collect only what the stated purpose needs. [Technical]</li>
+<li><strong>Encrypt</strong> video streams and analytics data in transit and at rest. [Security]</li>
+<li><strong>Review the DPIA</strong> every year and whenever the technology or purpose changes. [Governance]</li>
+<li><strong>Screen the AI Act</strong>: confirm the system does no emotion recognition, biometric categorisation or remote biometric identification. [Legal]</li>
+</ol>
+
+<h2 id="common-mistakes">9. Common mistakes that lead to sanctions</h2>
+<p>Most video analytics sanctions come from five avoidable mistakes, and the largest Spanish case involved facial recognition in supermarkets.</p>
+<p><strong>Mistake 1: biometric identification without a valid exception.</strong> In procedure PS/00120/2021, the Spanish DPA (AEPD) sanctioned Mercadona for a facial recognition system in its stores. The resolution found infringements of Articles 6 and 9, 12 and 13, 5(1)(c), 25(1) and 35 GDPR. After a 20% reduction for voluntary payment, the fine stood at 2.52 million euros, and the facial recognition processing had to stop.</p>
+<p><strong>Mistake 2: weak signage.</strong> A "CCTV in operation" sticker is not enough. The first layer must identify the controller and the purposes and point to the full information.</p>
+<p><strong>Mistake 3: keeping footage too long.</strong> Storing recordings for months "just in case" breaches storage limitation. Set a retention period per purpose and delete automatically.</p>
+<p><strong>Mistake 4: enabling features without understanding the data flow.</strong> Operators sometimes switch on demographic or "returning visitor" features in their camera software without checking whether templates are created. If the vendor cannot explain the data flow, do not enable the feature.</p>
+<p><strong>Mistake 5: no contract with the vendor.</strong> If the analytics provider processes personal data on your behalf, an Article 28 agreement is mandatory for both parties.</p>
+<div class="fa-rw-card"><strong>Three questions for any vendor:</strong> (1) Does the system create any individual identifier, even temporarily? (2) Where is video processed and is any image stored or sent off site? (3) Can you provide documentation to support our DPIA? A privacy-first vendor answers all three in writing.</div>
+
+<h2 id="faq">10. Frequently asked questions</h2>
+<div class="fa-faq">
+<details>
+<summary>Is people counting with cameras biometric data?</summary>
+<p class="fa-faq-answer">Not if the system only detects anonymous silhouettes. Under Article 4(14) GDPR, data is biometric when it results from specific technical processing that allows or confirms the unique identification of a person. Counting people without facial recognition, templates or re-identification signatures does not identify anyone, so Article 9 does not apply. The camera images are still personal data, so the general GDPR rules apply.</p>
+</details>
+<details>
+<summary>Which video analytics solutions are GDPR compliant?</summary>
+<p class="fa-faq-answer">Compliance depends on how a solution processes data, not on the brand. Look for four criteria: no biometric templates or facial recognition, no stored images, aggregated output only and data processed in the EU or under valid transfer safeguards. Flame Hypersensor, our own product, is built on these criteria. Whatever vendor you choose, you still need a legal basis, signage and a DPIA.</p>
+</details>
+<details>
+<summary>Is people counting with video cameras GDPR compliant?</summary>
+<p class="fa-faq-answer">Yes, when it produces only aggregated numbers, such as 142 visitors between 14:00 and 15:00, without identifying or tracking individuals. The system should process frames to extract counts and keep no images. Because the cameras capture identifiable people, you still need a legal basis, clear signage and, in large public areas such as shopping centres, a data protection impact assessment.</p>
+</details>
+<details>
+<summary>Do I need consent to use video analytics in a shopping centre?</summary>
+<p class="fa-faq-answer">Usually not. Most retailers rely on legitimate interest (Article 6(1)(f) GDPR), since collecting consent from every visitor is impractical. You must document a legitimate interest assessment, inform visitors with signage and show that the processing does not override their rights. If a system processes biometric data under Article 9, legitimate interest is not enough and an Article 9 exception, such as explicit consent, is required.</p>
+</details>
+<details>
+<summary>What is the difference between the GDPR and the EU AI Act for video analytics?</summary>
+<p class="fa-faq-answer">The GDPR regulates personal data, whatever the technology. The EU AI Act (Regulation 2024/1689) regulates AI systems by risk: it prohibits practices such as emotion recognition at work and biometric categorisation by sensitive attributes, and lists other biometric systems as high-risk. Both apply at the same time. Anonymous counting without biometric data avoids the AI Act's biometric categories but remains subject to the GDPR.</p>
+</details>
+<details>
+<summary>Can I use heatmaps in my shopping centre without breaching GDPR?</summary>
+<p class="fa-faq-answer">Yes. Heatmaps that show aggregated density by zone, without tracking or identifying individuals, are compatible with the GDPR. The system measures how many people occupy each area over time and draws an overlay. As long as no individual trajectory is linked to a biometric or personal identifier, the output is anonymous statistics. Flame Hypersensor produces heatmaps in this way.</p>
+</details>
+<details>
+<summary>How long can I store video analytics data under GDPR?</summary>
+<p class="fa-faq-answer">It depends on the data. Recordings of identifiable people should be kept only as long as their purpose requires: in Spain, the AEPD sets a maximum of one month for security images, and the EDPB asks for more justification beyond 72 hours. Aggregated anonymous metrics, such as counts, heatmaps and average dwell times, are not personal data and can be kept for trend analysis.</p>
+</details>
+</div>
+
+<div class="fa-cta" style="text-align:center;">
+<p style="font-size:22px;font-weight:700;margin-bottom:12px;">Ready for GDPR-compliant video analytics?</p>
+<p style="font-size:14px;opacity:.85;margin-bottom:24px;">See how Flame Hypersensor measures footfall, flows and occupancy on your existing cameras, without biometrics. Personalised 20-minute demo.</p>
+<p><a href="#contact">REQUEST A DEMO →</a></p>
+</div>
+
+<h3>Sources</h3>
+<p style="font-size:13px;color:#6B7280;">Consulted on 14 October 2026. This guide summarises public legal texts and guidance; it is not legal advice. Check your project with your DPO or legal adviser.</p>
+<ul class="fa-rw-sources">
+<li>Regulation (EU) 2016/679 (GDPR), Articles 4(14), 5, 6, 9, 13, 25, 28, 35 and 37: <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2016/679/oj</a></li>
+<li>Regulation (EU) 2024/1689 (AI Act), Articles 5 and 113 and Annex III: <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">eur-lex.europa.eu/eli/reg/2024/1689/oj</a></li>
+<li>EDPB, Guidelines 3/2019 on processing of personal data through video devices, version 2.0: <a href="https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en" target="_blank" rel="noopener">edpb.europa.eu</a></li>
+<li>AEPD, Guía sobre el uso de videocámaras para seguridad y otras finalidades (February 2025): <a href="https://www.aepd.es/guias/guia-videovigilancia.pdf" target="_blank" rel="noopener">aepd.es/guias/guia-videovigilancia.pdf</a></li>
+<li>AEPD, resolution of procedure PS/00120/2021 (Mercadona): <a href="https://www.aepd.es/documento/ps-00120-2021.pdf" target="_blank" rel="noopener">aepd.es/documento/ps-00120-2021.pdf</a></li>
+<li>Flame Analytics: <a href="/en/hypersensor/">Hypersensor</a>, <a href="/en/people-counting/">people counting</a> and <a href="/en/information-security/">information security</a></li>
+</ul>

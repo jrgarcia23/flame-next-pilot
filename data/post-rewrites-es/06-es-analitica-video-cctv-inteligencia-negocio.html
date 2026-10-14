@@ -1,0 +1,179 @@
+<style>
+.fa-rw-answer{border-left:4px solid #31b1f8;background:#f0f9ff;padding:18px 22px;border-radius:0 12px 12px 0;margin:0 0 20px}
+.fa-rw-answer p{font-size:17px;line-height:1.7;color:#15163A;margin:0}
+.fa-rw-meta{border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB;padding:12px 0;margin:0 0 32px;font-size:13px;line-height:1.7;color:#6B7280}
+.fa-rw-meta strong{color:#15163A}
+.fa-rw-table{overflow-x:auto;margin:0 0 28px}
+.fa-rw-table table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.5}
+.fa-rw-table th{background:#15163A;color:#fff;padding:12px 14px;text-align:left;font-weight:600;vertical-align:top}
+.fa-rw-table td{padding:12px 14px;border-bottom:1px solid #E5E7EB;color:#374151;vertical-align:top}
+.fa-rw-table tr.fa-rw-own td{background:#f0f9ff;color:#15163A}
+.fa-rw-card{background:#f8fafc;border-left:4px solid #15163A;padding:16px 20px;border-radius:0 12px 12px 0;margin:0 0 18px;font-size:14px;line-height:1.7;color:#374151}
+.fa-rw-sources li{font-size:13px;line-height:1.7;color:#6B7280;word-break:break-word}
+.fa-faq details{border-bottom:1px solid #e5e7eb}
+.fa-faq summary{padding:20px 0;font-size:15px;font-weight:bold;color:#15163a;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.fa-faq summary::-webkit-details-marker{display:none}
+.fa-faq summary::after{content:"+";font-size:22px;color:#6b7280;transition:transform .3s}
+.fa-faq details[open] summary::after{transform:rotate(45deg)}
+.fa-faq .fa-faq-answer{font-size:15px;line-height:1.75;color:#374151;padding:0 0 24px;margin:0}
+.fa-cta{background:linear-gradient(135deg,#15163A,#1f2150);border-radius:16px;padding:32px;margin:40px 0;color:#fff}
+.fa-cta p{color:#fff}
+.fa-cta a{display:inline-block;background:#31b1f8;color:#15163A;padding:14px 28px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14px;letter-spacing:1px}
+</style>
+<div class="fa-lead fa-rw-answer">
+<p><strong>En pocas palabras:</strong> la videoanalítica es el uso de inteligencia artificial para convertir el vídeo de tus cámaras CCTV en datos de negocio: conteo de personas, recorridos, tiempos de permanencia y colas. Flame Hypersensor lo hace sobre las cámaras IP que ya tienes, sin biometría ni almacenamiento de imágenes, con datos en directo en 5-7 días laborables.</p>
+</div>
+<p class="fa-rw-meta"><strong>Última actualización:</strong> octubre de 2026 · <strong>Autor:</strong> equipo de Flame Analytics · <strong>Fuentes:</strong> Flame Analytics, RGPD, CEPD, AEPD · <strong>Transparencia:</strong> Flame Analytics es la empresa que firma esta guía y la plataforma que se usa como ejemplo.</p>
+
+<h2 id="que-es">¿Qué es la videoanalítica?</h2>
+<p>La videoanalítica (o analítica de vídeo) es la aplicación de visión artificial al flujo de vídeo de las cámaras para extraer métricas: cuántas personas entran, por dónde se mueven, cuánto tiempo se quedan en cada zona y dónde se forman colas. En retail y centros comerciales, convierte una infraestructura pensada para la seguridad en una fuente de datos para operaciones, marketing y alquileres.</p>
+<p>La diferencia con la videovigilancia es el resultado. Un sistema de videovigilancia graba y guarda imágenes para revisarlas si pasa algo. Una cámara con analítica de vídeo procesa la imagen en tiempo real y entrega números: visitas por hora, ocupación por zona, tiempo medio de espera. Bien diseñada, no necesita guardar ninguna imagen para hacerlo.</p>
+<p>El Comité Europeo de Protección de Datos (CEPD) lo explica en sus directrices 3/2019 sobre vídeo: las técnicas de análisis inteligente van desde las más intrusivas, como las tecnologías biométricas complejas, hasta las menos intrusivas, como los algoritmos de conteo sencillos. Esta guía trata de las segundas.</p>
+
+<h2 id="que-captan">Lo que tus cámaras ya captan (y no estás aprovechando)</h2>
+<p>Tus cámaras CCTV ya ven todo lo que necesitas medir; lo que falta es la capa que convierte esas imágenes en decisiones. Esta tabla resume la traducción de imagen a dato y de dato a acción:</p>
+<div class="fa-rw-table">
+<table>
+<thead><tr><th>Lo que la cámara ve</th><th>Lo que interpreta la IA</th><th>Decisión de negocio</th></tr></thead>
+<tbody>
+<tr><td>Personas que entran y salen</td><td>Conteo bidireccional por hora y por acceso</td><td>Ajustar turnos de personal a las horas reales de afluencia</td></tr>
+<tr><td>Personas que pasan por delante del escaparate</td><td>Tráfico exterior y ratio de captación (capture rate)</td><td>Medir qué escaparate o campaña atrae más visitas</td></tr>
+<tr><td>Personas que recorren la tienda</td><td>Flujos entre zonas y mapas de calor</td><td>Rediseñar el layout y colocar producto de margen en zonas calientes</td></tr>
+<tr><td>Personas paradas frente a un expositor</td><td>Tiempo de permanencia (dwell time) por zona</td><td>Medir el efecto real de promociones y PLV</td></tr>
+<tr><td>Cola en caja o en atención al cliente</td><td>Longitud de cola y tiempo de espera</td><td>Abrir cajas antes de que la espera supere un umbral</td></tr>
+<tr><td>Uso de aseos en un centro comercial</td><td>Frecuencia de uso por franja</td><td>Limpiar según uso real, no con horario fijo</td></tr>
+</tbody>
+</table>
+</div>
+<p>Con esos datos cruzados con las ventas del TPV obtienes la tasa de conversión real de cada tienda o zona, que es el indicador que más decisiones cambia en una red comercial.</p>
+
+<h2 id="hardware-dedicado">El problema del hardware dedicado</h2>
+<p>Medir visitantes ha exigido tradicionalmente instalar un sensor en cada punto de medición, y ese modelo encarece y ralentiza los proyectos con muchas entradas o muchas tiendas. Los sensores infrarrojos, térmicos o estereoscópicos (3D) son dispositivos específicos que hay que comprar, cablear, calibrar y mantener.</p>
+<p>Varios proveedores del mercado trabajan así: RetailNext basa su plataforma en su sensor de techo Aurora y V-Count en su sensor Nano AI con visión estéreo 3D, según sus propias webs. Es un enfoque válido cuando no hay cámaras, con tres efectos que conviene valorar:</p>
+<ul>
+<li><strong>Coste por punto.</strong> Según Flame Analytics, un sensor dedicado cuesta entre 500 y 2.000 € por punto de conteo, antes de licencias, y se multiplica por cada acceso, zona y planta.</li>
+<li><strong>Infraestructura duplicada.</strong> Si ya tienes cámaras en accesos y pasillos, añades un segundo dispositivo para mirar el mismo espacio.</li>
+<li><strong>Dependencia del proveedor de hardware.</strong> Cambiar de plataforma suele implicar cambiar también los sensores.</li>
+</ul>
+<p>Si lo que necesitas es sobre todo medir entradas, nuestra página de <a href="/es/conteo-personas/">conteo de personas con cámaras</a> explica cómo trabaja Flame, con qué precisión y en qué plazos.</p>
+
+<h2 id="camaras-existentes">El enfoque sobre cámaras existentes: usa lo que ya tienes</h2>
+<p>La alternativa al sensor dedicado es aplicar la IA a las cámaras IP que ya están instaladas, y es el enfoque de la <a href="/es/hypersensor/">videoanalítica con IA</a> de Flame, Hypersensor. Se conecta al vídeo de las cámaras mediante RTSP y extrae varias métricas a la vez desde una misma cámara: conteo, flujos, tiempo de permanencia y analítica por zonas.</p>
+<p>Lo que Flame publica sobre este enfoque:</p>
+<ul>
+<li><strong>Compatibilidad:</strong> funciona con las principales marcas de cámaras, como Axis, Hikvision, Dahua, Bosch y Hanwha.</li>
+<li><strong>Requisitos:</strong> resolución mínima de 720p y montaje cenital o en ángulo desde arriba. El equipo técnico de Flame hace una auditoría gratuita de cámaras antes del despliegue.</li>
+<li><strong>Precisión:</strong> más de un 99 % en conteo de personas, según Flame, frente al 85-90 % que atribuye a los infrarrojos y al 80-90 % de los térmicos.</li>
+<li><strong>Escala:</strong> de 2-4 cámaras en una tienda pequeña a más de 100 en un gran centro comercial, gestionadas desde una única plataforma en la nube.</li>
+<li><strong>Plazo:</strong> datos de conteo en directo en 5-7 días laborables por ubicación cuando las cámaras son válidas.</li>
+<li><strong>Doble uso:</strong> las cámaras siguen sirviendo para seguridad; la analítica es una capa de software adicional.</li>
+</ul>
+
+<h2 id="privacidad-rgpd">Privacidad y RGPD: lo que tienes que saber</h2>
+<p>La videoanalítica cumple el RGPD cuando trabaja con datos anónimos y agregados, sin reconocimiento facial ni plantillas biométricas, y con una base jurídica, señalización y evaluación de impacto cuando corresponda. El límite legal está en la identificación única de personas.</p>
+<p>El artículo 9 del RGPD prohíbe por defecto tratar datos biométricos "dirigidos a identificar de manera unívoca a una persona física". El CEPD aclara en sus directrices 3/2019 que, cuando un sistema solo distingue categorías de personas sin generar plantillas biométricas para identificarlas, el tratamiento no entra en el artículo 9. Eso no exime del resto del RGPD: las imágenes de las cámaras siguen siendo datos personales.</p>
+<div class="fa-rw-table">
+<table>
+<thead><tr><th>Característica</th><th>Sistemas con biometría</th><th>Videoanalítica anónima (Hypersensor)</th></tr></thead>
+<tbody>
+<tr><td>Identifica a personas concretas</td><td>Sí (reconocimiento facial, plantillas)</td><td>No: detecta siluetas, no identidades</td></tr>
+<tr><td>Guarda imágenes o plantillas</td><td>Sí</td><td>No: sin almacenamiento de imágenes</td></tr>
+<tr><td>Régimen RGPD</td><td>Artículo 9: prohibido salvo excepción</td><td>RGPD general: base jurídica, información y EIPD</td></tr>
+<tr><td>Datos que genera</td><td>Perfiles individuales</td><td>Conteos, flujos y mapas de calor agregados</td></tr>
+</tbody>
+</table>
+</div>
+<p>Dos datos prácticos para España. Primero, la AEPD fija en un mes el plazo máximo de conservación de las imágenes de videovigilancia con fines de seguridad, según su guía de febrero de 2025. Segundo, reutilizar las cámaras de seguridad para analítica es una finalidad nueva: hay que documentarla, actualizar los carteles y el registro de actividades. Todo el detalle legal está en nuestra guía de <a href="/es/rgpd-video-analitica-compliance-centros-comerciales/">RGPD y videoanalítica en centros comerciales</a>.</p>
+
+<h2 id="como-funciona">¿Cómo funciona Hypersensor? De la cámara al panel</h2>
+<p>Hypersensor convierte el vídeo CCTV en datos de negocio en cuatro fases, sin obra ni hardware nuevo cuando las cámaras cumplen los requisitos:</p>
+<ol>
+<li><strong>Conexión al vídeo.</strong> Se conecta a las cámaras IP mediante RTSP, en remoto. Antes, la auditoría de cámaras confirma resolución, altura y ángulo.</li>
+<li><strong>Detección anónima.</strong> Los modelos de aprendizaje profundo detectan siluetas, no rostros. Flame conecta las detecciones entre varias cámaras sin datos biométricos, identificadores personales ni almacenamiento de imágenes, y excluye al personal por zonas y patrones de movimiento, no por reconocimiento facial.</li>
+<li><strong>Procesamiento.</strong> El procesamiento escala en la nube. Si prefieres procesar en local, Flame ofrece dispositivos edge que gestionan 8-16 cámaras por unidad.</li>
+<li><strong>Panel y alertas.</strong> Las métricas llegan al panel de Flame: conteos por hora, ocupación por zona, tiempos medios de permanencia y comparativas entre tiendas o centros, siempre agregadas.</li>
+</ol>
+<div class="fa-cta">
+<p style="font-size:18px;font-weight:600;margin-bottom:12px;">¿Tus cámaras sirven para videoanalítica?</p>
+<p style="font-size:14px;opacity:.85;margin-bottom:20px;">Revisamos tus cámaras en una auditoría gratuita y te enseñamos tus propios datos en una demo de 20 minutos.</p>
+<p><a href="#contact">SOLICITA UNA DEMO →</a></p>
+</div>
+
+<h2 id="casos">5 casos de uso reales</h2>
+<p>Estos cinco casos son proyectos publicados por Flame Analytics, con los datos tal y como aparecen en cada caso de éxito. Cubren espacios culturales, centros comerciales, gran formato y cadenas de retail.</p>
+<div class="fa-rw-card"><strong>1. CaixaForum: videoanalítica en todos sus centros.</strong> La Fundación "la Caixa" implantó la tecnología de videoanálisis de Flame en todos los centros CaixaForum de España, con más de 250 sensores que recogen y reportan datos en tiempo real sobre afluencia y distribución del público por exposiciones. Los datos son anónimos, sin posibilidad de identificación personal. <a href="/es/transformando-la-experiencia-en-caixaforum-con-videoanalitica/">Ver el caso de CaixaForum con videoanalítica</a>.</div>
+<div class="fa-rw-card"><strong>2. Marineda City: afluencia y zonas en un gran centro comercial.</strong> Con una media de 17 millones de visitantes al año, Marineda City, referencia en Galicia, mide con Flame la afluencia y el conteo perimetral, y analiza con el módulo de zonas cómo se mueven los visitantes entre áreas e identifica puntos calientes y fríos. <a href="/es/centro-comercial-marineda-city-nuevo-cliente-de-flame-analytics/">Ver el caso de Marineda City</a>.</div>
+<div class="fa-rw-card"><strong>3. IKEA Oceanía: cámaras y WiFi en gran formato.</strong> En su primera tienda en Latinoamérica, en México, IKEA usa datos de cámaras y puntos de acceso para medir afluencia, ocupación y presencia en tiempo real, y compara resultados entre periodos y campañas. <a href="/es/ikea-confia-en-flame-analytics-para-la-analitica-indoor-de-sus-nuevos-centros-en-latinoamerica/">Ver el caso de IKEA</a>.</div>
+<div class="fa-rw-card"><strong>4. Alain Afflelou: conteo de personas en su red de tiendas.</strong> La cadena óptica despliega Flame en sus tiendas de España para medir visitas por tienda, tendencias, distribución por día y franja horaria, picos de ocupación y comparativas entre ubicaciones. <a href="/es/alain-afflelou-confia-en-la-analitica-de-flame-para-sus-tiendas-en-espana/">Ver el caso de Alain Afflelou</a>.</div>
+<div class="fa-rw-card"><strong>5. MultiÓpticas: del tráfico en tienda a decisiones de negocio.</strong> MultiÓpticas ha iniciado con Flame Analytics un proyecto de analítica avanzada en tienda para convertir el tráfico en decisiones de negocio. <a href="/es/multiopticas-convierte-el-trafico-en-tienda-en-decisiones-de-negocio/">Ver el caso de MultiÓpticas</a>.</div>
+
+<h2 id="comparativa">Sensores dedicados frente a videoanalítica sobre CCTV</h2>
+<p>La videoanalítica sobre CCTV gana cuando ya hay cámaras válidas y se quiere medir más que la puerta; el sensor dedicado gana cuando no hay cámaras o están mal colocadas. Esta comparativa resume los criterios:</p>
+<div class="fa-rw-table">
+<table>
+<thead><tr><th>Criterio</th><th>Sensores dedicados</th><th>Videoanalítica sobre CCTV (Hypersensor)</th></tr></thead>
+<tbody>
+<tr><td>Hardware</td><td>Un sensor propio por punto de medición</td><td>Cámaras IP existentes (mínimo 720p, cenitales o en ángulo)</td></tr>
+<tr><td>Inversión inicial</td><td>500-2.000 € por sensor, según Flame, más licencias</td><td>Licencia de software si las cámaras son válidas</td></tr>
+<tr><td>Despliegue</td><td>Instalación física en cada acceso</td><td>Conexión remota: 5-7 días laborables por ubicación</td></tr>
+<tr><td>Qué mide</td><td>Entradas y salidas en el punto instalado y, en algunos modelos, zonas</td><td>Conteo, flujos, permanencia y zonas desde la misma cámara</td></tr>
+<tr><td>Privacidad</td><td>Depende de cada fabricante</td><td>Sin biometría ni almacenamiento de imágenes</td></tr>
+<tr><td>Cuándo elegirlo</td><td>Sin cámaras o con cámaras no aptas</td><td>Con cámaras válidas y varias sedes que comparar</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 id="implantacion">Cómo implantar la videoanalítica en tu negocio</h2>
+<p>Implantar videoanalítica sobre cámaras existentes lleva unos días por ubicación y sigue cinco pasos:</p>
+<ol>
+<li><strong>Auditoría de cámaras.</strong> Inventario de modelos, resolución, altura, ángulo y conexión. Flame la hace gratis antes de contratar.</li>
+<li><strong>Definición de KPIs.</strong> Qué necesitas medir: conteo, conversión, zonas, colas u ocupación.</li>
+<li><strong>Conexión RTSP y revisión legal.</strong> Conexión remota a las cámaras en paralelo con la documentación RGPD: finalidad, base jurídica, carteles y evaluación de impacto si aplica.</li>
+<li><strong>Calibración.</strong> Ajuste del modelo de IA a las condiciones de cada cámara y validación de la precisión.</li>
+<li><strong>Panel y formación.</strong> Configuración del panel con tus KPIs y formación al equipo.</li>
+</ol>
+<p>Según Flame, en una ubicación con cámaras existentes el conteo en directo llega en 5-7 días laborables: auditoría y conexión los días 1-2, calibración los días 3-4, y panel y formación los días 5-7. En redes con varias sedes, el despliegue se hace por fases.</p>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+<div class="fa-faq">
+<details>
+<summary>¿Qué es la videoanalítica y para qué sirve en retail?</summary>
+<p class="fa-faq-answer">La videoanalítica es la aplicación de inteligencia artificial al vídeo de las cámaras para obtener métricas de negocio. En retail y centros comerciales sirve para medir afluencia, conversión con el TPV, recorridos, tiempos de permanencia, colas y ocupación por zonas, y para comparar tiendas o centros entre sí con datos reales.</p>
+</details>
+<details>
+<summary>¿Necesito cambiar mis cámaras de seguridad actuales?</summary>
+<p class="fa-faq-answer">En la mayoría de los casos, no. Flame Hypersensor se conecta por RTSP a cámaras IP de marcas como Axis, Hikvision, Dahua, Bosch o Hanwha. Necesitan al menos 720p de resolución y montaje cenital o en ángulo desde arriba. El equipo de Flame hace una auditoría gratuita para confirmar qué cámaras sirven antes del despliegue.</p>
+</details>
+<details>
+<summary>¿La videoanalítica cumple el RGPD?</summary>
+<p class="fa-faq-answer">Sí, si trabaja sin biometría. El RGPD prohíbe por defecto los datos biométricos para identificar a personas, pero un sistema que detecta siluetas anónimas y genera solo datos agregados no identifica a nadie. Aun así, las imágenes son datos personales: necesitas base jurídica, carteles informativos y, en espacios grandes abiertos al público, una evaluación de impacto.</p>
+</details>
+<details>
+<summary>¿Qué precisión tiene el conteo de personas con cámaras?</summary>
+<p class="fa-faq-answer">Flame Analytics indica más de un 99 % de precisión en conteo de personas con Hypersensor, frente al 85-90 % de los sensores infrarrojos y el 80-90 % de los térmicos. El sistema gestiona grupos, carritos y sillas de ruedas, y excluye al personal por zonas y patrones de movimiento. Conviene validar la precisión con un conteo manual en tu propio espacio.</p>
+</details>
+<details>
+<summary>¿El vídeo se envía a la nube?</summary>
+<p class="fa-faq-answer">Depende de la configuración. Por defecto, Hypersensor procesa el vídeo en la nube y no almacena imágenes: solo guarda métricas agregadas. Si prefieres que el vídeo se procese en tu instalación, Flame ofrece dispositivos de procesamiento local (edge) que gestionan entre 8 y 16 cámaras cada uno.</p>
+</details>
+<details>
+<summary>¿Cuánto se tarda en tener datos?</summary>
+<p class="fa-faq-answer">En una ubicación con cámaras existentes, Flame entrega datos de conteo en directo en 5-7 días laborables desde la firma: auditoría y conexión, calibración del modelo y configuración del panel con formación. No hace falta instalar hardware en el local cuando las cámaras son válidas.</p>
+</details>
+</div>
+
+<div class="fa-cta" style="text-align:center;">
+<p style="font-size:22px;font-weight:700;margin-bottom:12px;">Tus cámaras ya pueden darte datos de negocio</p>
+<p style="font-size:14px;opacity:.85;margin-bottom:24px;">Convierte tu CCTV en videoanalítica sin hardware nuevo y sin biometría. Demo personalizada de 20 minutos.</p>
+<p><a href="#contact">SOLICITA UNA DEMO DE HYPERSENSOR →</a></p>
+</div>
+
+<h3>Fuentes</h3>
+<p style="font-size:13px;color:#6B7280;">Consultadas el 14 de octubre de 2026. Esta guía no es asesoramiento jurídico.</p>
+<ul class="fa-rw-sources">
+<li>Flame Analytics: <a href="/es/hypersensor/">Hypersensor</a> y <a href="/es/conteo-personas/">conteo de personas</a> (preguntas frecuentes), y casos de éxito enlazados arriba</li>
+<li>CEPD (EDPB), Directrices 3/2019 sobre el tratamiento de datos personales mediante dispositivos de vídeo: <a href="https://www.edpb.europa.eu/our-work-tools/our-documents/guidelines/guidelines-32019-processing-personal-data-through-video_en" target="_blank" rel="noopener">edpb.europa.eu</a></li>
+<li>Reglamento (UE) 2016/679 (RGPD), artículos 4.14 y 9: <a href="https://eur-lex.europa.eu/eli/reg/2016/679/oj" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+<li>AEPD, Guía sobre el uso de videocámaras para seguridad y otras finalidades (febrero de 2025): <a href="https://www.aepd.es/guias/guia-videovigilancia.pdf" target="_blank" rel="noopener">aepd.es</a></li>
+<li>RetailNext, sensor Aurora: <a href="https://retailnext.net/platform/aurora-sensor" target="_blank" rel="noopener">retailnext.net</a> · V-Count, sensor Nano AI: <a href="https://v-count.com/" target="_blank" rel="noopener">v-count.com</a></li>
+</ul>

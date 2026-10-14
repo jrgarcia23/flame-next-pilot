@@ -18,6 +18,10 @@ export type PostOverride = {
   // vía generateMetadata. NO tocan el H1 visible ni el excerpt de los listados.
   seoTitle?: string;
   seoDescription?: string;
+  // Reescrituras 2026-10 (briefs SEO #2/#8): <title> exacto sin sufijo " · Flame Analytics"
+  // y fecha de modificación real (alimenta dateModified del BlogPosting y og:modifiedTime).
+  seoTitleFull?: string;
+  modified?: string;
 };
 
 // clave: `<lang>/<slug>`
@@ -91,9 +95,14 @@ const OVERRIDES: Record<string, PostOverride> = {
     seoTitle: "Conteo de personas retail: guía completa",
     seoDescription: "Conteo de personas en retail: tecnologías, precisión, métricas y ROI. Elige el sistema adecuado para tu tienda, con IA y sin biometría.",
   },
+  // Reescritura 2026-10-14 (brief SEO #8B). HTML en data/post-rewrites-es/06-*.
   "es/analitica-de-video-cctv-inteligencia-negocio": {
-    title: "Analítica de vídeo CCTV: guía para retail",
-    excerpt: "Convierte tus cámaras CCTV existentes en business intelligence para retail. Sin hardware nuevo, sin biometría, con IA.",
+    title: "Videoanalítica con IA: cómo convertir tus cámaras CCTV en datos de negocio",
+    excerpt: "Qué es la videoanalítica, qué mide con las cámaras que ya tienes, cómo cumplir el RGPD sin biometría y 5 casos reales en retail y centros comerciales.",
+    htmlFile: "06-es-analitica-video-cctv-inteligencia-negocio.html",
+    seoTitleFull: "Analítica de vídeo con IA sobre tus cámaras CCTV: guía 2026",
+    seoDescription: "Qué es la videoanalítica, qué mide con las cámaras que ya tienes, cómo cumplir el RGPD sin biometría y 5 casos reales en retail y centros comerciales.",
+    modified: "2026-10-14T12:00:00",
   },
   "es/rgpd-video-analitica-compliance-centros-comerciales": {
     title: "RGPD y videoanalítica: guía completa",
@@ -144,6 +153,25 @@ const OVERRIDES: Record<string, PostOverride> = {
     excerpt: "Whitepaper: la IA al servicio del retail. Qué aporta el vídeo analytics a tiendas y centros comerciales y cómo empezar a aplicarlo.",
   },
 
+  // ---------- Reescrituras EN 2026-10-14 (briefs SEO #2 y #8A) ----------
+  // HTML en data/post-rewrites-es/04-* y 05-* (la carpeta guarda también reescrituras EN).
+  "en/best-people-counting-software-retail": {
+    title: "Best people counting software for retail in 2026",
+    excerpt: "ShopperTrak, FootfallCam, V-Count, RetailNext and Flame Analytics compared on technology, accuracy, privacy and deployment. Updated for 2026.",
+    htmlFile: "04-en-best-people-counting-software-retail.html",
+    seoTitleFull: "Best People Counting Software 2026: 5 Platforms Compared",
+    seoDescription: "ShopperTrak, FootfallCam, V-Count, RetailNext and Flame Analytics compared on technology, accuracy, privacy and deployment. Updated for 2026.",
+    modified: "2026-10-14T12:00:00",
+  },
+  "en/gdpr-video-analytics-compliance-guide-shopping-malls": {
+    title: "GDPR and video analytics: compliance guide for shopping malls and retail",
+    excerpt: "Is store-floor video analytics GDPR compliant? What counts as biometric data, the 3 compliance levels and a 15-point checklist for malls and retail.",
+    htmlFile: "05-en-gdpr-video-analytics-compliance-guide.html",
+    seoTitleFull: "GDPR & Video Analytics: Compliance Guide for Malls and Retail",
+    seoDescription: "Is store-floor video analytics GDPR compliant? What counts as biometric data, the 3 compliance levels and a 15-point checklist for malls and retail.",
+    modified: "2026-10-14T12:00:00",
+  },
+
   // ---------- Pack CTR 2026-08-24 (medición 3 GSC): queries pos 1-10 con CTR ~0 ----------
   // "future of retail analytics" pos 2,8 con 224 imp/28d y 0 clicks.
   "en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive": {
@@ -170,13 +198,14 @@ export function getOverride(slug: string, lang: Lang): PostOverride | null {
   return OVERRIDES[`${lang}/${slug}`] || null;
 }
 
-export function applyOverride<T extends { title: string; excerpt: string; html: string }>(
+export function applyOverride<T extends { title: string; excerpt: string; html: string; modified?: string }>(
   post: T,
   ov: PostOverride,
 ): T {
   const next = { ...post };
   if (ov.title) next.title = ov.title;
   if (ov.excerpt) next.excerpt = ov.excerpt;
+  if (ov.modified) next.modified = ov.modified;
   if (ov.htmlFile) {
     const newHtml = readHtml(ov.htmlFile);
     if (newHtml) next.html = newHtml;

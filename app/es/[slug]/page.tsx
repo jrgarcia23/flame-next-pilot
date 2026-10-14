@@ -28,7 +28,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const languages: Record<string, string> = { es: `/es/${slug}/`, "x-default": `/es/${slug}/` };
   if (enSlug) languages.en = `/en/${enSlug}/`;
   return {
-    title: `${titleText} · Flame Analytics`,
+    // seoTitleFull: <title> exacto del brief SEO, sin sufijo de marca (ya lo trae o no cabe en 60).
+    title: ov?.seoTitleFull ? { absolute: ov.seoTitleFull } : `${titleText} · Flame Analytics`,
     description: descText,
     alternates: {
       canonical: `/es/${slug}/`,

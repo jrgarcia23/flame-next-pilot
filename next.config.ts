@@ -101,6 +101,12 @@ const nextConfig: NextConfig = {
       { source: "/es/customer-journey",     destination: "/es/recorrido-del-cliente/",      permanent: true },
       { source: "/es/customer-journey/",    destination: "/es/recorrido-del-cliente/",      permanent: true },
 
+      // ── Consolidación guest WiFi EN (brief SEO #7, 2026-10-14) ──────────
+      // El post canibalizaba a la landing /en/guest-wifi-marketing/ (733 impr., 0 clics/90 d).
+      // Post marcado draft en blog.json (fuera del sitemap); los enlaces internos ya apuntan a la landing.
+      { source: "/en/increasing-customer-engagement-the-power-of-guest-wifi-marketing",  destination: "/en/guest-wifi-marketing/", statusCode: 301 },
+      { source: "/en/increasing-customer-engagement-the-power-of-guest-wifi-marketing/", destination: "/en/guest-wifi-marketing/", statusCode: 301 },
+
       // ══════════════════════════════════════════════════════════════════
       // SEO 301s — preservar URLs históricas WP (Google Search Console)
       // ══════════════════════════════════════════════════════════════════
