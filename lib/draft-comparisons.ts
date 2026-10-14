@@ -69,7 +69,10 @@ export const DRAFT_COMPARISONS: Record<string, DraftComparison> = {
       excerpt:
         "Looking at RetailNext? Compare Flame Analytics, V-Count, FootfallCam, ShopperTrak and Xovis on technology, existing cameras, GDPR and multi-country deployment.",
       html: retailnextHtml,
-      date: "2026-10-14T10:30:00",
+      // JR 14-oct-2026: fecha antigua para que salga a mitad de la página 2 del listado EN
+      // (hueco entre 24-feb-2025 y 3-feb-2025) y fuera del bloque Blog de /en/community/.
+      // dateModified (schema) sigue en la publicación real.
+      date: "2025-02-14T10:00:00",
       modified: "2026-10-14T10:30:00",
       hero: "/wp-content/uploads/2026/10/retailnext-alternatives-cover.webp",
       thumbnail: "/wp-content/uploads/2026/10/retailnext-alternatives-cover.webp",
