@@ -1,131 +1,452 @@
-// Cabeceras alternas azul/blanco del listado del blog (JR, 14-oct-2026).
-// Solo cambian la MINIATURA de los listados (/es/categoria/blog/, /en/category/blog/,
-// bloque Blog de comunidad y relacionados). NO tocan "hero": og:image y la cabecera del
-// propio post siguen igual, así no se rompen og:image cacheadas.
-// Plantilla y textos: _local/_global/clientes/flame/disenos/blog-covers-2026-10/alternancia/ (repo esconzeta-mc).
-// Regla: en el orden del listado, impar = azul, par = blanca (empieza en azul).
-// OJO: cada post nuevo que entra arriba desplaza la paridad del resto.
+// Cabeceras ALTERNAS azul/blanco de los listados del blog (JR, 14-oct-2026).
+//
+// Cada post listado tiene DOS cabeceras con la plantilla actual: <base>-azul.webp y <base>-blanca.webp
+// en /public/wp-content/uploads/2026/10/alternas/. El listado elige el color por la POSICIÓN en la
+// que se pinta (índice global en el listado ordenado, contando el offset de paginación):
+// posición par (0, 2, 4...) = azul, impar = blanca. Así un post nuevo arriba NO descuadra nada.
+// Con 4 columnas esto da franjas verticales (col 1 y 3 azules, 2 y 4 blancas): es lo buscado.
+//
+// Solo afecta a la miniatura de los listados (/es/categoria/blog/, /en/category/blog/ y el bloque
+// Blog de /es/comunidad/ y /en/community/). NO toca "hero": og:image y la cabecera interior del post
+// no cambian. Un post sin par aquí sigue mostrando su imagen actual (thumbnail || hero).
+//
+// POST NUEVO: generar su par y regenerar este fichero con el script del repo esconzeta-mc:
+//   cd _local/_global/clientes/flame/disenos/blog-covers-2026-10/alternancia
+//   python3 cabecera.py add --lang en --slug <slug> --eb "Retail Analytics" \
+//       --t "Título/en dos líneas" --s "Subtítulo/en dos o/tres líneas" --repo <ruta flame-next>
+// (ver README.md de esa carpeta). NO editar a mano la tabla de abajo.
 
 const BASE = "/wp-content/uploads/2026/10/alternas/";
 
-// clave: `<lang>/<slug>` -> fichero
-const COVER_OVERRIDES: Record<string, string> = {
-  "en/the-5-retail-blind-spots-that-data-can-reveal": "en-the-5-retail-blind-spots-that-data-can-reveal-blanca.webp", // #4 BLANCA
-  "en/from-data-to-decisions-how-data-driven-retail-builds-smarter-stores": "en-from-data-to-decisions-how-data-driven-retail-bu-azul.webp", // #5 AZUL
-  "en/conversion-analytics-retail-measure-optimize": "en-conversion-analytics-retail-measure-optimize-blanca.webp", // #8 BLANCA
-  "en/gdpr-video-analytics-compliance-guide-shopping-malls": "en-gdpr-video-analytics-compliance-guide-shopping-m-azul.webp", // #9 AZUL
-  "en/smart-restroom-management-optimizing-resources-in-physical-spaces": "en-smart-restroom-management-optimizing-resources-i-blanca.webp", // #12 BLANCA
-  "en/how-video-analytics-is-revolutionizing-the-retail-experience": "en-how-video-analytics-is-revolutionizing-the-retai-azul.webp", // #13 AZUL
-  "en/benchmarking-performance-kpis-shopping-center": "en-benchmarking-performance-kpis-shopping-center-blanca.webp", // #14 BLANCA
-  "en/ai-powered-personalization-for-shopping-malls": "en-ai-powered-personalization-for-shopping-malls-azul.webp", // #15 AZUL
-  "en/privacy-by-design-buiding-trust-through-transparent-data-practices": "en-privacy-by-design-buiding-trust-through-transpar-blanca.webp", // #16 BLANCA
-  "en/flame-traffic-the-future-of-foot-traffic-analytics": "en-flame-traffic-the-future-of-foot-traffic-analyti-azul.webp", // #17 AZUL
-  "en/the-benefits-of-measuring-foot-traffic-in-shops-and-malls": "en-the-benefits-of-measuring-foot-traffic-in-shops-blanca.webp", // #18 BLANCA
-  "en/the-future-of-retail-is-real-time-how-data-is-powering-smarter-stores": "en-the-future-of-retail-is-real-time-how-data-is-po-azul.webp", // #19 AZUL
-  "en/how-shopping-malls-are-reinventing-themselves-through-data-and-experience": "en-how-shopping-malls-are-reinventing-themselves-th-blanca.webp", // #20 BLANCA
-  "en/the-ethics-of-ai-surveillance-in-commercial-spaces": "en-the-ethics-of-ai-surveillance-in-commercial-spac-azul.webp", // #21 AZUL
-  "en/from-cameras-to-insights-leveraging-computer-vision-in-malls": "en-from-cameras-to-insights-leveraging-computer-vis-blanca.webp", // #22 BLANCA
-  "en/7-ways-to-grow-your-retail-business-and-take-things-to-the-next-level": "en-7-ways-to-grow-your-retail-business-and-take-thi-azul.webp", // #23 AZUL
-  "en/ai-ar-a-must-in-customer-experience-for-retail-sector": "en-ai-ar-a-must-in-customer-experience-for-retail-s-blanca.webp", // #24 BLANCA
-  "en/brick-and-mortar-marketing-5-tactics-you-should-always-apply-to-your-strategy": "en-brick-and-mortar-marketing-5-tactics-you-should-azul.webp", // #25 AZUL
-  "en/3-customer-retention-strategies-for-a-small-business": "en-3-customer-retention-strategies-for-a-small-busi-blanca.webp", // #26 BLANCA
-  "en/the-future-of-shopping-malls-experience-sustainability-and-data": "en-the-future-of-shopping-malls-experience-sustaina-azul.webp", // #27 AZUL
-  "en/5-ways-video-analytics-is-transforming-retail-stores": "en-5-ways-video-analytics-is-transforming-retail-st-blanca.webp", // #28 BLANCA
-  "en/comparing-shopping-mall-footfall-how-to-know-if-your-data-is-good": "en-comparing-shopping-mall-footfall-how-to-know-if-azul.webp", // #29 AZUL
-  "en/how-shopping-malls-can-attract-and-retain-generation-z": "en-how-shopping-malls-can-attract-and-retain-genera-blanca.webp", // #30 BLANCA
-  "en/the-importance-of-analytics-in-the-physical-world": "en-the-importance-of-analytics-in-the-physical-worl-azul.webp", // #31 AZUL
-  "en/2024-retail-innovations-how-technology-is-revolutionizing-the-shopping-experience": "en-2024-retail-innovations-how-technology-is-revolu-blanca.webp", // #32 BLANCA
-  "en/retail-trends-to-watch-in-2025": "en-retail-trends-to-watch-in-2025-azul.webp", // #33 AZUL
-  "en/holiday-campaigns-using-advanced-analytics": "en-holiday-campaigns-using-advanced-analytics-blanca.webp", // #34 BLANCA
-  "en/from-people-counting-to-data-intelligence": "en-from-people-counting-to-data-intelligence-azul.webp", // #35 AZUL
-  "en/20-kpis-for-shopping-centers-for-improvement": "en-20-kpis-for-shopping-centers-for-improvement-blanca.webp", // #36 BLANCA
-  "en/the-power-of-ai-in-shopping-centers": "en-the-power-of-ai-in-shopping-centers-azul.webp", // #37 AZUL
-  "en/effective-marketing-campaigns-in-malls-using-location-based-marketing": "en-effective-marketing-campaigns-in-malls-using-loc-blanca.webp", // #38 BLANCA
-  "en/7-tools-every-marketer-should-use-to-automate-workflows": "en-7-tools-every-marketer-should-use-to-automate-wo-azul.webp", // #39 AZUL
-  "en/data-analytics-for-shopping-centers": "en-data-analytics-for-shopping-centers-blanca.webp", // #40 BLANCA
-  "en/people-counting-shopping-center": "en-people-counting-shopping-center-azul.webp", // #41 AZUL
-  "en/retailment-the-future-of-shopping": "en-retailment-the-future-of-shopping-blanca.webp", // #42 BLANCA
-  "en/the-role-of-technology-in-customer-loyalty-management-in-malls": "en-the-role-of-technology-in-customer-loyalty-manag-azul.webp", // #43 AZUL
-  "en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive": "en-future-of-retail-analytics-how-analytics-can-hel-blanca.webp", // #44 BLANCA
-  "en/top-10-shopping-mall-innovation-features-transforming-experiences": "en-top-10-shopping-mall-innovation-features-transfo-azul.webp", // #45 AZUL
-  "en/shopper-tracking-insights-unveiling-the-science-of-retail-analytics": "en-shopper-tracking-insights-unveiling-the-science-blanca.webp", // #46 BLANCA
-  "en/measuring-the-roi-of-personalization-in-retail-metrics-and-strategies": "en-measuring-the-roi-of-personalization-in-retail-m-azul.webp", // #47 AZUL
-  "en/ar-in-retail-bridging-the-gap-between-online-and-offline-shopping": "en-ar-in-retail-bridging-the-gap-between-online-and-blanca.webp", // #48 BLANCA
-  "en/6-smart-hotel-technology-trends-whats-next-in-hospitality-innovation": "en-6-smart-hotel-technology-trends-whats-next-in-ho-azul.webp", // #49 AZUL
-  "en/technologys-impact-on-in-store-communication-strategies": "en-technologys-impact-on-in-store-communication-str-blanca.webp", // #50 BLANCA
-  "en/gathering-insights-best-practices-in-data-collection-methods": "en-gathering-insights-best-practices-in-data-collec-azul.webp", // #51 AZUL
-  "en/expanding-your-retail-empire-when-to-open-a-second-location-and-how-to-do-it-right": "en-expanding-your-retail-empire-when-to-open-a-seco-blanca.webp", // #52 BLANCA
-  "en/increasing-customer-engagement-the-power-of-guest-wifi-marketing": "en-increasing-customer-engagement-the-power-of-gues-azul.webp", // #53 AZUL
-  "en/customer-data-collection-in-shopping-malls": "en-customer-data-collection-in-shopping-malls-blanca.webp", // #54 BLANCA
-  "en/challenges-and-trends-for-shopping-centers-in-2024": "en-challenges-and-trends-for-shopping-centers-in-20-azul.webp", // #55 AZUL
-  "en/how-big-data-and-ai-are-changing-the-game-for-marketing-in-hospitality-industry": "en-how-big-data-and-ai-are-changing-the-game-for-ma-blanca.webp", // #56 BLANCA
-  "en/4-ways-to-combine-physical-and-digital-retail-strategies-for-a-seamless-brick-and-click-operation": "en-4-ways-to-combine-physical-and-digital-retail-st-azul.webp", // #57 AZUL
-  "en/the-latest-innovations-to-be-introduced-in-shopping-malls-in-2024": "en-the-latest-innovations-to-be-introduced-in-shopp-blanca.webp", // #58 BLANCA
-  "en/marketing-strategies-to-improve-store-sales-during-christmas": "en-marketing-strategies-to-improve-store-sales-duri-azul.webp", // #59 AZUL
-  "en/retail-point-of-sale-software-the-cornerstone-of-in-store-analytics": "en-retail-point-of-sale-software-the-cornerstone-of-blanca.webp", // #60 BLANCA
-  "es/jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-retail-no-sera-elegir-entre-tecnologia-o-personas": "es-jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-r-azul.webp", // #1 AZUL
-  "es/la-innovacion-que-realmente-funciona-es-la-que-suma-a-la-experiencia-del-cliente-y-facilita-el-traba": "es-la-innovacion-que-realmente-funciona-es-la-que-s-blanca.webp", // #2 BLANCA
-  "es/flame-talks-2026-del-dato-al-agente-de-ia-para-crecer-juntos": "es-flame-talks-2026-del-dato-al-agente-de-ia-para-c-azul.webp", // #7 AZUL
-  "es/mejor-sistema-conteo-personas-2026-comparativa": "es-mejor-sistema-conteo-personas-2026-comparativa-blanca.webp", // #8 BLANCA
-  "es/gestion-red-tiendas-visibilidad-cadena-retail": "es-gestion-red-tiendas-visibilidad-cadena-retail-azul.webp", // #9 AZUL
-  "es/flame-talks-2026-4a-edicion-centros-comerciales-y-retail-del-dato-al-agente-de-ia-para-crecer-juntos": "es-flame-talks-2026-4a-edicion-centros-comerciales-blanca.webp", // #10 BLANCA
-  "es/inteligencia-artificial-retail-analitica-tienda-fisica": "es-inteligencia-artificial-retail-analitica-tienda-azul.webp", // #11 AZUL
-  "es/campanas-marketing-centros-comerciales": "es-campanas-marketing-centros-comerciales-blanca.webp", // #12 BLANCA
-  "es/rgpd-video-analitica-compliance-centros-comerciales": "es-rgpd-video-analitica-compliance-centros-comercia-azul.webp", // #13 AZUL
-  "es/flame-analytics-vuelve-a-retail-forum-2026-innovacion-y-videonalitica-para-transformar-el-retail": "es-flame-analytics-vuelve-a-retail-forum-2026-innov-blanca.webp", // #16 BLANCA
-  "es/flame-implanta-su-solucion-de-wifi-marketing-en-la-cadena-hotelera-bb-hotels": "es-flame-implanta-su-solucion-de-wifi-marketing-en-azul.webp", // #17 AZUL
-  "es/queue-analytics-eficiencia-y-satisfaccion-en-el-sector-retail": "es-queue-analytics-eficiencia-y-satisfaccion-en-el-blanca.webp", // #18 BLANCA
-  "es/flame-analytics-regresa-a-nrf-2026-en-nueva-york": "es-flame-analytics-regresa-a-nrf-2026-en-nueva-york-azul.webp", // #19 AZUL
-  "es/black-friday-2025-impulsa-ventas-con-datos-y-analitica-avanzada": "es-black-friday-2025-impulsa-ventas-con-datos-y-ana-blanca.webp", // #20 BLANCA
-  "es/flame-analytics-mapic-2025-vuelta-al-mayor-evento-internacional-retail-y-centroscomerciales": "es-flame-analytics-mapic-2025-vuelta-al-mayor-event-azul.webp", // #21 AZUL
-  "es/gestion_inteligente_para_centros_comerciales_eficiencia_operativa_y_optimizacion_de_recursos_en_tiempo_real": "es-gestioninteligenteparacentroscomercialeseficienc-blanca.webp", // #22 BLANCA
-  "es/4-estrategias-para-retailers-casos-de-exito-y-soluciones-clave": "es-4-estrategias-para-retailers-casos-de-exito-y-so-azul.webp", // #23 AZUL
-  "es/beneficios-de-la-inteligencia-artificial-en-el-analisis-del-customer-journey": "es-beneficios-de-la-inteligencia-artificial-en-el-a-blanca.webp", // #24 BLANCA
-  "es/los-10-kpis-que-todo-centro-comercial-debe-medir": "es-los-10-kpis-que-todo-centro-comercial-debe-medir-azul.webp", // #25 AZUL
-  "es/modelos-de-prediccion-en-retail-como-anticipar-la-demanda-optimizar-staff-y-medir-el-impacto-de-las-promociones": "es-modelos-de-prediccion-en-retail-como-anticipar-l-blanca.webp", // #26 BLANCA
-  "es/mapas-de-calor-descubre-como-el-flujo-de-clientes-transforma-tu-centro-comercial": "es-mapas-de-calor-descubre-como-el-flujo-de-cliente-azul.webp", // #27 AZUL
-  "es/las-metricas-clave-para-el-exito-en-retail": "es-las-metricas-clave-para-el-exito-en-retail-blanca.webp", // #28 BLANCA
-  "es/flame-organiza-la-mesa-redonda-transformando-el-retail-datos-ia-e-innovacion-en-centros-comerciales-en-limitless-2025": "es-flame-organiza-la-mesa-redonda-transformando-el-azul.webp", // #29 AZUL
-  "es/flame-analytics-seleccionada-como-una-de-las-13-empresas-de-ia-mas-innovadoras-de-espana": "es-flame-analytics-seleccionada-como-una-de-las-13-blanca.webp", // #30 BLANCA
-  "es/resumen-flame-talks-2025-transformando-centros-comerciales": "es-resumen-flame-talks-2025-transformando-centros-c-azul.webp", // #31 AZUL
-  "es/ana-almagro-los-centros-comerciales-se-estan-consolidando-como-lugares-de-vida": "es-ana-almagro-los-centros-comerciales-se-estan-con-blanca.webp", // #32 BLANCA
-  "es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica": "es-webinar-la-ia-al-servicio-del-retail-descubre-el-azul.webp", // #33 AZUL
-  "es/flame-talks-2025-transformando-centros-comerciales-innovacion-datos-experiencia-y-sostenibilidad": "es-flame-talks-2025-transformando-centros-comercial-blanca.webp", // #34 BLANCA
-  "es/7-claves-para-construir-un-comercio-de-exito-y-trascendencia": "es-7-claves-para-construir-un-comercio-de-exito-y-t-azul.webp", // #35 AZUL
-  "es/flame-analytics-en-nrf-25": "es-flame-analytics-en-nrf-25-blanca.webp", // #36 BLANCA
-  "es/transformacion-del-retail-fusion-de-innovacion-tecnologia-y-analitica-en-la-era-digital": "es-transformacion-del-retail-fusion-de-innovacion-t-azul.webp", // #37 AZUL
-  "es/flame-y-trison-organizan-una-jornada-para-directivos-del-retail-en-madrid": "es-flame-y-trison-organizan-una-jornada-para-direct-blanca.webp", // #38 BLANCA
-  "es/nuevas-tecnologias-que-mejoran-la-medicion-de-trafico-en-los-espacios-comerciales": "es-nuevas-tecnologias-que-mejoran-la-medicion-de-tr-azul.webp", // #39 AZUL
-  "es/la-reinvencion-de-la-tienda-fisica-mucho-mas-que-un-espacio-de-venta": "es-la-reinvencion-de-la-tienda-fisica-mucho-mas-que-blanca.webp", // #40 BLANCA
-  "es/manual-de-experiencia-de-cliente-biblia-para-empleados": "es-manual-de-experiencia-de-cliente-biblia-para-emp-azul.webp", // #41 AZUL
-  "es/descubriendo-la-revolucion-en-retail-con-cristina-delgado-women-in-retail": "es-descubriendo-la-revolucion-en-retail-con-cristin-blanca.webp", // #42 BLANCA
-  "es/marina-nieto-lo-phygital-es-el-futuro-y-los-servicos-nuestros-mayores-aliados": "es-marina-nieto-lo-phygital-es-el-futuro-y-los-serv-azul.webp", // #43 AZUL
-  "es/irene-cuadrado-la-tecnologia-te-acerca-a-los-clientes-y-te-permite-detectar-necesidades": "es-irene-cuadrado-la-tecnologia-te-acerca-a-los-cli-blanca.webp", // #44 BLANCA
-  "es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing": "es-wifi-marketing-transformando-la-conexion-en-cent-azul.webp", // #45 AZUL
-  "es/visual-merchandising-sostenible-ideas-para-una-tienda-eco-friendly": "es-visual-merchandising-sostenible-ideas-para-una-t-blanca.webp", // #46 BLANCA
-  "es/triunfo-de-el-ingenio-reconocimiento-para-el-proyecto-igenio-de-flame-analytics": "es-triunfo-de-el-ingenio-reconocimiento-para-el-pro-azul.webp", // #47 AZUL
-  "es/resumen-flame-talks-2024-reflexiones-sobre-el-futuro-de-los-centros-comerciales": "es-resumen-flame-talks-2024-reflexiones-sobre-el-fu-blanca.webp", // #48 BLANCA
-  "es/elevando-la-experiencia-de-compra-en-intu-xanadu-la-transformacion-digital-de-flame-analytics": "es-elevando-la-experiencia-de-compra-en-intu-xanadu-azul.webp", // #49 AZUL
-  "es/flame-analytics-lider-en-retail-technology-destacado-en-el-landscape-de-cascadia": "es-flame-analytics-lider-en-retail-technology-desta-blanca.webp", // #50 BLANCA
-  "es/claves-experiencia-de-compra-centro-comercial": "es-claves-experiencia-de-compra-centro-comercial-azul.webp", // #51 AZUL
-  "es/flame-talks-2024-explorando-pasado-desafiando-presente-creando-futuro": "es-flame-talks-2024-explorando-pasado-desafiando-pr-blanca.webp", // #52 BLANCA
-  "es/centro-comercial-alcala-magna-solucion-de-wifi-marketing-de-flame": "es-centro-comercial-alcala-magna-solucion-de-wifi-m-azul.webp", // #53 AZUL
-  "es/jose-antonio-tecnologia-para-la-innovacion-de-los-puntos-fisicos": "es-jose-antonio-tecnologia-para-la-innovacion-de-lo-blanca.webp", // #54 BLANCA
-  "es/igone-castillo-exito-en-tu-tienda-retail": "es-igone-castillo-exito-en-tu-tienda-retail-azul.webp", // #55 AZUL
-  "es/descubre-como-el-uso-de-kpis-puede-potenciar-tus-ventas": "es-descubre-como-el-uso-de-kpis-puede-potenciar-tus-blanca.webp", // #56 BLANCA
-  "es/patricia-fuentes-la-tecnologia-permitira-mejorar-la-experiencia-y-la-atencion-al-cliente": "es-patricia-fuentes-la-tecnologia-permitira-mejorar-azul.webp", // #57 AZUL
-  "es/carlos-palacios-la-base-del-exito-del-retail-esta-asociado-a-la-relacion-que-mantengan-con-el-cliente": "es-carlos-palacios-la-base-del-exito-del-retail-est-blanca.webp", // #58 BLANCA
-  "es/cristina-munoz-la-clave-para-establecer-una-buena-relacion-con-los-clientes-es-conocer-sus-necesidades": "es-cristina-munoz-la-clave-para-establecer-una-buen-azul.webp", // #59 AZUL
-  "es/como-la-ia-esta-transformando-la-forma-en-que-hacemos-presentaciones": "es-como-la-ia-esta-transformando-la-forma-en-que-ha-blanca.webp", // #60 BLANCA
+// clave: `<lang>/<slug>` -> nombre base del par
+const COVER_PAIRS: Record<string, string> = {
+  "en/retailnext-alternatives": "en-retailnext-alternatives",
+  "en/best-guest-wifi-marketing-platforms-shopping-centres": "en-best-guest-wifi-marketing-platforms-shopping-cen",
+  "en/shopping-mall-marketing-campaigns-data-driven-strategies": "en-shopping-mall-marketing-campaigns-data-driven-st",
+  "en/the-5-retail-blind-spots-that-data-can-reveal": "en-the-5-retail-blind-spots-that-data-can-reveal",
+  "en/from-data-to-decisions-how-data-driven-retail-builds-smarter-stores": "en-from-data-to-decisions-how-data-driven-retail-bu",
+  "en/ai-retail-analytics-physical-stores": "en-ai-retail-analytics-physical-stores",
+  "en/retail-kpis-how-to-turn-footfall-into-conversion-in-physical-stores": "en-retail-kpis-how-to-turn-footfall-into-conversion",
+  "en/conversion-analytics-retail-measure-optimize": "en-conversion-analytics-retail-measure-optimize",
+  "en/gdpr-video-analytics-compliance-guide-shopping-malls": "en-gdpr-video-analytics-compliance-guide-shopping-m",
+  "en/people-counting-systems-complete-guide": "en-people-counting-systems-complete-guide",
+  "en/cctv-analytics-turn-existing-cameras-business-intelligence": "en-cctv-analytics-turn-existing-cameras-business-in",
+  "en/smart-restroom-management-optimizing-resources-in-physical-spaces": "en-smart-restroom-management-optimizing-resources-i",
+  "en/how-video-analytics-is-revolutionizing-the-retail-experience": "en-how-video-analytics-is-revolutionizing-the-retai",
+  "en/benchmarking-performance-kpis-shopping-center": "en-benchmarking-performance-kpis-shopping-center",
+  "en/ai-powered-personalization-for-shopping-malls": "en-ai-powered-personalization-for-shopping-malls",
+  "en/privacy-by-design-buiding-trust-through-transparent-data-practices": "en-privacy-by-design-buiding-trust-through-transpar",
+  "en/flame-traffic-the-future-of-foot-traffic-analytics": "en-flame-traffic-the-future-of-foot-traffic-analyti",
+  "en/the-benefits-of-measuring-foot-traffic-in-shops-and-malls": "en-the-benefits-of-measuring-foot-traffic-in-shops",
+  "en/the-future-of-retail-is-real-time-how-data-is-powering-smarter-stores": "en-the-future-of-retail-is-real-time-how-data-is-po",
+  "en/how-shopping-malls-are-reinventing-themselves-through-data-and-experience": "en-how-shopping-malls-are-reinventing-themselves-th",
+  "en/the-ethics-of-ai-surveillance-in-commercial-spaces": "en-the-ethics-of-ai-surveillance-in-commercial-spac",
+  "en/from-cameras-to-insights-leveraging-computer-vision-in-malls": "en-from-cameras-to-insights-leveraging-computer-vis",
+  "en/7-ways-to-grow-your-retail-business-and-take-things-to-the-next-level": "en-7-ways-to-grow-your-retail-business-and-take-thi",
+  "en/ai-ar-a-must-in-customer-experience-for-retail-sector": "en-ai-ar-a-must-in-customer-experience-for-retail-s",
+  "en/brick-and-mortar-marketing-5-tactics-you-should-always-apply-to-your-strategy": "en-brick-and-mortar-marketing-5-tactics-you-should",
+  "en/3-customer-retention-strategies-for-a-small-business": "en-3-customer-retention-strategies-for-a-small-busi",
+  "en/the-future-of-shopping-malls-experience-sustainability-and-data": "en-the-future-of-shopping-malls-experience-sustaina",
+  "en/5-ways-video-analytics-is-transforming-retail-stores": "en-5-ways-video-analytics-is-transforming-retail-st",
+  "en/comparing-shopping-mall-footfall-how-to-know-if-your-data-is-good": "en-comparing-shopping-mall-footfall-how-to-know-if",
+  "en/how-shopping-malls-can-attract-and-retain-generation-z": "en-how-shopping-malls-can-attract-and-retain-genera",
+  "en/the-importance-of-analytics-in-the-physical-world": "en-the-importance-of-analytics-in-the-physical-worl",
+  "en/2024-retail-innovations-how-technology-is-revolutionizing-the-shopping-experience": "en-2024-retail-innovations-how-technology-is-revolu",
+  "en/retail-trends-to-watch-in-2025": "en-retail-trends-to-watch-in-2025",
+  "en/holiday-campaigns-using-advanced-analytics": "en-holiday-campaigns-using-advanced-analytics",
+  "en/from-people-counting-to-data-intelligence": "en-from-people-counting-to-data-intelligence",
+  "en/20-kpis-for-shopping-centers-for-improvement": "en-20-kpis-for-shopping-centers-for-improvement",
+  "en/the-power-of-ai-in-shopping-centers": "en-the-power-of-ai-in-shopping-centers",
+  "en/effective-marketing-campaigns-in-malls-using-location-based-marketing": "en-effective-marketing-campaigns-in-malls-using-loc",
+  "en/7-tools-every-marketer-should-use-to-automate-workflows": "en-7-tools-every-marketer-should-use-to-automate-wo",
+  "en/data-analytics-for-shopping-centers": "en-data-analytics-for-shopping-centers",
+  "en/people-counting-shopping-center": "en-people-counting-shopping-center",
+  "en/retailment-the-future-of-shopping": "en-retailment-the-future-of-shopping",
+  "en/the-role-of-technology-in-customer-loyalty-management-in-malls": "en-the-role-of-technology-in-customer-loyalty-manag",
+  "en/future-of-retail-analytics-how-analytics-can-help-physical-stores-thrive": "en-future-of-retail-analytics-how-analytics-can-hel",
+  "en/top-10-shopping-mall-innovation-features-transforming-experiences": "en-top-10-shopping-mall-innovation-features-transfo",
+  "en/shopper-tracking-insights-unveiling-the-science-of-retail-analytics": "en-shopper-tracking-insights-unveiling-the-science",
+  "en/measuring-the-roi-of-personalization-in-retail-metrics-and-strategies": "en-measuring-the-roi-of-personalization-in-retail-m",
+  "en/ar-in-retail-bridging-the-gap-between-online-and-offline-shopping": "en-ar-in-retail-bridging-the-gap-between-online-and",
+  "en/6-smart-hotel-technology-trends-whats-next-in-hospitality-innovation": "en-6-smart-hotel-technology-trends-whats-next-in-ho",
+  "en/technologys-impact-on-in-store-communication-strategies": "en-technologys-impact-on-in-store-communication-str",
+  "en/gathering-insights-best-practices-in-data-collection-methods": "en-gathering-insights-best-practices-in-data-collec",
+  "en/expanding-your-retail-empire-when-to-open-a-second-location-and-how-to-do-it-right": "en-expanding-your-retail-empire-when-to-open-a-seco",
+  "en/increasing-customer-engagement-the-power-of-guest-wifi-marketing": "en-increasing-customer-engagement-the-power-of-gues",
+  "en/customer-data-collection-in-shopping-malls": "en-customer-data-collection-in-shopping-malls",
+  "en/challenges-and-trends-for-shopping-centers-in-2024": "en-challenges-and-trends-for-shopping-centers-in-20",
+  "en/how-big-data-and-ai-are-changing-the-game-for-marketing-in-hospitality-industry": "en-how-big-data-and-ai-are-changing-the-game-for-ma",
+  "en/4-ways-to-combine-physical-and-digital-retail-strategies-for-a-seamless-brick-and-click-operation": "en-4-ways-to-combine-physical-and-digital-retail-st",
+  "en/the-latest-innovations-to-be-introduced-in-shopping-malls-in-2024": "en-the-latest-innovations-to-be-introduced-in-shopp",
+  "en/marketing-strategies-to-improve-store-sales-during-christmas": "en-marketing-strategies-to-improve-store-sales-duri",
+  "en/retail-point-of-sale-software-the-cornerstone-of-in-store-analytics": "en-retail-point-of-sale-software-the-cornerstone-of",
+  "en/crafting-memorable-in-store-experiences-that-drive-customer-loyalty": "en-crafting-memorable-in-store-experiences-that-dri",
+  "en/the-importance-of-visual-merchandising-in-retail-stores": "en-the-importance-of-visual-merchandising-in-retail",
+  "en/driving-foot-traffic-effective-marketing-strategies-for-retail-stores": "en-driving-foot-traffic-effective-marketing-strateg",
+  "en/7-ways-to-boost-retail-customers-engagement-in-2023": "en-7-ways-to-boost-retail-customers-engagement-in-2",
+  "en/winning-customers-hearts-10-tips-to-improve-customer-satisfaction": "en-winning-customers-hearts-10-tips-to-improve-cust",
+  "en/in-store-analytics-6-advantages-for-physical-stores-in-maximizing-sales": "en-in-store-analytics-6-advantages-for-physical-sto",
+  "en/marineda-city-shopping-center-new-client-of-flame-analytics": "en-marineda-city-shopping-center-new-client-of-flam",
+  "en/exploring-the-role-of-brick-and-mortar-in-the-future-of-retail": "en-exploring-the-role-of-brick-and-mortar-in-the-fu",
+  "en/your-complete-guide-to-customer-loyalty-management": "en-your-complete-guide-to-customer-loyalty-manageme",
+  "en/visual-merchandising-with-data-a-winning-retail-strategy": "en-visual-merchandising-with-data-a-winning-retail",
+  "en/how-retailers-can-make-the-most-of-subscription-based-business-models": "en-how-retailers-can-make-the-most-of-subscription",
+  "en/7-ways-smart-technology-is-reshaping-the-hotel-industry": "en-7-ways-smart-technology-is-reshaping-the-hotel-i",
+  "en/5-actionable-tips-to-take-your-retail-business-to-the-next-level": "en-5-actionable-tips-to-take-your-retail-business-t",
+  "en/challenges-and-trends-of-shopping-centers-in-2023": "en-challenges-and-trends-of-shopping-centers-in-202",
+  "en/5-ways-ai-technology-can-modernize-brick-and-mortar-retail": "en-5-ways-ai-technology-can-modernize-brick-and-mor",
+  "en/6-ways-to-generate-revenue-with-smart-advertising-technology-in-a-shopping-mall": "en-6-ways-to-generate-revenue-with-smart-advertisin",
+  "en/9-customer-engagement-strategies-that-will-boost-sales-in-2023": "en-9-customer-engagement-strategies-that-will-boost",
+  "en/how-treating-your-employees-right-can-lead-to-customer-loyalty": "en-how-treating-your-employees-right-can-lead-to-cu",
+  "en/big-data-analytics-and-risk-management-for-improving-business-operations": "en-big-data-analytics-and-risk-management-for-impro",
+  "en/retail-marketing-strategies-that-drive-sales-in-2022": "en-retail-marketing-strategies-that-drive-sales-in",
+  "en/5-ways-that-hanging-signs-increase-brand-loyalty-in-retail": "en-5-ways-that-hanging-signs-increase-brand-loyalty",
+  "en/10-advantages-of-in-store-analytics-for-a-store": "en-10-advantages-of-in-store-analytics-for-a-store",
+  "en/what-is-the-simplest-way-to-identify-new-business-opportunities-in-the-retail-industry": "en-what-is-the-simplest-way-to-identify-new-busines",
+  "en/5-ways-to-keep-retail-employees-healthy-and-happy": "en-5-ways-to-keep-retail-employees-healthy-and-happ",
+  "en/a-customer-engagement-guide-for-brick-and-mortar-stores": "en-a-customer-engagement-guide-for-brick-and-mortar",
+  "en/5-myths-about-retail-and-how-to-overcome-them": "en-5-myths-about-retail-and-how-to-overcome-them",
+  "en/learn-how-indoor-maps-can-benefit-shopping-malls-and-the-shoppers-that-frequent-them": "en-learn-how-indoor-maps-can-benefit-shopping-malls",
+  "en/7-steps-to-build-a-successful-hotel-smm-campaign": "en-7-steps-to-build-a-successful-hotel-smm-campaign",
+  "en/visual-merchandising-tips-for-your-retail-space": "en-visual-merchandising-tips-for-your-retail-space",
+  "en/5-tips-to-choose-the-right-internet-provider-for-your-retail-business": "en-5-tips-to-choose-the-right-internet-provider-for",
+  "en/5-data-security-tips-for-brick-mortar-stores": "en-5-data-security-tips-for-brick-mortar-stores",
+  "en/7-retail-marketing-strategies-to-help-you-get-new-customers-and-keep-existing-ones": "en-7-retail-marketing-strategies-to-help-you-get-ne",
+  "en/5-tips-to-elevate-customer-engagement-in-your-brick-and-mortar-business": "en-5-tips-to-elevate-customer-engagement-in-your-br",
+  "en/financial-strategy-in-retail-management": "en-financial-strategy-in-retail-management",
+  "en/5-reasons-why-staff-training-is-vital-for-success-in-retail": "en-5-reasons-why-staff-training-is-vital-for-succes",
+  "en/5-reasons-why-you-should-prefer-brick-and-mortar-stores": "en-5-reasons-why-you-should-prefer-brick-and-mortar",
+  "en/from-cool-to-hot-how-to-create-a-heat-map-for-your-shop": "en-from-cool-to-hot-how-to-create-a-heat-map-for-yo",
+  "en/6-ways-to-improve-communication-with-your-customers-in-your-retail-store": "en-6-ways-to-improve-communication-with-your-custom",
+  "en/how-shopping-malls-won-2020": "en-how-shopping-malls-won-2020",
+  "en/how-to-build-your-in-brick-and-mortar-business-brand": "en-how-to-build-your-in-brick-and-mortar-business-b",
+  "en/10-tiktok-strategies-for-retail": "en-10-tiktok-strategies-for-retail",
+  "en/top-5-shopping-mall-trends-to-watch-over-the-next-decade": "en-top-5-shopping-mall-trends-to-watch-over-the-nex",
+  "en/essential-retail-sales-tips-to-turn-browsers-into-buyers": "en-essential-retail-sales-tips-to-turn-browsers-int",
+  "en/5-strategies-to-launch-a-new-product-in-your-store": "en-5-strategies-to-launch-a-new-product-in-your-sto",
+  "en/influencer-marketing-retail-right-brand": "en-influencer-marketing-retail-right-brand",
+  "en/5-tips-create-successful-captive-portal": "en-5-tips-create-successful-captive-portal",
+  "en/5-tips-location-based-marketing-revolutionizing-social-media": "en-5-tips-location-based-marketing-revolutionizing",
+  "en/5-tips-and-tricks-to-attract-customers-to-the-retail-store": "en-5-tips-and-tricks-to-attract-customers-to-the-re",
+  "en/the-future-mall-a-place-to-do-things-not-to-buy-things": "en-the-future-mall-a-place-to-do-things-not-to-buy",
+  "en/supermarketstricks-cold-hot-areas": "en-supermarketstricks-cold-hot-areas",
+  "en/wifi-tracking-the-best-tool-for-generate-loyalty-and-engagement": "en-wifi-tracking-the-best-tool-for-generate-loyalty",
+  "en/heat-maps-the-best-tool-to-know-how-customers-behave-in-your-store": "en-heat-maps-the-best-tool-to-know-how-customers-be",
+  "en/news-heat-maps-latest-marketing-meet-customers-triumphs-social-networks-2": "en-news-heat-maps-latest-marketing-meet-customers-t",
+  "en/shop-shop-retail": "en-shop-shop-retail",
+  "en/wifi-tracking-benefits-measuring-presence": "en-wifi-tracking-benefits-measuring-presence",
+  "es/jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-retail-no-sera-elegir-entre-tecnologia-o-personas": "es-jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-r",
+  "es/la-innovacion-que-realmente-funciona-es-la-que-suma-a-la-experiencia-del-cliente-y-facilita-el-traba": "es-la-innovacion-que-realmente-funciona-es-la-que-s",
+  "es/5-formas-de-convertir-el-wifi-de-tu-centro-comercial-en-una-herramienta-de-fidelizacion": "es-5-formas-de-convertir-el-wifi-de-tu-centro-comer",
+  "es/kpis-comerciales-retail-medir-2026": "es-kpis-comerciales-retail-medir-2026",
+  "es/kpis-de-retail-como-pasar-del-trafico-a-la-conversion-en-tiendas-fisicas": "es-kpis-de-retail-como-pasar-del-trafico-a-la-conve",
+  "es/supermercados-analitica-ia-flame": "es-supermercados-analitica-ia-flame",
+  "es/flame-talks-2026-del-dato-al-agente-de-ia-para-crecer-juntos": "es-flame-talks-2026-del-dato-al-agente-de-ia-para-c",
+  "es/mejor-sistema-conteo-personas-2026-comparativa": "es-mejor-sistema-conteo-personas-2026-comparativa",
+  "es/gestion-red-tiendas-visibilidad-cadena-retail": "es-gestion-red-tiendas-visibilidad-cadena-retail",
+  "es/flame-talks-2026-4a-edicion-centros-comerciales-y-retail-del-dato-al-agente-de-ia-para-crecer-juntos": "es-flame-talks-2026-4a-edicion-centros-comerciales",
+  "es/inteligencia-artificial-retail-analitica-tienda-fisica": "es-inteligencia-artificial-retail-analitica-tienda",
+  "es/campanas-marketing-centros-comerciales": "es-campanas-marketing-centros-comerciales",
+  "es/rgpd-video-analitica-compliance-centros-comerciales": "es-rgpd-video-analitica-compliance-centros-comercia",
+  "es/cuenta-personas-retail-guia-completa": "es-cuenta-personas-retail-guia-completa",
+  "es/analitica-de-video-cctv-inteligencia-negocio": "es-analitica-de-video-cctv-inteligencia-negocio",
+  "es/flame-analytics-vuelve-a-retail-forum-2026-innovacion-y-videonalitica-para-transformar-el-retail": "es-flame-analytics-vuelve-a-retail-forum-2026-innov",
+  "es/flame-implanta-su-solucion-de-wifi-marketing-en-la-cadena-hotelera-bb-hotels": "es-flame-implanta-su-solucion-de-wifi-marketing-en",
+  "es/queue-analytics-eficiencia-y-satisfaccion-en-el-sector-retail": "es-queue-analytics-eficiencia-y-satisfaccion-en-el",
+  "es/flame-analytics-regresa-a-nrf-2026-en-nueva-york": "es-flame-analytics-regresa-a-nrf-2026-en-nueva-york",
+  "es/black-friday-2025-impulsa-ventas-con-datos-y-analitica-avanzada": "es-black-friday-2025-impulsa-ventas-con-datos-y-ana",
+  "es/flame-analytics-mapic-2025-vuelta-al-mayor-evento-internacional-retail-y-centroscomerciales": "es-flame-analytics-mapic-2025-vuelta-al-mayor-event",
+  "es/gestion_inteligente_para_centros_comerciales_eficiencia_operativa_y_optimizacion_de_recursos_en_tiempo_real": "es-gestioninteligenteparacentroscomercialeseficienc",
+  "es/4-estrategias-para-retailers-casos-de-exito-y-soluciones-clave": "es-4-estrategias-para-retailers-casos-de-exito-y-so",
+  "es/beneficios-de-la-inteligencia-artificial-en-el-analisis-del-customer-journey": "es-beneficios-de-la-inteligencia-artificial-en-el-a",
+  "es/los-10-kpis-que-todo-centro-comercial-debe-medir": "es-los-10-kpis-que-todo-centro-comercial-debe-medir",
+  "es/modelos-de-prediccion-en-retail-como-anticipar-la-demanda-optimizar-staff-y-medir-el-impacto-de-las-promociones": "es-modelos-de-prediccion-en-retail-como-anticipar-l",
+  "es/mapas-de-calor-descubre-como-el-flujo-de-clientes-transforma-tu-centro-comercial": "es-mapas-de-calor-descubre-como-el-flujo-de-cliente",
+  "es/las-metricas-clave-para-el-exito-en-retail": "es-las-metricas-clave-para-el-exito-en-retail",
+  "es/flame-organiza-la-mesa-redonda-transformando-el-retail-datos-ia-e-innovacion-en-centros-comerciales-en-limitless-2025": "es-flame-organiza-la-mesa-redonda-transformando-el",
+  "es/flame-analytics-seleccionada-como-una-de-las-13-empresas-de-ia-mas-innovadoras-de-espana": "es-flame-analytics-seleccionada-como-una-de-las-13",
+  "es/resumen-flame-talks-2025-transformando-centros-comerciales": "es-resumen-flame-talks-2025-transformando-centros-c",
+  "es/ana-almagro-los-centros-comerciales-se-estan-consolidando-como-lugares-de-vida": "es-ana-almagro-los-centros-comerciales-se-estan-con",
+  "es/webinar-la-ia-al-servicio-del-retail-descubre-el-poder-de-la-videoanalitica": "es-webinar-la-ia-al-servicio-del-retail-descubre-el",
+  "es/flame-talks-2025-transformando-centros-comerciales-innovacion-datos-experiencia-y-sostenibilidad": "es-flame-talks-2025-transformando-centros-comercial",
+  "es/7-claves-para-construir-un-comercio-de-exito-y-trascendencia": "es-7-claves-para-construir-un-comercio-de-exito-y-t",
+  "es/flame-analytics-en-nrf-25": "es-flame-analytics-en-nrf-25",
+  "es/transformacion-del-retail-fusion-de-innovacion-tecnologia-y-analitica-en-la-era-digital": "es-transformacion-del-retail-fusion-de-innovacion-t",
+  "es/flame-y-trison-organizan-una-jornada-para-directivos-del-retail-en-madrid": "es-flame-y-trison-organizan-una-jornada-para-direct",
+  "es/nuevas-tecnologias-que-mejoran-la-medicion-de-trafico-en-los-espacios-comerciales": "es-nuevas-tecnologias-que-mejoran-la-medicion-de-tr",
+  "es/la-reinvencion-de-la-tienda-fisica-mucho-mas-que-un-espacio-de-venta": "es-la-reinvencion-de-la-tienda-fisica-mucho-mas-que",
+  "es/manual-de-experiencia-de-cliente-biblia-para-empleados": "es-manual-de-experiencia-de-cliente-biblia-para-emp",
+  "es/descubriendo-la-revolucion-en-retail-con-cristina-delgado-women-in-retail": "es-descubriendo-la-revolucion-en-retail-con-cristin",
+  "es/marina-nieto-lo-phygital-es-el-futuro-y-los-servicos-nuestros-mayores-aliados": "es-marina-nieto-lo-phygital-es-el-futuro-y-los-serv",
+  "es/irene-cuadrado-la-tecnologia-te-acerca-a-los-clientes-y-te-permite-detectar-necesidades": "es-irene-cuadrado-la-tecnologia-te-acerca-a-los-cli",
+  "es/wifi-marketing-transformando-la-conexion-en-centros-comerciales-en-oportunidades-de-marketing": "es-wifi-marketing-transformando-la-conexion-en-cent",
+  "es/visual-merchandising-sostenible-ideas-para-una-tienda-eco-friendly": "es-visual-merchandising-sostenible-ideas-para-una-t",
+  "es/triunfo-de-el-ingenio-reconocimiento-para-el-proyecto-igenio-de-flame-analytics": "es-triunfo-de-el-ingenio-reconocimiento-para-el-pro",
+  "es/resumen-flame-talks-2024-reflexiones-sobre-el-futuro-de-los-centros-comerciales": "es-resumen-flame-talks-2024-reflexiones-sobre-el-fu",
+  "es/elevando-la-experiencia-de-compra-en-intu-xanadu-la-transformacion-digital-de-flame-analytics": "es-elevando-la-experiencia-de-compra-en-intu-xanadu",
+  "es/flame-analytics-lider-en-retail-technology-destacado-en-el-landscape-de-cascadia": "es-flame-analytics-lider-en-retail-technology-desta",
+  "es/claves-experiencia-de-compra-centro-comercial": "es-claves-experiencia-de-compra-centro-comercial",
+  "es/flame-talks-2024-explorando-pasado-desafiando-presente-creando-futuro": "es-flame-talks-2024-explorando-pasado-desafiando-pr",
+  "es/centro-comercial-alcala-magna-solucion-de-wifi-marketing-de-flame": "es-centro-comercial-alcala-magna-solucion-de-wifi-m",
+  "es/jose-antonio-tecnologia-para-la-innovacion-de-los-puntos-fisicos": "es-jose-antonio-tecnologia-para-la-innovacion-de-lo",
+  "es/igone-castillo-exito-en-tu-tienda-retail": "es-igone-castillo-exito-en-tu-tienda-retail",
+  "es/descubre-como-el-uso-de-kpis-puede-potenciar-tus-ventas": "es-descubre-como-el-uso-de-kpis-puede-potenciar-tus",
+  "es/patricia-fuentes-la-tecnologia-permitira-mejorar-la-experiencia-y-la-atencion-al-cliente": "es-patricia-fuentes-la-tecnologia-permitira-mejorar",
+  "es/carlos-palacios-la-base-del-exito-del-retail-esta-asociado-a-la-relacion-que-mantengan-con-el-cliente": "es-carlos-palacios-la-base-del-exito-del-retail-est",
+  "es/cristina-munoz-la-clave-para-establecer-una-buena-relacion-con-los-clientes-es-conocer-sus-necesidades": "es-cristina-munoz-la-clave-para-establecer-una-buen",
+  "es/como-la-ia-esta-transformando-la-forma-en-que-hacemos-presentaciones": "es-como-la-ia-esta-transformando-la-forma-en-que-ha",
+  "es/joan-garcia-la-tienda-offline-debe-ofrecer-un-valor-anadido-mas-alla-de-la-venta": "es-joan-garcia-la-tienda-offline-debe-ofrecer-un-va",
+  "es/francisco-zapata-la-ia-que-preve-el-comportamiento-de-los-clientes-ha-marcado-un-antes-y-un-despues": "es-francisco-zapata-la-ia-que-preve-el-comportamien",
+  "es/integracion-omnicanal-el-futuro-del-soporte-al-cliente-con-oki-toki": "es-integracion-omnicanal-el-futuro-del-soporte-al-c",
+  "es/enrique-segarra-las-tiendas-fisicas-son-fundamentales-para-ayudar-en-la-toma-de-decisiones-del-consumidor": "es-enrique-segarra-las-tiendas-fisicas-son-fundamen",
+  "es/jornada-flame-la-ia-reto-y-oportunidad-para-el-retail": "es-jornada-flame-la-ia-reto-y-oportunidad-para-el-r",
+  "es/viena-experiencias-personalizadas-para-los-clientes-con-flame": "es-viena-experiencias-personalizadas-para-los-clien",
+  "es/javier-lebrato-la-tecnologia-esta-centrada-en-mejorar-la-experiencia-de-compra-y-en-obtener-metricas-de-comportamiento": "es-javier-lebrato-la-tecnologia-esta-centrada-en-me",
+  "es/mas-de-cien-directivos-de-centros-comerciales-participan-en-la-tercera-edicion-de-flame-talks": "es-mas-de-cien-directivos-de-centros-comerciales-pa",
+  "es/alexis-martin-la-captacion-de-datos-cualificados-nos-permite-una-segmentacion-optima-y-una-comunicacion-mas-eficaz": "es-alexis-martin-la-captacion-de-datos-cualificados",
+  "es/webinar-video-intelligence-tecnologia-para-el-nuevo-retail": "es-webinar-video-intelligence-tecnologia-para-el-nu",
+  "es/nueva-edicion-de-flame-talks-estado-y-futuro-de-los-centros-comerciales": "es-nueva-edicion-de-flame-talks-estado-y-futuro-de",
+  "es/emprendedor-como-definir-tu-estrategia-de-comunicacion-con-los-clientes": "es-emprendedor-como-definir-tu-estrategia-de-comuni",
+  "es/descubre-los-5-beneficios-de-ser-un-hotel-inteligente": "es-descubre-los-5-beneficios-de-ser-un-hotel-inteli",
+  "es/las-6-claves-para-aumentar-nuestras-ventas-en-rebajas": "es-las-6-claves-para-aumentar-nuestras-ventas-en-re",
+  "es/retos-y-tendencias-de-los-centros-comerciales-para-2023": "es-retos-y-tendencias-de-los-centros-comerciales-pa",
+  "es/como-decorar-el-escaparate-de-tu-tienda-retail-por-navidad": "es-como-decorar-el-escaparate-de-tu-tienda-retail-p",
+  "es/marketing-hotelero-estrategias-para-vender-mas": "es-marketing-hotelero-estrategias-para-vender-mas",
+  "es/beneficios-del-wifi-en-hoteles-para-el-viajero": "es-beneficios-del-wifi-en-hoteles-para-el-viajero",
+  "es/8-consejos-para-impulsar-la-afluencia-en-un-centro-comercial": "es-8-consejos-para-impulsar-la-afluencia-en-un-cent",
+  "es/carlos-j-fernandez-para-fidelizar-a-un-cliente-tenemos-que-cortejarlo-a-diario": "es-carlos-j-fernandez-para-fidelizar-a-un-cliente-t",
+  "es/que-beneficios-tiene-el-data-driven-en-centros-comerciales": "es-que-beneficios-tiene-el-data-driven-en-centros-c",
+  "es/flame-analytics-cierra-una-ronda-para-reforzar-su-presencia-internacional-y-acelerar-su-crecimiento": "es-flame-analytics-cierra-una-ronda-para-reforzar-s",
+  "es/claves-para-emplear-el-big-data-en-los-negocios-de-restauracion": "es-claves-para-emplear-el-big-data-en-los-negocios",
+  "es/quieres-unirte-al-equipo-flame": "es-quieres-unirte-al-equipo-flame",
+  "es/centros-comerciales-del-futuro-estudios-y-tendencias": "es-centros-comerciales-del-futuro-estudios-y-tenden",
+  "es/antonio-maeso-la-digitalizacion-nos-permite-poner-el-foco-en-lo-verdaderamente-importante-la-experiencia-final-del-cliente": "es-antonio-maeso-la-digitalizacion-nos-permite-pone",
+  "es/5-consejos-para-aumentar-las-ventas-en-retail": "es-5-consejos-para-aumentar-las-ventas-en-retail",
+  "es/analitica-y-big-data-para-conocer-al-cliente-en-centros-comerciales": "es-analitica-y-big-data-para-conocer-al-cliente-en",
+  "es/10-estrategias-para-lograr-la-fidelidad-del-cliente": "es-10-estrategias-para-lograr-la-fidelidad-del-clie",
+  "es/en-flame-buscamos-un-business-development-manager-te-interesa": "es-en-flame-buscamos-un-business-development-manage",
+  "es/6-consejos-para-conseguir-eficiencia-en-retail": "es-6-consejos-para-conseguir-eficiencia-en-retail",
+  "es/cushman-and-wakefield-premia-a-sus-clientes-fieles-y-afianza-el-conocimiento-de-sus-visitantes-gracias-a-flame-analytics": "es-cushman-and-wakefield-premia-a-sus-clientes-fiel",
+  "es/el-grupo-euskaltel-conoce-mejor-a-sus-clientes-gracias-a-flame-analytics": "es-el-grupo-euskaltel-conoce-mejor-a-sus-clientes-g",
+  "es/descubre-como-potenciar-la-afluencia-a-tu-centro-comercial": "es-descubre-como-potenciar-la-afluencia-a-tu-centro",
+  "es/yohana-kelm-el-sector-hotelero-ha-tenido-una-reactivacion-instantanea-en-esta-temporada-y-los-niveles-de-ocupacion-se-mantienen-por-encima-de-un-70": "es-yohana-kelm-el-sector-hotelero-ha-tenido-una-rea",
+  "es/marketing-sensorial-olfativo-y-sus-ventajas-en-los-puntos-de-venta": "es-marketing-sensorial-olfativo-y-sus-ventajas-en-l",
+  "es/fidelizacion-en-gimnasios-4-estrategias-efectivas": "es-fidelizacion-en-gimnasios-4-estrategias-efectiva",
+  "es/los-hoteles-apuestan-por-las-experiencias-personalizadas": "es-los-hoteles-apuestan-por-las-experiencias-person",
+  "es/resumen-de-la-mesa-redonda-centros-comerciales-presente-y-futuro": "es-resumen-de-la-mesa-redonda-centros-comerciales-p",
+  "es/como-ser-un-hotel-inteligente-y-personalizar-la-experiencia-del-cliente": "es-como-ser-un-hotel-inteligente-y-personalizar-la",
+  "es/mesa-redonda-de-flame-analytics-centros-comerciales-presente-y-futuro": "es-mesa-redonda-de-flame-analytics-centros-comercia",
+  "es/descubre-las-6-ventajas-del-big-data-en-el-sector-transporte": "es-descubre-las-6-ventajas-del-big-data-en-el-secto",
+  "es/juan-bosco-gonzalez-el-turismo-es-optimismo-por-naturaleza": "es-juan-bosco-gonzalez-el-turismo-es-optimismo-por",
+  "es/seguimiento-de-activos-la-mejor-forma-de-supervisar-e-inventariar-los-activos": "es-seguimiento-de-activos-la-mejor-forma-de-supervi",
+  "es/andreu-march": "es-andreu-march",
+  "es/cuales-son-los-retos-en-la-gestion-de-centros-comerciales": "es-cuales-son-los-retos-en-la-gestion-de-centros-co",
+  "es/webinar-descubre-los-kpis-que-debes-medir-en-retail": "es-webinar-descubre-los-kpis-que-debes-medir-en-ret",
+  "es/nuevas-tecnologias-tambien-para-el-pequeno-comercio-2": "es-nuevas-tecnologias-tambien-para-el-pequeno-comer",
+  "es/como-mejorar-la-experiencia-de-cliente-en-hoteles": "es-como-mejorar-la-experiencia-de-cliente-en-hotele",
+  "es/las-sensaciones-pilar-fundamental-en-las-estrategias-de-los-centros-comerciales": "es-las-sensaciones-pilar-fundamental-en-las-estrate",
+  "es/top-10-programas-para-un-negocio-retail-eficiente": "es-top-10-programas-para-un-negocio-retail-eficient",
+  "es/estrategias-para-incrementar-las-ventas-en-el-sector-retail-de-las-jugueterias": "es-estrategias-para-incrementar-las-ventas-en-el-se",
+  "es/big-data-en-retail-oportunidades-y-retos": "es-big-data-en-retail-oportunidades-y-retos",
+  "es/tendencias-para-el-diseno-retail-de-perfumeria-y-cosmetica": "es-tendencias-para-el-diseno-retail-de-perfumeria-y",
+  "es/la-aplicacion-de-los-drones-en-el-marketing-y-la-publicidad": "es-la-aplicacion-de-los-drones-en-el-marketing-y-la",
+  "es/estrategias-de-marketing-para-el-retail-de-los-videojuegos": "es-estrategias-de-marketing-para-el-retail-de-los-v",
+  "es/4-tecnicas-del-marketing-digital-en-la-industria-de-alimentos-y-bebidas": "es-4-tecnicas-del-marketing-digital-en-la-industria",
+  "es/4-recomendaciones-para-garantizar-que-los-clientes-vuelvan-a-tu-centro-comercial": "es-4-recomendaciones-para-garantizar-que-los-client",
+  "es/4-estrategias-del-marketing-farmaceutico-en-los-puntos-de-venta": "es-4-estrategias-del-marketing-farmaceutico-en-los",
+  "es/patricia-portero-gracias-a-la-analitica-y-el-marketing-digital-se-mejora-la-gestion-del-hotel-incrementando-las-ventas-y-reservas-directas": "es-patricia-portero-gracias-a-la-analitica-y-el-mar",
+  "es/javier-cuevas-crespo": "es-javier-cuevas-crespo",
+  "es/fidelizacion-en-hoteles-5-consejos-que-funcionan": "es-fidelizacion-en-hoteles-5-consejos-que-funcionan",
+  "es/big-data-en-hoteles-como-usar-los-datos-de-forma-eficaz": "es-big-data-en-hoteles-como-usar-los-datos-de-forma",
+  "es/la-importancia-del-interiorismo-comercial-para-una-buena-experiencia-de-cliente": "es-la-importancia-del-interiorismo-comercial-para-u",
+  "es/rodrigo-san-martin-soy-optimista-el-futuro-esta-lleno-de-oportunidades-para-el-retail": "es-rodrigo-san-martin-soy-optimista-el-futuro-esta",
+  "es/guillermo-ruiz-guijarro": "es-guillermo-ruiz-guijarro",
+  "es/resumen-de-nuestra-mesa-redonda-sector-retail": "es-resumen-de-nuestra-mesa-redonda-sector-retail",
+  "es/pablo-abeniacar-la-oportunidad-de-crear-experiencias-sensoriales-es-ilimitada": "es-pablo-abeniacar-la-oportunidad-de-crear-experien",
+  "es/angela-reina-prieto": "es-angela-reina-prieto",
+  "es/domina-la-edicion-de-pdf-guia-completa-para-principiantes": "es-domina-la-edicion-de-pdf-guia-completa-para-prin",
+  "es/flame-en-financial-food-como-se-comporta-el-consumidor-actual-a-la-hora-de-acudir-a-las-tiendas": "es-flame-en-financial-food-como-se-comporta-el-cons",
+  "es/como-definir-el-publico-objetivo-para-una-investigacion-de-mercados": "es-como-definir-el-publico-objetivo-para-una-invest",
+  "es/como-medir-la-experiencia-de-compra-7-metricas-para-lograrlo": "es-como-medir-la-experiencia-de-compra-7-metricas-p",
+  "es/encuesta-restriccion-rebajas": "es-encuesta-restriccion-rebajas",
+  "es/como-puedo-medir-el-aforo-en-retail": "es-como-puedo-medir-el-aforo-en-retail",
+  "es/los-4-kpis-de-retail-mas-importantes-que-debes-saber": "es-los-4-kpis-de-retail-mas-importantes-que-debes-s",
+  "es/manuel-amat-la-tecnologia-en-retail-genera-una-relacion-de-amor-odio": "es-manuel-amat-la-tecnologia-en-retail-genera-una-r",
+  "es/juan-merodio-la-informacion-no-es-poder-transformar-datos-en-conocimiento-si": "es-juan-merodio-la-informacion-no-es-poder-transfor",
+  "es/sofia-mateo-la-sostenibilidad-la-tecnologia-y-la-colaboracion-marcaran-el-futuro-del-retail": "es-sofia-mateo-la-sostenibilidad-la-tecnologia-y-la",
+  "es/flame-amplia-su-modulo-de-marketing-y-ahora-tambien-se-integra-con-hubspot": "es-flame-amplia-su-modulo-de-marketing-y-ahora-tamb",
+  "es/resumen-de-la-jornada-saca-el-maximo-partido-a-tu-restaurante-con-wifi-marketing": "es-resumen-de-la-jornada-saca-el-maximo-partido-a-t",
+  "es/como-disenar-y-personalizar-facilmente-tu-sitio-web-sin-contratar-a-un-freelancer-o-una-agencia-de-diseno-web": "es-como-disenar-y-personalizar-facilmente-tu-sitio",
+  "es/cash-converters-confia-en-flame-para-analizar-el-comportamiento-de-sus-clientes": "es-cash-converters-confia-en-flame-para-analizar-el",
+  "es/por-que-abandonamos-la-tienda-fisica": "es-por-que-abandonamos-la-tienda-fisica",
+  "es/kpis-digitales-vs-kpis-tradicionales": "es-kpis-digitales-vs-kpis-tradicionales",
+  "es/retail-analytics-in-store-para-dummies": "es-retail-analytics-in-store-para-dummies",
+  "es/el-mall-del-futuro-un-lugar-para-hacer-cosas-no-para-comprar-cosas": "es-el-mall-del-futuro-un-lugar-para-hacer-cosas-no",
+  "es/astrid-f-kowlessar-las-empresas-cada-vez-estan-mas-orientadas-a-los-datos-para-comprender-las-necesidades-de-los-consumidores": "es-astrid-f-kowlessar-las-empresas-cada-vez-estan-m",
+  "es/comportamiento-del-consumidor-ecologico-claves-para-fidelizarlo": "es-comportamiento-del-consumidor-ecologico-claves-p",
+  "es/6-kpis-para-descubrir-si-tu-estrategia-de-fidelizacion-es-optima": "es-6-kpis-para-descubrir-si-tu-estrategia-de-fideli",
+  "es/steve-dennis-el-retail-fisico-seguira-acumulando-la-mayoria-de-las-ventas-durante-muchos-anos": "es-steve-dennis-el-retail-fisico-seguira-acumulando",
+  "es/5-tips-para-crear-un-portal-cautivo-de-exito": "es-5-tips-para-crear-un-portal-cautivo-de-exito",
+  "es/flame-estrena-modulo-de-integracion-con-las-principales-plataformas-de-marketing-del-mercado": "es-flame-estrena-modulo-de-integracion-con-las-prin",
+  "es/ponencia-casos-de-uso-del-marketing-digital-en-el-retail-fisico": "es-ponencia-casos-de-uso-del-marketing-digital-en-e",
+  "es/descarga-ya-la-nueva-ficha-flame": "es-descarga-ya-la-nueva-ficha-flame",
+  "es/4-errores-evitar-en-el-punto-de-venta": "es-4-errores-evitar-en-el-punto-de-venta",
+  "es/ofreces-wifi-gratis-en-tu-negocio-pero-no-le-estas-sacando-partido-esta-noticia-te-interesa": "es-ofreces-wifi-gratis-en-tu-negocio-pero-no-le-est",
+  "es/los-5-avances-tecnologicos-que-toda-tienda-de-alimentos-debe-aplicar": "es-los-5-avances-tecnologicos-que-toda-tienda-de-al",
+  "es/webinar-de-aitor-casado-rufas-la-transformacion-digital": "es-webinar-de-aitor-casado-rufas-la-transformacion",
+  "es/como-hacer-un-cierre-de-ventas-con-exito": "es-como-hacer-un-cierre-de-ventas-con-exito",
+  "es/que-habilidades-debes-tener-para-ser-el-mejor-en-atencion-al-cliente": "es-que-habilidades-debes-tener-para-ser-el-mejor-en",
+  "es/7-tecnicas-psicologicas-para-crear-empatia-con-tus-clientes": "es-7-tecnicas-psicologicas-para-crear-empatia-con-t",
+  "es/son-incompatibles-las-tiendas-fisicas-y-las-tiendas-online": "es-son-incompatibles-las-tiendas-fisicas-y-las-tien",
+  "es/como-hacer-que-tus-clientes-regresen": "es-como-hacer-que-tus-clientes-regresen",
+  "es/ventajas-del-small-data-vs-big-data": "es-ventajas-del-small-data-vs-big-data",
+  "es/las-7-mejores-estrategias-para-fidelizar-tus-clientes": "es-las-7-mejores-estrategias-para-fidelizar-tus-cli",
+  "es/beacons-vs-physical-web-pros-y-contras-de-cada-tecnologia": "es-beacons-vs-physical-web-pros-y-contras-de-cada-t",
+  "es/invertir-marketing-proximidad-beacons-ya-no-reto-una-realidad": "es-invertir-marketing-proximidad-beacons-ya-no-reto",
+  "es/webinar-de-david-zapico-el-zoning": "es-webinar-de-david-zapico-el-zoning",
+  "es/compulsivo-racional-impulsivo-tu-que-tipo-de-consumidor-eres": "es-compulsivo-racional-impulsivo-tu-que-tipo-de-con",
+  "es/4-razones-por-las-cuales-una-optima-atencion-al-cliente-es-vital-en-retail": "es-4-razones-por-las-cuales-una-optima-atencion-al",
+  "es/borja-san-miguel-hoy-en-dia-retail-is-detail-el-detalle-es-lo-que-importa-lo-que-consigue-la-conversion-y-la-monetizacion": "es-borja-san-miguel-hoy-en-dia-retail-is-detail-el",
+  "es/7-cualidades-claves-satisfacer-todos-tus-clientes": "es-7-cualidades-claves-satisfacer-todos-tus-cliente",
+  "es/escaparates-cada-cuanto-se-cambian": "es-escaparates-cada-cuanto-se-cambian",
+  "es/padres-y-ninos-en-tiendas-a-quien-debo-atender": "es-padres-y-ninos-en-tiendas-a-quien-debo-atender",
+  "es/enrique-luque-albarracin": "es-enrique-luque-albarracin",
+  "es/el-ser-humano-compra-por-emocion-o-por-logica": "es-el-ser-humano-compra-por-emocion-o-por-logica",
+  "es/tiene-el-cliente-siempre-la-razon": "es-tiene-el-cliente-siempre-la-razon",
+  "es/5-ventajas-ofrecer-wifi-gratis": "es-5-ventajas-ofrecer-wifi-gratis",
+  "es/4-maneras-sobrevivir-encuentro-cliente-extranjero": "es-4-maneras-sobrevivir-encuentro-cliente-extranjer",
+  "es/wifi-social-conoce-a-tus-clientes-y-conecta-con-ellos-como-nunca": "es-wifi-social-conoce-a-tus-clientes-y-conecta-con",
+  "es/que-opinan-de-flame-los-expertos-en-retail": "es-que-opinan-de-flame-los-expertos-en-retail",
+  "es/la-capilaridad-de-los-envios-ventajas-para-el-retail": "es-la-capilaridad-de-los-envios-ventajas-para-el-re",
+  "es/cristina-gaona": "es-cristina-gaona",
+  "es/areli-hernandez": "es-areli-hernandez",
+  "es/ignacio-gomez-escobar": "es-ignacio-gomez-escobar",
+  "es/wifi-social-una-nueva-y-potente-herramienta-de-marketing": "es-wifi-social-una-nueva-y-potente-herramienta-de-m",
+  "es/raquel-pavon-creando-experiencias-unicas-en-la-tienda-on-y-offline-podremos-fidelizar-al-cliente": "es-raquel-pavon-creando-experiencias-unicas-en-la-t",
+  "es/manuel-zaplana": "es-manuel-zaplana",
+  "es/como-conseguir-un-horario-comercial-optimo-para-tu-tienda": "es-como-conseguir-un-horario-comercial-optimo-para",
+  "es/jesus-cao-el-retail-tiene-todavia-un-gran-campo-de-desarrollo-en-la-integracion-online-offline-en-los-puntos-de-venta": "es-jesus-cao-el-retail-tiene-todavia-un-gran-campo",
+  "es/los-desafios-actuales-del-comercio-minorista-adaptarse-o-morir": "es-los-desafios-actuales-del-comercio-minorista-ada",
+  "es/german-prados": "es-german-prados",
+  "es/wifi-tracking-como-herramienta-de-fidelizacion-de-clientes": "es-wifi-tracking-como-herramienta-de-fidelizacion-d",
+  "es/la-gestion-del-espacio-para-el-comercio-tradicional": "es-la-gestion-del-espacio-para-el-comercio-tradicio",
+  "es/importa-la-imagen-exterior-de-un-negocio": "es-importa-la-imagen-exterior-de-un-negocio",
+  "es/las-bolsas-en-el-comercio-forma-de-comunicar-y-de-generar-valor": "es-las-bolsas-en-el-comercio-forma-de-comunicar-y-d",
+  "es/estrategia-de-pricing-en-retail-como-aportar-valor-al-cliente": "es-estrategia-de-pricing-en-retail-como-aportar-val",
+  "es/como-poner-precio-a-los-productos-y-servicios-de-tu-comercio": "es-como-poner-precio-a-los-productos-y-servicios-de",
+  "es/como-hacer-que-mi-comercio-sea-mas-rentable-el-merchandising-de-gestion": "es-como-hacer-que-mi-comercio-sea-mas-rentable-el-m",
+  "es/el-big-data-el-crm-y-las-redes-sociales-claves-en-la-fidelizacion-de-clientes": "es-el-big-data-el-crm-y-las-redes-sociales-claves-e",
+  "es/7-conclusiones-que-puedes-alcanzar-en-tu-tienda-gracias-a-los-mapas-de-calor": "es-7-conclusiones-que-puedes-alcanzar-en-tu-tienda",
+  "es/tecnologia-en-retail-como-ayuda-que-inversion-supone-esta-al-alcance-del-pequeno-comercio": "es-tecnologia-en-retail-como-ayuda-que-inversion-su",
+  "es/consejos-utiles-para-abrir-un-local-comercial": "es-consejos-utiles-para-abrir-un-local-comercial",
+  "es/como-medir-la-eficacia-comercial-9-kpis-basicos-en-retail": "es-como-medir-la-eficacia-comercial-9-kpis-basicos",
+  "es/caracteristicas-que-debe-tener-tu-local-comercial": "es-caracteristicas-que-debe-tener-tu-local-comercia",
+  "es/9-razones-por-los-que-los-clientes-no-entran-a-tu-tienda": "es-9-razones-por-los-que-los-clientes-no-entran-a-t",
+  "es/7-consejos-para-que-tu-escaparate-atraiga-mas-miradas": "es-7-consejos-para-que-tu-escaparate-atraiga-mas-mi",
+  "es/llegan-las-tiendas-flagship-nueva-experiencia-de-venta-en-retail": "es-llegan-las-tiendas-flagship-nueva-experiencia-de",
+  "es/6-cambios-que-puedes-realizar-en-retail-para-mejorar-tus-ventas": "es-6-cambios-que-puedes-realizar-en-retail-para-mej",
+  "es/7-casos-de-exito-de-empresas-que-miden-offline": "es-7-casos-de-exito-de-empresas-que-miden-offline",
+  "es/innovacion-en-retail-probador-virtual-de-zapatos-en-la-estacion-de-tren": "es-innovacion-en-retail-probador-virtual-de-zapatos",
+  "es/contadores-de-personas-mide-la-afluencia-en-retail": "es-contadores-de-personas-mide-la-afluencia-en-reta",
+  "es/6-cosas-que-debes-medir-en-tu-tienda-o-negocio": "es-6-cosas-que-debes-medir-en-tu-tienda-o-negocio",
+  "es/6-trucos-para-mejorar-la-experiencia-de-compra-de-nuestros-clientes": "es-6-trucos-para-mejorar-la-experiencia-de-compra-d",
+  "es/5-trucos-para-lograr-el-escaparate-perfecto": "es-5-trucos-para-lograr-el-escaparate-perfecto",
+  "es/wifi-tracking-en-retail-mide-la-presencia-en-tu-tienda": "es-wifi-tracking-en-retail-mide-la-presencia-en-tu",
+  "es/gestion-de-colas-en-retail-para-reducir-el-tiempo-de-espera": "es-gestion-de-colas-en-retail-para-reducir-el-tiemp",
+  "es/contadores-de-personas-para-que-sirven-y-que-beneficios-aportan": "es-contadores-de-personas-para-que-sirven-y-que-ben",
+  "es/que-es-el-shopper-funnel-o-embudo-de-conversion": "es-que-es-el-shopper-funnel-o-embudo-de-conversion",
+  "es/tienes-varias-tiendas-cual-es-mas-rentable-cual-tiene-mas-potencial": "es-tienes-varias-tiendas-cual-es-mas-rentable-cual",
+  "es/3-ratios-clave-que-debes-medir-en-retail": "es-3-ratios-clave-que-debes-medir-en-retail",
+  "es/un-buen-layout-favorece-la-permanencia-y-aumenta-las-ventas": "es-un-buen-layout-favorece-la-permanencia-y-aumenta",
+  "es/cuenta-personas-inteligencia-en-retail": "es-cuenta-personas-inteligencia-en-retail",
+  "es/cuantos-clientes-potenciales-pasan-cada-dia-frente-tu-tienda-y-cuantos-entran": "es-cuantos-clientes-potenciales-pasan-cada-dia-fren",
+  "es/flame-en-tpa-con-motivo-de-su-participacion-en-el-mwc": "es-flame-en-tpa-con-motivo-de-su-participacion-en-e",
+  "es/como-se-mide-la-conversion-en-una-tienda-fisica": "es-como-se-mide-la-conversion-en-una-tienda-fisica",
+  "es/marketing-de-fidelizacion-10-consejos-para-fidelizar-clientes": "es-marketing-de-fidelizacion-10-consejos-para-fidel",
+  "es/ultimas-tendencias-en-escaparatismo-10-trucos-para-atraer-miradas": "es-ultimas-tendencias-en-escaparatismo-10-trucos-pa",
+  "es/wifi-tracking-para-saber-como-se-comportan-los-clientes-dentro-de-mi-local": "es-wifi-tracking-para-saber-como-se-comportan-los-c",
+  "es/trucos-para-entender-mejor-el-comportamiento-del-cliente": "es-trucos-para-entender-mejor-el-comportamiento-del",
+  "es/como-se-puede-medir-la-eficacia-del-escaparate-de-mi-tienda": "es-como-se-puede-medir-la-eficacia-del-escaparate-d",
+  "es/5-claves-para-lograr-el-perfecto-layout-en-una-tienda": "es-5-claves-para-lograr-el-perfecto-layout-en-una-t",
+  "es/3-formas-de-medir-la-satisfaccion-y-el-compromiso-del-cliente": "es-3-formas-de-medir-la-satisfaccion-y-el-compromis",
+  "es/maniquies-espias-lo-ultimo-para-conocer-tus-clientes": "es-maniquies-espias-lo-ultimo-para-conocer-tus-clie",
+  "es/5-metricas-para-medir-el-rendimiento-de-tu-negocio": "es-5-metricas-para-medir-el-rendimiento-de-tu-negoc",
+  "es/cuenta-personas-la-mejor-manera-de-gestionar-el-staff-los-horarios-de-sus-empleados-sus-descansos-etc": "es-cuenta-personas-la-mejor-manera-de-gestionar-el",
+  "es/la-ubicacion-de-tu-tienda-o-local-factor-clave-para-triunfar": "es-la-ubicacion-de-tu-tienda-o-local-factor-clave-p",
+  "es/wifi-tracking-ventajas-de-medir-la-presencia": "es-wifi-tracking-ventajas-de-medir-la-presencia",
+  "es/people-counters-key-achieve-best-retail-results": "es-people-counters-key-achieve-best-retail-results",
+  "es/cuenta-personas-sabes-que-son-y-para-que-sirven": "es-cuenta-personas-sabes-que-son-y-para-que-sirven",
+  "es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda-2": "es-mapas-de-calor-la-mejor-herramienta-para-saber-c",
+  "es/el-wifi-tracking-marca-el-futuro-del-retail": "es-el-wifi-tracking-marca-el-futuro-del-retail",
+  "es/5-indicadores-claves-kpis-para-medir-el-exito-de-tu-local": "es-5-indicadores-claves-kpis-para-medir-el-exito-de",
+  "es/10-consejos-para-aumentar-el-nivel-de-compromiso-del-cliente": "es-10-consejos-para-aumentar-el-nivel-de-compromiso",
+  "es/beacons-en-retail-que-son-como-funcionan-que-ventajas-ofrecen": "es-beacons-en-retail-que-son-como-funcionan-que-ven",
+  "es/la-ubicacion-de-tu-tienda-o-local-es-la-clave-del-exito": "es-la-ubicacion-de-tu-tienda-o-local-es-la-clave-de",
+  "es/claves-para-una-mejor-disposicion-y-colocacion-de-productos-en-retail": "es-claves-para-una-mejor-disposicion-y-colocacion-d",
+  "es/10-consejos-para-atraer-mas-clientes-al-punto-de-venta": "es-10-consejos-para-atraer-mas-clientes-al-punto-de",
+  "es/mapas-de-calor-en-tiendas-que-le-gusta-a-tu-cliente": "es-mapas-de-calor-en-tiendas-que-le-gusta-a-tu-clie",
+  "es/cuenta-personas-para-tiendas-y-centros-comerciales-todo-son-ventajas": "es-cuenta-personas-para-tiendas-y-centros-comercial",
+  "es/que-es-un-mapa-de-calor": "es-que-es-un-mapa-de-calor",
+  "es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda": "es-mapas-de-calor-la-mejor-herramienta-para-saber-c-2",
+  "es/ventajas-de-tener-un-contador-de-personas-en-tu-tienda": "es-ventajas-de-tener-un-contador-de-personas-en-tu",
+  "es/7-tecnicas-para-mejorar-la-ubicacion-de-tus-productos": "es-7-tecnicas-para-mejorar-la-ubicacion-de-tus-prod",
+  "es/mucho-tiempo-de-espera-en-colas-cuenta-personas": "es-mucho-tiempo-de-espera-en-colas-cuenta-personas",
+  "es/tipos-de-mapas-de-calor-para-tiendas-de-trafico-y-de-actividad": "es-tipos-de-mapas-de-calor-para-tiendas-de-trafico",
+  "es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas": "es-mapas-de-calor-claves-para-conocer-tu-cliente-y",
+  "es/10-trucos-para-hacer-ofertas-y-vender-mas": "es-10-trucos-para-hacer-ofertas-y-vender-mas",
+  "es/la-ubicacion-de-tu-tienda-un-factor-clave-para-triunfar": "es-la-ubicacion-de-tu-tienda-un-factor-clave-para-t",
+  "es/mapas-de-calor-la-clave-en-la-analitica-para-tiendas": "es-mapas-de-calor-la-clave-en-la-analitica-para-tie",
+  "es/historias-de-pioneros-del-retail-el-ejemplo-de-un-revolucionario-del-siglo-xx": "es-historias-de-pioneros-del-retail-el-ejemplo-de-u",
+  "es/la-importancia-del-cuenta-personas-para-el-sector-retail": "es-la-importancia-del-cuenta-personas-para-el-secto",
+  "es/las-10-reglas-de-oro-para-lograr-el-perfecto-layout-en-una-tienda": "es-las-10-reglas-de-oro-para-lograr-el-perfecto-lay",
+  "es/el-72-de-los-clientes-se-pierden-por-indiferencia-o-mala-atencion": "es-el-72-de-los-clientes-se-pierden-por-indiferenci",
+  "es/escaparatismo-eficaz-los-escaparates-tematicos": "es-escaparatismo-eficaz-los-escaparates-tematicos",
+  "es/cuanto-tiempo-estan-los-clientes-dentro-de-tu-tienda": "es-cuanto-tiempo-estan-los-clientes-dentro-de-tu-ti",
+  "es/ecommerce-vs-tienda-fisica-6-interesantes-conclusiones": "es-ecommerce-vs-tienda-fisica-6-interesantes-conclu",
+  "es/esta-tu-tienda-bien-ubicada-cuantas-personas-pasan-por-delante-cada-dia": "es-esta-tu-tienda-bien-ubicada-cuantas-personas-pas",
+  "es/cada-vez-mas-tiendas-en-espana-conocen-el-comportamiento-de-sus-clientes-gracias-los-mapas-de-calor": "es-cada-vez-mas-tiendas-en-espana-conocen-el-compor",
+  "es/que-es-el-retailment": "es-que-es-el-retailment",
+  "es/que-es-ibeacon-y-para-que-sirve": "es-que-es-ibeacon-y-para-que-sirve",
+  "es/que-es-el-wifi-tracking": "es-que-es-el-wifi-tracking",
+  "es/sistemas-inteligentes-desvelan-los-patrones-de-compra-en-los-supermercados": "es-sistemas-inteligentes-desvelan-los-patrones-de-c",
+  "es/que-es-un-mapa-de-calor-y-porque-es-importante-para-un-negocio-de-retail": "es-que-es-un-mapa-de-calor-y-porque-es-importante-p",
+  "es/los-ropo-la-nueva-tendencia-de-compra-que-combina-online-y-offline": "es-los-ropo-la-nueva-tendencia-de-compra-que-combin",
+  "es/integracion-del-marketing-online-y-offline-en-el-retail": "es-integracion-del-marketing-online-y-offline-en-el",
+  "es/la-importancia-de-saber-lo-que-piensa-tu-cliente": "es-la-importancia-de-saber-lo-que-piensa-tu-cliente",
+  "es/como-debo-colocar-los-productos-para-vender-mas": "es-como-debo-colocar-los-productos-para-vender-mas",
+  "es/3-ratios-de-conversion-claves-medir-en-el-sector-retail": "es-3-ratios-de-conversion-claves-medir-en-el-sector",
+  "es/eres-de-los-que-busca-informacion-online-y-luego-compra-en-tienda-eres-un-ropo-te-lo-explicamos": "es-eres-de-los-que-busca-informacion-online-y-luego",
+  "es/interesante-termino-shopper-tracking-el-arma-de-los-retailers-para-conocer-los-consumidores": "es-interesante-termino-shopper-tracking-el-arma-de",
+  "es/heat-map-reveals-secret-ikeas-store-design": "es-heat-map-reveals-secret-ikeas-store-design",
+  "es/layout_llave_para_potenciar_negocio": "es-layoutllaveparapotenciarnegocio",
+  "es/escapartes_paris_navidad": "es-escapartesparisnavidad",
+  "es/lugares_venta_caros_de_1988": "es-lugaresventacarosde1988",
+  "es/retail_transforma_mapas_de_calor_tendencia_2014": "es-retailtransformamapasdecalortendencia2014",
+  "es/famosa-marca-joyas-catalana-entra-complementos-lowcost": "es-famosa-marca-joyas-catalana-entra-complementos-l",
+  "es/10-mandamientos-ventas-retail": "es-10-mandamientos-ventas-retail",
+  "es/5-frases-de-amancio-ortega": "es-5-frases-de-amancio-ortega",
+  "es/espana-encabeza-hurto-retail-europeo": "es-espana-encabeza-hurto-retail-europeo",
 };
 
-export function listingCover(lang: string, slug: string): string | null {
-  const f = COVER_OVERRIDES[`${lang}/${slug}`];
-  return f ? BASE + f : null;
+export type CoverColor = "azul" | "blanca";
+
+/** Color que toca en una posición del listado (0 = la primera, azul). */
+export function colorForIndex(index: number): CoverColor {
+  return index % 2 === 0 ? "azul" : "blanca";
 }
 
-/** Devuelve el post con la miniatura de listado sustituida si tiene cabecera alterna. */
-export function withListingCover<T extends { lang: string; slug: string; thumbnail?: string }>(p: T): T {
-  const c = listingCover(p.lang, p.slug);
-  return c ? { ...p, thumbnail: c } : p;
+/** Par de cabeceras del post, o null si no tiene (post nuevo sin generar). */
+export function coverPair(lang: string, slug: string): { azul: string; blanca: string } | null {
+  const b = COVER_PAIRS[`${lang}/${slug}`];
+  return b ? { azul: `${BASE}${b}-azul.webp`, blanca: `${BASE}${b}-blanca.webp` } : null;
+}
+
+/** Imagen de tarjeta para un post pintado en la posición `index` del listado. */
+export function listingImage(
+  p: { lang: string; slug: string; thumbnail?: string; hero?: string },
+  index: number,
+): string {
+  const pair = coverPair(p.lang, p.slug);
+  if (pair) return pair[colorForIndex(index)];
+  return p.thumbnail || p.hero || "";
 }

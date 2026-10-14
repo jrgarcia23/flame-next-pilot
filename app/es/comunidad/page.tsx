@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
 import { getCategoryListing, getCategoryListingAsync, getAllWhitepapers, shortExcerpt, formatDate } from "@/lib/blog";
+import { listingImage } from "@/lib/cover-overrides";
 import { UI } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 import { sanitizeTitle } from "@/lib/sanitize-title";
@@ -266,7 +267,8 @@ type SectionProps = {
 function Section({ sid, bg, eyebrow, h2a, h2b, link, href, items, xlExtra, kpis, play }: SectionProps) {
   const xl = items[0];
   const minis = items.slice(1, 4);
-  const xlImg = xl.thumbnail || xl.hero;
+  // Cabeceras alternas por posición (xl = 0, minis = 1..3); sin par = imagen actual.
+  const xlImg = listingImage(xl, 0);
   const bgCls = bg === "paper" ? "sec--paper" : bg === "white" ? "sec--white" : "sec--navy-dark";
   return (
     <section className={`sec ${bgCls}`} id={sid}>
@@ -292,7 +294,7 @@ function Section({ sid, bg, eyebrow, h2a, h2b, link, href, items, xlExtra, kpis,
         </div>
         <div className="cat-grid">
           {minis.map((m, i) => {
-            const img = m.thumbnail || m.hero;
+            const img = listingImage(m, i + 1);
             const kpi = kpis ? kpis[i + 1] : null;
             return (
               <a key={m.slug} href={`/es/${m.slug}/`} className="cat-card">
