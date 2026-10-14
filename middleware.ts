@@ -70,8 +70,9 @@ export function middleware(request: NextRequest) {
   // 1. Raíz "/" → redirect al idioma adecuado (lógica previa, sin cambios)
   if (pathname === "/") {
     const lang = pickLang(request);
-    const url = request.nextUrl.clone();
-    url.pathname = `/${lang}/`;
+    // URL absoluta con barra final: con nextUrl.clone() Next quitaba la barra y la
+    // raíz hacía dos saltos (/ → /es → /es/). Auditoría de indexación 14-oct-2026.
+    const url = new URL(`/${lang}/${request.nextUrl.search}`, request.url);
     const response = NextResponse.redirect(url, 307);
     response.headers.set("Cache-Control", "no-store, must-revalidate");
     response.headers.set("Vary", "Accept-Language, Cookie");

@@ -1,4 +1,12 @@
 import type { NextConfig } from "next";
+import poda from "./data/poda-2026-10.json";
+
+// Poda de indexación 14-oct-2026 (OK JR): 301 de posts no indexados a su destino
+// temático. Van PRIMERO para ganar a cualquier regla genérica. Los 410 los da
+// middleware.ts (data/deleted-slugs.json). Ver lib/pruned.ts.
+const PODA_REDIRECTS = Object.entries((poda as { redirects: Record<string, string> }).redirects).map(
+  ([source, destination]) => ({ source: source.replace(/\/$/, ""), destination, permanent: true as const }),
+);
 
 const nextConfig: NextConfig = {
   // Modo híbrido: páginas marketing siguen estáticas (default Next), /admin y /api son dinámicos.
@@ -96,6 +104,10 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      ...PODA_REDIRECTS,
+      // La categoría EN "tips" se queda vacía con la poda (sus 2 posts salen): a "tips-retail".
+      { source: "/en/category/tips", destination: "/en/category/tips-retail/", permanent: true },
+      { source: "/en/category/tips/page/:page", destination: "/en/category/tips-retail/", permanent: true },
       // ── Rename /es/cuenta-personas/ → /es/conteo-personas/ ─────────────
       // El servicio se llama "Conteo de personas" (no "Cuenta personas"),
       // la URL ahora coincide con el label. 301 preserva el SEO histórico.
@@ -121,11 +133,11 @@ const nextConfig: NextConfig = {
       { source: "/es/blog/consejos",                 destination: "/es/comunidad/",                permanent: true },
       { source: "/es/blog/retail-blog",              destination: "/es/comunidad/",                permanent: true },
       { source: "/es/casos-de-exito/retail-casos",   destination: "/es/categoria/casos-de-exito/", permanent: true },
-      { source: "/en/blog/corporate",                destination: "/en/community/",                permanent: true },
-      { source: "/en/blog/hospitality-blog",         destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/corporate",                destination: "/en/category/corporate/",                permanent: true },
+      { source: "/en/blog/hospitality-blog",         destination: "/en/hospitality/",                permanent: true },
       { source: "/en/blog/retail",                   destination: "/en/community/",                permanent: true },
-      { source: "/en/blog/shopping-malls",           destination: "/en/community/",                permanent: true },
-      { source: "/en/blog/tips",                     destination: "/en/community/",                permanent: true },
+      { source: "/en/blog/shopping-malls",           destination: "/en/category/shopping-malls/",                permanent: true },
+      { source: "/en/blog/tips",                     destination: "/en/category/tips-retail/",                permanent: true },
       { source: "/en/interviews/retail-interviews",  destination: "/en/category/interviews/",      permanent: true },
       // 3 posts EN que nunca se migraron a Next (el genérico los mandaba a 404)
       { source: "/en/blog/8-ways-retailers-can-utilize-instagram",                        destination: "/en/community/", permanent: true },
@@ -197,6 +209,10 @@ const nextConfig: NextConfig = {
       // ══════════════════════════════════════════════════════════════════
       // Formato WPML "c" (category) — el demo lo tenía como base de categorías
       { source: "/c/:path*",                                   destination: "/es/comunidad/",                       permanent: true },
+      // Destinos temáticos antes del genérico (P2 de la auditoría 14-oct-2026: ya no al hub)
+      { source: "/es/c/blog/sector-retail/casos-de-exito-retail/:path*", destination: "/es/categoria/casos-de-exito/", permanent: true },
+      { source: "/es/c/blog/sector-retail/entrevistas-retail/:path*",    destination: "/es/categoria/entrevistas/",    permanent: true },
+      { source: "/en/c/blog-flame/:path*",                     destination: "/en/category/blog/",                   permanent: true },
       { source: "/es/c/:path*",                                destination: "/es/comunidad/",                       permanent: true },
       { source: "/en/c/:path*",                                destination: "/en/community/",                       permanent: true },
 
@@ -286,6 +302,9 @@ const nextConfig: NextConfig = {
       { source: "/es/category/:slug/page/:page",     destination: "/es/categoria/:slug/page/:page/",     permanent: true },
 
       // /es/tag/<slug>/ → comunidad (Next no tiene tags; mandamos al hub)
+      { source: "/es/tag/webinar",                   destination: "/es/categoria/webinars/",             permanent: true },
+      { source: "/en/tag/case-studies",              destination: "/en/category/case-studies/",          permanent: true },
+      { source: "/en/tag/webinars",                  destination: "/en/category/webinars/",              permanent: true },
       { source: "/es/tag/:slug",                     destination: "/es/comunidad/",                      permanent: true },
       { source: "/en/tag/:slug",                     destination: "/en/community/",                      permanent: true },
 
@@ -306,8 +325,7 @@ const nextConfig: NextConfig = {
       // ── Páginas "Conoce al equipo" — integradas en /sobre-nosotros y /about-us ──
 
       // ── Hub de whitepapers (no existe en Next, va al hub comunidad/community) ──
-      { source: "/es/whitepaper/", destination: "/es/comunidad/", permanent: true },
-      { source: "/en/whitepaper/", destination: "/en/community/", permanent: true },
+      // /es/whitepaper/ y /en/whitepaper/ (no hay listado de whitepapers): 410 en middleware (poda 14-oct-2026)
 
       // ── 24 whitepapers ES que sólo existen en WPML como traducciones EN: redirigir al hub ──
       { source: "/es/whitepaper/10-trucos-para-hacer-ofertas-y-vender-mas/",                                       destination: "/es/comunidad/", permanent: true },
@@ -443,14 +461,14 @@ const nextConfig: NextConfig = {
       { source: "/en/queue-analytics-2",                         destination: "/en/queue-analytic/",                 permanent: true },
       { source: "/en/thank-you-2",                               destination: "/en/thank-you-contact/",              permanent: true },
       { source: "/en/webinars",                                  destination: "/en/community/",                      permanent: true },
-      { source: "/en/event-registration",                        destination: "/en/community/",                      permanent: true },
+      { source: "/en/event-registration",                        destination: "/en/flame-events/",                      permanent: true },
       { source: "/en/encuesta-flame-talks-2026",                 destination: "/en/community/",                      permanent: true },
-      { source: "/en/flame-named-finalist-in-the-2023-mapic-awards-for-best-retail-innovation-solution", destination: "/en/community/", permanent: true },
+      // flame-named-finalist-...-mapic-awards: ahora 410 (middleware), sin destino temático (poda 14-oct-2026)
       { source: "/en/flame-talks-2025-transforming-shopping-centers-innovation-data-experience-and-sustainability", destination: "/en/community/", permanent: true },
       { source: "/en/flame-webinar-registration",                destination: "/en/webinar-registration/",           permanent: true },
       { source: "/en/flame-webinar-the-10-kpis-that-every-shopping-center-should-measure", destination: "/en/community/", permanent: true },
       { source: "/en/intelligent-video-analytics-solution-for-retail", destination: "/en/solution-for-retail-sector/", permanent: true },
-      { source: "/en/join-our-webinar-advanced-retail-solutions-moving-beyond-security", destination: "/en/community/", permanent: true },
+      // join-our-webinar-advanced-retail-solutions-moving-beyond-security: ahora 410 (middleware), poda 14-oct-2026
 
       // ══════════════════════════════════════════════════════════════════
       // Bloque adicional 2026-06-16 — 404s detectados en GSC (~450)
@@ -581,7 +599,7 @@ const nextConfig: NextConfig = {
       { source: "/es/flame-en-la-revista-dealermarket",                        destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-en-questionpro-analiticas-para-mejorar-la-experiencia-del-cliente-mas-alla-del-retail", destination: "/es/comunidad/",  permanent: true },
       { source: "/es/flame-estara-en-el-vi-foro-internacionales-sector-tic-organizado-por-asturex", destination: "/es/comunidad/",  permanent: true },
-      { source: "/es/flame-habla-sobre-big-data-en-profesional-retail",        destination: "/es/ventajas-del-small-data-vs-big-data/",  permanent: true }, // F3 2026-08-24: destino del cluster big-data
+      { source: "/es/flame-habla-sobre-big-data-en-profesional-retail",        destination: "/es/big-data-en-retail-oportunidades-y-retos/",  permanent: true }, // F3 2026-08-24: destino del cluster big-data
       // (2026-08-10 Fase 2 poda: destino cambiado de /es/comunidad/ a la guía de KPIs)
       { source: "/es/flame-retail-analytics-las-cuatro-patas-de-una-mesa",     destination: "/es/los-10-kpis-que-todo-centro-comercial-debe-medir/",  permanent: true },
       { source: "/es/flame-se-va-a-silicon-valley-para-participar-en-el-tech-match", destination: "/es/comunidad/",  permanent: true },
@@ -726,9 +744,9 @@ const nextConfig: NextConfig = {
       // Cluster big-data (1) → /en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/
       { source: "/en/flame-nominated-as-a-top-big-data-company-in-spain", destination: "/en/innovative-strategies-leveraging-big-data-analytics-to-optimize-customer-acquisition-processes/", permanent: true },
       // Cluster big-data (3) → /es/ventajas-del-small-data-vs-big-data/
-      { source: "/es/big-data-un-antes-y-un-despues-en-retail", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
-      { source: "/es/aplicaciones-del-big-data-en-el-retail-offline-analitica-in-store", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
-      { source: "/es/pablo-perez-los-centros-comerciales-colocamos-el-big-data-en-el-centro-de-nuestra-estrategia", destination: "/es/ventajas-del-small-data-vs-big-data/", permanent: true },
+      { source: "/es/big-data-un-antes-y-un-despues-en-retail", destination: "/es/big-data-en-retail-oportunidades-y-retos/", permanent: true },
+      { source: "/es/aplicaciones-del-big-data-en-el-retail-offline-analitica-in-store", destination: "/es/big-data-en-retail-oportunidades-y-retos/", permanent: true },
+      { source: "/es/pablo-perez-los-centros-comerciales-colocamos-el-big-data-en-el-centro-de-nuestra-estrategia", destination: "/es/big-data-en-retail-oportunidades-y-retos/", permanent: true },
       // Cluster centros-comerciales (5) → /en/top-10-shopping-mall-innovation-features-transforming-experiences/
       { source: "/en/brick-and-mortar-in-the-new-normal-adaptation-customers-and-employees", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
       { source: "/en/how-to-utilize-analytics-for-customer-engagement-in-your-shopping-malls", destination: "/en/top-10-shopping-mall-innovation-features-transforming-experiences/", permanent: true },
