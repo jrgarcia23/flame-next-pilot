@@ -258,7 +258,7 @@ function Section({ sid, bg, eyebrow, h2a, h2b, link, href, items, xlExtra, kpis,
             <p className="mag-eyebrow">Latest</p>
             <h3 className="mag-title" dangerouslySetInnerHTML={{ __html: sanitizeTitle(xl.title) }} />
             {xlExtra}
-            <p className="mag-ex">{shortExcerpt(xl.html, 150)}…</p>
+            <p className="mag-ex">{(() => { const ex = shortExcerpt(xl.html, 150); return /[….!?]$/.test(ex) ? ex : `${ex}…`; })()}</p>
             <p className="mag-meta">{formatDate(xl.date, "en")} · {xl.category.name}</p>
           </div>
         </div>
