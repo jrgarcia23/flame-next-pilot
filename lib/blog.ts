@@ -4,6 +4,7 @@
 import data from "@/data/blog.json";
 import { getOverride, applyOverride } from "./post-overrides";
 import { listedComparisonPosts } from "./draft-comparisons";
+import { withListingCover } from "./cover-overrides";
 
 export type Lang = "es" | "en";
 export type PostType = "post" | "page" | "whitepaper";
@@ -115,7 +116,8 @@ export async function getCategoryListingAsync(categorySlug: string, lang: Lang):
   // editando como borrador.
   const publishedCmsKeys = new Set(cmsInCat.map(p => `${p.lang}::${p.slug}`));
   const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !publishedCmsKeys.has(`${p.lang}::${p.slug}`));
-  return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1));
+  // Cabeceras alternas: solo la miniatura del listado (lib/cover-overrides.ts).
+  return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1)).map(withListingCover);
 }
 
 export async function getRelatedPostsAsync(currentSlug: string, categorySlug: string, lang: Lang, max = 3): Promise<BlogPost[]> {
@@ -169,7 +171,8 @@ function extraListed(lang: Lang, categorySlug: string): BlogPost[] {
 export function getCategoryListing(categorySlug: string, lang: Lang): BlogPost[] {
   return [...extraListed(lang, categorySlug), ...D.posts
     .filter(p => p.lang === lang && isPublic(p) && p.category?.slug === categorySlug)]
-    .sort((a, b) => (b.date > a.date ? 1 : -1));
+    .sort((a, b) => (b.date > a.date ? 1 : -1))
+    .map(withListingCover);
 }
 
 export function getAllCategories(lang: Lang): { slug: string; name: string; count: number }[] {
