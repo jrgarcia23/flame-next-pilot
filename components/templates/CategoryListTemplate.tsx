@@ -2,6 +2,7 @@ import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import { coverUrl } from "@/lib/img";
 import { BlogPost, categoryLabel, formatDate, shortExcerpt, Lang } from "@/lib/blog";
 import { getCategoryMeta, POSTS_PER_PAGE } from "@/lib/category-meta";
+import { listingImage } from "@/lib/cover-overrides";
 import { sanitizeTitle } from "@/lib/sanitize-title";
 import { keyFromAnySlug, slugFor } from "@/lib/cms-categories";
 
@@ -88,8 +89,9 @@ export default function CategoryListTemplate({ lang, categorySlug, posts, curren
       <section className="py-16" style={{ background: categorySlug === "blog" ? "#ffffff" : "var(--color-paper)" }}>
         <div className="flame-container">
           <div className="grid gap-7 cat-grid" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
-            {pageItems.map((p) => {
-              const img = p.thumbnail || p.hero;
+            {pageItems.map((p, i) => {
+              // Cabecera alterna por posición global (offset de paginación incluido).
+              const img = listingImage(p, start + i);
               return (
                 <a
                   key={p.slug}
