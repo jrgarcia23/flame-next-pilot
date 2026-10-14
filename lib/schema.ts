@@ -76,16 +76,23 @@ export function postBreadcrumb(post: BlogPost, lang: Lang): BreadcrumbItem[] {
   if (post.category?.slug) {
     items.push({
       name: post.category.name,
-      url: `/${lang}/categoria/${post.category.slug}/`,
+      // EN usa /en/category/ (antes salía /en/categoria/, que da 404). 14-oct-2026.
+      url: `/${lang}/${lang === "en" ? "category" : "categoria"}/${post.category.slug}/`,
     });
   }
-  items.push({ name: STRIP_HTML(post.title), url: `/${lang}/${post.slug}/` });
+  items.push({ name: STRIP_HTML(post.title), url: postPath(post, lang) });
   return items;
 }
 
 // ---------- BLOG POSTING ----------
+// Ruta canónica de un post o whitepaper (los whitepapers viven en /<lang>/whitepaper/<slug>/;
+// antes el schema los daba en /<lang>/<slug>/, que redirige o da 404). 14-oct-2026.
+function postPath(post: BlogPost, lang: Lang): string {
+  return post.type === "whitepaper" ? `/${lang}/whitepaper/${post.slug}/` : `/${lang}/${post.slug}/`;
+}
+
 export function blogPostingSchema(post: BlogPost, lang: Lang) {
-  const url = `${SITE}/${lang}/${post.slug}/`;
+  const url = `${SITE}${postPath(post, lang)}`;
   // Fallback: si el post no tiene hero (algunos importados del WP solo guardaron
   // thumbnail), usar thumbnail. Sin imagen, Google rechaza el rich result.
   const heroOrThumb = post.hero || post.thumbnail || "";

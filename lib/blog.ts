@@ -4,6 +4,7 @@
 import data from "@/data/blog.json";
 import { getOverride, applyOverride } from "./post-overrides";
 import { listedComparisonPosts } from "./draft-comparisons";
+import { isPrunedPost, rewritePrunedLinks } from "./pruned";
 
 export type Lang = "es" | "en";
 export type PostType = "post" | "page" | "whitepaper";
@@ -43,6 +44,9 @@ function isPublic(p: BlogPost): boolean {
   // Cualquier valor distinto de "draft"/"pending"/"private" se considera público.
   // Default seguro: si el campo viene vacío, asumimos published (compat retro).
   const st = (p as { status?: string }).status;
+  // Poda de indexación 14-oct-2026: los posts podados (301/410) dejan de ser públicos
+  // sin tocar su status en blog.json (ver lib/pruned.ts y data/poda-2026-10.json).
+  if (p.type === "post" && isPrunedPost(p.lang, p.slug)) return false;
   return !st || st === "published" || st === "publish";
 }
 
@@ -57,26 +61,35 @@ for (const p of [...D.posts, ...D.pages, ...D.whitepapers]) {
   if (typeof p.html === "string" && p.html.includes("//flameanalytics.com")) {
     p.html = p.html.replace(APEX_HREF, "href=$1https://www.flameanalytics.com");
   }
+  // Enlaces a posts podados → destino del 301, o sin enlace si es 410.
+  if (typeof p.html === "string") p.html = rewritePrunedLinks(p.html);
   byKey[`${p.type}/${p.lang}/${p.slug}`] = p;
+}
+
+// Los HTML de override (data/post-rewrites-es) se cargan aparte: también se les
+// reescriben los enlaces a posts podados.
+function withPrunedLinks<T extends { html: string }>(p: T): T {
+  const html = rewritePrunedLinks(p.html);
+  return html === p.html ? p : { ...p, html };
 }
 
 export function getPost(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`post/${lang}/${slug}`];
   if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
-  return ov ? applyOverride(raw, ov) : raw;
+  return ov ? withPrunedLinks(applyOverride(raw, ov)) : raw;
 }
 export function getPage(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`page/${lang}/${slug}`];
   if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
-  return ov ? applyOverride(raw, ov) : raw;
+  return ov ? withPrunedLinks(applyOverride(raw, ov)) : raw;
 }
 export function getWhitepaper(slug: string, lang: Lang): BlogPost | null {
   const raw = byKey[`whitepaper/${lang}/${slug}`];
   if (!raw || !isPublic(raw)) return null;
   const ov = getOverride(slug, lang);
-  return ov ? applyOverride(raw, ov) : raw;
+  return ov ? withPrunedLinks(applyOverride(raw, ov)) : raw;
 }
 
 // ---------- ADMIN-ONLY (sin filtro de status) ----------

@@ -14,6 +14,7 @@
 import "server-only";
 import type { BlogPost } from "@/lib/blog";
 import { listAllCmsPosts, type CmsPost } from "@/lib/cms-posts";
+import { isPrunedPost, rewritePrunedLinks } from "@/lib/pruned";
 
 type CmsRow = BlogPost & { status: "draft" | "published" };
 
@@ -25,7 +26,7 @@ function cmsToBlogPost(p: CmsPost): CmsRow {
     type: p.type,
     title: p.title,
     excerpt: p.excerpt || "",
-    html: p.html || "",
+    html: rewritePrunedLinks(p.html || ""),
     date: p.date,
     modified: p.modified,
     hero: p.hero || "",
@@ -60,7 +61,11 @@ async function getCmsRowsCached(): Promise<CmsRow[]> {
 /** Devuelve sólo los publicados, sin la columna status. Para el reader público. */
 export async function getCmsPostsCached(): Promise<BlogPost[]> {
   const rows = await getCmsRowsCached();
-  return rows.filter(r => r.status === "published").map(({ status: _s, ...rest }) => rest);
+  // Poda 14-oct-2026: un post podado (301/410) no se publica aunque esté "published"
+  // en el CMS (sin tocar Supabase; ver lib/pruned.ts).
+  return rows
+    .filter(r => r.status === "published" && !(r.type === "post" && isPrunedPost(r.lang, r.slug)))
+    .map(({ status: _s, ...rest }) => rest);
 }
 
 /** Set "{lang}::{slug}" para TODAS las entradas del CMS (draft + published).

@@ -27,7 +27,7 @@
 
 - [Repsol — 1,000+ Gas Stations](https://flameanalytics.com/en/success-story-repsol-and-flame-analytics-transform-the-experience-in-1000-gas-stations/): WiFi connectivity and visitor analytics deployed at scale across Spain.
 - [Merlin Properties — 10 Shopping Centers](https://flameanalytics.com/en/driving-digital-transformation-flame-analytics-success-story-with-merlin-properties/): Integrated Traffic + Journey + Connect across 10 centers for data-driven decision-making.
-- [CaixaForum — Cultural Space Analytics](https://flameanalytics.com/en/transforming-the-visitor-experience-at-caixaforum-with-ai-powered-video-analytics/): AI video analytics for visitor experience and space management — without biometrics.
+- [CaixaForum — Cultural Space Analytics](https://flameanalytics.com/en/caixaforum-video-analytics-visitor-experience/): AI video analytics for visitor experience and space management — without biometrics.
 - [CBRE Spain — Shopping Center Loyalty](https://flameanalytics.com/en/case-study-enhancing-customer-loyalty-in-shopping-centers-with-cbre-spain-and-connect-mall-edition/): Connect Mall Edition loyalty system with ticket scanning.
 - [Pompeii — Retail Brand Analytics](https://flameanalytics.com/en/pompeii-use-big-data-retail-sector/): Big data analytics for emerging retail brand.
 - [All Case Studies](https://flameanalytics.com/en/tag/case-studies/)
