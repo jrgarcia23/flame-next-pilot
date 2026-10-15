@@ -291,6 +291,7 @@ export type UseCaseConfig = {
   casesSub?: string;            // subtítulo opcional
   relatedGuides?: Array<{ href: string; tag: string; title: string; desc: string }>; // enlaces de texto a guías/comparativas del clúster (SEO: enlazado interno)
   relatedGuidesTitle?: string;
+  hideLogos?: boolean;          // oculta la franja "Marcas que ya trabajan con Flame" del hero (deja solo los casos de éxito)
 };
 
 export type SectorSection = {

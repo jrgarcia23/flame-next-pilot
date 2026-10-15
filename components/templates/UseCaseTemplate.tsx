@@ -39,7 +39,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           paddingTop: "clamp(72px, 8.4vw, 116px)",
-          paddingBottom: "clamp(20px, 2.4vw, 32px)",
+          paddingBottom: cfg.hideLogos ? "clamp(72px, 8.4vw, 116px)" : "clamp(20px, 2.4vw, 32px)",
         }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, var(--color-navy) 0%, rgb(21 22 58 / 0.92) 38%, rgb(21 22 58 / 0.5) 65%, rgb(21 22 58 / 0.2) 100%)" }} />
@@ -82,6 +82,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           )}
           </div>
         </div>
+        {!cfg.hideLogos && (
         <div className="relative z-10 mt-28 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
           <p className="text-center mb-3 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
             {t.logosBanner}
@@ -94,6 +95,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
             </div>
           </div>
         </div>
+        )}
         <style>{`
           .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
           .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
