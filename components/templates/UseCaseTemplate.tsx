@@ -2,7 +2,7 @@ import Icon from "./Icon";
 import { coverUrl } from "@/lib/img";
 import FlameDataChat from "../FlameDataChat";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
-import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, UseCaseConfig } from "@/lib/page-content";
+import { INDUSTRIES, INDUSTRIES_EN, UI, UseCaseConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 import FichaDownload from "@/components/FichaDownload";
 
@@ -16,7 +16,6 @@ const DownloadGlyph = () => (
 );
 
 export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode }) {
-  const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
@@ -28,7 +27,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
       <CtaStyles />
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
-      {/* HERO + LOGOS sobre Traffic2-1.png */}
+      {/* HERO sobre Traffic2-1.png */}
       <section
         className="relative overflow-hidden"
         style={{
@@ -39,7 +38,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           paddingTop: "clamp(72px, 8.4vw, 116px)",
-          paddingBottom: "clamp(20px, 2.4vw, 32px)",
+          paddingBottom: "clamp(72px, 8.4vw, 116px)",
         }}
       >
         <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(90deg, var(--color-navy) 0%, rgb(21 22 58 / 0.92) 38%, rgb(21 22 58 / 0.5) 65%, rgb(21 22 58 / 0.2) 100%)" }} />
@@ -82,30 +81,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           )}
           </div>
         </div>
-        <div className="relative z-10 mt-28 pt-4" style={{ borderTop: "1px solid rgb(255 255 255 / 0.1)" }}>
-          <p className="text-center mb-3 text-[clamp(16px,1.3vw,19px)] font-medium" style={{ color: "rgb(255 255 255 / 0.78)", fontFamily: "var(--font-body)", letterSpacing: "-0.005em" }}>
-            {t.logosBanner}
-          </p>
-          <div className="logo-marquee">
-            <div className="logo-track">
-              {[...LOGOS, ...LOGOS].map(([src, alt], i) => (
-                <img key={i} src={src} alt={alt} className="logo-img" />
-              ))}
-            </div>
-          </div>
-        </div>
         <style>{`
-          .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
-          .logo-track:hover { animation-play-state: paused; }
-          @media (max-width: 767px) {
-            .logo-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
-            .logo-marquee::-webkit-scrollbar { display: none; }
-            .logo-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
-          }
-          .logo-img { height: 80px; width: auto; opacity: 0.78; filter: brightness(0) invert(1); transition: opacity 280ms ease; flex-shrink: 0; }
-          .logo-img:hover { opacity: 1; }
-          @media (max-width: 700px) { .logo-img { height: 65px; } }
           .uc-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: clamp(32px, 4vw, 64px); align-items: center; }
           .uc-hero-chat { display: flex; justify-content: flex-end; }
           @media (max-width: 980px) {
@@ -268,46 +244,42 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
         `}</style>
       </section>
 
-      {/* SECTORES (4 fijos) */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      {/* SECTORES — lista estática tipo menú en 2 columnas (opción F, JR 15-oct-2026) */}
+      <section className="py-16 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.08), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.05), transparent 72%)" }} />
-        <div className="flame-container relative z-10">
-          <div className="mb-14 max-w-[720px]">
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+        <div className="flame-container relative z-10 uc-ind">
+          <div>
+            <h2 className="text-[clamp(30px,3vw,42px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
               {t.industriesTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.industriesTitleHl}</span>
             </h2>
-            <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
+            <p className="mt-4 text-[clamp(16px,1.15vw,18px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
               {t.industriesSub}
             </p>
           </div>
-        </div>
-        <div className="industries-marquee">
-          <div className="industries-track">
-            {[...inds, ...inds].map((it, i) => (
-              <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
-                <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}>
-                  <Icon name={it.icon} className="w-6 h-6" />
-                </div>
-                <h3 className="text-[19px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.008em" }}>{it.title}</h3>
-                <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "rgb(255 255 255 / 0.68)" }}>{it.desc}</p>
-                <span className="industry-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
-                  Leer más <Icon name="arrow" className="w-3.5 h-3.5" />
-                </span>
-              </a>
+          <ul className="uc-ind-list">
+            {inds.map((it) => (
+              <li key={it.href}>
+                <a href={it.href} className="uc-ind-link">
+                  <span className="uc-ind-icon"><Icon name={it.icon} className="w-5 h-5" /></span>
+                  <span className="uc-ind-name">{it.title}</span>
+                  <Icon name="arrow" className="w-4 h-4 uc-ind-arrow" />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <style>{`
-          .industries-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .industries-track { display: flex; gap: 20px; width: max-content; align-items: stretch; animation: marquee-x 50s linear infinite; }
-          .industries-track:hover { animation-play-state: paused; }
-          .industry-card { width: 320px; flex: 0 0 320px; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover { transform: translateY(-1px); background: rgb(255 255 255 / 0.07) !important; border-color: rgb(255 255 255 / 0.16) !important; box-shadow: 0 8px 24px -14px rgb(0 0 0 / 0.4); }
-          .industry-card .industry-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-icon { background: rgb(49 177 248 / 0.22) !important; }
-          .industry-card .industry-cta { transition: gap 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-cta { gap: 10px; }
-          @media (max-width: 700px) { .industry-card { width: 260px; flex: 0 0 260px; } .industries-track { gap: 14px; } }
+          .uc-ind { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+          .uc-ind-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+          .uc-ind-link { display: grid; grid-template-columns: 36px 1fr 20px; gap: 14px; align-items: center; padding: 14px 4px; border-bottom: 1px solid rgb(255 255 255 / 0.13); color: #fff; transition: padding 250ms ease, color 250ms ease; }
+          .uc-ind-link:hover { padding-left: 10px; color: var(--color-accent); }
+          .uc-ind-icon { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: rgb(49 177 248 / 0.14); color: var(--color-accent); }
+          .uc-ind-name { font-size: 17px; font-weight: 600; }
+          .uc-ind-arrow { color: var(--color-accent); opacity: 0.6; transition: transform 250ms ease, opacity 250ms ease; }
+          .uc-ind-link:hover .uc-ind-arrow { transform: translateX(3px); opacity: 1; }
+          @media (max-width: 900px) { .uc-ind { grid-template-columns: 1fr; } }
+          @media (max-width: 600px) { .uc-ind-list { grid-template-columns: 1fr; } }
+          @media (prefers-reduced-motion: reduce) { .uc-ind-link, .uc-ind-arrow { transition: none !important; } }
         `}</style>
       </section>
 
@@ -375,38 +347,6 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           `}</style>
         </section>
       )}
-
-      {/* TESTIMONIOS marquee */}
-      <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
-        <div className="flame-container">
-          <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            {t.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.testimonialsTitleHl}</span>
-          </h2>
-        </div>
-        <div className="testimonials-marquee">
-          <div className="testimonials-track">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <article key={i} className="testimonial-card rounded-2xl p-8 flex flex-col gap-6" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                <div className="flex items-center" style={{ height: 64 }}>
-                  <img src={t.logo} alt={t.author} style={{ maxHeight: 56, maxWidth: 180, width: "auto", objectFit: "contain" }} />
-                </div>
-                <p className="text-[16px] leading-[1.65] flex-1" style={{ color: "var(--color-ink-2)" }}>{t.quote}</p>
-                <div className="pt-5" style={{ borderTop: "1px solid var(--color-rule)" }}>
-                  <strong className="block text-[16px]" style={{ color: "var(--color-navy)", letterSpacing: "-0.005em" }}>{t.author}</strong>
-                  <span className="block text-[13.5px] mt-1" style={{ color: "var(--color-ink-3)" }}>{t.role}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          .testimonials-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .testimonials-track { display: flex; gap: 28px; width: max-content; align-items: stretch; animation: marquee-x 60s linear infinite; }
-          .testimonials-track:hover { animation-play-state: paused; }
-          .testimonial-card { width: 460px; flex: 0 0 460px; }
-          @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
-        `}</style>
-      </section>
 
       {/* FAQPage JSON-LD desde cfg.faqs (coherente con la FAQ visible) */}
       {cfg.faqs.length > 0 && (

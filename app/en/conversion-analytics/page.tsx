@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import AnimatedConversionAnalyticsChart from "@/components/AnimatedConversionAnalyticsChart";
 import { UseCaseConfig } from "@/lib/page-content";
@@ -79,10 +80,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "How much of your footfall actually buys, and how to lift it.",
 };
 
-export default function ConversionAnalyticsEN() {
+export default async function ConversionAnalyticsEN() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Analítica de conversión" }, { lang: "en" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/es/analitica-conversion/"
       currentLang="en"
       bigSectionVisualOverride={<AnimatedConversionAnalyticsChart />}

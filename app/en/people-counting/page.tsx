@@ -4,6 +4,7 @@ import AnimatedPeopleCountingChart from "@/components/AnimatedPeopleCountingChar
 import { UseCaseConfig } from "@/lib/page-content";
 
 import { getFaqs } from "@/lib/live-faqs";
+import { selectCaseCards } from "@/lib/case-cards";
 export const metadata: Metadata = {
   title: "People Counting · Flame Analytics",
   description: "Measure footfall across entrances, floors and venues with AI-powered video analytics. Get the visibility you need to optimize operations, plan resources efficie",
@@ -71,17 +72,13 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Live people counting in 7 days.",
   fichaPdf: "/fichas/people-counting.pdf",
   fichaHook: "How many people really enter your space, and what to do with it.",
-  relatedGuidesTitle: "People counting guides and comparisons",
-  relatedGuides: [
-    { href: "/en/best-people-counting-software-retail/", tag: "Comparison", title: "Best people counting software for retail in 2026", desc: "ShopperTrak, FootfallCam, V-Count, RetailNext and Flame Analytics compared: technology, deployment and fit." },
-    { href: "/en/people-counting-systems-complete-guide/", tag: "Guide", title: "People counting systems: complete buyer's guide", desc: "How each counting technology works and the criteria to choose the right system for your stores." },
-  ],
 };
 
-export default function PeopleCountingEN() {
+export default async function PeopleCountingEN() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Conteo de personas" }, { lang: "en" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/es/conteo-personas/"
       currentLang="en"
       bigSectionVisualOverride={<AnimatedPeopleCountingChart />}
