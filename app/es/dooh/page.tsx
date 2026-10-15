@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 import type { FaqItem } from "@/lib/live-faqs";
@@ -100,6 +101,7 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Auditoría gratuita del potencial DOOH de tu centro. 30 minutos.",
 };
 
-export default function DoohES() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/dooh/" />;
+export default async function DoohES() {
+  const caseStudies = await selectCaseCards({});
+  return <UseCaseTemplate cfg={{ ...cfg, caseStudies }} enHref="/en/dooh/" />;
 }

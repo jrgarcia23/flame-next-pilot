@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import AnimatedDashboardImage from "@/components/AnimatedDashboardImage";
 import { UseCaseConfig } from "@/lib/page-content";
@@ -73,10 +74,11 @@ const cfg: UseCaseConfig = {
   fichaHook: "Real-time capacity and occupancy, under control.",
 };
 
-export default function OccupancyManagementEN() {
+export default async function OccupancyManagementEN() {
+  const caseStudies = await selectCaseCards({ casoDeUso: "Gestión de ocupación" }, { lang: "en" });
   return (
     <UseCaseTemplate
-      cfg={cfg}
+      cfg={{ ...cfg, caseStudies }}
       enHref="/es/gestion-ocupacion/" currentLang="en"
       bigSectionVisualOverride={
         <AnimatedDashboardImage

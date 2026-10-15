@@ -72,8 +72,6 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Live people counting in 7 days.",
   fichaPdf: "/fichas/people-counting.pdf",
   fichaHook: "How many people really enter your space, and what to do with it.",
-  hideLogos: true,
-  hideTestimonials: true,
 };
 
 export default async function PeopleCountingEN() {

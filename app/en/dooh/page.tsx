@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import { UseCaseConfig } from "@/lib/page-content";
 import type { FaqItem } from "@/lib/live-faqs";
@@ -100,6 +101,7 @@ const cfg: UseCaseConfig = {
   ctaStripLight: "Free DOOH potential audit of your venue. 30 minutes.",
 };
 
-export default function DoohEN() {
-  return <UseCaseTemplate cfg={cfg} enHref="/es/dooh/" currentLang="en" />;
+export default async function DoohEN() {
+  const caseStudies = await selectCaseCards({}, { lang: "en" });
+  return <UseCaseTemplate cfg={{ ...cfg, caseStudies }} enHref="/es/dooh/" currentLang="en" />;
 }
