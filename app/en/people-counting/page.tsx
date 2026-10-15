@@ -73,6 +73,7 @@ const cfg: UseCaseConfig = {
   fichaPdf: "/fichas/people-counting.pdf",
   fichaHook: "How many people really enter your space, and what to do with it.",
   hideLogos: true,
+  hideTestimonials: true,
 };
 
 export default async function PeopleCountingEN() {

@@ -75,6 +75,7 @@ const cfg: UseCaseConfig = {
   fichaHook: "Cuántas personas entran de verdad en tu espacio, y qué hacer con ese dato.",
   fichaTitle: "Conteo de personas",
   hideLogos: true,
+  hideTestimonials: true,
 };
 
 export default async function CuentaPersonasDraft() {

@@ -379,6 +379,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
       )}
 
       {/* TESTIMONIOS marquee */}
+      {!cfg.hideTestimonials && (
       <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
@@ -409,6 +410,7 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
         `}</style>
       </section>
+      )}
 
       {/* FAQPage JSON-LD desde cfg.faqs (coherente con la FAQ visible) */}
       {cfg.faqs.length > 0 && (
