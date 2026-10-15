@@ -244,46 +244,42 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
         `}</style>
       </section>
 
-      {/* SECTORES (4 fijos) */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      {/* SECTORES — lista estática tipo menú en 2 columnas (opción F, JR 15-oct-2026) */}
+      <section className="py-16 relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.08), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.05), transparent 72%)" }} />
-        <div className="flame-container relative z-10">
-          <div className="mb-14 max-w-[720px]">
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+        <div className="flame-container relative z-10 uc-ind">
+          <div>
+            <h2 className="text-[clamp(30px,3vw,42px)] font-normal" style={{ color: "#fff", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
               {t.industriesTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.industriesTitleHl}</span>
             </h2>
-            <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
+            <p className="mt-4 text-[clamp(16px,1.15vw,18px)] leading-relaxed" style={{ color: "rgb(255 255 255 / 0.72)" }}>
               {t.industriesSub}
             </p>
           </div>
-        </div>
-        <div className="industries-marquee">
-          <div className="industries-track">
-            {[...inds, ...inds].map((it, i) => (
-              <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
-                <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}>
-                  <Icon name={it.icon} className="w-6 h-6" />
-                </div>
-                <h3 className="text-[19px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.008em" }}>{it.title}</h3>
-                <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "rgb(255 255 255 / 0.68)" }}>{it.desc}</p>
-                <span className="industry-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent)" }}>
-                  {currentLang === "en" ? "Read more" : "Leer más"} <Icon name="arrow" className="w-3.5 h-3.5" />
-                </span>
-              </a>
+          <ul className="uc-ind-list">
+            {inds.map((it) => (
+              <li key={it.href}>
+                <a href={it.href} className="uc-ind-link">
+                  <span className="uc-ind-icon"><Icon name={it.icon} className="w-5 h-5" /></span>
+                  <span className="uc-ind-name">{it.title}</span>
+                  <Icon name="arrow" className="w-4 h-4 uc-ind-arrow" />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <style>{`
-          .industries-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .industries-track { display: flex; gap: 20px; width: max-content; align-items: stretch; animation: marquee-x 50s linear infinite; }
-          .industries-track:hover { animation-play-state: paused; }
-          .industry-card { width: 320px; flex: 0 0 320px; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover { transform: translateY(-1px); background: rgb(255 255 255 / 0.07) !important; border-color: rgb(255 255 255 / 0.16) !important; box-shadow: 0 8px 24px -14px rgb(0 0 0 / 0.4); }
-          .industry-card .industry-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-icon { background: rgb(49 177 248 / 0.22) !important; }
-          .industry-card .industry-cta { transition: gap 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-cta { gap: 10px; }
-          @media (max-width: 700px) { .industry-card { width: 260px; flex: 0 0 260px; } .industries-track { gap: 14px; } }
+          .uc-ind { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 5vw, 80px); align-items: center; }
+          .uc-ind-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 32px; }
+          .uc-ind-link { display: grid; grid-template-columns: 36px 1fr 20px; gap: 14px; align-items: center; padding: 14px 4px; border-bottom: 1px solid rgb(255 255 255 / 0.13); color: #fff; transition: padding 250ms ease, color 250ms ease; }
+          .uc-ind-link:hover { padding-left: 10px; color: var(--color-accent); }
+          .uc-ind-icon { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: rgb(49 177 248 / 0.14); color: var(--color-accent); }
+          .uc-ind-name { font-size: 17px; font-weight: 600; }
+          .uc-ind-arrow { color: var(--color-accent); opacity: 0.6; transition: transform 250ms ease, opacity 250ms ease; }
+          .uc-ind-link:hover .uc-ind-arrow { transform: translateX(3px); opacity: 1; }
+          @media (max-width: 900px) { .uc-ind { grid-template-columns: 1fr; } }
+          @media (max-width: 600px) { .uc-ind-list { grid-template-columns: 1fr; } }
+          @media (prefers-reduced-motion: reduce) { .uc-ind-link, .uc-ind-arrow { transition: none !important; } }
         `}</style>
       </section>
 
