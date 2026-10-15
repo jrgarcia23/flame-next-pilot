@@ -135,8 +135,6 @@ const COVER_PAIRS: Record<string, string> = {
   "en/news-heat-maps-latest-marketing-meet-customers-triumphs-social-networks-2": "en-news-heat-maps-latest-marketing-meet-customers-t",
   "en/shop-shop-retail": "en-shop-shop-retail",
   "en/wifi-tracking-benefits-measuring-presence": "en-wifi-tracking-benefits-measuring-presence",
-  "es/jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-retail-no-sera-elegir-entre-tecnologia-o-personas": "es-jon-mielgo-cmo-de-alain-afflelou-el-futuro-del-r",
-  "es/la-innovacion-que-realmente-funciona-es-la-que-suma-a-la-experiencia-del-cliente-y-facilita-el-traba": "es-la-innovacion-que-realmente-funciona-es-la-que-s",
   "es/5-formas-de-convertir-el-wifi-de-tu-centro-comercial-en-una-herramienta-de-fidelizacion": "es-5-formas-de-convertir-el-wifi-de-tu-centro-comer",
   "es/kpis-comerciales-retail-medir-2026": "es-kpis-comerciales-retail-medir-2026",
   "es/kpis-de-retail-como-pasar-del-trafico-a-la-conversion-en-tiendas-fisicas": "es-kpis-de-retail-como-pasar-del-trafico-a-la-conve",
