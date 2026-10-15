@@ -64,7 +64,7 @@ export default function IndustriasOpciones() {
             {inds.map((it) => (
               <a key={it.href} href={it.href} className="opt-a-card rounded-2xl p-7 flex flex-col">
                 <div className="inline-flex items-center justify-center rounded-[12px] mb-5 opt-a-icon"><Icon name={it.icon} className="w-6 h-6" /></div>
-                <h3 className="text-[19px] font-semibold mb-3" style={{ letterSpacing: "-0.008em" }}>{it.title}</h3>
+                <h3 className="text-[19px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.008em" }}>{it.title}</h3>
                 <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "rgb(255 255 255 / 0.68)" }}>{it.desc}</p>
                 <span className="opt-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold">Leer más <Icon name="arrow" className="w-3.5 h-3.5" /></span>
               </a>
