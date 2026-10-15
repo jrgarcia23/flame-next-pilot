@@ -15572,8 +15572,8 @@
       "modified": "2026-03-23T10:44:59",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/09/WEBINAR-EN.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -15648,8 +15648,8 @@
       "modified": "2026-03-23T10:45:53",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/02/ENTREVISTAS-ES-1.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -15667,8 +15667,8 @@
       "modified": "2026-03-23T10:43:11",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2025/02/Webinar-La-IA-al-Servicio-del-Retail.-Descubre-el-Poder-de-la-Videoanalitica.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -16047,8 +16047,8 @@
       "modified": "2026-03-23T10:46:00",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/09/ENTREVISTAS-ES-1.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16085,8 +16085,8 @@
       "modified": "2026-03-23T10:45:12",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/05/podcast-Women-in-Retail.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16104,8 +16104,8 @@
       "modified": "2026-03-23T10:45:22",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/03/marina-nieto-ikea-modelo-phygital-retail.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16161,8 +16161,8 @@
       "modified": "2026-03-23T10:45:29",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/04/entrevista-centros-comerciales-la-tecnologia-te-acerca-a-los-clientes.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16313,8 +16313,8 @@
       "modified": "2026-03-23T10:45:32",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/03/webinar-experiencia-compra-centro-comercial.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -16389,8 +16389,8 @@
       "modified": "2026-03-23T10:45:44",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/01/retail-entrevista-jose-huertas-pompeii.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16465,8 +16465,8 @@
       "modified": "2026-03-23T10:44:25",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2024/01/podcast-igone-castillo-retail.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16674,8 +16674,8 @@
       "modified": "2026-03-23T10:45:39",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/09/retail-entrevista-patricia-yves-rocher.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16693,8 +16693,8 @@
       "modified": "2026-03-23T10:46:03",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/08/retail-entrevista-carlos-corte-ingles.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16712,8 +16712,8 @@
       "modified": "2026-03-23T10:45:44",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/08/retail-entrevista-cristina-carrefour.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16731,8 +16731,8 @@
       "modified": "2026-03-23T10:45:38",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/07/joan-garcia-brownie-tienda-offline-entrevista-retail.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16750,8 +16750,8 @@
       "modified": "2026-03-23T10:45:54",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/07/Francisco-zapata-ikea-comportamiento-de-los-clientes.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16826,8 +16826,8 @@
       "modified": "2026-03-23T10:45:57",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/06/enrique-segarra-tiendas-fisicas-phonehouse.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16921,8 +16921,8 @@
       "modified": "2026-03-23T10:45:10",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/05/Javier-Lebrato-masmovil-controles-de-afluencia.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16959,8 +16959,8 @@
       "modified": "2026-03-23T10:45:40",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/04/entrevista-alexis-centro-intu-xanadu-cbre.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -16997,8 +16997,8 @@
       "modified": "2026-03-23T10:45:36",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2023/02/webinar-video-intelligence-retail.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -17814,8 +17814,8 @@
       "modified": "2026-03-23T10:45:07",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2022/07/Carlos-Fernandez-Alisios-fidelizar-a-un-cliente.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -18004,8 +18004,8 @@
       "modified": "2026-03-23T10:45:25",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2022/05/hotel-entrevista-antonio-marina-dor.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -18327,8 +18327,8 @@
       "modified": "2026-03-23T10:44:48",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2022/03/Captura-de-pantalla-2022-02-24-a-las-15.03.06.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -18688,8 +18688,8 @@
       "modified": "2026-03-23T10:43:10",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/11/hotel-entrevista-juan-sector-turismo.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -18764,8 +18764,8 @@
       "modified": "2026-03-23T10:44:19",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/10/Captura-de-pantalla-2021-10-07-a-las-16.05.40.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -18821,8 +18821,8 @@
       "modified": "2026-03-23T10:45:47",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/09/webinarretailLuciaGRamos.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -19277,8 +19277,8 @@
       "modified": "2026-03-23T10:43:39",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/05/Captura-de-pantalla-2021-04-26-a-las-10.02.53.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -19372,8 +19372,8 @@
       "modified": "2026-03-23T10:45:49",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/04/JavierCuevasEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -19695,8 +19695,8 @@
       "modified": "2026-03-23T10:45:40",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2021/01/RodrigoENTREVISTA.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -19752,8 +19752,8 @@
       "modified": "2026-03-23T10:45:19",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2014/06/GuillermoRuizEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -19885,8 +19885,8 @@
       "modified": "2026-03-23T10:44:37",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/12/PabloAbeniacarjpg.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -20227,8 +20227,8 @@
       "modified": "2026-03-23T10:44:09",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/09/AngelaReinaPrieto.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -20835,8 +20835,8 @@
       "modified": "2026-03-23T10:45:59",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/04/ManuelAmatEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -20854,8 +20854,8 @@
       "modified": "2026-03-23T10:45:33",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/04/JuanMerodioEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -20930,8 +20930,8 @@
       "modified": "2026-03-23T10:45:36",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/03/SofiaMateoEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -21994,8 +21994,8 @@
       "modified": "2026-03-23T10:45:27",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaAstrid.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -22127,8 +22127,8 @@
       "modified": "2026-03-23T10:44:09",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2019/06/SteveDennisEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -24084,8 +24084,8 @@
       "modified": "2026-03-23T10:44:49",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/09/WebinarAitorCasado.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -25300,8 +25300,8 @@
       "modified": "2026-03-23T10:45:29",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2020/09/DavidZapicoZoning.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "webinars",
+        "name": "Webinars"
       },
       "link_legacy": "",
       "status": "published",
@@ -25528,8 +25528,8 @@
       "modified": "2026-03-23T10:45:25",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2018/08/EntrevistaBorjaSanMiguel.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -25604,8 +25604,8 @@
       "modified": "2026-03-23T10:45:00",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2017/04/Jeff-Sward-44.png",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26136,8 +26136,8 @@
       "modified": "2026-03-23T10:45:35",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaCristinaGaona.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26174,8 +26174,8 @@
       "modified": "2026-03-23T10:45:51",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaAreli.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26212,8 +26212,8 @@
       "modified": "2026-03-23T10:44:04",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaIgnacioGmez.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26421,8 +26421,8 @@
       "modified": "2026-03-23T10:45:46",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaRaquelPavon.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26535,8 +26535,8 @@
       "modified": "2026-03-23T10:45:56",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/10/ManuelZaplanaEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26801,8 +26801,8 @@
       "modified": "2026-03-23T10:45:49",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/08/JesusCaoEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -26915,8 +26915,8 @@
       "modified": "2026-03-23T10:45:49",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/02/EntrevistaGermanPrados.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
@@ -27523,8 +27523,8 @@
       "modified": "2026-03-23T10:45:56",
       "hero": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2016/01/SalvadorFerrandoEntrevista.jpg",
       "category": {
-        "slug": "blog",
-        "name": "Blog"
+        "slug": "entrevistas",
+        "name": "Entrevistas"
       },
       "link_legacy": "",
       "status": "published",
