@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
@@ -73,6 +74,7 @@ const cfg: ProductConfig = {
   fichaHook: "From the passer-by outside to the sale: Flame's 6 traffic analytics modules in a PDF.",
 };
 
-export default function TrafficInsightsEN() {
-  return <ProductTemplate cfg={cfg} enHref="/es/analitica-trafico/" currentLang="en" />;
+export default async function TrafficInsightsEN() {
+  const caseStudies = await selectCaseCards({ producto: "Traffic" }, { lang: "en" });
+  return <ProductTemplate cfg={{ ...cfg, caseStudies }} enHref="/es/analitica-trafico/" currentLang="en" />;
 }

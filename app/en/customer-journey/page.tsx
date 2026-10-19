@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
@@ -75,6 +76,7 @@ const cfg: ProductConfig = {
   fichaHook: "From entry to conversion: how Flame measures the full customer journey in the physical space, in a PDF.",
 };
 
-export default function CustomerJourneyEN() {
-  return <ProductTemplate cfg={cfg} enHref="/es/recorrido-del-cliente/" currentLang="en" />;
+export default async function CustomerJourneyEN() {
+  const caseStudies = await selectCaseCards({ producto: "Customer Journey" }, { lang: "en" });
+  return <ProductTemplate cfg={{ ...cfg, caseStudies }} enHref="/es/recorrido-del-cliente/" currentLang="en" />;
 }

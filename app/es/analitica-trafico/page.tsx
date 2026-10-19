@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
@@ -91,6 +92,7 @@ export const cfg: ProductConfig = {
   fichaHook: "Del transeúnte exterior a la venta: los 6 módulos de analítica de tráfico de Flame en un PDF.",
 };
 
-export default function TrafficDraft() {
-  return <ProductTemplate cfg={cfg} enHref="/en/traffic-insights/" />;
+export default async function TrafficDraft() {
+  const caseStudies = await selectCaseCards({ producto: "Traffic" });
+  return <ProductTemplate cfg={{ ...cfg, caseStudies }} enHref="/en/traffic-insights/" />;
 }
