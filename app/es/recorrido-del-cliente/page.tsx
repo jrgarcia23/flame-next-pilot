@@ -114,6 +114,6 @@ const cfg: ProductConfig = {
 };
 
 export default async function CustomerJourneyDraft() {
-  const caseStudies = await selectCaseCards({ casoDeUso: "Recorrido del cliente" });
+  const caseStudies = await selectCaseCards({ producto: "Customer Journey" });
   return <ProductTemplate cfg={{ ...cfg, caseStudies }} enHref="/en/customer-journey/" />;
 }

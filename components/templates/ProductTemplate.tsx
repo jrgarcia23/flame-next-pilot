@@ -1,9 +1,10 @@
 import Icon from "./Icon";
 import { coverUrl } from "@/lib/img";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
-import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, ProductConfig } from "@/lib/page-content";
+import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, ProductConfig } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 import FichaDownload from "@/components/FichaDownload";
+import IndustriesList from "./IndustriesList";
 
 const DownloadGlyph = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
@@ -14,7 +15,6 @@ const DownloadGlyph = () => (
 );
 
 export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { cfg: ProductConfig; enHref: string; currentLang?: "es" | "en" }) {
-  const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   return (
@@ -326,81 +326,18 @@ export default function ProductTemplate({ cfg, enHref, currentLang = "es" }: { c
         `}</style>
       </section>
 
-      {/* SECTORES */}
-      <section className="py-24" style={{ background: "#fff" }}>
-        <div className="flame-container">
-          <div className="mb-14 max-w-[720px]">
-            <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-              {t.industriesTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.industriesTitleHl}</span>
-            </h2>
-            <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>
-              {cfg.heroTitle} es el motor de inteligencia para los sectores donde el flujo de personas marca el rendimiento.
-            </p>
-          </div>
-        </div>
-        <div className="industries-marquee">
-          <div className="industries-track">
-            {[...inds, ...inds].map((it, i) => (
-              <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "var(--color-paper-soft)", border: "1px solid var(--color-rule)" }}>
-                <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.12)", color: "var(--color-accent-deep)" }}>
-                  <Icon name={it.icon} className="w-6 h-6" />
-                </div>
-                <h3 className="text-[19px] font-semibold mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em" }}>{it.title}</h3>
-                <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "var(--color-ink-2)" }}>{it.desc}</p>
-                <span className="industry-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
-                  Leer más <Icon name="arrow" className="w-3.5 h-3.5" />
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          .industries-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .industries-track { display: flex; gap: 20px; width: max-content; align-items: stretch; animation: marquee-x 50s linear infinite; }
-          .industries-track:hover { animation-play-state: paused; }
-          .industry-card { width: 320px; flex: 0 0 320px; transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), background 420ms cubic-bezier(0.22, 1, 0.36, 1), border-color 420ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1); text-decoration: none !important; }
-          .industry-card:hover { transform: translateY(-1px); background: #fff !important; border-color: var(--color-rule-strong) !important; box-shadow: 0 6px 18px -10px rgb(15 23 42 / 0.08); }
-          .industry-card .industry-icon { transition: background 420ms cubic-bezier(0.22, 1, 0.36, 1), color 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
-          .industry-card .industry-cta { transition: gap 420ms cubic-bezier(0.22, 1, 0.36, 1); }
-          .industry-card:hover .industry-cta { gap: 10px; }
-          @media (max-width: 700px) { .industry-card { width: 260px; flex: 0 0 260px; } .industries-track { gap: 14px; } }
-        `}</style>
-      </section>
+      {/* SECTORES — lista estática tipo menú en 2 columnas (opción F), tono claro tras Pilares (navy) */}
+      <IndustriesList
+        items={inds}
+        title={t.industriesTitle}
+        titleHl={t.industriesTitleHl}
+        sub={currentLang === "en"
+          ? `${cfg.heroTitle} is the intelligence engine for sectors where the flow of people drives performance.`
+          : `${cfg.heroTitle} es el motor de inteligencia para los sectores donde el flujo de personas marca el rendimiento.`}
+        tone="light"
+      />
 
-      {/* TESTIMONIOS marquee */}
-      <section className="py-24 overflow-hidden" style={{ background: "var(--color-paper)" }}>
-        <div className="flame-container">
-          <h2 className="text-center mx-auto mb-14 text-[clamp(30px,3.2vw,44px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.15, fontFamily: "var(--font-display)" }}>
-            {t.testimonialsTitle} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{t.testimonialsTitleHl}</span>
-          </h2>
-        </div>
-        <div className="testimonials-marquee">
-          <div className="testimonials-track">
-            {[...testimonials, ...testimonials].map((t, i) => (
-              <article key={i} className="testimonial-card rounded-2xl p-8 flex flex-col gap-6" style={{ background: "#fff", border: "1px solid var(--color-rule)" }}>
-                <div className="flex items-center" style={{ height: 64 }}>
-                  <img src={t.logo} alt={t.author} style={{ maxHeight: 56, maxWidth: 180, width: "auto", objectFit: "contain" }} />
-                </div>
-                <p className="text-[16px] leading-[1.65] flex-1" style={{ color: "var(--color-ink-2)" }}>{t.quote}</p>
-                <div className="pt-5" style={{ borderTop: "1px solid var(--color-rule)" }}>
-                  <strong className="block text-[16px]" style={{ color: "var(--color-navy)", letterSpacing: "-0.005em" }}>{t.author}</strong>
-                  <span className="block text-[13.5px] mt-1" style={{ color: "var(--color-ink-3)" }}>{t.role}</span>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-        <style>{`
-          .testimonials-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent); }
-          .testimonials-track { display: flex; gap: 28px; width: max-content; align-items: stretch; animation: marquee-x 60s linear infinite; }
-          .testimonials-track:hover { animation-play-state: paused; }
-          .testimonial-card { width: 460px; flex: 0 0 460px; }
-          @media (max-width: 700px) { .testimonial-card { width: 320px; flex: 0 0 320px; } .testimonials-track { gap: 18px; } }
-        `}</style>
-      </section>
-
-      {/* CASOS DE ÉXITO relacionados — fondo blanco: paper (testimonios) → blanco → navy (FAQ) */}
+      {/* CASOS DE ÉXITO por producto — fondo blanco: paper (sectores) → blanco → navy (FAQ) */}
       {cfg.caseStudies && cfg.caseStudies.length > 0 && (
         <section className="py-24" style={{ background: "#fff" }}>
           <div className="flame-container">

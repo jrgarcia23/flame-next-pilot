@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { selectCaseCards } from "@/lib/case-cards";
 import ProductTemplate from "@/components/templates/ProductTemplate";
 import { ProductConfig } from "@/lib/page-content";
 
@@ -99,6 +100,7 @@ export const cfg: ProductConfig = {
   fichaHook: "Cómo el WiFi para invitados capta contactos, segmenta y activa campañas: la ficha de Connect en un PDF.",
 };
 
-export default function ConnectDraft() {
-  return <ProductTemplate cfg={cfg} enHref="/en/connect/" />;
+export default async function ConnectDraft() {
+  const caseStudies = await selectCaseCards({ producto: "Connect" });
+  return <ProductTemplate cfg={{ ...cfg, caseStudies }} enHref="/en/connect/" />;
 }
