@@ -1,8 +1,5 @@
 import Icon from "./Icon";
-import { MEGA_INDUSTRIES, MEGA_INDUSTRIES_EN } from "@/lib/page-content";
-
-// Mismo icono que el supermenú "Por industria" (fuente única: MEGA_INDUSTRIES / _EN), por href.
-const MENU_ICON: Record<string, string> = Object.fromEntries([...MEGA_INDUSTRIES, ...MEGA_INDUSTRIES_EN].map((m) => [m.href, m.iconImg]));
+import { menuIndustryIcon } from "@/lib/page-content";
 
 type Industry = { icon: string; title: string; href: string };
 
@@ -27,8 +24,8 @@ export default function IndustriesList({ items, title, titleHl, sub, tone = "dar
           {items.map((it) => (
             <li key={it.href}>
               <a href={it.href} className="uc-ind-link">
-                {MENU_ICON[it.href]
-                  ? <img src={MENU_ICON[it.href]} alt="" width={36} height={36} className="uc-ind-img" />
+                {menuIndustryIcon(it.href)
+                  ? <img src={menuIndustryIcon(it.href)} alt="" width={36} height={36} className="uc-ind-img" />
                   : <span className="uc-ind-icon"><Icon name={it.icon} className="w-5 h-5" /></span>}
                 <span className="uc-ind-name">{it.title}</span>
                 <Icon name="arrow" className="w-4 h-4 uc-ind-arrow" />

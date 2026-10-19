@@ -399,3 +399,8 @@ export type ProductConfig = {
   casesTitle?: string;
   casesSub?: string;
 };
+
+
+/** Icono del supermenú "Por industria" para un href de sector (fuente única para menú, home, productos y casos de uso). */
+export const menuIndustryIcon = (href: string): string | undefined =>
+  [...MEGA_INDUSTRIES, ...MEGA_INDUSTRIES_EN].find((m) => m.href === href)?.iconImg;

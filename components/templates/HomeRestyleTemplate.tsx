@@ -2,7 +2,7 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import ResizingIframe from "./ResizingIframe";
 import HeroVideo from "@/components/HeroVideo";
-import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL } from "@/lib/page-content";
+import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, menuIndustryIcon } from "@/lib/page-content";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -370,9 +370,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           <div className="industries-track">
             {[...inds, ...inds].map((it, i) => (
               <a key={i} href={it.href} className="industry-card rounded-2xl p-7 flex flex-col" style={{ background: "rgb(255 255 255 / 0.04)", border: "1px solid rgb(255 255 255 / 0.08)", color: "#fff" }}>
-                <div className="industry-icon inline-flex items-center justify-center rounded-[12px] mb-5" style={{ width: 48, height: 48, background: "rgb(49 177 248 / 0.15)", color: "var(--color-accent)" }}>
-                  <Icon name={it.icon} className="w-6 h-6" />
-                </div>
+                <img src={menuIndustryIcon(it.href)} alt="" width={48} height={48} className="mb-5" style={{ width: 48, height: 48, display: "block" }} />
                 <h3 className="text-[19px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.008em" }}>{it.title}</h3>
                 <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "rgb(255 255 255 / 0.68)" }}>{it.desc}</p>
                 <span className="industry-cta mt-5 inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent)" }}>

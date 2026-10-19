@@ -105,6 +105,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       ...PODA_REDIRECTS,
+      // Slugs WP antiguos de sectores EN enlazados desde posts legacy (daban 404).
+      { source: "/en/flame-solution-for-retail-sector", destination: "/en/solution-for-retail-sector/", permanent: true },
+      { source: "/en/flame-solution-for-retail-sector/", destination: "/en/solution-for-retail-sector/", permanent: true },
+      { source: "/en/flame-analytics-solution-for-shopping-malls", destination: "/en/solution-for-shopping-malls/", permanent: true },
+      { source: "/en/flame-analytics-solution-for-shopping-malls/", destination: "/en/solution-for-shopping-malls/", permanent: true },
       // La categoría EN "tips" se queda vacía con la poda (sus 2 posts salen): a "tips-retail".
       { source: "/en/category/tips", destination: "/en/category/tips-retail/", permanent: true },
       { source: "/en/category/tips/page/:page", destination: "/en/category/tips-retail/", permanent: true },
