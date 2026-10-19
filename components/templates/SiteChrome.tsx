@@ -2,15 +2,15 @@ import type { CSSProperties } from "react";
 import Icon from "./Icon";
 import { NAV_ITEMS, NAV_ITEMS_EN, FOOTER_COLS, FOOTER_COLS_EN, FOOTER_LEGAL_ES, FOOTER_LEGAL_EN, FOOTER_COPY, MEGA_PRODUCTS, MEGA_PRODUCTS_EN, MEGA_USE_CASES, MEGA_USE_CASES_EN, MEGA_INDUSTRIES, MEGA_INDUSTRIES_EN, MEGA_COMMUNITY, MEGA_COMMUNITY_EN, NavLeaf } from "@/lib/page-content";
 
-function MegaItem({ it }: { it: NavLeaf }) {
+function MegaItem({ it, compact = false }: { it: NavLeaf; compact?: boolean }) {
   return (
-    <a href={it.href} className="mega-item flex items-start rounded-lg transition" style={{ padding: "10px 12px", gap: 10 }}>
+    <a href={it.href} className={`mega-item flex ${compact ? "items-center" : "items-start"} rounded-lg transition`} style={{ padding: "10px 12px", gap: 10 }}>
       <span className="inline-flex items-center justify-center flex-shrink-0" style={{ width: 36, height: 36 }}>
         <img src={it.iconImg} alt={it.label} width={36} height={36} style={{ width: 36, height: 36, objectFit: "contain", display: "block" }} />
       </span>
-      <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: 1 }}>
+      <span className="flex flex-col min-w-0 flex-1" style={{ paddingTop: compact ? 0 : 1 }}>
         <span className="mega-title" style={{ color: "var(--color-navy)" }}>{it.label}</span>
-        <span className="mega-desc" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>
+        {!compact && <span className="mega-desc" style={{ color: "var(--color-ink-3)" }}>{it.desc}</span>}
       </span>
     </a>
   );
@@ -52,7 +52,7 @@ function MegaPanel({ kind, lang }: { kind: "products" | "solutions" | "community
         </div>
         <div className="industries-col">
           <div className="mega-eyebrow">{eyebrow2}</div>
-          <div className="flex flex-col gap-1">{industries.map((it) => <MegaItem key={it.href} it={it} />)}</div>
+          <div className="flex flex-col gap-1">{industries.map((it) => <MegaItem key={it.href} it={it} compact />)}</div>
         </div>
       </div>
       <style>{`

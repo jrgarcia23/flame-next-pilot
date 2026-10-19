@@ -38,11 +38,11 @@ export const MEGA_USE_CASES: NavLeaf[] = [
 export const MEGA_INDUSTRIES: NavLeaf[] = [
   { label: "Retail",              href: "/es/solucion-para-el-sector-retail/",      iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Más conversión y staffing dinámico en tienda." },
   { label: "Centros comerciales", href: "/es/solucion-para-centros-comerciales/",   iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimiza el mix de inquilinos y la afluencia." },
-  { label: "Supermercados",       href: "/es/supermercados/",                       iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Optimiza layout, operaciones y conversión por zona." },
-  { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Captura datos del huésped y enriquece el CRM." },
+  { label: "Supermercados",       href: "/es/supermercados/",                       iconImg: "/wp-content/uploads/2026/10/iconos-sectores/supermercados.svg",        desc: "Optimiza layout, operaciones y conversión por zona." },
+  { label: "Hoteles",             href: "/es/hoteles/",                             iconImg: "/wp-content/uploads/2026/10/iconos-sectores/hoteles.svg",     desc: "Captura datos del huésped y enriquece el CRM." },
   { label: "Espacios públicos",   href: "/es/espacios-publicos/",                   iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Inteligencia para museos, transporte y campus." },
-  { label: "Banca",               href: "/es/banca/",                               iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Dimensiona cajeros y gestores y reduce las esperas." },
-  { label: "Transporte y aeropuertos", href: "/es/transporte-y-aeropuertos/",       iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Flujos, ocupación y colas en aeropuertos y estaciones." },
+  { label: "Banca",               href: "/es/banca/",                               iconImg: "/wp-content/uploads/2026/10/iconos-sectores/banca.svg",     desc: "Dimensiona cajeros y gestores y reduce las esperas." },
+  { label: "Transporte y aeropuertos", href: "/es/transporte-y-aeropuertos/",       iconImg: "/wp-content/uploads/2026/10/iconos-sectores/transporte.svg", desc: "Flujos, ocupación y colas en aeropuertos y estaciones." },
 ];
 
 export const MEGA_COMMUNITY: NavLeaf[] = [
@@ -85,11 +85,11 @@ export const MEGA_USE_CASES_EN: NavLeaf[] = [
 export const MEGA_INDUSTRIES_EN: NavLeaf[] = [
   { label: "Retail",         href: "/en/solution-for-retail-sector/",   iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "More conversion and dynamic staffing in store." },
   { label: "Shopping malls", href: "/en/solution-for-shopping-malls/",  iconImg: "/wp-content/uploads/2025/09/CC1.png",            desc: "Optimize tenant mix and footfall." },
-  { label: "Supermarkets",   href: "/en/supermarkets/",                 iconImg: "/wp-content/uploads/2025/09/Retail2.png",        desc: "Optimise layout, operations and conversion by zone." },
-  { label: "Hospitality",    href: "/en/hospitality/",                  iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Capture guest data and enrich your CRM." },
+  { label: "Supermarkets",   href: "/en/supermarkets/",                 iconImg: "/wp-content/uploads/2026/10/iconos-sectores/supermercados.svg",        desc: "Optimise layout, operations and conversion by zone." },
+  { label: "Hospitality",    href: "/en/hospitality/",                  iconImg: "/wp-content/uploads/2026/10/iconos-sectores/hoteles.svg",     desc: "Capture guest data and enrich your CRM." },
   { label: "Public venues",  href: "/en/public-venues/",                iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Intelligence for museums, transport and campuses." },
-  { label: "Banking",        href: "/en/banking/",                      iconImg: "/wp-content/uploads/2025/09/Buildings2.png",     desc: "Size tellers and advisers and cut waits." },
-  { label: "Transport & airports", href: "/en/transport-and-airports/", iconImg: "/wp-content/uploads/2025/09/Public_venues2.png", desc: "Passenger flows, capacity and queues in airports and stations." },
+  { label: "Banking",        href: "/en/banking/",                      iconImg: "/wp-content/uploads/2026/10/iconos-sectores/banca.svg",     desc: "Size tellers and advisers and cut waits." },
+  { label: "Transport & airports", href: "/en/transport-and-airports/", iconImg: "/wp-content/uploads/2026/10/iconos-sectores/transporte.svg", desc: "Passenger flows, capacity and queues in airports and stations." },
 ];
 
 export const MEGA_COMMUNITY_EN: NavLeaf[] = [
