@@ -1,4 +1,8 @@
 import Icon from "./Icon";
+import { MEGA_INDUSTRIES, MEGA_INDUSTRIES_EN } from "@/lib/page-content";
+
+// Mismo icono que el supermenú "Por industria" (fuente única: MEGA_INDUSTRIES / _EN), por href.
+const MENU_ICON: Record<string, string> = Object.fromEntries([...MEGA_INDUSTRIES, ...MEGA_INDUSTRIES_EN].map((m) => [m.href, m.iconImg]));
 
 type Industry = { icon: string; title: string; href: string };
 
@@ -23,7 +27,9 @@ export default function IndustriesList({ items, title, titleHl, sub, tone = "dar
           {items.map((it) => (
             <li key={it.href}>
               <a href={it.href} className="uc-ind-link">
-                <span className="uc-ind-icon"><Icon name={it.icon} className="w-5 h-5" /></span>
+                {MENU_ICON[it.href]
+                  ? <img src={MENU_ICON[it.href]} alt="" width={36} height={36} className="uc-ind-img" />
+                  : <span className="uc-ind-icon"><Icon name={it.icon} className="w-5 h-5" /></span>}
                 <span className="uc-ind-name">{it.title}</span>
                 <Icon name="arrow" className="w-4 h-4 uc-ind-arrow" />
               </a>
@@ -41,6 +47,7 @@ export default function IndustriesList({ items, title, titleHl, sub, tone = "dar
         .ind-list--light .uc-ind-link:hover { color: var(--color-accent-deep) !important; }
         .uc-ind-icon { display: inline-flex; width: 36px; height: 36px; align-items: center; justify-content: center; border-radius: 10px; background: rgb(49 177 248 / 0.14); color: var(--color-accent); }
         .ind-list--light .uc-ind-icon { color: var(--color-accent-deep); }
+        .uc-ind-img { width: 36px; height: 36px; display: block; object-fit: contain; }
         .uc-ind-name { font-size: 17px; font-weight: 600; }
         .uc-ind-arrow { color: var(--color-accent); opacity: 0.6; transition: transform 250ms ease, opacity 250ms ease; }
         .uc-ind-link:hover .uc-ind-arrow { transform: translateX(3px); opacity: 1; }
