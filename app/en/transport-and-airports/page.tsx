@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { selectCaseCards } from "@/lib/case-cards";
-import { TRANSPORTE_CFG_EN } from "@/lib/sector-configs-en";
+import { TRANSPORTE_CFG_EN, UC_COMMON } from "@/lib/sector-configs-en";
 
 export const metadata: Metadata = {
   title: "Transport and airports · Flame Analytics",
@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 
 export default async function TransportAirportsSectorEN() {
   const caseStudies = await selectCaseCards({ sector: "transporte-y-aeropuertos" }, { lang: "en" });
-  return <SectorTemplate cfg={{ ...TRANSPORTE_CFG_EN, caseStudies }} enHref="/es/transporte-y-aeropuertos/" currentLang="en" />;
+  return <SectorTemplate cfg={{ ...TRANSPORTE_CFG_EN, ...UC_COMMON, caseStudies }} enHref="/es/transporte-y-aeropuertos/" currentLang="en" />;
 }

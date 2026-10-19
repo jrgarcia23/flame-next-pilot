@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { selectCaseCards } from "@/lib/case-cards";
-import { ESPACIOS_CFG_EN } from "@/lib/sector-configs-en";
+import { ESPACIOS_CFG_EN, UC_COMMON } from "@/lib/sector-configs-en";
 
 export const metadata: Metadata = {
   title: "Public Venues · Flame Analytics",
@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 
 export default async function PublicVenuesSectorEN() {
   const caseStudies = await selectCaseCards({ sector: "espacios-publicos" }, { lang: "en" });
-  return <SectorTemplate cfg={{ ...ESPACIOS_CFG_EN, caseStudies }} enHref="/es/espacios-publicos/" currentLang="en" />;
+  return <SectorTemplate cfg={{ ...ESPACIOS_CFG_EN, ...UC_COMMON, caseStudies }} enHref="/es/espacios-publicos/" currentLang="en" />;
 }
