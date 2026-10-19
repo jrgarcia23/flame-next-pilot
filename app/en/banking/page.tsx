@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { selectCaseCards } from "@/lib/case-cards";
-import { BANCOS_CFG_EN } from "@/lib/sector-configs-en";
+import { BANCOS_CFG_EN, UC_COMMON } from "@/lib/sector-configs-en";
 
 export const metadata: Metadata = {
   title: "Banking · Flame Analytics",
@@ -33,5 +33,5 @@ export const metadata: Metadata = {
 
 export default async function BankingSectorEN() {
   const caseStudies = await selectCaseCards({ sector: "banca" }, { lang: "en" });
-  return <SectorTemplate cfg={{ ...BANCOS_CFG_EN, caseStudies }} enHref="/es/banca/" currentLang="en" />;
+  return <SectorTemplate cfg={{ ...BANCOS_CFG_EN, ...UC_COMMON, caseStudies }} enHref="/es/banca/" currentLang="en" />;
 }
