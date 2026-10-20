@@ -70,7 +70,7 @@ export default function Opciones2() {
       </div></section>
 
       {/* A4 */}
-      <Label id="A4" name="Acordeón horizontal de fotos" note="Nueve franjas verticales con foto. La que señalas se abre y muestra el caso completo. Todas pesan igual hasta que el usuario elige. En móvil, lista vertical." />
+      <Label id="A4" name="Acordeón horizontal de fotos" note="Nueve franjas verticales con foto. Todas empiezan iguales; la que señalas se abre y muestra el caso completo. En móvil, lista vertical." />
       <section className="py-24" style={{ background: "var(--color-navy)" }}><div className="flame-container"><Head dark />
         <div className="a4">
           {UC.map((u) => (
@@ -182,16 +182,14 @@ export default function Opciones2() {
         .a3-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
         .a4 { display: flex; gap: 10px; height: 460px; }
         .a4-p { position: relative; flex: 1 1 0; min-width: 0; border-radius: 18px; overflow: hidden; background-size: cover; background-position: center; color: #fff; text-decoration: none; transition: flex-grow 500ms cubic-bezier(0.22, 1, 0.36, 1); }
-        .a4:hover .a4-p { flex-grow: 0.7; } .a4 .a4-p:hover { flex-grow: 5; }
-        .a4-p:first-child { flex-grow: 5; } .a4:hover .a4-p:first-child:not(:hover) { flex-grow: 0.7; }
+        .a4:hover .a4-p { flex-grow: 0.7; } .a4 .a4-p:hover, .a4 .a4-p:focus-visible { flex-grow: 5; }
         .a4-veil { position: absolute; inset: 0; background: linear-gradient(180deg, rgb(21 22 58 / 0.35), rgb(21 22 58 / 0.92)); }
         .a4-closed { position: absolute; left: 50%; bottom: 22px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 12px; transition: opacity 250ms ease; }
         .a4-closed span { writing-mode: vertical-rl; transform: rotate(180deg); font-weight: 600; font-size: 15px; white-space: nowrap; }
         .a4-open { position: absolute; left: 0; right: 0; bottom: 0; padding: 28px; display: flex; flex-direction: column; gap: 8px; opacity: 0; transition: opacity 300ms ease 100ms; min-width: 320px; }
         .a4-t { font: 500 26px/1.15 var(--font-display); } .a4-i { font-size: 15px; color: rgb(255 255 255 / 0.85); max-width: 380px; }
         .a4-cta { display: inline-flex; gap: 6px; align-items: center; font-weight: 600; font-size: 14px; color: var(--color-accent); margin-top: 6px; }
-        .a4-p:first-child .a4-open, .a4 .a4-p:hover .a4-open { opacity: 1; } .a4-p:first-child .a4-closed, .a4 .a4-p:hover .a4-closed { opacity: 0; }
-        .a4:hover .a4-p:first-child:not(:hover) .a4-open { opacity: 0; } .a4:hover .a4-p:first-child:not(:hover) .a4-closed { opacity: 1; }
+        .a4 .a4-p:hover .a4-open, .a4 .a4-p:focus-visible .a4-open { opacity: 1; } .a4 .a4-p:hover .a4-closed, .a4 .a4-p:focus-visible .a4-closed { opacity: 0; }
         .b2 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
         .b2-col { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid var(--color-rule); padding-bottom: 12px; }
         .b2-top { position: relative; height: 190px; background-size: cover; background-position: center; display: flex; align-items: flex-end; }
@@ -225,7 +223,7 @@ export default function Opciones2() {
         @media (max-width: 1000px) { .a2, .a3-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .a3-row { grid-template-columns: 1fr; } .b2 { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
         @media (max-width: 900px) {
           .a4 { flex-direction: column; height: auto; } .a4-p, .a4-p:first-child, .a4:hover .a4-p, .a4 .a4-p:hover { flex: none; height: 200px; }
-          .a4-closed { display: none; } .a4-open, .a4:hover .a4-p:first-child:not(:hover) .a4-open { opacity: 1; min-width: 0; }
+          .a4-closed { display: none; } .a4-open { opacity: 1 !important; min-width: 0; }
           .d2-row, .d2-row.is-rev, .d4-row { grid-template-columns: 1fr; } .d2-row.is-rev .d2-media, .d4-row.is-rev .d4-photo { order: 0; }
         }
         @media (max-width: 600px) { .a2, .a3-tiles { grid-template-columns: 1fr; } }
