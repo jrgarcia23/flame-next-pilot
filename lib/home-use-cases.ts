@@ -25,3 +25,25 @@ export const HOME_USE_CASES_EN: HomeUseCase[] = [
   { href: "/en/guest-wifi-marketing/", iconImg: "/wp-content/uploads/2025/09/guest_wifi1.png", title: "Guest WiFi marketing", intro: "Captive portals + marketing automation.", desc: "Turn connectivity into engagement.", bullets: ["Custom login flows", "Social login", "Landing pages", "Location-based"] },
   { href: "/en/corporate-wifi-access/", iconImg: "/wp-content/uploads/2025/09/corporate_wifi1.png", title: "Corporate WiFi access", intro: "Secure connectivity for employees and guests.", desc: "Secure, managed connectivity for employees and guests.", bullets: ["Credentials management", "Time-based permissions", "API automation", "Unified access"] },
 ];
+
+// Imágenes reales de cada página de caso de uso: foto del hero y captura del dashboard (imageBigSrc).
+export const HOME_USE_CASE_MEDIA: Record<string, { photo: string; shot: string }> = {
+  "/es/conteo-personas/": { photo: "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/People-Counting_recorte.png" },
+  "/en/people-counting/": { photo: "/wp-content/uploads/2026/01/people_counting-1-1-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/People-Counting_recorte.png" },
+  "/es/analitica-conversion/": { photo: "/wp-content/uploads/2026/01/conversion_analytics.png", shot: "/wp-content/uploads/2026/01/Conversion_analytics_recorte.png" },
+  "/en/conversion-analytics/": { photo: "/wp-content/uploads/2026/01/conversion_analytics.png", shot: "/wp-content/uploads/2026/01/Conversion_analytics_recorte.png" },
+  "/es/comportamiento-del-cliente/": { photo: "/wp-content/uploads/2026/01/Customer_behavior-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Customer_behavior_recorte.png" },
+  "/en/customer-behavior/": { photo: "/wp-content/uploads/2026/01/Customer_behavior-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Customer_behavior_recorte.png" },
+  "/es/gestion-ocupacion/": { photo: "/wp-content/uploads/2026/01/Occupancy_management-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Occupancy-Management_recorte.png" },
+  "/en/occupancy-management/": { photo: "/wp-content/uploads/2026/01/Occupancy_management-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Occupancy-Management_recorte.png" },
+  "/es/analitica-de-colas/": { photo: "/wp-content/uploads/2026/01/Queue_analytics.png", shot: "/wp-content/uploads/2026/01/Queue-Analytics_recorte.png" },
+  "/en/queue-analytic/": { photo: "/wp-content/uploads/2026/01/Queue_analytics.png", shot: "/wp-content/uploads/2026/01/Queue-Analytics_recorte.png" },
+  "/es/gestion-de-aseos/": { photo: "/wp-content/uploads/2026/01/restroom-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Restroom-Management_3.png" },
+  "/en/restroom-management/": { photo: "/wp-content/uploads/2026/01/restroom-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Restroom-Management_3.png" },
+  "/es/dooh/": { photo: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero-v5.webp", shot: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero-v5.webp" },
+  "/en/dooh/": { photo: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero-v5.webp", shot: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/landings/dooh-hero-v5.webp" },
+  "/es/marketing-wifi-para-invitados/": { photo: "/wp-content/uploads/2026/01/guest_wifi-2-scaled-1.png", shot: "/wp-content/uploads/2026/01/Guest_wifi.png" },
+  "/en/guest-wifi-marketing/": { photo: "/wp-content/uploads/2026/01/guest_wifi-2-scaled-1.png", shot: "/wp-content/uploads/2026/01/Guest_wifi.png" },
+  "/es/acceso-wifi-corporativo/": { photo: "/wp-content/uploads/2026/01/corporate_wifi-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Corporate_Wifi_Access_recorte.png" },
+  "/en/corporate-wifi-access/": { photo: "/wp-content/uploads/2026/01/corporate_wifi-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Corporate_Wifi_Access_recorte.png" },
+};
