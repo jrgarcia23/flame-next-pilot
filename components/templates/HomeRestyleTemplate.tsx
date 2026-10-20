@@ -93,6 +93,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
   return (
     <>
       <CtaStyles />
+      {v2 && <style>{`.hv2-eyebrow { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-deep); margin-bottom: 14px; }`}</style>}
       <SiteHeader enHref={enHref} currentLang={currentLang} />
 
       {/* 1. HERO — mismo fondo que el live: navy + foto background + overlay gradient */}
@@ -206,7 +207,6 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
             </div>
           </div>
           <style>{`
-            .hv2-eyebrow { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-deep); margin-bottom: 14px; }
             .hv2-uc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
             .hv2-uc-card { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 16px; background: #fff; border: 1px solid var(--color-rule); color: var(--color-navy); text-decoration: none; transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease; }
             .hv2-uc-card:hover { border-color: rgb(49 177 248 / 0.55); box-shadow: 0 14px 32px -20px rgb(15 23 42 / 0.2); transform: translateY(-2px); }
