@@ -4,6 +4,7 @@ import ResizingIframe from "./ResizingIframe";
 import HeroVideo from "@/components/HeroVideo";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, MEGA_USE_CASES, MEGA_USE_CASES_EN } from "@/lib/page-content";
 import IndustriesList from "./IndustriesList";
+import { HOME_USE_CASES_ES, HOME_USE_CASES_EN } from "@/lib/home-use-cases";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -72,11 +73,16 @@ export type HomeRestyleConfig = {
 // Variante "home v2" (JR, 20-oct-2026): casos de uso como bloque protagonista. Sin `v2` la home es la de siempre.
 export type HomeV2Options = {
   advantages: "compact" | "none";   // ventajas (privacidad/informes/integración) en fila compacta o fuera
+  // "funcs" (JR, 20-oct): pasos (iframe) → ventajas en franja navy → casos de uso formato funcionalidades
+  // → casos de éxito → formulario. Sin productos, CTA strip, industrias ni comunidad.
+  layout?: "grid" | "funcs";
   caseStudies: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>;
 };
 
 export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v2 }: { cfg: HomeRestyleConfig; enHref: string; currentLang?: "es" | "en"; v2?: HomeV2Options }) {
   const useCases = currentLang === "en" ? MEGA_USE_CASES_EN : MEGA_USE_CASES;
+  const funcs = v2?.layout === "funcs";
+  const ucFuncs = currentLang === "en" ? HOME_USE_CASES_EN : HOME_USE_CASES_ES;
   const firstSentence = (txt: string) => { const m = txt.match(/^.*?[.!?](\s|$)/); return (m ? m[0] : txt).trim(); };
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
@@ -167,14 +173,14 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
       </section>
 
       {/* 3. STEPS — iframe del WP original con auto-resize (v2: lo sustituye el bloque de casos de uso) */}
-      {!v2 && (
+      {(!v2 || funcs) && (
       <section style={{ background: "#fff" }}>
         <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
       )}
 
       {/* v2 · CASOS DE USO — rejilla 3×3 con los mismos icono/descripción que el supermenú */}
-      {v2 && (
+      {v2 && !funcs && (
         <section className="py-[80px]" style={{ background: "#fff" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 760, marginBottom: 44 }}>
@@ -215,6 +221,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </section>
       )}
 
+      {!funcs && (<>
       {/* 4. PRODUCTS — 2 columnas: izquierda título/sub/bullets, derecha 3 cards verticales estrechas */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
@@ -268,6 +275,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           .prod3-card:hover .prod3-cta { gap: 10px; }
         `}</style>
       </section>
+
+      </>)}
 
       {!v2 && (<>
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
@@ -354,7 +363,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
       </>)}
 
       {/* v2 · POR QUÉ FLAME — las 3 ventajas en una fila compacta */}
-      {v2?.advantages === "compact" && (
+      {v2?.advantages === "compact" && !funcs && (
         <section className="py-[72px]" style={{ background: "#fff" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 760, marginBottom: 40 }}>
@@ -387,10 +396,116 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </section>
       )}
 
+      {/* v2-funcs · VENTAJAS — franja navy, 3 columnas separadas por líneas (sin cajas) */}
+      {funcs && (
+        <section className="py-[88px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "#fff" }}>
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.10), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.06), transparent 72%)" }} />
+          <div className="flame-container relative z-10">
+            <div className="text-center mx-auto" style={{ maxWidth: 780, marginBottom: 56 }}>
+              <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal hv2-adv-h" style={{ letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
+                dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
+              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{cfg.advantageSub}</p>
+            </div>
+            <div className="hv2-advrow">
+              {[
+                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacyBody, cta: cfg.privacyCta, href: cfg.privacyHref },
+                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsBody, cta: cfg.reportsCta, href: cfg.reportsHref },
+                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationBody, cta: cfg.integrationCta, href: cfg.integrationHref },
+              ].map((a) => (
+                <div key={a.icon} className="hv2-advcol">
+                  <span className="hv2-advcol-icon"><Icon name={a.icon} className="w-9 h-9" /></span>
+                  <h3 className="text-[22px] font-medium mb-3" style={{ color: "#fff", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
+                    {a.title} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{a.hl}</span>
+                  </h3>
+                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{firstSentence(a.body)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .hv2-adv-h { color: #fff; }
+            .hv2-adv-h span { color: var(--color-accent); }
+            .hv2-advrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .hv2-advcol { padding: 4px clamp(20px, 3vw, 44px); border-left: 1px solid rgb(255 255 255 / 0.14); }
+            .hv2-advcol:first-child { border-left: 0; padding-left: 0; }
+            .hv2-advcol:last-child { padding-right: 0; }
+            .hv2-advcol-icon { display: inline-flex; color: var(--color-accent); margin-bottom: 22px; }
+            @media (max-width: 900px) {
+              .hv2-advrow { grid-template-columns: 1fr; gap: 0; }
+              .hv2-advcol, .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid rgb(255 255 255 / 0.14); }
+              .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
+            }
+          `}</style>
+        </section>
+      )}
+
+      {/* v2-funcs · CASOS DE USO con peso — formato "funcionalidades" de las páginas de producto */}
+      {funcs && (
+        <section className="py-24" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="mb-14 max-w-[760px]">
+              <span className="hv2-eyebrow">{currentLang === "en" ? "Use cases" : "Casos de uso"}</span>
+              <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
+                {currentLang === "en" ? <>What do you need to <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>solve in your space?</span></> : <>¿Qué quieres <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>resolver en tu espacio?</span></>}
+              </h2>
+              <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>
+                {currentLang === "en" ? "Pick your challenge and see how Flame measures it." : "Elige tu reto y descubre cómo lo mide Flame."}
+              </p>
+            </div>
+            <div className="grid gap-6 hv2-feat-grid">
+              {ucFuncs.map((u) => (
+                <a key={u.href} href={u.href} className="hv2-feat rounded-2xl p-8 flex flex-col">
+                  <div className="flex items-center gap-4 mb-5">
+                    <img src={u.iconImg} alt="" width={52} height={52} style={{ width: 52, height: 52, display: "block", flexShrink: 0 }} />
+                    <h3 className="text-[22px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{u.title}</h3>
+                  </div>
+                  <p className="text-[16px] leading-[1.55] mb-3 font-medium" style={{ color: "var(--color-navy)" }}>{u.intro}</p>
+                  <p className="text-[15.5px] leading-[1.65] mb-5" style={{ color: "var(--color-ink-2)" }}>{u.desc}</p>
+                  <ul className="grid gap-2 mb-6 hv2-feat-bul">
+                    {u.bullets.map((b) => (
+                      <li key={b} className="flex items-start gap-2 text-[14.5px]" style={{ color: "var(--color-navy)" }}>
+                        <span className="inline-flex items-center justify-center rounded-full mt-1 flex-shrink-0" style={{ width: 18, height: 18, background: "rgb(49 177 248 / 0.14)", color: "var(--color-accent-deep)" }}>
+                          <Icon name="check" className="w-3 h-3" />
+                        </span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <span className="hv2-feat-cta mt-auto inline-flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
+                    {currentLang === "en" ? "Explore use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" />
+                  </span>
+                </a>
+              ))}
+              {/* 10ª pieza: cierra el grid de 9 con la demo (texto del CTA strip actual de la home) */}
+              <a href={t.contactHref} className="hv2-feat-demo rounded-2xl p-8 flex flex-col justify-end">
+                <h3 className="text-[24px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.2 }}>{cfg.ctaStripBold}</h3>
+                <p className="text-[15.5px] leading-[1.6] mb-6" style={{ color: "rgb(255 255 255 / 0.8)" }}>{cfg.ctaStripLight}</p>
+                <span className="cta-btn cta-btn--lg" style={{ alignSelf: "flex-start", background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
+                  {t.requestDemo} <Icon name="arrow" className="w-4 h-4" />
+                </span>
+              </a>
+            </div>
+          </div>
+          <style>{`
+            .hv2-feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .hv2-feat-bul { grid-template-columns: 1fr 1fr; }
+            .hv2-feat { background: #fff; border: 1px solid var(--color-rule); color: inherit; text-decoration: none; transition: transform 300ms ease, background 300ms ease, border-color 300ms ease, box-shadow 300ms ease; }
+            .hv2-feat:hover { transform: translateY(-2px); background: var(--color-paper-soft); border-color: var(--color-rule-strong); box-shadow: 0 10px 26px -16px rgb(15 23 42 / 0.16); }
+            .hv2-feat-cta { transition: gap 300ms ease; }
+            .hv2-feat:hover .hv2-feat-cta { gap: 10px; }
+            .hv2-feat-demo { position: relative; overflow: hidden; min-height: 300px; text-decoration: none; background: linear-gradient(180deg, rgb(21 22 58 / 0.35) 0%, rgb(21 22 58 / 0.92) 100%), url('/wp-content/uploads/2026/01/Characteristics-1.png') center / cover; border: 1px solid var(--color-rule); transition: transform 300ms ease, box-shadow 300ms ease; }
+            .hv2-feat-demo:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -18px rgb(15 23 42 / 0.35); }
+            @media (max-width: 900px) { .hv2-feat-grid { grid-template-columns: 1fr; } }
+            @media (max-width: 480px) { .hv2-feat-bul { grid-template-columns: 1fr; } }
+            @media (prefers-reduced-motion: reduce) { .hv2-feat, .hv2-feat-demo, .hv2-feat-cta { transition: none !important; } }
+          `}</style>
+        </section>
+      )}
+
       {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent
           min-height para igualar alto al CTA strip de SectorTemplate
           (cuyo texto es más largo y por eso queda más alto). */}
-      {cfg.ctaStripBold && (
+      {cfg.ctaStripBold && !funcs && (
         <section className="py-[56px] flex flex-col justify-center" style={{ background: "var(--color-navy)", minHeight: 200 }}>
           <div className="flame-container">
             <div className="flex items-center gap-8 cta-strip-row">
@@ -450,7 +565,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       {/* v2 · CASOS DE ÉXITO destacados (en lugar de testimonios, como en el resto de páginas) */}
       {v2 && v2.caseStudies.length > 0 && (
-        <section className="py-[80px]" style={{ background: "#fff" }}>
+        <section className="py-[80px]" style={{ background: funcs ? "var(--color-paper)" : "#fff" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
               <span className="hv2-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
@@ -533,8 +648,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
       </section>
 
       </>)}
-      {v2 && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
+      {v2 && !funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
 
+      {!funcs && (<>
       {/* 11. COMMUNITY — React puro (no iframe), spacing 100% controlable */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
@@ -563,6 +679,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           .comm-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -18px rgb(15 23 42 / 0.18); }
         `}</style>
       </section>
+
+      </>)}
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
       <section id="contact" className="py-[80px]" style={{ background: "#fff", scrollMarginTop: 80 }}>
