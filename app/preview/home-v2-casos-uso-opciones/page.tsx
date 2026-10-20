@@ -60,7 +60,7 @@ export default function OpcionesCasosUso() {
               </span>
             </a>
             {rest.map((u, k) => (
-              <a key={u.href} href={u.href} className={`opa-tile${k === 2 || k === 5 ? " opa-wide" : ""}`} style={{ backgroundImage: `url('${MEDIA[u.href].photo}')` }}>
+              <a key={u.href} href={u.href} className="opa-tile" style={{ backgroundImage: `url('${MEDIA[u.href].photo}')` }}>
                 <span className="opa-veil" />
                 <span className="opa-body">
                   <img src={u.iconImg} alt="" width={36} height={36} />
@@ -182,6 +182,7 @@ export default function OpcionesCasosUso() {
         /* D */
         .opd { display: flex; flex-direction: column; gap: 72px; }
         .opd-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+        .opd-row.is-rev { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
         .opd-row.is-rev .opd-img { order: 2; }
         .opd-img { aspect-ratio: 16 / 10; border-radius: 20px; background-size: cover; background-position: center top; background-color: var(--color-paper); border: 1px solid var(--color-rule); box-shadow: 0 24px 50px -30px rgb(15 23 42 / 0.35); }
         .opd-list { display: flex; flex-direction: column; border-top: 1px solid var(--color-rule); }
@@ -191,7 +192,7 @@ export default function OpcionesCasosUso() {
         .opd-link strong { font-size: 16.5px; font-weight: 600; }
         .opd-link span span, .opd-link .flex span { font-size: 14px; color: var(--color-ink-2); }
         .opd-arrow { color: var(--color-accent-deep); opacity: 0.6; }
-        @media (max-width: 900px) { .opd-row { grid-template-columns: 1fr; } .opd-row.is-rev .opd-img { order: 0; } }
+        @media (max-width: 900px) { .opd-row, .opd-row.is-rev { grid-template-columns: 1fr; } .opd-row.is-rev .opd-img { order: 0; } }
         @media (prefers-reduced-motion: reduce) { .opa-veil, .opb-card, .opd-link { transition: none !important; } }
       `}</style>
     </main>
