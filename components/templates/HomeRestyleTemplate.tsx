@@ -2,7 +2,8 @@ import Icon from "./Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "./SiteChrome";
 import ResizingIframe from "./ResizingIframe";
 import HeroVideo from "@/components/HeroVideo";
-import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL } from "@/lib/page-content";
+import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, MEGA_USE_CASES, MEGA_USE_CASES_EN } from "@/lib/page-content";
+import IndustriesList from "./IndustriesList";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -68,7 +69,15 @@ export type HomeRestyleConfig = {
   communityCards: Array<{ icon: string; title: string; href: string; img: string }>;
 };
 
-export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }: { cfg: HomeRestyleConfig; enHref: string; currentLang?: "es" | "en" }) {
+// Variante "home v2" (JR, 20-oct-2026): casos de uso como bloque protagonista. Sin `v2` la home es la de siempre.
+export type HomeV2Options = {
+  advantages: "compact" | "none";   // ventajas (privacidad/informes/integración) en fila compacta o fuera
+  caseStudies: Array<{ href: string; img: string; title: string; excerpt: string; date: string }>;
+};
+
+export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v2 }: { cfg: HomeRestyleConfig; enHref: string; currentLang?: "es" | "en"; v2?: HomeV2Options }) {
+  const useCases = currentLang === "en" ? MEGA_USE_CASES_EN : MEGA_USE_CASES;
+  const firstSentence = (txt: string) => { const m = txt.match(/^.*?[.!?](\s|$)/); return (m ? m[0] : txt).trim(); };
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const testimonials = cfg.testimonialsIdx.map(i => TESTIMONIALS_ALL[i]);
@@ -157,10 +166,54 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
-      {/* 3. STEPS — iframe del WP original con auto-resize */}
+      {/* 3. STEPS — iframe del WP original con auto-resize (v2: lo sustituye el bloque de casos de uso) */}
+      {!v2 && (
       <section style={{ background: "#fff" }}>
         <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
+      )}
+
+      {/* v2 · CASOS DE USO — rejilla 3×3 con los mismos icono/descripción que el supermenú */}
+      {v2 && (
+        <section className="py-[80px]" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto" style={{ maxWidth: 760, marginBottom: 44 }}>
+              <span className="hv2-eyebrow">{currentLang === "en" ? "Use cases" : "Casos de uso"}</span>
+              <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
+                {currentLang === "en" ? <>What do you need to <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>solve in your space?</span></> : <>¿Qué quieres <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>resolver en tu espacio?</span></>}
+              </h2>
+              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>
+                {currentLang === "en" ? "Pick your challenge and see how Flame measures it." : "Elige tu reto y descubre cómo lo mide Flame."}
+              </p>
+            </div>
+            <div className="hv2-uc-grid">
+              {useCases.map((u) => (
+                <a key={u.href} href={u.href} className="hv2-uc-card">
+                  <img src={u.iconImg} alt="" width={48} height={48} style={{ width: 48, height: 48, display: "block", flexShrink: 0 }} />
+                  <span className="flex flex-col min-w-0 flex-1">
+                    <span className="hv2-uc-title">{u.label}</span>
+                    <span className="hv2-uc-desc">{u.desc}</span>
+                  </span>
+                  <Icon name="arrow" className="w-4 h-4 hv2-uc-arrow" />
+                </a>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .hv2-eyebrow { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-deep); margin-bottom: 14px; }
+            .hv2-uc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+            .hv2-uc-card { display: flex; align-items: center; gap: 16px; padding: 20px 22px; border-radius: 16px; background: #fff; border: 1px solid var(--color-rule); color: var(--color-navy); text-decoration: none; transition: border-color 250ms ease, box-shadow 250ms ease, transform 250ms ease; }
+            .hv2-uc-card:hover { border-color: rgb(49 177 248 / 0.55); box-shadow: 0 14px 32px -20px rgb(15 23 42 / 0.2); transform: translateY(-2px); }
+            .hv2-uc-title { font-size: 17px; font-weight: 600; line-height: 1.25; }
+            .hv2-uc-desc { font-size: 14px; line-height: 1.45; color: var(--color-ink-3); margin-top: 4px; }
+            .hv2-uc-arrow { color: var(--color-accent-deep); opacity: 0.5; flex-shrink: 0; transition: transform 250ms ease, opacity 250ms ease; }
+            .hv2-uc-card:hover .hv2-uc-arrow { transform: translateX(3px); opacity: 1; }
+            @media (max-width: 1000px) { .hv2-uc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+            @media (max-width: 620px) { .hv2-uc-grid { grid-template-columns: 1fr; } }
+            @media (prefers-reduced-motion: reduce) { .hv2-uc-card, .hv2-uc-arrow { transition: none !important; } }
+          `}</style>
+        </section>
+      )}
 
       {/* 4. PRODUCTS — 2 columnas: izquierda título/sub/bullets, derecha 3 cards verticales estrechas */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
@@ -216,6 +269,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
+      {!v2 && (<>
       {/* 5. ADVANTAGE INTRO — mismo estilo h2 que el header de Products + subtítulo bajo */}
       <section className="pt-[80px] pb-[40px]" style={{ background: "#fff" }}>
         <div className="flame-container">
@@ -297,6 +351,42 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </div>
       </section>
 
+      </>)}
+
+      {/* v2 · POR QUÉ FLAME — las 3 ventajas en una fila compacta */}
+      {v2?.advantages === "compact" && (
+        <section className="py-[72px]" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto" style={{ maxWidth: 760, marginBottom: 40 }}>
+              <h2 className="text-[clamp(28px,2.8vw,40px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
+                dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
+              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.advantageSub}</p>
+            </div>
+            <div className="hv2-adv-grid">
+              {[
+                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacyBody, cta: cfg.privacyCta, href: cfg.privacyHref },
+                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsBody, cta: cfg.reportsCta, href: cfg.reportsHref },
+                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationBody, cta: cfg.integrationCta, href: cfg.integrationHref },
+              ].map((a) => (
+                <div key={a.icon} className="hv2-adv-card">
+                  <span className="hv2-adv-icon"><Icon name={a.icon} className="w-6 h-6" /></span>
+                  <h3 className="text-[20px] font-medium mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
+                    {a.title} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{a.hl}</span>
+                  </h3>
+                  <p className="text-[15px] leading-[1.6] flex-1" style={{ color: "var(--color-ink-2)" }}>{firstSentence(a.body)}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .hv2-adv-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+            .hv2-adv-card { display: flex; flex-direction: column; padding: 28px; border-radius: 16px; background: var(--color-paper); }
+            .hv2-adv-icon { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 12px; background: rgb(49 177 248 / 0.14); color: var(--color-accent-deep); margin-bottom: 18px; }
+            @media (max-width: 900px) { .hv2-adv-grid { grid-template-columns: 1fr; } }
+          `}</style>
+        </section>
+      )}
+
       {/* 8.5 CTA STRIP — bg navy oscuro + texto blanco + botón accent
           min-height para igualar alto al CTA strip de SectorTemplate
           (cuyo texto es más largo y por eso queda más alto). */}
@@ -323,6 +413,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         </section>
       )}
 
+      {!v2 && (<>
       {/* 9. TESTIMONIALS title + marquee */}
       <section className="py-[80px] overflow-hidden" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
@@ -355,6 +446,51 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
         `}</style>
       </section>
 
+      </>)}
+
+      {/* v2 · CASOS DE ÉXITO destacados (en lugar de testimonios, como en el resto de páginas) */}
+      {v2 && v2.caseStudies.length > 0 && (
+        <section className="py-[80px]" style={{ background: "#fff" }}>
+          <div className="flame-container">
+            <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
+              <span className="hv2-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
+              <h2 className="text-[clamp(28px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>
+                {currentLang === "en" ? "Brands already deciding with Flame" : "Marcas que ya deciden con Flame"}
+              </h2>
+            </div>
+            <div className="hv2-cases-grid">
+              {v2.caseStudies.map((cs) => (
+                <a key={cs.href} href={cs.href} className="hv2-case">
+                  <span className="hv2-case-img" style={{ backgroundImage: `url('${cs.img}')` }} />
+                  <span className="hv2-case-body">
+                    <span className="hv2-case-tag">{currentLang === "en" ? "Case study" : "Caso de éxito"}</span>
+                    <span className="hv2-case-title">{cs.title}</span>
+                    <span className="hv2-case-cta">{currentLang === "en" ? "View case" : "Ver caso"} <Icon name="arrow" className="w-3.5 h-3.5" /></span>
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="text-center" style={{ marginTop: 36 }}>
+              <a href={currentLang === "en" ? "/en/category/case-studies/" : "/es/categoria/casos-de-exito/"} className="cta-btn cta-btn--lg" style={{ background: "#fff", color: "var(--color-navy)", border: "1px solid var(--color-rule-strong)", fontWeight: 700 }}>
+                {currentLang === "en" ? "See all case studies" : "Ver todos los casos de éxito"} <Icon name="arrow" className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+          <style>{`
+            .hv2-cases-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+            .hv2-case { display: flex; flex-direction: column; border-radius: 16px; overflow: hidden; border: 1px solid var(--color-rule); background: #fff; color: var(--color-navy); text-decoration: none; transition: box-shadow 250ms ease, transform 250ms ease; }
+            .hv2-case:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -22px rgb(15 23 42 / 0.25); }
+            .hv2-case-img { display: block; aspect-ratio: 1 / 1; background-size: cover; background-position: center; background-color: var(--color-paper); }
+            .hv2-case-body { display: flex; flex-direction: column; gap: 8px; padding: 20px 22px 22px; flex: 1; }
+            .hv2-case-tag { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-accent-deep); }
+            .hv2-case-title { font-size: 17px; font-weight: 600; line-height: 1.35; flex: 1; }
+            .hv2-case-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--color-accent-deep); }
+            @media (max-width: 900px) { .hv2-cases-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; } }
+          `}</style>
+        </section>
+      )}
+
+      {!v2 && (<>
       {/* 10. INDUSTRIES (4 dark cards) */}
       <section className="py-[80px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.08), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.05), transparent 72%)" }} />
@@ -395,6 +531,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es" }:
           @media (max-width: 700px) { .industry-card { width: 260px; flex: 0 0 260px; } .industries-track { gap: 14px; } }
         `}</style>
       </section>
+
+      </>)}
+      {v2 && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
 
       {/* 11. COMMUNITY — React puro (no iframe), spacing 100% controlable */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
