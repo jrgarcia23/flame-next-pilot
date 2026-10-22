@@ -16,7 +16,7 @@ const DownloadGlyph = () => (
   </svg>
 );
 
-export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode }) {
+export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride, afterHero }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode; afterHero?: React.ReactNode }) {
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
@@ -92,6 +92,9 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           @media (max-width: 700px) { .hero-bullets { grid-template-columns: 1fr !important; } }
         `}</style>
       </section>
+
+      {/* Hueco opcional bajo el hero (p. ej. vídeo de producto a todo el ancho) */}
+      {afterHero}
 
       {/* BENEFICIOS (4 cards) */}
       <section className="py-24" style={{ background: "#fff" }}>

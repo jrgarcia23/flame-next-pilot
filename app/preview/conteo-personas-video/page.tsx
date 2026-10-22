@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
+import AnimatedPeopleCountingChart from "@/components/AnimatedPeopleCountingChart";
 import { selectCaseCards } from "@/lib/case-cards";
 import { UseCaseConfig } from "@/lib/page-content";
 
@@ -60,19 +61,24 @@ export default async function ConteoPersonasVideoPreview() {
     <UseCaseTemplate
       cfg={{ ...cfg, caseStudies }}
       enHref="/en/people-counting/"
-      bigSectionVisualOverride={
-        // Vídeo NRF · caso 01 People counting v4 (metraje real + detección), sin voz ni música
-        <video
-          src="/videos/preview/nrf-conteo-v4.mp4"
-          poster="/videos/preview/nrf-conteo-v4-poster.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          aria-label="Flame contando personas en la entrada de una tienda"
-          style={{ width: "100%", height: "auto", display: "block", borderRadius: 14, boxShadow: "0 24px 50px -28px rgb(15 23 42 / 0.45)", background: "#0f1030" }}
-        />
+      bigSectionVisualOverride={<AnimatedPeopleCountingChart />}
+      afterHero={
+        // Vídeo NRF · caso 01 People counting v4 (metraje real + detección), sin voz ni música, a todo el ancho bajo el hero
+        <section style={{ background: "var(--color-navy)", padding: "0 0 clamp(56px, 6vw, 88px)" }}>
+          <div className="flame-container">
+            <video
+              src="/videos/preview/nrf-conteo-v4.mp4"
+              poster="/videos/preview/nrf-conteo-v4-poster.jpg"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label="Flame contando personas en la entrada de una tienda"
+              style={{ width: "100%", height: "auto", display: "block", borderRadius: 18, boxShadow: "0 40px 90px -40px rgb(0 0 0 / 0.7)", border: "1px solid rgb(255 255 255 / 0.12)", background: "#0f1030" }}
+            />
+          </div>
+        </section>
       }
     />
   );
