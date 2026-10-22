@@ -148,9 +148,39 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </div>
       </section>
 
-      {/* v2-funcs · VENTAJAS — justo bajo el hero, 3 columnas separadas por líneas (sin cajas), fondo claro */}
+      {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
+           (mismo aspecto que /es/ pero con animación continua) */}
+      <section className="pt-[50px] pb-[50px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+        <div className="flame-container">
+          <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
+            Trusted by
+          </p>
+          <div className="logo-marquee">
+            <div className="logo-track">
+              {[...LOGOS, ...LOGOS].map(([src, alt], i) => (
+                <img key={i} src={src} alt={alt} className="logo-img" />
+              ))}
+            </div>
+          </div>
+        </div>
+        <style>{`
+          .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
+          .logo-track:hover { animation-play-state: paused; }
+          @media (max-width: 767px) {
+            .logo-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
+            .logo-marquee::-webkit-scrollbar { display: none; }
+            .logo-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
+          }
+          .logo-img { height: 96px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
+          .logo-img:hover { opacity: 1; }
+          @media (max-width: 700px) { .logo-img { height: 78px; } }
+        `}</style>
+      </section>
+
+      {/* v2-funcs · VENTAJAS — tras los logos de clientes (pegados al hero), 3 columnas separadas por líneas, fondo paper */}
       {funcs && (
-        <section className="py-[88px] relative overflow-hidden" style={{ background: "#fff", color: "var(--color-navy)" }}>
+        <section className="py-[88px] relative overflow-hidden" style={{ background: "var(--color-paper)", color: "var(--color-navy)" }}>
           <div className="flame-container relative z-10">
             <div className="text-center mx-auto" style={{ maxWidth: 780, marginBottom: 56 }}>
               <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal hv2-adv-h" style={{ letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
@@ -189,36 +219,6 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           `}</style>
         </section>
       )}
-
-      {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
-           (mismo aspecto que /es/ pero con animación continua) */}
-      <section className="pt-[50px] pb-[50px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
-        <div className="flame-container">
-          <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
-            Trusted by
-          </p>
-          <div className="logo-marquee">
-            <div className="logo-track">
-              {[...LOGOS, ...LOGOS].map(([src, alt], i) => (
-                <img key={i} src={src} alt={alt} className="logo-img" />
-              ))}
-            </div>
-          </div>
-        </div>
-        <style>{`
-          .logo-marquee { overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
-          .logo-track { display: flex; gap: clamp(48px, 5vw, 80px); width: max-content; align-items: center; animation: marquee-x 40s linear infinite; will-change: transform; transform: translate3d(0,0,0); backface-visibility: hidden; }
-          .logo-track:hover { animation-play-state: paused; }
-          @media (max-width: 767px) {
-            .logo-marquee { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; mask-image: none; -webkit-mask-image: none; scrollbar-width: none; }
-            .logo-marquee::-webkit-scrollbar { display: none; }
-            .logo-track { animation: none !important; will-change: auto; transform: none; backface-visibility: visible; padding-inline: 16px; }
-          }
-          .logo-img { height: 96px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
-          .logo-img:hover { opacity: 1; }
-          @media (max-width: 700px) { .logo-img { height: 78px; } }
-        `}</style>
-      </section>
 
       {/* 3. STEPS — iframe del WP original con auto-resize (v2: lo sustituye el bloque de casos de uso) */}
       {(!v2 || funcs) && (
