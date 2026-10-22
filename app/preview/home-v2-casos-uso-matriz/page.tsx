@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
-import { INDUSTRIES, menuIndustryIcon } from "@/lib/page-content";
+import { INDUSTRIES, MEGA_INDUSTRIES } from "@/lib/page-content";
+
+const menuIndustryIcon = (href: string) => MEGA_INDUSTRIES.find((m) => m.href === href)?.iconImg;
 import { HOME_USE_CASES_ES as UC, SECTOR_KEYS, SECTOR_HREF, useCaseSectors } from "@/lib/home-use-cases";
 
 export const metadata: Metadata = {
