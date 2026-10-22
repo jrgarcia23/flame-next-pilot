@@ -563,6 +563,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       </>)}
 
+      {/* v2-funcs · SECTORES — misma lista estática que productos / casos de uso, antes de los casos de éxito */}
+      {funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
+
       {/* v2 · CASOS DE ÉXITO destacados (en lugar de testimonios, como en el resto de páginas) */}
       {v2 && v2.caseStudies.length > 0 && (
         <section className="py-[80px]" style={{ background: funcs ? "var(--color-paper)" : "#fff" }}>
