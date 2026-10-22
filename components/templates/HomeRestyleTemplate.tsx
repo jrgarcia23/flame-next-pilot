@@ -5,6 +5,7 @@ import HeroVideo from "@/components/HeroVideo";
 import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, MEGA_USE_CASES, MEGA_USE_CASES_EN } from "@/lib/page-content";
 import IndustriesList from "./IndustriesList";
 import { HOME_USE_CASES_ES, HOME_USE_CASES_EN } from "@/lib/home-use-cases";
+import InsightsEmberShowcase from "@/components/home/InsightsEmberShowcase";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -146,6 +147,48 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           </div>
         </div>
       </section>
+
+      {/* v2-funcs · VENTAJAS — justo bajo el hero, 3 columnas separadas por líneas (sin cajas), fondo claro */}
+      {funcs && (
+        <section className="py-[88px] relative overflow-hidden" style={{ background: "#fff", color: "var(--color-navy)" }}>
+          <div className="flame-container relative z-10">
+            <div className="text-center mx-auto" style={{ maxWidth: 780, marginBottom: 56 }}>
+              <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal hv2-adv-h" style={{ letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
+                dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
+              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.advantageSub}</p>
+            </div>
+            <div className="hv2-advrow">
+              {[
+                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody), cta: cfg.privacyCta, href: cfg.privacyHref },
+                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody), cta: cfg.reportsCta, href: cfg.reportsHref },
+                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationSummary || firstSentence(cfg.integrationBody), cta: cfg.integrationCta, href: cfg.integrationHref },
+              ].map((a) => (
+                <div key={a.icon} className="hv2-advcol">
+                  <span className="hv2-advcol-icon"><Icon name={a.icon} className="w-9 h-9" /></span>
+                  <h3 className="text-[22px] font-medium mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
+                    {a.title} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{a.hl}</span>
+                  </h3>
+                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "var(--color-ink-2)" }}>{a.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <style>{`
+            .hv2-adv-h { color: var(--color-navy); }
+            .hv2-adv-h span { color: var(--color-accent); }
+            .hv2-advrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+            .hv2-advcol { padding: 4px clamp(20px, 3vw, 44px); border-left: 1px solid var(--color-rule); }
+            .hv2-advcol:first-child { border-left: 0; padding-left: 0; }
+            .hv2-advcol:last-child { padding-right: 0; }
+            .hv2-advcol-icon { display: inline-flex; color: var(--color-accent-deep); margin-bottom: 22px; }
+            @media (max-width: 900px) {
+              .hv2-advrow { grid-template-columns: 1fr; gap: 0; }
+              .hv2-advcol, .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid var(--color-rule); }
+              .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
+            }
+          `}</style>
+        </section>
+      )}
 
       {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
            (mismo aspecto que /es/ pero con animación continua) */}
@@ -400,60 +443,17 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </section>
       )}
 
-      {/* v2-funcs · VENTAJAS — franja navy, 3 columnas separadas por líneas (sin cajas) */}
-      {funcs && (
-        <section className="py-[88px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "#fff" }}>
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 500px at 12% -10%, rgb(49 177 248 / 0.10), transparent 62%), radial-gradient(700px 450px at 88% 110%, rgb(49 177 248 / 0.06), transparent 72%)" }} />
-          <div className="flame-container relative z-10">
-            <div className="text-center mx-auto" style={{ maxWidth: 780, marginBottom: 56 }}>
-              <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal hv2-adv-h" style={{ letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
-                dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
-              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{cfg.advantageSub}</p>
-            </div>
-            <div className="hv2-advrow">
-              {[
-                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody), cta: cfg.privacyCta, href: cfg.privacyHref },
-                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody), cta: cfg.reportsCta, href: cfg.reportsHref },
-                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationSummary || firstSentence(cfg.integrationBody), cta: cfg.integrationCta, href: cfg.integrationHref },
-              ].map((a) => (
-                <div key={a.icon} className="hv2-advcol">
-                  <span className="hv2-advcol-icon"><Icon name={a.icon} className="w-9 h-9" /></span>
-                  <h3 className="text-[22px] font-medium mb-3" style={{ color: "#fff", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
-                    {a.title} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{a.hl}</span>
-                  </h3>
-                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{a.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <style>{`
-            .hv2-adv-h { color: #fff; }
-            .hv2-adv-h span { color: var(--color-accent); }
-            .hv2-advrow { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .hv2-advcol { padding: 4px clamp(20px, 3vw, 44px); border-left: 1px solid rgb(255 255 255 / 0.14); }
-            .hv2-advcol:first-child { border-left: 0; padding-left: 0; }
-            .hv2-advcol:last-child { padding-right: 0; }
-            .hv2-advcol-icon { display: inline-flex; color: var(--color-accent); margin-bottom: 22px; }
-            @media (max-width: 900px) {
-              .hv2-advrow { grid-template-columns: 1fr; gap: 0; }
-              .hv2-advcol, .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid rgb(255 255 255 / 0.14); }
-              .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
-            }
-          `}</style>
-        </section>
-      )}
-
       {/* v2-funcs · CASOS DE USO con peso — formato "funcionalidades" de las páginas de producto */}
       {funcs && (
-        <section className="py-24" style={{ background: "#fff" }}>
+        <section className="py-24" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
             <div className="mb-14 max-w-[760px]">
               <span className="hv2-eyebrow">{currentLang === "en" ? "Use cases" : "Casos de uso"}</span>
               <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
-                {currentLang === "en" ? <>What do you need to <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>solve in your space?</span></> : <>¿Qué quieres <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>resolver en tu espacio?</span></>}
+                {currentLang === "en" ? <>Any space. Any challenge. <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>One Flame solution.</span></> : <>Cualquier espacio. Cualquier reto. <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Una solución Flame.</span></>}
               </h2>
               <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>
-                {currentLang === "en" ? "Pick your challenge and see how Flame measures it." : "Elige tu reto y descubre cómo lo mide Flame."}
+                {currentLang === "en" ? "From people counting to corporate WiFi: whatever your sector or need, we already have the answer. Pick yours." : "Del conteo de personas al WiFi corporativo: sea cual sea tu sector o tu necesidad, ya tenemos la respuesta. Elige la tuya."}
               </p>
             </div>
             <div className="grid gap-6 hv2-feat-grid">
@@ -567,8 +567,11 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       </>)}
 
+      {/* v2-funcs · VALOR DIFERENCIAL — Flame Insights + Ember (informe + chat comentándolo) */}
+      {funcs && <InsightsEmberShowcase lang={currentLang} ctaHref="#contact" />}
+
       {/* v2-funcs · SECTORES — misma lista estática que productos / casos de uso, antes de los casos de éxito */}
-      {funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
+      {funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="light" />}
 
       {/* v2 · CASOS DE ÉXITO destacados (en lugar de testimonios, como en el resto de páginas) */}
       {v2 && v2.caseStudies.length > 0 && (
