@@ -6,6 +6,7 @@ import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, MEGA_USE_CASES,
 import IndustriesList from "./IndustriesList";
 import { HOME_USE_CASES_ES, HOME_USE_CASES_EN } from "@/lib/home-use-cases";
 import InsightsEmberShowcase from "@/components/home/InsightsEmberShowcase";
+import UseCaseAccordion from "@/components/home/UseCaseAccordion";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -443,7 +444,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </section>
       )}
 
-      {/* v2-funcs · CASOS DE USO con peso — formato "funcionalidades" de las páginas de producto */}
+      {/* v2-funcs · CASOS DE USO — acordeón horizontal de fotos (opción A4) */}
       {funcs && (
         <section className="py-24" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
@@ -456,53 +457,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
                 {currentLang === "en" ? "From people counting to corporate WiFi: whatever your sector or need, we already have the answer. Pick yours." : "Del conteo de personas al WiFi corporativo: sea cual sea tu sector o tu necesidad, ya tenemos la respuesta. Elige la tuya."}
               </p>
             </div>
-            <div className="grid gap-6 hv2-feat-grid">
-              {ucFuncs.map((u) => (
-                <a key={u.href} href={u.href} className="hv2-feat rounded-2xl p-8 flex flex-col">
-                  <div className="flex items-center gap-4 mb-5">
-                    <img src={u.iconImg} alt="" width={52} height={52} style={{ width: 52, height: 52, display: "block", flexShrink: 0 }} />
-                    <h3 className="text-[22px] font-semibold" style={{ color: "var(--color-navy)", letterSpacing: "-0.008em", lineHeight: 1.2 }}>{u.title}</h3>
-                  </div>
-                  <p className="text-[16px] leading-[1.55] mb-3 font-medium" style={{ color: "var(--color-navy)" }}>{u.intro}</p>
-                  <p className="text-[15.5px] leading-[1.65] mb-5" style={{ color: "var(--color-ink-2)" }}>{u.desc}</p>
-                  <ul className="grid gap-2 mb-6 hv2-feat-bul">
-                    {u.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-2 text-[14.5px]" style={{ color: "var(--color-navy)" }}>
-                        <span className="inline-flex items-center justify-center rounded-full mt-1 flex-shrink-0" style={{ width: 18, height: 18, background: "rgb(49 177 248 / 0.14)", color: "var(--color-accent-deep)" }}>
-                          <Icon name="check" className="w-3 h-3" />
-                        </span>
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <span className="hv2-feat-cta mt-auto inline-flex items-center gap-1.5 text-[14px] font-semibold" style={{ color: "var(--color-accent-deep)" }}>
-                    {currentLang === "en" ? "Explore use case" : "Ver caso de uso"} <Icon name="arrow" className="w-3.5 h-3.5" />
-                  </span>
-                </a>
-              ))}
-              {/* 10ª pieza: cierra el grid de 9 con la demo (texto del CTA strip actual de la home) */}
-              <a href={t.contactHref} className="hv2-feat-demo rounded-2xl p-8 flex flex-col justify-end">
-                <h3 className="text-[24px] font-semibold mb-3" style={{ color: "#fff", letterSpacing: "-0.01em", lineHeight: 1.2 }}>{cfg.ctaStripBold}</h3>
-                <p className="text-[15.5px] leading-[1.6] mb-6" style={{ color: "rgb(255 255 255 / 0.8)" }}>{cfg.ctaStripLight}</p>
-                <span className="cta-btn cta-btn--lg" style={{ alignSelf: "flex-start", background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>
-                  {t.requestDemo} <Icon name="arrow" className="w-4 h-4" />
-                </span>
-              </a>
-            </div>
+            {/* Opción A4 · acordeón horizontal de fotos (JR, 22-oct) */}
+            <UseCaseAccordion items={ucFuncs} lang={currentLang} />
           </div>
-          <style>{`
-            .hv2-feat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-            .hv2-feat-bul { grid-template-columns: 1fr 1fr; }
-            .hv2-feat { background: #fff; border: 1px solid var(--color-rule); color: inherit; text-decoration: none; transition: transform 300ms ease, background 300ms ease, border-color 300ms ease, box-shadow 300ms ease; }
-            .hv2-feat:hover { transform: translateY(-2px); background: var(--color-paper-soft); border-color: var(--color-rule-strong); box-shadow: 0 10px 26px -16px rgb(15 23 42 / 0.16); }
-            .hv2-feat-cta { transition: gap 300ms ease; }
-            .hv2-feat:hover .hv2-feat-cta { gap: 10px; }
-            .hv2-feat-demo { position: relative; overflow: hidden; min-height: 300px; text-decoration: none; background: linear-gradient(180deg, rgb(21 22 58 / 0.35) 0%, rgb(21 22 58 / 0.92) 100%), url('/wp-content/uploads/2026/01/Characteristics-1.png') center / cover; border: 1px solid var(--color-rule); transition: transform 300ms ease, box-shadow 300ms ease; }
-            .hv2-feat-demo:hover { transform: translateY(-2px); box-shadow: 0 16px 36px -18px rgb(15 23 42 / 0.35); }
-            @media (max-width: 900px) { .hv2-feat-grid { grid-template-columns: 1fr; } }
-            @media (max-width: 480px) { .hv2-feat-bul { grid-template-columns: 1fr; } }
-            @media (prefers-reduced-motion: reduce) { .hv2-feat, .hv2-feat-demo, .hv2-feat-cta { transition: none !important; } }
-          `}</style>
         </section>
       )}
 
