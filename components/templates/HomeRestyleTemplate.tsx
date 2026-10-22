@@ -151,9 +151,9 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       {/* 2. LOGOS — bg navy + título "Trusted by" + logos en colores reales animados en carrusel
            (mismo aspecto que /es/ pero con animación continua) */}
-      <section className="pt-[50px] pb-[50px] relative overflow-hidden" style={{ background: "var(--color-navy)", color: "white" }}>
+      <section className={`${funcs ? "logos-v2" : "pt-[50px] pb-[50px]"} relative overflow-hidden`} style={{ background: "var(--color-navy)", color: "white" }}>
         <div className="flame-container">
-          <p className="text-center mb-8 font-medium" style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
+          <p className={`text-center font-medium ${funcs ? "logos-v2-title" : "mb-8"}`} style={funcs ? undefined : { color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(24px, 2.6vw, 32px)", fontWeight: 500, lineHeight: 1.2 }}>
             Trusted by
           </p>
           <div className="logo-marquee">
@@ -176,6 +176,11 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           .logo-img { height: 96px; width: auto; opacity: 0.92; transition: opacity 280ms ease; flex-shrink: 0; }
           .logo-img:hover { opacity: 1; }
           @media (max-width: 700px) { .logo-img { height: 78px; } }
+          /* home v2: franja de logos más baja (JR, 22-oct) */
+          .logos-v2 { padding: 22px 0 26px; }
+          .logos-v2-title { color: rgb(255 255 255 / 0.7); font-family: var(--font-body); font-size: 12.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 6px; }
+          .logos-v2 .logo-img { height: 60px; }
+          @media (max-width: 700px) { .logos-v2 .logo-img { height: 50px; } }
         `}</style>
       </section>
 
