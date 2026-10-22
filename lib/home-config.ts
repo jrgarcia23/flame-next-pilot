@@ -59,6 +59,9 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   integrationImgAlt: "Diagrama de integraciones de Flame con stack TPV / ERP / BI",
   integrationCta: "Leer más",
   integrationHref: "/es/hypersensor/",
+  privacySummary: "Convierte tus cámaras CCTV actuales en información en tiempo real, sin datos biométricos. Escalable, con menos coste de implantación y pleno cumplimiento de la normativa de protección de datos.",
+  reportsSummary: "Paneles personalizables e informes dinámicos con métricas, mapas de calor y tendencias en tiempo real. Más de 200 KPI adaptados a tu negocio e informes automatizados en todas tus ubicaciones.",
+  integrationSummary: "Se integra con los principales sistemas de CCTV y conteo de personas, y con tu ecosistema de datos: nube, data lakes y analítica empresarial. Implantación más rápida en cada ubicación.",
 
   testimonialsTitle: "Las mejores marcas",
   testimonialsTitleHl: "confían en nosotros",
@@ -138,6 +141,9 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   integrationImgAlt: "Diagram of Flame integrations with POS / ERP / BI stack",
   integrationCta: "Read more",
   integrationHref: "/en/hypersensor/",
+  privacySummary: "Turns your existing CCTV infrastructure into real-time, actionable insights, without biometrics. Scalable, with lower deployment costs and full data protection compliance.",
+  reportsSummary: "Customizable dashboards and dynamic reports with key metrics, heatmaps and real-time trends. Over 200 KPIs tailored to your business and automated reporting across locations.",
+  integrationSummary: "Integrates with leading CCTV and people-counting systems and with your data ecosystem: cloud platforms, data lakes and enterprise analytics. Faster deployment at every location.",
 
   testimonialsTitle: "Trusted by the",
   testimonialsTitleHl: "best brands",

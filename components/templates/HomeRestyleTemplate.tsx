@@ -55,6 +55,10 @@ export type HomeRestyleConfig = {
   integrationImgAlt: string;
   integrationCta: string;
   integrationHref: string;
+  // Resúmenes de las 3 ventajas para la home v2 (misma extensión; resumen fiel de privacyBody/reportsBody/integrationBody)
+  privacySummary?: string;
+  reportsSummary?: string;
+  integrationSummary?: string;
   // TESTIMONIALS
   testimonialsTitle: string;
   testimonialsTitleHl: string;
@@ -408,16 +412,16 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
             </div>
             <div className="hv2-advrow">
               {[
-                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacyBody, cta: cfg.privacyCta, href: cfg.privacyHref },
-                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsBody, cta: cfg.reportsCta, href: cfg.reportsHref },
-                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationBody, cta: cfg.integrationCta, href: cfg.integrationHref },
+                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody), cta: cfg.privacyCta, href: cfg.privacyHref },
+                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody), cta: cfg.reportsCta, href: cfg.reportsHref },
+                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationSummary || firstSentence(cfg.integrationBody), cta: cfg.integrationCta, href: cfg.integrationHref },
               ].map((a) => (
                 <div key={a.icon} className="hv2-advcol">
                   <span className="hv2-advcol-icon"><Icon name={a.icon} className="w-9 h-9" /></span>
                   <h3 className="text-[22px] font-medium mb-3" style={{ color: "#fff", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
                     {a.title} <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>{a.hl}</span>
                   </h3>
-                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{firstSentence(a.body)}</p>
+                  <p className="text-[15.5px] leading-[1.65]" style={{ color: "rgb(255 255 255 / 0.72)" }}>{a.body}</p>
                 </div>
               ))}
             </div>
@@ -568,7 +572,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       {/* v2 · CASOS DE ÉXITO destacados (en lugar de testimonios, como en el resto de páginas) */}
       {v2 && v2.caseStudies.length > 0 && (
-        <section className="py-[80px]" style={{ background: funcs ? "var(--color-paper)" : "#fff" }}>
+        <section className="py-[80px]" style={{ background: "#fff" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
               <span className="hv2-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
@@ -653,7 +657,6 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
       </>)}
       {v2 && !funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="dark" />}
 
-      {!funcs && (<>
       {/* 11. COMMUNITY — React puro (no iframe), spacing 100% controlable */}
       <section className="py-[80px]" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
@@ -682,8 +685,6 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           .comm-card:hover { transform: translateY(-3px); box-shadow: 0 14px 32px -18px rgb(15 23 42 / 0.18); }
         `}</style>
       </section>
-
-      </>)}
 
       {/* 12. FORMULARIO DEMO — mismo patrón que páginas interiores (use cases / sectores) */}
       <section id="contact" className="py-[80px]" style={{ background: "#fff", scrollMarginTop: 80 }}>
