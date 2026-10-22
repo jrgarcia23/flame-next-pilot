@@ -47,3 +47,30 @@ export const HOME_USE_CASE_MEDIA: Record<string, { photo: string; shot: string }
   "/es/acceso-wifi-corporativo/": { photo: "/wp-content/uploads/2026/01/corporate_wifi-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Corporate_Wifi_Access_recorte.png" },
   "/en/corporate-wifi-access/": { photo: "/wp-content/uploads/2026/01/corporate_wifi-1-scaled-1.png", shot: "/wp-content/uploads/2026/01/Corporate_Wifi_Access_recorte.png" },
 };
+
+// Matriz caso de uso × sector (home v2). Fuente: los casos de uso que lista cada página de sector ES
+// (lib/sector-preview-configs.ts + app/es/solucion-para-centros-comerciales) a 22-oct-2026. DOOH no aparece en
+// ninguna página de sector: se marca en los dos sectores que nombra su propia página (centros comerciales y retail).
+export const SECTOR_KEYS = ["centros", "retail", "super", "espacios", "hoteles", "banca", "transporte"] as const;
+export type SectorKey = (typeof SECTOR_KEYS)[number];
+export const SECTOR_HREF: Record<"es" | "en", Record<SectorKey, string>> = {
+  es: { centros: "/es/solucion-para-centros-comerciales/", retail: "/es/solucion-para-el-sector-retail/", super: "/es/supermercados/", espacios: "/es/espacios-publicos/", hoteles: "/es/hoteles/", banca: "/es/banca/", transporte: "/es/transporte-y-aeropuertos/" },
+  en: { centros: "/en/solution-for-shopping-malls/", retail: "/en/solution-for-retail-sector/", super: "/en/supermarkets/", espacios: "/en/public-venues/", hoteles: "/en/hospitality/", banca: "/en/banking/", transporte: "/en/transport-and-airports/" },
+};
+const UC_SECTORS_BY_SLUG: Record<string, SectorKey[]> = {
+  "conteo-personas": ["centros", "retail", "super", "espacios", "banca", "transporte"],
+  "analitica-conversion": ["centros", "retail", "super"],
+  "comportamiento-del-cliente": ["centros", "retail", "super", "espacios", "banca", "transporte"],
+  "gestion-ocupacion": ["centros", "retail", "super", "espacios", "banca", "transporte"],
+  "analitica-de-colas": ["retail", "super", "espacios", "banca", "transporte"],
+  "gestion-de-aseos": ["centros", "retail", "super", "espacios", "transporte"],
+  "dooh": ["centros", "retail"],
+  "marketing-wifi-para-invitados": ["centros", "retail", "super", "espacios", "hoteles", "banca", "transporte"],
+  "acceso-wifi-corporativo": ["centros", "hoteles", "banca", "transporte"],
+};
+const EN_TO_ES: Record<string, string> = { "people-counting": "conteo-personas", "conversion-analytics": "analitica-conversion", "customer-behavior": "comportamiento-del-cliente", "occupancy-management": "gestion-ocupacion", "queue-analytic": "analitica-de-colas", "restroom-management": "gestion-de-aseos", "dooh": "dooh", "guest-wifi-marketing": "marketing-wifi-para-invitados", "corporate-wifi-access": "acceso-wifi-corporativo" };
+/** Sectores en los que aparece un caso de uso (por href ES o EN). */
+export const useCaseSectors = (href: string): SectorKey[] => {
+  const slug = href.split("/").filter(Boolean).pop() || "";
+  return UC_SECTORS_BY_SLUG[EN_TO_ES[slug] || slug] || [];
+};
