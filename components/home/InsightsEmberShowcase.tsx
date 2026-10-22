@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/templates/Icon";
 
 // Bloque "valor diferencial" de la home v2: informe de Flame Insights + Ember (chat IA) comentándolo.
@@ -46,7 +46,16 @@ export default function InsightsEmberShowcase({ lang, ctaHref }: { lang: Lang; c
   const t = T[lang];
   const [step, setStep] = useState(0);      // nº de intercambios mostrados
   const [typing, setTyping] = useState(false);
+  const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+  // La conversación arranca cuando el bloque entra en pantalla (se ve desde el principio)
   useEffect(() => {
+    const el = ref.current; if (!el) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); io.disconnect(); } }, { threshold: 0.35 });
+    io.observe(el); return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!visible) return;
     const reduce = typeof window !== "undefined" && window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     if (reduce) { setStep(t.chat.length); return; }
     let cancelled = false;
@@ -62,11 +71,11 @@ export default function InsightsEmberShowcase({ lang, ctaHref }: { lang: Lang; c
       }
     })();
     return () => { cancelled = true; };
-  }, [t.chat.length]);
+  }, [t.chat.length, visible]);
   const hl = step > 0 ? t.chat[step - 1].hl : "";
 
   return (
-    <section className="ie relative overflow-hidden">
+    <section ref={ref} className="ie relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 520px at 85% 10%, rgb(49 177 248 / 0.16), transparent 60%), radial-gradient(700px 450px at 5% 100%, rgb(49 177 248 / 0.08), transparent 70%)" }} />
       <div className="flame-container relative z-10 ie-grid">
         <div className="ie-copy">
