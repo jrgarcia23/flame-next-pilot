@@ -160,6 +160,9 @@ const nextConfig: NextConfig = {
       { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing",  destination: "/en/category/case-studies/", permanent: true },
       { source: "/en/plaza-eboli-reinventing-malls-proximity-marketing/", destination: "/en/category/case-studies/", permanent: true },
       { source: "/en/new-success-story-customer-loyalty-project-for-small-businesses",  destination: "/en/category/case-studies/", permanent: true },
+      // Oculto a petición de JR (23-oct-2026): entrevista EN a borrador + 301 a la categoría.
+      { source: "/en/michael-naccache-offline-retail-will-never-disappear", destination: "/en/category/interviews/", permanent: true },
+      { source: "/en/michael-naccache-offline-retail-will-never-disappear/", destination: "/en/category/interviews/", permanent: true },
       { source: "/en/new-success-story-customer-loyalty-project-for-small-businesses/", destination: "/en/category/case-studies/", permanent: true },
 
       // ── URLs legacy con prefijo de categoría (formato WP "category-base") ──
