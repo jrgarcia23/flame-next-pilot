@@ -20,6 +20,8 @@ const nextConfig: NextConfig = {
   // por lo que el listado fs.readdir aquí queda vacío en runtime hasta que
   // se refactorice admin/media para leer del bucket de Supabase.
   outputFileTracingExcludes: {
+    // public/media (~80 MB de WebP del blog) es estático: nunca debe entrar en una función.
+    "*": ["./public/media/**"],
     "/admin/media": [
       "./public/wp-content/**",
       "./public/_legacy-wp/**",
@@ -43,6 +45,16 @@ const nextConfig: NextConfig = {
       // JS/CSS/fuentes de Next: se dejan RASTREAR (robots.txt ya no bloquea /_next/,
       // auditoría de indexación 14-oct-2026: Google y Bing necesitan el CSS/JS para
       // renderizar) pero NO indexar (GSC tenía 13 chunks .js/.css con impresiones).
+      // Imágenes del blog en WebP (31-oct-2026): antes se servían los originales desde
+      // Supabase Storage y agotaron la cuota de salida del plan gratuito. Caché larga en
+      // navegador y CDN de Vercel; si se cambia una imagen, cambiarle el nombre.
+      {
+        source: "/media/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=2592000, stale-while-revalidate=86400" },
+          { key: "X-Robots-Tag", value: "noindex" },
+        ],
+      },
       {
         source: "/_next/static/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex" }],
