@@ -2911,7 +2911,7 @@
         "name": "Case Studies"
       },
       "link_legacy": "https://flameanalytics.com/en/decathlon-measure-and-improve-in-the-retail-sector/",
-      "status": "published"
+      "status": "draft"
     },
     {
       "id": 35348,
@@ -7722,7 +7722,7 @@
         "name": "Casos de éxito"
       },
       "link_legacy": "https://flameanalytics.com/es/decathlon-medir-y-mejorar-en-el-sector-retail/",
-      "status": "published",
+      "status": "draft",
       "thumbnail": "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/case-studies/2026/09/decatlon-en-mu2js4l9.png"
     },
     {
