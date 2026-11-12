@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import UseCaseTemplate from "@/components/templates/UseCaseTemplate";
 import Icon from "@/components/templates/Icon";
 import { UseCaseConfig } from "@/lib/page-content";
+import { EMBER_VIDEO, EMBER_TRANSCRIPCION as TRANSCRIPCION } from "@/lib/ember-ai";
 
 // Página de Ember AI (asistente para visitantes de centros comerciales), montada como vista previa sin indexar.
 // Los textos salen del vídeo y de la presentación «Ember AI: cómo funciona» (12-nov-2026).
 // Title, descripción, H1 y H2 según el criterio del agente SEO (12-nov-2026). Al publicarla de verdad:
 // ruta /es/asistente-ia-centros-comerciales/ (EN /en/ai-assistant-for-shopping-malls/), quitar noindex y «[DRAFT]»,
-// añadir canonical y hreflang, par en lib/lang-pairs.ts y sitemap, y mover el vídeo fuera de /videos/preview/.
+// añadir canonical y hreflang, par en lib/lang-pairs.ts y sitemap, (el vídeo ya está en /videos/ember-ai/, compartido con /es/ember-ai/).
 const META_DESC = "Ember AI responde a los visitantes de tu centro comercial por chat o WhatsApp: tiendas, rutas sobre el plano, ofertas y horarios. Sin descargar nada.";
 export const metadata: Metadata = {
   title: "[DRAFT] Asistente de IA para centros comerciales · Ember AI",
@@ -70,29 +71,14 @@ const cfg: UseCaseConfig = {
   ],
 };
 
-// Locución del vídeo, tal cual.
-const TRANSCRIPCION = [
-  "Así funciona Ember AI, el asistente de tu centro comercial.",
-  "En el centro, el visitante escanea el código QR de un cartel con la cámara de su móvil.",
-  "También puede entrar desde la web del centro, o al conectarse al WiFi de invitados. Siempre, sin descargar nada.",
-  "Y elige dónde hablar: en el chat del propio centro, o por WhatsApp. Pregunta con sus palabras, y el asistente le responde al momento.",
-  "Si quiere ir, le indica la planta y el local, y le dibuja la ruta sobre el plano desde el punto donde está, con indicaciones paso a paso.",
-  "También puede preguntar por las ofertas del día, o pedir una recomendación para comer. El asistente contesta con el contenido de tu centro, en el idioma del visitante. Y al terminar, le pide una valoración.",
-  "Todo se gestiona desde tu panel de Flame, que se integra con las herramientas que tu centro ya usa: la web y la app, los mapas, el WiFi de invitados, el CRM y WhatsApp.",
-  "Así, las tiendas, las ofertas y los eventos del asistente se actualizan solos, sin trabajo manual.",
-  "Tú decides cómo se presenta: su figura, los colores, el saludo, y hasta versiones de temporada, como Navidad o Black Friday.",
-  "Para ponerlo en marcha, creas un cartel para cada punto del centro, con un código QR para el chat y otro para WhatsApp. Y pegas una línea de código en tu web.",
-  "Y cada conversación te deja información: qué preguntan los visitantes, qué buscan y no encuentran, y desde qué cartel lo hacen.",
-  "Ember AI, de Flame Analytics. Pide una demo.",
-];
 
 const VIDEO_LD = {
   "@context": "https://schema.org",
   "@type": "VideoObject",
   name: "Ember AI: cómo funciona el asistente de IA para centros comerciales",
   description: META_DESC,
-  thumbnailUrl: "https://www.flameanalytics.com/videos/preview/ember-ai-como-funciona-poster.jpg",
-  contentUrl: "https://www.flameanalytics.com/videos/preview/ember-ai-como-funciona.mp4",
+  thumbnailUrl: "https://www.flameanalytics.com" + EMBER_VIDEO.poster,
+  contentUrl: "https://www.flameanalytics.com" + EMBER_VIDEO.src,
   uploadDate: "2026-11-12",
   duration: "PT2M3S",
   inLanguage: "es",
@@ -170,8 +156,8 @@ function AfterHero() {
               Ember AI, en <span style={HL}>dos minutos</span>
             </h2>
             <video
-              src="/videos/preview/ember-ai-como-funciona.mp4"
-              poster="/videos/preview/ember-ai-como-funciona-poster.jpg"
+              src={EMBER_VIDEO.src}
+              poster={EMBER_VIDEO.poster}
               controls
               playsInline
               preload="metadata"
