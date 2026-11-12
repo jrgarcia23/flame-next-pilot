@@ -5,30 +5,34 @@ import { UseCaseConfig } from "@/lib/page-content";
 
 // Página de Ember AI (asistente para visitantes de centros comerciales), montada como vista previa sin indexar.
 // Los textos salen del vídeo y de la presentación «Ember AI: cómo funciona» (12-nov-2026).
+// Title, descripción, H1 y H2 según el criterio del agente SEO (12-nov-2026). Al publicarla de verdad:
+// ruta /es/asistente-ia-centros-comerciales/ (EN /en/ai-assistant-for-shopping-malls/), quitar noindex y «[DRAFT]»,
+// añadir canonical y hreflang, par en lib/lang-pairs.ts y sitemap, y mover el vídeo fuera de /videos/preview/.
+const META_DESC = "Ember AI responde a los visitantes de tu centro comercial por chat o WhatsApp: tiendas, rutas sobre el plano, ofertas y horarios. Sin descargar nada.";
 export const metadata: Metadata = {
-  title: "[DRAFT] Ember AI: asistente virtual para centros comerciales · Flame Analytics",
-  description:
-    "Vista previa interna: Ember AI responde a los visitantes de tu centro comercial por chat o WhatsApp, les lleva hasta la tienda y te cuenta qué buscan.",
+  title: "[DRAFT] Asistente de IA para centros comerciales · Ember AI",
+  description: META_DESC,
   robots: { index: false, follow: false },
 };
 
 const cfg: UseCaseConfig = {
-  metaTitle: "Ember AI: asistente virtual para centros comerciales · Flame Analytics",
-  metaDescription: "Ember AI responde a los visitantes de tu centro comercial por chat o WhatsApp, les lleva hasta la tienda y te cuenta qué buscan.",
-  heroTitle: "Ember AI: el asistente de tu centro comercial",
+  metaTitle: "Asistente de IA para centros comerciales · Ember AI",
+  metaDescription: META_DESC,
+  heroTitle: "Ember AI: el asistente de IA de tu centro comercial",
   heroBgImage: "/ember-ai/hero.webp",
   heroBgPosition: "right center",
-  heroSub: "Responde a tus visitantes, les lleva hasta la tienda y te cuenta qué buscan.",
+  heroSub: "Ember AI es el asistente de IA para los visitantes de tu centro comercial. Responde por el chat del centro o por WhatsApp a lo que preguntan: dónde está una tienda, cómo llegar, qué ofertas hay o a qué hora abre. Y a ti te cuenta qué buscan y qué no encuentran.",
   heroBullets: ["Sin descargar nada", "Chat del centro o WhatsApp", "Ruta sobre el plano", "Hasta seis idiomas"],
   imageBigSrc: "/ember-ai/entrada-cartel.webp",
   imageBigAlt: "Integraciones de Flame con las herramientas del centro comercial",
   bigSectionTitle: "Se integra con todo tu",
   bigSectionTitleHl: "ecosistema",
+  bigSectionEyebrow: "Integraciones con CRM, Guest WiFi, mapas y wayfinding, web y app",
   bigSectionPara1: "Flame se conecta con las herramientas que tu centro ya usa: los datos entran y salen sin trabajo manual.",
   bigSectionPara2: "Así, las tiendas, las ofertas y los eventos del asistente se actualizan solos. Integración mediante API abierta, conectores y feeds de datos.",
   bigSectionBullets: ["Un solo panel", "API abierta", "Conectores", "Feeds de datos"],
-  benefitsTitle: "por tus visitantes",
-  benefitsTitleHl: "Lo que hace",
+  benefitsTitle: "el asistente virtual: tiendas, rutas, ofertas y horarios",
+  benefitsTitleHl: "Qué responde",
   benefitsSub: "El visitante pregunta con sus palabras y el asistente le responde al momento, con el contenido de tu centro.",
   benefits: [
     { icon: "journey",  title: "Le lleva hasta la tienda desde donde está", desc: "Planta, local, ruta sobre el plano e indicaciones paso a paso." },
@@ -36,7 +40,7 @@ const cfg: UseCaseConfig = {
     { icon: "users",    title: "En su idioma",                              desc: "Español, inglés, francés, portugués, catalán y gallego. Tú eliges cuáles activas." },
     { icon: "grid",     title: "Con un menú de accesos directos",           desc: "Tiendas, eventos, horario y aparcamiento a un toque, además de las preguntas sugeridas." },
   ],
-  metricsTitle: "Lo gestionas todo desde tu panel de",
+  metricsTitle: "Contenido, imagen y analítica de conversaciones, desde el panel de",
   metricsTitleHl: "Flame",
   metricsSub: "Tú decides qué sabe y cómo se ve. Y cada conversación te deja información: qué preguntan los visitantes, qué buscan y no encuentran, y desde qué cartel lo hacen.",
   metrics: [
@@ -58,7 +62,50 @@ const cfg: UseCaseConfig = {
   ],
   ctaStripBold: "El asistente de tu centro comercial.",
   ctaStripLight: "Pide una demo con el contenido de tu centro.",
+  relatedGuidesTitle: "Más sobre centros comerciales y WiFi de invitados",
+  relatedGuides: [
+    { href: "/es/solucion-para-centros-comerciales/", tag: "Sector", title: "Analítica para centros comerciales", desc: "Big data e IA para optimizar el tenant mix y la experiencia del visitante." },
+    { href: "/es/marketing-wifi-para-invitados/", tag: "Producto", title: "Portal cautivo del WiFi de invitados", desc: "Convierte tu WiFi para invitados en un canal de marketing." },
+    { href: "/es/recorrido-del-cliente/", tag: "Producto", title: "Recorrido del visitante", desc: "Recorridos y tiempo de permanencia dentro del centro." },
+  ],
 };
+
+// Locución del vídeo, tal cual.
+const TRANSCRIPCION = [
+  "Así funciona Ember AI, el asistente de tu centro comercial.",
+  "En el centro, el visitante escanea el código QR de un cartel con la cámara de su móvil.",
+  "También puede entrar desde la web del centro, o al conectarse al WiFi de invitados. Siempre, sin descargar nada.",
+  "Y elige dónde hablar: en el chat del propio centro, o por WhatsApp. Pregunta con sus palabras, y el asistente le responde al momento.",
+  "Si quiere ir, le indica la planta y el local, y le dibuja la ruta sobre el plano desde el punto donde está, con indicaciones paso a paso.",
+  "También puede preguntar por las ofertas del día, o pedir una recomendación para comer. El asistente contesta con el contenido de tu centro, en el idioma del visitante. Y al terminar, le pide una valoración.",
+  "Todo se gestiona desde tu panel de Flame, que se integra con las herramientas que tu centro ya usa: la web y la app, los mapas, el WiFi de invitados, el CRM y WhatsApp.",
+  "Así, las tiendas, las ofertas y los eventos del asistente se actualizan solos, sin trabajo manual.",
+  "Tú decides cómo se presenta: su figura, los colores, el saludo, y hasta versiones de temporada, como Navidad o Black Friday.",
+  "Para ponerlo en marcha, creas un cartel para cada punto del centro, con un código QR para el chat y otro para WhatsApp. Y pegas una línea de código en tu web.",
+  "Y cada conversación te deja información: qué preguntan los visitantes, qué buscan y no encuentran, y desde qué cartel lo hacen.",
+  "Ember AI, de Flame Analytics. Pide una demo.",
+];
+
+const VIDEO_LD = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  name: "Ember AI: cómo funciona el asistente de IA para centros comerciales",
+  description: META_DESC,
+  thumbnailUrl: "https://www.flameanalytics.com/videos/preview/ember-ai-como-funciona-poster.jpg",
+  contentUrl: "https://www.flameanalytics.com/videos/preview/ember-ai-como-funciona.mp4",
+  uploadDate: "2026-11-12",
+  duration: "PT2M3S",
+  inLanguage: "es",
+  transcript: TRANSCRIPCION.join(" "),
+};
+
+// Cuatro fases del cierre de la presentación.
+const PASOS = [
+  { n: "01", title: "Conecta",     desc: "Tus fuentes: web, feed, hoja de cálculo o plano." },
+  { n: "02", title: "Personaliza", desc: "Nombre, saludo, colores y figura." },
+  { n: "03", title: "Publica",     desc: "Carteles con QR para el chat y WhatsApp, y código en tu web." },
+  { n: "04", title: "Mide",        desc: "Preguntas, búsquedas sin respuesta y satisfacción." },
+];
 
 // Textos literales del diseño «Se integra con todo tu ecosistema».
 const ECO: Array<{ icon: string; title: string; desc: string; chips: string[] }> = [
@@ -73,7 +120,7 @@ const ECO: Array<{ icon: string; title: string; desc: string; chips: string[] }>
 const ENTRADAS = [
   { img: "/ember-ai/entrada-cartel.webp", alt: "Cartel con el código QR del asistente pegado en el escaparate de una tienda", title: "Cartel con QR",     desc: "Lo escanea con la cámara del móvil, en cualquier punto del centro." },
   { img: "/ember-ai/entrada-web.webp",    alt: "Web del centro con el botón del asistente y el chat abierto",                 title: "Web del centro",    desc: "Un botón en la página, con una línea de código." },
-  { img: "/ember-ai/entrada-wifi.webp",   alt: "Portal del WiFi de invitados con el botón del asistente",                     title: "WiFi de invitados", desc: "Desde el portal cautivo, al conectarse." },
+  { img: "/ember-ai/entrada-wifi.webp",   alt: "Portal del WiFi de invitados con el botón del asistente",                     title: "WiFi de invitados", desc: "Desde el portal cautivo, al conectarse.", href: "/es/marketing-wifi-para-invitados/", hrefLabel: "Portal cautivo del WiFi de invitados" },
 ];
 
 const CANALES = [
@@ -131,6 +178,15 @@ function AfterHero() {
               aria-label="Vídeo: cómo funciona Ember AI, el asistente para visitantes de centros comerciales"
               style={{ width: "100%", height: "auto", aspectRatio: "16 / 9", display: "block", borderRadius: 18, boxShadow: "0 40px 90px -40px rgb(0 0 0 / 0.7)", border: "1px solid rgb(255 255 255 / 0.12)", background: "#0f1030" }}
             />
+            <details className="ember-tr" style={{ marginTop: 22 }}>
+              <summary className="text-[15px] font-semibold" style={{ color: "rgb(255 255 255 / 0.85)", cursor: "pointer" }}>Transcripción del vídeo</summary>
+              <div style={{ marginTop: 14, maxWidth: "78ch" }}>
+                {TRANSCRIPCION.map((t, i) => (
+                  <p key={i} className="text-[15.5px] leading-[1.7]" style={{ color: "rgb(255 255 255 / 0.72)", marginBottom: 10 }}>{t}</p>
+                ))}
+              </div>
+            </details>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(VIDEO_LD) }} />
           </div>
         </div>
       </section>
@@ -140,10 +196,10 @@ function AfterHero() {
         <div className="flame-container">
           <div className="text-center mb-14 mx-auto" style={{ maxWidth: 760 }}>
             <h2 className={H2_CLASS} style={{ ...H2, color: "var(--color-navy)" }}>
-              El visitante entra <span style={HL}>desde donde esté</span>
+              <span style={HL}>Tres formas de entrar:</span> código QR, web del centro y WiFi de invitados
             </h2>
             <p className="mt-5 text-[clamp(17px,1.25vw,19px)] leading-relaxed" style={{ color: "var(--color-ink-2)" }}>
-              Desde un cartel, desde la web del centro o al conectarse al WiFi. Sin descargar nada.
+              El visitante entra desde donde esté: desde un cartel, desde la web del centro o al conectarse al WiFi. Sin descargar nada.
             </p>
           </div>
           <div className="ent-grid">
@@ -153,6 +209,11 @@ function AfterHero() {
                 <div style={{ padding: "22px 26px 26px" }}>
                   <h3 className="text-[21px] font-semibold mb-2" style={{ color: "var(--color-navy)", lineHeight: 1.25 }}>{e.title}</h3>
                   <p className="text-[16px] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{e.desc}</p>
+                  {"href" in e && e.href && (
+                    <a href={e.href} className="inline-flex items-center gap-1.5 text-[14.5px] font-semibold" style={{ color: "var(--color-accent-deep)", marginTop: 12 }}>
+                      {e.hrefLabel} <Icon name="arrow" className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -179,7 +240,7 @@ function AfterHero() {
           <div className="can-grid">
             <div>
               <h2 className={`${H2_CLASS} mb-5`} style={{ ...H2, color: "var(--color-navy)" }}>
-                Por el chat del centro o por <span style={HL}>WhatsApp</span>
+                Chat del centro o chatbot de <span style={HL}>WhatsApp</span>, sin descargar ninguna app
               </h2>
               <p className="text-[clamp(17px,1.25vw,19px)] leading-relaxed mb-9" style={{ color: "var(--color-ink-2)" }}>
                 Elige el canal y pregunta con sus palabras.
@@ -222,6 +283,32 @@ function AfterHero() {
   );
 }
 
+function PuestaEnMarcha() {
+  return (
+    <section className="py-24" style={{ background: "var(--color-navy)", color: "#fff" }}>
+      <div className="flame-container">
+        <h2 className={`${H2_CLASS} text-center mx-auto mb-14`} style={{ ...H2, color: "#fff", maxWidth: 820 }}>
+          Cómo <span style={HL}>poner en marcha</span> el asistente en tu centro comercial
+        </h2>
+        <ol className="pasos-grid" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+          {PASOS.map((p) => (
+            <li key={p.n} className="rounded-2xl" style={{ background: "var(--color-navy-soft)", border: "1px solid rgb(255 255 255 / 0.1)", padding: "26px 26px 30px" }}>
+              <span className="text-[28px] font-medium" style={{ display: "block", color: "var(--color-accent)", fontFamily: "var(--font-display)", lineHeight: 1 }}>{p.n}</span>
+              <h3 className="text-[21px] font-semibold" style={{ color: "#fff", margin: "16px 0 8px", lineHeight: 1.25 }}>{p.title}</h3>
+              <p className="text-[16px] leading-[1.6]" style={{ color: "rgb(255 255 255 / 0.78)" }}>{p.desc}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <style>{`
+        .pasos-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+        @media (max-width: 1000px) { .pasos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 560px) { .pasos-grid { grid-template-columns: 1fr; } }
+      `}</style>
+    </section>
+  );
+}
+
 export default function EmberAiPreview() {
-  return <UseCaseTemplate cfg={cfg} enHref="/en/" bigSectionVisualOverride={<EcoGrid />} afterHero={<AfterHero />} />;
+  return <UseCaseTemplate cfg={cfg} enHref="/en/" bigSectionVisualOverride={<EcoGrid />} afterHero={<AfterHero />} afterMetrics={<PuestaEnMarcha />} />;
 }
