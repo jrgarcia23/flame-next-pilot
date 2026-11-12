@@ -109,11 +109,11 @@ const PASOS = [
 
 // Textos literales del diseño «Se integra con todo tu ecosistema».
 const ECO: Array<{ icon: string; title: string; desc: string; chips: string[] }> = [
-  { icon: "users",       title: "CRM y fidelización",   desc: "Cada visita enriquece la ficha de tu cliente.",            chips: ["CRM", "Fidelización"] },
+  { icon: "users",       title: "CRM y fidelización",   desc: "Cada visita enriquece la ficha de tu cliente.",            chips: ["HubSpot", "Salesforce", "Placewise", "…"] },
   { icon: "wifi",        title: "Guest WiFi",           desc: "Une el registro WiFi con lo que buscan tus visitantes.",   chips: ["Portal cautivo", "Registro"] },
   { icon: "connect",     title: "Mensajería",           desc: "Atiende a tus visitantes en el canal que ya usan.",        chips: ["WhatsApp"] },
   { icon: "journey",     title: "Mapas y wayfinding",   desc: "Rutas sobre el plano y posicionamiento indoor.",           chips: ["Situm", "Mappedin", "Pointr"] },
-  { icon: "mall",        title: "Web y app del centro", desc: "Tiendas, ofertas y eventos en todos tus canales.",         chips: ["Placewise", "Web", "App"] },
+  { icon: "mall",        title: "Web y app del centro", desc: "Tiendas, ofertas y eventos en todos tus canales.",         chips: ["Web", "App"] },
   { icon: "integration", title: "Datos y sistemas",     desc: "API abierta: tus datos entran y salen, sin silos.",        chips: ["API", "Bases de datos"] },
 ];
 
