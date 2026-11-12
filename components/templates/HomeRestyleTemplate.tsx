@@ -6,7 +6,8 @@ import { LOGOS, INDUSTRIES, INDUSTRIES_EN, UI, TESTIMONIALS_ALL, MEGA_USE_CASES,
 import IndustriesList from "./IndustriesList";
 import { HOME_USE_CASES_ES, HOME_USE_CASES_EN } from "@/lib/home-use-cases";
 import InsightsEmberShowcase from "@/components/home/InsightsEmberShowcase";
-import UseCaseAccordion from "@/components/home/UseCaseAccordion";
+import UseCaseTabs from "@/components/home/UseCaseTabs";
+import ProcessLinear from "@/components/home/ProcessLinear";
 import DemoFormInline from "@/components/DemoFormInline";
 
 export type HomeRestyleConfig = {
@@ -22,6 +23,15 @@ export type HomeRestyleConfig = {
   stepsTitleHl: string;         // "para Retail" accent
   stepsSub?: string;
   steps: Array<{ iconImg: string; bgImg?: string; title: string; desc: string }>;
+  // home v2 · proceso (ProcessLinear): sectores que rotan en el titular (empieza en stepsTitleHl) y frase de
+  // Ember AI que se añade destacada al final del texto del paso 3. "Ember AI" se resalta dentro de la frase.
+  stepsTitleRotate?: string[];
+  stepsEmber?: string;
+  // home v2 · diferenciadores (4 columnas, mismo diseño que las ventajas). icon = nombre de Icon.
+  diff?: Array<{ icon: string; title: string; titleHl: string; body: string }>;
+  // home v2 · bloque Ember AI como producto (InsightsEmberShowcase): textos de la columna izquierda
+  // y nombre del asistente en la cabecera del chat.
+  ember?: { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; chatName: string; chatStatus: string };
   // PRODUCTS BLOCK
   productsTitle: string;
   productsTitleHl: string;
@@ -193,12 +203,13 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
                 dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
               <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.advantageSub}</p>
             </div>
-            <div className="hv2-advrow">
-              {[
-                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody), cta: cfg.privacyCta, href: cfg.privacyHref },
-                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody), cta: cfg.reportsCta, href: cfg.reportsHref },
-                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationSummary || firstSentence(cfg.integrationBody), cta: cfg.integrationCta, href: cfg.integrationHref },
-              ].map((a) => (
+            {/* Diferenciadores (cfg.diff, 4 columnas) o, si no hay, las 3 ventajas de antes */}
+            <div className={`hv2-advrow${cfg.diff ? " is-4" : ""}`}>
+              {(cfg.diff ? cfg.diff.map((d) => ({ icon: d.icon, title: d.title, hl: d.titleHl, body: d.body })) : [
+                { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody) },
+                { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody) },
+                { icon: "integration", title: cfg.integrationTitle, hl: cfg.integrationTitleHl, body: cfg.integrationSummary || firstSentence(cfg.integrationBody) },
+              ]).map((a) => (
                 <div key={a.icon} className="hv2-advcol">
                   <span className="hv2-advcol-icon"><Icon name={a.icon} className="w-9 h-9" /></span>
                   <h3 className="text-[22px] font-medium mb-3" style={{ color: "var(--color-navy)", letterSpacing: "-0.012em", lineHeight: 1.25, fontFamily: "var(--font-display)" }}>
@@ -217,17 +228,39 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
             .hv2-advcol:first-child { border-left: 0; padding-left: 0; }
             .hv2-advcol:last-child { padding-right: 0; }
             .hv2-advcol-icon { display: inline-flex; color: var(--color-accent-deep); margin-bottom: 22px; }
+            .hv2-advrow.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+            .hv2-advrow.is-4 .hv2-advcol { padding: 4px clamp(18px, 2.2vw, 32px); }
+            .hv2-advrow.is-4 .hv2-advcol:first-child { padding-left: 0; }
+            .hv2-advrow.is-4 .hv2-advcol:last-child { padding-right: 0; }
+            @media (max-width: 1100px) and (min-width: 641px) {
+              .hv2-advrow.is-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+              .hv2-advrow.is-4 .hv2-advcol { padding: 28px 0 28px clamp(20px, 3vw, 40px); }
+              .hv2-advrow.is-4 .hv2-advcol:nth-child(odd) { border-left: 0; padding-left: 0; padding-right: clamp(20px, 3vw, 40px); }
+              .hv2-advrow.is-4 .hv2-advcol:nth-child(n+3) { border-top: 1px solid var(--color-rule); }
+              .hv2-advrow.is-4 .hv2-advcol:nth-child(-n+2) { padding-top: 4px; }
+            }
+            @media (max-width: 640px) {
+              .hv2-advrow.is-4 { grid-template-columns: 1fr; }
+              .hv2-advrow.is-4 .hv2-advcol, .hv2-advrow.is-4 .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid var(--color-rule); }
+              .hv2-advrow.is-4 .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
+            }
             @media (max-width: 900px) {
-              .hv2-advrow { grid-template-columns: 1fr; gap: 0; }
-              .hv2-advcol, .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid var(--color-rule); }
-              .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
+              .hv2-advrow:not(.is-4) { grid-template-columns: 1fr; gap: 0; }
+              .hv2-advrow:not(.is-4) .hv2-advcol, .hv2-advrow:not(.is-4) .hv2-advcol:first-child { border-left: 0; padding: 28px 0; border-top: 1px solid var(--color-rule); }
+              .hv2-advrow:not(.is-4) .hv2-advcol:first-child { border-top: 0; padding-top: 0; }
             }
           `}</style>
         </section>
       )}
 
-      {/* 3. STEPS — iframe del WP original con auto-resize (v2: lo sustituye el bloque de casos de uso) */}
-      {(!v2 || funcs) && (
+      {/* v2-funcs · PROCESO — componente React (variante A de proceso4) en lugar del iframe del WP antiguo */}
+      {funcs && (
+        <ProcessLinear title={cfg.stepsTitle} titleHl={cfg.stepsTitleHl} rotate={cfg.stepsTitleRotate} sub={cfg.stepsSub}
+          steps={cfg.steps.map((st) => ({ title: st.title, desc: st.desc }))} ember={cfg.stepsEmber} />
+      )}
+
+      {/* 3. STEPS — iframe del WP original con auto-resize (home de siempre; en v2 no se carga) */}
+      {!v2 && (
       <section style={{ background: "#fff" }}>
         <ResizingIframe src={embedSrc} title="steps" fallbackHeight={620} />
       </section>
@@ -449,11 +482,12 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
         </section>
       )}
 
-      {/* v2-funcs · CASOS DE USO — acordeón horizontal de fotos (opción A4) */}
+      {/* v2-funcs · CASOS DE USO — pestañas + captura del dashboard (variante A4 de la maqueta T4b) */}
       {funcs && (
-        <section className="py-24" style={{ background: "var(--color-paper)" }}>
+        <section className="hv2-uc4" style={{ background: "linear-gradient(180deg, #f1f6fb 0%, #e9f2fa 100%)" }}>
+          <style>{`.hv2-uc4 { padding: 96px 0; } @media (max-width: 900px) { .hv2-uc4 { padding: 64px 0; } }`}</style>
           <div className="flame-container">
-            <div className="mb-14 max-w-[760px]">
+            <div className="max-w-[780px]" style={{ marginBottom: 44 }}>
               <span className="hv2-eyebrow">{currentLang === "en" ? "Use cases" : "Casos de uso"}</span>
               <h2 className="text-[clamp(32px,3.4vw,48px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.08, fontFamily: "var(--font-display)" }}>
                 {currentLang === "en" ? <>Any space. Any challenge. <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>One Flame solution.</span></> : <>Cualquier espacio. Cualquier reto. <span style={{ color: "var(--color-accent)", fontWeight: 500 }}>Una solución Flame.</span></>}
@@ -462,8 +496,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
                 {currentLang === "en" ? "From people counting to corporate WiFi: whatever your sector or need, we already have the answer. Pick yours." : "Del conteo de personas al WiFi corporativo: sea cual sea tu sector o tu necesidad, ya tenemos la respuesta. Elige la tuya."}
               </p>
             </div>
-            {/* Opción A4 · acordeón horizontal de fotos (JR, 22-oct) */}
-            <UseCaseAccordion items={ucFuncs} lang={currentLang} />
+            <UseCaseTabs items={ucFuncs} lang={currentLang} />
           </div>
         </section>
       )}
@@ -529,8 +562,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
 
       </>)}
 
-      {/* v2-funcs · VALOR DIFERENCIAL — Flame Insights + Ember (informe + chat comentándolo) */}
-      {funcs && <InsightsEmberShowcase lang={currentLang} ctaHref="#contact" />}
+      {/* v2-funcs · EMBER AI como producto — informe de Flame Insights + chat de Ember AI (textos en cfg.ember) */}
+      {funcs && <InsightsEmberShowcase lang={currentLang} ctaHref="#contact" copy={cfg.ember} />}
 
       {/* v2-funcs · SECTORES — misma lista estática que productos / casos de uso, antes de los casos de éxito */}
       {funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="light" />}

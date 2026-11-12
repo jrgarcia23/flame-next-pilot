@@ -2,7 +2,9 @@
 import { useEffect, useRef, useState } from "react";
 import Icon from "@/components/templates/Icon";
 
-// Bloque "valor diferencial" de la home v2: informe de Flame Insights + Ember (chat IA) comentándolo.
+// Bloque de la home v2: Ember AI como producto. Informe de Flame Insights + Ember AI (chat IA) comentándolo.
+// Los textos de la columna izquierda y el nombre del chat llegan por `copy` (cfg.ember en lib/home-config.ts);
+// sin `copy` se usan los de este fichero. Las cifras del informe y el chat son ILUSTRATIVAS.
 // Cifras ILUSTRATIVAS, las mismas que ya usa el chat de la web (FlameDataChat). Sin biometría.
 type Lang = "es" | "en";
 const T = {
@@ -42,8 +44,11 @@ const T = {
   },
 };
 
-export default function InsightsEmberShowcase({ lang, ctaHref }: { lang: Lang; ctaHref: string }) {
+export type EmberCopy = { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; chatName: string; chatStatus: string };
+
+export default function InsightsEmberShowcase({ lang, ctaHref, copy }: { lang: Lang; ctaHref: string; copy?: EmberCopy }) {
   const t = T[lang];
+  const c = copy;
   const [step, setStep] = useState(0);      // nº de intercambios mostrados
   const [typing, setTyping] = useState(false);
   const [visible, setVisible] = useState(false);
@@ -79,11 +84,11 @@ export default function InsightsEmberShowcase({ lang, ctaHref }: { lang: Lang; c
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(900px 520px at 85% 10%, rgb(49 177 248 / 0.16), transparent 60%), radial-gradient(700px 450px at 5% 100%, rgb(49 177 248 / 0.08), transparent 70%)" }} />
       <div className="flame-container relative z-10 ie-grid">
         <div className="ie-copy">
-          <span className="ie-eyebrow">{t.eyebrow}</span>
-          <h2 className="ie-h2">{t.h}</h2>
-          <p className="ie-p">{t.p}</p>
-          <ul className="ie-bul">{t.bul.map((b) => <li key={b}><span className="ie-check"><Icon name="check" className="w-3.5 h-3.5" /></span>{b}</li>)}</ul>
-          <a href={ctaHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>{t.cta} <Icon name="arrow" className="w-4 h-4" /></a>
+          <span className="ie-eyebrow">{c ? c.eyebrow : t.eyebrow}</span>
+          <h2 className="ie-h2">{c ? <>{c.title} <span>{c.titleHl}</span></> : t.h}</h2>
+          <p className="ie-p">{c ? c.sub : t.p}</p>
+          <ul className="ie-bul">{(c ? c.bullets : t.bul).map((b) => <li key={b}><span className="ie-check"><Icon name="check" className="w-3.5 h-3.5" /></span>{b}</li>)}</ul>
+          <a href={ctaHref} className="cta-btn cta-btn--lg" style={{ background: "var(--color-accent)", color: "#fff", fontWeight: 700 }}>{c ? c.cta : t.cta} <Icon name="arrow" className="w-4 h-4" /></a>
         </div>
 
         <div className="ie-visual" aria-hidden="true">
@@ -107,7 +112,7 @@ export default function InsightsEmberShowcase({ lang, ctaHref }: { lang: Lang; c
           </div>
 
           <div className="ie-chat">
-            <div className="ie-chat-head"><span className="ie-ember">E</span><span><strong>{t.ember}</strong><small><i />{t.online}</small></span></div>
+            <div className="ie-chat-head"><span className="ie-ember">E</span><span><strong>{c ? c.chatName : t.ember}</strong><small><i />{c ? c.chatStatus : t.online}</small></span></div>
             <div className="ie-chat-body">
               {t.chat.slice(0, step).map((m, i) => (
                 <div key={i} className="ie-msgs">

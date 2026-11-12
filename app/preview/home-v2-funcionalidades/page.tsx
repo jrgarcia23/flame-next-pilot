@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 
 export default async function HomeV2Preview() {
   const caseStudies = await selectCaseCards({});
-  return <HomeRestyleTemplate cfg={HOME_CFG_ES} enHref="/en/" currentLang="es" v2={{ advantages: "none", layout: "funcs", caseStudies }} />;
+  return <HomeRestyleTemplate cfg={HOME_CFG_ES} enHref="/preview/home-v2-funcionalidades/en/" currentLang="es" v2={{ advantages: "none", layout: "funcs", caseStudies }} />;
 }

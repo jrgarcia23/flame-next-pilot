@@ -17,6 +17,31 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Mide lo que importa",    desc: "Accede a insights en tiempo real para comprender el comportamiento de los clientes, optimizar el rendimiento del espacio y mejorar la experiencia general en cualquier entorno físico." },
   ],
 
+  // home v2 · proceso — sectores en castellano (la versión ES rotaba con los nombres en inglés del WP antiguo)
+  stepsTitleRotate: ["Retail", "Centros comerciales", "Hoteles", "Espacios públicos"],
+  // PROVISIONAL (frase de la maqueta proceso4, por validar)
+  stepsEmber: "Y con Ember AI, pregunta a tus datos lo que quieras y ten la respuesta al momento.",
+
+  // home v2 · diferenciadores. PROVISIONALES: fragmentos literales de las ventajas actuales, a sustituir por los definitivos.
+  diff: [
+    { icon: "plug",    title: "Plug&play.",     titleHl: "Integración sin fricciones.", body: "Instalación plug-and-play. Se integra con los principales sistemas de CCTV y conteo de personas, y con tu ecosistema de datos: nube, data lakes y analítica empresarial. Implantación más rápida en cada ubicación." },
+    { icon: "privacy", title: "Privacidad",     titleHl: "ante todo.",                  body: "Convierte tus cámaras CCTV actuales en información en tiempo real, sin datos biométricos, con pleno cumplimiento de la normativa de protección de datos." },
+    { icon: "scale",   title: "Escalable,",     titleHl: "con menos coste de implantación.", body: "Diseñada para garantizar la privacidad, la escalabilidad y la eficiencia del hardware, reduce los costes de implementación y asegura un alto rendimiento." },
+    { icon: "target",  title: "Precisión.",     titleHl: "Mide lo que importa.",        body: "Flame te ayuda a medir con precisión el tráfico en entradas, plantas y cualquier tipo de espacios, dándote la visibilidad necesaria para optimizar operaciones, planificar recursos de forma eficiente y aumentar la conversión." },
+  ],
+
+  // home v2 · Ember AI como producto. PROVISIONALES: los textos actuales del bloque, con el nombre «Ember AI».
+  ember: {
+    eyebrow: "Valor diferencial",
+    title: "No solo datos.",
+    titleHl: "Respuestas.",
+    sub: "Flame Insights convierte la afluencia, la conversión y el comportamiento de tus espacios en informes con conclusiones claras. Y con Ember AI, el asistente de IA de Flame, le preguntas al informe en lenguaje natural y tienes la respuesta al momento.",
+    bullets: ["Informes con conclusiones, no solo gráficas", "Pregunta a tus datos en lenguaje natural", "Sin biometría, como todo Flame"],
+    cta: "Conoce Flame Insights y Ember AI",
+    chatName: "Ember AI · Asistente IA",
+    chatStatus: "Analizando tu informe",
+  },
+
   productsTitle: "Datos que potencian",
   productsTitleHl: "espacios inteligentes",
   productsSub: "La plataforma de analítica con IA para espacios físicos que potencia la toma de decisiones y maximiza el rendimiento general del lugar:",
@@ -98,6 +123,31 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configure your logic", desc: "Define zones, counting lines, heatmaps, demographics and business rules through an intuitive interface, without coding or technical configuration." },
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Measure what matters", desc: "Access real-time insights to understand customer behavior, optimize space performance and improve the overall experience across any physical environment." },
   ],
+
+  // home v2 · proceso
+  stepsTitleRotate: ["Shopping Malls", "Retail", "Hospitality", "Public Venues"],
+  // PROVISIONAL (traducción de la frase de la maqueta proceso4, por validar)
+  stepsEmber: "And with Ember AI, ask your data anything and get the answer instantly.",
+
+  // home v2 · differentiators. PROVISIONAL: literal fragments of the current advantages.
+  diff: [
+    { icon: "plug",    title: "Plug&play.",  titleHl: "Seamless integration.", body: "Plug-and-play installation. Integrates with leading CCTV and people-counting systems and with your data ecosystem: cloud platforms, data lakes and enterprise analytics. Faster deployment at every location." },
+    { icon: "privacy", title: "Privacy",        titleHl: "first.",     body: "Turns your existing CCTV infrastructure into real-time, actionable insights, without biometrics, with full data protection compliance." },
+    { icon: "scale",   title: "Scalable,",   titleHl: "with lower deployment costs.", body: "Built for privacy, scalability, and hardware efficiency, it reduces deployment costs while ensuring high performance." },
+    { icon: "target",  title: "Accuracy.",   titleHl: "Measure what matters.", body: "Measure footfall across entrances, floors and venues with AI-powered video analytics." },
+  ],
+
+  // home v2 · Ember AI as a product. PROVISIONAL: current copy, with the name "Ember AI".
+  ember: {
+    eyebrow: "What sets us apart",
+    title: "Not just data.",
+    titleHl: "Answers.",
+    sub: "Flame Insights turns the footfall, conversion and behaviour of your spaces into reports with clear conclusions. And with Ember AI, Flame's AI assistant, you ask the report in plain language and get the answer instantly.",
+    bullets: ["Reports with conclusions, not just charts", "Ask your data in plain language", "No biometrics, like everything Flame"],
+    cta: "Discover Flame Insights and Ember AI",
+    chatName: "Ember AI · AI assistant",
+    chatStatus: "Analysing your report",
+  },
 
   productsTitle: "Data driven for",
   productsTitleHl: "smart spaces",

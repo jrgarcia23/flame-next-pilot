@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Icon from "@/components/templates/Icon";
 import { CtaStyles, SiteHeader, SiteFooter } from "@/components/templates/SiteChrome";
-import UseCaseTabs from "@/components/home/UseCaseTabs";
+import UseCaseListPanel from "@/components/home/UseCaseListPanel";
 import { HOME_USE_CASES_ES as UC, HOME_USE_CASE_MEDIA as MEDIA } from "@/lib/home-use-cases";
 
 export const metadata: Metadata = {
@@ -107,7 +107,7 @@ export default function OpcionesCasosUso() {
       <section className="py-24" style={{ background: "var(--color-paper)" }}>
         <div className="flame-container">
           <Head />
-          <UseCaseTabs items={UC} lang="es" />
+          <UseCaseListPanel items={UC} lang="es" />
         </div>
       </section>
 
