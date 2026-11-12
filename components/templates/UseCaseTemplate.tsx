@@ -16,7 +16,7 @@ const DownloadGlyph = () => (
   </svg>
 );
 
-export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride, afterHero }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode; afterHero?: React.ReactNode }) {
+export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSectionVisualOverride, afterHero, afterMetrics }: { cfg: UseCaseConfig; enHref: string; currentLang?: "es" | "en"; bigSectionVisualOverride?: React.ReactNode; afterHero?: React.ReactNode; afterMetrics?: React.ReactNode }) {
   const t = UI[currentLang];
   const inds = currentLang === "en" ? INDUSTRIES_EN : INDUSTRIES;
   const heroBg = cfg.heroBgImage || "/wp-content/uploads/2026/01/Traffic2-1.png";
@@ -225,6 +225,9 @@ export default function UseCaseTemplate({ cfg, enHref, currentLang = "es", bigSe
           .metric-card:hover .metric-icon { background: rgb(49 177 248 / 0.18) !important; color: var(--color-accent) !important; }
         `}</style>
       </section>
+
+      {/* Hueco opcional tras las métricas (p. ej. pasos de puesta en marcha) */}
+      {afterMetrics}
 
       {/* CTA strip — frase izquierda (2 líneas), botón derecha, no wrap */}
       <section className="py-8" style={{ background: "var(--color-paper)", borderTop: "1px solid var(--color-rule)", borderBottom: "1px solid var(--color-rule)" }}>
