@@ -46,7 +46,7 @@ export const CASES = {
     related: ["marineda", "zenia", "cbre"],
   },
   decathlon: {
-    sector: "Retail deportivo", status: "published",
+    sector: "Retail deportivo", status: "draft",
     es: { slug: "decathlon-medir-y-mejorar-en-el-sector-retail",
           relTitle: "Decathlon mide y mejora la experiencia en tienda" },
     en: { slug: "decathlon-measure-and-improve-in-the-retail-sector",
@@ -67,7 +67,7 @@ export const CASES = {
           relTitle: "Havaianas digitaliza la analítica de sus tiendas" },
     en: { slug: "havaianas-store-digitalization-flame-analytics", isNew: true,
           relTitle: "Havaianas digitalizes its store analytics" },
-    related: ["decathlon", "pompeii", "alain"],
+    related: ["multiopticas", "pompeii", "alain"],
   },
   ikea: {
     sector: "Retail", status: "published",
@@ -75,7 +75,7 @@ export const CASES = {
           relTitle: "IKEA confía en Flame para la analítica indoor en Latinoamérica" },
     en: { slug: "ikea-relies-on-flame-analytics-for-the-indoor-analytics-of-its-new-centers-in-latin-america",
           relTitle: "IKEA relies on Flame for indoor analytics in Latin America" },
-    related: ["decathlon", "alain", "multiopticas"],
+    related: ["havaianas", "alain", "multiopticas"],
   },
   "casa-encendida": {
     sector: "Cultura", status: "published",
@@ -115,7 +115,7 @@ export const CASES = {
           relTitle: "Pompeii transforma su retail con datos de tráfico" },
     en: { slug: "pompeii-retail-analytics-case-study",
           relTitle: "Pompeii powers in-store decisions with retail analytics" },
-    related: ["havaianas", "decathlon", "alain"],
+    related: ["havaianas", "multiopticas", "alain"],
   },
   repsol: {
     sector: "Estaciones de servicio", status: "published",
@@ -123,7 +123,7 @@ export const CASES = {
           relTitle: "Repsol transforma la experiencia en 1.000 estaciones" },
     en: { slug: "success-story-repsol-and-flame-analytics-transform-the-experience-in-1000-gas-stations",
           relTitle: "Repsol transforms the experience in 1,000 gas stations" },
-    related: ["alain", "multiopticas", "decathlon"],
+    related: ["alain", "multiopticas", "havaianas"],
   },
   zenia: {
     sector: "Centros comerciales", status: "published",

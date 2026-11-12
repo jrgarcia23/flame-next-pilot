@@ -50,9 +50,9 @@ const RECOGNITIONS = [
 
 const PRESS = [
   { src: "/wp-content/uploads/2026/01/el-pais.png",         alt: "El País" },
-  { src: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2026/01/el-mundo.png",        alt: "El Mundo" },
+  { src: "/media/2026/01/el-mundo.webp",        alt: "El Mundo" },
   { src: "/wp-content/uploads/2026/01/abc.png",             alt: "ABC" },
-  { src: "https://uryoqblopkijfqnzquhm.supabase.co/storage/v1/object/public/blog-media/2026/01/la-razon.png",        alt: "La Razón" },
+  { src: "/media/2026/01/la-razon.webp",        alt: "La Razón" },
   { src: "/wp-content/uploads/2026/01/el-confidencial.png", alt: "El Confidencial" },
 ];
 
