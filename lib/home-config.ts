@@ -10,11 +10,11 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
 
   stepsTitle: "Analítica de vídeo con IA sin fricciones para",
   stepsTitleHl: "Retail",
-  stepsSub: "Información accionable para optimizar el tráfico, el rendimiento y la experiencia en tus espacios",
+  stepsSub: "Tres pasos para pasar de tus cámaras a decisiones, sin datos biométricos.",
   steps: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conéctate sin esfuerzo", desc: "Conecta Flame a tu infraestructura existente (cámaras y contadores de personas) con una instalación plug-and-play que funciona al instante, sin necesidad de hardware adicional ni instalaciones complejas." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configura tu lógica",    desc: "Define fácilmente zonas, líneas de conteo, mapas de calor, datos demográficos y reglas de negocio a través de una interfaz intuitiva, sin necesidad de programación ni configuraciones técnicas." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Mide lo que importa",    desc: "Accede a insights en tiempo real para comprender el comportamiento de los clientes, optimizar el rendimiento del espacio y mejorar la experiencia general en cualquier entorno físico." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conecta tus cámaras", desc: "Flame funciona con las cámaras y los contadores de personas que ya tienes. Sin hardware adicional ni instalaciones complejas." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Dibuja tus zonas",    desc: "Marca zonas y líneas de conteo y define tus reglas de negocio en una interfaz visual, sin programar." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Mide lo que importa",    desc: "Tráfico, conversión, recorridos y ocupación en tiempo real, en un solo panel para todos tus espacios." },
   ],
 
   // home v2 · proceso — sectores en castellano (la versión ES rotaba con los nombres en inglés del WP antiguo)
@@ -23,11 +23,13 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   stepsEmber: "Y con Ember AI, pregunta a tus datos lo que quieras y ten la respuesta al momento.",
 
   // home v2 · diferenciadores. PROVISIONALES: fragmentos literales de las ventajas actuales, a sustituir por los definitivos.
+  diffTitle: "Lo que hace diferente a <span style=\"color:var(--color-accent);font-weight:500\">Flame</span>",
+  diffSub: "Analítica de vídeo con IA que respeta la privacidad, funciona con lo que ya tienes y crece contigo.",
   diff: [
-    { icon: "plug",    title: "Plug&play.",     titleHl: "Integración sin fricciones.", body: "Instalación plug-and-play. Se integra con los principales sistemas de CCTV y conteo de personas, y con tu ecosistema de datos: nube, data lakes y analítica empresarial. Implantación más rápida en cada ubicación." },
-    { icon: "privacy", title: "Privacidad",     titleHl: "ante todo.",                  body: "Convierte tus cámaras CCTV actuales en información en tiempo real, sin datos biométricos, con pleno cumplimiento de la normativa de protección de datos." },
-    { icon: "scale",   title: "Escalable,",     titleHl: "con menos coste de implantación.", body: "Diseñada para garantizar la privacidad, la escalabilidad y la eficiencia del hardware, reduce los costes de implementación y asegura un alto rendimiento." },
-    { icon: "target",  title: "Precisión.",     titleHl: "Mide lo que importa.",        body: "Flame te ayuda a medir con precisión el tráfico en entradas, plantas y cualquier tipo de espacios, dándote la visibilidad necesaria para optimizar operaciones, planificar recursos de forma eficiente y aumentar la conversión." },
+    { icon: "plug", title: "Plug&play.", titleHl: "", body: "Funciona con tus cámaras CCTV y contadores de personas actuales, sin hardware adicional. En menos de una semana ya tienes analítica con IA." },
+    { icon: "privacy", title: "Privacidad por diseño.", titleHl: "", body: "Flame procesa los datos de forma anónima, sin datos biométricos ni almacenamiento de imágenes, y cumple el RGPD." },
+    { icon: "scale", title: "De un local a miles.", titleHl: "", body: "Empieza en un solo espacio y crece hasta miles, con todas las ubicaciones gestionadas a distancia desde una única plataforma en la nube." },
+    { icon: "target", title: "Precisión en cualquier entorno.", titleHl: "", body: "Análisis precisos y coherentes en cada espacio, con cada cámara y sensor supervisados y alertas si algo falla." },
   ],
 
   // home v2 · Ember AI como producto. PROVISIONALES: los textos actuales del bloque, con el nombre «Ember AI».
@@ -116,25 +118,27 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   videoPoster: "/wp-content/uploads/2026/01/Demo-web-poster.webp",
 
   stepsTitle: "Seamless AI Video Analytics for",
-  stepsTitleHl: "Shopping Malls",
-  stepsSub: "Actionable insight to optimize traffic, performance and experience across your spaces",
+  stepsTitleHl: "Retail",
+  stepsSub: "Three steps from your cameras to better decisions, with no biometric data.",
   steps: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect seamlessly",   desc: "Plug Flame into your existing infrastructure (cameras and people counters) with a plug-and-play installation that just works, with no extra hardware or complex deployments." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Configure your logic", desc: "Define zones, counting lines, heatmaps, demographics and business rules through an intuitive interface, without coding or technical configuration." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Measure what matters", desc: "Access real-time insights to understand customer behavior, optimize space performance and improve the overall experience across any physical environment." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect your cameras",   desc: "Flame works with the cameras and people counters you already have. No extra hardware, no complex installs." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Draw your zones", desc: "Set zones, counting lines and business rules in a visual interface, with no coding." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Measure what matters", desc: "Footfall, conversion, journeys and occupancy in real time, in one dashboard for all your spaces." },
   ],
 
   // home v2 · proceso
-  stepsTitleRotate: ["Shopping Malls", "Retail", "Hospitality", "Public Venues"],
+  stepsTitleRotate: ["Retail", "Shopping Malls", "Hospitality", "Public Venues"],
   // PROVISIONAL (traducción de la frase de la maqueta proceso4, por validar)
   stepsEmber: "And with Ember AI, ask your data anything and get the answer instantly.",
 
   // home v2 · differentiators. PROVISIONAL: literal fragments of the current advantages.
+  diffTitle: "What sets <span style=\"color:var(--color-accent);font-weight:500\">Flame apart</span>",
+  diffSub: "AI video analytics that protects privacy, runs on what you already have and grows with you.",
   diff: [
-    { icon: "plug",    title: "Plug&play.",  titleHl: "Seamless integration.", body: "Plug-and-play installation. Integrates with leading CCTV and people-counting systems and with your data ecosystem: cloud platforms, data lakes and enterprise analytics. Faster deployment at every location." },
-    { icon: "privacy", title: "Privacy",        titleHl: "first.",     body: "Turns your existing CCTV infrastructure into real-time, actionable insights, without biometrics, with full data protection compliance." },
-    { icon: "scale",   title: "Scalable,",   titleHl: "with lower deployment costs.", body: "Built for privacy, scalability, and hardware efficiency, it reduces deployment costs while ensuring high performance." },
-    { icon: "target",  title: "Accuracy.",   titleHl: "Measure what matters.", body: "Measure footfall across entrances, floors and venues with AI-powered video analytics." },
+    { icon: "plug", title: "Plug&play.", titleHl: "", body: "Works with your existing CCTV cameras and people counters, with no extra hardware. Get AI analytics up and running in under a week." },
+    { icon: "privacy", title: "Privacy by design.", titleHl: "", body: "Flame processes data anonymously, with no biometric data and no stored images, in full GDPR compliance." },
+    { icon: "scale", title: "From one site to thousands.", titleHl: "", body: "Start with a single space and scale to thousands, managing every location remotely from one cloud platform." },
+    { icon: "target", title: "Accuracy in any environment.", titleHl: "", body: "Precise, consistent analytics in every space, with each camera and sensor monitored and alerts if anything goes wrong." },
   ],
 
   // home v2 · Ember AI as a product. PROVISIONAL: current copy, with the name "Ember AI".

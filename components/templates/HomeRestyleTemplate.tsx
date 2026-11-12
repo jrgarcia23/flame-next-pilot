@@ -44,6 +44,8 @@ export type HomeRestyleConfig = {
   // ADVANTAGE INTRO
   advantageTitle: string;
   advantageSub: string;
+  diffTitle?: string;   // home v2 · titular del bloque de diferenciadores
+  diffSub?: string;
   // PRIVACY / REPORTS / INTEGRATION (3 stripes alternating image-text)
   privacyTitle: string;
   privacyTitleHl: string;
@@ -200,8 +202,8 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
           <div className="flame-container relative z-10">
             <div className="text-center mx-auto" style={{ maxWidth: 780, marginBottom: 56 }}>
               <h2 className="text-[clamp(30px,3.2vw,46px)] font-normal hv2-adv-h" style={{ letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}
-                dangerouslySetInnerHTML={{ __html: cfg.advantageTitle }} />
-              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.advantageSub}</p>
+                dangerouslySetInnerHTML={{ __html: (cfg.diff && cfg.diffTitle) || cfg.advantageTitle }} />
+              <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{(cfg.diff && cfg.diffSub) || cfg.advantageSub}</p>
             </div>
             {/* Diferenciadores (cfg.diff, 4 columnas) o, si no hay, las 3 ventajas de antes */}
             <div className={`hv2-advrow${cfg.diff ? " is-4" : ""}`}>
