@@ -1,5 +1,5 @@
 {
- "_nota": "Poda de indexación 14-oct-2026 (OK JR). redirects: 301 de posts no indexados a su destino temático. gone: 410 (también en deleted-slugs.json). Fuente: _local/_global/clientes/flame/seo/261014-poda-indexacion-flame.csv (repo esconzeta-mc).",
+ "_nota": "Poda de indexación 14-oct-2026 (OK JR). redirects: 301 de posts no indexados a su destino temático. gone: 410 (también en deleted-slugs.json). Fuente: _local/_global/clientes/flame/seo/261014-poda-indexacion-flame.csv (repo esconzeta-mc). Consolidación 13-nov-2026 (OK JR): mapas de calor ES, KPIs retail ES y guest WiFi EN; mapa en 261113-mapa-301-consolidacion-flame.csv.",
  "redirects": {
   "/es/feliz-navidad-y-felices-fiestas-de-parte-de-flame-analytics-mirando-hacia-2026-con-ilusion/": "/es/categoria/corporativo/",
   "/es/flame-analytics-en-nrf-25/": "/es/flame-analytics-regresa-a-nrf-2026-en-nueva-york/",
@@ -56,10 +56,10 @@
   "/es/flame-en-tpa-con-motivo-de-su-participacion-en-el-mwc/": "/es/beacons-en-retail-que-son-como-funcionan-que-ventajas-ofrecen/",
   "/es/la-ubicacion-de-tu-tienda-o-local-factor-clave-para-triunfar/": "/es/esta-tu-tienda-bien-ubicada-cuantas-personas-pasan-por-delante-cada-dia/",
   "/es/cuenta-personas-sabes-que-son-y-para-que-sirven/": "/es/cuenta-personas-retail-guia-completa/",
-  "/es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda-2/": "/es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda/",
+  "/es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda-2/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
   "/es/la-ubicacion-de-tu-tienda-un-factor-clave-para-triunfar/": "/es/esta-tu-tienda-bien-ubicada-cuantas-personas-pasan-por-delante-cada-dia/",
   "/es/el-72-de-los-clientes-se-pierden-por-indiferencia-o-mala-atencion/": "/es/6-cambios-que-puedes-realizar-en-retail-para-mejorar-tus-ventas/",
-  "/es/que-es-un-mapa-de-calor-y-porque-es-importante-para-un-negocio-de-retail/": "/es/mapas-de-calor-la-clave-en-la-analitica-para-tiendas/",
+  "/es/que-es-un-mapa-de-calor-y-porque-es-importante-para-un-negocio-de-retail/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
   "/es/los-ropo-la-nueva-tendencia-de-compra-que-combina-online-y-offline/": "/es/integracion-del-marketing-online-y-offline-en-el-retail/",
   "/es/relaciones_se_construyen_cara_a_cara/": "/es/categoria/entrevistas/",
   "/es/espana-encabeza-hurto-retail-europeo/": "/es/categoria/blog/",
@@ -109,7 +109,7 @@
   "/es/la-importancia-del-cuenta-personas-para-el-sector-retail/": "/es/cuenta-personas-retail-guia-completa/",
   "/es/que-es-el-wifi-tracking/": "/es/wifi-tracking-ventajas-de-medir-la-presencia/",
   "/es/eres-de-los-que-busca-informacion-online-y-luego-compra-en-tienda-eres-un-ropo-te-lo-explicamos/": "/es/integracion-del-marketing-online-y-offline-en-el-retail/",
-  "/es/mapas_calor_analizar_transito_tienda/": "/es/mapas-de-calor-la-clave-en-la-analitica-para-tiendas/",
+  "/es/mapas_calor_analizar_transito_tienda/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
   "/es/retail_transforma_mapas_de_calor_tendencia_2014/": "/es/que-es-un-mapa-de-calor/",
   "/es/famosa-marca-joyas-catalana-entra-complementos-lowcost/": "/es/categoria/blog/",
   "/en/smart-restroom-management-optimizing-resources-in-physical-spaces/": "/en/restroom-management/",
@@ -156,7 +156,14 @@
   "/en/how-to-avoid-the-spread-of-the-coronavirus-in-shopping-malls/": "/en/occupancy-management/",
   "/en/effective-customer-engagement-strategies/": "/en/9-customer-engagement-strategies-that-will-boost-sales-in-2023/",
   "/en/flame-enters-aruba-developer-partners-program/": "/en/partners/",
-  "/en/flame-expands-international-presence-lands-america/": "/en/about-us/"
+  "/en/flame-expands-international-presence-lands-america/": "/en/about-us/",
+  "/es/mapas-de-calor-la-clave-en-la-analitica-para-tiendas/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
+  "/es/mapas-de-calor-en-tiendas-que-le-gusta-a-tu-cliente/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
+  "/es/mapas-de-calor-la-mejor-herramienta-para-saber-como-interactuan-los-usuarios-con-tu-tienda/": "/es/mapas-de-calor-claves-para-conocer-tu-cliente-y-vender-mas/",
+  "/es/los-4-kpis-de-retail-mas-importantes-que-debes-saber/": "/es/kpis-comerciales-retail-medir-2026/",
+  "/es/como-medir-la-eficacia-comercial-9-kpis-basicos-en-retail/": "/es/kpis-comerciales-retail-medir-2026/",
+  "/en/increasing-customer-engagement-the-power-of-guest-wifi-marketing/": "/en/guest-wifi-marketing/",
+  "/en/wifi-tracking-the-best-tool-for-generate-loyalty-and-engagement/": "/en/guest-wifi-marketing/"
  },
  "gone": [
   "/es/resumen-de-nuestra-mesa-redonda-sector-retail/",
