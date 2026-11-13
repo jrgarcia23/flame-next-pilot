@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/fix-links.mjs",
-    "start": "next start"
+    "build": "node scripts/llms/llms-gen.mjs --config scripts/llms/llms.config.json --soft && next build && node scripts/fix-links.mjs",
+    "start": "next start",
+    "llms": "node scripts/llms/llms-gen.mjs --config scripts/llms/llms.config.json"
   },
   "dependencies": {
     "@supabase/ssr": "^0.10.3",

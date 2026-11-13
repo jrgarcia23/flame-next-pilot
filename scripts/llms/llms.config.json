@@ -1,0 +1,66 @@
+{
+ "_doc": "Genera public/llms.txt y public/llms-full.txt desde lo publicado (sitemap + HTML) en cada build (--soft: si falla la red se conserva el archivo anterior). dropSentences: restricción de marca (nunca biometría salvo para negarla). Motor: esconzeta-mc/_motor/scripts/llms/llms-gen.mjs.",
+ "site": "https://www.flameanalytics.com",
+ "name": "Flame Analytics",
+ "lang": "en",
+ "homePath": "/en/",
+ "sitemap": "https://www.flameanalytics.com/sitemap.xml",
+ "exclude": [
+  "/(thank-you|gracias)",
+  "/preview",
+  "/_preview",
+  "/(category|categoria)/",
+  "/author/",
+  "/tag/"
+ ],
+ "sections": [
+  {
+   "title": "Whitepapers (EN)",
+   "match": "^/en/whitepaper/",
+   "summaryOnly": true,
+   "beforePosts": true
+  },
+  {
+   "title": "Whitepapers (ES)",
+   "match": "^/es/whitepaper/",
+   "summaryOnly": true,
+   "beforePosts": true
+  },
+  {
+   "title": "English pages",
+   "match": "^/en/"
+  },
+  {
+   "title": "Páginas en español",
+   "match": "^/es/"
+  }
+ ],
+ "posts": {
+  "byType": true,
+  "title": "Blog",
+  "maxIndex": 60
+ },
+ "trust": [
+  "(legal|privacy|privacidad|cookie|aviso)"
+ ],
+ "titleFrom": "title",
+ "titleStrip": [
+  "\\s*[|·–-]\\s*Flame Analytics\\s*$",
+  "\\s*·\\s*Whitepaper\\s*$"
+ ],
+ "maxCharsPerPage": 3500,
+ "dropSentences": [
+  "(reconocimiento facial|facial recognition|iris)(?![^.]*\\b(sin|no|without|never|nunca)\\b)"
+ ],
+ "bannedTerms": [],
+ "allowLabels": [
+  "API",
+  "clics",
+  "LLM",
+  "prompt",
+  "vía API",
+  "mensaje a modelos de IA"
+ ],
+ "concurrency": 6,
+ "output": "../../public"
+}
