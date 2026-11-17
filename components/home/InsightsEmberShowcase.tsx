@@ -44,7 +44,7 @@ const T = {
   },
 };
 
-export type EmberCopy = { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; chatName: string; chatStatus: string };
+export type EmberCopy = { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; ctaHref?: string; chatName: string; chatStatus: string };
 
 export default function InsightsEmberShowcase({ lang, ctaHref, copy }: { lang: Lang; ctaHref: string; copy?: EmberCopy }) {
   const t = T[lang];

@@ -31,7 +31,7 @@ export type HomeRestyleConfig = {
   diff?: Array<{ icon: string; title: string; titleHl: string; body: string }>;
   // home v2 · bloque Ember AI como producto (InsightsEmberShowcase): textos de la columna izquierda
   // y nombre del asistente en la cabecera del chat.
-  ember?: { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; chatName: string; chatStatus: string };
+  ember?: { eyebrow: string; title: string; titleHl: string; sub: string; bullets: string[]; cta: string; ctaHref?: string; chatName: string; chatStatus: string };
   // PRODUCTS BLOCK
   productsTitle: string;
   productsTitleHl: string;
@@ -565,7 +565,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
       </>)}
 
       {/* v2-funcs · EMBER AI como producto — informe de Flame Insights + chat de Ember AI (textos en cfg.ember) */}
-      {funcs && <InsightsEmberShowcase lang={currentLang} ctaHref="#contact" copy={cfg.ember} />}
+      {funcs && <InsightsEmberShowcase lang={currentLang} ctaHref={cfg.ember?.ctaHref || "#contact"} copy={cfg.ember} />}
 
       {/* v2-funcs · SECTORES — misma lista estática que productos / casos de uso, antes de los casos de éxito */}
       {funcs && <IndustriesList items={inds} title={cfg.industriesTitle} titleHl={cfg.industriesTitleHl} sub={cfg.industriesSub} tone="light" />}

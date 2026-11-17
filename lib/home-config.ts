@@ -32,14 +32,15 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
     { icon: "target", title: "Precisión en cualquier entorno.", titleHl: "", body: "Análisis precisos y coherentes en cada espacio, con cada cámara y sensor supervisados y alertas si algo falla." },
   ],
 
-  // home v2 · Ember AI como producto. PROVISIONALES: los textos actuales del bloque, con el nombre «Ember AI».
+  // home v2 · Ember AI como producto: las dos caras (chat de datos para el equipo y asistente de visitantes). PENDIENTE de validar por JR y Flame (17-nov).
   ember: {
-    eyebrow: "Valor diferencial",
-    title: "No solo datos.",
-    titleHl: "Respuestas.",
-    sub: "Flame Insights convierte la afluencia, la conversión y el comportamiento de tus espacios en informes con conclusiones claras. Y con Ember AI, el asistente de IA de Flame, le preguntas al informe en lenguaje natural y tienes la respuesta al momento.",
-    bullets: ["Informes con conclusiones, no solo gráficas", "Pregunta a tus datos en lenguaje natural", "Sin biometría, como todo Flame"],
-    cta: "Conoce Flame Insights y Ember AI",
+    eyebrow: "Ember AI",
+    title: "Una IA que responde",
+    titleHl: "a tu equipo y a tus visitantes.",
+    sub: "Ember AI es el asistente de IA de Flame. Tu equipo le pregunta a sus datos en lenguaje natural y tiene la respuesta al momento. Y tus visitantes lo usan desde un QR, la web o el WiFi para encontrar tiendas, ofertas y eventos, sin descargar nada.",
+    bullets: ["Para tu equipo: pregunta a tus datos lo que quieras", "Para tus visitantes: respuestas por chat o WhatsApp", "Sabes qué buscan tus visitantes y qué no encuentran"],
+    cta: "Descubre Ember AI",
+    ctaHref: "/es/ember-ai/",
     chatName: "Ember AI · Asistente IA",
     chatStatus: "Analizando tu informe",
   },
@@ -143,12 +144,13 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
 
   // home v2 · Ember AI as a product. PROVISIONAL: current copy, with the name "Ember AI".
   ember: {
-    eyebrow: "What sets us apart",
-    title: "Not just data.",
-    titleHl: "Answers.",
-    sub: "Flame Insights turns the footfall, conversion and behaviour of your spaces into reports with clear conclusions. And with Ember AI, Flame's AI assistant, you ask the report in plain language and get the answer instantly.",
-    bullets: ["Reports with conclusions, not just charts", "Ask your data in plain language", "No biometrics, like everything Flame"],
-    cta: "Discover Flame Insights and Ember AI",
+    eyebrow: "Ember AI",
+    title: "AI that answers",
+    titleHl: "your team and your visitors.",
+    sub: "Ember AI is Flame's AI assistant. Your team asks its data in plain language and gets the answer instantly. And your visitors use it from a QR code, the website or the WiFi to find stores, offers and events, with nothing to download.",
+    bullets: ["For your team: ask your data anything", "For your visitors: answers by chat or WhatsApp", "See what your visitors look for and what they can't find"],
+    cta: "Discover Ember AI",
+    ctaHref: "#contact",
     chatName: "Ember AI · AI assistant",
     chatStatus: "Analysing your report",
   },
