@@ -206,7 +206,7 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
               <p className="mt-4 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{(cfg.diff && cfg.diffSub) || cfg.advantageSub}</p>
             </div>
             {/* Diferenciadores (cfg.diff, 4 columnas) o, si no hay, las 3 ventajas de antes */}
-            <div className={`hv2-advrow${cfg.diff ? " is-4" : ""}`}>
+            <div className={`hv2-advrow${cfg.diff ? " is-4" : ""}${cfg.diff && cfg.diff.length === 5 ? " is-5" : ""}`}>
               {(cfg.diff ? cfg.diff.map((d) => ({ icon: d.icon, title: d.title, hl: d.titleHl, body: d.body })) : [
                 { icon: "privacy", title: cfg.privacyTitle, hl: cfg.privacyTitleHl, body: cfg.privacySummary || firstSentence(cfg.privacyBody) },
                 { icon: "reports", title: cfg.reportsTitle, hl: cfg.reportsTitleHl, body: cfg.reportsSummary || firstSentence(cfg.reportsBody) },
@@ -234,6 +234,11 @@ export default function HomeRestyleTemplate({ cfg, enHref, currentLang = "es", v
             .hv2-advrow.is-4 .hv2-advcol { padding: 4px clamp(18px, 2.2vw, 32px); }
             .hv2-advrow.is-4 .hv2-advcol:first-child { padding-left: 0; }
             .hv2-advrow.is-4 .hv2-advcol:last-child { padding-right: 0; }
+            .hv2-advrow.is-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+            .hv2-advrow.is-5 .hv2-advcol { padding: 4px clamp(14px, 1.6vw, 24px); }
+            .hv2-advrow.is-5 .hv2-advcol:first-child { padding-left: 0; }
+            .hv2-advrow.is-5 .hv2-advcol:last-child { padding-right: 0; }
+            .hv2-advrow.is-5 h3 { font-size: 20px; }
             @media (max-width: 1100px) and (min-width: 641px) {
               .hv2-advrow.is-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
               .hv2-advrow.is-4 .hv2-advcol { padding: 28px 0 28px clamp(20px, 3vw, 40px); }

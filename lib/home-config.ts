@@ -12,8 +12,8 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   stepsTitleHl: "Retail",
   stepsSub: "Tres pasos para pasar de tus cámaras a decisiones, sin datos biométricos.",
   steps: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conecta tus cámaras", desc: "Flame funciona con las cámaras y los contadores de personas que ya tienes. Sin hardware adicional ni instalaciones complejas." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Dibuja tus zonas",    desc: "Marca zonas y líneas de conteo y define tus reglas de negocio en una interfaz visual, sin programar." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Conecta tus cámaras", desc: "Flame funciona con las cámaras y los contadores de personas que ya tienes, con una instalación plug-and-play que funciona al instante. Sin hardware adicional ni instalaciones complejas." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Dibuja tus zonas",    desc: "Marca zonas, líneas de conteo y mapas de calor y define tus reglas de negocio en una interfaz intuitiva, sin necesidad de programación ni configuraciones técnicas." },
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Mide lo que importa",    desc: "Tráfico, conversión, recorridos y ocupación en tiempo real, en un solo panel para todos tus espacios." },
   ],
 
@@ -28,18 +28,19 @@ export const HOME_CFG_ES: HomeRestyleConfig = {
   diff: [
     { icon: "plug", title: "Plug&play.", titleHl: "", body: "Funciona con tus cámaras CCTV y contadores de personas actuales, sin hardware adicional. En menos de una semana ya tienes analítica con IA." },
     { icon: "privacy", title: "Privacidad por diseño.", titleHl: "", body: "Flame procesa los datos de forma anónima, sin datos biométricos ni almacenamiento de imágenes, y cumple el RGPD." },
-    { icon: "scale", title: "De un local a miles.", titleHl: "", body: "Empieza en un solo espacio y crece hasta miles, con todas las ubicaciones gestionadas a distancia desde una única plataforma en la nube." },
+    { icon: "scale", title: "Escalable.", titleHl: "", body: "Desde un solo sitio hasta miles, Flame escala sin esfuerzo. Gestiona cada ubicación a distancia a través de una única plataforma basada en la nube." },
     { icon: "target", title: "Precisión en cualquier entorno.", titleHl: "", body: "Análisis precisos y coherentes en cada espacio, con cada cámara y sensor supervisados y alertas si algo falla." },
+    { icon: "sparkle", title: "Ember AI.", titleHl: "", body: "El asistente de IA de Flame: busca en tus datos y te responde al momento, y atiende a tus visitantes por chat o WhatsApp." },
   ],
 
   // home v2 · Ember AI como producto: las dos caras (chat de datos para el equipo y asistente de visitantes). PENDIENTE de validar por JR y Flame (17-nov).
   ember: {
-    eyebrow: "Ember AI",
-    title: "Una IA que responde",
-    titleHl: "a tu equipo y a tus visitantes.",
-    sub: "Ember AI es el asistente de IA de Flame. Tu equipo le pregunta a sus datos en lenguaje natural y tiene la respuesta al momento. Y tus visitantes lo usan desde un QR, la web o el WiFi para encontrar tiendas, ofertas y eventos, sin descargar nada.",
-    bullets: ["Para tu equipo: pregunta a tus datos lo que quieras", "Para tus visitantes: respuestas por chat o WhatsApp", "Sabes qué buscan tus visitantes y qué no encuentran"],
-    cta: "Descubre Ember AI",
+    eyebrow: "Insights & Ember AI",
+    title: "Informes que te dan la conclusión.",
+    titleHl: "Y una IA que responde.",
+    sub: "Flame Insights escribe cada día y cada semana un briefing de cada espacio, con los KPI clave y lo que dicen tus datos frente a un día normal. Y Ember AI busca en tus datos, contesta lo que preguntes y te ayuda a mejorarlos, para tu equipo y para tus visitantes.",
+    bullets: ["Briefings diarios y semanales con conclusiones, no solo gráficas", "Adaptados a las preguntas clave de tu negocio", "Ember AI: pregunta a tus datos lo que quieras", "Y atiende a tus visitantes por chat o WhatsApp"],
+    cta: "Conoce Insights y Ember AI",
     ctaHref: "/es/ember-ai/",
     chatName: "Ember AI · Asistente IA",
     chatStatus: "Analizando tu informe",
@@ -122,8 +123,8 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   stepsTitleHl: "Retail",
   stepsSub: "Three steps from your cameras to better decisions, with no biometric data.",
   steps: [
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect your cameras",   desc: "Flame works with the cameras and people counters you already have. No extra hardware, no complex installs." },
-    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Draw your zones", desc: "Set zones, counting lines and business rules in a visual interface, with no coding." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-141-rhd6b8zyg2yz9z5cada9knj2k0hyuzcw7d9y04gp5c.png",   bgImg: "/wp-content/uploads/elementor/thumbs/Group-142-rhd6b8zwk3vn796mm7avcxzmptvchjbwa25liv9x4y.png",   title: "Connect your cameras",   desc: "Flame works with the cameras and people counters you already have, with a plug-and-play installation that works instantly. No extra hardware, no complex installs." },
+    { iconImg: "/wp-content/uploads/elementor/thumbs/Group-73-1-1-rhd6b9xsmx09ll3z4vow55aj5edc2ogmjhxfhefas6.png", bgImg: "/wp-content/uploads/elementor/thumbs/Group-143-rhd6b9xqqxwxiv59gpphxfr3b7qpp8fmm6t3058iyq.png",   title: "Draw your zones", desc: "Easily set up zones, counting lines and heatmaps and define your business rules in an intuitive interface, with no coding or technical configuration required." },
     { iconImg: "/wp-content/uploads/elementor/thumbs/Group-81-rhd6bbthmigrtifyvbli2mbmnwzs70acuws2i6bmva.png",    bgImg: "/wp-content/uploads/elementor/thumbs/Group-144-rhd6bbtf4lzi632j5qir2fa0hzhg4mn3ag41yp5qma.png",   title: "Measure what matters", desc: "Footfall, conversion, journeys and occupancy in real time, in one dashboard for all your spaces." },
   ],
 
@@ -138,18 +139,19 @@ export const HOME_CFG_EN: HomeRestyleConfig = {
   diff: [
     { icon: "plug", title: "Plug&play.", titleHl: "", body: "Works with your existing CCTV cameras and people counters, with no extra hardware. Get AI analytics up and running in under a week." },
     { icon: "privacy", title: "Privacy by design.", titleHl: "", body: "Flame processes data anonymously, with no biometric data and no stored images, in full GDPR compliance." },
-    { icon: "scale", title: "From one site to thousands.", titleHl: "", body: "Start with a single space and scale to thousands, managing every location remotely from one cloud platform." },
+    { icon: "scale", title: "Scalable.", titleHl: "", body: "From one site to thousands, Flame scales effortlessly. Manage every location remotely through a single cloud-based platform." },
     { icon: "target", title: "Accuracy in any environment.", titleHl: "", body: "Precise, consistent analytics in every space, with each camera and sensor monitored and alerts if anything goes wrong." },
+    { icon: "sparkle", title: "Ember AI.", titleHl: "", body: "Flame's AI assistant: it searches your data and answers instantly, and serves your visitors by chat or WhatsApp." },
   ],
 
   // home v2 · Ember AI as a product. PROVISIONAL: current copy, with the name "Ember AI".
   ember: {
-    eyebrow: "Ember AI",
-    title: "AI that answers",
-    titleHl: "your team and your visitors.",
-    sub: "Ember AI is Flame's AI assistant. Your team asks its data in plain language and gets the answer instantly. And your visitors use it from a QR code, the website or the WiFi to find stores, offers and events, with nothing to download.",
-    bullets: ["For your team: ask your data anything", "For your visitors: answers by chat or WhatsApp", "See what your visitors look for and what they can't find"],
-    cta: "Discover Ember AI",
+    eyebrow: "Insights & Ember AI",
+    title: "Reports that give you the conclusion.",
+    titleHl: "And an AI that answers.",
+    sub: "Flame Insights writes a daily and weekly briefing for every space, with the key KPIs and what your data says compared with a normal day. And Ember AI searches your data, answers your questions and helps you improve it, for your team and your visitors.",
+    bullets: ["Daily and weekly briefings with conclusions, not just charts", "Tailored to your business's key questions", "Ember AI: ask your data anything", "And it serves your visitors by chat or WhatsApp"],
+    cta: "Discover Insights and Ember AI",
     ctaHref: "#contact",
     chatName: "Ember AI · AI assistant",
     chatStatus: "Analysing your report",
