@@ -5,6 +5,7 @@ import data from "@/data/blog.json";
 import { getOverride, applyOverride } from "./post-overrides";
 import { listedComparisonPosts } from "./draft-comparisons";
 import { isPrunedPost, rewritePrunedLinks } from "./pruned";
+import { isUnlistedPost } from "./unlisted";
 
 export type Lang = "es" | "en";
 export type PostType = "post" | "page" | "whitepaper";
@@ -136,7 +137,10 @@ export async function getCategoryListingAsync(categorySlug: string, lang: Lang):
   // editando como borrador.
   const publishedCmsKeys = new Set(cmsInCat.map(p => `${p.lang}::${p.slug}`));
   const jsonInCat = getCategoryListing(categorySlug, lang).filter(p => !publishedCmsKeys.has(`${p.lang}::${p.slug}`));
-  return [...cmsInCat, ...jsonInCat].sort((a, b) => (b.date > a.date ? 1 : -1));
+  // Posts ocultos (lib/unlisted.ts): accesibles por enlace, fuera de listados y relacionados.
+  return [...cmsInCat, ...jsonInCat]
+    .filter(p => !isUnlistedPost(p.lang, p.slug))
+    .sort((a, b) => (b.date > a.date ? 1 : -1));
 }
 
 export async function getRelatedPostsAsync(currentSlug: string, categorySlug: string, lang: Lang, max = 3): Promise<BlogPost[]> {
@@ -173,7 +177,8 @@ export async function getAllPostsAsync(lang: Lang): Promise<BlogPost[]> {
   const cmsInLang = cms.filter(p => p.lang === lang);
   const publishedCmsKeys = new Set(cmsInLang.map(p => `${p.lang}::${p.slug}`));
   const jsonInLang = getAllPosts(lang).filter(p => !publishedCmsKeys.has(`${p.lang}::${p.slug}`));
-  return [...cmsInLang, ...jsonInLang];
+  // Posts ocultos (lib/unlisted.ts): fuera del sitemap.
+  return [...cmsInLang, ...jsonInLang].filter(p => !isUnlistedPost(p.lang, p.slug));
 }
 export function getAllWhitepapers(lang: Lang): BlogPost[] {
   return D.whitepapers.filter(p => p.lang === lang && isPublic(p));

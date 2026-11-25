@@ -8,6 +8,7 @@ import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 import { getOverride } from "@/lib/post-overrides";
+import { isUnlistedPost } from "@/lib/unlisted";
 
 // Permitir slugs no presentes en blog.json (posts nuevos del CMS): Next los renderiza
 // on-demand y los añade al cache estático tras la primera visita.
@@ -28,6 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const languages: Record<string, string> = { es: `/es/${slug}/`, "x-default": `/es/${slug}/` };
   if (enSlug) languages.en = `/en/${enSlug}/`;
   return {
+    ...(isUnlistedPost("es", slug) ? { robots: { index: false, follow: true } } : {}),
     title: `${titleText} · Flame Analytics`,
     description: descText,
     alternates: {

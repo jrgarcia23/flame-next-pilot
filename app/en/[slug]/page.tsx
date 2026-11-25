@@ -8,6 +8,7 @@ import { getElementorContent } from "@/lib/elementor-special-posts";
 import { blogPostingSchema, breadcrumbSchema, faqSchemaFromHtml, postBreadcrumb } from "@/lib/schema";
 import { getOtherLangSlug } from "@/lib/lang-pairs";
 import { getOverride } from "@/lib/post-overrides";
+import { isUnlistedPost } from "@/lib/unlisted";
 
 export const dynamicParams = true;
 
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     languages["x-default"] = `/en/${slug}/`;
   }
   return {
+    ...(isUnlistedPost("en", slug) ? { robots: { index: false, follow: true } } : {}),
     title: `${titleText} · Flame Analytics`,
     description: descText,
     alternates: {
