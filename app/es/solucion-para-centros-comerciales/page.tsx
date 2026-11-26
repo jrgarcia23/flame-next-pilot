@@ -5,6 +5,7 @@ import { SectorConfig } from "@/lib/page-content";
 import { uc, UC_COMMON } from "@/lib/sector-preview-configs";
 
 import { getFaqs } from "@/lib/live-faqs";
+import InsightsEmberSection from "@/components/sections/InsightsEmberSection";
 export const metadata: Metadata = {
   title: "Data Intelligence para Centros Comerciales · Flame Analytics",
   description: "Analítica para centros comerciales con big data e IA: optimiza el tenant mix y la experiencia del visitante.",
@@ -127,5 +128,12 @@ export const CENTROS_CFG: SectorConfig = {
 
 export default async function CentrosComercialesSectorDraft() {
   const caseStudies = await selectCaseCards({ sector: "centros-comerciales" });
-  return <SectorTemplate cfg={{ ...CENTROS_CFG, ...UC_COMMON, caseStudies }} enHref="/en/solution-for-shopping-malls/" />;
+  // 26-nov-2026 (JR): sección Insights + Ember AI tras el hero (como retail), fuera «El día a día de tus datos»
+  // y sin las etiquetas pequeñas sobre los títulos.
+  return (
+    <SectorTemplate
+      cfg={{ ...CENTROS_CFG, ...UC_COMMON, caseStudies, painPoints: [], hideEyebrows: true, afterHero: <InsightsEmberSection sector="cc" /> }}
+      enHref="/en/solution-for-shopping-malls/"
+    />
+  );
 }
