@@ -57,6 +57,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
       sub={cfg.useCasesSub}
       items={cfg.useCases}
       currentLang={currentLang}
+      hideEyebrow={cfg.hideEyebrows}
     />
   ) : null;
 
@@ -134,6 +135,8 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         `}</style>
       </section>
 
+      {cfg.afterHero}
+
       {/* PILARES (3 cards · Impulsa/Mide/Transforma) — sólo modelo antiguo */}
       {cfg.pillars && cfg.pillars.length > 0 && !isNewModel && (
         <section className="py-20" style={{ background: "var(--color-paper)" }}>
@@ -195,7 +198,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
           <div className="flame-container">
             {!cfg.hideCaps && (<>
             <div className="caps-head text-center" style={{ marginBottom: 44 }}>
-              <span className="caps-eyebrow">{currentLang === "en" ? "What you can do" : "Qué puedes hacer"}</span>
+              {!cfg.hideEyebrows && <span className="caps-eyebrow">{currentLang === "en" ? "What you can do" : "Qué puedes hacer"}</span>}
               <h2 className="caps-h2">{cfg.capsTitle}</h2>
               {cfg.capsSub && <p className="caps-sub">{cfg.capsSub}</p>}
             </div>
@@ -286,7 +289,7 @@ export default function SectorTemplate({ cfg, enHref, currentLang = "es" }: { cf
         <section className="py-24" style={{ background: "var(--color-paper)" }}>
           <div className="flame-container">
             <div className="text-center mx-auto" style={{ maxWidth: 660, marginBottom: 44 }}>
-              <span className="cases-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>
+              {!cfg.hideEyebrows && <span className="cases-eyebrow">{currentLang === "en" ? "Case studies" : "Casos de éxito"}</span>}
               <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{cfg.casesTitle}</h2>
               {cfg.casesSub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{cfg.casesSub}</p>}
             </div>

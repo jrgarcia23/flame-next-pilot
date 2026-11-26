@@ -353,6 +353,8 @@ export type SectorConfig = {
   useCasesBeforeCases?: boolean;   // coloca el módulo de casos de uso por encima de los casos de éxito
   hideProducts?: boolean;
   hideTestimonials?: boolean;      // oculta la sección de testimonios ("marcas que hablan de nosotros")
+  afterHero?: import("react").ReactNode; // bloque propio justo debajo del hero (p.ej. Insights + Ember AI en retail ES)
+  hideEyebrows?: boolean;          // quita las etiquetas pequeñas sobre los títulos (Qué puedes hacer, Casos de uso, Casos de éxito)
   hideCaps?: boolean;              // oculta el bento de capacidades (deja solo la fila de confianza); útil con casos de uso
 };
 

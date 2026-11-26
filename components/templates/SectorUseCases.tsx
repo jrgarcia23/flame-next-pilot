@@ -13,6 +13,7 @@ export default function SectorUseCases({
   currentLang = "es",
   showHeader = true,
   sectionClassName = "py-24",
+  hideEyebrow = false,
 }: {
   layout?: UCLayout;
   eyebrow?: string;
@@ -22,6 +23,7 @@ export default function SectorUseCases({
   currentLang?: "es" | "en";
   showHeader?: boolean;
   sectionClassName?: string;
+  hideEyebrow?: boolean;
 }) {
   if (!items || items.length === 0) return null;
   const see = currentLang === "en" ? "See use case" : "Ver caso de uso";
@@ -35,7 +37,7 @@ export default function SectorUseCases({
       <div className="flame-container">
         {showHeader && (
           <div className="mb-10 max-w-[720px]">
-            <span className="uc-eyebrow">{eyebrow || (currentLang === "en" ? "Use cases" : "Casos de uso")}</span>
+            {!hideEyebrow && <span className="uc-eyebrow">{eyebrow || (currentLang === "en" ? "Use cases" : "Casos de uso")}</span>}
             {title && <h2 className="text-[clamp(26px,3vw,42px)] font-normal" style={{ color: "var(--color-navy)", letterSpacing: "-0.02em", lineHeight: 1.1, fontFamily: "var(--font-display)" }}>{title}</h2>}
             {sub && <p className="mt-3.5 text-[clamp(16px,1.2vw,18px)] leading-[1.6]" style={{ color: "var(--color-ink-2)" }}>{sub}</p>}
           </div>

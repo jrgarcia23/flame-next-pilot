@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectorTemplate from "@/components/templates/SectorTemplate";
 import { selectCaseCards } from "@/lib/case-cards";
 import { RETAIL_CFG, UC_COMMON } from "@/lib/sector-preview-configs";
+import InsightsEmberSection from "@/components/sections/InsightsEmberSection";
 
 export const metadata: Metadata = {
   title: "Data Intelligence para Retail · Flame Analytics",
@@ -33,5 +34,12 @@ export const metadata: Metadata = {
 
 export default async function RetailSector() {
   const caseStudies = await selectCaseCards({ sector: "retail" });
-  return <SectorTemplate cfg={{ ...RETAIL_CFG, ...UC_COMMON, caseStudies }} enHref="/en/solution-for-retail-sector/" />;
+  // 26-nov-2026 (JR): igual que la página del mailing de Insights + Ember AI: la sección nueva tras el hero,
+  // fuera «El día a día de tus datos» y sin las etiquetas pequeñas sobre los títulos.
+  return (
+    <SectorTemplate
+      cfg={{ ...RETAIL_CFG, ...UC_COMMON, caseStudies, painPoints: [], hideEyebrows: true, afterHero: <InsightsEmberSection /> }}
+      enHref="/en/solution-for-retail-sector/"
+    />
+  );
 }
