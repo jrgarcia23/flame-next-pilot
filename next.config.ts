@@ -12,7 +12,14 @@ const nextConfig: NextConfig = {
   // Modo híbrido: páginas marketing siguen estáticas (default Next), /admin y /api son dinámicos.
   // Sin output:"export" para soportar route handlers y Supabase Auth con cookies (sistema leads).
   trailingSlash: true,
-  images: { unoptimized: true },
+  // Sin next/image en el código: el optimizador solo lo usa coverUrl() (lib/img.ts) para
+  // reducir las carátulas de Supabase Storage. Solo se admite ese host y esas calidades.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "uryoqblopkijfqnzquhm.supabase.co", pathname: "/storage/v1/object/public/**" },
+    ],
+    qualities: [65, 70, 75],
+  },
 
   // Excluir uploads del tracing serverless de /admin/media — los archivos
   // pesan >300 MB y disparan el límite de tamaño de la Vercel Function.
